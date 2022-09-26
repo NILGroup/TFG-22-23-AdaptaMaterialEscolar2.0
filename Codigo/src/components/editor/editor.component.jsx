@@ -42,7 +42,7 @@ import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/es.js'
 import {getColors} from "./colors";
 import FillGapsPlugin from '../../ckeditor/plugins/fillblanks/trueFillGapsPlugin';
-import {token} from '../../ckeditor/license'
+//import {token} from '../../ckeditor/license'
 class Editor extends React.Component{
     
     constructor(props){
@@ -51,9 +51,9 @@ class Editor extends React.Component{
         this.handleEditorDataChange = this.handleEditorDataChange.bind( this );
         this.editor = props.editor;
         this.editorConfig = {
-            cloudServices: {
+            /*cloudServices: {
                 tokenUrl: token
-            },
+            },*/
             language: 'es',
             plugins: [ExportPdf, Essentials, Heading, Bold, Italic, Underline, Paragraph, Table, TableToolbar, PictogramEditing, Alignment, WordSearchPlugin, 
                     DefinitionsPlugin, TrueFalsePlugin, DevelopPlugin, FontFamily, FontSize, FontColor, FontBackgroundColor, Indent, IndentBlock, ListStyle, 
