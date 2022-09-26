@@ -1,0 +1,35 @@
+\ProvidesPackage{jslistings}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\definecolor{lightgray}{RGB}{235,235,235}
+\definecolor{purple}{RGB}{148,0,211}
+\lstdefinelanguage{JavaScript}{
+	keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	extendedchars=true,
+	mathescape = true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}

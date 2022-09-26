@@ -1,0 +1,60 @@
+.toolbar{
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+
+    &-self{
+        margin-top: 5px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    
+    &-self > button{
+        margin:0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: none;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+        cursor: pointer;
+        background-color:rgb(226, 226, 226);
+        &:not(:last-child){
+            margin-right: 7px;
+        }
+    }
+}
+
+.modal-box{
+    display: flex;
+}
+
+.wordsearch-active{
+    background-color: #978fe2 !important;
+    color: white;
+}
+
+.pictograms-active{
+    background-color:rgb(156, 200, 214) !important;
+    color: white;
+}
+
+.definitions-active{
+    background-color: #fa9f66 !important;
+    color: white;
+}
+
+.develop-active{
+    background-color: #d6cf84 !important;
+    color: white;
+}
+
+.truefalse-active{
+    background-color:#95db75 !important;
+    color: white;
+}
+
+.fillGaps-active{
+    background-color: #cf859e !important;
+    color: white;
+}

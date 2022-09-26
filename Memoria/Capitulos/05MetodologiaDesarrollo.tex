@@ -1,0 +1,152 @@
+%---------------------------------------------------------------------%
+%																	  %
+%               Capítulo 4 - Metodología de desarrollo				  %
+%																	  %
+%---------------------------------------------------------------------%
+\setlength{\parskip}{\baselineskip}
+\definecolor{naranja}{RGB}{255,159,26}
+\definecolor{azul}{RGB}{0,121,191}
+\definecolor{rojo}{RGB}{235,90,70}
+\definecolor{morado}{RGB}{195,119,224}
+\definecolor{azulOscuro}{RGB}{52,69,99}
+
+\chapter{Metodología de desarrollo}
+
+
+\begin{resumen}
+	En este capítulo se describe la metodología de desarrollo que se usa en el proyecto. En la sección \ref{cap5:sec:introduccion} se hace una introducción de los tipos de metodologías que existen. En la sección \ref{cap5:sec:kanban} se explica la metodología que se ha elegido. Por último, en la sección \ref{cap5:sec:pruebas} se describen los tipos de pruebas que se realizarán a lo largo del proyecto.
+	
+\end{resumen}
+
+
+%------Primera sección: Introducción------%
+\section{Introducción}
+%-----------------------------------------%
+\label{cap5:sec:introduccion}
+
+	La metodología (del griego \textit{metá} ``más allá'', \textit{odós} ``camino'' y \textit{logos} ``razón, estudio'') hace referencia al ``conjunto de métodos que se siguen en una investigación científica o una exposición doctrinal''\footnote{\url{https://dle.rae.es/metodología}}. Si este término se lleva al ámbito de la gestión de proyectos, se puede definir como un conjunto de técnicas, herramientas y procedimientos que permite organizar los procesos de un proyecto.
+	
+	Existen dos tipos de metodologías principalmente: tradicionales y ágiles. Las metodologías tradicionales ``buscan imponer disciplina al proceso de desarrollo de software y de esa forma volverlo predecible y eficiente'' \citep*{RevMetAgile}, y están orientadas a procesos. El desarrollo del proyecto se inicia mediante una serie de etapas: captura de requisitos, análisis, diseño y desarrollo. En la primera etapa, captura de requisitos, existe una abundante comunicación con el cliente, al contrario que en la etapas posteriores, en las que apenas existe comunicación (prácticamente nula), debido a que los requisitos se deben quedar fijos desde el principio, por lo que no se esperan cambios en ellos a lo largo del proyecto. Así mismo, la entrega de software se realiza al finalizar el desarrollo, por lo que el cliente solo puede ver el resultado al final. Este tipo de metodología se suele usar cuando hay un problema conocido y se sabe su solución o si los requisitos están muy claros desde el principio. Algunos ejemplos de metodologías tradicionales son: \textit{ITIL}\footnote{\url{https://www.heflo.com/es/blog/itil/que-es-metodologia-itil/}}, \textit{Métrica 3}\footnote{\url{https://administracionelectronica.gob.es/pae\_Home/pae\_Documentacion/pae\_Metodolog/pae\_Metrica\_v3.html}}, \textit{RUP}\footnote{\url{http://ima.udg.edu/~sellares/EINF-ES2/Present1011/MetodoPesadesRUP.pdf}}, etc.
+
+	Por otro lado, las metodologías ágiles tienen un enfoque adaptativo, en el que cualquier cambio se acoge con normalidad (se espera que ocurran cambios). Al contrario que las metodologías tradicionales, las cuales estaban orientadas a los procesos, las metodologías ágiles están orientadas a las personas. En estas metodologías lo que se pretende es generar valor para el cliente, por lo que se necesita un representante de éste, que puede ser un miembro más del equipo, y, sobre todo, una comunicación constante con él. Uno de los objetivos de las metodologías ágiles es conseguir, lo antes posible, un producto que sea funcional y que genere valor al cliente. Esto se logra a través de constantes entregas de software, lo que implica que el cliente pueda proporcionar \textit{feedback} que permita aumentar dicho valor. Este tipo de metodología funciona bien cuando los requisitos no están claros y tampoco lo está el problema a solucionar y la manera en la que se puede desarrollar. Algunos ejemplos\footnote{\url{https://www.iebschool.com/blog/que-son-metodologias-agiles-agile-scrum/}} de metodologías ágiles son: \textit{Scrum}, \textit{Extreme Programming (XP)}, \kanban, etc.
+	
+	Este proyecto seguirá la metodología \kanban \space debido a que es menos prescriptivo que otras metodologías ágiles (tiene solo tres reglas) y da más flexiblidad a la hora de organizar y desarrollar el trabajo y de adaptarse a los cambios que puedan surgir durante el proyecto. En la siguiente sección se cuenta con más detalle la metodología \kanban.
+
+%------Segunda sección: Kanban------%
+\section{Kanban}
+%-----------------------------------%
+\label{cap5:sec:kanban}
+
+	El término ``\kanban''\footnote{\url{https://blog.trello.com/es/metodologia-kanban}}\space proviene del japonés, cuyo significado es ``tarjetas visuales''. Fue creado en la empresa Toyota en la década de los 50 para controlar el avance del trabajo con los materiales disponibles.
+	
+	\kanban \space es menos prescriptivo que otras metodologías ágiles como \textit{Scrum} y tiene tres reglas principales \citep{JGReglasKanban}:
+	\begin{enumerate}
+		\item \textbf{Visualizar el trabajo y las fases del ciclo de producción o flujo de trabajo}. El trabajo está dividido en partes o tareas. Para visualizar todas estas tareas, se usa una pizarra o tablero llamado ``tablero \kanban''. Una de las ventajas de usar el tablero es que cualquier persona del equipo puede saber el trabajo realizado y el trabajo pendiente, evitando que éste último se acumule. Además, permite conocer en qué tarea está trabajando cada uno. El tablero \kanban \space se divide en varias columnas que representan las distintas fases por las que puede pasar una tarea. Las fases las decide cada equipo, aunque el modelo más común suele tener las siguientes:
+		
+		\begin{itemize}
+			\item \textbf{\textit{To Do}}: Tareas pendientes.
+			\item \textbf{\textit{Doing}}: Tareas en curso.
+			\item \textbf{\textit{Done}}: Tareas terminadas, validadas y aprobadas. Una vez en esta fase, no se podrá volver a mover a ninguna anterior, ya que el cliente lo ha validado, y le ha generado valor.
+		\end{itemize}
+	
+		\item \textbf{Determinar y respetar el trabajo en curso}. Debe haber un límite máximo de tareas que se pueda realizar en cada fase para evitar cuellos de botella. Este límite, llamado \textit{Work In Progress} (WIP), debe ser algo conocido y hay varias formas de calcularlo. Lo suele establecer el equipo de desarrollo y se puede cambiar en cualquier momento. El WIP impide comenzar tareas hasta que no se hayan finalizado otras en curso, evitando así la acumulación de tareas.
+		\item \textbf{Medir el tiempo en completar una tarea}. Se pueden distinguir dos tipos de tiempo:
+		\begin{itemize}
+			\item \textbf{Lead Time} o tiempo de entrega: es el tiempo en el que se tarda en completar una tarea, desde que entra en el flujo de trabajo hasta que se realiza su entrega. Este tiempo hay que medirlo siempre.
+			\item \textbf{Cycle Time} o tiempo de ciclo: es el tiempo que pasa el equipo trabajando en una tarea, desde que se inicia su desarrollo hasta que se da por terminada.
+		\end{itemize}
+		Gracias a estos tiempos podemos saber la productividad y eficiencia del equipo, y ajustar, en caso necesario, el flujo de trabajo.
+	\end{enumerate}
+	
+	En nuestro proyecto, distinguimos dos tipos de tareas:
+	\begin{itemize}
+		\item \textbf{Tareas de memoria}: Son las tareas de redacción de la memoria.
+		\item \textbf{Tareas de implementación}: Son tareas de diseño y/o desarrollo de código.
+	\end{itemize}
+
+	En la Figura \ref{fig:tableroKanban} se puede ver nuestro tablero \kanban \space. Este tablero tiene un total de seis columnas:
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/tableroKanban}
+		\caption{Tablero \kanban \space}
+		\label{fig:tableroKanban}
+	\end{figure}
+	
+	\begin{itemize}
+		\item \textbf{\textit{To Do}}: Se corresponden con las tareas que todavía no se han realizado.
+		\item \textbf{\textit{In Progress}}: Son tareas en las que el equipo de desarrollo ha comenzado a trabajar.
+		\item \textbf{\textit{Ready for Testing}}: Son tareas listas para ser probadas.
+		\item \textbf{\textit{Testing}}: Son tareas que se están probando. Dependiendo del tipo de tarea se probará de una forma u otra. En la sección \ref{cap5:sec:pruebas} se dan más detalles de cómo se prueban las tareas de memoria y las de implementación.
+		\item \textbf{\textit{Needs approval}}: En esta lista se encuentran las tareas que necesitan ser aprobadas por las tutoras antes de darlas por finalizadas. Una vez que se ha terminado de trabajar en una tarea y se ha acabado de hacerle las pruebas, habrá que moverla de \textit{Testing} a esta columna.
+		\item \textbf{\textit{Done}}: Son tareas que se han dado por terminadas, validadas y aprobadas. Cuando las tutoras le han dado el visto bueno, se podrá mover de \textit{Needs Approval} a \textit{Done}.
+	\end{itemize}
+
+	Así mismo, en la Figura \ref{fig:tableroKanban} se observa que las tareas tienen asignadas unas etiquetas de colores:
+	
+	\begin{itemize}
+		\item \colorbox{naranja}{\textcolor{naranja}{123}} Tareas relacionadas con la memoria.
+		\item \colorbox{rojo}{\textcolor{rojo}{123}} Tareas correspondientes con diseño y desarrollo de código (implementación).
+		\item \colorbox{morado}{\textcolor{morado}{123}} Tareas que requieren investigación por parte del equipo, antes de empezar a codificar o realizar cualquier otro tipo de tarea.
+		\item \colorbox{azulOscuro}{\textcolor{azulOscuro}{123}} Tareas que no corresponden con ninguna de las anteriores.
+	\end{itemize}
+
+	El WIP será de dos tareas por persona en cada columna (\textit{In Progress} y \textit{Testing}), lo que hace un total de seis tareas en cada columna.
+	
+	
+%------última sección: Tipos de pruebas------%
+\section{Tipos de pruebas}
+%--------------------------------------------%
+\label{cap5:sec:pruebas}
+
+	Como tenemos dos tipos de tareas, de memoria y de implementación, cada una se tratará de una forma diferente a la hora de realizar las pruebas.
+
+\subsection{Pruebas de memoria}
+
+	Las pruebas de memoria consisten en buscar errores léxicos y gramaticales en la memoria, y corregirlos antes de su entrega, además de completarla con más información en el caso de que sea posible, y comprobar que todo se entiende. Estas pruebas las harán todos los miembros del equipo de la siguiente forma: cuando haya alguna tarea de memoria en \textit{Ready for testing}, el usuario que vaya a revisarla, se la asignará y la llevará a \textit{Testing}. Una vez que haya terminado, y no sea la última persona en haberla revisado, la volverá a llevar a \textit{Ready for testing}. En caso contrario, la llevará a \textit{Needs approval}. Con este sistema tratamos de asegurarnos de que todo esté correctamente escrito.
+
+\subsection{Pruebas de implementación}
+
+	Para las pruebas de implementación, se contemplan dos tipos de pruebas: pruebas unitarias y pruebas de integración. Todas estas pruebas las haremos con \textit{Jest} (ver sección \ref{cap4:sec:jest}). Estas pruebas las desarrollará y realizará alguno de los miembros que no haya implementado esa parte del código, y las hará cuando la tarea correspondiente de prueba esté en la columna \textit{Ready for Testing}. La razón de esto es porque las personas que no han escrito el código pueden sacar más casos de prueba que las personas que lo han escrito.
+	
+	\subsubsection{Pruebas unitarias}
+
+	Una prueba unitaria se utiliza para comprobar que un método implementado funciona como se esperaba. Debe cumplir una serie de características:
+	
+	\begin{itemize}
+		\item Deben ser \textbf{automáticas}: se deben poder ejecutar sin que haya una intervención manual.
+		\item Deben ser \textbf{completas}: es decir, deben cubrir la totalidad del código.
+		\item Deben ser \textbf{independientes}: debido a que se han creado para comprobar una parte concreta del código, no deberían interferir con otras partes, y se deben poder ejecutar en cualquier entorno.
+		\item Deben ser \textbf{repetibles}: se deben repetir todas las veces que queramos, y el resultado debe ser el mismo en todas las repeticiones.
+	\end{itemize}
+
+	El uso de pruebas unitarias proporciona una serie de ventajas:
+	
+	\begin{itemize}
+		\item \textbf{Aumento de la calidad} del código: debido a que estas pruebas se ejecutan de forma regular, permiten detectar errores a tiempo y poder corregirlos antes de completar el código y liberar la aplicación.
+		\item \textbf{Facilitan los cambios}: si se considera que el código es mejorable se pueden aplicar cambios sin problemas, ya que la prueba unitaria nos avisaría de los errores que pudieran surgir.
+		\item \textbf{Reduce los tiempos} de integración, ya que podemos probar partes del código sin disponer del código completo.
+		\item \textbf{Reduce el coste}: teniendo en cuenta que permite detectar errores en fases tempranas, evitan el paso de los errores a fases posteriores y, además, el cambio de corregirlos en fases tempranas es menos costoso y más fácil que si se corrigieran en fases más tardías, ya que en este último caso el error suele ser producido a causa de muchos cambios. Por ello, las pruebas unitarias ayudan a reducir los costes de corrección de errores y a optimizar las entregas, ahorrando tiempo y recursos.
+	\end{itemize}
+	
+
+\subsubsection{Pruebas de integración}
+	Una prueba de integración se utiliza para comprobar que dos o más componentes, ya validados por las pruebas unitarias, son compatibles entre sí y funcionan correctamente. Hay varios tipos de pruebas de integración \citep{TFGNuria}:
+	\begin{itemize}
+		\item \textbf{\textit{Top-Down}}: Es una estrategia de ``arriba a abajo'', donde se va probando los componentes que no son llamados por ningún otro, y se integran los componentes que son llamados desde la parte integrada.
+		\item \textbf{\textit{Bottom-Up}}: Es una estrategia de ``abajo a arriba'', donde se prueban los componentes que no llaman a otras partes de la aplicación, y se continua por componentes que solo llaman a la parte integrada.
+		\item \textbf{\textit{End-to-End}}: Es una estrategia orientada al proceso de negocio, en la cual integran los componentes necesarios por parte de un proceso de negocio para ver si el flujo de la aplicación funciona tal y como fue diseñado.
+		\item \textbf{Funciones}: Este tipo de integración está orientada a una función del sistema. Se van integrando cada uno de los componentes que necesita esa función.
+		\item \textbf{Ad-Hoc}: En esta estrategia el software se ve como módulos independientes, y una vez que se han implementado y validado por parte del equipo de desarrollo, se integran.
+		\item \textbf{\textit{Big-Bang}}: Esta estrategia solo es válida cuando se dispone de todos los componentes, es decir, no se integra hasta que el software no esté completo.
+	\end{itemize}
+
+	Este proyecto seguirá la estrategia \textit{Bottom-up}.
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

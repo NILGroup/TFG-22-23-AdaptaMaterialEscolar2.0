@@ -1,0 +1,97 @@
+  
+%-----------------------------------------------------------------------%
+%																	    %
+%               Capítulo 9 - Conclusiones y Trabajo futuro	(inglés)	%
+%																	  	%
+%-----------------------------------------------------------------------%
+
+\chapter{Conclusions and Future Work}
+
+\begin{resumen}
+	This chapter will address, in section \ref{cap9:sec:conclusions} the conclusions of this project, and in section \ref{cap9:sec:futurework}, the possible modifications and improvements that could be carried out in the coming years in the application of AdaptaMaterialEscolar.
+\end{resumen}
+
+  
+%------Primera sección: Conclusiones------%
+\section{Conclusions}
+%-----------------------------------%
+\label{cap9:sec:conclusions}
+
+	Currently, there is a lack of open-source tools designed to be used by teachers to facilitate their teaching work during the adaptation of syllabus, activities, and exams for students who need a curricular adaptation throughout their academic stage. In addition, it is even more complicated to find applications that customize and follow an appropriate standard for students with learning difficulties.
+		
+	The main objective of this project was to develop a web application that would allow teachers to adapt subject resources in an easy, simple, and fast way, and to create customized material that fits the needs of each student. After seeing the problems presented by some end users, we were able to identify a real problem and were able to develop an efficient solution for those users. On the one hand, we integrated an open-source text editor, \textit{CKEditor}, with which we fulfilled most of the formatting requirements they requested, such as font size, font color, underlines, etc.; and on the other hand, we implemented most of the proposed exercises and tools that had been prioritized, such as the pictogram finder, true/false exercises, word search exercise, fill-in-the-blanks exercise, question-to-develop exercise, and define-a-concept exercise. Thanks also to \textit{CKEditor}, the whole adapted document could be downloaded in \textit{.pdf} format. Additionally, the application has followed a User-Centered Design (UCD), teaching the end-users the design of the application, and giving us feedback to improve it. End users also participated in the evaluation, so they could test the application and see its usability and usefulness.
+	
+	Another objective of this project was to apply the knowledge acquired during the Software Engineering Degree. We consider that this objective has also been achieved by highlighting the application of the following subjects:
+	\begin{itemize}
+		\item \textbf{Programming Fundamentals and Programming Technology}: where we acquire the basic knowledge necessary to start programming in C++ and Java respectively. We have adapted this knowledge to the programming language used in the project, Javascript.
+		\item \textbf{Data Structure and Algorithms and Algorithmic Techniques in Software Engineering}: where we learned to think about how to structure and optimize our code. This subject has allowed us to assess which data structure is the most suitable for our project  and which algorithms are the best to deal with it.
+		\item \textbf{Software Engineering, Software Modeling, and Software Project Management}: where we learned different design patterns when developing code and how to manage and work as a team correctly in a software project. This allowed us to choose an appropriate work methodology for our project, Kanban, and a Redux architecture for its implementation.
+		\item \textbf{Web applications}: where we acquired the necessary knowledge about HTML, CSS, and Javascript to develop web pages. This subject has been fundamental when designing our web and being able to develop its dynamic behavior.
+		\item \textbf{Ethics, legislation, and profession}: where we learned, especially, how to protect our code and how to use third-party licenses and free software. Therefore, we have resorted to implementing open source libraries in our project, in addition to deciding to make our application of the same type.
+	\end{itemize}
+
+	During the development of the AdaptaMaterialEscolar application, we have acquired new knowledge about the use of new technologies, such as React, currently widely used in the working world. In addition, we have worked with end users who had a real need and we have managed to solve it, even exceeding their expectations. The result of the project has been very positively received by the end-users and we intend to continue developing the application over the coming years to improve its functionality and reach a greater number of teachers, schools, or associations that may need it.
+
+%------Segunda sección: Trabajo futuro------%
+\section{Future work}
+%-------------------------------------------%
+\label{cap9:sec:futurework}
+	After the entire project development process, although most of the priority requirements captured have been met, some of the tasks that were initially proposed still need to be completed to consider AdaptaMaterialEscolar completed.
+	
+	Although our Final Degree Project proposal is currently suitable for use by schools, it can still be improved and there is a lot of future work to be done, maybe even for several years.
+	
+	Of all the initial requirements that were obtained, the following are still pending implementation:
+	
+	\begin{itemize}
+	\item \underline{Agenda adaptations}
+		\begin{itemize}
+			\item Generate a summary from a text.
+			\item Create outlines that facilitate the visualization of the agenda and/or activities, selecting content from an already written text or writing from scratch.
+			\item Create tables that organize the agenda and/or activities, selecting content from an already written text or writing from scratch.
+		\end{itemize}
+	
+	\item \underline{Adaptations of activities and/or exams}:
+		\begin{itemize}
+			\item Exercises to relate content using arrows.
+			\item Exercises to fill in the blanks in tables and diagrams.
+		\end{itemize}
+	
+	\item \underline{Format adaptations}:
+	\begin{itemize}
+		\item Replace a word with a picture.
+		\item Add a color legend with the category of each type of highlighted word, so that students can identify the meaning of each of the highlighted words in the text.
+		\item Add a color legend for the topic of each subject, so that students can distinguish them more easily.
+		\item Standardize formatting for titles and indexes of the syllabus, automatically generating a template of the subject color.
+		\item Add images by searching for a word in free image databases.
+	\end{itemize}
+\end{itemize}
+
+	We also expected that from the evaluation of the application new ideas and requirements for improvements would arise and the acceptance of AdaptaMaterialEscolar has been such that we have achieved more than expected. The requests and proposals for improvement from teachers who have come to evaluate the system are as follows:
+	
+	\begin{itemize}
+		\item Add a pictogram translator as a functionality.
+		\item Add the alternative of adding double guideline, instead of single line lines, to determine the student's font size.
+		\item Add a school font.
+		\item Create an image cropping tool for the original text.
+		\item Add a header to the text with at least school name, student's name and subject.
+		\item Add exercises with space to draw.
+		\item Add exercises for calculation exercises with formulas with gaps to be filled in by the student.
+		\item Enumerate exercises automatically.
+		\item Export the document to Word format to make modifications.
+		\item Add math exercises with a grid to write the numbers.
+		\item Add exercises with predefined formulas with space for the student to fill in certain data and to perform calculations.
+	\end{itemize}
+
+	If the project were to be further developed, it would be necessary to re-evaluate each requirement, to re-establish a table of priorities based on the importance and difficulty of each task.
+	
+	In addition, we may even be invited to collaborate in the training of new teachers and master students at IES Maestro Juan de Ávila in the next school years, to teach them how to use AdaptaMaterialEscolar, so that they can include it as a working tool for daily use in the different departments of the center.
+	
+	It would also be necessary to develop the Help page, with videos showing each type of functionality as a guide, and the Contact page of the web application, to offer support to any user who wants to learn how to use it.
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

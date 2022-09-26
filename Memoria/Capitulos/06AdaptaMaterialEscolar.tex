@@ -1,0 +1,980 @@
+%---------------------------------------------------------------------%
+%																	  %
+%               Capítulo 5 - AdaptaMaterialEscolar			  	  	  %
+%																	  %
+%---------------------------------------------------------------------%
+
+\chapter{AdaptaMaterialEscolar}
+
+\begin{resumen}
+	En este capítulo se explicará, en la sección \ref{cap6:sec:capturaRequisitos}, para quién va a desarrollarse el proyecto de AdaptaMaterialEscolar y el proceso de captura de requisitos. En la sección \ref{cap6:sec:diseño}, se explicará cómo se diseñó la aplicación a partir de los requisitos. Por último, en la sección \ref{cap6:sec:implementacion}, se mostrará cómo se ha implementado la aplicación.
+\end{resumen}
+
+%------Primera sección: Captura de requisitos------%
+\section{Requisitos de la aplicación}
+%--------------------------------------------------%
+\label{cap6:sec:capturaRequisitos}
+	
+	El Trabajo de Fin de Grado de AdaptaMaterialEscolar es un proyecto sin ánimo de lucro que ha sido desarrollado con la colaboración de  las profesoras del Aula TEA del IES Maestro Juan de Ávila de Ciudad Real.
+	
+	Para su implementación, debido a que se pretende que el proyecto sea realmente útil para los docentes, se hizo una amplia captura de requisitos con los usuarios finales, de forma que se pudieron conocer las necesidades reales de un centro educativo, siguiendo un Diseño Centrado en el Usuario.
+	
+	Se realizaron una serie de reuniones con los usuarios finales, tanto presenciales como online, para obtener los requisitos de la aplicación; además, se mantuvo el contacto con ellos durante todo el proceso de diseño e implementación, para irles enseñando la evolución de la aplicación.	
+
+	\subsection{Captura de requisitos}
+	El 25 de julio de 2019 se organizó una primera reunión presencial con las dos profesoras que forman parte del Aula TEA en el IES Maestro Juan de Ávila: Ana María Alonso Frades, especialista en Pedagogía Terapéutica y Ana María Díaz Valle, especialista en Audición y Lenguaje. 
+	
+	Las profesoras nos hablaron sobre los diferentes perfiles de alumnos TEA con los que trabajaban en el centro y explicaron la importancia de contar con una aplicación especializada en adaptaciones curriculares, que fuera flexible y permitiera generar diferentes modelos de temario, actividades y exámenes con el menor esfuerzo posible. El proyecto debía poder convertir un mismo párrafo o ejercicio en otro más sencillo de comprender, asimilar o resolver, de forma que pudiera personalizarse para cada alumno de acuerdo a su capacidad cognitiva y así facilitarles el aprendizaje sin excluir temario.
+	
+	A pesar de que hay unas pautas a seguir para adaptar el temario, las actividades y los exámenes (por ejemplo usar letra grande e imágenes), no hay un estándar definido que sigan todos los profesores, y a algunos alumnos les resulta confuso el cambio de una asignatura a otra.
+	
+	Después de hablar con las profesoras y conocer a un alumno TEA que nos explicó su rutina en el instituto, vimos un ejemplo de tema y examen adaptado de Ciencias Naturales. 
+	
+	En este punto, a partir de la información proporcionada por los usuarios finales, se tomaron las siguientes decisiones: 
+	
+	\begin{itemize}
+		\item Tipo de aplicación: Inicialmente las profesoras plantearon desarrollar una aplicación de escritorio que pudieran instalar tanto en los ordenadores del centro, como en los suyos propios, pero se tuvo en cuenta que probablemente no todo el profesorado contaría con un ordenador personal con el que poder trabajar desde casa. Por ello, se tomó la decisión de desarrollar el proyecto como aplicación web, de manera que se pudiera utilizar desde cualquier dispositivo con acceso a Internet.
+		\item Registro: Las profesoras indicaron que era mejor no tener que registrarse en la aplicación para poder trabajar con ella, ya que se consideró que no era conveniente almacenar usuarios ni contraseñas para evitar que los profesores tuvieran que utilizar datos personales con los que identificarse.
+	\end{itemize}
+	
+	A partir de ahí, como resultado de la reunión, obtuvimos las funcionalidades de la aplicación. A continuación, presentamos estas funcionalidades:
+	
+	\label{cap6:sec:capturaRequisitos:tiposAdaptaciones}
+	\begin{itemize}
+		\item \underline{Adaptaciones de temario}: La motivación de las adaptaciones de temario es conseguir, en el menor tiempo posible, una unidad didáctica teórica adaptada al alumno de forma casi inmediata y automática, seleccionando el texto a convertir. En este sentido, la aplicación debe ofrecer al usuario la posibilidad de:
+		\begin{itemize}
+			\item Generar un resumen a partir de un texto.
+			\item Crear esquemas que faciliten la visualización del temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero.
+			\item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiéndolo desde cero.
+		\end{itemize}
+	
+		\item \underline{Creación de ejercicios}: La motivación de la creación de ejercicios es crear ejercicios de forma fácil, seleccionando texto o un ejercicio ya redactado y adaptándolo de forma automática al tipo de ejercicio que se quiere obtener. La aplicación debe permitir crear los siguientes tipos de ejercicios:
+		\begin{itemize}
+			\item Relacionar contenido mediante flechas.
+			\item Sopa de letras.
+			\item Completar espacios en blanco en un texto, tabla o esquema.
+			\item Pregunta de desarrollo con un espacio limitado para escribir la respuesta.
+			\item Verdadero o falso.
+		\end{itemize}
+		Además, todos los ejercicios que se creen deben permitir añadir un enunciado y ejemplos (con o sin pictogramas) explicando cómo debe resolverse el ejercicio.
+		
+		\item \underline{Adaptaciones de formato}: Las adaptaciones de formato deben permitir estandarizar cualquier documento que se vaya a entregar al alumno, de manera que el cambio de una asignatura a otra no suponga un cambio visual y el aprendizaje sea menos costoso. Nuestra aplicación debe permitir al usuario final que, dado un texto, pueda:
+		\begin{itemize}
+			\item Sustituir una palabra por un pictograma.
+			\item Sustituir una palabra por una imagen.
+			\item Resaltar una palabra con un color, para que los alumnos visualicen cada una de las palabras resaltadas en el texto con mayor facilidad.
+			\item Añadir una leyenda de colores con la categoría de cada tipo de palabra resaltada, para que los alumnos puedan identificar el significado de cada una de las palabras resaltadas en el texto.
+			\item Añadir una leyenda de colores para el tema de cada asignatura, para que los alumnos las distingan con mayor facilidad.
+			\item Estandarizar el formato en textos, estableciendo una fuente de texto determinada y un tamaño acorde para cada alumno.
+			\item Estandarizar el formato para títulos e índices del temario, generando de forma automática una plantilla del color de la asignatura.
+			\item Aumentar el tamaño de la fuente de una parte del texto.
+			\item Subrayar una parte del texto.
+			\item Poner en negrita una parte del texto.
+			\item Añadir imágenes buscando una palabra en bases de datos de imágenes libres.
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Análisis de requisitos}
+	
+	Una vez recopilados los requisitos del proyecto, redactamos una lista con éstos para que pudiéramos, tanto las profesoras del Aula TEA como el equipo de desarrollo, analizarlos de forma independiente, para no influir en la toma de decisiones sobre la importancia y dificultad de cada funcionalidad.
+	
+	Enviamos el listado de requisitos a las profesoras por correo electrónico, con la finalidad de que revisaran el contenido o añadieran nuevas funcionalidades si fuera necesario y evaluaran cada uno de ellos. Las profesoras Ana María Alonso Frades y Ana María Díaz Valle debían puntuar los requisitos según la utilidad que pudieran aportar cada uno de ellos a su trabajo. Las posibles puntuaciones debían ir de uno a tres, siendo el uno poco importante, el dos importante y el tres imprescindible. Prácticamente todos los requisitos fueron puntuados como imprescindibles, por lo que quedó claro que el proyecto cubre una necesidad real y no añadieron ningún requisito más.
+	
+	Por otro lado, cada miembro del equipo de desarrollo puntuó los requisitos de manera individual, para no influir en la decisión de los compañeros, según la dificultad que consideraban que tendría la implementación de cada requisito a nivel técnico (en el Anexo \ref{tabla:anexoA:puntuacionIndividual} se encuentra la tabla con las puntuaciones individuales para cada requisito de cada miembro del equipo de desarrollo). Las posibles puntuaciones debían ir de uno a tres, siendo el uno difícil, el dos intermedio y el tres fácil. 
+	
+	La finalidad de este análisis de los requisitos era obtener un listado con las funcionalidades ordenadas por dificultad e importancia. Con la puntuación que asignaron las profesoras de forma conjunta, se obtuvo el indicador de importancia de cada tarea y, con la media de las puntuaciones del equipo de desarrollo, el indicador de dificultad. En la Tabla \ref{tabla:cap6:sec:segundaIteracionTablaRequisitos1} se muestra el listado final de las funcionalidades, agrupadas por tipo de adaptación, con la media de las puntuaciones obtenidas en importancia y dificultad.
+	
+	\begin{longtable}[c]{p{9.7cm}cc}
+		\hline
+		\multicolumn{3}{|c|}{\textbf{ADAPTACIONES DE TEMARIO (T)}} \\ \hline
+		\endfirsthead
+		%
+		\multicolumn{3}{c}%
+		{{\bfseries Tabla \thetable\ continuada de la página anterior}} \\
+		\endhead
+		%
+		\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Requisito}}} & \multicolumn{2}{c|}{\textbf{Evaluación}} \\ \cline{2-3} 
+		\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{\textbf{Imp.}} & \multicolumn{1}{c|}{\textbf{Dif.}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Generar un resumen a partir de un texto} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Crear esquemas que faciliten la visualización del temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero} & \multicolumn{1}{c|}{\multirow{3}{*}{3}} & \multicolumn{1}{c|}{\multirow{3}{*}{1.7}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Crear tablas que organicen el temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero} & \multicolumn{1}{c|}{\multirow{3}{*}{2}} & \multicolumn{1}{c|}{\multirow{3}{*}{1.7}} \\ \hline
+		\multicolumn{3}{c}{} \\ \hline
+		\multicolumn{3}{|c|}{\textbf{ADAPTACIONES DE EJERCICIOS (E)}} \\ \hline
+		\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Requisito}}} & \multicolumn{2}{c|}{\textbf{Evaluación}} \\ \cline{2-3} 
+		\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{\textbf{Imp.}} & \multicolumn{1}{c|}{\textbf{Dif.}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de relacionar contenido mediante flechas} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de sopa de letras} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{3} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de completar espacios en un texto} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2.7} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de pregunta de desarrollo con un espacio limitado para escribir la respuesta} & \multicolumn{1}{c|}{\multirow{2}{*}{3}} & \multicolumn{1}{c|}{\multirow{2}{*}{2.7}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de verdadero o falso} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{3} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de completar los espacios en blanco en tablas} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Ejercicios de completar los espacios en blanco en esquemas} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{1} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Añadir enunciados y ejemplos (con o sin pictogramas), donde se explique cómo debe resolverse el ejercicio} & \multicolumn{1}{c|}{\multirow{2}{*}{2}} & \multicolumn{1}{c|}{\multirow{2}{*}{3}} \\ \hline
+		\multicolumn{3}{c}{} \\ \hline
+		\multicolumn{3}{|c|}{\textbf{ADAPTACIONES DE FORMATO (F)}} \\ \hline
+		\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Requisito}}} & \multicolumn{2}{c|}{\textbf{Evaluación}} \\ \cline{2-3} 
+		\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{\textbf{Imp.}} & \multicolumn{1}{c|}{\textbf{Dif.}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Sustituir una palabra por un pictograma} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2.7} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Sustituir una palabra por una imagen} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2.3} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Resaltar una palabra con un color} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{3} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Añadir una  leyenda de colores con la categoría de cada tipo de palabra resaltada, para que los alumnos puedan identificar el significado de cada una de las palabras resaltadas en el texto} & \multicolumn{1}{c|}{\multirow{4}{*}{1}} & \multicolumn{1}{c|}{\multirow{4}{*}{3}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Añadir una leyenda de colores para el tema de cada asignatura, para que los alumnos las distingan con mayor facilidad} & \multicolumn{1}{c|}{\multirow{3}{*}{1}} & \multicolumn{1}{c|}{\multirow{3}{*}{3}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Estandarizar formato en textos, estableciendo una fuente de texto determinada y un tamaño acorde para cada alumno} & \multicolumn{1}{c|}{\multirow{3}{*}{3}} & \multicolumn{1}{c|}{\multirow{3}{*}{2}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Estandarizar formato para títulos e índices del temario, generando de forma automática una plantilla del color de la asignatura} & \multicolumn{1}{c|}{\multirow{3}{*}{3}} & \multicolumn{1}{c|}{\multirow{3}{*}{2}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Aumentar el tamaño de la fuente de una parte del texto} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2.7} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Subrayar una parte del texto} & \multicolumn{1}{c|}{2} & \multicolumn{1}{c|}{2.7} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Poner en negrita una parte del texto} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2.7} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Añadir imágenes buscando una palabra en bases de datos de imágenes libres} & \multicolumn{1}{c|}{\multirow{2}{*}{3}} & \multicolumn{1}{c|}{\multirow{2}{*}{2.3}} \\ \hline
+		\multicolumn{1}{|p{9.7cm}|}{Añadir espacio extra entre líneas para escribir} & \multicolumn{1}{c|}{3} & \multicolumn{1}{c|}{2} \\ \hline
+		\caption{Puntuación por importancia (Imp.) y dificultad (Dif.) de todos los requisitos de la aplicación}
+		\label{tabla:cap6:sec:segundaIteracionTablaRequisitos1}
+	\end{longtable}
+	
+	A continuación, para cada requisito, se multiplicó la importancia por la dificultad para obtener un valor que permitiese ordenar los requisitos por prioridad para su implementación. Para establecer un orden en el desarrollo de los requisitos, se considera más prioritaria la implementación de las funcionalidades con puntuación 9 (imprescindibles y fáciles de implementar) y las menos prioritarias serán aquellas con puntuación 1 (funcionalidades poco importantes y difíciles de implementar). La Tabla \ref{tabla:cap6:sec:segundaIteracionTablaOrdenFuncionalidades} contiene las funcionalidades de la aplicación: las adaptaciones de temario (T) y ejercicios (E), y la Tabla \ref{tabla:cap6:sec:segundaIteracionTablaOrdenPersonalizacion} contiene las adaptaciones de formato (F) que serían necesarias en el proyecto. En ambas tablas los requisitos están ordenados de forma descendente por la puntuación final (importancia * dificultad).
+	
+	\begin{longtable}[c]{|c|p{8.2cm}|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{c|}{\textbf{Requisito}} & \multicolumn{1}{c|}{\textbf{Puntuación}} \\ \hline
+		\endfirsthead
+		%
+		\multicolumn{3}{c}%
+		{{\bfseries Tabla \thetable\ continuada de la página anterior}} \\
+		\endhead
+		%
+		E & Ejercicios de verdadero o falso & 9 \\ \hline
+		E & Ejercicios de completar espacios en un texto & 8.1 \\ \hline
+		\multirow{2}{*}{E} & Ejercicios de pregunta de desarrollo con un espacio limitado para escribir la respuesta & \multirow{2}{*}{8.1} \\ \hline
+		T & Generar un resumen a partir de un texto & 6 \\ \hline
+		\multirow{2}{*}{E} & Ejercicios de relacionar contenido mediante flechas & \multirow{2}{*}{6} \\ \hline
+		E & Ejercicios de sopas de letras & 6 \\ \hline
+		\multirow{2}{*}{E} & Añadir ejemplos (con o sin pictogramas) sobre cómo resolver el ejercicio & \multirow{2}{*}{6} \\ \hline
+		\multirow{2}{*}{E} & Ejercicios de completar los espacios en blanco en tablas & \multirow{2}{*}{6} \\ \hline
+		\multirow{4}{*}{T} & Crear esquemas que faciliten la visualización del temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero & \multirow{4}{*}{5.1} \\ \hline
+		\multirow{3}{*}{T} & Crear tablas que organicen el temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero & \multirow{3}{*}{3.4} \\ \hline
+		\multirow{2}{*}{E} & Ejercicios de completar los espacios en blanco en esquemas & \multirow{2}{*}{3} \\ \hline
+		\caption{Lista de funcionalidades relacionadas con adaptaciones de temario (T) y ejercicios (E), ordenada por prioridad}
+		\label{tabla:cap6:sec:segundaIteracionTablaOrdenFuncionalidades}
+	\end{longtable}
+
+	\begin{longtable}[c]{|c|p{8.2cm}|c|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{c|}{\textbf{Requisito}} & \multicolumn{1}{c|}{\textbf{Puntuación}} \\ \hline
+		\endfirsthead
+		%
+		\multicolumn{3}{c}%
+		{{\bfseries Tabla \thetable\ continuada de la página anterior}} \\
+		\endhead
+		%
+		F & Resaltar una palabra con un color & 9 \\ \hline
+		\multirow{2}{*}{F} & Aumentar el tamaño de la fuente de una parte del texto & \multirow{2}{*}{8.1} \\ \hline
+		F & Poner en negrita una parte del texto & 8.1 \\ \hline
+		\multirow{2}{*}{F} & Añadir imágenes buscando una palabra en bases de datos de imágenes libres & \multirow{2}{*}{6.9} \\ \hline
+		\multirow{3}{*}{F} & Añadir enunciados y ejemplos (con o sin pictogramas), donde se explique cómo debe resolverse el ejercicio & \multirow{3}{*}{6} \\ \hline
+		\multirow{3}{*}{F} & Estandarizar formato para títulos e índices del temario, generando de forma automática una plantilla del color de la asignatura & \multirow{3}{*}{6} \\ \hline
+		\multirow{3}{*}{F} & Estandarizar formato en textos, estableciendo una fuente de texto determinada y un tamaño acorde para cada alumno & \multirow{3}{*}{6} \\ \hline
+		F & Añadir espacio extra entre líneas para escribir & 6 \\ \hline
+		F & Sustituir una palabra por un pictograma & 5.4 \\ \hline
+		F & Subrayar una parte del texto & 5.4 \\ \hline
+		\multirow{4}{*}{F} & Añadir una  leyenda de colores con la categoría de cada tipo de palabra resaltada, para que los alumnos puedan identificar el significado de cada una de las palabras resaltadas en el texto & \multirow{4}{*}{3} \\ \hline
+		\caption{Lista de funcionalidades de adaptación de formato, ordenada por prioridad}
+		\label{tabla:cap6:sec:segundaIteracionTablaOrdenPersonalizacion}
+	\end{longtable}
+	
+	\subsection{Requisitos adicionales}
+	
+	El miércoles 4 de diciembre de 2019, el grupo de investigación NIL (Natural Interaction based on Language) organizó un workshop en la Facultad de Informática de la Universidad Complutense con docentes de otros centros y asociaciones. Durante este workshop se mostraron las herramientas tecnológicas inclusivas que se habían desarrollado o que se encontraban en desarrollo en el grupo, siendo una de las presentadas AdaptaMaterialEscolar.
+	
+	Un miembro del equipo de desarrollo, Jorge Velasco Conde, realizó una presentación en la que explicó a los asistentes el funcionamiento y la finalidad de nuestro proyecto, con ejemplos visuales sobre posibles adaptaciones que podrían llegar a realizarse. Después de la presentación se realizó una ronda de opiniones con todos los docentes y expertos, para que pudieran expresar qué les había parecido la propuesta. Todos los comentarios fueron muy positivos y preguntaron cuándo estaría disponible para uso público. Además de dar un feedback positivo sobre el proyecto, también propusieron un nuevo tipo de adaptación de formato, para mejorar las opciones de personalización para los alumnos. El requisito consiste en aportar un espacio lo suficientemente grande, ampliando la distancia entre los renglones si es necesario, para que los alumnos que tienen una letra de mayor tamaño puedan escribir sin problema.
+	
+	En este caso únicamente realizamos la evaluación del requisito los desarrolladores, ya que, al ser una petición, se consideró que el indicador de importancia debía tener la máxima puntuación, para poder aportar utilidad a un mayor número de centros y asociaciones y el indicador de dificultad volvió a calcularse de forma independiente entre el equipo, haciendo la media entre las puntuaciones. El requisito se encuentra anexado en la Tabla \ref{tabla:cap6:sec:segundaIteracionTablaRequisitos1} y en la Tabla \ref{tabla:cap6:sec:segundaIteracionTablaOrdenPersonalizacion} se puede ver su puntuación final (importancia * dificultad).
+
+
+%------Segunda sección: Diseño de la aplicación------%
+\section{Diseño de la aplicación}
+%---------------------------------------------------%
+\label{cap6:sec:diseño}
+
+	El diseño de la aplicación web se ha desarrollado en varias iteraciones. En la primera iteración se creó un boceto de la aplicación en papel. En la segunda iteración se mejoró ese boceto, creando un prototipo por vistas a través de la herramienta online \textit{Moqups}. En la tercera iteración cada uno de los miembros del equipo creó su propio prototipo, sin influir los unos con los otros, para ver si el prototipo creado con \textit{Moqups} podía ser mejorado. En la última iteración se realizó el diseño final de la aplicación. En las siguientes secciones se dan más detalles sobre estas iteraciones.
+
+	\subsection{Primera iteración: boceto inicial}
+	\label{cap6:sec:diseño:subsec:primera}
+		Para comenzar el proceso de diseño se creó un boceto en papel de la página principal de la aplicación (Figura \ref{fig:bocetoInicial}). En la parte superior de este diseño se observa que hay una barra de navegación con dos menús: Texto y Actividades. Cada uno de ellos tiene un submenú con las diferentes adaptaciones disponibles para dicho menú. En el lado derecho encontramos otro menú con dos zonas diferenciadas: en la parte superior tenemos los botones de Subir texto (que sube un fichero en formato \textit{.pdf} o \textit{.docx}) y Descargar (que descarga el documento adaptado en formato \textit{.pdf}). En la parte inferior del menú lateral, nos encontramos un Resaltar información, el cual sirve para dar formato a los títulos, al cuerpo, etc. Por último, en el centro de la página, se encuentra el fichero subido con el que podremos seleccionar textos y poder adaptarlos conforme así se requiera.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[scale=0.6, angle=90]{Imagenes/Bitmap/bocetoInicial}
+			\caption{Boceto inicial de la aplicación}
+			\label{fig:bocetoInicial}
+		\end{figure}
+	
+	\subsection{Segunda iteración: versión 1.0 del prototipo}
+	\label{cap6:sec:diseño:subsec:segunda}
+		Partiendo del diseño inicial, y a través de la herramienta \textit{Moqups} (ver sección \ref{cap4:sec:moqups}), se creó un prototipo más amplio por vistas:
+		\begin{itemize}
+			\item \textbf{Página principal}: En la Figura \ref{fig:paginaInicialProtoConjunto} se puede ver la página principal de la aplicación. Ésta es la página que se vería nada más entrar. En la parte superior, encontramos dos barras de navegación con diferentes menús. En la barra de navegación superior, podemos ver los menús relacionados con un editor de texto: Archivo, Edición, Formato, Insertar y Ayuda. En la barra de navegación inferior se encuentran los menús correspondientes a las adaptaciones de Temario y Actividades, además de la posibilidad de buscar imágenes libres\footnote{Las imágenes libres son aquellas imágenes que son de dominio público y que no tienen derechos reservados.} (también llamadas imágenes \textit{CC0} o \textit{Creative Commons Zero}\footnote{https://creativecommons.org/publicdomain/zero/1.0/deed.es}) y pictogramas. En el centro de la página web podemos observar dos elementos: el logo de la aplicación AdaptaMaterialEscolar y una zona para poder subir el fichero en formato \textit{.pdf} o \textit{.docx}, ya sea seleccionándolo de una carpeta o arrastrando desde la carpeta a la zona de subida.	
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{Imagenes/Bitmap/paginaInicialProtoConjunto}
+				\caption{Versión 1.0 de la página principal}
+				\label{fig:paginaInicialProtoConjunto}
+			\end{figure}
+			\item \textbf{Editor}: Una vez subido el fichero se pasa a la vista del editor. En la Figura \ref{fig:editorProtoConjunto} se puede observar dicha vista. En ésta, encontramos en la parte superior las dos barras de navegación descritas en el punto anterior. En el centro de la página observamos dos elementos: el elemento de la izquierda es el fichero subido, donde se podrán seleccionar las partes del texto que se quieran adaptar. El elemento de la derecha es el editor donde se podrá, también, adaptar e insertar imágenes, pictogramas, dar formato, etc.
+
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{Imagenes/Bitmap/editorProtoConjunto}
+				\caption{Versión 1.0 del editor}
+				\label{fig:editorProtoConjunto}
+			\end{figure}
+			
+			\item \textbf{Búsqueda de pictogramas}: En la Figura \ref{fig:buscarPictoProtoConjunto} se puede ver la búsqueda de pictogramas. En la parte superior derecha de la aplicación aparece una ventana con los diferentes pictogramas que se obtienen al buscar la palabra ``Perro''. Previamente, para poder realizar la búsqueda de pictogramas, se ha tenido que seleccionar el campo Pictos, que está a la izquierda de la barra de búsqueda. Si se hace clic en uno de ellos automáticamente se pondrá en el campo del editor.
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{Imagenes/Bitmap/buscarPictoProtoConjunto}
+				\caption{Versión 1.0 de la búsqueda de pictogramas}
+				\label{fig:buscarPictoProtoConjunto}
+			\end{figure}
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{Imagenes/Bitmap/edicionActividadesProtoConjunto}
+				\caption{Versión 1.0 de la adaptación de actividades}
+				\label{fig:edicionActividadesProtoConjunto}
+			\end{figure}
+			
+			\item \textbf{Creación de actividades}: En la Figura \ref{fig:edicionActividadesProtoConjunto} se puede ver un ejemplo de creación de un ejercicio. En este caso, el ejercicio es ``Completar'', es decir, completar el texto rellenando los huecos en blanco. Para ello, se ha tenido que seleccionar el menú Actividades y, de entre los distintos tipos de actividades que hay, seleccionar ``Completar''. Una vez elegido este apartado, habría que ir señalando en la parte de la izquierda las palabras en las que se quiera dejar el hueco, por lo que en la parte de la derecha (editor) saldría huecos en blanco en vez de la palabra señalada. Si se quiere cerrar este menú, bastaría con darle clic en la flecha que hay en la parte de la izquierda del menú.
+			
+			\item \textbf{Adaptación de temario}: En la Figura \ref{fig:edicionTemarioProtoConjunto} se puede encontrar un ejemplo de una adaptación de temario. En este caso, la adaptación es ``Resumir texto''. Para ello, se ha tenido que seleccionar el menú Temario. Una vez elegido este apartado, lo primero es seleccionar el texto que se quiera resumir en la parte izquierda y después habría que darle clic a ``Resumir texto'' para que salga, en la parte de la derecha, el texto resumido.
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.9\textwidth]{Imagenes/Bitmap/edicionTemarioProtoConjunto}
+				\caption{Versión 1.0 de la adaptación de temario}
+				\label{fig:edicionTemarioProtoConjunto}
+			\end{figure}
+		\end{itemize}
+	
+	\subsection{Tercera iteración: iteración competitiva}
+	\label{cap6:sec:diseño:subsec:tercera}
+		Una vez que se hizo la versión 1.0 del prototipo, se propuso hacer una iteración competitiva para ver si este prototipo se podía mejorar. Cada miembro del equipo realizó, de forma individual y sin influir los unos en los otros, un prototipo propio partiendo del inicial. Con esto se consigue tener diferentes puntos de vista sobre una misma funcionalidad. Una vez que todos los prototipos fueron diseñados (dos de forma digital y otro en papel) se realizó una puesta en común para analizar las distintas propuestas. Los resultados fueron los siguientes:
+		\begin{itemize}
+			\item \textbf{Página principal}: En las Figuras \ref{fig:paginaInicialProtoJorge}, \ref{fig:paginaInicialProtoNatalia} y \ref{fig:paginaInicialProtoPablo} se puede observar los resultados de los tres prototipos para la página principal. En el caso del prototipo de Jorge (Figura \ref{fig:paginaInicialProtoJorge}), en la parte inferior están los créditos y los logotipos de ARASAAC\footnote{\label{fn:arasaac}https://arasaac.org/}, la Universidad Complutense de Madrid\footnote{\label{fn:ucm}https://www.ucm.es} y la licencia de \textit{Creative Commons}\footnote{\label{fn:cc}https://creativecommons.org/}. También se observa que en la parte de la derecha de la barra de navegación se propuso hacer un sistema de \textit{login} para poder guardar el trabajo realizado. Ésto último no resultó debido a que los usuarios finales que usen la aplicación especificaron que no querían recordar ningún nombre de usuario y contraseña. 
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.64\textwidth, angle=90]{Imagenes/Bitmap/paginaInicialProtoJorge}
+				\caption{Prototipo de la página principal (Jorge)}
+				\label{fig:paginaInicialProtoJorge}
+			\end{figure}
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.84\textwidth]{Imagenes/Bitmap/paginaInicialProtoNatalia}
+				\caption{Prototipo de la página principal (Natalia)}
+				\label{fig:paginaInicialProtoNatalia}
+			\end{figure}
+		
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=1\textwidth]{Imagenes/Bitmap/paginaInicialProtoPablo}
+				\caption{Prototipo de la página principal (Pablo)}
+				\label{fig:paginaInicialProtoPablo}
+			\end{figure}
+		
+			También, en la parte superior de dicha figura coincidimos que sería buena idea establecer algún botón, tal y como ocurre en las Figuras \ref{fig:paginaInicialProtoNatalia} y \ref{fig:paginaInicialProtoPablo}. En el primer caso, el prototipo de Natalia, se observa que hay dos botones: Créditos, donde estarían los logotipos de ARASAAC\cref{fn:arasaac}, la Universidad Complutense de Madrid\cref{fn:ucm} y la licencia de \textit{Creative Commons}\cref{fn:cc} y las personas que han creado el proyecto, junto con las directoras; y Ayuda, por si el usuario necesita algún tipo de ayuda con la aplicación. En el segundo caso, el prototipo de Pablo, se ven tres botones en forma de enlaces: Inicio, donde te llevaría a la página principal; Ayuda, donde se incluiría la parte de créditos y los logotipos; y Contacto, por si el usuario tiene algún problema y/o sugerencia pueda contactar con los desarrolladores y proporcionarle una respuesta.
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.64\textwidth, angle=90]{Imagenes/Bitmap/editorProtoJorge}
+				\caption{Prototipo del editor (Jorge)}
+				\label{fig:editorProtoJorge}
+			\end{figure}
+		
+			\item \textbf{Editor}: En las Figuras \ref{fig:editorProtoJorge}, \ref{fig:editorProtoNatalia} y \ref{fig:editorProtoPablo} se pueden ver los resultados de la página del editor. En el caso del prototipo de Jorge (Figura \ref{fig:editorProtoJorge}), observamos una barra de navegación con diferentes menús, que representa los tipos de adaptaciones que tendrá en la aplicación (véase sección \ref{cap6:sec:capturaRequisitos:tiposAdaptaciones}), junto con la búsqueda de imágenes y pictogramas. Si se pasa el ratón por encima de uno de estos menús saldrá un desplegable con los distintos tipos de actividades, temario y formato que hay, tal y como se puede ver en la Figura \ref{fig:desplegableProtoJorge}. 
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.64\textwidth, angle=90]{Imagenes/Bitmap/desplegableProtoJorge}
+				\caption{Prototipo del editor con un desplegable en uno de los menús (Jorge)}
+				\label{fig:desplegableProtoJorge}
+			\end{figure}
+		
+			Así mismo, se ven dos elementos separados por un hueco: el elemento de la izquierda representa el fichero subido, y el de la derecha, el editor. Debajo de éste se encuentra un panel con unos botones para poder descargar, guardar y ver el documento editado, así como la posibilidad de poder borrar todo lo escrito en el editor.
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.64\textwidth, angle=90]{Imagenes/Bitmap/vistaPreviaProtoJorge}
+				\caption{Prototipo de la vista previa (Jorge)}
+				\label{fig:vistaPreviaProtoJorge}
+			\end{figure}
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.84\textwidth]{Imagenes/Bitmap/editorProtoNatalia}
+				\caption{Prototipo del editor (Natalia)}
+				\label{fig:editorProtoNatalia}
+			\end{figure}
+			
+			En el prototipo de Natalia (Figura \ref{fig:editorProtoNatalia}), también existe una barra de navegación con los mismos menús, aunque se cambia el logo de AdaptaMaterialEscolar por dichos menús, añadiendo el de Archivo y Formato. También tiene los dos elementos mencionados anteriormente: en la parte de la izquierda el documento subido, y en el de la derecha, el editor. En éste, se encuentra una barra de herramientas con la posibilidad de cambiar el formato de la letra, la posición del texto, y dos botones para descargar y borrar todo, respectivamente.
+		
+			En cambio, en el prototipo de Pablo (Figura \ref{fig:editorProtoPablo}), se observa que la barra de navegación descrita en los prototipos de Jorge y Natalia no está, sino que se encuentra incluida en el propio editor (el elemento que se encuentra en la parte de la izquierda). En esta barra de herramientas se podrá dar formato al texto (ponerle forma de título, párrafo, color, negrita, cursiva, etc), así como deshacer y rehacer lo escrito, crear tablas, y unos botones con los distintos tipos de adaptaciones que hay.
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=0.94\textwidth]{Imagenes/Bitmap/editorProtoPablo}
+				\caption{Prototipo del editor (Pablo)}
+				\label{fig:editorProtoPablo}
+			\end{figure}
+			
+		\end{itemize}
+	
+	\subsection{Cuarta iteración: diseño final}
+	\label{cap6:sec:diseño:subsec:cuarta}
+		Una vez hecha la puesta en común de los diseños realizados por cada miembro del equipo se procedió a hacer el diseño final. Este diseño tomaba como base el prototipo de Pablo (Figura \ref{fig:editorProtoPablo}), debido a que estaba todo más limpio y claro visualmente. A este prototipo se añadió una barra de navegación en la parte superior (como las que aparecen en los prototipos de las Figuras \ref{fig:editorProtoJorge} y \ref{fig:editorProtoNatalia}) para los tipos de adaptaciones que habrá en la aplicación. Esta barra de navegación surge porque algunas adaptaciones tienen un estilo de implementación distinto (algunas se podrán hacer sobre el propio editor pero otras abrirán nuevas ventanas para poder realizar la adaptación, sobre todo en las adaptaciones de actividades).
+		
+		Tras realizar este diseño, se envió un email a las profesoras del Aula TEA para que nos dieran \textit{feedback} sobre él. La respuesta fue positiva: tanto la distribución de los elementos como los colores usados eran adecuados.
+
+%------Última sección: Implementación------%
+\section{Implementación}
+%-------------------------------------------%
+\label{cap6:sec:implementacion}
+
+	AdaptaMaterialEscolar es una aplicación web creada con React (explicado en la sección \ref{cap4:sec:react}), cuyo código se puede encontrar en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-AdaptaMaterialEscolar/tree/master/Codigo}}. Es accesible a través de la siguiente url: \url{https://holstein.fdi.ucm.es/tfg/2021/adapta/}. 
+	
+	En la Figura \ref{fig:adaptamaterialescolarInicio1} se muestra la página principal de la aplicación. En ella se puede ver el header en la parte superior, con el logo de la aplicación en la parte de la izquierda, y los botones de Inicio, Ayuda y Contacto en la parte de la derecha; y en el centro de la página una zona para poder subir un fichero \textit{.pdf} que servirá como base a las adaptaciones y/o a la creación de ejercicios. 
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/adaptamaterialescolarInicio1}
+		\caption{Página principal de AdaptaMaterialEscolar}
+		\label{fig:adaptamaterialescolarInicio1}
+	\end{figure}
+
+	Cuando el fichero se haya subido, aparecerán dos zonas diferenciadas (ver Figura \ref{fig:adaptamaterialescolarInicio2}): la zona de la izquierda contendrá el documento subido y la zona de la derecha es la zona de edición, donde se irá creando el nuevo documento con las adaptaciones y/o ejercicios.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/adaptamaterialescolarInicio2}
+		\caption{Página principal de AdaptaMaterialEscolar tras subir un documento}
+		\label{fig:adaptamaterialescolarInicio2}
+	\end{figure}
+	
+	Las funcionalidades implementadas se darán con más detalle en la sección \ref{cap6:sec:funcionalidades} y son las siguientes:
+	
+	\begin{itemize}
+		\item Subir un documento fuente. Permite subir un documento en formato \textit{.pdf} que podrá servir de texto base para realizar las adaptaciones y/o para la creación de ejercicios. En la Figura \ref{fig:adaptamaterialescolarInicio1} se puede ver la página de subir un documento fuente.
+		\item Editor. Permite escribir, modificar las adaptaciones y/o ejercicios ya escritos, cambiar el formato (tipo, tamaño, color de letra, posicionamiento del texto...), etc. En la Figura \ref{fig:adaptamaterialescolarInicio2} se puede ver el editor y la barra de herramientas que contiene las opciones de formato.
+		\item Pictogramas. Permite buscar pictogramas a partir de una palabra. La búsqueda devolverá varios pictogramas y haciendo clic en un pictograma éste será llevado al editor. En la Figura \ref{fig:pictoModal} se puede ver la interfaz del buscador de pictogramas cuando se ha buscado la palabra flor.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/pictoModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar Pictogramas}
+			\label{fig:pictoModal}
+		\end{figure}
+		\item Completar huecos. Permite crear un ejercicio de completar huecos. Primero habrá que introducir el texto base del ejercicio y posteriormente seleccionar las palabras en las que se quiera dejar el hueco. En la Figura \ref{fig:fillgapsModal} se muestra la interfaz la aplicación al seleccionar Completar huecos.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/fillGapsModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar Completar huecos}
+			\label{fig:fillgapsModal}
+		\end{figure}
+		\item Definiciones. Permite crear una lista de conceptos a definir en un número máximo de líneas. Incluye una opción para añadir espaciado extra entre líneas para estudiantes que tengan una letra más grande. En la Figura \ref{fig:definitionsModal} se puede ver la interfaz de la aplicación cuando se ha seleccionado Definiciones.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/definitionsModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar Definiciones}
+			\label{fig:definitionsModal}
+		\end{figure}
+		\item Desarrollo. Permite crear un ejercicio de desarrollo insertando el enunciado y el número de líneas máximo para responder. También tiene una opción para añadir espaciado extra entre líneas para estudiantes que tengan una letra más grande. En la Figura \ref{fig:developModal} se puede ver la interfaz de la aplicación cuando se ha seleccionado Desarrollo.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/developModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar Desarrollo}
+			\label{fig:developModal}
+		\end{figure}
+		\item Sopa de letras. Permite crear una sopa de letras estableciendo el número de filas y columnas, las palabras que se quieren insertar en la sopa de letras y las direcciones cardinales para buscar la palabra. Incluye una opción para activar la escritura al revés, donde cada palabra tiene una probabilidad de escribirse al revés, establecida por el usuario, y también una opción para mostrar junto al enunciado las palabras a buscar si el usuario ha activado esta opción. En la Figura \ref{fig:wordsearchModal} se puede ver la interfaz de la aplicación al seleccionar Sopa de letras.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/wordsearchModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar Sopa de letras}
+			\label{fig:wordsearchModal}
+		\end{figure}
+		\item Verdadero o falso. Permite crear una lista de oraciones y añade al final un recuadro para contestar con una V si es verdadero o con una F si es falso. En la Figura \ref{fig:truefalseModal} se puede ver la interfaz de la aplicación al seleccionar V/F.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/truefalseModal}
+			\caption{Interfaz de AdaptaMaterialEscolar al seleccionar V/F}
+			\label{fig:truefalseModal}
+		\end{figure}
+	\end{itemize}
+	
+	Todos los ejercicios tienen una opción para añadir un ejemplo de cómo resolver el ejercicio, y en todos ellos se añade un enunciado plantilla automáticamente, que posteriormente el usuario puede personalizar a su gusto. En las Figuras \ref{fig:wordsearchResult}, \ref{fig:definitionsResult}, \ref{fig:developResult}, \ref{fig:truefalseResult} y \ref{fig:fillgapsResult} se observa el resultado de todos los ejercicios, donde se añade el enunciado y un párrafo sobre cómo resolver el ejercicio.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/adaptamaterialescolarMovible}
+		\caption{Ejemplo de ventana movible}
+		\label{fig:adaptamaterialescolarMovible}
+	\end{figure}
+
+	Al hacer clic en una de las funcionalidades, se abrirá, justo debajo de la barra de funcionalidades, una ventana movible manteniendo el clic izquierdo pulsado en la parte superior de dicha ventana. En la Figura \ref{fig:adaptamaterialescolarMovible} se puede ver el mensaje que sale al pasar el ratón por encima de la parte superior de la ventana en el que informa al usuario de que puede moverla; y se ve que ésta se ha movido de sitio.
+	
+	%-----------------------------------%
+	\subsection{Arquitectura}
+	%-----------------------------------%
+	\label{cap6:sec:arquitectura}
+	En el proyecto de este TFG se ha decidido aplicar una arquitectura \textit{Redux}\footnote{\url{https://redux.js.org/}}. Redux es un patrón de arquitectura de datos que pretende disminuir el número de relaciones entre los componentes de la aplicación. Se trata de un patrón que se adapta a todo tipo de librería o \textit{framework} del lado del cliente. La Figura \ref{fig:flujoRedux} se puede ver un diagrama mostrando el flujo de una aplicación Redux. Dicho diagrama muestra un flujo unidireccional, donde las vistas se suscriben a los datos del Store y actualizan estos mediante acciones.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.84\textwidth]{Imagenes/Bitmap/flujoRedux}
+		\caption{Diagrama de flujo en Redux}
+		\label{fig:flujoRedux}
+	\end{figure} 
+	
+	Esta arquitectura se basa en tres principios:
+	\begin{itemize}
+		\item Única fuente de la verdad. El estado de la aplicación se guarda en un único Store y cuando los componentes necesiten conocer el estado lo cogerán del Store. Este Store es un objeto Javascript y está estructurado en forma de árbol con todos los datos necesarios para la aplicación.
+		\item El estado es de solo lectura. No podemos modificar el estado directamente, solo podremos leer de él para mostrarlo en la vista y si queremos modificarlo tendremos que ejecutar acciones. Las acciones son un objeto Javascript que incluye al menos un atributo \textit{type} que indica el tipo de acción que estamos emitiendo y, en caso de que haya datos asociados al cambio o modificación, un atributo \textit{payload} con esos datos. Por ejemplo, en el siguiente fragmento de código se tiene una acción para cargar un documento, donde el atributo \textit{type} indica el tipo de acción a realizar y el \textit{payload} llevará los datos del documento a cargar:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de acción para cargar un documento]
+			export const loadDocument = (document) => ({
+				type: DocumentActionTypes.LOAD_FILE,
+				payload: document
+			});
+		\end{lstlisting}
+		\item Cambios con funciones puras. Ya que el estado no se puede modificar directamente y está almacenado en un Store, tenemos que ejecutar acciones puras llamadas \textit{reducers} para modificarlo. Un \textit{reducer} es una función que recibe dos parámetros, el estado inicial y una acción. Dentro contendrá un \textit{switch-case} que, en base a la acción que reciba, ejecutará los cambios necesarios en el Store. Por ejemplo, en caso de recibir una acción del tipo LOAD\_FILE, almacenará el documento recibido del payload de la acción y lo guardará en el Store. El siguiente fragmento muestra un reducer del módulo documentos donde gestiona la acción LOAD\_FILE:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de reducer donde se gestiona el tipo de acción LOAD\_FILE]
+			const documentReducer = (state = INITIAL_STATE, action) => {
+				switch (action.type){
+					case DocumentActionTypes.LOAD_FILE: 
+					return {
+						...state,
+						file: action.payload.file,
+						fileIsLoaded: true
+					};
+					default: 
+					return state;
+				}
+				
+			};
+		\end{lstlisting}
+	\end{itemize}
+	Al externalizar toda la información en un Store, facilitamos el acceso y modificación de datos en la aplicación. En la Figura \ref{fig:reduxVs} se muestran las diferencias de flujo de información entre los componentes de una aplicación web sin Redux y otra con Redux.
+	
+	\begin{figure}[ht!]
+		\begin{center}
+			\includegraphics[width=0.84\textwidth]{Imagenes/Bitmap/reduxvsnoredux}
+			\caption{Comparación de flujo de información de componentes sin y con Redux. Fuente: https://blog.codecentric.de/en/2017/12/developing-modern-offline-apps-reactjs-redux-electron-part-3-reactjs-redux-basics/}
+			\label{fig:reduxVs}
+		\end{center}
+	\end{figure} 
+	
+	En Redux, el flujo de datos es unidireccional (ver Figura \ref{fig:flujoRedux}) y se siguen los siguientes pasos:
+	\begin{itemize} 
+		\item Los componentes se suscriben a los datos del Store mediante selectores. Estos selectores actúan como \textit{getters}, es decir, funciones de solo lectura de datos. Cuando el Store modifique uno de esos valores, los componentes a los que estén suscritos se actualizarán automáticamente. Se recurre a una librería de npm denominada \textit{reselect}\footnote{\url{https://www.npmjs.com/package/reselect}} que simplifica estas implementaciones. Mediante \textit{reselect} ejecutamos una función denominada \textit{createSelector}, que internamente realiza la suscripción al dato del Store que queramos. En el siguiente fragmento se crea un selector para obtener el documento cargado en el Store. Se selecciona el módulo document del Store y creamos un selector que obtenga el fichero:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de selector para obtener el documento cargado en el Store]
+			const selectDocumentStore = (store) => store.document;
+			
+			export const selectDocumentFile = createSelector(
+			[selectDocumentStore],
+			documentStore => documentStore.file
+			);
+		\end{lstlisting}
+		En los componentes se inyectarán los selectores necesarios mediante una función llamada \textit{createStructuredSelector}. Por ejemplo, en el componente que muestra un documento:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de inyección del selector en el componente]
+			const mapStateToProps = createStructuredSelector({
+				document: selectDocumentFile
+			});
+		\end{lstlisting}
+		\item Los componentes ejecutan acciones. Esto lo realizan ejecutando un método \textit{dispatch} y añadiendo como parámetro la acción a ejecutar. Por ejemplo, si tenemos una acción para cargar un documento, haríamos lo siguiente:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de acción para cargar un documento]
+			export const loadDocument = document => ({
+				type: DocumentActionTypes.LOAD_FILE,
+				payload: document
+			});
+		\end{lstlisting}
+		\item Se ejecutan \textit{middlewares} en caso de necesitar acciones asíncronas. Estos \textit{middlewares} permiten ejecutar llamadas a API REST y posteriormente despachar otras acciones según el resultado. El siguiente ejemplo muestra cómo se ejecuta un \textit{middleware} de buscar pictogramas llamando a la API de ARASAAC:
+		\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo de ejecución de un middleware para buscar pictogramas llamando a la API de ARASAAC]
+			export const fetchPictogramsAction = (searchInput) => {
+				return dispatch => {
+					fetch("https://api.arasaac.org/api/pictograms/es/search/$\dollar${searchInput}")
+					.then((response) => response.json())
+					.then(data => {
+						let items = [];
+						for(let i = 0; i < data.length && i < 20; i++){
+							items.push("https://static.arasaac.org/pictograms/$\dollar${data[i].\_id}/$\dollar${data[i].\_id}\_500.png")
+						}
+						dispatch(fetchPictogramsSuccess(items));
+					})
+					.catch(error){
+						dispatch(fetchPictogramsFailure(error))        
+					};
+				}
+			}
+		\end{lstlisting}
+		\item El Store de Redux invoca a la función reductora solicitada por la acción. El Store le pasará dos argumentos a la función: estado actual y acción. El \textit{switch} dentro del reductor encontrará la acción solicitada y actualizará los datos en base a ella. Los selectores detectarán el cambio y actualizarán las vistas.
+	\end{itemize}
+	
+	Redux lo hemos usado en el proyecto para reducir la interacción entre los distintos componentes de la aplicación, simplificando así la complejidad y facilitando el mantenimiento y depuración.
+
+
+%-----------------------------------%
+\subsection{Funcionalidades}
+\label{cap6:sec:funcionalidades}
+%-----------------------------------%
+	En esta sección se explicarán con detalle la implementación de cada una de las funcionalidades.
+	
+	\subsubsection{Subir un documento fuente}
+	En la Figura \ref{fig:adaptamaterialescolarInicio1} se puede ver el aspecto de AdaptaMaterialEscolar cuando se tiene que subir un documento fuente. El documento a subir debe ser en formato \textit{.pdf}. En el caso de que no se suba en dicho formato, el fichero no se renderizará correctamente.
+	
+	Una vez que se ha seleccionado el fichero \textit{.pdf}, para que se cargue en la aplicación, ocurre lo siguiente (en la Figura \ref{fig:loadDocSequence} se muestra el diagrama de secuencia de esta funcionalidad):
+	\begin{enumerate}
+		\item La función \textit{uploadFile()} hace una llamada al despachador pasándole como parámetro \textit{loadDocument(document)}, donde \textit{document} es el objeto que contiene el documento a subir.
+		\item El despachador buscará en \textit{Actions} el tipo de acción que es (en este caso, \textit{LOAD\_FILE}), junto con su \textit{payload} (el documento a subir) y lo devolverá. Posteriormente, llamará al reductor a través de \textit{documentReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente. A continuación, buscará en el \textit{switch} el tipo de acción y procederá a modificar el estado del componente, actualizando los campos \textit{fileL} (el documento subido) y \textit{fileIsLoaded} (indica si hay un documento cargado, y sirve para cambiar entre las páginas de subir un documento si su valor es \textit{false}, y del editor, si su valor es \textit{true}). Tras actualizarlos, devolverá el estado modificado.
+		\item Por último, tras realizar este proceso, el documento se habrá cargado en la aplicación, como se puede ver en la Figura \ref{fig:adaptamaterialescolarInicio2}. El texto del fichero subido se podrá usar de base y se podrá utilizar el editor para realizar adaptaciones de temario y crear ejercicios.
+	\end{enumerate}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/loadDocSequence}
+		\caption{Diagrama de secuencia de subir un documento}
+		\label{fig:loadDocSequence}
+	\end{figure}
+	En la Figura \ref{fig:flujoLoadDoc} se puede ver un diagrama con el flujo de acción, reductor, etc. concretos para esta función.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.84\textwidth]{Imagenes/Bitmap/flujoLoadDoc}
+		\caption{Diagrama de flujo de subir un documento}
+		\label{fig:flujoLoadDoc}
+	\end{figure}
+	
+	\subsubsection{Editor}
+	El editor de texto que hemos usado es \textit{CKEditor 5} (ver sección \ref{cap4:sec:ckeditor}). En la Figura \ref{fig:adaptamaterialescolarInicio2} se puede ver, en la parte de la derecha, el editor. Para añadir funcionalidad al éste, se necesitan incluir \textit{plugins}\footnote{\url{https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/plugins.html}}. Estos \textit{plugins} pueden ser del propio editor o creados por un usuario y la mayoría tienen configuración personalizable. El editor consta de dos partes: la barra de herramientas y la zona de escritura. La barra de herramientas consta de los siguientes elementos:
+	\begin{itemize}
+		\item Exportar a PDF: permite exportar a un documento \textit{.pdf} el contenido del editor. Es posible gracias al \textit{plugin ExportPdf}.
+		\item Deshacer y rehacer: permite deshacer/rehacer la última acción realizada en el editor. Es posible gracias al \textit{plugin Essentials}.
+		\item Estilos de párrafo: permite cambiar el estilo del párrafo. Es posible gracias al \textit{plugin Heading}. Se pueden definir nuevos estilos y añadirlos a la configuración del \textit{plugin}. 
+		\item Fuente de la letra: permite cambiar la fuente de la letra. Es posible gracias al \textit{plugin FontFamily}. Cada familia de fuente de texto que se quiera incluir debe ser añadida a las opciones de configuración del \textit{plugin}. 
+		\item Tamaño de la letra: permite cambiar el tamaño de la letra. Es posible gracias al \textit{plugin FontSize}. Se pueden definir tamaños de letra personalizados añadiéndolos a las opciones de configuración del \textit{plugin}.
+		\item Color de la letra: permite cambiar el color de la letra. Es posible gracias al \textit{plugin FontColor}. Se pueden definir colores personalizados y añadirlos a las opciones de configuración del \textit{plugin}, así como el número de columnas a mostrar.
+		\item Color de resaltado: permite resaltar una palabra con un color. Es posible gracias al \textit{plugin FontBackgroundColor}. Se pueden definir colores personalizados y añadirlos a las opciones de configuración del \textit{plugin}, así como el número de columnas a mostrar.
+		\item Negrita, cursiva y subrayado: permite cambiar el formato de texto a negrita, cursiva y/o subrayado gracias a los \textit{plugins Bold, Italic} y \textit{Underline}, respectivamente.
+		\item Alineamiento del texto: permite alinear el texto a la izquierda, centrarlo, alinearlo a la derecha o justificarlo. Es posible gracias al \textit{plugin Alignment}.
+		\item Sangría: permite disminuir o aumentar la sangría de un párrafo. Es posible gracias al \textit{plugin Indent} e \textit{IndentBlock}.
+		\item Listas: permite crear listas no numeradas, listas numeradas y listas de tareas. Es posible gracias a los \textit{plugins ListStyle}, para las listas numeradas y no numeradas, y \textit{TodoList} para las listas de tareas.
+		\item Cita en bloque: permite insertar citas en bloque. Es posible gracias al \textit{plugin BlockQuote}.
+		\item Tablas: permite insertar tablas y modificar el diseño de las mismas (mezclar celdas, añadir o eliminar filas y columnas, cambiar de color la tabla y celdas, etc.). Es posible gracias a los \textit{plugins Table, TableToolbar, TableProperties} y \textit{TableCellProperties}.
+		\item Imágenes: permite insertar imágenes a través de una URL y redimensionarlas. Es posible gracias a los \textit{plugins Image, ImageInsert, ImageToolbar, ImageStyle} e \textit{ImageResize}.
+	\end{itemize}
+	El editor está configurado por defecto con la fuente de letra Arial, un tamaño de letra de 16px y el texto alineado a la izquierda, siguiendo las recomendaciones de Lectura Fácil ya comentadas en la sección \ref{cap3:sec:adaptacioncurricular:subsec:lecturafacil}.
+	
+	Para que un ejercicio se pueda escribir en el editor, es necesario crear el \textit{plugin} del ejercicio correspondiente. Éste debe tener dos ficheros: \textit{insertComponenteCommand}, el fichero que contiene la ejecución del comando, y \textit{componentePlugin}, el fichero que contiene la creación del comando y su adición a la lista de comandos del editor. En el primer fichero se debe definir la función \textit{execute()}, cuyo parámetro son los datos que se necesiten para visualizar el ejercicio (puede ser un objeto, una sola variable, etc.). En el segundo fichero se debe definir el comando de inserción y añadirlo a la lista de comandos del editor. En el siguiente fragmento de código se muestra un ejemplo del fichero \textit{plugin} del ejercicio de completar huecos, donde se define el comando y se añade a la lista de comandos del editor.
+	\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo del fichero plugin del ejercicio de completar huecos donde se define y añade el comando]
+		init(){
+			this.editor.commands.add('insertFillGaps', new InsertFillGapsCommand(this.editor));
+		}
+	\end{lstlisting}
+	En el siguiente fragmento de código se muestra un ejemplo de la función \textit{execute()} del fichero inserción del comando del ejercicio de completar huecos.
+	\begin{lstlisting}[language=Javascript, backgroundcolor=\color{lightgray}, caption=Ejemplo del fichero inserción del comando del ejercicio de completar huecos donde se define la función execute()]
+		execute(data){
+			this.editor.model.change(writer => {
+				let text = "";
+				data.text.forEach(t =>{
+					text += t + " ";
+				})
+				let insertPosition = this.editor.model.document.selection.getFirstPosition();
+				const enunciado = writer.createElement('paragraph', insertPosition);
+				
+				writer.insertText(text, enunciado);
+				this.editor.model.insertContent(enunciado);
+				if(data.addHowToSolve){
+					const howTo = writer.createElement('paragraph');
+					writer.insertText("Cómo resolver el ejercicio: ... ", howTo, "end");
+				}
+				this.editor.execute("shiftEnter");
+			});
+		}
+	\end{lstlisting}
+	
+	La Figura \ref{fig:editorSequence} muestra un diagrama de secuencia de cómo se inicializa el editor y cómo se ejecuta la función \textit{execute()} al ser llamado por un componente cualquiera. Para ello, hay dos fases a ejecutar. En la primera fase se inicializa el editor y nos centraremos en la inicialización de cada \textit{plugin} y comando:
+	\begin{enumerate}
+		\item Cuando se crea el editor se llama a la función \textit{create()} pasándole como parámetros \textit{sourceElementOrData}, el componente HTML donde estará montado el editor; y \textit{config}, el objeto de configuración del editor en el que se encuentra el idioma del editor, los plugins y algunas configuraciones de éstos. Dentro de esta función, se crea el editor haciendo un \textit{new this()} y pasándole como parámetros los mismos que en el \textit{create}, y asignará este editor a una variable. Posteriormente, se llama a la función \textit{initPlugins()} del editor, pasándole como parámetro los \textit{plugins} del objeto \textit{config}.
+		\item La llamada a \textit{initPlugins()} iterará sobre cada \textit{plugin} que haya en \textit{plugins}. Para ello, se hace una llamada a \textit{init()} pasándole como parámetros los \textit{plugins}.
+		\item La llamada a \textit{init()} se ejecuta en la clase \textit{PluginsCollection}, una clase de \textit{CKEditor 5} para gestionar los \textit{plugins}. A continuación se ejecuta un bucle \textit{forEach} en el que, para cada \textit{plugin} de \textit{plugins}, se hará una llamada a \textit{init()}. Esta llamada a \textit{init()} la tiene cada clase \textit{ComponentePlugin} obligatoriamente.
+		\item La función \textit{init()} de cada clase \textit{ComponentePlugin} insertará, en la lista de comandos del editor, el comando correspondiente a esa clase. Se hace una llamada a \textit{add()} pasándole como parámetros el nombre del comando y un objeto de la clase \textit{InsertComponentCommand()} donde se encuentra la función \textit{execute()}. La llamada a \textit{new InsertComponentCommand()} necesita como parámetro el editor.
+		\item Una vez hecho todo este proceso, devolverá el editor inicializado. Hay que tener en cuenta que en todo este proceso se llaman a más funciones y se asignan más variables, ya que lo hace internamente y no son funciones que nosotros hayamos creado.
+	\end{enumerate}
+	En la segunda fase nos centraremos en la ejecución de la función \textit{execute()} de un componente cualquiera:
+	\begin{enumerate}
+		\item Un componente hace una llamada a la función \textit{execute()} del editor pasándole como parámetros el nombre del comando \textit{``insertComponente''} y el objeto con los datos necesarios para la visualización del componente en el editor, \textit{options}.
+		\item La función \textit{execute()} del editor ejecuta un bloque try-catch:
+		\begin{enumerate}
+			\item Try: se hace una llamada a \textit{execute()} de la clase \textit{CommandCollection}, una clase de CKEditor para gestionar los comandos, pasándole como parámetros el nombre del comando y el objeto de datos. Si todo va bien, se obtendrá el comando y se llamará a la función \textit{execute()} de la clase \textit{InsertComponentCommand} pasándole como parámetro el objeto de datos. En el caso de que el comando no exista se lanzará una excepción.
+			\item Catch: si ha habido alguna excepción y no se ha conseguido ejecutar el comando, se capturará la excepción y se relanzará otra excepción llamando a la función \textit{rethrowUnexpectedError()} pasándole como argumentos el error y el editor.
+		\end{enumerate}
+		\item Si todo ha ido bien, se visualizará en el editor el componente.
+	\end{enumerate}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.94\textwidth]{Imagenes/Bitmap/editorSequence}
+		\caption{Diagrama de secuencia del proceso de inicialización del editor y la ejecución de la función execute()}
+		\label{fig:editorSequence}
+	\end{figure} 
+	
+	\subsubsection{Buscador de pictogramas}
+	La Figura \ref{fig:pictoModal} muestra la apariencia de la aplicación cuando se selecciona el buscador de pictogramas. En él, se muestra un único input donde se introduce el texto a buscar. La aplicación reaccionará automáticamente y mostrará los resultados conforme se vaya actualizando el texto a buscar. En la Figura \ref{fig:pictoResults} se puede ver cómo se muestran los resultados una vez se ha introducido un texto de búsqueda.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/pictoResults}
+		\caption{Resultados del buscador de pictogramas}
+		\label{fig:pictoResults}
+	\end{figure}
+
+	Una vez se ha introducido el texto, se selecciona el pictograma deseado y se hace clic sobre él para insertarlo donde esté el cursor en el editor. La Figura \ref{fig:pictoEditor} contiene el aspecto del editor una vez se ha introducido un pictograma.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/pictoEditor}
+		\caption{Pictograma introducido en el editor}
+		\label{fig:pictoEditor}
+	\end{figure}
+
+	Las Figuras \ref{fig:pictoClase} y \ref{fig:pictoSecuencia} muestran el diagrama de clase y secuencia asociados a este caso de uso. Internamente, este módulo contiene tres valores: searchResults, inputText y errorText. El inputText contiene el texto del formulario de búsqueda. Cada vez que se actualice la vista \textit{PictogramSearchModal} se ejecutará una acción \textit{FetchPictogramsAction}, la cual realizará la llamada a la API externa de ARASAAC y obtendrá los pictogramas. Como esta acción ejecuta una llamada a una API externa, tiene un carácter asíncrono y actúa como middleware entre acciones. En la acción se ejecutará un fetch a la url de ARASAAC. Si todo va bien se obtendrán los datos y se ejecutará otra acción llamada \textit{FetchPictogramsSuccess} que actualizará el Store con los datos obtenidos y automáticamente actualizará la interfaz con los resultados. Si se ha producido cualquier error de conexión se ejecutará una acción llamada \textit{FetchPictogramsFailure} donde se almacenará el error y se comunicará en la vista.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/pictogramClassDiagram}
+		\caption{Diagrama de clases del buscador de pictogramas}
+		\label{fig:pictoClase}
+	\end{figure} 
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/pictosSecuencia}
+		\caption{Diagrama de secuencia del buscador de pictogramas}
+		\label{fig:pictoSecuencia}
+	\end{figure} 
+	
+	\subsubsection{Sopa de letras}
+	En la Figura \ref{fig:wordsearchModal} se puede ver el aspecto de la aplicación al seleccionar sopa de letras. La creación del ejercicio de sopa de letras solicita los siguientes parámetros:
+	\begin{itemize}
+		\item Filas: El número de filas que tendrá la sopa de letras. 
+		\item Columnas: El número de columnas que tendrá la sopa de letras.
+		\item Palabras: Las palabras que se insertarán en la sopa de letras.
+		\item Dirección: Las direcciones en las que se quiere insertar la palabra (vertical, horizontal y/o diagonal). Como mínimo se debe activar una dirección para poder generar la sopa de letras.
+		\item Palabras máximas: El número de palabras máximas que se insertarán en la sopa de letras.
+		\item Activar escritura al revés: Activa la probabilidad de escribir cada palabra al revés. En el caso de que esta opción no se active, la probabilidad será cero. Si se activa, aparecerá una barra deslizante para establecer dicha probabilidad.
+	\end{itemize}
+	
+	Los parámetros obligatorios para poder generar la sopa de letras son las filas, las columnas, las palabras y la/s dirección/es. Así mismo, existe otra opción de carácter opcional y es la posibilidad de mostrar en el editor las palabras a buscar junto al enunciado.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/wordsearchPreview}
+		\caption{Vista previa de la sopa de letras}
+		\label{fig:wordsearchPreview}
+	\end{figure}
+	
+	Una vez que se han rellenado los campos obligatorios se activarán los botones de Vista previa y Aceptar. El botón Vista previa genera primero la sopa de letras y la muestra al usuario antes de escribirla en el editor (en la Figura \ref{fig:wordsearchPreview} se muestra la vista previa de la sopa de letras generada). En cambio, el botón Aceptar genera la sopa de letras y la escribe directamente en el editor, sin mostrarla antes al usuario. En ambos casos, si ocurre algún error (por ejemplo, que el número de filas y columnas sea igual o menor que cero) se mostrará al usuario el mensaje de error correspondiente. 
+	
+	En la Figura \ref{fig:wordsearchSequence} se muestra el diagrama de secuencia de esta funcionalidad. Tal y como puede verse en dicho diagrama, al pulsar Aceptar ocurre lo siguiente:
+	\begin{enumerate}
+		\item Se hace una llamada al despachador pasándole como parámetro \textit{updateForceReadyToPreview(false)}, para ocultar la vista previa en caso de que esté visible.
+		\item Hay que distinguir dos casos fundamentales:
+		\begin{itemize}
+			\item Si ya hay una sopa de letras creada, es decir, el objeto WordSearchObject es distinto de null, significa que anteriormente se ha pulsado el botón de Vista Previa, o el botón Aceptar pero hay un error. En este caso, si hay un mensaje de error se hace una llamada a \textit{generateWordSearch()}. Si no hay error se procederá a escribir en el editor la sopa de letras generada a través de la función \textit{writeInEditor()} (fase 4).
+			\item Si no hay una sopa de letras creada, es decir, el objecto WordSearchObject es null, llamaremos directamente a \textit{generateWordSearch()}.
+		\end{itemize}
+		\item La función \textit{generateWordSearch()} consta de dos fases:
+		\begin{enumerate}
+			\item Se llama al despachador pasándole como parámetro \textit{createWordSearch()}. El despachador buscará en \textit{Actions} el tipo de acción que es (en este caso, \textit{CREATE\_WORDSEARCH}). Posteriormente llamará al reductor a través de \textit{wordSearchRedutor()}, pasándole como parámetros el estado (\textit{state}) del componente y la acción buscada anteriormente. A continuación, buscará en el \textit{switch} el tipo de acción y se procederá a crear la sopa de letras llamando a \textit{createWordSearch()} pasándole como parámetros el objeto wordSearchObject y el objeto de configuración de la sopa de letras, \textit{options}. Esta función devolverá una sopa de letras en caso de que las filas y columnas sean mayores que cero. En caso contrario, o si ha habido alguna excepción, devolverá null. En la Figura \ref{fig:flujoCreateWordSearch} se puede ver un diagrama con el flujo de acción, reductor, etc., concretos para este caso.
+			\item Se llama al despachador pasándole como acción \textit{updateError()}. El despachador buscará en \textit{Actions} el tipo de acción que es (que en este caso es \textit{UPDATE\_WORDSEARCH\_ERROR}). Después llamará al reductor donde buscará el tipo de acción en el \textit{switch} y actualizará el mensaje de error llamando a la función \textit{manageError()} pasándole como parámetros el error, el objeto wordSearchObject y la longitud del array \textit{dictionary}. El error solo puede tomar tres estados:
+			\begin{itemize}
+				\item Si el objeto wordSearchObject es null, el error será ``Las filas y columnas deben tener un valor positivo mayor que 0''.
+				\item Si el objeto wordSearchObject es distinto a null:
+				\begin{itemize}
+					\item Hay que ver si la longitud de words (una de las funciones de la sopa de letras, ver sección \ref{cap4:sec:wordsearch}) es menor que la longitud del array \textit{dictionary}. En este caso, el error será ``No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el valor de las filas, columnas y/o número máximo de palabras''.
+					\item En caso contrario, no habrá mensaje de error.
+				\end{itemize}
+			\end{itemize}
+		\end{enumerate}
+		\item Por último, se hará una llamada a \textit{writeInEditor()}, una función local de \textit{WordSearchModal}, cuyo objetivo es escribir en el editor la sopa de letras. Para que se escriba en el editor, se ejecuta una función del editor llamada \textit{execute()} donde se le pasa como parámetros el nombre del comando (\textit{insertWordSearch}) y un objeto de datos con la sopa de letras, las palabras que se han insertado en la sopa de letras, la opción de mostrar las palabras a buscar en la sopa de letras y la opción de añadir un ejemplo de cómo resolver el ejercicio.
+	\end{enumerate}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/flujoCreateWordSearch}
+		\caption{Diagrama de flujo de la generación de la sopa de letras}
+		\label{fig:flujoCreateWordSearch}
+	\end{figure}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/wordsearchSequence}
+		\caption{Diagrama de secuencia de la generación de la sopa de letras}
+		\label{fig:wordsearchSequence}
+	\end{figure}
+	
+
+	En la Figura \ref{fig:wordsearchResult} se muestra, en la parte superior, el resultado de la generación de la sopa de letras si se usa como configuración los datos de la Figura \ref{fig:wordsearchPreview}, y en la parte inferior, el resultado de la generación de la sopa de letras si se desactivan las opciones de mostrar en el ejercicio las palabras a buscar, añadir ejemplo de cómo resolver el ejercicio y activar escritura al revés, y usando los mismos parámetros de la Figura \ref{fig:wordsearchPreview}.
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/wordsearchResult}
+		\caption{Resultado de la generación de la sopa de letras}
+		\label{fig:wordsearchResult}
+	\end{figure}
+	
+	\subsubsection{Definiciones}
+	Al seleccionar esta opción en nuestra aplicación se muestra la interfaz de la Figura \ref{fig:definitionsModal}. Para crear este tipo de ejercicio, hay que rellenar los siguientes campos:
+	
+	\begin{itemize}
+		\item Conceptos a definir: contiene los conceptos a definir. Cada concepto debe ir en un input de texto. Dentro de éstos, si se pulsa a la tecla Enter, se podrán introducir más conceptos. También se puede hacer clic en el botón ``más'' para añadir más inputs. Para quitar alguna fila, se tendrá que hacer clic en el botón ``menos''. Ambos botones están ubicados en la derecha de cada input.
+		\item Número de líneas: número máximo de líneas para definir el concepto. Por defecto es 1.
+		\item La forma en la que se muestran las definiciones: puede mostrarse como una lista no ordenada o una lista ordenada. Por defecto está establecido en mostrarse como una lista no ordenada.
+		\item Añadir espacio extra entre líneas: añade un espacio más grande entre líneas para los estudiantes que tengan una letra más grande.
+	\end{itemize}
+	
+	En la Figura \ref{fig:flujoDefinitions} se muestra un diagrama con el flujo de acción, reductor, etc., cuando se modifica el texto de una de las definiciones y en la Figura \ref{fig:definitionsSequence}, un diagrama de secuencia de la misma funcionalidad. Tal y como se puede ver en el diagrama de secuencia ocurre lo siguiente:
+	\begin{enumerate}
+		\item Se llama al despachador pasándole como parámetro \textit{updateDefinitionsText(e.target.value, i)}, donde \textit{e.target.value} es el valor del campo del input que lo ha llamado (el texto introducido), e \textit{i} la posición en el que se encuentra en el array de definiciones.
+		\item El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_DEFINITIONS\_TEXT}) junto con su \textit{payload} (el texto introducido y la posición). Posteriormente llamará al reductor a través de \textit{definitionsReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente. A continuación buscará en el \textit{switch} el tipo de acción y procederá a actualizar el estado del componente, concretamente la variable \textit{text}, el array donde se almacena cada definición. Esta actualización la hace la función \textit{update()} pasándole como parámetros el array a modificar, y un objeto con el índice y el nuevo valor. Tras actualizarlo, devolverá el estado modificado.
+		\item Por último, tras realizar este proceso, se actualizará la interfaz con el nuevo estado devuelto por el reductor.
+	\end{enumerate}
+
+	\begin{figure}[ht!]
+		\begin{center}
+		\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/flujoDefinitions}
+		\caption{Diagrama de flujo cuando se modifica el texto de una definición}
+		\label{fig:flujoDefinitions}
+		\end{center}
+	\end{figure}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/definitionsSequence}
+		\caption{Diagrama de secuencia cuando se modifica el texto de una definición}
+		\label{fig:definitionsSequence}
+	\end{figure}
+
+	Una vez que se han rellenado los campos obligatorios (conceptos a definir, número de líneas y la forma en la que se muestran las definiciones), el botón Aceptar se habilitará. Al hacer clic en él se procederá a escribir en el editor cada concepto, seguido del número de líneas especificado por el usuario. Para ello, se llama a la función \textit{execute()} del editor, pasándole como parámetros el nombre del comando (\textit{insertDefinitions}) y el objeto de datos con la lista de conceptos, el número de líneas, el tipo de lista y las opciones para añadir espacio extra entre líneas y para añadir un ejemplo de cómo resolver el ejercicio. En la Figura \ref{fig:definitionsResult} se muestra el resultado de este ejercicio al usar las opciones de la Figura \ref{fig:definitionsOptions} en la parte superior. La parte inferior es el resultado de usar las mismas opciones pero cambiando el tipo de lista a lista no ordenada, añadiendo la opción de añadir espacio extra entre líneas y quitando la opción de añadir ejemplo de cómo resolver el ejercicio.
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/definitionsOptions}
+		\caption{Ejemplo I de opciones del ejercicio de definiciones}
+		\label{fig:definitionsOptions}
+	\end{figure}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/definitionsResult}
+		\caption{Resultado del ejercicio de definiciones}
+		\label{fig:definitionsResult}
+	\end{figure}
+
+	\subsubsection{Pregunta para desarrollar}
+	
+	La interfaz de este ejercicio se puede ver en la Figura \ref{fig:developModal}. Para crear el ejercicio, hace falta escribir el enunciado y elegir el número de líneas máximo para desarrollarlo. Así mismo, se ha incluido una opción no obligatoria para añadir espacio extra entre líneas en caso de que algún estudiante tenga un tamaño de letra mayor.
+	
+	 En la Figura \ref{fig:flujoDevelop} se muestra un diagrama con el flujo de acción, reductor, etc., cuando se modifica el enunciado de este ejercicio y en la Figura \ref{fig:developSequence}, un diagrama de secuencia de la misma funcionalidad. Tal y como se puede ver en el diagrama de secuencia ocurre lo siguiente:
+	\begin{enumerate}
+		\item Se llama al despachador pasándole como parámetro \textit{updateDevelopText(e.target.value)}, donde \textit{e.target.value} es el valor del campo del input que lo ha llamado (el enunciado modificado).
+		\item El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_DEVELOP\_TEXT}) junto con su \textit{payload} (el enunciado modificado). Posteriormente llamará al reductor a través de \textit{developReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente. A continuación buscará en el \textit{switch} el tipo de acción y procederá a actualizar el estado del componente, concretamente la variable \textit{text}, un string donde se almacena el enunciado. Tras actualizarlo, devolverá el estado modificado.
+		\item Por último, tras realizar este proceso, se actualizará la interfaz con el nuevo estado devuelto por el reductor.
+	\end{enumerate}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/flujoDevelop}
+		\caption{Diagrama de flujo cuando se modifica el enunciado del ejercicio pregunta para desarrollar}
+		\label{fig:flujoDevelop}
+	\end{figure}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/developSequence}
+		\caption{Diagrama de secuencia cuando se modifica el enunciado del ejercicio pregunta para desarrollar}
+		\label{fig:developSequence}
+	\end{figure}
+	
+	Una vez que se han rellenado los campos obligatorios, el botón Aceptar se habilitará. Al hacer clic en él se procederá a escribir, en el editor, el enunciado del ejercicio y en los siguientes renglones el número de líneas especificado por el usuario. Para ello, se llama a la función \textit{execute()} del editor, pasándole como parámetros el nombre del comando (\textit{insertDevelop}), y el objeto de datos con el enunciado, el número de líneas y las opciones para añadir espacio extra entre líneas y para añadir un ejemplo de cómo resolver el ejercicio. En la Figura \ref{fig:developResult} se muestra el resultado de este ejercicio. En la parte superior se muestra dicho resultado usando las opciones de la Figura \ref{fig:developOptions}. En la parte inferior, el mismo ejercicio pero quitando la opción de añadir el ejemplo de cómo resolver el ejercicio, y añadiendo espacio extra entre líneas.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/developOptions}
+		\caption{Ejemplo de opciones del ejercicio pregunta para desarrollar}
+		\label{fig:developOptions}
+	\end{figure}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/developResult}
+		\caption{Resultado de ejercicio pregunta para desarrollar}
+		\label{fig:developResult}
+	\end{figure}
+	
+	\subsubsection{Verdadero o Falso}
+	Al seleccionar esta opción en nuestra aplicación, se muestra la interfaz de la Figura \ref{fig:truefalseModal}. Para crear un ejercicio de verdadero y falso se necesitan rellenar los siguientes campos:
+	\begin{itemize}
+		\item Frases: Contendrá las frases del ejercicio. Hay que escribir una frase en cada input de texto. Para añadir más inputs, se puede pulsar la tecla Enter dentro de uno de los inputs, o pulsar el botón ``más''. Para quitarlos, se tendrá que hacer clic en el ``menos''. Ambos botones se encuentran ubicados en la derecha de cada input.
+		\item La forma en la que se muestran las frases: puede ser como una lista no ordenada o una lista ordenada. Por defecto está seleccionada la lista no ordenada.
+	\end{itemize}
+	
+	En la Figura \ref{fig:flujoTruefalse} se muestra un diagrama con el flujo de acción, reductor, etc., cuando se añaden más inputs y en la Figura \ref{fig:truefalseSequence}, un diagrama de secuencia de la misma funcionalidad. Tal y como se puede ver en el diagrama de secuencia ocurre lo siguiente:
+	\begin{enumerate}
+		\item Se llama al despachador pasándole como parámetro \textit{addMoreTrueFalse()}.
+		\item El despachador buscará en \textit{Actions} el tipo de acción que es (en este caso, \textit{ADD\_MORE\_TRUEFALSE}). Posteriormente llamará al reductor a través de \textit{trueFalseReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente. A continuación buscará en el \textit{switch} el tipo de acción y procederá a actualizar el estado del componente, concretamente la variable \textit{text}, un array que almacena cada frase de verdadero o falso. Esta actualización añade al final del array una cadena de texto vacía. Tras actualizarlo, devolverá el estado modificado.
+		\item Por último, tras realizar este proceso, se actualizará la interfaz con el nuevo estado devuelto por el reductor, en el que se mostrará otro input para escribir otra frase de verdadero o falso, junto con los botones de añadir más filas y quitar fila.
+	\end{enumerate}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/flujoTruefalse}
+		\caption{Diagrama de flujo cuando añaden más filas al ejercicio de verdadero o falso}
+		\label{fig:flujoTruefalse}
+	\end{figure}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/truefalseSequence}
+		\caption{Diagrama de secuencia cuando añaden más filas al ejercicio de verdadero o falso}
+		\label{fig:truefalseSequence}
+	\end{figure}
+	
+	Una vez que se han rellenado los campos obligatorios mencionados anteriormente, el botón Aceptar se habilitará. Al hacer clic en él se procederá a escribir en el editor cada frase, seguido de un recuadro para escribir V si es verdadero o F si es falso. Para ello, se llama a la función \textit{execute()} del editor, pasándole como parámetros el nombre del comando (\textit{insertTrueFalse}) y un objeto de datos con la lista de oraciones, el tipo de lista y la opción para añadir un ejemplo de cómo resolver el ejercicio. En la Figura \ref{fig:truefalseResult} se muestra el resultado del ejercicio usando las opciones de la Figura \ref{fig:truefalseOptions}.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/truefalseOptions}
+		\caption{Ejemplo de opciones del ejercicio verdadero o falso}
+		\label{fig:truefalseOptions}
+	\end{figure}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/truefalseResult}
+		\caption{Resultado de ejercicio verdadero o falso}
+		\label{fig:truefalseResult}
+	\end{figure}
+	
+	\subsubsection{Completar huecos}
+	
+	El ejercicio de completar huecos tiene como finalidad escribir las palabras faltantes en los espacios en los que haya una línea. Al seleccionar esta opción en nuestra aplicación se muestra la interfaz de la Figura \ref{fig:fillgapsModal}. Este ejercicio consta de dos fases:
+	\begin{itemize}
+		\item En la primera fase hay que insertar el texto del que se quiera quitar palabras. Una vez que se ha insertado, el botón Seleccionar palabras se habilitará. El texto se puede seleccionar y copiar del documento fuente y pegarlo en el \textit{textarea}. En la Figura \ref{fig:fillgapsEdition} se muestra un ejemplo de la interfaz de edición en la que se debe insertar el texto, y en el que una vez insertado, el botón Seleccionar palabras se habilitará. 
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/fillgapsEdition}
+			\caption{Ejemplo de edición del texto del ejercicio completar huecos}
+			\label{fig:fillgapsEdition}
+		\end{figure}
+		\item La segunda fase se alcanza cuando se hace clic en el botón de Seleccionar palabras. Para quitar una palabra basta con hacer clic en ella. Si se quiere volver a ver la palabra, hay que volver a hacer clic en ella. Para volver a editar el texto (volver a la fase uno), simplemente hay que hacer clic en el botón Editar texto. En la Figura \ref{fig:fillgapsSelection} se puede ver la interfaz de selección de las palabras. En ésta, se han seleccionado las palabras vivos, animales, plantas y orgánicas.
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=1\textwidth]{Imagenes/Bitmap/fillgapsSelection}
+			\caption{Ejemplo de selección de palabras del ejercicio completar huecos}
+			\label{fig:fillgapsSelection}
+		\end{figure}
+	\end{itemize}
+	
+	En la Figura \ref{fig:fillgapsSequence1} se muestra un diagrama de secuencia cuando se hace clic en el botón Seleccionar palabras. Tal y como se puede ver en el diagrama de secuencia ocurre lo siguiente:
+	\begin{enumerate}
+		\item Se hace una llamada a la función \textit{changeToSelection()}. Esta función consta de dos partes:
+		\begin{enumerate}
+			\item Se hace una llamada al despachador pasándole como parámetro \textit{updateMode(mode)}, donde \textit{mode} puede ser o \textit{edition} o \textit{selection}. En este caso es \textit{selection}. El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_FILLGAPS\_MODE}), junto con su \textit{payload}. Después llamará al reductor a través de \textit{fillGapsReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente, buscará el tipo de acción en el \textit{switch} y actualizará el modo a \textit{selection}. Después devolverá el estado actualizado.
+			\item Se hace una llamada al despachador pasándole como parámetro \textit{updateTextSelection()}. El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_FILLGAPS\_TEXTSELECTION}). Posteriormente llamará al reductor a través de \textit{fillGapsReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción devuelta anteriormente, buscará el tipo de acción en el \textit{switch} y actualizará la variable \textit{textSelection}. Esta variable contiene las palabras del texto separadas por espacios. Después devolverá el estado actualizado. Una vez finalizado este proceso, se cambiará a la interfaz de selección de palabras (Figura \ref{fig:fillgapsSelection}). 
+		\end{enumerate}
+		\begin{figure}[ht!]
+			\centering
+				\includegraphics[width=1\textwidth]{Imagenes/Bitmap/fillgapsSequence1}
+				\caption{Diagrama de secuencia cuando se hace clic sobre Seleccionar palabras en el ejercicio completar huecos}
+				\label{fig:fillgapsSequence1}
+		\end{figure}
+		\item Al seleccionar una palabra se llama a la función \textit{handleOnClick(e,i)} pasándole como parámetros el evento que lo ha llamado (\textit{e}) y la posición en el array de \textit{textSelection} (\textit{i}). En la Figura \ref{fig:fillgapsSequence2} se muestra un diagrama de secuencia cuando se hace clic en una palabra, y en la Figura \ref{fig:flujoFillGaps}, un diagrama de flujo de esta funcionalidad. Al seleccionar una palabra pueden ocurrir dos situaciones:
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=0.8\textwidth]{Imagenes/Bitmap/flujoFillGaps}
+			\caption{Diagrama de flujo al seleccionar una palabra del ejercicio completar huecos}
+			\label{fig:flujoFillGaps}
+		\end{figure}
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=0.94\textwidth]{Imagenes/Bitmap/fillgapsSequence2}
+			\caption{Diagrama de secuencia cuando se hace clic en una palabra en el ejercicio completar huecos}
+			\label{fig:fillgapsSequence2}
+		\end{figure}
+		\begin{enumerate}
+			\item Si la palabra comienza con una guión bajo, se llama al despachador pasándole como parámetro \textit{updateDeleteSelectedWord(i)}, donde \textit{i} es la posición de la palabra en el array \textit{textSelection}. El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_FILLGAPS\_DELETESELECTED}) junto con su \textit{payload} (\textit{i}). Posteriormente se llamará al reductor a través de \textit{fillGapsReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción, buscará el tipo de acción en el \textit{switch} y procederá a actualizar dos variables: \textit{textSelection}, donde se recupera la palabra que se ha ocultado, y \textit{wordSelected}, donde se busca el índice de la palabra que se ha ocultado en el array \textit{wordsSelected}, y se elimina la palabra de éste. Después devolverá el estado modificado.
+			\item Si la palabra no comienza con guión bajo, se llama al despachador pasándole como parámetro \textit{updateAddSelectedWord(textContent, i)}, donde \textit{textContent} es la palabra e \textit{i} es la posición en el array \textit{textContent}. El despachador buscará en \textit{Actions} el tipo de acción que es (\textit{UPDATE\_FILLGAPS\_ADDSELECTED}) junto con su \textit{payload} (\textit{i}). Posteriormente se llamará al reductor a través de \textit{fillGapsReducer()} pasándole como parámetros el estado (\textit{state}) del componente y la acción, buscará el tipo de acción en el \textit{switch} y procederá a actualizar dos variables: \textit{textSelection}, donde se sustituye la palabra por guiones bajos, y \textit{wordsSelected}, donde se añade un objeto con la palabra y la posición en el array \textit{textSelection} para poder recuperarla después. Por último devolverá el estado modificado.
+		\end{enumerate}
+	\end{enumerate}
+
+	Una vez que se ha seleccionado al menos una palabra, el botón Aceptar se habilitará. Al hacer clic en éste se escribirá el texto modificado en el editor. Para ello, se llamará a la función \textit{execute()} del editor, pasándole como parámetros el nombre del comando (\textit{insertFillGaps}) y el objeto de datos con el texto modificado, las palabras escondidas y la opción para añadir un ejemplo de cómo resolver el ejercicio. En la Figura \ref{fig:fillgapsResult} se ve el resultado del ejercicio al usar las opciones de las Figuras \ref{fig:fillgapsEdition} y \ref{fig:fillgapsSelection}.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=1\textwidth]{Imagenes/Bitmap/fillgapsResult}
+		\caption{Resultado del ejercicio de completar huecos}
+		\label{fig:fillgapsResult}
+	\end{figure}
+
+\subsection{Estructura del código}
+%-----------------------------------%
+\label{cap6:sec:estructura}
+
+	La organización de directorios del proyecto gira en torno al patrón de diseño Redux. El código de la funcionalidad de la aplicación se estructura principalmente en cuatro carpetas: components, pages, ckeditor y redux. Además, contamos con el fichero App, que supone el punto de inicio del programa. El contenido de cada carpeta es el siguiente:
+	\begin{itemize}
+		\item \textbf{Components:} Representado en la Figura \ref{fig:srcComponents}, contiene cada componente que representa una funcionalidad para la aplicación, o parte de ella, y todos cuentan, como mínimo, con los siguientes ficheros:
+		\begin{itemize}
+			\item Fichero modal de la funcionalidad del componente.
+			\item Fichero que realiza las modificaciones pertinentes para ejecutar la funcionalidad.
+			\item Fichero de estilo del componente.
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.25\textwidth]{Imagenes/Bitmap/srcComponents}
+		\caption{Ejemplo de organización de Components}
+		\label{fig:srcComponents}
+	\end{figure}
+	
+	Uno de los componentes más importantes es el de la barra de herramientas (\textit{Toolbar}), que sirve como hilo conductor de la selección de los diferentes tipos de adaptaciones que pueden agregarse al documento, mediante el patrón de diseño del despachador (\textit{dispatcher}).
+	
+	\begin{itemize}
+		\item \textbf{Pages:} Representado en la Figura \ref{fig:srcPages}, contiene la página del editor, que permite cargar un fichero inicial para comenzar la adaptación, y la página de ayuda, que muestra información relevante sobre la aplicación y su uso. En los dos casos se cuenta con:
+		\begin{itemize}
+			\item Fichero de funcionalidad de la página.
+			\item Fichero de estilo de la página.
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.25\textwidth]{Imagenes/Bitmap/srcPages}
+		\caption{Ejemplo de organización de Pages}
+		\label{fig:srcPages}
+	\end{figure}
+	\begin{itemize}
+		\item \textbf{Redux:} Representado en la Figura \ref{fig:srcRedux}, contiene la implementación del patrón de diseño que se ha aplicado a toda la aplicación, basado en el almacenamiento de los datos que necesita cada componente. La carpeta consta del Store y el reducer, elementos necesarios para el desarrollo del mismo. Además, se incluye también cada componente principal con los siguientes ficheros:
+		\begin{itemize}
+			\item Fichero action: controla las diferentes acciones que puede ejecutar cada componente.
+			\item Fichero reducer: controla el estado de los componentes según el tipo de acción que realicen, partiendo de un estado inicial.
+			\item Fichero selectors: devuelve el valor de los atributos de cada componente.
+			\item Fichero types: contiene un listado de acciones posibles para cada componente.
+			\item Fichero utils: contiene funciones auxiliares para actualizar el valor de algunos parámetros del estado del componente. No todos los componentes tendrán este fichero.
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Imagenes/Bitmap/srcRedux}
+		\caption{Ejemplo de organización de Redux}
+		\label{fig:srcRedux}
+	\end{figure}
+	\begin{itemize}
+		\label{cap6:sec:estructura:ckeditor}
+		\item \textbf{CKEditor:} Representado en la Figura \ref{fig:srcCkeditor},contiene todos componentes software o plugins que se han desarrollado para la aplicación, permitiendo la interacción a partir de comandos que controlan las diferentes funcionalidades. Consta de un fichero que devuelve la instancia del editor, CKEditor 5, y una carpeta para cada plugin, con los siguientes ficheros:
+		\begin{itemize}
+			\item Fichero de implementación del plugin.
+			\item Fichero de inserción del plugin mediante el patrón de diseño de comando (\textit{command}).
+		\end{itemize}
+	\end{itemize}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Imagenes/Bitmap/srcCkeditor}
+		\caption{Ejemplo de organización de CKEditor}
+		\label{fig:srcCkeditor}
+	\end{figure}

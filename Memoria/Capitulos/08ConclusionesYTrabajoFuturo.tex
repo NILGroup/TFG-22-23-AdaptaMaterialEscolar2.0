@@ -1,0 +1,96 @@
+  
+%-----------------------------------------------------------------------%
+%																	    %
+%               Capítulo 8 - Conclusiones y Trabajo futuro				%
+%																	  	%
+%-----------------------------------------------------------------------%
+
+\chapter{Conclusiones y Trabajo futuro}
+
+\begin{resumen}
+	En este capítulo se abordarán, en la sección \ref{cap8:sec:conclusiones} las conclusiones de este proyecto, y en la sección \ref{cap8:sec:trabajofuturo}, las posibles modificaciones y mejoras que podrían llevarse a cabo durante los próximos años en la aplicación de AdaptaMaterialEscolar.
+\end{resumen}
+
+  
+%------Primera sección: Conclusiones------%
+\section{Conclusiones}
+%-----------------------------------%
+\label{cap8:sec:conclusiones}
+
+	Actualmente existen carencias en cuanto a la existencia de herramientas de código abierto pensadas para ser utilizadas por el profesorado y facilitar su labor docente durante la adaptación de temario, actividades y exámenes, para aquellos alumnos que necesiten una adaptación curricular a lo largo de su etapa académica. Además, es aún más complicado encontrar aplicaciones que personalicen y sigan un estándar apropiado para los estudiantes con dificultades de aprendizaje. 
+	
+	El objetivo principal de este proyecto era desarrollar una aplicación web que permitiera a los docentes adaptar recursos de las asignaturas de una forma fácil, sencilla y rápida, y crear material personalizado que se ajuste a las necesidades de cada estudiante. Tras ver los problemas que presentaban algunos usuarios finales, fuimos capaces de identificar un problema real y pudimos desarrollar una solución eficiente para esos usuarios. Por un lado integramos un editor de texto de código abierto, \textit{CKEditor}, con el que cumplíamos con la mayoría de los requisitos de formato que nos pedían, tales como tamaño de la letra, color de la letra, subrayados, etc.; y por el otro, implementamos la mayor parte de los ejercicios y herramientas propuestos que se habían calificado como prioritarios, como el buscador de pictogramas, ejercicios de verdadero/falso, ejercicio de sopa de letras, ejercicio de completar huecos, ejercicio de pregunta para desarrollar y ejercicio de definir un concepto. Gracias también a \textit{CKEditor}, todo el documento adaptado se podía descargar en formato \textit{.pdf}. Así mismo, la aplicación ha seguido un Diseño Centrado en el Usuario (DCU), enseñando a los usuarios finales el diseño del mismo, y dándonos \textit{feedback} para mejorarlo. También participaron en la evaluación los usuarios finales, por lo que pudieron probar la aplicación y así ver la usabilidad y utilidad de la misma. 
+	
+	Otro de los objetivos que tenía este proyecto era aplicar los conocimientos adquiridos durante el Grado de Ingeniería del Software. Consideramos que este objetivo también lo hemos cumplido destacando la aplicación de las siguientes asignaturas:
+	\begin{itemize}
+		\item \textbf{Fundamentos de la Programación y Tecnología de la Programación}: donde adquirimos los conocimientos básicos necesarios para empezar a programar en C++ y Java respectivamente. Estos conocimientos los hemos adaptado al lenguaje de programación utilizado en el del proyecto, Javascript.
+		\item \textbf{Estructura de Datos y Algoritmos y Técnicas algorítmicas en ingeniería del software}: donde aprendimos a pensar cómo estructurar y optimizar nuestro código. Esta asignatura nos ha permitido valorar qué estructura de datos es la más adecuada para nuestro proyecto y qué algoritmos son los mejores para tratar con ésta.
+		\item \textbf{Ingeniería del Software, Modelado de Software y Gestión de proyectos Software}: donde aprendimos distintos patrones de diseño a la hora de desarrollar código y cómo gestionar y trabajar en equipo de forma correcta en un proyecto software. Esto nos permitió saber elegir una metodología de trabajo adecuada a nuestro proyecto, Kanban, y una arquitectura Redux para la implementación de éste.
+		\item \textbf{Aplicaciones web}: donde adquirimos los conocimientos necesarios sobre HTML, CSS y Javascript para desarrollar páginas web. Esta asignatura ha sido fundamental a la hora de diseñar nuestra web y poder desarrollar su comportamiento dinámico.
+		\item \textbf{Ética, legislación y profesión}: donde aprendimos, sobre todo, a proteger nuestro código y a cómo usar las licencias y software libre de terceros. Por ello, hemos recurrido a implementar librerías de código abierto en nuestro proyecto, además de decidir que nuestra aplicación sea del mismo tipo.
+	\end{itemize}
+
+	Durante el desarrollo de la aplicación AdaptaMaterialEscolar hemos adquirido conocimientos nuevos sobre el uso de nuevas tecnologías, como React, muy utilizada actualmente en el mundo laboral. Además, hemos llegado a trabajar con usuarios finales que tenían una necesidad real y hemos conseguido resolverla, incluso llegando a superar sus expectativas. El resultado del proyecto ha tenido una acogida muy positiva por parte de los usuarios finales y se pretende que la aplicación siga en desarrollo durante los próximos años para mejorar su funcionalidad y llegar a un mayor número de docentes, centros educativos o asociaciones que lo pueda necesitar.
+
+%------Segunda sección: Trabajo futuro------%
+\section{Trabajo futuro}
+%-------------------------------------------%
+\label{cap8:sec:trabajofuturo}
+	Después de todo el proceso de desarrollo del proyecto, a pesar de que se ha cumplido con la mayoría de los requisitos prioritarios capturados, quedan por completar aún algunas de las tareas que se propusieron inicialmente para considerar que AdaptaMaterialEscolar ha sido completado.
+	
+	Aunque actualmente nuestra propuesta de Trabajo de Fin de Grado es apta para ser utilizada por los centros educativos, sigue siendo mejorable y hay bastante trabajo futuro a desarrollar, incluso puede que para varios años.
+	
+	De todos los requisitos iniciales que se obtuvieron, queda pendiente la implementación de los siguientes:
+	
+	\begin{itemize}
+	\item \underline{Adaptaciones de temario}
+	\begin{itemize}
+		\item Generar un resumen a partir de un texto.
+		\item Crear esquemas que faciliten la visualización del temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero.
+		\item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido de un texto ya redactado o escribiendo desde cero.
+	\end{itemize}
+	
+	\item \underline{Adaptaciones de actividades y/o exámenes}:
+	\begin{itemize}
+		\item Ejercicios de relacionar contenido mediante flechas.
+		\item Ejercicios de completar los espacios en blanco en tablas y esquemas.
+	\end{itemize}
+	
+	\item \underline{Adaptaciones de formato}:
+	\begin{itemize}
+		\item Sustituir una palabra por una imagen.
+		\item Añadir una  leyenda de colores con la categoría de cada tipo de palabra resaltada, para que los alumnos puedan identificar el significado de cada una de las palabras resaltadas en el texto.
+		\item Añadir leyenda de colores para el tema de cada asignatura, para que los alumnos las distingan con mayor facilidad.
+		\item Estandarizar formato para títulos e índices del temario, generando de forma automática una plantilla del color de la asignatura.
+		\item Añadir imágenes buscando una palabra en bases de datos de imágenes libres.
+	\end{itemize}
+\end{itemize}
+	También contábamos con que a partir de la evaluación de la aplicación surgirían nuevas ideas y requisitos para realizar mejoras y, de hecho, ha sido tal la aceptación de AdaptaMaterialEscolar que hemos conseguido más de los esperados. Las peticiones y propuestas de mejora de los docentes que han llegado a evaluar el sistema son:
+	
+	\begin{itemize}
+		\item Añadir un pictotraductor como funcionalidad.
+		\item Añadir la alternativa de añadir doble pauta, en vez de renglones de una única línea, para determinar el tamaño de la letra del alumno.
+		\item Añadir un tipo de fuente escolar.
+		\item Crear una herramienta de recorte de imágenes para el texto original.
+		\item Añadir encabezado al texto con, al menos, nombre del centro educativo, nombre del alumno y asignatura.
+		\item Añadir ejercicios con espacio para dibujar.
+		\item Añadir ejercicios para ejercicios de cálculo con fórmulas con huecos a rellenar por el alumno.
+		\item Enumerar ejercicios de forma automática.
+		\item Exportar el documento a formato Word para hacer modificaciones.
+		\item Añadir ejercicios de matemáticas con cuadrícula para escribir los números.
+		\item Añadir ejercicios con fórmulas predefinidas con espacio para que el alumno rellene ciertos datos y realice cálculos.
+	\end{itemize}
+
+	En caso de que se continuara desarrollando el proyecto, sería necesario volver a reevaluar cada requisito, para establecer de nuevo una tabla de prioridades basándose en la importancia y dificultad de cada tarea.
+	
+	Además, cabe la posibilidad de que incluso se nos invite a colaborar en la formación de nuevo profesorado y alumnos de máster en el IES Maestro Juan de Ávila en los próximos cursos escolares, para enseñarles a utilizar AdaptaMaterialEscolar, de manera que puedan incluirlo como herramienta de trabajo de uso diario en los diferentes departamentos del centro.
+	
+	También sería necesario desarrollar las páginas de Ayuda, con vídeos mostrando cada tipo de funcionalidad a modo de guía, y Contacto de la aplicación web, para ofrecer soporte a cualquier usuario que quiera aprender a utilizarla.
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

@@ -1,0 +1,172 @@
+  
+%---------------------------------------------------------------------%
+%																	  %
+%               Capítulo 7 - Evaluación				  		  %
+%																	  %
+%---------------------------------------------------------------------%
+\setlength{\parskip}{\baselineskip}
+
+\chapter{Evaluación de AdaptaMaterialEscolar}
+
+\begin{resumen}
+	En este capítulo se explicará cómo se realizó la evaluación del proyecto AdaptaMaterialEscolar con los usuarios finales y los resultados obtenidos.
+\end{resumen}
+	
+%------Primera sección------%
+\section{Introducción}
+%-----------------------------------%
+	Una vez terminada la primera versión de la aplicación web AdaptaMaterialEscolar, organizamos la evaluación que necesitábamos para cumplir la intención principal de ésta, la de confirmar si finalmente había resultado útil nuestro proyecto para los docentes que tuvieran que realizar algún tipo de adaptación curricular al alumnado que lo necesitara, durante cualquier etapa académica.
+	
+	Con el fin de hacer una valoración detallada, los aspectos que queríamos evaluar en nuestro proyecto eran: el diseño de la interfaz, la usabilidad del sistema al completo, cada funcionalidad independiente y las posibles mejoras que se podrían implementar en el futuro. 
+	
+%------Segunda sección------%
+\section{Diseño de la evaluación}
+%-----------------------------------%
+	Para que los usuarios finales pudieran evaluar la aplicación, redactamos un examen de prueba, a partir de un tema adaptado de Ciencias Naturales que nos facilitaron las propias profesoras del Aula TEA, con cada una de las funcionalidades que estaban desarrolladas para el momento de la prueba, que se encuentra en el Anexo \ref{AnexoA:examenprueba}, con la intención de replicarlo con ellos durante la evaluación y, además, se les facilitó el enlace a la aplicación web para que después pudieran practicar libremente. Facilitamos la realización de la evaluación y análisis de los resultados de nuestra aplicación web desarrollando una encuesta en Google Forms para los usuarios finales. Las preguntas del cuestionario se estructuraron según el ámbito y fueron las siguientes:
+	\begin{itemize}
+		\item \textbf{Preguntas generales}. Datos demográficos del usuario.
+		\begin{itemize}
+			\item ¿Cuál es tu género?
+			\item ¿Eres docente?
+		\end{itemize}
+			\item \textbf{Preguntas para docentes}. Recogen el nivel académico en el que imparten clase y el centro educativo en el que trabajan.
+			\begin{itemize}
+			\item ¿Podrías decirnos en qué nivel del sistema educativo eres docente?
+			\item ¿Podrías decirnos de qué centro educativo? (Pregunta no obligatoria).
+		\end{itemize}
+		\item \textbf{Preguntas sobre usabilidad}. Siguen el cuestionario de la Escala de Usabilidad de un Sistema \citep{SUS}, o SUS (System Usability Scale) por sus siglas en inglés. SUS es uno de los cuestionarios para usabilidad más utilizados. Las preguntas de este cuestionario son las siguientes:
+		\begin{itemize}
+			\item Creo que me gustaría utilizar este sistema con frecuencia.
+			\item El sistema me parece innecesariamente complejo.
+			\item Me pareció que el sistema era fácil de utilizar.
+			\item Creo que necesitaría el apoyo de un técnico para ser capaz de utilizar este sistema.
+			\item Me parece que las distintas funciones de este sistema estaban bien integradas.
+			\item Me pareció que había demasiada inconsistencia en este sistema.
+			\item Me imagino que la mayoría de la gente aprendería a utilizar este sistema muy rápidamente.
+			\item El sistema me pareció muy engorroso de usar.
+			\item Me sentí muy seguro al utilizar el sistema.
+			\item Tuve que aprender muchas cosas antes de poder ponerme en marcha con este sistema.
+		\end{itemize}
+		
+		A partir de las respuestas a estas preguntas se obtiene una puntuación de la siguiente manera:
+		\begin{itemize}
+			\item En las preguntas pares se debe restar a 5 el valor que asigne el usuario.
+			\item En las preguntas impares se debe restar 1 al valor que asigne el usuario.
+			\item El resultado de cada pregunta (tras realizar las operaciones anteriores) debe sumarse y multiplicarse finalmente por 2.5.
+		\end{itemize}
+		Si el resultado que se obtiene es cercano a 100, que es la máxima puntuación que se podría obtener con las preguntas del cuestionario, significa que la usabilidad del proyecto es buena para el usuario. En caso contrario, habría que realizar cambios para mejorar y facilitar su uso.
+		\item \textbf{Preguntas sobre diseño}. Obtienen información sobre la estética de la aplicación.
+		\begin{itemize}
+			\item ¿Te parece que la aplicación es visualmente atractiva?
+			\item ¿Te gustaría que se realizaran cambios en la estética de la aplicación? (Pregunta no obligatoria).
+		\end{itemize}
+		\item \textbf{Preguntas sobre funcionalidades}. Obtienen información sobre la dificultad de uso de cada funcionalidad y recopilar nuevas adaptaciones o mejoras que se desean para la aplicación.
+		\begin{itemize}
+			\item Selecciona la dificultad de uso de cada funcionalidad de la aplicación (1 es Muy difícil y 5 Muy fácil)
+			\item ¿El tamaño de la letra y el espacio es adecuado?
+			\item ¿El tamaño de los pictogramas es adecuado?
+			\item ¿Te gustaría que se añadiera alguna configuración de formato más? Por ejemplo, otros tipos de fuente, tamaño, etc. (Pregunta no obligatoria).
+		\end{itemize}
+		\item \textbf{Preguntas sobre utilidad real}. Comprueban si realmente la aplicación ha cumplido con su finalidad y evaluar si debería seguir en desarrollo en el futuro. 
+		\begin{itemize}
+			\item ¿Te parece que la aplicación es útil?
+			\item ¿Crees que ayuda a reducir el tiempo de trabajo del profesorado?
+			\item ¿Te gustaría que la aplicación siguiera en desarrollo para mejorarla?
+			\item ¿Qué mejorarías en la aplicación? (Pregunta no obligatoria).
+		\end{itemize}
+	\end{itemize}
+	
+	En las preguntas donde se debía establecer como respuesta una puntuación utilizamos una escala Likert de 5 puntos, donde las puntuaciones iban del 1 al 5, significando la valoración más baja que el usuario está ``Muy en desacuerdo'' con la afirmación de la pregunta y, en la más alta, ``Muy de acuerdo''. Todos los apartados de la encuesta, a excepción del de usabilidad, fueron planificados por nosotros específicamente para obtener información que considerábamos relevante para el proyecto.
+	
+	El cuestionario se encuentra en la dirección web: \url{https://docs.google.com/forms/d/e/1FAIpQLSfZKu\_D1C2T3UMi7gQf1qzV7Ne0MbsNigVGhcOkaZ5xez7COw/viewform?usp=sf\_link}
+
+%------Tercera sección------%
+\section{Desarrollo de la evaluación}
+%-----------------------------------%
+	
+	El viernes 28 de mayo planificamos una reunión presencial en el IES Maestro Juan de Ávila, de Ciudad Real, con las profesoras del Aula TEA, quienes han colaborado con nosotros durante todo el proyecto. Una vez allí, la orientadora del centro, María José Morales Rubio, se unió a la demostración que realizamos por su propia iniciativa e interés en nuestro proyecto. Realizamos una prueba de aproximadamente una hora de duración, en la que se les mostró cómo utilizar AdaptaMaterialEscolar y replicamos con ellas el examen que habíamos preparado.
+
+	Ese mismo día se realizó la misma demostración de la aplicación, también de forma presencial, con otra profesora del mismo instituto, Esther Valiente Moreno, que imparte las asignaturas de Emprendimiento Empresarial y Economía en el centro y cuenta con un alumno TEA en una de las clases. Por falta de tiempo no se pudo mostrar el proyecto a más profesores ni se recogieron más evaluaciones, aunque contactaron con nosotros tres docentes más que se habían interesado en AdaptaMaterialEscolar y tenían intención de aprender a utilizarlo para el curso siguiente. Uno de ellos imparte Biología y los otros dos, Historia y Geografía.
+	
+	El día 1 de junio, la Jefa de Estudios y profesora del IES Pedro Álvarez de Sotomayor, de Manzanares, María de las Cruces Valiente Moreno, que imparte la asignatura de Tecnología Industrial, también contactó con nosotros para conocer el proyecto, debido a que se interesó por los comentarios que le llegaron del IES Maestro Juan de Ávila. Nos comentó que en su centro había un alumno con sordera total a quien debían adaptar el material y organizamos una reunión por videollamada para realizar la misma demostración que al resto de profesores, para mostrarle el funcionamiento de AdaptaMaterialEscolar.
+	
+	Durante las reuniones con todos los profesores de los distintos centros educativos, surgieron requisitos nuevos que se pretenden plantear como trabajo futuro en caso de que AdaptaMaterialEscolar pudiera seguir en desarrollo en los próximos años. Incluso se nos llegó a ofrecer la oportunidad de realizar un curso de formación a nuevos profesores y alumnos de máster el curso que viene, en el IES Maestro Juan de Ávila, para presentarlo como herramienta de adaptabilidad para el profesorado, independientemente de si llegábamos a cumplir con los nuevos requisitos o si manteníamos el proyecto tal y como lo vieron.
+	
+%------Cuarta sección------%
+\section{Resultado de la evaluación}
+%-----------------------------------%
+
+	Finalmente, el número de usuarios finales que participaron en la evaluación de la aplicación web y contestaron la encuesta fueron 5, todas mujeres y docentes de Educación Secundaria y/o Bachillerato, aunque de haber dispuesto de más tiempo habríamos llegado a tener 9 en total, por el interés de otros profesores. Los centros de estudios participantes fueron el IES Maestro Juan de Ávila, de Ciudad Real, y el IES Pedro Álvarez de Sotomayor, de Manzanares.
+	
+	El resultado a las preguntas de usabilidad del SUS fue realmente positivo, ya que obtuvimos una puntuación final de 99, siendo 100 la máxima puntuación, por lo que se puede concluir que el sistema es fácilmente manejable por los usuarios con una formación mínima. La gráfica con la media de las puntuaciones de cada pregunta se puede ver en la Figura \ref{fig:grafico1} y los cálculos del resultado en la Tabla \ref{tabla:cap7:resultadoSUS}.
+	
+	\begin{longtable}[c]{|c|c|}
+		\hline
+		\textbf{Pregunta 1} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\endfirsthead
+		%
+		\multicolumn{2}{c}%
+		{{\bfseries Tabla \thetable\ continuada de la página anterior}} \\
+		\endhead
+		%
+		\textbf{Pregunta 2} & \textbf{$ 5 - 1.2  = 3.8 $} \\ \hline
+		\textbf{Pregunta 3} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 4} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 5} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 6} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 7} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 8} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Pregunta 9} & \textbf{$ 4.8 - 1  = 3.8 $} \\ \hline
+		\textbf{Pregunta 10} & \textbf{$ 5 - 1  = 4 $} \\ \hline
+		\textbf{Resultado} & \textbf{$ ((4\cdot 8) + (3.8\cdot 2) \cdot 2.5) = 99 $} \\ \hline
+		\caption{Cálculo del resultado del cuestionario de SUS}
+		\label{tabla:cap7:resultadoSUS}\\
+	\end{longtable}
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[scale=1.5, angle=90]{Imagenes/Bitmap/grafico1}
+		\caption{Gráfica de resultados de la Escala de Usabilidad de un Sistema}
+		\label{fig:grafico1}
+	\end{figure}
+
+	En cuanto a las preguntas sobre Diseño, Funcionalidades individuales y Utilidad real de la aplicación, los resultados fueron muy positivos. El diseño de la aplicación se consideró adecuado y únicamente se sugirió dar colores diferentes a cada una de las pestañas de las funcionalidades, para diferenciarlas mejor. En cuanto a las funcionalidades, la consideración fue, en general, que resultaban fáciles de comprender y utilizar, aunque el tamaño de los pictogramas era algo pequeño y se prefería que pudiera aumentarse. Sobre la utilidad real del proyecto, todas las respuestas apuntaron a que el proyecto era muy útil para el profesorado y expresaron su interés en que siguiera en desarrollo en el futuro. El resultado de la media de cada pregunta en cada apartado se puede consultar en la Figura \ref{fig:grafico2}.
+	
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[scale=1.5, angle=90]{Imagenes/Bitmap/grafico2}
+		\caption{Gráfica de resultados de Diseño, Funcionalidades y Utilidad real}
+		\label{fig:grafico2}
+	\end{figure}
+		
+	Además de reiterar la necesidad de continuar desarrollando los requisitos de la captación inicial, se recopilaron entre las reuniones y en la encuesta nuevas funcionalidades para asignaturas que no se tuvieron en cuenta al principio, y mejoras adicionales para AdaptaMaterialEscolar. Los requisitos fueron los siguientes:
+	\begin{itemize}
+		\item Añadir una herramienta de pictotraductor como funcionalidad, para traducir de pictogramas a lenguaje natural y viceversa.
+		\item Añadir cuadrícula para ejercicios de matemáticas, para que los alumnos puedan escribir los números en ella.
+		\item Añadir la alternativa de añadir doble pauta, en vez de renglones de una única línea, para determinar el tamaño de la letra del alumno.
+		\item Crear una herramienta de recorte de imágenes para el texto original.
+		\item Añadir encabezado al texto con, al menos, nombre del centro educativo, nombre del alumno y asignatura.
+		\item Añadir ejercicios con espacio para dibujar.
+		\item Añadir ejercicios para ejercicios de cálculo con fórmulas con huecos a rellenar por el alumno.
+		\item Enumerar ejercicios de forma automática.
+		\item Añadir doble pauta en lugar de renglones sencillos, para delimitar el tamaño de la letra del alumno.
+		\item Añadir algún tipo de fuente de letra escolar.
+	\end{itemize}
+
+%------Cuarta sección------%
+\section{Conclusión de la evaluación}
+%-----------------------------------%
+
+	Con respecto a la evaluación de la aplicación web AdaptaMaterialEscolar, podemos determinar que la acogida por parte de los usuarios finales fue mejor de la esperada y que se ha conseguido desarrollar una herramienta para docentes que tiene una utilidad real que cumple con sus necesidades en el momento de facilitar la adaptación de material escolar. La usabilidad del sistema, con una puntuación de 99 sobre 100, y la estética de la aplicación, con una puntuación de 4,6 sobre 5, requieren poca mejora futura, aunque siempre se podrá perfeccionar si se continua colaborando con nuevos usuarios.
+	
+	La conclusión que podemos sacar después de haber realizado la evaluación es que el proyecto ha sido un acierto y hay una necesidad real de que se continúe desarrollándolo y mejorándolo, para así cubrir el amplio espectro de peticiones de los docentes y las diversas asignaturas de los centros académicos que podrían beneficiarse del uso de la aplicación. 
+	
+	Aún así, aunque el proyecto generó interés en el profesorado del esperados, el número de evaluaciones que obtuvimos fue muy reducido, por lo que para conseguir una conclusión más significativa se debería contactar con más docentes, para recoger también sus evaluaciones y propuestas de mejora futura para la aplicación.
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

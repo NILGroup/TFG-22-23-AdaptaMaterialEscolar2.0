@@ -1,0 +1,94 @@
+  
+%---------------------------------------------------------------------%
+%																	  %
+%               Capítulo 7 - Trabajo individual				  		  %
+%																	  %
+%---------------------------------------------------------------------%
+\setlength{\parskip}{\baselineskip}
+
+\chapter{Trabajo Individual}
+
+\begin{resumen}
+	En este capítulo se habla del trabajo individual que ha realizado cada miembro del equipo en el proyecto.	
+\end{resumen}
+	
+	
+%------Primera sección: Natalia------%
+\section{Natalia}
+%-----------------------------------%
+\label{cap7:sec:natalia}
+
+Una de las tareas que he realizado durante todo el proyecto ha sido la de actuar como punto de comunicación entre nuestro equipo y las profesoras del Aula TEA del IES Maestro Juan de Ávila de Ciudad Real. Contacté con ellas para realizar una entrevista presencial, donde se les pidió colaboración en el proyecto, de forma que pudieran aportar su punto de vista profesional y experiencia trabajando con alumnos con necesidades especiales. Realicé la captación de requisitos inicial del proyecto en base a las necesidades que para las profesoras del Aula TEA aún no estaban cubiertas por ninguna herramienta de trabajo que pudiera facilitar la adaptación de material escolar, aunque tampoco para ningún otro docente de ese centro. Evalué los requisitos que se habían obtenido como resultado de la captación de requisitos de forma individual, según los conocimientos adquiridos durante el grado, y calculé la prioridad final de cada tarea con la puntuación que habían asignado las profesoras y todos los componentes del equipo de desarrollo. 
+
+Realicé junto con mis compañeros de equipo un diseño para la interfaz gráfica de la aplicación web para conseguir un prototipo inicial, de forma que vimos las diferentes herramientas que podíamos añadir al trabajo para aportar valor, como por ejemplo, un editor de código abierto de tipo WYSIWYG\footnote{\label{wysiwyg}\textbf{WYSIWYG}, acrónimo de \textit{What You See Is What You Get} (en español, ``lo que ves es lo que obtienes''). Es una frase aplicada a los procesadores de texto y otros editores con formato, que permiten escribir un documento mostrando directamente el resultado final, frecuentemente el resultado impreso. \url{https://es.wikipedia.org/wiki/WYSIWYG}}.
+
+También realicé un diseño distinto al prototipo inicial del proyecto de forma individual, para que no hubiera influencia entre el equipo y se pudiera debatir luego sobre los cambios que cada uno consideraba importantes, de manera que fuera posible mejorar el diseño inicial añadiendo los cambios que a todos nos habían parecido necesarios y relevantes.
+
+Investigué sobre cómo subir un fichero de texto que estuviera almacenado en una ubicación local del ordenador y sobre el editor de texto CKEditor 5, para poder añadirlo al prototipo individual y comprobar la dificultad inicial de implementar los requisitos necesarios para el proyecto.
+
+Una vez que se consiguió añadir el editor de texto y escogimos la interfaz definitiva, comencé a desarrollar la adaptación de formato del generador de resúmenes y tres actividades: ejercicio de verdadero o falso, de definiciones y de desarrollo.
+
+Cuando tuvimos una versión suficientemente desarrollada de AdaptaMaterialEscolar, me encargué de preparar la evaluación del proyecto y redacté las preguntas que haríamos a los usuarios que probaron el sistema, para poder obtener información real sobre la utilidad de la aplicación y las posibles mejoras que podrían hacerse en un futuro cercano. 
+
+Contacté de nuevo con los usuarios finales para realizar una reunión presencial en la que pudiera mostrarles el avance del proyecto, cómo se utilizaba la aplicación y darles la opción de que la evaluaran.
+
+Por último, realicé más demostraciones de AdaptaMaterialEscolar a otros profesores que se interesaron y analicé los resultados obtenidos después de la reunión presencial con las profesoras.
+
+En cuanto a la redacción de la memoria del Trabajo Final de Grado, me encargué del Capítulo 1, con la introducción, motivación y objetivos del proyecto, del Capítulo 6 el apartado 6.1 de Requisitos y el apartado 6.3 de Estructura del código, el Capítulo 7 con la evaluación y el Capítulo 8 con las conclusiones y el trabajo futuro.
+
+
+%------Segunda sección: Jorge------%
+\section{Jorge}
+%-----------------------------------%
+\label{cap7:sec:jorge}
+	
+	El 4 de diciembre de 2019 el grupo de investigación NIL organizó un \textit{workshop} en la Facultad con docentes de otros centros y asociaciones, en el que se mostraban herramientas tecnológicas inclusivas que se habían desarrollado o estaban en desarrollo. Presenté, en ese \textit{workshop}, AdaptaMaterialEscolar, donde expliqué el funcionamiento y finalidad de este proyecto, con ejemplos visuales sobre posibles adaptaciones que podrían llegar a realizarse.
+	
+	Una vez que Natalia consiguió recabar los requisitos junto con las profesoras del Aula TEA, lo primero de todo fue evaluar esos requisitos por ambas partes; las profesoras debían puntuarlos según la importancia que tuviera ese requisito y nosotros lo tuvimos que puntuar por la dificultad de implementación  de forma individual y sin influir los unos con los otros. Una vez realizado esto, se hizo la media de dificultad entre los tres integrantes.
+	
+	A continuación, creamos en conjunto un prototipo inicial a través de la herramienta online \textit{Moqups}, donde surgieron varias vistas de la aplicación, descritas en la sección \ref{cap6:sec:diseño:subsec:segunda}. Así mismo, diseñé un prototipo individual, al igual que mis compañeros, para poder mejorar ese diseño en conjunto, el cual se puede ver en las figuras \ref{fig:paginaInicialProtoJorge}, \ref{fig:editorProtoJorge}, \ref{fig:desplegableProtoJorge} y \ref{fig:vistaPreviaProtoJorge}.	
+	
+	Me encargué de gestionar y reorganizar el tablero \kanban, y de que estuviera lo más actualizado posible tras las reuniones con las tutoras.
+	
+	Así mismo, y como la esencia de este proyecto es realizar adaptaciones, investigamos distintos editores de código abierto de tipo ``WYSIWYG''\cref{wysiwyg}, aunque al final uno de mis compañeros localizó uno que cumplía las características que buscábamos, \textit{CKEditor}. Una vez implementado este editor por parte de mi compañero Pablo, cada uno de nosotros se encargó de buscar herramientas y librerías que pudieran facilitar la implementación de los requisitos. En mi caso investigué si había algún paquete NPM (\textit{Node Package Manager}) sobre generación de sopas de letras, y ver si con nuestra tecnología era posible integrarlo. 
+	
+	En la aplicación fui el encargado de implementar el ejercicio de generación de sopas de letras y de completar huecos, y ayudé a Natalia con los ejercicios de pregunta para desarrollar, verdadero o falso y definiciones.
+	
+	Posteriormente rediseñé la mayoría de la interfaz de usuario de nuestra aplicación, en concreto, la barra de herramientas de los ejercicios (\textit{toolbar}) y las ventanas modales de éstos.
+	
+	También investigué la API de Google Docs para ver si se podía implementar en el proyecto y así poder subir ficheros en formatos que no sean solo \textit{.pdf} de forma sencilla. Esta funcionalidad no se integró finalmente en la aplicación final.
+	
+	Con respecto a la redacción de la memoria de este proyecto, me encargué de redactar el Capítulo 4 (Herramientas empleadas), Capítulo 5 (Metodología de desarrollo), del Capítulo 6 (AdaptaMaterialEscolar) los apartados 6.2 (Diseño) y del 6.3 (Implementación) el párrafo de introducción, del 6.3.2 (Funcionalidades) los subapartados 6.3.2.1 (Subir un documento fuente), 6.3.2.2 (Editor), 6.3.2.4 (Sopa de letras), 6.3.2.5 (Definiciones), 6.3.2.6 (Pregunta para desarrollar), 6.3.2.7 (Verdadero o falso) y 6.3.2.8 (Completar huecos) y del Capítulo 8 el apartado 8.2 junto con Natalia.
+
+%------Última sección: Pablo------%
+\section{Pablo}
+%-----------------------------------%
+\label{cap7:sec:pablo}
+
+Aporté mi puntuación de 1 a 3 de dificultad a los requisitos propuestos por las profesoras.
+
+Una vez decidido que el proyecto iba a ser web, había que decidir qué tecnologías FrontEnd usar. Por ello propuse usar React en el proyecto dada su comodidad, sencillez y adecuación para el proyecto. Además, mi previa experiencia usándolo serviría de ayuda para mis compañeros. La propuesta fue aceptada e implementada.
+
+Investigué sobre librerías aptas para poder integrar un editor WYSIWYG\cref{wysiwyg} en la web. Finalmente propuse CKEditor por su gran cantidad de funciones, soporte y personalización, y fue aceptado por el equipo. Exploré la documentación de CKEditor en profundidad, procurando encontrar qué funcionalidades del framework eran útiles y necesarias para nuestro proyecto.
+
+Posteriormente, realicé un prototipo web usando las tecnologías y librerías web propuestas. Este prototipo estaba realizado con React y CKEditor y mostraba un editor de texto que contenía un buscador de pictogramas integrado. De esta manera podía comprobar la viabilidad del proyecto con las tecnologías propuestas y servir como referencia en la estructura y avance del proyecto. Además, facilitaría el aprendizaje de su uso a mis compañeros. Este prototipo conllevó la investigación por mi parte de la API de ARASAAC, pues fueron sus pictogramas los que se implementaron en el buscador.
+
+Inicialicé un repositorio en GitHub para poder almacenar nuestra plantilla de la memoria, gestionarlo de manera más ordenada y no recurrir a otras herramientas de edición de texto. Este repositorio posteriormente se transfirió al repositorio final del proyecto. Además, propuse la metodología de trabajo en Git, sugiriendo que cada integrante del equipo trabajase en una rama propia y, una vez implementasen una funcionalidad estable, se fusionasen los cambios con la rama master, donde se encuentra la versión final.
+
+Realicé investigaciones sobre patrones de diseño Front-End, hasta finalmente proponer Redux. Tras la aceptación de este por parte de mis compañeros, realicé una amplia investigación sobre el funcionamiento de la arquitectura y realicé la adaptación del proyecto con el patrón, creando un proyecto desde cero, refactorizando y clasificando las clases, creando el Store, los reductores, acciones e importando paquetes necesarios para ello como react-redux, reselect, y redux-thunk. Además, integré las funcionalidades que realizaron mis compañeros en sus respectivos prototipos en este nuevo proyecto, para así tener un proyecto en común en el que trabajar. Posteriormente, expliqué los cambios y el funcionamiento a mis compañeros para que comprendiesen la nueva arquitectura y pudieran continuar con sus nuevas tareas en el nuevo proyecto.
+
+Realicé amplias configuraciones en el proyecto de CKEditor, integrándolo con Redux, permitiendo que el editor internamente reconociese nuestro modelo de datos y poder configurar la exportación a PDF de la manera más rigurosa posible.
+
+Realicé investigaciones sobre cómo poder desplegar la aplicación en el servidor cedido por la universidad hasta conseguirlo. Configuré el servidor instalando node y las librerías necesarias para desplegar una aplicación React. Una vez conseguido, generé un documento explicando las herramientas y comandos necesarios para poder subir la aplicación al servidor y que sirviese de soporte tanto para mis compañeros como para mí.
+
+Por último, contacté por escrito con el equipo de CKEditor para pedir una licencia del editor y solicitar una licencia de la funcionalidad de pago exportar a PDF, las cuales aceptaron a cedérnosla gratuitamente dada la naturaleza solidaria y de código abierto de nuestro proyecto.
+
+En cuanto a la redacción de la memoria, me encargué de redactar el Capítulo 3 con el Estado del arte, del Capítulo 6, el apartado 6.2 con la Arquitectura y el subapartado 6.2.2.3 con la funcionalidad del Buscador de pictogramas y traduje a inglés el Capítulo 1 de Introducción y el Capítulo 8 de Conclusiones y Trabajo futuro.
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

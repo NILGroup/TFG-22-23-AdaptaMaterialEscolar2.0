@@ -1,0 +1,58 @@
+/**pictograms
+*/
+.pictogram{
+    width: 80px;
+    height:80px;
+}
+/**
+Definitions
+*/
+
+.line{
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-top: 1.2em;
+    display: inline-flex;
+}
+    
+.defi{
+    margin-bottom: 0.75em;
+}
+
+.extraspace-lines{
+    margin-top: 2em;
+}
+
+.definitions-same-line{
+    width: 200px;
+}
+
+.definitions-line{
+    width: 100%;
+    border-bottom: 2px solid black;
+    height: 25px;
+}
+
+.definitions-line-more{
+    width: 100%;
+    border-bottom: 2px solid black;
+    height: 40px;
+}
+
+.true-false-box{
+    border: 1px solid black;
+    width: 25px;
+    height: 30px;
+    margin-left: 5px;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+td{
+    text-align: center;
+}
+
+li{
+    margin-top: 5px;
+}
+/*TODO Wordsearch*/
