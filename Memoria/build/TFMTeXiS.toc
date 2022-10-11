@@ -5,22 +5,38 @@
 \contentsline {section}{\numberline {1.1}Motivación}{1}{section.10}%
 \contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.11}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {3}Estado de la Cuestión}{5}{chapter.12}%
+\contentsline {chapter}{\numberline {3}Estado del arte}{5}{chapter.12}%
+\contentsline {section}{\numberline {3.1}Introducción}{5}{section.13}%
+\contentsline {section}{\numberline {3.2}Concepto de la adaptación curricular}{5}{section.14}%
+\contentsline {section}{\numberline {3.3}Adaptaciones de acceso}{6}{section.15}%
+\contentsline {subsection}{\numberline {3.3.1}Acceso espacial}{6}{subsection.16}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}Adaptaciones en la sonorización del aula}{6}{subsubsection.17}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}Adaptaciones en la iluminación del aula}{6}{subsubsection.18}%
+\contentsline {subsubsection}{\numberline {3.3.1.3}Adaptaciones en el espacio físico}{6}{subsubsection.19}%
+\contentsline {subsection}{\numberline {3.3.2}Acceso material}{7}{subsection.20}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Material adaptado}{7}{subsubsection.21}%
+\contentsline {subsubsection}{\numberline {3.3.2.2} Materiales específicos}{7}{subsubsection.22}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}Acceso de comunicación}{7}{subsubsection.23}%
+\contentsline {section}{\numberline {3.4}Adaptaciones curriculares}{7}{section.24}%
+\contentsline {subsubsection}{\numberline {3.4.0.1}Adaptaciones curricualares significativas}{7}{subsubsection.25}%
+\contentsline {subsubsection}{\numberline {3.4.0.2}Adaptaciones curricualares no significativas}{8}{subsubsection.26}%
+\contentsline {section}{\numberline {3.5}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{8}{section.27}%
+\contentsline {section}{\numberline {3.6}Conclusión}{10}{section.28}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {4}Chicha}{7}{chapter.13}%
-\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{7}{section.14}%
-\contentsline {subsection}{\numberline {4.1.1}Clases de servicios}{7}{subsection.15}%
-\contentsline {section}{\numberline {4.2}Plan de Pruebas}{7}{section.16}%
-\contentsline {subsection}{\numberline {4.2.1}Tipos de pruebas}{7}{subsection.17}%
-\contentsline {subsection}{\numberline {4.2.2}Pruebas relacionadas con la memoria}{7}{subsection.18}%
-\contentsline {subsection}{\numberline {4.2.3}Pruebas de implementación}{8}{subsection.22}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Pruebas Unitarias}{8}{subsubsection.23}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Pruebas de integración}{9}{subsubsection.24}%
-\contentsline {subsection}{\numberline {4.2.4}Integración continua}{9}{subsection.26}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{11}{chapter.30}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{13}{chapter.31}%
+\contentsline {chapter}{\numberline {4}Chicha}{11}{chapter.29}%
+\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{11}{section.30}%
+\contentsline {subsection}{\numberline {4.1.1}Clases de servicios}{11}{subsection.31}%
+\contentsline {section}{\numberline {4.2}Plan de Pruebas}{11}{section.32}%
+\contentsline {subsection}{\numberline {4.2.1}Tipos de pruebas}{11}{subsection.33}%
+\contentsline {subsection}{\numberline {4.2.2}Pruebas relacionadas con la memoria}{11}{subsection.34}%
+\contentsline {subsection}{\numberline {4.2.3}Pruebas de implementación}{12}{subsection.38}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Pruebas Unitarias}{12}{subsubsection.39}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Pruebas de integración}{13}{subsubsection.40}%
+\contentsline {subsection}{\numberline {4.2.4}Integración continua}{13}{subsection.42}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{15}{chapter.46}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{17}{chapter.47}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {A}Título}{15}{appendix.32}%
+\contentsline {chapter}{\numberline {A}Título}{19}{appendix.48}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {B}Título}{17}{appendix.33}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{19}{appendix*.34}%
+\contentsline {chapter}{\numberline {B}Título}{21}{appendix.49}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{23}{appendix*.50}%
