@@ -1,0 +1,19 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.9}%
+\contentsline {section}{\numberline {1.1}Motivación}{1}{section.10}%
+\contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.11}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {3}Estado de la Cuestión}{5}{chapter.12}%
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {4}Chicha}{7}{chapter.13}%
+\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{7}{section.14}%
+\contentsline {subsection}{\numberline {4.1.1}Clases de servicios}{7}{subsection.15}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{9}{chapter.16}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{11}{chapter.17}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {A}Título}{13}{appendix.18}%
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {B}Título}{15}{appendix.19}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{17}{appendix*.20}%
