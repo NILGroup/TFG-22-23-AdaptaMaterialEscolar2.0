@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: TFMTeXiS.aux
+A level-1 auxiliary file: Cascaras/cover.aux
+A level-1 auxiliary file: Cascaras/autorizacion.aux
+A level-1 auxiliary file: Cascaras/dedicatoria.aux
+A level-1 auxiliary file: Cascaras/agradecimientos.aux
+A level-1 auxiliary file: Cascaras/resumen.aux
+A level-1 auxiliary file: Cascaras/abstract.aux
+A level-1 auxiliary file: TeXiS/TeXiS_toc.aux
+A level-1 auxiliary file: Capitulos/Introduccion.aux
+A level-1 auxiliary file: Capitulos/Introduction.aux
+A level-1 auxiliary file: Capitulos/EstadoDeLaCuestion.aux
+A level-1 auxiliary file: Capitulos/Chicha.aux
+A level-1 auxiliary file: Capitulos/ConclusionesTrabajoFuturo.aux
+A level-1 auxiliary file: Capitulos/ConclusionsFutureWork.aux
+A level-1 auxiliary file: Apendices/appendixA.aux
+A level-1 auxiliary file: Apendices/appendixB.aux
+A level-1 auxiliary file: Cascaras/bibliografia.aux
+The style file: TeXiS/TeXiS.bst
+A level-1 auxiliary file: Cascaras/fin.aux
+Database file #1: nuestros.bib
+Database file #2: latex.bib
+Database file #3: otros.bib
+Warning--I didn't find a database entry for "ldesc2e"
+Warning--I didn't find a database entry for "notsoshort"
+Warning--I didn't find a database entry for "latexAPrimer"
+Warning--I didn't find a database entry for "latexCompanion"
+Warning--I didn't find a database entry for "LaTeXLamport"
+Warning--I didn't find a database entry for "texKnuth"
+You've used 0 entries,
+            2962 wiz_defined-function locations,
+            1102 strings with 12796 characters,
+and the built_in function-call counts, 23 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 8
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 4
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 3
+(There were 6 warnings)

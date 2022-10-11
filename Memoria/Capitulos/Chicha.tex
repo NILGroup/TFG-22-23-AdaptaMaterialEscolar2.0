@@ -9,7 +9,50 @@ Las clases de servicio que emplearemos serán las siguientes:
     \item Fixed Delivery Date: tareas con fecha fija que debemos cumplir.
     \item Standard: tareas que ya ha hecho antes el equipo y que no tienen un fecha fija.
     \item Intangible: tareas que son nuevas, se desconoce el tiempo que se le va dedicar, el riesgo que suponen.
-    \end{itemize}
+\end{itemize}
 
-
-
+\section{Plan de Pruebas}
+\subsection{Tipos de pruebas}
+Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Cada tipo de tarea se probará o revisará de manera diferente.
+\subsection{Pruebas relacionadas con la memoria}
+La revisión de la memoria consistirá en la búsqueda de faltas ortográficas y errores gramaticales, y comprobación de la claridad del texto. También, se confirmará que no falta información.
+La revisión de la memoria la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
+\begin{enumerate}
+    \item Cuando haya una tarea de memoria en la columna de \textit{DEV:DONE}, el miembro del equipo que vaya a revisarla se la asignará y la llevara a la columna de \textit{TESTING}.
+    \item Tras acabar de revisar la tarea de memoria, la moverá de vuelta a la columna de \textit{DEV:DONE}.
+    \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
+\end{enumerate}
+\subsection{Pruebas de implementación}
+Las pruebas de implementación consistirán de dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{DEV:DONE}. También se encargará de mover la tarea a la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+Para ambos tipos de pruebas, unitarias y de integración, se utilizará la herramienta Jest \underline{(ver sección de herramientas)}.
+\subsubsection{Pruebas Unitarias}
+Las pruebas unitarias son pruebas, mayoritariamente automatizadas, que verifican la funcionalidad de una unidad software (componente, clase o método), de forma aislada. Esta verificación no se debe ver afectada por otros casos de prueba que se hayan ejecutado anteriormente o por dependencias con otros módulos de la aplicación. Para evitar que las dependencias de un módulo, por ejemplo el acceso a una base de datos o una petición a una API externa, afecten al resultado de la prueba se pueden usar \textit{stubs} para simular esas dependencias.
+La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que los cambios no han afectado al funcionamiento esperado de la aplicación.
+Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay que asegurarse de que cumplen las siguientes características:
+\begin{itemize}
+    \item Deben ser automáticas y repetibles, es decir, se deben poder ejecutar tantas veces como uno quiera sin necesidad de intervención manual durante las pruebas.
+    \item Deben ser rápidas, ya que si el ejecutar las pruebas unitarias es un proceso lento, no se va a llevar a cabo tantas veces como sea necesario.
+    \item Cada caso de prueba debe estar aislado completamente del resto de casos o pruebas de otros módulos. Si no se aísla correctamente, se pueden producir resultados no consistentes, complicando la detección de errores.
+    \item Las pruebas deben ser relevantes para el futuro y deben tratar de cubrir la totalidad del código.
+\end{itemize}
+\subsubsection{Pruebas de integración}
+Las pruebas de integración se utilizan para comprobar que las conexiones o interfaces entre los distintos módulos, ya probados individualmente (pruebas unitarias), funcionan correctamente.
+En este proyecto las pruebas de integración se realizarán de forma incremental\footnote{\url{https://www.softwaretestinghelp.com/incremental-testing/}}, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. En esta estrategia, la integración se lleva a cabo de arriba abajo, siguiendo el flujo natural de la aplicación.
+Se seguirá una estrategia \textit{Top-Down} para realizar las pruebas. Utilizaremos esta estrategia, en vez de \textit{Bottom-Up}, porque nos queremos centrar en errores de diseño y tener una aplicación funcional probada lo antes posible.
+Puede darse el caso de que una prueba de integración no se pueda realizar debido a que alguno de los módulos a integrar está en desarrollo o todavía se está probando individualmente. En este caso, se utilizarán \textit{stubs} para simular la dependencia entre módulos.
+\subsection{Integración continua}
+Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua\footnote{\url{https://aws.amazon.com/es/devops/continuous-integration/}} es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases por las que va pasando el software y que se automatizan, esta serie de fases se conoce como \textit{pipeline}\footnote{\url{https://www.redhat.com/en/topics/devops/what-cicd-pipeline}}.
+El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasara a la fase \textit{Release}, en caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasara a la fase \textit{Release}, por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release}, se subirán los cambios automáticamente al repositorio. En la figura \ref{d1_pipeline} se muestra un diagrama del \textit{pipeline}.
+Las razones por las que creemos necesaria la implementación de integración continua en este proyecto son las siguientes:
+\begin{itemize}
+    \item En este proyecto se seguirá una metodología Kanban, por lo que el trabajo es continuo y es una metodología más propensa al cambio que otras metodologías agiles, como por ejemplo Scrum. La integración continua nos permitirá asegurarnos de que en todo momento el software cumple los requisitos especificados y funciona como se espera.
+    \item La integración continua mejora la productividad de desarrollo, ya que libera a los desarrolladores de tener que ejecutar las pruebas manualmente y tener que esperar a que se arreglen errores en el repositorio. Si al integrar el trabajo se produce un error en la verificación se notificará a los desarrolladores y el cambio que ha producido ese error no se subirá al repositorio compartido.
+    \item Mejora la detección de errores debido a la ejecución de pruebas de forma automática y frecuente, lo que permite a los desarrolladores descubrir los errores y arreglarlos antes de que se conviertan en problemas graves.
+    En este proyecto se utilizará la herramienta de GitHub Actions \underline{(ver sección de herramientas)} para implementar la integración continua y definir el pipeline.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{../Imagenes/DiagramaPipeline.png}
+    \caption{Diagrama del \textit{pipeline}}
+    \label{d1_pipeline}
+\end{figure}
