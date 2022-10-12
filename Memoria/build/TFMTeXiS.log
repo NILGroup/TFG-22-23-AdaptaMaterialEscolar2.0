@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.9.16)  12 OCT 2022 14:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 14:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/alber/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
-(c:/Users/alber/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
+**d:/Studies/UCM/TFG/Memoria/TFMTeXiS.tex
+(d:/Studies/UCM/TFG/Memoria/TFMTeXiS.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-07-04> (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+L3 programming layer <2022-08-30> (c:/texlive/2022/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
-(C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
+(c:/texlive/2022/texmf-dist/tex/latex/base/bk11.clo
 File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -27,9 +27,9 @@ File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 75.
 
-(config.tex) (TeXiS/TeXiS.sty
+(./config.tex) (./TeXiS/TeXiS.sty
 Package: TeXiS/TeXiS 
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks16
 \verbatim@line=\toks17
@@ -40,41 +40,35 @@ Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 460.
 
-(TeXiS/TeXiS_pream.tex (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\shortvrb.sty
+(./TeXiS/TeXiS_pream.tex (c:/texlive/2022/texmf-dist/tex/latex/base/shortvrb.sty
 Package: shortvrb 2022/06/08 v3.0j Standard LaTeX documentation package V3 (FMi)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks18
 \inpenc@posthook=\toks19
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip49
 \bibsep=\skip50
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count194
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2022/06/26 3.77 The Babel package
+) (c:/texlive/2022/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2022/09/17 3.80 The Babel package
 \babel@savecnt=\count195
 \U@D=\dimen139
-\l@unhyphenated=\language79
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\l@unhyphenated=\language87
+ (c:/texlive/2022/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
 \bbl@dirlevel=\count196
-
-*************************************
-* Local config file bblopts.cfg used
-*
-(C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+ (c:/texlive/2022/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
+(babel)             (\language21). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+(babel)             (\language21). Reported on input line 108.
+) (c:/texlive/2022/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks20
 \es@quotdepth=\count197
@@ -83,20 +77,20 @@ Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 Package babel Info: Making ' an active character on input line 740.
-)) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel-spanish.tex
+)) (c:/texlive/2022/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex
+) (c:/texlive/2022/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+ (c:/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-)) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/fncychap\fncychap.sty
+)) (c:/texlive/2022/texmf-dist/tex/latex/fncychap/fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
 \RW=\skip51
 \mylen=\skip52
@@ -105,40 +99,40 @@ Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
 \py=\skip55
 \pyy=\skip56
 \pxx=\skip57
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+ (c:/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+ (c:/texlive/2022/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count198
@@ -146,17 +140,17 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \@linkdim=\dimen140
 \Hy@linkcounter=\count199
 \Hy@pagecounter=\count266
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+ (c:/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+) (c:/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count267
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+ (c:/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -179,9 +173,9 @@ Package hyperref Info: Bookmarks ON on input line 4408.
 \c@Hy@tempcnt=\count268
 LaTeX Info: Redefining \url on input line 4746.
 \XeTeXLinkMargin=\dimen141
-(C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(c:/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+ (c:/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count269
@@ -194,7 +188,7 @@ Package hyperref Info: backreferencing OFF on input line 6039.
 Package hyperref Info: Link coloring OFF on input line 6044.
 Package hyperref Info: Link coloring with OCG OFF on input line 6049.
 Package hyperref Info: PDF/A mode OFF on input line 6054.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -203,17 +197,17 @@ package with kernel methods
 \c@Hfootnote=\count272
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+ (c:/texlive/2022/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
 \Fld@listcount=\count273
 \c@bookmark@seq@number=\count274
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+ (c:/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
@@ -221,7 +215,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip58
 )
 Package hyperref Info: Option `colorlinks' set `false' on input line 290.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\makeidx.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 )
 \@indexfile=\write4
@@ -229,8 +223,8 @@ Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 
 
 Writing index file TFMTeXiS.idx
-(C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
-Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+(c:/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \c@tracingmulticols=\count275
 \mult@box=\box51
 \multicol@leftmargin=\dimen144
@@ -297,11 +291,11 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \mult@nat@firstbox=\box94
 \colbreak@box=\box95
 \mc@col@check@num=\count284
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@tempdima=\dimen153
 \captionmargin=\dimen154
@@ -332,7 +326,7 @@ Package caption Info: hyperref package is loaded.
 \sf@bottom=\skip65
 )
 \sf@box=\box96
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count294
 \lst@gtempboxa=\box97
 \lst@token=\toks22
@@ -345,19 +339,19 @@ Package caption Info: hyperref package is loaded.
 \lst@newlines=\count298
 \lst@lineno=\count299
 \lst@maxwidth=\dimen165
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count300
 \lst@skipnumbers=\count301
 \lst@framebox=\box98
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+) (c:/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+ (c:/texlive/2022/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
 \col@sep=\dimen166
 \ar@mcellbox=\box99
 \extrarowheight=\dimen167
@@ -373,21 +367,21 @@ Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 \TX@delta=\dimen172
 \TX@cols=\count302
 \TX@ftn=\toks24
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen173
@@ -395,7 +389,7 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 )
 \epsfxsize=\dimen175
 \epsfysize=\dimen176
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count303
 \calc@Bcount=\count304
@@ -407,7 +401,7 @@ LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count305
 \calc@Cskip=\skip70
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box101
 \beforetitleunit=\skip71
@@ -418,9 +412,9 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \titlewidth=\dimen181
 \titlewidthlast=\dimen182
 \titlewidthfirst=\dimen183
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count306
 )
@@ -431,28 +425,28 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \csq@maxlvl=\count311
 \csq@tshold=\count312
 \csq@ltx@everypar=\toks26
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
+ (c:/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2022-09-14 v5.2n csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
+ (c:/texlive/2022/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
-)) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+)) (c:/texlive/2022/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2022/05/22 v0.5v Insert pages of external PDF documents (AM)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
 \ESO@tempdima=\dimen184
 \ESO@tempdimb=\dimen185
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.ltx)
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -466,7 +460,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 \AM@pagewidth=\dimen186
 \AM@pageheight=\dimen187
 \AM@fboxrule=\dimen188
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+ (c:/texlive/2022/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
 )
 \pdfpages@includegraphics@status=\count313
@@ -476,10 +470,10 @@ File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
 \AM@toc@title=\toks28
 \c@AM@survey=\count315
 \AM@templatesizebox=\box103
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-07-04 L3 programming layer (loader) 
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
+) (c:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (c:/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2022-08-30 L3 programming layer (loader) 
+ (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box104
 ))
@@ -489,11 +483,11 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count317
 \l__lipsum_a_int=\count318
 \l__lipsum_b_int=\count319
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex)))
+ (c:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)))
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 464.
 
-(TeXiS/TeXiS_cab.tex (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+(./TeXiS/TeXiS_cab.tex (c:/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footers
 \f@nch@headwidth=\skip73
 \f@nch@O@elh=\skip74
@@ -508,36 +502,36 @@ Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footer
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 467.
 
-(TeXiS/TeXiS_cover.tex)
+(./TeXiS/TeXiS_cover.tex)
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 470.
 
-(TeXiS/TeXiS_dedic.tex)
+(./TeXiS/TeXiS_dedic.tex)
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 473.
 
-(TeXiS/TeXiS_bib.tex))
+(./TeXiS/TeXiS_bib.tex))
 
 LaTeX Warning: \include should only be used after \begin{document} on input line 81.
 
-(constantes.tex)
+(./constantes.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+ (build/TFMTeXiS.aux (build/Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
+ (build/Cascaras/autorizacion.aux) (build/Cascaras/dedicatoria.aux) (build/Cascaras/agradecimientos.aux) (build/Cascaras/resumen.aux) (build/Cascaras/abstract.aux) (build/TeXiS/TeXiS_toc.aux)
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduccion.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduction.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/EstadoDeLaCuestion.aux)
+ (build/Capitulos/Introduccion.aux) (build/Capitulos/Introduction.aux) (build/Capitulos/EstadoDeLaCuestion.aux)
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Chicha.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionesTrabajoFuturo.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionsFutureWork.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Apendices/appendixA.aux)
+ (build/Capitulos/Chicha.aux) (build/Capitulos/ConclusionesTrabajoFuturo.aux) (build/Capitulos/ConclusionsFutureWork.aux) (build/Apendices/appendixA.aux)
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Apendices/appendixB.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/bibliografia.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/fin.aux))
+ (build/Apendices/appendixB.aux) (build/Cascaras/bibliografia.aux) (build/Cascaras/fin.aux))
 \openout1 = `TFMTeXiS.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
@@ -561,7 +555,7 @@ LaTeX Font Info:    ... okay on input line 105.
 LaTeX Info: Redefining \. on input line 105.
 LaTeX Info: Redefining \% on input line 105.
 Package hyperref Info: Link coloring OFF on input line 105.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out)
+ (build/TFMTeXiS.out) (build/TFMTeXiS.out)
 \@outlinefile=\write5
 \openout5 = `TFMTeXiS.out'.
 
@@ -570,7 +564,7 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count320
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count321
 \scratchdimen=\dimen189
@@ -583,28 +577,28 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count325
 \makeMPintoPDFobject=\count326
 \everyMPtoPDFconversion=\toks30
-) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+)) (c:/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
-) (guionado.tex)
+) (./guionado.tex)
 \openout2 = `Cascaras/cover.aux'.
 
- (Cascaras/cover.tex
+ (./Cascaras/cover.tex
 \cambioIzquierdo=\skip82
 \cambioDerecho=\skip83
 \margenPortada=\skip84
 \evensidemarginOriginal=\skip85
 \oddsidemarginOriginal=\skip86
 \longTitulo=\skip87
-<Imagenes/Vectorial/escudoUCM.pdf, id=159, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=144, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 159.
@@ -614,10 +608,10 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 
 
 
-{C:/Users/alber/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Imagenes/Vectorial/escudoUCM.pdf>] [2] [3])
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Imagenes/Vectorial/escudoUCM.pdf>] [2] [3])
 \openout2 = `Cascaras/autorizacion.aux'.
 
- (Cascaras/autorizacion.tex [4
+ (./Cascaras/autorizacion.tex [4
 
 
 
@@ -625,7 +619,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 ]) [5]
 \openout2 = `Cascaras/dedicatoria.aux'.
 
- (Cascaras/dedicatoria.tex [6
+ (./Cascaras/dedicatoria.tex [6
 
 
 
@@ -633,7 +627,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 ]) [7]
 \openout2 = `Cascaras/agradecimientos.aux'.
 
- (Cascaras/agradecimientos.tex [8
+ (./Cascaras/agradecimientos.tex [8
 
 
 
@@ -641,7 +635,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 ]) [9]
 \openout2 = `Cascaras/resumen.aux'.
 
- (Cascaras/resumen.tex [10
+ (./Cascaras/resumen.tex [10
 
 
 
@@ -649,7 +643,7 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 ]) [11]
 \openout2 = `Cascaras/abstract.aux'.
 
- (Cascaras/abstract.tex [12
+ (./Cascaras/abstract.tex [12
 
 
 
@@ -659,12 +653,12 @@ LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
 \openout2 = `TeXiS/TeXiS_toc.aux'.
 
- (TeXiS/TeXiS_toc.tex [14
+ (./TeXiS/TeXiS_toc.tex [14
 
 
 
 
-] (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.toc
+] (build/TFMTeXiS.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -675,16 +669,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
-LaTeX Info: Redefining \. on input line 31.
-LaTeX Info: Redefining \% on input line 31.
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+
+Underfull \vbox (badness 1077) has occurred while \output is active []
+
  [15]
-LaTeX Info: Redefining \. on input line 46.
-LaTeX Info: Redefining \% on input line 46.
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
 )
 \tf@toc=\write6
 \openout6 = `TFMTeXiS.toc'.
 
- [16] (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lof
+ [16] (build/TFMTeXiS.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -701,7 +698,7 @@ LaTeX Info: Redefining \% on input line 15.
 
 ] [18
 
-] (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lot
+] (build/TFMTeXiS.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -721,14 +718,14 @@ LaTeX Info: Redefining \% on input line 14.
 ]
 \openout2 = `Capitulos/Introduccion.aux'.
 
- (Capitulos/Introduccion.tex
+ (./Capitulos/Introduccion.tex
 Cap\'itulo 1.
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1.
-(C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+(c:/texlive/2022/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+ (c:/texlive/2022/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -742,7 +739,7 @@ LaTeX Info: Redefining \% on input line 142.
  [2]
 \openout2 = `Capitulos/Introduction.aux'.
 
- (Capitulos/Introduction.tex
+ (./Capitulos/Introduction.tex
 Chapter 2.
 ) [3
 
@@ -754,7 +751,7 @@ LaTeX Info: Redefining \. on input line 148.
 LaTeX Info: Redefining \% on input line 148.
 \openout2 = `Capitulos/EstadoDeLaCuestion.aux'.
 
- (Capitulos/EstadoDeLaCuestion.tex [4
+ (./Capitulos/EstadoDeLaCuestion.tex [4
 
 
 
@@ -765,38 +762,30 @@ Cap\'itulo 3.
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
  [6]
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Info: Redefining \. on input line 54.
+LaTeX Info: Redefining \% on input line 54.
  [7]
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
  [8]
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
-
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 25.22153pt, for example:
-(fancyhdr)                \setlength{\headheight}{25.22153pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-11.22153pt}.
-
-[9]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
+ [9]
+LaTeX Info: Redefining \. on input line 119.
+LaTeX Info: Redefining \% on input line 119.
  [10]
-LaTeX Info: Redefining \. on input line 135.
-LaTeX Info: Redefining \% on input line 135.
+LaTeX Info: Redefining \. on input line 144.
+LaTeX Info: Redefining \% on input line 144.
  [11]
-LaTeX Info: Redefining \. on input line 159.
-LaTeX Info: Redefining \% on input line 159.
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
  [12])
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
  [13]
 \openout2 = `Capitulos/Chicha.aux'.
 
- (Capitulos/Chicha.tex [14
+ (./Capitulos/Chicha.tex [14
 
 
 
@@ -812,13 +801,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 44.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 44.
- (C:\Users\alber\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+ (c:/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [17]
-<../Imagenes/DiagramaPipeline.png, id=398, 465.23813pt x 60.97781pt>
+<../Imagenes/DiagramaPipeline.png, id=380, 465.23813pt x 60.97781pt>
 File: ../Imagenes/DiagramaPipeline.png Graphic file (type png)
 <use ../Imagenes/DiagramaPipeline.png>
 Package pdftex.def Info: ../Imagenes/DiagramaPipeline.png  used on input line 62.
@@ -826,10 +815,10 @@ Package pdftex.def Info: ../Imagenes/DiagramaPipeline.png  used on input line 62
 )
 LaTeX Info: Redefining \. on input line 150.
 LaTeX Info: Redefining \% on input line 150.
- [18 <c:/Users/alber/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/Imagenes/DiagramaPipeline.png>]
+ [18 <build/../Imagenes/DiagramaPipeline.png>]
 \openout2 = `Capitulos/ConclusionesTrabajoFuturo.aux'.
 
- (Capitulos/ConclusionesTrabajoFuturo.tex
+ (./Capitulos/ConclusionesTrabajoFuturo.tex
 Cap\'itulo 5.
 ) [19
 
@@ -839,7 +828,7 @@ Cap\'itulo 5.
 ]
 \openout2 = `Capitulos/ConclusionsFutureWork.aux'.
 
- (Capitulos/ConclusionsFutureWork.tex [20
+ (./Capitulos/ConclusionsFutureWork.tex [20
 
 
 
@@ -851,7 +840,7 @@ LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
 \openout2 = `Apendices/appendixA.aux'.
 
- (Apendices/appendixA.tex [22
+ (./Apendices/appendixA.tex [22
 
 
 
@@ -861,7 +850,7 @@ Ap\'{e}ndice A.
 ) [23]
 \openout2 = `Apendices/appendixB.aux'.
 
- (Apendices/appendixB.tex [24
+ (./Apendices/appendixB.tex [24
 
 
 
@@ -875,7 +864,7 @@ Ap\'{e}ndice B.
 ]
 \openout2 = `Cascaras/bibliografia.aux'.
 
- (Cascaras/bibliografia.tex (TFMTeXiS.bbl
+ (./Cascaras/bibliografia.tex (./TFMTeXiS.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 4.
 
@@ -885,38 +874,39 @@ Package natbib Warning: Empty `thebibliography' environment on input line 4.
 ]
 \openout2 = `Cascaras/fin.aux'.
 
- (Cascaras/fin.tex [28
+ (./Cascaras/fin.tex [28
 
 
 
-] [29]) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+] [29]) (build/TFMTeXiS.aux (build/Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
+ (build/Cascaras/autorizacion.aux) (build/Cascaras/dedicatoria.aux) (build/Cascaras/agradecimientos.aux) (build/Cascaras/resumen.aux) (build/Cascaras/abstract.aux) (build/TeXiS/TeXiS_toc.aux)
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduccion.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduction.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/EstadoDeLaCuestion.aux)
+ (build/Capitulos/Introduccion.aux) (build/Capitulos/Introduction.aux) (build/Capitulos/EstadoDeLaCuestion.aux)
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Chicha.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionesTrabajoFuturo.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionsFutureWork.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Apendices/appendixA.aux)
+ (build/Capitulos/Chicha.aux) (build/Capitulos/ConclusionesTrabajoFuturo.aux) (build/Capitulos/ConclusionsFutureWork.aux) (build/Apendices/appendixA.aux)
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
- (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Apendices/appendixB.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/bibliografia.aux) (c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/fin.aux))
+ (build/Apendices/appendixB.aux) (build/Cascaras/bibliografia.aux) (build/Cascaras/fin.aux))
 Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
-(rerunfilecheck)             Checksum: F2D113AE5D38EB5E22B42156B19BAB4B;6198.
+(rerunfilecheck)             Checksum: FAD2E01075D35B8FE6B05A73E96A3F23;5444.
  ) 
 Here is how much of TeX's memory you used:
- 17907 strings out of 478338
- 310654 string characters out of 2836700
- 703631 words of memory out of 3000000
- 35548 multiletter control sequences out of 15000+600000
+ 17891 strings out of 475075
+ 298247 string characters out of 5783001
+ 747116 words of memory out of 5000000
+ 38515 multiletter control sequences out of 15000+600000
  490092 words of font info for 63 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
- 94i,12n,98p,1261b,840s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk>{C:/Users/alber/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\alber\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/alber/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/alber/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:\Users\alber\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.pdf (49 pages, 605083 bytes).
+ 94i,12n,98p,1222b,869s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on build/TFMTeXiS.pdf (49 pages, 700321 bytes).
 PDF statistics:
- 974 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 439 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 291 words of extra memory for PDF output out of 10000 (max. 10000000)
 
