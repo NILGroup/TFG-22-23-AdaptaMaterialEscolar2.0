@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.24)  12 OCT 2022 19:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.25 NEXT) (preloaded format=pdflatex 2022.10.12)  12 OCT 2022 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **c:/Users/dunia/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
 (c:/Users/dunia/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-08-30> (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+L3 programming layer <2022-09-28> (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
 (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
 File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -53,7 +53,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count194
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2022/09/17 3.80 The Babel package
+Package: babel 2022/10/04 3.81 The Babel package
 \babel@savecnt=\count195
 \U@D=\dimen139
 \l@unhyphenated=\language79
@@ -120,8 +120,8 @@ Package pdftexcmds Info: \pdfdraftmode found.
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks21
-) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
@@ -232,7 +232,7 @@ Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 
 Writing index file TFMTeXiS.idx
 (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
-Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \c@tracingmulticols=\count275
 \mult@box=\box51
 \multicol@leftmargin=\dimen146
@@ -359,7 +359,7 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
 \col@sep=\dimen168
 \ar@mcellbox=\box99
 \extrarowheight=\dimen169
@@ -390,7 +390,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen175
 \Gin@req@width=\dimen176
@@ -454,7 +454,7 @@ Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
- (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.ltx)
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -479,9 +479,9 @@ File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count315
 \AM@templatesizebox=\box103
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-08-30 L3 programming layer (loader) 
+Package: expl3 2022-09-28 L3 programming layer (loader) 
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-08-30 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box104
 ))
@@ -527,7 +527,19 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
- (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux)
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduccion.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduction.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/EstadoDeLaCuestion.aux)
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Chicha.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionesTrabajoFuturo.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionsFutureWork.aux)
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/bibliografia.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/fin.aux))
 \openout1 = `TFMTeXiS.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
@@ -551,24 +563,338 @@ LaTeX Font Info:    ... okay on input line 105.
 LaTeX Info: Redefining \. on input line 105.
 LaTeX Info: Redefining \% on input line 105.
 Package hyperref Info: Link coloring OFF on input line 105.
- (TFMTeXiS.out) (TFMTeXiS.out
-TFMTeXiS.out:1: I can't write on file `TFMTeXiS.pdf'.
-(Press Enter to retry, or Control-C to exit; default file extension is `.pdf')
-Please type another file name for output
-TFMTeXiS.out:1: Emergency stop.
-\Hy@OutlineName ...utline goto name{#2}count#3{#4}
-                                                  
-l.1 ...000\040\000T\000\355\000t\000u\000l\000o}{}
-                                                  % 1
-*** (job aborted, file error in nonstop mode)
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out)
+\@outlinefile=\write5
+\openout5 = `TFMTeXiS.out'.
 
- 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count320
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count321
+\scratchdimen=\dimen191
+\scratchbox=\box105
+\nofMPsegments=\count322
+\nofMParguments=\count323
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count324
+\MPscratchDim=\dimen192
+\MPnumerator=\count325
+\makeMPintoPDFobject=\count326
+\everyMPtoPDFconversion=\toks30
+) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+) (guionado.tex)
+\openout2 = `Cascaras/cover.aux'.
+
+ (Cascaras/cover.tex
+\cambioIzquierdo=\skip82
+\cambioDerecho=\skip83
+\margenPortada=\skip84
+\evensidemarginOriginal=\skip85
+\oddsidemarginOriginal=\skip86
+\longTitulo=\skip87
+<Imagenes/Vectorial/escudoUCM.pdf, id=139, 597.23125pt x 844.15375pt>
+File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
+<use Imagenes/Vectorial/escudoUCM.pdf>
+Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 159.
+(pdftex.def)             Requested size: 119.44412pt x 168.82776pt.
+\c@lastyear=\count327
+ [1
+
+
+
+{C:/Users/dunia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Imagenes/Vectorial/escudoUCM.pdf>] [2] [3])
+\openout2 = `Cascaras/autorizacion.aux'.
+
+ (Cascaras/autorizacion.tex [4
+
+
+
+
+]) [5]
+\openout2 = `Cascaras/dedicatoria.aux'.
+
+ (Cascaras/dedicatoria.tex [6
+
+
+
+
+]) [7]
+\openout2 = `Cascaras/agradecimientos.aux'.
+
+ (Cascaras/agradecimientos.tex [8
+
+
+
+
+]) [9]
+\openout2 = `Cascaras/resumen.aux'.
+
+ (Cascaras/resumen.tex [10
+
+
+
+
+]) [11]
+\openout2 = `Cascaras/abstract.aux'.
+
+ (Cascaras/abstract.tex [12
+
+
+
+
+]) [13]
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+\openout2 = `TeXiS/TeXiS_toc.aux'.
+
+ (TeXiS/TeXiS_toc.tex [14
+
+
+
+
+] (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 5.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [15]
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
+)
+\tf@toc=\write6
+\openout6 = `TFMTeXiS.toc'.
+
+ [16] (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lof
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+)
+\tf@lof=\write7
+\openout7 = `TFMTeXiS.lof'.
+
+ [17
+
+] [18
+
+] (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lot
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
+)
+\tf@lot=\write8
+\openout8 = `TFMTeXiS.lot'.
+
+ [19]) [20
+
+
+
+]
+\openout2 = `Capitulos/Introduccion.aux'.
+
+ (Capitulos/Introduccion.tex
+Cap\'itulo 1.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1.
+(C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1.
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) [1
+
+
+])
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
+ [2]
+\openout2 = `Capitulos/Introduction.aux'.
+
+ (Capitulos/Introduction.tex
+Chapter 2.
+) [3
+
+
+
+
+]
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
+\openout2 = `Capitulos/EstadoDeLaCuestion.aux'.
+
+ (Capitulos/EstadoDeLaCuestion.tex [4
+
+
+
+
+]
+Cap\'itulo 3.
+[5]
+LaTeX Info: Redefining \. on input line 38.
+LaTeX Info: Redefining \% on input line 38.
+ [6]
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+ [7]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [8]
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
+ [9]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 112.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 112.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 112.
+ (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Underfull \vbox (badness 1466) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 119.
+LaTeX Info: Redefining \% on input line 119.
+ [10]
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
+ [11]
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+ [12]
+LaTeX Info: Redefining \. on input line 185.
+LaTeX Info: Redefining \% on input line 185.
+ [13])
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [14]
+\openout2 = `Capitulos/Chicha.aux'.
+
+ (Capitulos/Chicha.tex
+Cap\'itulo 4.
+[15
+
+
+
+
+]
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
+ [16]
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
+ [17]
+<../Imagenes/DiagramaPipeline.png, id=380, 465.23813pt x 60.97781pt>
+File: ../Imagenes/DiagramaPipeline.png Graphic file (type png)
+<use ../Imagenes/DiagramaPipeline.png>
+Package pdftex.def Info: ../Imagenes/DiagramaPipeline.png  used on input line 65.
+(pdftex.def)             Requested size: 325.66446pt x 42.68416pt.
+)
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
+ [18 <c:/Users/dunia/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/Imagenes/DiagramaPipeline.png>]
+\openout2 = `Capitulos/ConclusionesTrabajoFuturo.aux'.
+
+ (Capitulos/ConclusionesTrabajoFuturo.tex
+Cap\'itulo 5.
+) [19
+
+
+
+
+]
+\openout2 = `Capitulos/ConclusionsFutureWork.aux'.
+
+ (Capitulos/ConclusionsFutureWork.tex [20
+
+
+
+
+]
+Chapter 5.
+) [21]
+LaTeX Info: Redefining \. on input line 162.
+LaTeX Info: Redefining \% on input line 162.
+ [22
+
+
+
+]
+\openout2 = `Cascaras/bibliografia.aux'.
+
+ (Cascaras/bibliografia.tex (TFMTeXiS.bbl
+Overfull \hbox (26.05219pt too wide) in paragraph at lines 25--28
+[]\T1/cmr/m/sc/10.95 educa2\T1/cmr/m/n/10.95 .  https://www.educa2.madrid.org/web/eoep.discapacidadmotora.madrid.
+ []
+
+)) [23
+
+
+]
+\openout2 = `Cascaras/fin.aux'.
+
+ (Cascaras/fin.tex [24
+
+
+
+] [25]) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduccion.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Introduction.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/EstadoDeLaCuestion.aux)
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/Chicha.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionesTrabajoFuturo.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Capitulos/ConclusionsFutureWork.aux)
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+ (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/bibliografia.aux) (c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/fin.aux))
+Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
+(rerunfilecheck)             Checksum: 4EAD4E42DAA44A0909BCA2A60373D7DA;5623.
+ ) 
 Here is how much of TeX's memory you used:
- 16110 strings out of 475389
- 266305 string characters out of 2777000
- 725256 words of memory out of 3000000
- 37261 multiletter control sequences out of 15000+600000
- 470328 words of font info for 30 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 94i,0n,98p,400b,395s stack positions out of 10000i,1000n,20000p,200000b,80000s
-TFMTeXiS.out:1:  ==> Fatal error occurred, no output PDF file produced!
+ 17864 strings out of 475385
+ 308317 string characters out of 2776906
+ 745641 words of memory out of 3000000
+ 38475 multiletter control sequences out of 15000+600000
+ 489406 words of font info for 62 fonts, out of 8000000 for 9000
+ 1379 hyphenation exceptions out of 8191
+ 94i,11n,98p,1233b,869s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk>{C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
+Output written on c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.pdf (45 pages, 597896 bytes).
+PDF statistics:
+ 940 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
+

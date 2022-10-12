@@ -38,7 +38,5 @@
 \contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{19}{chapter.49}%
 \contentsline {chapter}{\numberline {5}Conclusions and Future Work}{21}{chapter.50}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {A}Título}{23}{appendix.51}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {B}Título}{25}{appendix.52}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.53}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{23}{appendix*.51}%

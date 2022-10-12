@@ -3,12 +3,12 @@
 
 \section{Metodología de desarrollo}
 \subsection{Clases de servicios}
-Las clases de servicio que emplearemos serán las siguientes:
+Las clases de servicio que empleamos serán las siguientes:
 \begin{itemize}
-    \item Expedite: tareas que necesitan ser gestionadas de manera acelerada o urgente.  
-    \item Fixed Delivery Date: tareas con fecha fija que debemos cumplir.
-    \item Standard: tareas que ya ha hecho antes el equipo y que no tienen un fecha fija.
-    \item Intangible: tareas que son nuevas, se desconoce el tiempo que se le va dedicar, el riesgo que suponen.
+    \item Expedite: Tareas que necesitan ser gestionadas de manera acelerada o urgente.  
+    \item Fixed Delivery Date: Tareas con fecha fija que debemos cumplir.
+    \item Standard: Tareas que ya ha hecho antes el equipo y que no tienen una fecha fija.
+    \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va dedicar y el riesgo que suponen.
 \end{itemize}
 
 \section{Plan de Pruebas}
@@ -26,13 +26,13 @@ La revisión de la memoria la realizarán todos integrantes del equipo siguiendo
     \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
 \end{enumerate}
 \subsection{Pruebas de implementación}
-Las pruebas de implementación consistirán de dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{DEV:DONE}. También se encargará de mover la tarea a la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{DEV:DONE}. También se encargará de mover la tarea a la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
 Para ambos tipos de pruebas, unitarias y de integración, se utilizará la herramienta Jest \underline{(ver sección de herramientas)}.
 \subsubsection{Pruebas Unitarias}
 Las pruebas unitarias son pruebas, mayoritariamente automatizadas, que verifican la funcionalidad de una unidad software (componente, clase o método), de forma aislada. Esta verificación no se debe ver afectada por otros casos de prueba que se hayan ejecutado anteriormente o por dependencias con otros módulos de la aplicación. Para evitar que las dependencias de un módulo, por ejemplo el acceso a una base de datos o una petición a una API externa, afecten al resultado de la prueba se pueden usar \textit{stubs} para simular esas dependencias.
 
-La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que los cambios no han afectado al funcionamiento esperado de la aplicación.
+La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que estos no han afectado al funcionamiento esperado de la aplicación.
 
 Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay que asegurarse de que cumplen las siguientes características:
 \begin{itemize}
