@@ -103,3 +103,76 @@ Son adaptaciones que no modifican sustancialmente el contenido del currículo of
 
 \section{Conclusión}
 Tras una exhaustiva documentación acerca de las adaptaciones y aportar ejemplos de ello, determinamos que las adaptaciones han de ser individualizadas ya que cada alumno tiene sus propias dificultades. El profesorado ha de ser el encargado de la adaptación, pero su realización es algo tediosa y no disponen de herramientas que faciliten la modificación del material. Por ello, en este TFG nos centraremos exclusivamente en las adaptaciones curriculares no significativas realizando una aplicación para que el profesorado pueda adaptar el material. Por otra parte, nuestro enfoque está en las adaptaciones mencionadas anteriormente, ya que son las únicas que podemos tratar puesto que no tenemos la potestad de modificar y/o acceder al currículum. 
+
+
+\section{AdaptaMaterialEscolar1.0}
+
+Una vez introducida la adaptación curricular, pasamos a describir AdaptaMateriaEscolar1.0 con el fin de exponer la aplicación anterior y de esta forma poder comprender la nueva versión de esta. 
+
+
+\subsection{Captura de requisitos}
+La captura de requisitos se realizó hablando directamente con el usuario final para poder conocer sus necesidades reales. Para esto se hicieron varias reuniones con 2 profesoras del Aula TEA (Trastornos del Espectro Autista) del IES Maestro Juan de Ávila de Ciudad Real.
+
+También, se presentó la aplicación en un workshop del grupo de investigación (Natural Interaction based on Language). Los profesores pidieron a los alumnos del TFG añadir una funcionalidad que permita introducir en el papel el espacio suficiente para aquellos los alumnos con un amplio tamaño de letra.
+
+A partir de estas reuniones se decidió que la aplicación fuera web, además de no ser necesario un sistema de iniciar sesión, y se capturó una lista de funcionalidades que se deberían implementar. Se llegó a la conclusión de que la aplicación fuera web ya que no todos los profesores tienen un ordenador personal en el que puedan instalar aplicaciones. Por otro lado, se decidió que no hacía falta iniciar sesión en la aplicación, para que los profesores no tengan que usar su información personal. Para poder priorizar las funcionalidades, se le envió una lista con todos los requisitos a las profesoras, para que ellas les dieran una importancia del 1 al 3, siendo el 1 la menor importancia y el 3 la mayor importancia. Luego, el equipo de desarrollo les dio una dificultad del 1 al 3, siendo el 1 la mayor dificultad y el 3 la menor dificultad. A continuación, se hizo una tabla con las importancias y dificultades medias de cada requisito. Estos 2 valores se multiplicaron para obtener un resultado, según el cual se ordenaron las funcionalidades de mayor prioridad a menor.
+
+
+\subsection{Diseño de la aplicación}
+Para realizar el diseño de la aplicación, el equipo empezó haciendo un boceto en papel entre todos. Luego, llevaron a cabo un diseño en Moqups,  una aplicación que permite crear prototipos, diagramas, etc. 
+
+Para conseguir mejorar el diseño, decidieron que cada miembro del equipo debería realizar un prototipo por su cuenta para luego ponerlos todos en común, y poder ver las diferentes perspectivas. Se hizo así para que cada persona pudiera plasmar sus ideas sin ser influenciada por las ideas de los demás.
+
+Finalmente, se realizó el diseño final de la aplicación después de poner en común los prototipos de todo el equipo. Una vez terminado, se le envió a las profesoras del Aula TEA para poder recibir feedback, el cual fue positivo.
+
+
+\subsection{Implementación}
+Las funcionalidades implementadas fueron las siguientes:
+
+\begin{itemize}
+    \item Subir un documento fuente PDF, a partir del cual se puede realizar las adaptaciones, ejercicios, etc.
+    \item Editor, en el que se pueden añadir y modificar las adaptaciones. También sirve como editor de texto, en el que se puede cambiar la fuente de letra, el color, posicionamiento del texto, etc.
+    \item Buscador de pictogramas que permite añadirlos al editor.
+    \item Ejercicio de completar huecos, en el que a partir de un texto puedes seleccionar las palabras que deben ser completadas.
+    \item Ejercicio de definiciones.
+    \item Ejercicio de desarrollo, en el que se puede crear un enunciado y añadir un cierto número de líneas para la respuesta.
+    \item Sopa de letras, con ciertas palabras dadas por el usuario y un cierto tamaño.
+    \item Ejercicio de verdadero o falso.
+\end{itemize}
+
+Para desarrollar AdaptaMaterialEscolar1.0, se utilizó React, una biblioteca de JavaScript de código abierto mantenida por Meta para crear interfaces de usuario. React nos permite crear un front-end interactivo y complejo de una forma mucho más fácil que utilizando Javascript puro. Se basa en una arquitectura de componentes reutilizables que tienen su propio estado y que juntos forman una aplicación completa.
+
+Para simplificar la gestión del estado de la aplicación, se utilizó Redux, un patrón de arquitectura de datos que permite controlar el estado de la aplicación de manera predecible, reduciendo el número de relaciones entre componentes de la aplicación, manteniendo un flujo de información sencillo.
+
+Para las pruebas de unidad se utilizó Jest, una librería de JavaScript para testeo mantenida por Meta.
+
+En vez de implementar un editor de texto, se decidió utilizar una librería externa, ya que desarrollar un editor desde cero llevaría demasiado trabajo y sería ineficiente porque ya existen editores que se pueden reutilizar. En este caso se utilizó CKEditor.
+
+Por último, para el buscador de pictogramas, se empleó la API de ARASAAC, la cual fue creada por el Centro Aragonés para la comunicación Aumentativa y Alternativa. Esta API nos permite hacer una petición con un término de búsqueda y nos devuelve una serie de pictogramas relacionados.
+
+
+\subsection{Evaluación}
+
+El objetivo de la evaluación fue descubrir si la aplicación es realmente útil para los profesores y si les ayuda a resolver sus problemas. Para esto se creó un exámen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar1.0. Luego, se replicó este exámen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales.
+
+Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. En el cuestionario se usó una serie de preguntas llamadas Escala de Usabilidad de un Sistema o SUS (System Usability Scale), que sirven para medir que tan buena es la usabilidad de un sistema. 
+
+Esta evaluación de la aplicación se realizó con varios profesores en diferentes días. Primero se hizo con las 2 profesoras del aula TEA, la orientadora y otra profesora del IES Maestro Juan de Ávila, de Ciudad Real. Luego 3 docentes de Biología, Historia y Geografía se pusieron en contacto con el equipo ya que también querían probar la aplicación. Por último, la jefa de estudios y profesora del IES Pedro Álvarez de Sotomayor, de Manzanares, también se vio interesada ya que en su instituto había un alumno con sordera total.
+
+Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando.
+
+En la encuesta se obtuvo un 99 sobre 100 en la escala SUS. También se obtuvo un 4,6 sobre 5 en estética y se recomendó que cada pestaña de las funcionalidades fuese de un color diferente para diferenciarlas mejor. También se observó que los pictogramas a veces eran muy pequeños y debían poder aumentarse de tamaño.
+
+Se obtuvo una nueva lista de requisitos a implementar para mejorar la aplicación:
+
+\begin{itemize}
+    \item Traducir pictogramas a lenguaje natural y viceversa.
+    \item Cuadrícula para ejercicios de matemática.
+    \item Poder añadir doble pauta, en vez de renglones de una línea para determinar el tamaño de letra del alumno.
+    \item Poder recortar imágenes.
+    \item Añadir encabezado con el nombre del centro educativo, asignatura y nombre del alumno.
+    \item Añadir espacio para dibujar.
+    \item Fórmulas con huecos que puedan ser rellenados por el alumno.
+    \item Enumerar ejercicios automáticamente.
+    \item Fuente de letra escolar.
+\end{itemize}

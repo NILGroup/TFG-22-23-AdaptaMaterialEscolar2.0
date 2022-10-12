@@ -23,21 +23,26 @@
 \contentsline {subsection}{\numberline {3.4.2}Adaptaciones curricualares no significativas}{8}{subsection.27}%
 \contentsline {section}{\numberline {3.5}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{8}{section.28}%
 \contentsline {section}{\numberline {3.6}Conclusión}{10}{section.29}%
+\contentsline {section}{\numberline {3.7}AdaptaMaterialEscolar1.0}{10}{section.30}%
+\contentsline {subsection}{\numberline {3.7.1}Captura de requisitos}{10}{subsection.31}%
+\contentsline {subsection}{\numberline {3.7.2}Diseño de la aplicación}{11}{subsection.32}%
+\contentsline {subsection}{\numberline {3.7.3}Implementación}{11}{subsection.33}%
+\contentsline {subsection}{\numberline {3.7.4}Evaluación}{12}{subsection.34}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {4}Chicha}{11}{chapter.30}%
-\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{11}{section.31}%
-\contentsline {subsection}{\numberline {4.1.1}Clases de servicios}{11}{subsection.32}%
-\contentsline {section}{\numberline {4.2}Plan de Pruebas}{11}{section.33}%
-\contentsline {subsection}{\numberline {4.2.1}Tipos de pruebas}{11}{subsection.34}%
-\contentsline {subsection}{\numberline {4.2.2}Pruebas relacionadas con la memoria}{11}{subsection.35}%
-\contentsline {subsection}{\numberline {4.2.3}Pruebas de implementación}{12}{subsection.39}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Pruebas Unitarias}{12}{subsubsection.40}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Pruebas de integración}{13}{subsubsection.41}%
-\contentsline {subsection}{\numberline {4.2.4}Integración continua}{13}{subsection.43}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{15}{chapter.47}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{17}{chapter.48}%
+\contentsline {chapter}{\numberline {4}Chicha}{15}{chapter.35}%
+\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{15}{section.36}%
+\contentsline {subsection}{\numberline {4.1.1}Clases de servicios}{15}{subsection.37}%
+\contentsline {section}{\numberline {4.2}Plan de Pruebas}{15}{section.38}%
+\contentsline {subsection}{\numberline {4.2.1}Tipos de pruebas}{15}{subsection.39}%
+\contentsline {subsection}{\numberline {4.2.2}Pruebas relacionadas con la memoria}{15}{subsection.40}%
+\contentsline {subsection}{\numberline {4.2.3}Pruebas de implementación}{16}{subsection.44}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Pruebas Unitarias}{16}{subsubsection.45}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Pruebas de integración}{17}{subsubsection.46}%
+\contentsline {subsection}{\numberline {4.2.4}Integración continua}{17}{subsection.48}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{19}{chapter.52}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{21}{chapter.53}%
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {A}Título}{19}{appendix.49}%
+\contentsline {chapter}{\numberline {A}Título}{23}{appendix.54}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {B}Título}{21}{appendix.50}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{23}{appendix*.51}%
+\contentsline {chapter}{\numberline {B}Título}{25}{appendix.55}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.56}%
