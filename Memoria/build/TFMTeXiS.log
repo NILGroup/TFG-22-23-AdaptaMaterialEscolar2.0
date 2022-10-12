@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  12 OCT 2022 14:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -598,7 +598,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \evensidemarginOriginal=\skip85
 \oddsidemarginOriginal=\skip86
 \longTitulo=\skip87
-<Imagenes/Vectorial/escudoUCM.pdf, id=144, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=148, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 159.
@@ -669,14 +669,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
-
-Underfull \vbox (badness 1077) has occurred while \output is active []
-
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
  [15]
-LaTeX Info: Redefining \. on input line 41.
-LaTeX Info: Redefining \% on input line 41.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
 )
 \tf@toc=\write6
 \openout6 = `TFMTeXiS.toc'.
@@ -771,43 +768,46 @@ LaTeX Info: Redefining \% on input line 77.
 LaTeX Info: Redefining \. on input line 98.
 LaTeX Info: Redefining \% on input line 98.
  [9]
-LaTeX Info: Redefining \. on input line 119.
-LaTeX Info: Redefining \% on input line 119.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 108.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 108.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 108.
+ (c:/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
  [10]
-LaTeX Info: Redefining \. on input line 144.
-LaTeX Info: Redefining \% on input line 144.
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
  [11]
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
- [12])
+LaTeX Info: Redefining \. on input line 161.
+LaTeX Info: Redefining \% on input line 161.
+ [12]
+LaTeX Info: Redefining \. on input line 181.
+LaTeX Info: Redefining \% on input line 181.
+ [13])
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
- [13]
+ [14]
 \openout2 = `Capitulos/Chicha.aux'.
 
- (./Capitulos/Chicha.tex [14
+ (./Capitulos/Chicha.tex
+Cap\'itulo 4.
+[15
 
 
 
 
 ]
-Cap\'itulo 4.
-[15]
 LaTeX Info: Redefining \. on input line 38.
 LaTeX Info: Redefining \% on input line 38.
  [16]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 44.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 44.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 44.
- (c:/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [17]
-<../Imagenes/DiagramaPipeline.png, id=380, 465.23813pt x 60.97781pt>
+<../Imagenes/DiagramaPipeline.png, id=397, 465.23813pt x 60.97781pt>
 File: ../Imagenes/DiagramaPipeline.png Graphic file (type png)
 <use ../Imagenes/DiagramaPipeline.png>
 Package pdftex.def Info: ../Imagenes/DiagramaPipeline.png  used on input line 62.
@@ -892,21 +892,21 @@ LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
  (build/Apendices/appendixB.aux) (build/Cascaras/bibliografia.aux) (build/Cascaras/fin.aux))
 Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
-(rerunfilecheck)             Checksum: FAD2E01075D35B8FE6B05A73E96A3F23;5444.
+(rerunfilecheck)             Checksum: 8FE231D5089BF4900E69DBF46A8212ED;5781.
  ) 
 Here is how much of TeX's memory you used:
- 17891 strings out of 475075
- 298247 string characters out of 5783001
+ 17897 strings out of 475075
+ 298317 string characters out of 5783001
  747116 words of memory out of 5000000
- 38515 multiletter control sequences out of 15000+600000
+ 38516 multiletter control sequences out of 15000+600000
  490092 words of font info for 63 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
  94i,12n,98p,1222b,869s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/TFMTeXiS.pdf (49 pages, 700321 bytes).
+Output written on build/TFMTeXiS.pdf (49 pages, 704603 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 439 compressed objects within 5 object streams
- 107 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 550 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
