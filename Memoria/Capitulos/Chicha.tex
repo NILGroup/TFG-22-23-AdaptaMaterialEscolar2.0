@@ -2,6 +2,46 @@
 \label{cap:chicha}
 
 \section{Metodología de desarrollo}
+La metodología es un marco de trabajo que permite estructurar, organizar y controlar el porceso del desarollo software.
+
+Dentro de la metodología encontramos dos tipos, las metodologías tradiciones y las metodologías ágiles, unas de las difrenecias más notorias son la flexibilidad y la adaptabilidad. 
+
+Teniendo en cuenta lo anterior, hemos decicido aplicar una metodología ágil en nuestro proyecto. En concreto hemos implementado la metodología Kanban ya que es más flexible que el resto de metodologías ágiles exsistentes. Además, al ser un grupo de cuatro y tener todos el mismo nivel de conocimientos no podríamos definir roles, lo que sustenta nuestra elección.
+\subsection{Políticas explícitas}
+Para saber cómo está organizado el trabajo describimos las siguientes políticas explícitas:
+
+\begin{itemize}
+    \item Límites del trabajo en curso (WIP): 2 tareas en curso por persona en todo el tablero sin tener en cuenta la columna validate. que debemos cumplir.
+    \item Definición de \textit{done}:
+    \begin{itemize}
+        \item Tareas de memoria: Cuando hayan sido dadas por validadas por las tutoras.
+        \item Tareas de implementación: Cuando hayan pasado todo el plan de pruebas.
+    \end{itemize}
+    \item Cuando un integrante del grupo haya terminado su tarea él será el encargado de moverla a la columna correspondiente.
+    \item Cualquier integrante del grupo puede poner una tarea en el tablero tras consultarlo con el resto.
+    \item El 16 de mayo entrega del borrador.
+    \item El 23 de mayo es la entrega final.
+    \item Las reuniones se  llevarán a cabo todos los domingos alrededor de las 12:00, para poner en común el trabajo realizado.
+    \item Si se produce un error en una función, se añadirá una tarea para resolverlo.
+    \item Los elementos del trabajo continuarán a través del flujo cuando este se ajuste a la definición de la columna. La explicación de cada columna sería la siguiente:
+    To do: Listado de todas las tareas sin empezar.
+
+    Dev:
+
+    \indent Doing: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación. 
+    
+    \indent Done: Tarea que se encontraba en desarrollo ha finalizado.
+
+    Test: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
+    Validate: La tarea de memoria será comprobada por las tutoras.
+
+    Done: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código. 
+
+
+
+
+\end{itemize}
+
 \subsection{Clases de servicios}
 Las clases de servicio que empleamos serán las siguientes:
 \begin{itemize}
@@ -10,6 +50,8 @@ Las clases de servicio que empleamos serán las siguientes:
     \item Standard: Tareas que ya ha hecho antes el equipo y que no tienen una fecha fija.
     \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va dedicar y el riesgo que suponen.
 \end{itemize}
+
+
 
 \section{Plan de Pruebas}
 \nocite{pipelineRedHat}
