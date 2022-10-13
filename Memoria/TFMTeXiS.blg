@@ -14,8 +14,6 @@ A level-1 auxiliary file: Capitulos/EstadoDeLaCuestion.aux
 A level-1 auxiliary file: Capitulos/Chicha.aux
 A level-1 auxiliary file: Capitulos/ConclusionesTrabajoFuturo.aux
 A level-1 auxiliary file: Capitulos/ConclusionsFutureWork.aux
-A level-1 auxiliary file: Apendices/appendixA.aux
-A level-1 auxiliary file: Apendices/appendixB.aux
 A level-1 auxiliary file: Cascaras/bibliografia.aux
 The style file: TeXiS/TeXiS.bst
 A level-1 auxiliary file: Cascaras/fin.aux
@@ -37,7 +35,7 @@ Database file #3: otros.bib
 Warning--missing publisher in adaptacionIntro
 You've used 8 entries,
             2962 wiz_defined-function locations,
-            1128 strings with 13637 characters,
+            1126 strings with 13591 characters,
 and the built_in function-call counts, 2983 in all, are:
 = -- 245
 > -- 80
