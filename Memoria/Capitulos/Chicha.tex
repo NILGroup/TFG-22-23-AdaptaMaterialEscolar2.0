@@ -4,7 +4,7 @@
 \section{Metodología de desarrollo}
 La metodología es un marco de trabajo que permite estructurar, organizar y controlar el porceso del desarollo software.
 
-Dentro de la metodología encontramos dos tipos, las metodologías tradiciones y las metodologías ágiles, unas de las difrenecias más notorias son la flexibilidad y la adaptabilidad. 
+Dentro de la metodología encontramos dos tipos, las metodologías tradiciones y las metodologías ágiles, unas de las difrenecias más notorias son la flexibilidad y la adaptabilidad.
 
 Teniendo en cuenta lo anterior, hemos decicido aplicar una metodología ágil en nuestro proyecto. En concreto hemos implementado la metodología Kanban ya que es más flexible que el resto de metodologías ágiles exsistentes. Además, al ser un grupo de cuatro y tener todos el mismo nivel de conocimientos no podríamos definir roles, lo que sustenta nuestra elección.
 \subsection{Políticas explícitas}
@@ -13,10 +13,10 @@ Para saber cómo está organizado el trabajo describimos las siguientes polític
 \begin{itemize}
     \item Límites del trabajo en curso (WIP): 2 tareas en curso por persona en todo el tablero sin tener en cuenta la columna validate. que debemos cumplir.
     \item Definición de \textit{done}:
-    \begin{itemize}
-        \item Tareas de memoria: Cuando hayan sido dadas por validadas por las tutoras.
-        \item Tareas de implementación: Cuando hayan pasado todo el plan de pruebas.
-    \end{itemize}
+          \begin{itemize}
+              \item Tareas de memoria: Cuando hayan sido dadas por validadas por las tutoras.
+              \item Tareas de implementación: Cuando hayan pasado todo el plan de pruebas.
+          \end{itemize}
     \item Cuando un integrante del grupo haya terminado su tarea él será el encargado de moverla a la columna correspondiente.
     \item Cualquier integrante del grupo puede poner una tarea en el tablero tras consultarlo con el resto.
     \item El 16 de mayo entrega del borrador.
@@ -24,18 +24,18 @@ Para saber cómo está organizado el trabajo describimos las siguientes polític
     \item Las reuniones se  llevarán a cabo todos los domingos alrededor de las 12:00, para poner en común el trabajo realizado.
     \item Si se produce un error en una función, se añadirá una tarea para resolverlo.
     \item Los elementos del trabajo continuarán a través del flujo cuando este se ajuste a la definición de la columna. La explicación de cada columna sería la siguiente:
-    To do: Listado de todas las tareas sin empezar.
+          To do: Listado de todas las tareas sin empezar.
 
-    Dev:
+          Dev:
 
-    \indent Doing: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación. 
-    
-    \indent Done: Tarea que se encontraba en desarrollo ha finalizado.
+          \indent Doing: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación.
 
-    Test: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
-    Validate: La tarea de memoria será comprobada por las tutoras.
+          \indent Done: Tarea que se encontraba en desarrollo ha finalizado.
 
-    Done: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código. 
+          Test: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
+          Validate: La tarea de memoria será comprobada por las tutoras.
+
+          Done: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
 
 
 
@@ -45,7 +45,7 @@ Para saber cómo está organizado el trabajo describimos las siguientes polític
 \subsection{Clases de servicios}
 Las clases de servicio que empleamos serán las siguientes:
 \begin{itemize}
-    \item Expedite: Tareas que necesitan ser gestionadas de manera acelerada o urgente.  
+    \item Expedite: Tareas que necesitan ser gestionadas de manera acelerada o urgente.
     \item Fixed Delivery Date: Tareas con fecha fija que debemos cumplir.
     \item Standard: Tareas que ya ha hecho antes el equipo y que no tienen una fecha fija.
     \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va dedicar y el riesgo que suponen.
@@ -100,11 +100,131 @@ Las razones por las que creemos necesaria la implementación de integración con
     \item En este proyecto se seguirá una metodología Kanban, por lo que el trabajo es continuo y es una metodología más propensa al cambio que otras metodologías agiles, como por ejemplo Scrum. La integración continua nos permitirá asegurarnos de que en todo momento el software cumple los requisitos especificados y funciona como se espera.
     \item La integración continua mejora la productividad de desarrollo, ya que libera a los desarrolladores de tener que ejecutar las pruebas manualmente y tener que esperar a que se arreglen errores en el repositorio. Si al integrar el trabajo se produce un error en la verificación se notificará a los desarrolladores y el cambio que ha producido ese error no se subirá al repositorio compartido.
     \item Mejora la detección de errores debido a la ejecución de pruebas de forma automática y frecuente, lo que permite a los desarrolladores descubrir los errores y arreglarlos antes de que se conviertan en problemas graves.
-    En este proyecto se utilizará la herramienta de GitHub Actions \underline{(ver sección de herramientas)} para implementar la integración continua y definir el pipeline.
+          En este proyecto se utilizará la herramienta de GitHub Actions \underline{(ver sección de herramientas)} para implementar la integración continua y definir el pipeline.
 \end{itemize}
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.7]{../Imagenes/DiagramaPipeline.png}
     \caption{Diagrama del \textit{pipeline}}
     \label{d1_pipeline}
 \end{figure}
+
+\section{AdaptaMaterialEscolar2.0}
+\subsection{Requisitos}
+\begin{table}[ht!]
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{Adaptaciones de temario}                                                                                           \\ \hline
+        Funciones                                                                                                                     & Coste & Importancia \\ \hline
+        Generar un resumen a partir de un texto.                                                                                      & 2     & 3           \\ \hline
+        Crear esquemas que faciliten la visualización                                                                                 & 1     & 3           \\ \hline
+        \begin{tabular}[c]{@{}l@{}}Crear tablas que organicen el temario y/o\\  las actividades, seleccionando contenido\end{tabular} & 1     & 1,5         \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+    \begin{tabular}{|lrr|}
+        \hline
+        \multicolumn{3}{|c|}{Adaptaciones de actividades y/o exámenes}                                                                                                                                        \\ \hline
+        \multicolumn{1}{|l|}{Funciones}                                                                                                       & \multicolumn{1}{l|}{Coste} & \multicolumn{1}{l|}{Importancia} \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Ejercicios de relacionar contenido\\  mediante flechas.\end{tabular}}                 & \multicolumn{1}{r|}{2,5}   & 2                                \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Ejercicios de completar los espacios\\  en blanco en tablas y esquemas.\end{tabular}} & \multicolumn{1}{r|}{1}     & 1,2                              \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+    \begin{tabular}{|lcc|}
+        \hline
+        \multicolumn{3}{|c|}{Adaptaciones de formato}                                                                                                                                                                 \\ \hline
+        \multicolumn{1}{|l|}{Funciones}                                                                                                                                    & \multicolumn{1}{c|}{Coste} & Importancia \\ \hline
+        \multicolumn{1}{|l|}{Sustituir una palabra por una imagen.}                                                                                                        & \multicolumn{1}{c|}{2}     & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir una leyenda de colores con la \\ categoría de cada tipo.\end{tabular}}                                      & \multicolumn{1}{c|}{1,5}   & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir leyenda de colores para el tema de \\ cada asignatura.\end{tabular}}                                        & \multicolumn{1}{c|}{2}     & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Estandarizar formato para títulos e índices \\ del temario.\end{tabular}}                                          & \multicolumn{1}{c|}{1}     & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir imágenes buscando una palabra en \\ bases de datos de imágenes libres.\end{tabular}}                        &
+        \multicolumn{1}{c|}{1,8}                                                                                                                                           &
+        2                                                                                                                                                                                                             \\ \hline
+        \multicolumn{1}{|l|}{Enumerar ejercicios de forma automática.}                                                                                                     & \multicolumn{1}{c|}{1}     & 2,5         \\ \hline
+        \multicolumn{1}{|l|}{Añadir un tipo de fuente escolar.}                                                                                                            & \multicolumn{1}{c|}{1}     & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Crear una herramienta de recorte de \\ imágenes para el texto original.\end{tabular}}                              &
+        \multicolumn{1}{c|}{1}                                                                                                                                             &
+        1                                                                                                                                                                                                             \\ \hline
+        \multicolumn{1}{|l|}{Añadir encabezado al texto.}                                                                                                                  & \multicolumn{1}{c|}{3}     & 1,5         \\ \hline
+        \multicolumn{1}{|l|}{Añadir ejercicios con espacio para dibujar.}                                                                                                  & \multicolumn{1}{c|}{2,5}   & 1           \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir ejercicios para ejercicios de cálculo \\ con fórmulas con huecos a rellenar por el \\ alumno.\end{tabular}} &
+        \multicolumn{1}{c|}{2,5}                                                                                                                                           &
+        2                                                                                                                                                                                                             \\ \hline
+        \multicolumn{1}{|l|}{Enumerar ejercicios de forma automática.}                                                                                                     & \multicolumn{1}{c|}{1}     & 2,5         \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+    \begin{tabular}{|lcc|}
+        \hline
+        \multicolumn{3}{|c|}{Propuestas de mejora}                                                                                                                                                                   \\ \hline
+        \multicolumn{1}{|l|}{Funciones}                                                                                                                                                                            &
+        \multicolumn{1}{c|}{Coste}                                                                                                                                                                                 &
+        Importancia                                                                                                                                                                                                  \\ \hline
+        \multicolumn{1}{|l|}{Añadir un pictotraductor como funcionalidad.}                                                                                                                                         &
+        \multicolumn{1}{c|}{1}                                                                                                                                                                                     &
+        1                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir la alternativa de añadir doble pauta, \\ en vez de renglones de una única línea, para \\ determinar el tamaño de la letra del alumno.\end{tabular}} &
+        \multicolumn{1}{c|}{2}                                                                                                                                                                                     &
+        1                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Exportar el documento a formato Word \\ para hacer modificaciones.\end{tabular}}                                                                           &
+        \multicolumn{1}{c|}{2}                                                                                                                                                                                     &
+        3                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir ejercicios de matemáticas con \\ cuadrícula para escribir los números.\end{tabular}}                                                                &
+        \multicolumn{1}{c|}{2}                                                                                                                                                                                     &
+        1                                                                                                                                                                                                            \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[]
+    \begin{tabular}{|lc|}
+        \hline
+        \multicolumn{2}{|c|}{Priorización}                                                                                                                                                                           \\ \hline
+        \multicolumn{1}{|l|}{Funciones}                                                                                                                                                                            &
+        \multicolumn{1}{l|}{Prioridad}                                                                                                                                                                               \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Exportar el documento a formato Word para \\ hacer modificaciones.\end{tabular}}                                                                           &
+        6                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{Generar un resumen a partir de un texto.}                                                                                                                                             &
+        6                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Ejercicios de relacionar contenido mediante \\ flechas.\end{tabular}}                                                                                      &
+        5                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir ejercicios para ejercicios de cálculo \\ con fórmulas con huecos a rellenar por el \\ alumno.\end{tabular}}                                         &
+        5                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{Añadir encabezado al texto.}                                                                                                                                                          &
+        4,5                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir imágenes buscando una palabra en \\ bases de datos de imágenes libres.\end{tabular}}                                                                &
+        3,6                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{Crear esquemas que faciliten la visualización}                                                                                                                                        &
+        3                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{Añadir ejercicios con espacio para dibujar.}                                                                                                                                          &
+        2,5                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{Enumerar ejercicios de forma automática.}                                                                                                                                             &
+        2,5                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{Sustituir una palabra por una imagen.}                                                                                                                                                &
+        2                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir leyenda de colores para el tema de cada \\ asignatura.\end{tabular}}                                                                                &
+        2                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir ejercicios de matemáticas con cuadrícula \\ para escribir los números.\end{tabular}}                                                                &
+        2                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir la alternativa de añadir doble pauta, en \\ vez de renglones de una única línea, para \\ determinar el tamaño de la letra del alumno.\end{tabular}} &
+        2                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Crear tablas que organicen el temario y/o las \\ actividades, seleccionando contenido.\end{tabular}}                                                       &
+        1,5                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Añadir una leyenda de colores con la \\ categoría de cada tipo.\end{tabular}}                                                                              &
+        1,5                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Ejercicios de completar los espacios en \\ blanco en tablas y esquemas.\end{tabular}}                                                                      &
+        1,2                                                                                                                                                                                                          \\ \hline
+        \multicolumn{1}{|l|}{Añadir un tipo de fuente escolar.}                                                                                                                                                    &
+        1                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Estandarizar formato para títulos e índices \\ del temario.\end{tabular}}                                                                                  &
+        1                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Crear una herramienta de recorte de \\ imágenes para el texto original.\end{tabular}}                                                                      &
+        1                                                                                                                                                                                                            \\ \hline
+        \multicolumn{1}{|l|}{Añadir un pictotraductor como funcionalidad.}                                                                                                                                         &
+        1                                                                                                                                                                                                            \\ \hline
+    \end{tabular}
+\end{table}
