@@ -29,10 +29,10 @@ jobs:
         node-version: '16.x'
         cache: 'npm'
         
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-        
-  release:
-    needs: [build, test]
-    runs-on: ubuntu-latest
+#  test:
+#    needs: build
+#    runs-on: ubuntu-latest
+#        
+#  release:
+#    needs: [build, test]
+#    runs-on: ubuntu-latest
