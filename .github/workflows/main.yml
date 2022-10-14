@@ -26,9 +26,12 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./Codigo/package-lock.json
         
-    - name: Paso 3.0 - Ejecutar tests
+    - name: Paso 3.0 - Instalar dependencias
+      run: npm install
+    
+    - name: Paso 4.0 - Ejecutar tests
       run: npm test
-        
+            
 #  test:
 #   needs: build
 #    runs-on: ubuntu-latest
