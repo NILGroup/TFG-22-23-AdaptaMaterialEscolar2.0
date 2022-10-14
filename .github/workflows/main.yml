@@ -28,7 +28,7 @@ jobs:
      
     defaults:
       run:
-        working-directory: ./Codigo
+        working-directory: Codigo
         
     steps:
       - name: Paso 1.0 - Ejecutar tests
