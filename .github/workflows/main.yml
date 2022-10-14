@@ -13,10 +13,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
+    
+    defaults:
+      run:
+        working-directory: ./Codigo
         
     steps:
     - name: Paso 1.0 - Checkout del repositorio
@@ -25,5 +25,14 @@ jobs:
     - name: Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        path: ./Codigo
+        node-version: '16.x'
         cache: 'npm'
+        
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+        
+  release:
+    needs: [build, test]
+    runs-on: ubuntu-latest
