@@ -22,6 +22,7 @@ jobs:
     steps:
     - name: Paso 1.0 - Checkout del repositorio
     - uses: actions/checkout@v3
+    
     - name: Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
