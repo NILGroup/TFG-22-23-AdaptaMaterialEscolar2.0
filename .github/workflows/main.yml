@@ -25,9 +25,9 @@ jobs:
     - name: Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        path: ./Codigo
         node-version: '16.x'
         cache: 'npm'
+        cache-dependency-path: ./Codigo/package-lock.json
         
 #  test:
 #    needs: build
