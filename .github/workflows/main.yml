@@ -29,9 +29,8 @@ jobs:
     steps:
       - name: Paso 1.0 - Ejecutar tests
         run: |
-              ls
-              cd Codigo
-              npm test
+              ls -a
+              ls .. -a
      
 #   release:
 #     needs: [build, test]
