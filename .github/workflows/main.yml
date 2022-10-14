@@ -29,7 +29,7 @@ jobs:
     - name: Paso 3.0 - Instalar dependencias
       run: |
             npm ci
-            npm install --save-dev jest-circus
+            npm install jest-circus
     
     - name: Paso 4.0 - Construir proyecto Node
       run: npm run build --if-present
