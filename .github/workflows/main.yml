@@ -22,7 +22,7 @@ jobs:
     - name: Paso 2.0 - Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: '16.x'
+        node-version: '15.x'
         cache: 'npm'
         cache-dependency-path: ./Codigo/package-lock.json
         
