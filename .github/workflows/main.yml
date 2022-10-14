@@ -22,14 +22,17 @@ jobs:
     - name: Paso 2.0 - Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: '15.x'
+        node-version: '14.x'
         cache: 'npm'
         cache-dependency-path: ./Codigo/package-lock.json
         
     - name: Paso 3.0 - Instalar dependencias
-      run: npm install
+      run: npm ci
     
-    - name: Paso 4.0 - Ejecutar tests
+    - name: Paso 4.0 - Construir proyecto Node
+      run: npm run build --if-present
+
+    - name: Paso 5.0 - Ejecutar tests
       run: npm test
             
 #  test:
