@@ -25,14 +25,13 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-     
-    defaults:
-      run:
-        working-directory: Codigo
         
     steps:
       - name: Paso 1.0 - Ejecutar tests
-        run: npm test
+        run: |
+              ls
+              cd Codigo
+              npm test
      
 #   release:
 #     needs: [build, test]
