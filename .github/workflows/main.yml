@@ -15,22 +15,27 @@ jobs:
     - name: Paso 1.0 - Checkout del repositorio
       uses: actions/checkout@v3
       
-    - name: Usar Node.js ${{ matrix.node-version }}
+    - name: Paso 2.0 - Usar Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: '16.x'
         cache: 'npm'
         cache-dependency-path: ./Codigo/package-lock.json
         
-  test:
-    needs: build
-    runs-on: ubuntu-latest
+    - name: Paso 1.0 - Ejecutar tests
+      run: |
+            ls -a
+            ls .. -a
         
-    steps:
-      - name: Paso 1.0 - Ejecutar tests
-        run: |
-              ls -a
-              ls .. -a
+#  test:
+#   needs: build
+#    runs-on: ubuntu-latest
+#        
+#    steps:
+#      - name: Paso 1.0 - Ejecutar tests
+#        run: |
+#              ls -a
+#              ls .. -a
      
 #   release:
 #     needs: [build, test]
