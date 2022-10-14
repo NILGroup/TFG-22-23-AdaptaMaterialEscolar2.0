@@ -11,6 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    defaults:
+      run: 
+        working-directory: ./Codigo
+    
     steps:
     - name: Paso 1.0 - Checkout del repositorio
       uses: actions/checkout@v3
@@ -22,10 +26,8 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./Codigo/package-lock.json
         
-    - name: Paso 1.0 - Ejecutar tests
-      run: |
-            ls -a
-            ls .. -a
+    - name: Paso 3.0 - Ejecutar tests
+      run: npm test
         
 #  test:
 #   needs: build
