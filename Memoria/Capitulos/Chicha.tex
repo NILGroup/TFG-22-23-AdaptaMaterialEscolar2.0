@@ -68,7 +68,7 @@ La revisión de la memoria la realizarán todos integrantes del equipo siguiendo
     \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
 \end{enumerate}
 \subsection{Pruebas de implementación}
-Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{DEV:DONE}. También se encargará de mover la tarea a la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
 Para ambos tipos de pruebas, unitarias y de integración, se utilizará la herramienta Jest \underline{(ver sección de herramientas)}.
 \subsubsection{Pruebas Unitarias}
@@ -93,23 +93,15 @@ Puede darse el caso de que una prueba de integración no se pueda realizar debid
 \subsection{Integración continua}
 Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases por las que va pasando el software y que se automatizan, esta serie de fases se conoce como \textit{pipeline}.
 
-El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasara a la fase \textit{Release}, en caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasara a la fase \textit{Release}, por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release}, se subirán los cambios automáticamente al repositorio. En la figura \ref{d1_pipeline} se muestra un diagrama del \textit{pipeline}.
+El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasara a la fase \textit{Release}, en caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasara a la fase \textit{Release}, por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release}, se subirán los cambios automáticamente al repositorio.
 
-Las razones por las que creemos necesaria la implementación de integración continua en este proyecto son las siguientes:
+Las razones por las que creemos necesaria la integración continua en este proyecto son las siguientes:
 \begin{itemize}
-    \item En este proyecto se seguirá una metodología Kanban, por lo que el trabajo es continuo y es una metodología más propensa al cambio que otras metodologías ágiles, como por ejemplo Scrum. La integración continua nos permitirá asegurarnos de que en todo momento el software cumple los requisitos especificados y funciona como se espera.
     \item La integración continua mejora la productividad de desarrollo, ya que libera a los desarrolladores de tener que ejecutar las pruebas manualmente y tener que esperar a que se arreglen errores en el repositorio. Si al integrar el trabajo se produce un error en la verificación se notificará a los desarrolladores y el cambio que ha producido ese error no se subirá al repositorio compartido.
     \item Mejora la detección de errores debido a la ejecución de pruebas de forma automática y frecuente, lo que permite a los desarrolladores descubrir los errores y arreglarlos antes de que se conviertan en problemas graves.
 \end{itemize}
 
-En este proyecto se utilizará la herramienta de GitHub Actions (ver sección de herramientas) para implementar la integración continua y definir el pipeline.
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.7]{../Imagenes/DiagramaPipeline.png}
-    \caption{Diagrama del \textit{pipeline}}
-    \label{d1_pipeline}
-\end{figure}
+En este proyecto se utilizará la herramienta de GitHub Actions (ver sección de herramientas) para implementar la integración continua.
 
 \section{AdaptaMaterialEscolar2.0}
 \subsection{Requisitos}

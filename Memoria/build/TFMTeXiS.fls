@@ -1066,7 +1066,6 @@ OUTPUT build/TFMTeXiS.toc
 INPUT build/TFMTeXiS.lof
 INPUT build/TFMTeXiS.lof
 INPUT build/TFMTeXiS.lof
-INPUT c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecti1095.tfm
 OUTPUT build/TFMTeXiS.lof
 INPUT build/TFMTeXiS.lot
 INPUT build/TFMTeXiS.lot
@@ -1137,12 +1136,8 @@ INPUT ./Capitulos/Chicha.tex
 INPUT Capitulos/Chicha.tex
 INPUT ./Capitulos/Chicha.tex
 INPUT Capitulos/Chicha.tex
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/ecti1095.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
-INPUT build/../Imagenes/DiagramaPipeline.png
-INPUT build/../Imagenes/DiagramaPipeline.png
-INPUT build/../Imagenes/DiagramaPipeline.png
-INPUT build/../Imagenes/DiagramaPipeline.png
-INPUT build/../Imagenes/DiagramaPipeline.png
 INPUT ./Capitulos/ConclusionesTrabajoFuturo.tex
 INPUT ./Capitulos/ConclusionesTrabajoFuturo.tex
 INPUT ./Capitulos/ConclusionesTrabajoFuturo.tex

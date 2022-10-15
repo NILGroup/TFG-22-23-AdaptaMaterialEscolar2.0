@@ -36,10 +36,10 @@
 \contentsline {subsubsection}{\numberline {4.2.3.1}Pruebas Unitarias}{17}{subsubsection.46}%
 \contentsline {subsubsection}{\numberline {4.2.3.2}Pruebas de integración}{18}{subsubsection.47}%
 \contentsline {subsection}{\numberline {4.2.4}Integración continua}{19}{subsection.48}%
-\contentsline {section}{\numberline {4.3}AdaptaMaterialEscolar2.0}{20}{section.50}%
-\contentsline {subsection}{\numberline {4.3.1}Requisitos}{20}{subsection.51}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{23}{chapter.57}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{25}{chapter.58}%
+\contentsline {section}{\numberline {4.3}AdaptaMaterialEscolar2.0}{19}{section.49}%
+\contentsline {subsection}{\numberline {4.3.1}Requisitos}{19}{subsection.50}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{23}{chapter.56}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{25}{chapter.57}%
 \babel@toc {english}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.59}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.58}%
