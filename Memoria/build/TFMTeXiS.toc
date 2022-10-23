@@ -14,14 +14,14 @@
 \contentsline {subsubsection}{\numberline {3.1.2.2}Acceso material}{6}{subsubsection.18}%
 \contentsline {subsubsection}{\numberline {3.1.2.3}Acceso de comunicación}{7}{subsubsection.19}%
 \contentsline {subsection}{\numberline {3.1.3}Adaptaciones del currículo}{7}{subsection.20}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}Adaptaciones curriculares significativas}{7}{subsubsection.21}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Adaptaciones curriculares significativas}{8}{subsubsection.21}%
 \contentsline {subsubsection}{\numberline {3.1.3.2}Adaptaciones curriculares no significativas}{8}{subsubsection.22}%
-\contentsline {subsection}{\numberline {3.1.4}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{8}{subsection.23}%
+\contentsline {subsection}{\numberline {3.1.4}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{9}{subsection.23}%
 \contentsline {subsection}{\numberline {3.1.5}Conclusión}{10}{subsection.24}%
-\contentsline {section}{\numberline {3.2}Herramientas existentes para adaptaciones curriculares}{10}{section.25}%
+\contentsline {section}{\numberline {3.2}Herramientas existentes para adaptaciones curriculares}{11}{section.25}%
 \contentsline {section}{\numberline {3.3}AdaptaMaterialEscolar1.0}{11}{section.30}%
 \contentsline {subsection}{\numberline {3.3.1}Captura de requisitos}{11}{subsection.31}%
-\contentsline {subsection}{\numberline {3.3.2}Diseño de la aplicación}{11}{subsection.32}%
+\contentsline {subsection}{\numberline {3.3.2}Diseño de la aplicación}{12}{subsection.32}%
 \contentsline {subsection}{\numberline {3.3.3}Implementación}{12}{subsection.33}%
 \contentsline {subsection}{\numberline {3.3.4}Evaluación}{13}{subsection.34}%
 \babel@toc {spanish}{}\relax 
