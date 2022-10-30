@@ -2,44 +2,44 @@
 \label{cap:chicha}
 
 \section{Metodología de desarrollo}
-La metodología es un marco de trabajo que permite estructurar, organizar y controlar el porceso del desarollo software.
+La metodología es un marco de trabajo que permite estructurar, organizar y controlar el porceso del desarollo software. Hemos decicido aplicar la metodología Kanban. EXPLICAR NORMAS BASICAS DE KANBAN. Comentar la necesidad de realizar un tablero (hilar con la siguiente subseccion).
 
-Dentro de la metodología encontramos dos tipos, las metodologías tradiciones y las metodologías ágiles, unas de las difrenecias más notorias son la flexibilidad y la adaptabilidad.
+\subsection{Tablero Kanban}
+Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}. Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
+\begin{itemize}
+    \item \textbf{\textit{To Do}}: Listado de todas las tareas sin empezar.
+    \item \textbf{\textit{Doing}}: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación.
+    \item \textbf{\textit{Testing}}: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
+    \item \textbf{\textit{Validate}}: La tarea de memoria será comprobada por las tutoras.
+    \item \textbf{\textit{Done}}: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
+\end{itemize}
 
-Teniendo en cuenta lo anterior, hemos decicido aplicar una metodología ágil en nuestro proyecto. En concreto hemos implementado la metodología Kanban ya que es más flexible que el resto de metodologías ágiles exsistentes. Además, al ser un grupo de cuatro y tener todos el mismo nivel de conocimientos no podríamos definir roles, lo que sustenta nuestra elección.
+Si se encuentra un error en una funcionalidad, ya sea durante la fase de \textit{Testing} o tras haberse dado por terminada, se creará una nueva tarea de tipo .
+
+\subsection{Tipos de pruebas}
+Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Cada tipo de tarea se probará o revisará de manera diferente.
+\subsection{Pruebas relacionadas con la memoria}
+La revisión de la memoria consistirá en la búsqueda de faltas ortográficas y errores gramaticales, y comprobación de la claridad del texto. También, se confirmará que no falta información.
+La revisión de la memoria la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
+\begin{enumerate}
+    \item Cuando haya una tarea de memoria en la columna de \textit{DEV:DONE}, el miembro del equipo que vaya a revisarla se la asignará y la llevara a la columna de \textit{TESTING}.
+    \item Tras acabar de revisar la tarea de memoria, la moverá de vuelta a la columna de \textit{DEV:DONE}.
+    \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
+\end{enumerate}
+
 \subsection{Políticas explícitas}
 Para saber cómo está organizado el trabajo describimos las siguientes políticas explícitas:
 
 \begin{itemize}
-    \item Límites del trabajo en curso (WIP): 2 tareas en curso por persona en todo el tablero sin tener en cuenta la columna validate. que debemos cumplir.
-    \item Definición de \textit{done}:
+    \item Límites del trabajo en curso (WIP): cuatro tareas en curso por persona en todo el tablero sin tener en cuenta la columna \textit{Validate}.
+    \item Definición de \textit{Done}:
           \begin{itemize}
-              \item Tareas de memoria: Cuando hayan sido dadas por validadas por las tutoras.
+              \item Tareas de memoria: Cuando hayan sido validadas por las tutoras.
               \item Tareas de implementación: Cuando hayan pasado todo el plan de pruebas.
           \end{itemize}
     \item Cuando un integrante del grupo haya terminado su tarea él será el encargado de moverla a la columna correspondiente.
     \item Cualquier integrante del grupo puede poner una tarea en el tablero tras consultarlo con el resto.
-    \item El 16 de mayo entrega del borrador.
-    \item El 23 de mayo es la entrega final.
-    \item Las reuniones se  llevarán a cabo todos los domingos alrededor de las 12:00, para poner en común el trabajo realizado.
-    \item Si se produce un error en una función, se añadirá una tarea para resolverlo.
-    \item Los elementos del trabajo continuarán a través del flujo cuando este se ajuste a la definición de la columna. La explicación de cada columna sería la siguiente:
-          To do: Listado de todas las tareas sin empezar.
-
-          Dev:
-
-          \indent Doing: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación.
-
-          \indent Done: Tarea que se encontraba en desarrollo ha finalizado.
-
-          Test: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
-          Validate: La tarea de memoria será comprobada por las tutoras.
-
-          Done: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
-
-
-
-
+    \item Hemos llegado al acuerdo de realizar reuniones todos los domingos a las 12:00, para poner en común el trabajo realizado por cada miembro.
 \end{itemize}
 
 \subsection{Clases de servicios}
@@ -53,27 +53,15 @@ En nuestro caso las clases de servicio que empleamos son las siguientes:
 \end{itemize}
 En cuanto a la relación de prioridad entre las clases mencionadas anteriormente es la siguiente. Las clases Expedite son las mas prioritarias, las standard son un poco menos prioritarias que las Expedite, las Fixed Delivery Date si en su debida fecha no están implementadas se convierten en Standard o incluso en Expedite y las Intangibles si no son actualizadas puede llegar un momento en que no tengan soporte en ese momento se pueden convertir en Standard o en Expedite.
 
-
-
 \section{Plan de Pruebas}
 \nocite{pipelineRedHat}
 \nocite{testingSW}
 \nocite{ciAmazon}
-\subsection{Tipos de pruebas}
-Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Cada tipo de tarea se probará o revisará de manera diferente.
-\subsection{Pruebas relacionadas con la memoria}
-La revisión de la memoria consistirá en la búsqueda de faltas ortográficas y errores gramaticales, y comprobación de la claridad del texto. También, se confirmará que no falta información.
-La revisión de la memoria la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
-\begin{enumerate}
-    \item Cuando haya una tarea de memoria en la columna de \textit{DEV:DONE}, el miembro del equipo que vaya a revisarla se la asignará y la llevara a la columna de \textit{TESTING}.
-    \item Tras acabar de revisar la tarea de memoria, la moverá de vuelta a la columna de \textit{DEV:DONE}.
-    \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
-\end{enumerate}
-\subsection{Pruebas de implementación}
+
 Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
 Para ambos tipos de pruebas, unitarias y de integración, se utilizará la herramienta Jest \underline{(ver sección de herramientas)}.
-\subsubsection{Pruebas Unitarias}
+\subsection{Pruebas Unitarias}
 Las pruebas unitarias son pruebas, mayoritariamente automatizadas, que verifican la funcionalidad de una unidad software (componente, clase o método), de forma aislada. Esta verificación no se debe ver afectada por otros casos de prueba que se hayan ejecutado anteriormente o por dependencias con otros módulos de la aplicación. Para evitar que las dependencias de un módulo, por ejemplo el acceso a una base de datos o una petición a una API externa, afecten al resultado de la prueba se pueden usar \textit{stubs} para simular esas dependencias.
 
 La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que estos no han afectado al funcionamiento esperado de la aplicación.
@@ -85,7 +73,7 @@ Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay qu
     \item Cada caso de prueba debe estar aislado completamente del resto de casos o pruebas de otros módulos. Si no se aísla correctamente, se pueden producir resultados no consistentes, complicando la detección de errores.
     \item Las pruebas deben ser relevantes para el futuro y deben tratar de cubrir la totalidad del código.
 \end{itemize}
-\subsubsection{Pruebas de integración}
+\subsection{Pruebas de integración}
 Las pruebas de integración se utilizan para comprobar que las conexiones o interfaces entre los distintos módulos, ya probados individualmente (pruebas unitarias), funcionan correctamente.
 
 En este proyecto las pruebas de integración se realizarán de forma incremental, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. En esta estrategia, la integración se lleva a cabo de arriba abajo, siguiendo el flujo natural de la aplicación.
@@ -110,7 +98,7 @@ En este proyecto se utilizará la herramienta de GitHub Actions (ver sección de
 \begin{table}[ht!]
     \begin{tabular}{|l|c|c|}
         \hline
-        \multicolumn{3}{|c|}{Adaptaciones de temario}                                                                                           \\ \hline
+        \multicolumn{3}{|c|}{Adaptaciones de temario}                                                                                                       \\ \hline
         Funciones                                                                                                                     & Coste & Importancia \\ \hline
         Generar un resumen a partir de un texto.                                                                                      & 2     & 3           \\ \hline
         Crear esquemas que faciliten la visualización                                                                                 & 1     & 3           \\ \hline
