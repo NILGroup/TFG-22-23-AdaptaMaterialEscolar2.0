@@ -8,34 +8,35 @@
 \contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.13}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {3}Estado del arte}{5}{chapter.14}%
-\contentsline {section}{\numberline {3.1}Adaptación curricular}{5}{section.15}%
-\contentsline {subsection}{\numberline {3.1.1}Concepto de la adaptación curricular}{5}{subsection.16}%
-\contentsline {subsection}{\numberline {3.1.2}Adaptaciones de acceso}{6}{subsection.17}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}Acceso espacial}{6}{subsubsection.18}%
-\contentsline {subsubsection}{\numberline {3.1.2.2}Acceso material}{6}{subsubsection.19}%
-\contentsline {subsubsection}{\numberline {3.1.2.3}Acceso de comunicación}{7}{subsubsection.20}%
-\contentsline {subsection}{\numberline {3.1.3}Adaptaciones del currículo}{7}{subsection.21}%
-\contentsline {subsubsection}{\numberline {3.1.3.1}Adaptaciones curriculares significativas}{8}{subsubsection.22}%
-\contentsline {subsubsection}{\numberline {3.1.3.2}Adaptaciones curriculares no significativas}{8}{subsubsection.23}%
-\contentsline {subsection}{\numberline {3.1.4}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{9}{subsection.24}%
-\contentsline {section}{\numberline {3.2}Herramientas existentes para adaptaciones curriculares}{11}{section.25}%
-\contentsline {subsection}{\numberline {3.2.1}AdaptaMaterialEscolar1.0}{11}{subsection.30}%
+\contentsline {subsection}{\numberline {3.0.1}AdaptaMaterialEscolar1.0}{5}{subsection.15}%
+\contentsline {section}{\numberline {3.1}Adaptación curricular}{5}{section.16}%
+\contentsline {subsection}{\numberline {3.1.1}Concepto de la adaptación curricular}{6}{subsection.17}%
+\contentsline {subsection}{\numberline {3.1.2}Adaptaciones de acceso}{6}{subsection.18}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}Acceso espacial}{6}{subsubsection.19}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}Acceso material}{7}{subsubsection.20}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}Acceso de comunicación}{7}{subsubsection.21}%
+\contentsline {subsection}{\numberline {3.1.3}Adaptaciones del currículo}{8}{subsection.22}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Adaptaciones curriculares significativas}{8}{subsubsection.23}%
+\contentsline {subsubsection}{\numberline {3.1.3.2}Adaptaciones curriculares no significativas}{8}{subsubsection.24}%
+\contentsline {subsection}{\numberline {3.1.4}Ejemplificación de algunas adaptaciones curriculares asociadas a diferentes necesidades }{9}{subsection.25}%
+\contentsline {section}{\numberline {3.2}Herramientas existentes para adaptaciones curriculares}{11}{section.26}%
+\contentsline {subsection}{\numberline {3.2.1}AdaptaMaterialEscolar1.0}{11}{subsection.31}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {4}Chicha}{15}{chapter.31}%
-\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{15}{section.32}%
-\contentsline {subsection}{\numberline {4.1.1}Tablero Kanban}{15}{subsection.33}%
-\contentsline {subsection}{\numberline {4.1.2}Tipos de pruebas}{16}{subsection.34}%
-\contentsline {subsection}{\numberline {4.1.3}Pruebas relacionadas con la memoria}{16}{subsection.35}%
-\contentsline {subsection}{\numberline {4.1.4}Políticas explícitas}{16}{subsection.39}%
-\contentsline {subsection}{\numberline {4.1.5}Clases de servicios}{17}{subsection.40}%
-\contentsline {section}{\numberline {4.2}Plan de Pruebas}{17}{section.41}%
-\contentsline {subsection}{\numberline {4.2.1}Pruebas Unitarias}{17}{subsection.42}%
-\contentsline {subsection}{\numberline {4.2.2}Pruebas de integración}{18}{subsection.43}%
-\contentsline {subsection}{\numberline {4.2.3}Integración continua}{19}{subsection.44}%
-\contentsline {section}{\numberline {4.3}AdaptaMaterialEscolar2.0}{19}{section.45}%
-\contentsline {subsection}{\numberline {4.3.1}Requisitos}{19}{subsection.46}%
-\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{23}{chapter.52}%
-\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{25}{chapter.53}%
+\contentsline {chapter}{\numberline {4}Chicha}{15}{chapter.32}%
+\contentsline {section}{\numberline {4.1}Metodología de desarrollo}{15}{section.33}%
+\contentsline {subsection}{\numberline {4.1.1}Tablero Kanban}{15}{subsection.34}%
+\contentsline {subsection}{\numberline {4.1.2}Tipos de pruebas}{16}{subsection.35}%
+\contentsline {subsection}{\numberline {4.1.3}Pruebas relacionadas con la memoria}{16}{subsection.36}%
+\contentsline {subsection}{\numberline {4.1.4}Políticas explícitas}{16}{subsection.40}%
+\contentsline {subsection}{\numberline {4.1.5}Clases de servicios}{17}{subsection.41}%
+\contentsline {section}{\numberline {4.2}Plan de Pruebas}{17}{section.42}%
+\contentsline {subsection}{\numberline {4.2.1}Pruebas Unitarias}{17}{subsection.43}%
+\contentsline {subsection}{\numberline {4.2.2}Pruebas de integración}{18}{subsection.44}%
+\contentsline {subsection}{\numberline {4.2.3}Integración continua}{19}{subsection.45}%
+\contentsline {section}{\numberline {4.3}AdaptaMaterialEscolar2.0}{19}{section.46}%
+\contentsline {subsection}{\numberline {4.3.1}Requisitos}{19}{subsection.47}%
+\contentsline {chapter}{\numberline {5}Conclusiones y Trabajo Futuro}{23}{chapter.53}%
+\contentsline {chapter}{\numberline {5}Conclusions and Future Work}{25}{chapter.54}%
 \babel@toc {english}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.54}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.55}%
