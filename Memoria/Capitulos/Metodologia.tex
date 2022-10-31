@@ -1,0 +1,92 @@
+\chapter{Metodología}
+\label{cap:metodologia}
+En este capítulo se explicará la metodología utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{cap:pruebas}
+\section{Metodología de desarrollo}
+\label{cap:Kanban}
+La metodología es un marco de trabajo que permite estructurar, organizar y controlar el porceso del desarollo software. Hemos decicido aplicar la metodología Kanban. Está metodología se rige por unas reglas básicas como gestionar el flujo; hacer las políticas explicitas; visualizar el trabajo y las fases del ciclo de producción o flujo de trabajo y determinar a la vez que respetar el límite de "trabajo en curso". 
+
+\subsection{Tablero Kanban}
+Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}.
+Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Cada tipo de tarea se probará o revisará de manera diferente. 
+Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
+\begin{itemize}
+    \item \textbf{\textit{To Do}}: Listado de todas las tareas sin empezar.
+    \item \textbf{\textit{Doing}}: Tareas que se encuentran en desarrollo, ya sea la implementación de código o redactar la documentación.
+    \item \textbf{\textit{Testing}}: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
+    \item \textbf{\textit{Validate}}: La tarea de memoria será comprobada por las tutoras.
+    \item \textbf{\textit{Done}}: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
+\end{itemize}
+Para las tareas de documentación, cuando se situen en la columna de \textit{Testing} la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
+\begin{enumerate}
+    \item Cuando haya una tarea de memoria en la columna de \textit{TESTING}, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
+    \item Cuando un miembro del equipo haya terminado de revisar la tarea debe marcarlo en el \textit{checkbox} referido a él.
+    \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{VALIDATE}.
+\end{enumerate}
+Por otra parte, si se encuentra un error en una funcionalidad, ya sea durante la fase de \textit{Testing} o tras haberse dado por terminada, se creará una nueva tarea de tipo \textit{bug}.
+
+\subsection{Políticas explícitas}
+A continuación se presentan las políticas explicitas que hemos ido estableciendo a lo largo del proyecto:
+
+\begin{itemize}
+    \item Límites del trabajo en curso (WIP): cuatro tareas en curso por persona en todo el tablero sin tener en cuenta la columna \textit{Validate}.
+    \item Definición de \textit{Done}:
+          \begin{itemize}
+              \item Tareas de memoria: Cuando hayan sido validadas por las tutoras.
+              \item Tareas de implementación: Cuando hayan pasado todo el plan de pruebas.
+          \end{itemize}
+    \item Cuando un integrante del grupo haya terminado su tarea él será el encargado de moverla a la columna correspondiente.
+    \item Cualquier integrante del grupo puede poner una tarea en el tablero tras consultarlo con el resto.
+    \item Hemos llegado al acuerdo de realizar reuniones todos los domingos a las 12:00, para poner en común el trabajo realizado por cada miembro.
+\end{itemize}
+
+\subsection{Clases de servicios}
+En Kanban para priorizar las tareas del tablero en ocasiones se emplea las clases de servicio. Estas son una serie de categorías que nos son útiles para clasificar cada una de las tareas de nuestro sistema, las cuales nos permiten identificar rápidamente el nivel de prioridad que tiene la tarea sin hacer un análisis o estimación muy extensa del mismo. Además, la categoría asociada a una tarea determinará como moverá la tarea en el tablero.\\
+En nuestro caso las clases de servicio que empleamos son las siguientes:
+\begin{itemize}
+    \item Expedite: Tareas que necesitan ser gestionadas de manera acelerada o urgente.
+    \item Fixed Delivery Date: Tareas con fecha fija que debemos cumplir.
+    \item Standard: Tareas que ya ha hecho antes el equipo y que no tienen una fecha fija.
+    \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va dedicar y el riesgo que suponen.
+\end{itemize}
+En cuanto a la relación de prioridad entre las clases mencionadas anteriormente es la siguiente. Las clases Expedite son las mas prioritarias, las standard son un poco menos prioritarias que las Expedite, las Fixed Delivery Date si en su debida fecha no están implementadas se convierten en Standard o incluso en Expedite y las Intangibles inicialmente se desconoce el riesgo que suponen pero pueden convertirse en Standard o en Expedite.
+
+\section{Plan de Pruebas}
+\label{cap:pruebas}
+\nocite{pipelineRedHat}
+\nocite{testingSW}
+\nocite{ciAmazon}
+
+Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{TESTING}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+
+Para ambos tipos de pruebas, unitarias y de integración, se utilizará la herramienta Jest \underline{(ver sección de herramientas)}.
+\subsection{Pruebas Unitarias}
+Las pruebas unitarias son pruebas, mayoritariamente automatizadas, que verifican la funcionalidad de una unidad software (componente, clase o método), de forma aislada. Esta verificación no se debe ver afectada por otros casos de prueba que se hayan ejecutado anteriormente o por dependencias con otros módulos de la aplicación. Para evitar que las dependencias de un módulo, por ejemplo el acceso a una base de datos o una petición a una API externa, afecten al resultado de la prueba se pueden usar \textit{stubs} para simular esas dependencias.
+
+La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que estos no han afectado al funcionamiento esperado de la aplicación.
+
+Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay que asegurarse de que cumplen las siguientes características:
+\begin{itemize}
+    \item Deben ser automáticas y repetibles, es decir, se deben poder ejecutar tantas veces como uno quiera sin necesidad de intervención manual durante las pruebas.
+    \item Deben ser rápidas, ya que si el ejecutar las pruebas unitarias es un proceso lento, no se va a llevar a cabo tantas veces como sea necesario.
+    \item Cada caso de prueba debe estar aislado completamente del resto de casos o pruebas de otros módulos. Si no se aísla correctamente, se pueden producir resultados no consistentes, complicando la detección de errores.
+    \item Las pruebas deben ser relevantes para el futuro y deben tratar de cubrir la totalidad del código.
+\end{itemize}
+\subsection{Pruebas de integración}
+Las pruebas de integración se utilizan para comprobar que las conexiones o interfaces entre los distintos módulos, ya probados individualmente (pruebas unitarias), funcionan correctamente.
+
+En este proyecto las pruebas de integración se realizarán de forma incremental, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. En esta estrategia, la integración se lleva a cabo de arriba abajo, siguiendo el flujo natural de la aplicación.
+
+Se seguirá una estrategia \textit{Top-Down} para realizar las pruebas. Utilizaremos esta estrategia, en vez de \textit{Bottom-Up}, porque nos queremos centrar en errores de diseño y tener una aplicación funcional probada lo antes posible.
+Puede darse el caso de que una prueba de integración no se pueda realizar debido a que alguno de los módulos a integrar está en desarrollo o todavía se está probando individualmente. En este caso, se utilizarán \textit{stubs} para simular la dependencia entre módulos.
+\subsection{Integración continua}
+Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases por las que va pasando el software y que se automatizan, esta serie de fases se conoce como \textit{pipeline}.
+
+El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasara a la fase \textit{Release}, en caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasara a la fase \textit{Release}, por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release}, se subirán los cambios automáticamente al repositorio.
+
+Las razones por las que creemos necesaria la integración continua en este proyecto son las siguientes:
+\begin{itemize}
+    \item La integración continua mejora la productividad de desarrollo, ya que libera a los desarrolladores de tener que ejecutar las pruebas manualmente y tener que esperar a que se arreglen errores en el repositorio. Si al integrar el trabajo se produce un error en la verificación se notificará a los desarrolladores y el cambio que ha producido ese error no se subirá al repositorio compartido.
+    \item Mejora la detección de errores debido a la ejecución de pruebas de forma automática y frecuente, lo que permite a los desarrolladores descubrir los errores y arreglarlos antes de que se conviertan en problemas graves.
+\end{itemize}
+
+En este proyecto se utilizará la herramienta de GitHub Actions (ver sección de herramientas) para implementar la integración continua.
