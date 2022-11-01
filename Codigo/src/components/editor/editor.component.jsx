@@ -13,7 +13,10 @@ import TableProperties from "@ckeditor/ckeditor5-table/src/tableproperties";
 import TableCellProperties from "@ckeditor/ckeditor5-table/src/tablecellproperties";
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+
 import ExportPdf from '@ckeditor/ckeditor5-export-pdf/src/exportpdf';
+import ExportWord from '@ckeditor/ckeditor5-export-word/src/exportword';
+
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize'
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
@@ -55,13 +58,13 @@ class Editor extends React.Component{
                 tokenUrl: token
             },*/
             language: 'es',
-            plugins: [ExportPdf, Essentials, Heading, Bold, Italic, Underline, Paragraph, Table, TableToolbar, PictogramEditing, Alignment, WordSearchPlugin, 
+            plugins: [ExportPdf, ExportWord, Essentials, Heading, Bold, Italic, Underline, Paragraph, Table, TableToolbar, PictogramEditing, Alignment, WordSearchPlugin, 
                     DefinitionsPlugin, TrueFalsePlugin, DevelopPlugin, FontFamily, FontSize, FontColor, FontBackgroundColor, Indent, IndentBlock, ListStyle, 
                     TodoList, BlockQuote, Image, ImageInsert, ImageToolbar, ImageStyle, ImageResize, ImageEditing, FillGapsPlugin, PageBreak, TableCellProperties,
                     TableProperties
                 ],
             
-            toolbar: [  'exportPdf', '|',
+            toolbar: [  'exportPdf', 'exportWord', '|',
                         'undo', 'redo', '|',
                         'heading','|',
                         'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'bold', 'italic', 'underline', '|',
