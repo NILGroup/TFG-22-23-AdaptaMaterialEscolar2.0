@@ -37,5 +37,6 @@
 \contentsline {chapter}{\numberline {7}Conclusions and Future Work}{31}{chapter.53}%
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {8}Trabajo individual}{33}{chapter.54}%
+\contentsline {section}{\numberline {8.1}Dunia Namour Doughani}{33}{section.55}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliograf\'{\i }a}{35}{appendix*.55}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{35}{appendix*.56}%
