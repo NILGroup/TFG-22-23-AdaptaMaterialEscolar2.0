@@ -123,14 +123,14 @@ constantes,guionado,Cascaras/bibliografia,config%
 \include{Cascaras/agradecimientos}
 \include{Cascaras/resumen}
 \begin{otherlanguage}{english}
-\include{Cascaras/abstract}
-% Si el trabajo se escribe en inglés, comentar esta línea y descomentar
-% otra igual que hay justo antes de \end{document}
+  \include{Cascaras/abstract}
+  % Si el trabajo se escribe en inglés, comentar esta línea y descomentar
+  % otra igual que hay justo antes de \end{document}
 \end{otherlanguage}
 
 \ifx\generatoc\undefined
 \else
-\include{TeXiS/TeXiS_toc}
+  \include{TeXiS/TeXiS_toc}
 \fi
 
 % Marcamos el  comienzo de  los capítulos (para  la numeración  de las
@@ -140,33 +140,21 @@ constantes,guionado,Cascaras/bibliografia,config%
 \pagestyle{fancy}
 \restauraCabecera
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Si el TFM se escribe en ingles, comentar las siguientes líneas 
-% porque no hace falta incluir nuevamente la Introducción en inglés
+% Capítulos
 \include{Capitulos/Introduccion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\setcounter{chapter}{\thechapter-1}
 \begin{otherlanguage}{english}
   \include{Capitulos/Introduction}
-  \end{otherlanguage}
+\end{otherlanguage}
 \include{Capitulos/EstadoDeLaCuestion}
 \include{Capitulos/Metodologia}
 \include{Capitulos/AdaptaMaterialEscolar2.0}
-%\include{Capitulos/Capitulo4}
-%\include{Capitulos/Capitulo5}
 \include{Capitulos/ConclusionesTrabajoFuturo}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Si el TFM se escribe en inglés, comentar las siguientes líneas 
-% porque no es necesario incluir nuevamente las Conclusiones en inglés
-
+\setcounter{chapter}{\thechapter-1}
 \begin{otherlanguage}{english}
-\include{Capitulos/ConclusionsFutureWork}
+  \include{Capitulos/ConclusionsFutureWork}
 \end{otherlanguage}
-\include{Capitulos/Trabajo individual}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\include{Capitulos/TrabajoIndividual}
 
 % Apéndices
 \appendix
@@ -198,7 +186,7 @@ constantes,guionado,Cascaras/bibliografia,config%
 % en TeXiS_pream.tex para más información.
 \ifx\generaindice\undefined
 \else
-%\include{TeXiS/TeXiS_indice}
+  %\include{TeXiS/TeXiS_indice}
 \fi
 
 %
@@ -211,7 +199,7 @@ constantes,guionado,Cascaras/bibliografia,config%
 
 \ifx\generaacronimos\undefined
 \else
-\include{TeXiS/TeXiS_acron}
+  \include{TeXiS/TeXiS_acron}
 \fi
 
 %
