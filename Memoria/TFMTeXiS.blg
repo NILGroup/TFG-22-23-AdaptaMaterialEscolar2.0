@@ -1,74 +1,95 @@
-This is BibTeX, Version 0.99d (TeX Live 2022)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TFMTeXiS.aux
+Reallocating 'name_of_file' (item size: 1) to 19 items.
 A level-1 auxiliary file: Cascaras/cover.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: Cascaras/autorizacion.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: Cascaras/dedicatoria.aux
+Reallocating 'name_of_file' (item size: 1) to 29 items.
 A level-1 auxiliary file: Cascaras/agradecimientos.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
 A level-1 auxiliary file: Cascaras/resumen.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Cascaras/abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 20 items.
 A level-1 auxiliary file: TeXiS/TeXiS_toc.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
 A level-1 auxiliary file: Capitulos/Introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
 A level-1 auxiliary file: Capitulos/Introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 33 items.
 A level-1 auxiliary file: Capitulos/EstadoDeLaCuestion.aux
-I couldn't open auxiliary file Capitulos/Chicha.aux
----line 75 of file TFMTeXiS.aux
- : \@input{Capitulos/Chicha.aux
- :                             }
-I'm skipping whatever remains of this command
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: Capitulos/Chicha.aux
+Reallocating 'name_of_file' (item size: 1) to 40 items.
 A level-1 auxiliary file: Capitulos/ConclusionesTrabajoFuturo.aux
+Reallocating 'name_of_file' (item size: 1) to 36 items.
 A level-1 auxiliary file: Capitulos/ConclusionsFutureWork.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: Cascaras/bibliografia.aux
+Reallocating 'name_of_file' (item size: 1) to 12 items.
 The style file: TeXiS/TeXiS.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: Cascaras/fin.aux
 Database file #1: nuestros.bib
 Warning--entry type for "BOE" isn't style-file defined
 --line 23 of file nuestros.bib
+Warning--entry type for "BOE2" isn't style-file defined
+--line 33 of file nuestros.bib
 Warning--entry type for "adaptacionCurricular" isn't style-file defined
 --line 45 of file nuestros.bib
+Warning--entry type for "pipelineRedHat" isn't style-file defined
+--line 69 of file nuestros.bib
+Warning--entry type for "testingSW" isn't style-file defined
+--line 79 of file nuestros.bib
+Warning--entry type for "ciAmazon" isn't style-file defined
+--line 89 of file nuestros.bib
 Database file #2: latex.bib
 Database file #3: otros.bib
-Warning--I didn't find a database entry for "Motivación"
-Warning--I didn't find a database entry for "Objetivos"
-You've used 5 entries,
+You've used 9 entries,
             2962 wiz_defined-function locations,
-            1117 strings with 13362 characters,
-and the built_in function-call counts, 1862 in all, are:
-= -- 154
-> -- 50
-< -- 5
-+ -- 20
-- -- 15
-* -- 86
-:= -- 331
-add.period$ -- 15
-call.type$ -- 5
-change.case$ -- 29
-chr.to.int$ -- 5
-cite$ -- 5
-duplicate$ -- 148
-empty$ -- 146
-format.name$ -- 20
-if$ -- 358
+            1130 strings with 13669 characters,
+and the built_in function-call counts, 3286 in all, are:
+= -- 278
+> -- 90
+< -- 9
++ -- 36
+- -- 27
+* -- 150
+:= -- 587
+add.period$ -- 27
+call.type$ -- 9
+change.case$ -- 53
+chr.to.int$ -- 9
+cite$ -- 9
+duplicate$ -- 260
+empty$ -- 250
+format.name$ -- 36
+if$ -- 630
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 28
-newline$ -- 29
-num.names$ -- 20
-pop$ -- 71
+missing$ -- 48
+newline$ -- 49
+num.names$ -- 36
+pop$ -- 123
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 45
 quote$ -- 0
-skip$ -- 70
+skip$ -- 122
 stack$ -- 0
-substring$ -- 55
-swap$ -- 48
+substring$ -- 99
+swap$ -- 84
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 47
+type$ -- 87
 warning$ -- 0
-while$ -- 15
+while$ -- 27
 width$ -- 0
-write$ -- 59
-(There was 1 error message)
+write$ -- 103
+(There were 6 warnings)

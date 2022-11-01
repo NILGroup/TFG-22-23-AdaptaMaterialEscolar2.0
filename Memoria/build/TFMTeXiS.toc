@@ -39,5 +39,6 @@
 \contentsline {chapter}{\numberline {6}Trabajo Individual}{33}{chapter.54}%
 \contentsline {section}{\numberline {6.1}Dunia Namour Doughani}{33}{section.55}%
 \contentsline {section}{\numberline {6.2}Álvaro Gómez Sittima}{33}{section.56}%
+\contentsline {section}{\numberline {6.3}Johan Sebastian Salvatierra Gutierrez}{34}{section.57}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliograf\'{\i }a}{35}{appendix*.57}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{35}{appendix*.58}%
