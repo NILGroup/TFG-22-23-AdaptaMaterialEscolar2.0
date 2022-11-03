@@ -73,7 +73,7 @@
 \def\escalaImagenPortadaVal{#1}
 }
 % Tipo de documento (TESIS, MANUAL, ...)
-\def\tipoDocumentoVal{TESIS DOCTORAL}
+\def\tipoDocumentoVal{TRABAJO DE FIN DE GRADO}
 \newcommand{\tipoDocumento}[1]{
 \def\tipoDocumentoVal{#1}
 }
@@ -93,14 +93,6 @@
 \def\textoPrimerSubtituloPortadaVal{#1}
 }
 
-% Segundo subtítulo de la segunda portada
-\def\textoSegundoSubtituloPortadaVal{%
-\textit{Dirigida por el Doctor}  \\ [0.3em]
-\textbf{\directorPortadaVal}
-}
-\newcommand{\textoSegundoSubtituloPortada}[1]{
-\def\textoSegundoSubtituloPortadaVal{#1}
-}
 
 % ISBN
 \newcommand{\isbn}[1]{
@@ -302,13 +294,9 @@
 
 \vfill
 
-\newcounter{lastyear}
-\setcounter{lastyear}{\the\year}
-\addtocounter{lastyear}{-1}
-
 \begin{center}
   {\Large \textbf{\tipoDocumentoVal}}\\
-  {\Large \textbf{Curso \thelastyear--\the\year}}
+  {\Large \textbf{Curso 2022--2023}}
   
 \end{center}
 
@@ -385,7 +373,6 @@
 {\Large \bfseries Directoras}\\
 \textbf{\directorPortadaVal}\\[0.3cm]
 \mbox{ } \\ \mbox{ } \\ 
-\textoSegundoSubtituloPortadaVal \\ [0.3em]
 \end{center}
 \end{large}
 
