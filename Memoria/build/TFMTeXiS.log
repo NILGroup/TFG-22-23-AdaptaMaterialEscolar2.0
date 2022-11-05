@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.25 NEXT) (preloaded format=pdflatex 2022.10.12)  5 NOV 2022 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.5)  5 NOV 2022 19:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **c:/Users/dunia/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
 (c:/Users/dunia/Desktop/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
 LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-09-28> (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+L3 programming layer <2022-10-26> (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
 (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
 File: bk11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -53,7 +53,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count194
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2022/10/04 3.81 The Babel package
+Package: babel 2022/10/23 3.82 The Babel package
 \babel@savecnt=\count195
 \U@D=\dimen139
 \l@unhyphenated=\language79
@@ -441,7 +441,7 @@ Package csquotes Info: ... configuration file loaded successfully.
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
 )) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
-Package: pdfpages 2022/05/22 v0.5v Insert pages of external PDF documents (AM)
+Package: pdfpages 2022/10/09 v0.5w Insert pages of external PDF documents (AM)
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
@@ -469,7 +469,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 \AM@pageheight=\dimen189
 \AM@fboxrule=\dimen190
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
-File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
+File: pppdftex.def 2022/10/09 v0.5w Pdfpages driver for pdfTeX (AM)
 )
 \pdfpages@includegraphics@status=\count313
 \AM@pagebox=\box102
@@ -479,9 +479,9 @@ File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count315
 \AM@templatesizebox=\box103
 ) (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2022-09-28 L3 programming layer (loader) 
+Package: expl3 2022-10-26 L3 programming layer (loader) 
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box104
 ))
@@ -785,44 +785,48 @@ LaTeX Info: Redefining \% on input line 148.
 ]
 Cap\'itulo 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--16
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 17--19
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--25
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
  []
 
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
 [8]
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
  [9]
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
- [10]
+[10]
 Overfull \hbox (2.60812pt too wide) in paragraph at lines 73--74
 []\T1/cmr/m/n/10.95 Evaluaci�n: Se ajus-ta la ma-ne-ra de eva-luar a las ne-ce-si-da-des del alumno.
  []
@@ -832,38 +836,38 @@ Overfull \hbox (4.3361pt too wide) in paragraph at lines 74--75
 \T1/cmr/m/n/10.95 aprendizaje ha de ser ac-ti-vo, par-tien-do des-de las ne-ce-si-da-des del alumno.
  []
 
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
 [11]
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [12]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 124.
+(Font)              <9> on input line 127.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 124.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 124.
+(Font)              <5> on input line 127.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 127.
  (C:\Users\dunia\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=409, 1433.355pt x 730.22812pt>
+<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=417, 1433.355pt x 730.22812pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png>
-Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png  used on input line 131.
+Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png  used on input line 134.
 (pdftex.def)             Requested size: 358.33788pt x 182.55658pt.
-<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=411, 1434.86063pt x 729.47531pt>
+<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=419, 1434.86063pt x 729.47531pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>
-Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png  used on input line 138.
+Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png  used on input line 141.
 (pdftex.def)             Requested size: 358.71428pt x 182.36838pt.
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
  [13]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
  [14 <./Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png> <./Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>]
-LaTeX Info: Redefining \. on input line 172.
-LaTeX Info: Redefining \% on input line 172.
+LaTeX Info: Redefining \. on input line 174.
+LaTeX Info: Redefining \% on input line 174.
  [15])
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
@@ -907,27 +911,27 @@ Overfull \hbox (26.12177pt too wide) in paragraph at lines 12--99
 
 LaTeX Warning: Float too large for page by 21.3992pt on input line 101.
 
-<Imagenes//Diseño/IteracionCompetitiva1.png, id=475, 962.59625pt x 541.02126pt>
+<Imagenes//Diseño/IteracionCompetitiva1.png, id=483, 962.59625pt x 541.02126pt>
 File: Imagenes//Diseño/IteracionCompetitiva1.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva1.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva1.png  used on input line 110.
 (pdftex.def)             Requested size: 288.7811pt x 162.30762pt.
-<Imagenes//Diseño/IteracionCompetitiva2.png, id=476, 564.1075pt x 415.5525pt>
+<Imagenes//Diseño/IteracionCompetitiva2.png, id=484, 564.1075pt x 415.5525pt>
 File: Imagenes//Diseño/IteracionCompetitiva2.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva2.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva2.png  used on input line 116.
 (pdftex.def)             Requested size: 282.05305pt x 207.77574pt.
-<Imagenes//Diseño/IteracionCompetitiva3.png, id=477, 604.50844pt x 359.09157pt>
+<Imagenes//Diseño/IteracionCompetitiva3.png, id=485, 604.50844pt x 359.09157pt>
 File: Imagenes//Diseño/IteracionCompetitiva3.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva3.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva3.png  used on input line 122.
 (pdftex.def)             Requested size: 302.25348pt x 179.54533pt.
-<Imagenes//Diseño/IteracionCompetitiva4.png, id=478, 630.85687pt x 382.42876pt>
+<Imagenes//Diseño/IteracionCompetitiva4.png, id=486, 630.85687pt x 382.42876pt>
 File: Imagenes//Diseño/IteracionCompetitiva4.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva4.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva4.png  used on input line 128.
 (pdftex.def)             Requested size: 315.42766pt x 191.2139pt.
-<Imagenes//Diseño/Diseño Final.png, id=479, 1141.26375pt x 696.6025pt>
+<Imagenes//Diseño/Diseño Final.png, id=487, 1141.26375pt x 696.6025pt>
 File: Imagenes//Diseño/Diseño Final.png Graphic file (type png)
 <use Imagenes//Diseño/Diseño Final.png>
 Package pdftex.def Info: Imagenes//Diseño/Diseño Final.png  used on input line 134.
@@ -1015,17 +1019,17 @@ Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
 (rerunfilecheck)             Checksum: B9D3DCD4F30E692A8D52C71346C5FF19;6680.
  ) 
 Here is how much of TeX's memory you used:
- 18151 strings out of 475385
- 318201 string characters out of 2776906
- 760258 words of memory out of 3000000
- 38705 multiletter control sequences out of 15000+600000
+ 18159 strings out of 475379
+ 318243 string characters out of 2776757
+ 760760 words of memory out of 3000000
+ 38718 multiletter control sequences out of 15000+600000
  490078 words of font info for 64 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
  94i,15n,98p,1151b,840s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk>{C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\dunia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/dunia/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.pdf (57 pages, 1140869 bytes).
+Output written on c:\Users\dunia\Desktop\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.pdf (57 pages, 1143003 bytes).
 PDF statistics:
- 1176 PDF objects out of 1200 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
+ 1184 PDF objects out of 1200 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
  361 words of extra memory for PDF output out of 10000 (max. 10000000)
 

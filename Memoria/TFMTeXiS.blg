@@ -42,52 +42,52 @@ Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: Cascaras/fin.aux
 Database file #1: nuestros.bib
 Warning--entry type for "pipelineRedHat" isn't style-file defined
---line 69 of file nuestros.bib
-Warning--entry type for "testingSW" isn't style-file defined
---line 79 of file nuestros.bib
-Warning--entry type for "ciAmazon" isn't style-file defined
 --line 89 of file nuestros.bib
+Warning--entry type for "testingSW" isn't style-file defined
+--line 101 of file nuestros.bib
+Warning--entry type for "ciAmazon" isn't style-file defined
+--line 111 of file nuestros.bib
 Database file #2: latex.bib
 Database file #3: otros.bib
-You've used 9 entries,
+You've used 10 entries,
             2962 wiz_defined-function locations,
-            1132 strings with 13800 characters,
-and the built_in function-call counts, 3476 in all, are:
-= -- 286
-> -- 114
-< -- 8
-+ -- 45
-- -- 36
-* -- 196
-:= -- 607
-add.period$ -- 20
-call.type$ -- 9
-change.case$ -- 49
+            1140 strings with 14105 characters,
+and the built_in function-call counts, 3891 in all, are:
+= -- 326
+> -- 124
+< -- 9
++ -- 50
+- -- 39
+* -- 217
+:= -- 680
+add.period$ -- 27
+call.type$ -- 10
+change.case$ -- 59
 chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 273
-empty$ -- 256
-format.name$ -- 51
-if$ -- 661
-int.to.chr$ -- 1
+cite$ -- 10
+duplicate$ -- 306
+empty$ -- 287
+format.name$ -- 55
+if$ -- 743
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 51
-newline$ -- 42
-num.names$ -- 36
-pop$ -- 147
+missing$ -- 56
+newline$ -- 51
+num.names$ -- 40
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 48
+purify$ -- 53
 quote$ -- 0
-skip$ -- 113
+skip$ -- 127
 stack$ -- 0
-substring$ -- 99
-swap$ -- 98
+substring$ -- 110
+swap$ -- 114
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 87
+type$ -- 97
 warning$ -- 0
-while$ -- 27
+while$ -- 30
 width$ -- 0
-write$ -- 96
+write$ -- 116
 (There were 3 warnings)
