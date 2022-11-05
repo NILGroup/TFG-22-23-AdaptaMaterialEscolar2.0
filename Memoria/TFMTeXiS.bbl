@@ -3,6 +3,7 @@
 
 \bibitem[{Amazon(n.d)}]{ciAmazon}
 {\sc Amazon}.
+\newblock Integración continua.
 \newblock \url {https://aws.amazon.com/es/devops/continuous-integration/}, n.d.
 
 \bibitem[{BOE(2010)}]{BOE}
@@ -45,11 +46,6 @@
   curriculares para el tratamiento educativo de la diversidad\/}.
 \newblock Universidad Nacional de Educación a Distancia, 2010.
 
-\bibitem[{help(2022)}]{testingSW}
-{\sc help, S.~T.}
-\newblock \url {https://www.softwaretestinghelp.com/incremental-testing/},
-  2022.
-
 \bibitem[{Luque~Parra y Romero~Pérez(2002)}]{adaptacionIntro}
 {\sc Luque~Parra, D.~J.} y {\sc Romero~Pérez, J.~F.}
 \newblock Trastornos del desarrollo y la adaptación curricular.
@@ -57,7 +53,14 @@
 
 \bibitem[{RedHat(2022)}]{pipelineRedHat}
 {\sc RedHat}.
+\newblock Pipeline.
 \newblock \url {https://www.redhat.com/en/topics/devops/what-cicd-pipeline},
+  2022.
+
+\bibitem[{{\relax Software Testing Help}(2022)}]{testingSW}
+{\sc {\relax Software Testing Help}}.
+\newblock Pruebas de integración incrementales.
+\newblock \url {https://www.softwaretestinghelp.com/incremental-testing/},
   2022.
 
 \end{thebibliography}
