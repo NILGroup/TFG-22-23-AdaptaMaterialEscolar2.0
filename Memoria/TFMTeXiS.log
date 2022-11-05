@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  5 NOV 2022 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  5 NOV 2022 19:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -214,7 +214,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip58
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 290.
+Package hyperref Info: Option `colorlinks' set `true' on input line 290.
  (c:/texlive/2022/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 )
@@ -517,14 +517,16 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box105
 \@float@everytoks=\toks30
 \@floatcapt=\box106
+) (c:/texlive/2022/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
 
-LaTeX Warning: \include should only be used after \begin{document} on input line 85.
+LaTeX Warning: \include should only be used after \begin{document} on input line 86.
 
 (./constantes.tex)
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\vfill' on input line 101.
+(hyperref)                removing `\vfill' on input line 102.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -545,27 +547,27 @@ LaTeX Info: Redefining \% on input line 44.
  (./Cascaras/bibliografia.aux) (./Cascaras/fin.aux))
 \openout1 = `TFMTeXiS.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
-Package hyperref Info: Link coloring OFF on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Info: Redefining \. on input line 110.
+LaTeX Info: Redefining \% on input line 110.
+Package hyperref Info: Link coloring ON on input line 110.
  (./TFMTeXiS.out) (./TFMTeXiS.out)
 \@outlinefile=\write5
 \openout5 = `TFMTeXiS.out'.
@@ -610,7 +612,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \evensidemarginOriginal=\skip85
 \oddsidemarginOriginal=\skip86
 \longTitulo=\skip87
-<Imagenes/Vectorial/escudoUCM.pdf, id=168, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=164, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
 <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 159.
@@ -660,8 +662,8 @@ Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf  used on input line 15
 
 
 ]) [13]
-LaTeX Info: Redefining \. on input line 129.
-LaTeX Info: Redefining \% on input line 129.
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 \openout2 = `TeXiS/TeXiS_toc.aux'.
 
  (./TeXiS/TeXiS_toc.tex [14
@@ -680,14 +682,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
-
-Underfull \vbox (badness 1077) has occurred while \output is active []
-
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
  [15]
-LaTeX Info: Redefining \. on input line 46.
-LaTeX Info: Redefining \% on input line 46.
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
 )
 \tf@toc=\write6
 \openout6 = `TFMTeXiS.toc'.
@@ -697,10 +696,10 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
-LaTeX Info: Redefining \. on input line 10.
-LaTeX Info: Redefining \% on input line 10.
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
 )
 \tf@lof=\write7
 \openout7 = `TFMTeXiS.lof'.
@@ -753,8 +752,8 @@ LaTeX Info: Redefining \% on input line 33.
 LaTeX Warning: Hyper reference `cap:trabajo_individual' on page 3 undefined on input line 33.
 
 )
-LaTeX Info: Redefining \. on input line 144.
-LaTeX Info: Redefining \% on input line 144.
+LaTeX Info: Redefining \. on input line 145.
+LaTeX Info: Redefining \% on input line 145.
  [3]
 \openout2 = `Capitulos/Introduction.aux'.
 
@@ -766,8 +765,8 @@ LaTeX Info: Redefining \% on input line 144.
 ]
 Chapter 2.
 ) [5]
-LaTeX Info: Redefining \. on input line 147.
-LaTeX Info: Redefining \% on input line 147.
+LaTeX Info: Redefining \. on input line 148.
+LaTeX Info: Redefining \% on input line 148.
 \openout2 = `Capitulos/EstadoDeLaCuestion.aux'.
 
  (./Capitulos/EstadoDeLaCuestion.tex [6
@@ -778,81 +777,126 @@ LaTeX Info: Redefining \% on input line 147.
 ]
 Cap\'itulo 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--13
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
  []
 
 [7]
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
- [8]
-LaTeX Info: Redefining \. on input line 56.
-LaTeX Info: Redefining \% on input line 56.
+Underfull \hbox (badness 10000) in paragraph at lines 15--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--23
+
+ []
+
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
+[8]
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
  [9]
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
- [10]
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
- [11]
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
+[10]
+Overfull \hbox (2.60812pt too wide) in paragraph at lines 73--74
+[]\T1/cmr/m/n/10.95 Evaluaci�n: Se ajus-ta la ma-ne-ra de eva-luar a las ne-ce-si-da-des del alumno.
+ []
+
+
+Overfull \hbox (4.3361pt too wide) in paragraph at lines 74--75
+\T1/cmr/m/n/10.95 aprendizaje ha de ser ac-ti-vo, par-tien-do des-de las ne-ce-si-da-des del alumno.
+ []
+
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+[11]
+LaTeX Info: Redefining \. on input line 112.
+LaTeX Info: Redefining \% on input line 112.
  [12]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 128.
+(Font)              <9> on input line 126.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 128.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 128.
+(Font)              <5> on input line 126.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 126.
  (c:/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=410, 1433.355pt x 730.22812pt>
+<Imagenes//Herramientas_Existentes/SymWriter.png, id=419, 1447.65843pt x 781.41937pt>
+File: Imagenes//Herramientas_Existentes/SymWriter.png Graphic file (type png)
+<use Imagenes//Herramientas_Existentes/SymWriter.png>
+Package pdftex.def Info: Imagenes//Herramientas_Existentes/SymWriter.png  used on input line 130.
+(pdftex.def)             Requested size: 289.52655pt x 156.2811pt.
+<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=425, 1433.355pt x 730.22812pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png>
-Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png  used on input line 135.
+Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png  used on input line 140.
 (pdftex.def)             Requested size: 358.33788pt x 182.55658pt.
-<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=412, 1434.86063pt x 729.47531pt>
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+ [13]
+<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=435, 1434.86063pt x 729.47531pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>
-Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png  used on input line 142.
+Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png  used on input line 147.
 (pdftex.def)             Requested size: 358.71428pt x 182.36838pt.
-LaTeX Info: Redefining \. on input line 153.
-LaTeX Info: Redefining \% on input line 153.
- [13]
-LaTeX Info: Redefining \. on input line 157.
-LaTeX Info: Redefining \% on input line 157.
- [14 <./Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png> <./Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>]
-LaTeX Info: Redefining \. on input line 175.
-LaTeX Info: Redefining \% on input line 175.
- [15])
-LaTeX Info: Redefining \. on input line 148.
-LaTeX Info: Redefining \% on input line 148.
- [16]
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
+ [14 <./Imagenes//Herramientas_Existentes/SymWriter.png> <./Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png>]
+LaTeX Info: Redefining \. on input line 171.
+LaTeX Info: Redefining \% on input line 171.
+ [15 <./Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>]
+LaTeX Info: Redefining \. on input line 191.
+LaTeX Info: Redefining \% on input line 191.
+ [16])
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+ [17]
 \openout2 = `Capitulos/Metodologia.aux'.
 
- (./Capitulos/Metodologia.tex
-Cap\'itulo 4.
-[17
+ (./Capitulos/Metodologia.tex [18
 
 
 
 
 ]
+Cap\'itulo 4.
+[19]
 LaTeX Info: Redefining \. on input line 47.
 LaTeX Info: Redefining \% on input line 47.
- [18]
+ [20]
 LaTeX Info: Redefining \. on input line 67.
 LaTeX Info: Redefining \% on input line 67.
- [19]
+ [21]
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
- [20])
-LaTeX Info: Redefining \. on input line 149.
-LaTeX Info: Redefining \% on input line 149.
- [21]
+ [22])
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
+ [23]
 \openout2 = `Capitulos/AdaptaMaterialEscolar2.0.aux'.
 
- (./Capitulos/AdaptaMaterialEscolar2.0.tex [22
+ (./Capitulos/AdaptaMaterialEscolar2.0.tex [24
 
 
 
@@ -867,92 +911,82 @@ Overfull \hbox (26.12177pt too wide) in paragraph at lines 12--99
 
 LaTeX Warning: Float too large for page by 21.3992pt on input line 101.
 
-<Imagenes//Diseño/IteracionCompetitiva1.png, id=477, 962.59625pt x 541.02126pt>
+<Imagenes//Diseño/IteracionCompetitiva1.png, id=501, 962.59625pt x 541.02126pt>
 File: Imagenes//Diseño/IteracionCompetitiva1.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva1.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva1.png  used on input line 110.
 (pdftex.def)             Requested size: 288.7811pt x 162.30762pt.
-<Imagenes//Diseño/IteracionCompetitiva2.png, id=478, 564.1075pt x 415.5525pt>
+<Imagenes//Diseño/IteracionCompetitiva2.png, id=502, 564.1075pt x 415.5525pt>
 File: Imagenes//Diseño/IteracionCompetitiva2.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva2.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva2.png  used on input line 116.
 (pdftex.def)             Requested size: 282.05305pt x 207.77574pt.
-<Imagenes//Diseño/IteracionCompetitiva3.png, id=479, 604.50844pt x 359.09157pt>
+<Imagenes//Diseño/IteracionCompetitiva3.png, id=503, 604.50844pt x 359.09157pt>
 File: Imagenes//Diseño/IteracionCompetitiva3.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva3.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva3.png  used on input line 122.
 (pdftex.def)             Requested size: 302.25348pt x 179.54533pt.
-<Imagenes//Diseño/IteracionCompetitiva4.png, id=480, 630.85687pt x 382.42876pt>
+<Imagenes//Diseño/IteracionCompetitiva4.png, id=504, 630.85687pt x 382.42876pt>
 File: Imagenes//Diseño/IteracionCompetitiva4.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva4.png>
 Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva4.png  used on input line 128.
 (pdftex.def)             Requested size: 315.42766pt x 191.2139pt.
-<Imagenes//Diseño/Diseño Final.png, id=481, 1141.26375pt x 696.6025pt>
+<Imagenes//Diseño/Diseño Final.png, id=505, 1141.26375pt x 696.6025pt>
 File: Imagenes//Diseño/Diseño Final.png Graphic file (type png)
 <use Imagenes//Diseño/Diseño Final.png>
 Package pdftex.def Info: Imagenes//Diseño/Diseño Final.png  used on input line 134.
 (pdftex.def)             Requested size: 342.38176pt x 208.98236pt.
-) [23]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [24]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [25 <./Imagenes//Diseño/IteracionCompetitiva1.png> <./Imagenes//Diseño/IteracionCompetitiva2.png>]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [26 <./Imagenes//Diseño/IteracionCompetitiva3.png> <./Imagenes//Diseño/IteracionCompetitiva4.png>]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [27 <./Imagenes//Diseño/Diseño Final.png>]
+) [25]
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
+ [26]
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
+ [27 <./Imagenes//Diseño/IteracionCompetitiva1.png> <./Imagenes//Diseño/IteracionCompetitiva2.png>]
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
+ [28 <./Imagenes//Diseño/IteracionCompetitiva3.png> <./Imagenes//Diseño/IteracionCompetitiva4.png>]
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
+ [29 <./Imagenes//Diseño/Diseño Final.png>]
 \openout2 = `Capitulos/ConclusionesTrabajoFuturo.aux'.
 
- (./Capitulos/ConclusionesTrabajoFuturo.tex [28
+ (./Capitulos/ConclusionesTrabajoFuturo.tex [30
 
 
 
 
 ]
 Cap\'itulo 6.
-) [29]
+) [31]
 \openout2 = `Capitulos/ConclusionsFutureWork.aux'.
 
- (./Capitulos/ConclusionsFutureWork.tex [30
+ (./Capitulos/ConclusionsFutureWork.tex [32
 
 
 
 
 ]
 Chapter 7.
-) [31]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
+) [33]
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
 \openout2 = `Capitulos/TrabajoIndividual.aux'.
 
- (./Capitulos/TrabajoIndividual.tex [32
+ (./Capitulos/TrabajoIndividual.tex [34
 
 
 
 
 ]
 Cap\'itulo 8.
-[33])
-LaTeX Info: Redefining \. on input line 155.
-LaTeX Info: Redefining \% on input line 155.
- [34]
+[35])
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+ [36]
 \openout2 = `Cascaras/bibliografia.aux'.
 
- (./Cascaras/bibliografia.tex (./TFMTeXiS.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 15--18
-[]\T1/cmr/m/sc/10.95 BOE\T1/cmr/m/n/10.95 .  https://www.boe.es/buscar/pdf/2014/boe-a-2014-2222-
- []
-
-
-Overfull \hbox (26.05219pt too wide) in paragraph at lines 30--33
-[]\T1/cmr/m/sc/10.95 educa2\T1/cmr/m/n/10.95 .  https://www.educa2.madrid.org/web/eoep.discapacidadmotora.madrid.
- []
-
-)) [35
+ (./Cascaras/bibliografia.tex (./TFMTeXiS.bbl)) [37
 
 
 
@@ -961,11 +995,11 @@ Overfull \hbox (26.05219pt too wide) in paragraph at lines 30--33
 ]
 \openout2 = `Cascaras/fin.aux'.
 
- (./Cascaras/fin.tex [36
+ (./Cascaras/fin.tex [38
 
 
 
-] [37]) (./TFMTeXiS.aux (./Cascaras/cover.aux)
+] [39]) (./TFMTeXiS.aux (./Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
  (./Cascaras/autorizacion.aux) (./Cascaras/dedicatoria.aux) (./Cascaras/agradecimientos.aux) (./Cascaras/resumen.aux) (./Cascaras/abstract.aux) (./TeXiS/TeXiS_toc.aux)
@@ -982,21 +1016,21 @@ LaTeX Info: Redefining \% on input line 44.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
-(rerunfilecheck)             Checksum: 36D686BFD66D1E5B179399B36C5F9CBE;6777.
+(rerunfilecheck)             Checksum: 770587C12939AC64D7939BCB2F8B4195;6667.
  ) 
 Here is how much of TeX's memory you used:
- 18100 strings out of 475075
- 304479 string characters out of 5783001
- 759386 words of memory out of 5000000
- 38688 multiletter control sequences out of 15000+600000
- 489764 words of font info for 63 fonts, out of 8000000 for 9000
+ 18149 strings out of 475075
+ 305705 string characters out of 5783001
+ 760930 words of memory out of 5000000
+ 38728 multiletter control sequences out of 15000+600000
+ 490078 words of font info for 64 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
- 94i,15n,98p,1108b,869s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on TFMTeXiS.pdf (57 pages, 1175171 bytes).
+ 94i,15n,98p,1108b,840s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on TFMTeXiS.pdf (59 pages, 1334683 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
- 134 named destinations out of 1000 (max. 500000)
- 369 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 711 PDF objects out of 1000 (max. 8388607)
+ 593 compressed objects within 6 object streams
+ 137 named destinations out of 1000 (max. 500000)
+ 366 words of extra memory for PDF output out of 10000 (max. 10000000)
 
