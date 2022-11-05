@@ -3,48 +3,48 @@
 
 \bibitem[{Amazon(n.d)}]{ciAmazon}
 {\sc Amazon}.
-\newblock https://aws.amazon.com/es/devops/continuous-integration/.
-\newblock n.d.
+\newblock \url {https://aws.amazon.com/es/devops/continuous-integration/}, n.d.
 
 \bibitem[{BOE(2010)}]{BOE}
 {\sc BOE}.
-\newblock https://boe.es/buscar/pdf/2010/boe-a-2010-5493-consolidado.pdf.
-\newblock 2010.
+\newblock \url
+  {https://boe.es/buscar/pdf/2010/BOE-A-2010-5493-consolidado.pdf}, 2010.
 
 \bibitem[{BOE(2014)}]{BOE2}
 {\sc BOE}.
-\newblock https://www.boe.es/buscar/pdf/2014/boe-a-2014-2222-consolidado.pdf.
-\newblock 2014.
-
-\bibitem[{Diego J. Luque~Parra(2002)}]{adaptacionIntro}
-{\sc Diego J. Luque~Parra, J. F. R.~P.}
-\newblock Trastornos del desarrollo y la adaptación curricular.
-\newblock 2002.
+\newblock \url
+  {https://www.boe.es/buscar/pdf/2014/BOE-A-2014-2222-consolidado.pdf}, 2014.
 
 \bibitem[{edu(n.d)}]{adaptacionCurricular}
 {\sc edu}.
-\newblock http://www.ub.edu/casosenxarxa/glossary/adaptacion-curricular-ac/.
-\newblock n.d.
+\newblock
+  \url{http://www.ub.edu/casosenxarxa/glossary/adaptacion-curricular-ac/}, n.d.
 
 \bibitem[{educa2(n.d)}]{adaptacionCurricular2}
 {\sc educa2}.
-\newblock https://www.educa2.madrid.org/web/eoep.discapacidadmotora.madrid.
-\newblock n.d.
+\newblock \url
+  {https://www.educa2.madrid.org/web/eoep.discapacidadmotora.madrid}, n.d.
+
+\bibitem[{Gento~Palacios et\ al.(2010)Gento~Palacios, Sánchez~Sáinz y
+  Lakhdar}]{adaptacionUNED}
+{\sc Gento~Palacios, S.}, {\sc Sánchez~Sáinz, M.} y {\sc Lakhdar, S.~M.}
+\newblock {\em Diseño y ejecución de planes, proyectos y adaptaciones
+  curriculares para el tratamiento educativo de la diversidad\/}.
+\newblock Universidad Nacional de Educación a Distancia, 2010.
 
 \bibitem[{help(2022)}]{testingSW}
 {\sc help, S.~T.}
-\newblock https://www.softwaretestinghelp.com/incremental-testing/.
-\newblock 2022.
+\newblock \url {https://www.softwaretestinghelp.com/incremental-testing/},
+  2022.
+
+\bibitem[{Luque~Parra y Romero~Pérez(2002)}]{adaptacionIntro}
+{\sc Luque~Parra, D.~J.} y {\sc Romero~Pérez, J.~F.}
+\newblock Trastornos del desarrollo y la adaptación curricular.
+\newblock 2002.
 
 \bibitem[{RedHat(2022)}]{pipelineRedHat}
 {\sc RedHat}.
-\newblock https://www.redhat.com/en/topics/devops/what-cicd-pipeline.
-\newblock 2022.
-
-\bibitem[{Samuel Gento~Palacios(2010)}]{adaptacionUNED}
-{\sc Samuel Gento~Palacios, S. M.~L., Mercedes Sánchez~Sáinz}.
-\newblock {\em Diseño y ejecución de planes, proyectos y adaptaciones
-  curriculares para el tratamiento educativo de la diversidad.\/}.
-\newblock Universidad Nacional de Educación a Distancia, 2010.
+\newblock \url {https://www.redhat.com/en/topics/devops/what-cicd-pipeline},
+  2022.
 
 \end{thebibliography}
