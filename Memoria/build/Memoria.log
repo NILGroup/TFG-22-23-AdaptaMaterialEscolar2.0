@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  6 NOV 2022 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  6 NOV 2022 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,15 +749,11 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 
 ]
-Overfull \hbox (0.34186pt too wide) in paragraph at lines 20--21
-\T1/cmr/m/n/10.95 ta-Ma-te-ria-lEs-co-lar que per-mi-te la crea-ción de di-fe-ren-tes ti-pos de ejer-ci-cios(por
- []
-
 LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
-[2]
+ [2]
 
-LaTeX Warning: Hyper reference `cap:trabajo_individual' on page 3 undefined on input line 33.
+LaTeX Warning: Hyper reference `cap:trabajo_individual' on page 3 undefined on input line 34.
 
 )
 LaTeX Info: Redefining \. on input line 145.
@@ -1092,7 +1088,7 @@ Here is how much of TeX's memory you used:
  1379 hyphenation exceptions out of 8191
  94i,15n,98p,1200b,840s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk>{C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.pdf (59 pages, 1436502 bytes).
+Output written on c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.pdf (59 pages, 1436568 bytes).
 PDF statistics:
  1241 PDF objects out of 1440 (max. 8388607)
  144 named destinations out of 1000 (max. 500000)
