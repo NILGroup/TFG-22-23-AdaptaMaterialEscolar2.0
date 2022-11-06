@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Amazon(n.d)}]{ciAmazon}
@@ -18,12 +18,18 @@
 \newblock \url
   {https://www.boe.es/buscar/pdf/2014/BOE-A-2014-2222-consolidado.pdf}, 2014.
 
-\bibitem[{CDC(n.d)}]{disIntelectual}
+\bibitem[{CDC(n.d{\natexlab{a}})}]{disIntelectual}
 {\sc CDC}.
 \newblock Definición de discapacidad intelectual.
 \newblock \url
   {https://www.cdc.gov/ncbddd/spanish/developmentaldisabilities/hoja-informativa-sobre-discapacidad-intelectual.html},
-  n.d.
+  n.d{\natexlab{a}}.
+
+\bibitem[{CDC(n.d{\natexlab{b}})}]{espectroAutista}
+{\sc CDC}.
+\newblock Definición de espectro autista.
+\newblock \url {https://www.cdc.gov/ncbddd/spanish/autism/signs.html},
+  n.d{\natexlab{b}}.
 
 \bibitem[{EducaMadrid(n.d{\natexlab{a}})}]{disAuditiva}
 {\sc EducaMadrid}.

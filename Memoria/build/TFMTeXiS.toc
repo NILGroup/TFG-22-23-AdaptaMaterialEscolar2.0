@@ -43,4 +43,4 @@
 \contentsline {section}{\numberline {8.3}Alberto Alejandro Rivas Fernandez}{35}{section.59}%
 \contentsline {section}{\numberline {8.4}Johan Sebastian Salvatierra Gutierrez}{36}{section.60}%
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{Bibliografía}{37}{appendix*.61}%
+\contentsline {part}{Bibliografía}{37}{appendix*.61}%

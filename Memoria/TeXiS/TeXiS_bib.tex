@@ -93,14 +93,14 @@
 % Para que la bibliograf�a no salga en el PDF a�adida a la �ltima
 % parte del documento, si hay partes en el mismo, le damos la
 % categor�a de "parte".
-\ifx\generatoc\undefined
-\else
-\ifx\tienePartesTeXiS\undefined
-\addcontentsline{toc}{chapter}{Bibliografía}
-\else
-\addcontentsline{toc}{part}{Bibliografía}
-\fi
-\fi
+% \ifx\generatoc\undefined
+% \else
+% \ifx\tienePartesTeXiS\undefined
+% \addcontentsline{toc}{chapter}{Bibliografía}
+% \else
+ \addcontentsline{toc}{part}{Bibliografía}
+% \fi
+% \fi
 % A�adimos tambi�n una etiqueta, para poder referenciar el n�mero
 % de p�gina en el que comienza
 \label{bibliografia}
@@ -119,7 +119,7 @@
 % que aparezca la palabra "Bibliograf�a" en ambas p�ginas.
 %
 %
-\cabeceraEspecial{Bibliograf�a}
+\cabeceraEspecial{Bibliografía}
 
 
 % Creamos la  bibliograf�a. Lo hacemos  dentro de un bloque  (entre la
