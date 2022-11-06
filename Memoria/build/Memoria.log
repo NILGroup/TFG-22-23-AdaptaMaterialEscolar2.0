@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  6 NOV 2022 12:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.10.31)  6 NOV 2022 15:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Propietario/Documents/GitHub/TFG-22-23-AdaptaMaterialEscolar2.0/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
-(c:/Users/Propietario/Documents/GitHub/TFG-22-23-AdaptaMaterialEscolar2.0/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/TFMTeXiS.tex
+**c:/Users/Propietario/Documents/GitHub/TFG-22-23-AdaptaMaterialEscolar2.0/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/Memoria.tex
+(c:/Users/Propietario/Documents/GitHub/TFG-22-23-AdaptaMaterialEscolar2.0/TFG-22-23-AdaptaMaterialEscolar2.0/Memoria/Memoria.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (C:\Users\Propietario\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
 Document Class: book 2021/10/04 v1.4n Standard LaTeX document class
@@ -227,10 +227,10 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 290.
 Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
 )
 \@indexfile=\write4
-\openout4 = `TFMTeXiS.idx'.
+\openout4 = `Memoria.idx'.
 
 
-Writing index file TFMTeXiS.idx
+Writing index file Memoria.idx
 (C:\Users\Propietario\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \c@tracingmulticols=\count275
@@ -540,7 +540,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
-(c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+(c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.aux (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
  (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
@@ -553,7 +553,7 @@ LaTeX Info: Redefining \% on input line 37.
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
  (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/bibliografia.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/fin.aux))
-\openout1 = `TFMTeXiS.aux'.
+\openout1 = `Memoria.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
@@ -576,9 +576,9 @@ LaTeX Font Info:    ... okay on input line 110.
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
 Package hyperref Info: Link coloring ON on input line 110.
- (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.out)
+ (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.out) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.out)
 \@outlinefile=\write5
-\openout5 = `TFMTeXiS.out'.
+\openout5 = `Memoria.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -679,7 +679,7 @@ LaTeX Info: Redefining \% on input line 130.
 
 
 
-] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.toc
+] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -697,26 +697,26 @@ LaTeX Info: Redefining \. on input line 45.
 LaTeX Info: Redefining \% on input line 45.
 )
 \tf@toc=\write6
-\openout6 = `TFMTeXiS.toc'.
+\openout6 = `Memoria.toc'.
 
- [16] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lof
+ [16] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
+LaTeX Info: Redefining \. on input line 18.
+LaTeX Info: Redefining \% on input line 18.
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
 )
 \tf@lof=\write7
-\openout7 = `TFMTeXiS.lof'.
+\openout7 = `Memoria.lof'.
 
  [17
 
 ] [18
 
-] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.lot
+] (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -727,7 +727,7 @@ LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
 )
 \tf@lot=\write8
-\openout8 = `TFMTeXiS.lot'.
+\openout8 = `Memoria.lot'.
 
  [19]) [20
 
@@ -839,9 +839,12 @@ Overfull \hbox (4.3361pt too wide) in paragraph at lines 74--75
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
 [11]
+
+Package natbib Warning: Citation `espectroAutista' on page 12 undefined on input line 106.
+
 LaTeX Info: Redefining \. on input line 110.
 LaTeX Info: Redefining \% on input line 110.
- [12]
+[12]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 126.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -853,17 +856,17 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 LaTeX Info: Redefining \. on input line 131.
 LaTeX Info: Redefining \% on input line 131.
  [13]
-<Imagenes//Herramientas_Existentes/SymWriter.png, id=434, 1447.65843pt x 781.41937pt>
+<Imagenes//Herramientas_Existentes/SymWriter.png, id=446, 1447.65843pt x 781.41937pt>
 File: Imagenes//Herramientas_Existentes/SymWriter.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/SymWriter.png>
 Package pdftex.def Info: Imagenes//Herramientas_Existentes/SymWriter.png  used on input line 134.
 (pdftex.def)             Requested size: 289.52655pt x 156.2811pt.
-<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=436, 1433.355pt x 730.22812pt>
+<Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png, id=448, 1433.355pt x 730.22812pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png>
 Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png  used on input line 141.
 (pdftex.def)             Requested size: 358.33788pt x 182.55658pt.
-<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=437, 1434.86063pt x 729.47531pt>
+<Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png, id=449, 1434.86063pt x 729.47531pt>
 File: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png Graphic file (type png)
 <use Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>
 Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png  used on input line 148.
@@ -872,28 +875,69 @@ Package pdftex.def Info: Imagenes//Herramientas_Existentes/EducaPlay_Impresion.p
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 159.
-LaTeX Info: Redefining \% on input line 159.
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
 [14 <./Imagenes//Herramientas_Existentes/SymWriter.png> <./Imagenes//Herramientas_Existentes/EducaPlay_Actividad.png>]
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
+<Imagenes//AdaptaMaterialEscolar/SubirPDF.png, id=463, 1000.48781pt x 319.94531pt>
+File: Imagenes//AdaptaMaterialEscolar/SubirPDF.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/SubirPDF.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/SubirPDF.png  used on input line 168.
+(pdftex.def)             Requested size: 300.14865pt x 95.98433pt.
+<Imagenes//AdaptaMaterialEscolar/Pictogramas.png, id=464, 795.72281pt x 290.58563pt>
+File: Imagenes//AdaptaMaterialEscolar/Pictogramas.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/Pictogramas.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/Pictogramas.png  used on input line 174.
+(pdftex.def)             Requested size: 238.71867pt x 87.17636pt.
+<Imagenes//AdaptaMaterialEscolar/Huecos.png, id=465, 791.95876pt x 444.91219pt>
+File: Imagenes//AdaptaMaterialEscolar/Huecos.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/Huecos.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/Huecos.png  used on input line 180.
+(pdftex.def)             Requested size: 237.58946pt x 133.47467pt.
+<Imagenes//AdaptaMaterialEscolar/Definiciones.png, id=466, 794.2172pt x 390.70969pt>
+File: Imagenes//AdaptaMaterialEscolar/Definiciones.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/Definiciones.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/Definiciones.png  used on input line 186.
+(pdftex.def)             Requested size: 238.267pt x 117.2138pt.
+<Imagenes//AdaptaMaterialEscolar/Desarrollo.png, id=467, 799.48688pt x 460.72125pt>
+File: Imagenes//AdaptaMaterialEscolar/Desarrollo.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/Desarrollo.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/Desarrollo.png  used on input line 192.
+(pdftex.def)             Requested size: 239.84792pt x 138.21744pt.
+<Imagenes//AdaptaMaterialEscolar/Sopa.png, id=468, 795.72281pt x 423.83344pt>
+File: Imagenes//AdaptaMaterialEscolar/Sopa.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/Sopa.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/Sopa.png  used on input line 198.
+(pdftex.def)             Requested size: 238.71867pt x 127.151pt.
+<Imagenes//AdaptaMaterialEscolar/VF.png, id=469, 794.2172pt x 335.00156pt>
+File: Imagenes//AdaptaMaterialEscolar/VF.png Graphic file (type png)
+<use Imagenes//AdaptaMaterialEscolar/VF.png>
+Package pdftex.def Info: Imagenes//AdaptaMaterialEscolar/VF.png  used on input line 204.
+(pdftex.def)             Requested size: 238.267pt x 100.50124pt.
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
  [15 <./Imagenes//Herramientas_Existentes/EducaPlay_Impresion.png>]
-LaTeX Info: Redefining \. on input line 190.
-LaTeX Info: Redefining \% on input line 190.
- [16])
+
+LaTeX Warning: Text page 16 contains only floats.
+
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
+[16 <./Imagenes//AdaptaMaterialEscolar/SubirPDF.png> <./Imagenes//AdaptaMaterialEscolar/Pictogramas.png> <./Imagenes//AdaptaMaterialEscolar/Huecos.png> <./Imagenes//AdaptaMaterialEscolar/Definiciones.png>]
+LaTeX Info: Redefining \. on input line 214.
+LaTeX Info: Redefining \% on input line 214.
+ [17 <./Imagenes//AdaptaMaterialEscolar/Desarrollo.png> <./Imagenes//AdaptaMaterialEscolar/Sopa.png> <./Imagenes//AdaptaMaterialEscolar/VF.png>])
 LaTeX Info: Redefining \. on input line 149.
 LaTeX Info: Redefining \% on input line 149.
- [17]
+ [18]
 \openout2 = `Capitulos/Metodologia.aux'.
 
- (Capitulos/Metodologia.tex [18
+ (Capitulos/Metodologia.tex
+Cap\'itulo 4.
+[19
 
 
 
 
 ]
-Cap\'itulo 4.
-[19]
 LaTeX Info: Redefining \. on input line 47.
 LaTeX Info: Redefining \% on input line 47.
  [20]
@@ -915,62 +959,67 @@ LaTeX Info: Redefining \% on input line 150.
 
 ]
 Cap\'itulo 5.
+[25]
 
-Overfull \hbox (26.12177pt too wide) in paragraph at lines 12--99
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 55.
+
+
+Overfull \hbox (64.11221pt too wide) in paragraph at lines 56--72
 [][] 
  []
 
-
-LaTeX Warning: Float too large for page by 21.3992pt on input line 101.
-
-<Imagenes//Diseño/IteracionCompetitiva1.png, id=502, 962.59625pt x 541.02126pt>
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+[26]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [27]
+<Imagenes//Diseño/IteracionCompetitiva1.png, id=547, 962.59625pt x 541.02126pt>
 File: Imagenes//Diseño/IteracionCompetitiva1.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva1.png>
-Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva1.png  used on input line 110.
+Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva1.png  used on input line 84.
 (pdftex.def)             Requested size: 288.7811pt x 162.30762pt.
-<Imagenes//Diseño/IteracionCompetitiva2.png, id=503, 564.1075pt x 415.5525pt>
+<Imagenes//Diseño/IteracionCompetitiva2.png, id=548, 564.1075pt x 415.5525pt>
 File: Imagenes//Diseño/IteracionCompetitiva2.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva2.png>
-Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva2.png  used on input line 116.
+Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva2.png  used on input line 90.
 (pdftex.def)             Requested size: 282.05305pt x 207.77574pt.
-<Imagenes//Diseño/IteracionCompetitiva3.png, id=504, 604.50844pt x 359.09157pt>
+<Imagenes//Diseño/IteracionCompetitiva3.png, id=549, 604.50844pt x 359.09157pt>
 File: Imagenes//Diseño/IteracionCompetitiva3.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva3.png>
-Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva3.png  used on input line 122.
+Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva3.png  used on input line 96.
 (pdftex.def)             Requested size: 302.25348pt x 179.54533pt.
-<Imagenes//Diseño/IteracionCompetitiva4.png, id=505, 630.85687pt x 382.42876pt>
+<Imagenes//Diseño/IteracionCompetitiva4.png, id=550, 630.85687pt x 382.42876pt>
 File: Imagenes//Diseño/IteracionCompetitiva4.png Graphic file (type png)
 <use Imagenes//Diseño/IteracionCompetitiva4.png>
-Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva4.png  used on input line 128.
+Package pdftex.def Info: Imagenes//Diseño/IteracionCompetitiva4.png  used on input line 102.
 (pdftex.def)             Requested size: 315.42766pt x 191.2139pt.
-<Imagenes//Diseño/Diseño Final.png, id=506, 1141.26375pt x 696.6025pt>
+<Imagenes//Diseño/Diseño Final.png, id=551, 1141.26375pt x 696.6025pt>
 File: Imagenes//Diseño/Diseño Final.png Graphic file (type png)
 <use Imagenes//Diseño/Diseño Final.png>
-Package pdftex.def Info: Imagenes//Diseño/Diseño Final.png  used on input line 134.
+Package pdftex.def Info: Imagenes//Diseño/Diseño Final.png  used on input line 108.
 (pdftex.def)             Requested size: 342.38176pt x 208.98236pt.
-) [25]
+)
 LaTeX Info: Redefining \. on input line 151.
 LaTeX Info: Redefining \% on input line 151.
- [26]
+ [28 <./Imagenes//Diseño/IteracionCompetitiva1.png> <./Imagenes//Diseño/IteracionCompetitiva2.png>]
 LaTeX Info: Redefining \. on input line 151.
 LaTeX Info: Redefining \% on input line 151.
- [27 <./Imagenes//Diseño/IteracionCompetitiva1.png> <./Imagenes//Diseño/IteracionCompetitiva2.png>]
+ [29 <./Imagenes//Diseño/IteracionCompetitiva3.png> <./Imagenes//Diseño/IteracionCompetitiva4.png>]
 LaTeX Info: Redefining \. on input line 151.
 LaTeX Info: Redefining \% on input line 151.
- [28 <./Imagenes//Diseño/IteracionCompetitiva3.png> <./Imagenes//Diseño/IteracionCompetitiva4.png>]
-LaTeX Info: Redefining \. on input line 151.
-LaTeX Info: Redefining \% on input line 151.
- [29 <./Imagenes//Diseño/Diseño Final.png>]
+ [30 <./Imagenes//Diseño/Diseño Final.png>]
 \openout2 = `Capitulos/ConclusionesTrabajoFuturo.aux'.
 
- (Capitulos/ConclusionesTrabajoFuturo.tex [30
+ (Capitulos/ConclusionesTrabajoFuturo.tex
+Cap\'itulo 6.
+) [31
 
 
 
 
 ]
-Cap\'itulo 6.
-) [31]
 \openout2 = `Capitulos/ConclusionsFutureWork.aux'.
 
  (Capitulos/ConclusionsFutureWork.tex [32
@@ -998,20 +1047,24 @@ LaTeX Info: Redefining \% on input line 156.
  [36]
 \openout2 = `Cascaras/bibliografia.aux'.
 
- (Cascaras/bibliografia.tex (TFMTeXiS.bbl [37
+ (Cascaras/bibliografia.tex (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.bbl)) [37
 
 
 
 
 
-])) [38]
+]
 \openout2 = `Cascaras/fin.aux'.
 
- (Cascaras/fin.tex [39
+ (Cascaras/fin.tex [38
 
 
 
-] [40]) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.aux (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
+] [39])
+
+Package natbib Warning: There were undefined citations.
+
+(c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.aux (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
  (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/autorizacion.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/dedicatoria.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/agradecimientos.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/resumen.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Cascaras/abstract.aux) (c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TeXiS/TeXiS_toc.aux)
@@ -1027,21 +1080,21 @@ LaTeX Info: Redefining \% on input line 44.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `TFMTeXiS.out' has not changed.
-(rerunfilecheck)             Checksum: 236080B50906087009DFD04D5B036C82;6680.
+Package rerunfilecheck Info: File `Memoria.out' has not changed.
+(rerunfilecheck)             Checksum: BBD1885E951A8A66B7E18120B25A85C4;6696.
  ) 
 Here is how much of TeX's memory you used:
- 18166 strings out of 475385
- 326205 string characters out of 2774074
- 760460 words of memory out of 3000000
- 38713 multiletter control sequences out of 15000+600000
+ 18269 strings out of 475385
+ 330262 string characters out of 2774074
+ 759836 words of memory out of 3000000
+ 38801 multiletter control sequences out of 15000+600000
  490078 words of font info for 64 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
- 94i,15n,98p,1201b,840s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 94i,15n,98p,1200b,840s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk>{C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2488.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Propietario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Propietario/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\TFMTeXiS.pdf (60 pages, 1274604 bytes).
+Output written on c:\Users\Propietario\Documents\GitHub\TFG-22-23-AdaptaMaterialEscolar2.0\TFG-22-23-AdaptaMaterialEscolar2.0\Memoria\build\Memoria.pdf (59 pages, 1436502 bytes).
 PDF statistics:
- 1215 PDF objects out of 1440 (max. 8388607)
- 139 named destinations out of 1000 (max. 500000)
- 366 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1241 PDF objects out of 1440 (max. 8388607)
+ 144 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 

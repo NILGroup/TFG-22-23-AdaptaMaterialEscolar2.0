@@ -154,40 +154,76 @@ muestra el formato de impresión de esta actividad.
 \label{cap:adaptaMaterial}
 La finalidad de AdaptaMaterialEscolar es proporcionar una herramienta para el profesorado con el fin de realizar adaptaciones no significativas a los contenidos de las asignaturas de forma intuitiva, rápida y simple. Actualmente permite realizar las siguientes funciones:
 \begin{itemize}
-    \item Subir un documento fuente PDF, a partir del cual se puede realizar las adaptaciones, ejercicios, etc.
-    \item Editor, en el que se pueden añadir y modificar las adaptaciones. También sirve como editor de texto, en el que se puede cambiar la fuente de letra, el color, posicionamiento del texto, etc.
-    \item Buscador de pictogramas: Dado una palabra devuelve un pictograma.
-    \item Ejercicios de completar huecos: Dado un texto se pueden seleccionar las palabras que deben ser sustituidas por espacios en blanco.
-    \item Ejercicios de definiciones: Recibe una serie de conceptos a definir y devuleve un ejercicio en base a ellos.
-    \item Ejercicios de desarrollo: Permite crear un enunciado y añadir un cierto número de líneas para la respuesta.
-    \item Sopa de letras: El usuario introduce las palabras que desea que se pongan en la sopa de letras y el tamaño de la matriz.
-    \item Ejercicios de verdadero o falso: Genera una lista ordenada o no ordenada con las frases introducidas permitiendo definir cuales son verdaderas o falsas.
+    \item Subir un documento fuente PDF, a partir del cual se puede realizar las adaptaciones, ejercicios, etc. (Figura \ref{SubirPDF})
+    \item Buscar pictogramas: Dado una palabra devuelve un pictograma. (Figura \ref{Pictogramas})
+    \item Generar ejercicios de completar huecos: Dado un texto se pueden seleccionar las palabras que deben ser sustituidas por espacios en blanco.(Figura \ref{Huecos})
+    \item Proporcionar ejercicios de definiciones: Recibe una serie de conceptos a definir y devuelve un ejercicio en base a ellos. (Figura \ref{Definiciones})
+    \item Crear ejercicios de desarrollo: Permite crear un enunciado y añadir un cierto número de líneas para la respuesta. (Figura \ref{Desarrollo})
+    \item Generar sopas de letras: El usuario introduce las palabras que desea que se pongan en la sopa de letras y el tamaño de la matriz. (Figura \ref{Sopa})
+    \item Crear ejercicios de verdadero o falso: Genera una lista ordenada o no ordenada con las frases introducidas permitiendo definir cuales son verdaderas o falsas. (Figura \ref{VF})
 \end{itemize}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/SubirPDF}
+    \caption{Subir PDF}
+    \label{SubirPDF}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Pictogramas}
+    \caption{Busquedad de pictogramas}
+    \label{Pictogramas}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Huecos}
+    \caption{Ejercicios de completar huecos}
+    \label{Huecos}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Definiciones}
+    \caption{Ejercicios de definiciones}
+    \label{Definiciones}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Desarrollo}
+    \caption{Ejercicios de desarrollo}
+    \label{Desarrollo}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Sopa}
+    \caption{Sopas de letras}
+    \label{Sopa}
+\end{figure}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/VF}
+    \caption{Ejercicios de Verdadero o Falso}
+    \label{VF}
+\end{figure}
 La aplicación se creó siguiendo un Diseño Centrado en el Usuario, para que se adaptace a las necesidades reales de los usuarios finales (los docentes). La captura de requisitos se realizó hablando directamente con el usuario final para poder conocer sus necesidades reales. Para esto se hicieron varias reuniones con 2 profesoras del Aula TEA del IES Maestro Juan de Ávila de Ciudad Real.
 
 Para el diseño de la aplicación se realizó una primera iteración de diseño competitivo y el resultado se presentó a los usuarios finales para obtener su feedback.
 
-Para desarrollar AdaptaMaterialEscolar1.0, se utilizó React. Para simplificar la gestión del estado de la aplicación, se utilizó Redux. Para el editor de texto de la aplicación se utilizó CKEditor. Por último, para el buscador de pictogramas, se empleó la API de ARASAAC. Esta API nos permite hacer una petición con un término de búsqueda y nos devuelve una serie de pictogramas relacionados.
+Para desarrollar AdaptaMaterialEscolar 1.0 se utilizó React. Para simplificar la gestión del estado de la aplicación, se utilizó Redux. Para el editor de texto de la aplicación se utilizó CKEditor. Por último, para el buscador de pictogramas, se empleó la API de ARASAAC. Esta API permite hacer una petición con un término de búsqueda y devuelve una serie de pictogramas relacionados.
 
-Finalmente la aplicación fue evaluada por los usuarios finales, con el objetivo de descubrir si la aplicación es, en cuanto a la adaptación curricular no significativa, realmente útil para los profesores y si les ayudaba a resolver sus problemas. Para esto se creó un exámen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar1.0. Luego, se replicó este exámen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales.
+Finalmente la aplicación fue evaluada por los usuarios finales, con el objetivo de descubrir si la aplicación es, en cuanto a la adaptación curricular no significativa, realmente útil para los profesores y si les ayudaba a resolver sus problemas. Para esto se creó un examen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar 1.0. Luego, se replicó este examen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales.
 
-Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. Además, se paso a los evaluadores el cuestionario SUS (System Usability Scale), que sirve para medir que tan buena es la usabilidad de un sistema. Esta evaluación de la aplicación se realizó con 6 profesores.
-
-Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando.
-
-En el cuestionario SUS se obtuvo un 99 sobre 100. También se obtuvo un 4,6 sobre 5 en estética y se recomendó que cada pestaña de las funcionalidades fuese de un color diferente para diferenciarlas mejor. También se observó que los pictogramas a veces eran muy pequeños y debían poder aumentarse de tamaño.
-
+Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. Además, se pasó a los evaluadores el cuestionario SUS (System Usability Scale), que sirve para medir que tan buena es la usabilidad de un sistema. Esta evaluación de la aplicación se realizó con 6 profesores. Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando. Se observó que los pictogramas a veces eran muy pequeños y debían poder aumentarse de tamaño.
 A partir del feedback de los usuarios finales que evaluaron la aplicación, se obtuvo una nueva lista de requisitos a implementar para mejorar la aplicación:
 
 \begin{itemize}
-    \item Traducir pictogramas a lenguaje natural y viceversa.
-    \item Cuadrícula para ejercicios de matemática.
-    \item Poder añadir doble pauta, en vez de renglones de una línea para determinar el tamaño de letra del alumno.
+    \item Traducir pictogramas a lenguaje natural.
+    \item Introducir cuadrícula para ejercicios de matemática.
+    \item Poder añadir doble pauta, en vez de renglones de una línea, para determinar el tamaño de letra del alumno.
     \item Añadir herramienta para recortar imágenes.
     \item Añadir encabezado con el nombre del centro educativo, asignatura y nombre del alumno.
     \item Permitir añadir espacio para dibujar en los ejercicios.
-    \item Ejercicios de cálculo con fórmulas con huecos que puedan ser rellenados por el alumno.
+    \item Permitir ejercicios de cálculo con fórmulas con huecos que puedan ser rellenados por el alumno.
     \item Enumerar ejercicios automáticamente.
     \item Añadir una fuente de texto parecida a la que suelen aprender la mayoría de los alumnos cuando empiezan a escribir.
 \end{itemize}
