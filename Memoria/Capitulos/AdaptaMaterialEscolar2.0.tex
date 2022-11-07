@@ -4,44 +4,46 @@ En este capítulo explicaremos la obtención de requisitos y su priorización en
 
 \section{Requisitos}
 \label{cap:requisitos}
-En esta sección se explicara la tabla de requisitos.
 
-Lo primero que realizamos fue analizar la memoria anterior extrayendo las funcionalidades que faltan por implementar y las propuestas por los profesores. Hemos agrupado estas funcionalidades en tres grupos: formato, ejericios y auxiliar. Quedando las funcionalidades agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una seria de cambios y nuevas funcionalidades. Agrupamos dichas funcionalidades en tres grupos: formato, ejericios y auxiliar. Quedando las funcionalidades agrupadas de la siguiente manera:
+\\
+
 Formato: 
 \begin{itemize}
-  \item Añadir encabezado al texto.
-  \item Añadir un tipo de fuente escolar.
-  \item Añadir una leyenda de colores con la categoría de cada tipo.
-  \item Añadir leyenda de colores para el tema de cada asignatura.
-  \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números.
-  \item Añadir la alternativa de añadir doble pauta, en vez de renglones de una única línea, para determinar el tamaño de la letra del alumno.
-  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido.
-  \item Crear esquemas que faciliten la visualización.
-  \item Estandarizar formato para títulos e índices del temario.
-  \item Enumerar ejercicios de forma automática.
+  \item Añadir encabezado al texto: el usuario elijará un encabezado y se le añadirá al CKEditor.
+  \item Añadir un tipo de fuente escolar: incluir en los tipos de fuentes la escolar.
+  \item Añadir una leyenda de colores con la categoría de cada tipo: crear leyenda de colores según unas características.
+  \item Añadir leyenda de colores para el tema de cada asignatura: crear una leyenda según el color del borde de la hoja asignada a cada asignatura.
+  \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números: crear una hoja de cuadrículas para los ejercicios de matemáticas.
+  \item Añadir la alternativa de añadir doble pauta: en vez de renglones de una única línea, se podrá crear una hoja con doble pauta, para determinar el tamaño de la letra del alumno.
+  \item Estandarizar formato para títulos e índices del temario: escoger un formato para el editable.
+  \item Enumerar ejercicios de forma automática: establecer un orden numérico para los ejercicios.
 \end{itemize}
 Ejercicios:
 \begin{itemize}
-  \item Ejercicios de relacionar contenido mediante flechas.
-  \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno.
-  \item Añadir ejercicios con espacio para dibujar.
-  \item Ejercicios de completar los espacios en blanco en tablas y esquemas.
+  \item Ejercicios de relacionar contenido mediante flechas: generar un ejercicio para relacionar conceptos.
+  \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno: espacios en blanco para que el alumno pueda rellenarlos con el contenido adecuado.
+  \item Añadir ejercicios con espacio para dibujar: amplio hueco en blanco con el fin de que el alumno pueda dibujar.
+  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: dado una tabla o esquema se establen espacios en blanco para que el alumno los rellene con el contenido adecuado.
 \end{itemize}
 Auxiliar:
 \begin{itemize}
-  \item Generar un resumen a partir de un texto.
-  \item Exportar el documento a formato Word para hacer modificaciones.
-  \item Añadir un pictotraductor como funcionalidad.
-  \item Añadir imágenes buscando una palabra en bases de datos de imágenes libres
-  \item Sustituir una palabra por una imagen.
-  \item Crear una herramienta de recorte de imágenes para el texto original.
+  \item Generar un resumen a partir de un texto: se crea un resumen a partir de un texto.
+  \item Exportar el documento a formato Word para hacer modificaciones: exportar un docuemnto PDF a Word.
+  \item Añadir un pictotraductor como funcionalidad: dado una frase genera sus respectivos pictogramas.
+  \item Añadir imágenes buscando una palabra: a partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
+  \item Sustituir una palabra por una imagen: una palabra se reemplazará por una imagen.
+  \item Crear una herramienta de recorte de imágenes para el texto original: añadir una herramienta que recorte imágenes del texto original.
+  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: seleccionando el contenido crea una tabla.
+  \item Crear esquemas que faciliten la visualización: añadir un esquema para visualizar fácilmente los contenidos.
 \end{itemize}
-Tras haber analizado en detalle las  funcionalidades anteriores hemos encontrado que varias funciones ya están realizadas y otras no se van a implementar por falta de información.
+Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias funciones ya están realizadas y otras no se van a implementar por falta de información. A continuación, especificamos las funciones realizadas, las funciones que no aportan información suficiente y las que realizaremos.
+
 Funciones realizadas:
-\begin{itemize}
-  \item Añadir encabezado al texto.
-  \item Enumerar ejercicios de forma automática.
-\end{itemize}
+  \begin{itemize}
+    \item Añadir encabezado al texto.
+    \item Enumerar ejercicios de forma automática.
+  \end{itemize}
 Funciones sin información suficiente:
 \begin{itemize}
   \item Añadir imágenes buscando una palabra en bases de datos de imágenes libres
@@ -51,6 +53,8 @@ Funciones sin información suficiente:
   \item Crear esquemas que faciliten la visualización.
   \item Ejercicios de completar los espacios en blanco en tablas y esquemas.
 \end{itemize}
+
+
 Por lo tanto las fuciones a implementar son las que se muestran en la tabla \ref{Funciones}.
 \begin{table}[]
   \begin{tabular}{|l|l|l|l|}
