@@ -10,13 +10,19 @@ Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 extr
 
 Formato: 
 \begin{itemize}
-  \item Añadir encabezado al texto: el usuario elijará un encabezado y se le añadirá al CKEditor.
-  \item Añadir un tipo de fuente escolar: incluir en los tipos de fuentes la escolar.
-  \item Añadir una leyenda de colores con la categoría de cada tipo: crear leyenda de colores según unas características.
+  \item Añadir encabezado al texto: el usuario elijará un encabezado y se le añadirá al procesador de texto.
+  \item Añadir un tipo de fuente escolar: incluir en los tipos de fuentes la escolar. Dicha fuente se refleja en la imagen \ref{escolar}.
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{AdaptaMaterialEscolar/FunteEscolar.png}
+    \caption{Fuente escolar.}
+    \label{escolar}
+\end{figure}
+  \item Añadir una leyenda de colores con la categoría de cada tipo: crear leyenda de colores que permita asociar colores con términos de un texto.
   \item Añadir leyenda de colores para el tema de cada asignatura: crear una leyenda según el color del borde de la hoja asignada a cada asignatura.
   \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números: crear una hoja de cuadrículas para los ejercicios de matemáticas.
   \item Añadir la alternativa de añadir doble pauta: en vez de renglones de una única línea, se podrá crear una hoja con doble pauta, para determinar el tamaño de la letra del alumno.
-  \item Estandarizar formato para títulos e índices del temario: escoger un formato para el editable.
+  \item Estandarizar formato para títulos e índices del temario: escoger o definir un formato para el documento editable.
   \item Enumerar ejercicios de forma automática: establecer un orden numérico para los ejercicios.
 \end{itemize}
 Ejercicios:
@@ -24,24 +30,24 @@ Ejercicios:
   \item Ejercicios de relacionar contenido mediante flechas: generar un ejercicio para relacionar conceptos.
   \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno: espacios en blanco para que el alumno pueda rellenarlos con el contenido adecuado.
   \item Añadir ejercicios con espacio para dibujar: amplio hueco en blanco con el fin de que el alumno pueda dibujar.
-  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: dado una tabla o esquema se establen espacios en blanco para que el alumno los rellene con el contenido adecuado.
+  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: dado una tabla o esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
 \end{itemize}
 Auxiliar:
 \begin{itemize}
   \item Generar un resumen a partir de un texto: se crea un resumen a partir de un texto.
-  \item Exportar el documento a formato Word para hacer modificaciones: exportar un docuemnto PDF a Word.
+  \item Exportar el documento a formato Word para hacer modificaciones: exportar un documento a Word.
   \item Añadir un pictotraductor como funcionalidad: dado una frase genera sus respectivos pictogramas.
   \item Añadir imágenes buscando una palabra: a partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
   \item Sustituir una palabra por una imagen: una palabra se reemplazará por una imagen.
   \item Crear una herramienta de recorte de imágenes para el texto original: añadir una herramienta que recorte imágenes del texto original.
-  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: seleccionando el contenido crea una tabla.
+  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido:  crear una tabla seleccionando el contenido.
   \item Crear esquemas que faciliten la visualización: añadir un esquema para visualizar fácilmente los contenidos.
 \end{itemize}
 Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias funciones ya están realizadas y otras no se van a implementar por falta de información. A continuación, especificamos las funciones realizadas, las funciones que no aportan información suficiente y las que realizaremos.
-
+\newline
 Funciones realizadas:
   \begin{itemize}
-    \item Añadir encabezado al texto: el usuario elijará un encabezado y se le añadirá al CKEditor.
+    \item Añadir encabezado al texto: el usuario elijará un encabezado y se le añadirá al procesador de texto.
     \item Enumerar ejercicios de forma automática: establecer un orden numérico para los ejercicios.
   \end{itemize}
 Funciones sin información suficiente:
@@ -49,9 +55,9 @@ Funciones sin información suficiente:
   \item Añadir imágenes buscando una palabra: a partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
   \item Sustituir una palabra por una imagen: una palabra se reemplazará por una imagen.
   \item Crear una herramienta de recorte de imágenes para el texto original: añadir una herramienta que recorte imágenes del texto original.
-  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: seleccionando el contenido crea una tabla.
+  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido:  crear una tabla seleccionando el contenido.
   \item Crear esquemas que faciliten la visualización: añadir un esquema para visualizar fácilmente los contenidos.
-  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: dado una tabla o esquema se establen espacios en blanco para que el alumno los rellene con el contenido adecuado.
+  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: dado una tabla o esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
 \end{itemize}
 
 Por lo tanto, las fuciones a implementar son las que se muestran a continuación:
@@ -59,49 +65,72 @@ Por lo tanto, las fuciones a implementar son las que se muestran a continuación
 
 \begin{itemize}
   \item Generar un resumen a partir de un texto: se crea un resumen a partir de un texto.
-  \item Exportar el documento a formato Word para hacer modificaciones: exportar un docuemnto PDF a Word.
+  \item Exportar el documento a formato Word para hacer modificaciones: exportar un documento a Word.
   \item Añadir un pictotraductor como funcionalidad: dado una frase genera sus respectivos pictogramas.
   \item Ejercicios de relacionar contenido mediante flechas: generar un ejercicio para relacionar conceptos.
-  \item Añadir un tipo de fuente escolar: incluir en los tipos de fuentes la escolar.
-  \item Añadir una leyenda de colores con la categoría de cada tipo: crear leyenda de colores según unas características.
+  \item Añadir un tipo de fuente escolar: incluir en los tipos de fuentes la escolar. Dicha fuente se refleja en la imagen \ref{escolar}.
+  \item Añadir una leyenda de colores con la categoría de cada tipo: crear leyenda de colores que permita asociar colores con términos de un texto.
   \item  Añadir ejercicios de cálculo con huecos a rellenar por el alumno: espacios en blanco para que el alumno pueda rellenarlos con el contenido adecuado.
   \item  Añadir ejercicios con espacio para dibujar: amplio hueco en blanco con el fin de que el alumno pueda dibujar.
   \item Añadir leyenda de colores para el tema de cada asignatura: crear una leyenda según el color del borde de la hoja asignada a cada asignatura.
   \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números: crear una hoja de cuadrículas para los ejercicios de matemáticas.
   \item Añadir la alternativa de añadir doble pauta: en vez de renglones de una única línea, se podrá crear una hoja con doble pauta, para determinar el tamaño de la letra del alumno.
-  \item Estandarizar formato para títulos e índices del temario: escoger un formato para el editable.
+  \item Estandarizar formato para títulos e índices del temario: escoger o definir un formato para el documento editable.
 
 \end{itemize}                                               
 
-\section{Diseño de la apliación}
+\section{Diseño de la aplicación}
 \label{disenyoDeLaAplicacion}
-Para el diseño de la aplicación web hemos realizado una iteración competitiva. Cada integrante del grupo ha proporcionado un diseño de la apliación como se muestra en las figuras \ref{IteracionCompetitiva1}, \ref{IteracionCompetitiva2}, \ref{IteracionCompetitiva3} y \ref{IteracionCompetitiva4}.
-Una vez que cada integrante ha explicado su diseño, hemos cogido lo mejor de cada uno quedando la aplicación de la siguiente manera \ref{diseño_final}.
+Para el diseño de la aplicación web hemos realizado una iteración competitiva. Cada integrante del grupo ha proporcionado un diseño de las funcionalidades. El diseño de Álvaro Gómez Sittima se muestra en las figuras \ref{IteracionCompetitiva1}, \ref{IteracionCompetitiva2}, el de Dunia Namour Doughani se reflejan en la figura \ref{IteracionCompetitiva3}, el diseño de Alberto Alejandro Rivas Fernández se muestra en las figuras \ref{IteracionCompetitiva4}, \ref{IteracionCompetitivaA2}, \ref{IteracionCompetitivaA3} y por el último el diseño de Johan Sebastian Salvatierra Gutierrez se muestra en las figuras \ref{IteracionCompetitivaJ1}, ref{IteracionCompetitivaJ2}. Una vez que cada integrante ha explicado su diseño, hemos cogido lo mejor de cada uno quedando la aplicación de la siguiente manera \ref{diseño_final}.
 
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.3]{Diseño/IteracionCompetitiva1}
-    \caption{Diseño aplicación iteración competitiva 1.}
+    \includegraphics[width=15cm,height=16cm]{Diseño/Alvaro.jpg}
+    \caption{Diseño 1 Álvaro Gómez Sittima iteración competitiva.}
     \label{IteracionCompetitiva1}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.5]{Diseño/IteracionCompetitiva2}
-    \caption{Diseño aplicación iteración competitiva 2.}
+    \includegraphics[width=15cm,height=16cm]{Diseño/Alvaro2.jpg}
+    \caption{Diseño 2 Álvaro Gómez Sittima iteración competitiva .}
     \label{IteracionCompetitiva2}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.5]{Diseño/IteracionCompetitiva3}
-    \caption{Diseño aplicación iteración competitiva 3.}
+    \includegraphics[width=15cm]{Diseño/Dunia.jpg}
+    \caption{Diseño Dunia Namour Doughani iteración competitiva .}
     \label{IteracionCompetitiva3}
 \end{figure}
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=0.5]{Diseño/IteracionCompetitiva4}
-    \caption{Diseño aplicación iteración competitiva 4.}
+    \includegraphics[width=15cm]{Diseño/Alberto.jpg}
+    \caption{Diseño 1 Alberto Alejandro Rivas Fernández iteración competitiva.}
     \label{IteracionCompetitiva4}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=18cm]{Diseño/Alberto2.png}
+  \caption{Diseño 2 Alberto Alejandro Rivas Fernández iteración competitiva.}
+  \label{IteracionCompetitivaA2}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=18cm]{Diseño/Alberto4.png}
+  \caption{Diseño 3 Alberto Alejandro Rivas Fernández iteración competitiva.}
+  \label{IteracionCompetitivaA3}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Johan.jpeg}
+  \caption{Diseño 3 Johan Sebastian Salvatierra Gutierrez iteración competitiva.}
+  \label{IteracionCompetitivaJ1}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Johan2.jpeg}
+  \caption{Diseño 3 Johan Sebastian Salvatierra Gutierrez iteración competitiva.}
+  \label{IteracionCompetitivaJ2}
 \end{figure}
 \begin{figure}[ht!]
   \centering
