@@ -4,7 +4,9 @@
     justify-content: space-between;
     align-items: center;
     color:white;
-    height: 20%;
+    height: 100px;
+    width: 100%;
+    position: fixed;
 }
 .title{
     margin-left: 20px;

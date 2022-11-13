@@ -11,35 +11,19 @@ export function Documento(){
     };
 
     return(
-        <div>
-        <input type="file" accept=".pdf" onChange={onChange} />
+        <div className={style.documento_container}>
+            <input type="file" accept=".pdf" onChange={onChange} />
 
-        <div style={{ height: '750px' }}>
             {url ? (
-                <div
-                    style={{
-                        border: '1px solid rgba(0, 0, 0, 0.3)',
-                        height: '100%',
-                    }}
-                >
-                    <iframe className={style.visualizador}id="iframepdf" src={url}></iframe>
+                <div className={style.visualizador_container}>
+                    <iframe className={style.visualizador} id="iframepdf" src={url}></iframe>
                 </div>
             ) : (
-                <div
-                    style={{
-                        alignItems: 'center',
-                        border: '2px dashed rgba(0, 0, 0, .3)',
-                        display: 'flex',
-                        fontSize: '2rem',
-                        height: '100%',
-                        justifyContent: 'center',
-                        width: '100%',
-                    }}
-                >
+                <div className={style.preview_area}>
                     Preview area
                 </div>
             )}
+
         </div>
-    </div>
     )
 }

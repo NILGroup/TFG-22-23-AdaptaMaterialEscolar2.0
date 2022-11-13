@@ -19,14 +19,18 @@ const  modules  = {
 };
 export function Inicio(){
     return (
-        <>
+        <div className={styles.inicio}>
             <NavBar/>
+
             <div className={styles.main}>
                 <Documento />
-                <ReactQuill className={styles.editor} modules={modules}theme="snow"/>
-                <div>   
+
+                <div className={styles.quill_container}>
+                    <ReactQuill className={styles.editor} modules={modules}theme="snow"/>
                 </div>
+
             </div>
-        </>
+            
+        </div>
     );
 }

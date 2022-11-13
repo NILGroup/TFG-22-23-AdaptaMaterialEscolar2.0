@@ -1,12 +1,22 @@
 .main{
-    margin:10px;
+    padding:10px;
+    padding-top: 110px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    height: 70%;
-}
-.editor{
+    grid-gap: 10px;
     height: 100%;
-    padding:0px;
-    border: 1px solid black;
+}
+
+.editor{
+    /* border: 1px solid black; */
+    height: 100%;
+}
+
+.quill_container{
+    overflow-y: scroll;
+}
+
+.inicio{
+    height: 100vh;
 }
