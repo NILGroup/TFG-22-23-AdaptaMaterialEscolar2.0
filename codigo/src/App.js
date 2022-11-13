@@ -1,24 +1,24 @@
 import './App.css';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Spinner} from './components/Spinner/Spinner';
+import {Inicio} from './pages/Inicio';
+import {Ayuda} from './pages/Ayuda';
+import {Contacto} from './pages/Contacto'
 
-const  modules  = {
-  toolbar: [
-      [{ font: [] }],
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike"],
-      [{ color: [] }, { background: [] }],
-      [{ script:  "sub" }, { script:  "super" }],
-      ["blockquote", "code-block"],
-      [{ list:  "ordered" }, { list:  "bullet" }],
-      [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
-      ["link", "image"],
-      ["clean"],
-  ],
-};
+
+//Supense generar un html que se muestre mientras espera a los lazy que estan dentro
 function App() {
   return (
-    <ReactQuill modules={modules}theme="snow"/>
+    <Router>
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        <Route path="/" element={<Inicio/>} />
+        <Route path="/ayuda" element={<Ayuda />} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
+    </Suspense>
+  </Router>
   );
 }
 export default App;
