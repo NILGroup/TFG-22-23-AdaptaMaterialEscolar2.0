@@ -72,15 +72,16 @@ Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay qu
     \item Cada caso de prueba debe estar aislado completamente del resto de casos o pruebas de otros módulos. Si no se aísla correctamente, se pueden producir resultados no consistentes, complicando la detección de errores.
     \item Las pruebas deben ser relevantes para el futuro y deben tratar de cubrir la totalidad del código.
 \end{itemize}
+
 \subsection{Pruebas de integración}
 Las pruebas de integración se utilizan para comprobar que las conexiones o interfaces entre los distintos módulos, ya probados individualmente (pruebas unitarias), funcionan correctamente.
 
-En este proyecto las pruebas de integración se realizarán de forma incremental, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. En esta estrategia, la integración se lleva a cabo de arriba abajo, siguiendo el flujo natural de la aplicación.
+En este proyecto las pruebas de integración se realizarán de forma incremental, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. Además, se seguirá una estrategia \textit{Top-Down} para realizar las pruebas, por lo que la integración se llevará a cabo de arriba abajo, siguiendo el flujo natural de la aplicación. 
 
-Se seguirá una estrategia \textit{Top-Down} para realizar las pruebas. Utilizaremos esta estrategia, en vez de \textit{Bottom-Up}, porque nos queremos centrar en errores de diseño y tener una aplicación funcional probada lo antes posible.
 Puede darse el caso de que una prueba de integración no se pueda realizar debido a que alguno de los módulos a integrar está en desarrollo o todavía se está probando individualmente. En este caso, se utilizarán \textit{stubs} para simular la dependencia entre módulos.
+
 \subsection{Integración continua}
-Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases por las que va pasando el software y que se automatizan. Esta serie de fases se conoce como \textit{pipeline}.
+Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases automatizadas por las que va pasando el software. Esta serie de fases se conoce como \textit{pipeline}.
 
 El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasará a la fase \textit{Release}. En caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasará a la fase \textit{Release} y por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release} se subirán los cambios automáticamente al repositorio.
 
