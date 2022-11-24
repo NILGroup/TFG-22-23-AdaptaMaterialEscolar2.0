@@ -3,26 +3,24 @@
 En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{cap:pruebas}.
 \section{Metodología de desarrollo}
 \label{cap:Kanban}
-La metodología es un marco de trabajo que permite estructurar, organizar y controlar el proceso del desarrollo software. Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología se rige por unas reglas básicas como: gestionar el flujo; hacer las políticas explicitas; visualizar el trabajo y las fases del ciclo de producción o flujo de trabajo y determinar a la vez que respetar el límite de trabajo en curso.
+ Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología se tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explicitas.
 
 \subsection{Tablero Kanban}
-Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}.
-Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Cada tipo de tarea se probará o revisará de manera diferente.
-Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
+Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}.  Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
 \begin{itemize}
     \item \textbf{\textit{To Do}}: Listado de todas las tareas sin empezar.
     \item \textbf{\textit{Doing}}: Tareas que se encuentran en desarrollo, ya sea la implementación de código o la redacción de la memoria.
     \item \textbf{\textit{Testing}}: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
-    \item \textbf{\textit{Validate}}: La tarea de memoria será comprobada por las tutoras.
-    \item \textbf{\textit{Done}}: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
-\end{itemize}
-Para las tareas de documentación, cuando se sitúen en la columna de \textit{Testing} la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
+    Para las tareas de documentación la realizarán todos integrantes del equipo siguiendo los siguientes pasos:
 \begin{enumerate}
-    \item Cuando haya una tarea de memoria en la columna de \textit{Testing}, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
+    \item Cuando haya una tarea de memoria en dicha columna, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
     \item Cuando un miembro del equipo haya terminado de revisar la tarea debe marcarlo en el \textit{checkbox} referido a él.
     \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{Validate}.
 \end{enumerate}
-Por otra parte, si se encuentra un error en una funcionalidad, ya sea durante la fase de \textit{Testing} o tras haberse dado por terminada, se creará una nueva tarea de tipo \textit{bug}.
+Por otra parte, si se encuentra un error en una funcionalidad, ya sea durante esta fase o tras haberse dado por terminada, se creará una nueva tarea de tipo \textit{bug} en la columna \textit{To Do}.
+    \item \textbf{\textit{Validate}}: La tarea de memoria será comprobada por las tutoras.
+    \item \textbf{\textit{Done}}: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
+\end{itemize}
 
 \subsection{Políticas explícitas}
 A continuación se presentan las políticas explicitas que hemos ido estableciendo a lo largo del proyecto:

@@ -5,12 +5,12 @@ En este capítulo explicaremos la obtención de requisitos en la Sección \ref{c
 \section{Requisitos}
 \label{cap:requisitos}
 
-Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una seria de cambios y nuevas funcionalidades. Agrupamos dichas funcionalidades en tres grupos: formato, ejercicios y auxiliar. Quedando las funcionalidades agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 (\cite*{AdaptaMaterialEscolar1.0}) extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una serie de cambios y nuevas funcionalidades. Uno de los cambios fue agrupar dichas funcionalidades en formato (funcionalidades que tienen relación con el formato de los ejercicios), en ejercicios (funcionalidades relacionadas con la realización de ejercicios) y finalmente en auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Quedando las funcionalidades agrupadas de la siguiente manera:
 \\
 
 Formato: 
 \begin{itemize}
-  \item Añadir encabezado al texto: El usuario elijará un encabezado y se le añadirá al procesador de texto.
+  \item Añadir encabezado al texto: El usuario elijará un encabezado y se le añadirá al docuemnto.
   \item Añadir un tipo de fuente escolar: Incluir en los tipos de fuentes la escolar. Dicha fuente se refleja en la imagen \ref{escolar}.
   \begin{figure}[ht!]
     \centering
@@ -18,26 +18,26 @@ Formato:
     \caption{Fuente escolar.}
     \label{escolar}
 \end{figure}
-  \item Añadir una leyenda de colores con la categoría de cada tipo: Crear leyenda de colores que permita asociar colores con términos de un texto.
-  \item Añadir leyenda de colores para el tema de cada asignatura: Crear una leyenda según el color del borde de la hoja asignada a cada asignatura.
-  \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números: Crear una hoja de cuadrículas para los ejercicios de matemáticas.
-  \item Añadir la alternativa de añadir doble pauta: En vez de renglones de una única línea, se podrá crear una hoja con doble pauta, para determinar el tamaño de la letra del alumno.
-  \item Estandarizar formato para títulos e índices del temario: Escoger o definir un formato para el documento editable.
-  \item Enumerar ejercicios de forma automática: Establecer un orden numérico para los ejercicios.
+  \item Añadir una leyenda de colores con la categoría de cada tipo: Crear una tabla con valores donde cada valor esta asociado a un color.
+  \item Añadir leyenda de colores para el tema de cada asignatura: Dar la posibilidad de que cada asignatura tenga un color. Al crear un documento según la asignatura se pondrá el borde del documento del color que corresponde a dicha asignatura.
+  \item Añadir cuadrícula para escribir los números.
+  \item Añadir la alternativa de añadir doble pauta: En vez de renglones de una única línea se podrá poner para responder a una pregunta la doble pauta.
+  \item Estandarizar formato para títulos e índices del temario: dar la opción de crear estilos para estandarizar documento.
+  \item Enumerar ejercicios de forma automática: Establecer un orden numérico para los ejercicios de forma automática según se van creando para que el usuario no se tenga que preocupar de ese aspecto.
 \end{itemize}
 Ejercicios:
 \begin{itemize}
-  \item Ejercicios de relacionar contenido mediante flechas: Generar un ejercicio para relacionar conceptos.
+  \item Ejercicios de relacionar contenido mediante flechas: Generar un ejercicio para relacionar conceptos mediante flechas.
   \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno: Espacios en blanco para que el alumno pueda rellenarlos con el contenido adecuado.
   \item Añadir ejercicios con espacio para dibujar: Amplio hueco en blanco con el fin de que el alumno pueda dibujar.
-  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: Dado una tabla o esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
+  \item Ejercicios de completar los espacios en blanco en tablas y esquemas: Dada una tabla o un esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
 \end{itemize}
 Auxiliar:
 \begin{itemize}
-  \item Generar un resumen a partir de un texto: Se crea un resumen a partir de un texto.
-  \item Exportar el documento a formato Word para hacer modificaciones: Exportar un documento a Word.
-  \item Añadir un pictotraductor: Dado una frase genera sus respectivos pictogramas.
-  \item Añadir imágenes buscando una palabra: A partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
+  \item Generar un resumen a partir de un texto.
+  \item Exportar el documento a formato Word.
+  \item Añadir un pictotraductor: Dado una frase traducirla a pictogramas.
+  \item Añadir imágenes buscando una palabra: A partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres por ejemplo con el fin de incluir en el docuemnto una imagenn para una explicación más visual .
   \item Sustituir una palabra por una imagen: Una palabra se reemplazará por una imagen.
   \item Crear una herramienta de recorte de imágenes para el texto original: Añadir una herramienta que recorte imágenes del texto original.
   \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido:  Crear una tabla seleccionando el contenido.
