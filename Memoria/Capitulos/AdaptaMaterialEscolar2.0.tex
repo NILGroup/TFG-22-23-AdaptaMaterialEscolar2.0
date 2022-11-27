@@ -5,7 +5,7 @@ En este capítulo explicaremos la obtención de requisitos en la Sección \ref{c
 \section{Requisitos}
 \label{cap:requisitos}
 
-Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 (\cite*{AdaptaMaterialEscolar1.0}) extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una serie de cambios y nuevas funcionalidades. Uno de los cambios fue agrupar dichas funcionalidades en formato (funcionalidades que tienen relación con el formato de los ejercicios), en ejercicios (funcionalidades relacionadas con la realización de ejercicios) y finalmente en auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Quedando las funcionalidades agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 (\cite*{AdaptaMaterialEscolar1.0}) extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una serie de cambios y nuevas funcionalidades. Uno de los cambios fue agrupar dichas funcionalidades en formato (funcionalidades que tienen relación con el estilo o la estructura del documento), en ejercicios (funcionalidades relacionadas con la creación de actividades) y finalmente en auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Quedando las funcionalidades agrupadas de la siguiente manera:
 \\
 
 Formato: 
@@ -37,24 +37,24 @@ Auxiliar:
   \item Generar un resumen a partir de un texto.
   \item Exportar el documento a formato Word.
   \item Añadir un pictotraductor: Dado una frase traducirla a pictogramas.
-  \item Añadir imágenes buscando una palabra: A partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres. Por ejemplo, con el fin de incluir en el docuemnto una imagenn para una explicación más visual .
+  \item Añadir imágenes buscando una palabra: A partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
   \item Sustituir una palabra por una imagen: Una palabra se reemplazará por una imagen.
-  \item Crear una herramienta de recorte de imágenes para el texto original: habrá un botón que tras darle te permita seleccionar un área para convertirla en una imagen.
-  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: Tras la selección de contenido por parte del usuario se creará una tabla o un esquema en base a la información seleccionada, con un formato predefinido.
+  \item Crear una herramienta de recorte de imágenes para el texto original: Tras seleccionar una imágen tendrás la opción de quitar partes de una imagen. 
+  \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: Tras la selección de contenido por parte del usuario se creará una tabla en base a la información seleccionada, con un formato predefinido.
   \item Creación de esquemas.
 \end{itemize}
 Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias funciones ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas ya que consideramos que no tenemos la información suficiente para implementarlas. Las siguientes funcionalidades son las que ya están implementadas en la versión original:
   \begin{itemize}
-    \item Añadir encabezado al texto: El docuemnto editable tiene una opción para añadir un ecabezado, cuando se pulsa dicha opción el documento editable convierte el formato de la letra en el del encabezado seleccionado. 
-    \item Enumerar ejercicios de forma automática: El docuemnto editable tiene dicha acción, cuando pulsas el botón para enumerar se añadirá una indexación.
+    \item Añadir encabezado al texto: El documento editable tiene una opción con una lista de encabezados para añadir uno, cuando se pulsa a un encabezado el documento editable convierte el formato de la letra en el del encabezado seleccionado. 
+    \item Enumerar ejercicios de forma automática: El documento editable permite añadir listas enumeradas.
   \end{itemize}
 Las funcionalidades que hemos decidido descartar de momento por falta de información son las siguientes:
 \begin{itemize}
-  \item Añadir imágenes buscando una palabra. Partimos de que debemos usar una base de datos de imagen libre pero no tenemos la información suficiente para definir cual sería la base de datos correcta.
+  \item Añadir imágenes buscando una palabra. Partimos de que debemos usar una base de datos de imagen libre pero no tenemos la información suficiente para definir cuál sería la base de datos correcta.
   \item Sustituir una palabra por una imagen: Una palabra se reemplazará por una imagen.
-  \item Crear una herramienta de recorte de imágenes para el texto original: Añadir una herramienta que recorte imágenes del texto original.
+  \item Crear una herramienta de recorte de imágenes para el texto original: No la realizaremos ya que no tenemos claro que tipo de recorte tenía pensado el usuario. 
   \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: Descartamos dicha funcionalidad ya que no tenemos la información suficiente del formato que desea el usuario.
-  \item Crear esquemas que faciliten la visualización: Descartamos dicha funcionalidad ya que no tenemos la información suficiente del formato que desea el usuario.
+  \item Crear esquemas: Descartamos dicha funcionalidad ya que no tenemos la información suficiente del formato que desea el usuario.
   \item Ejercicios de completar los espacios en blanco en tablas y esquemas.
 \end{itemize}
 
@@ -62,18 +62,18 @@ Por lo tanto, las funcionalidades que vamos a implementar son las que se muestra
 
 
 \begin{itemize}
-  \item Generar un resumen a partir de un texto. Se realizará con el fin de ayudar a un alumno a comprender loas elementos claves del texto de manera mas rápida.
-  \item Exportar el documento a formato Word para hacer modificaciones. Se realizará para que el usuario pueda continuar con las modificiones del docuemnto. 
-  \item Añadir un pictotraductor: Se realizará con el fin de trasformar un texto a pictotraductor para que el alumno pueda adquirir nuevos conocimientos de forma más sencilla.
-  \item Ejercicios de relacionar contenido mediante flechas. Se realizará ya que ayuda al alumno a consolidar conceptos.
-  \item Añadir un tipo de fuente escolar. Se realizará con el fin de facilitar la lectura y la escritura al alumno.
-  \item Añadir una leyenda de colores con la categoría de cada tipo. Se realizará con el fin de  ayudar al alumno a relacionar conceptos. 
-  \item  Añadir ejercicios de cálculo con huecos a rellenar por el alumno. Se realizará para que el alumno practique el cálculo.
-  \item  Añadir ejercicios con espacio para dibujar. Se realizará con el fin de que el alumno pueda reflejar lo que piensa, interpreta y representa sobre algo.
-  \item Añadir leyenda de colores para el tema de cada asignatura. Se realizará con el fin de que el alumno pueda distinguir entre las asignaturas.
-  \item Añadir ejercicios de matemáticas con cuadrícula para escribir los números. Se realizará con el fin de facilitar  los ejercicios de matemáticas(NO SE)
-  \item Añadir la alternativa de añadir doble pauta. Se realizará con el fin de que el alumno adquiera un tamaño de letra adecuado.
-  \item Estandarizar formato para títulos e índices del temario. Con el fin de que el profesor pueda definir un estilo. 
+  \item Generar un resumen a partir de un texto se realizará con el fin de ayudar a un alumno a comprender loas elementos claves del texto de manera mas rápida.
+  \item Exportar el documento a formato Word para hacer modificaciones se realizará para que el usuario pueda continuar con las modificiones del documento. 
+  \item Añadir un pictotraductor se realizará con el fin de trasformar un texto a pictotraductor para que el alumno pueda adquirir nuevos conocimientos de forma más sencilla.
+  \item Ejercicios de relacionar contenido mediante flechas se realizará ya que ayuda al alumno a consolidar conceptos.
+  \item Añadir un tipo de fuente escolar se realizará con el fin de facilitar la lectura y la escritura al alumno.
+  \item Añadir una leyenda de colores con la categoría de cada tipo se realizará con el fin de  ayudar al alumno a relacionar conceptos. 
+  \item  Añadir ejercicios de cálculo con huecos a rellenar por el alumno se realizará para que el alumno practique el cálculo.
+  \item  Añadir ejercicios con espacio para dibujar se realizará con el fin de que el alumno pueda reflejar lo que piensa, interpreta y representa sobre algo.
+  \item Añadir leyenda de colores para el tema de cada asignatura se realizará con el fin de que el alumno pueda distinguir entre las asignaturas.
+  \item Añadir cuadrícula para escribir los números se realizará con el fin de facilitar los ejercicios de matemáticas.
+  \item Añadir la alternativa de añadir doble pauta se realizará con el fin de que el alumno adquiera un tamaño de letra adecuado.
+  \item Estandarizar formato para títulos e índices del temario con el fin de que el profesor pueda definir un estilo. 
 
 \end{itemize}                                               
 
