@@ -81,6 +81,37 @@ Por lo tanto, las funcionalidades que vamos a implementar son las que se muestra
 \label{disenyoDeLaAplicacion}
 Para el diseño de la aplicación web hemos realizado una iteración competitiva. Cada integrante del grupo ha proporcionado un diseño de las funcionalidades. El diseño de Álvaro Gómez Sittima se muestra en las figuras \ref{IteracionCompetitiva1}, \ref{IteracionCompetitiva2}, el de Dunia Namour Doughani se reflejan en la figura \ref{IteracionCompetitiva3}, el diseño de Alberto Alejandro Rivas Fernández se muestra en las figuras \ref{IteracionCompetitiva4}, \ref{IteracionCompetitivaA2}, \ref{IteracionCompetitivaA3} y por el último, el diseño de Johan Sebastian Salvatierra Gutierrez se muestra en las figuras \ref{IteracionCompetitivaJ1}, \ref{IteracionCompetitivaJ2}. Una vez que cada integrante ha explicado su diseño, hemos cogido lo mejor de cada uno. El diseño de la pantalla de inicio se muestra en la figura \ref{diseño_final}, el diseño de la funcionalidad generar un resumen a partir de un texto aparece en la figura \ref{resuemn}, el diseño de la funcionalidad añadir un pictotraductor se muestra en la figura \ref{picto}, el diseño de la funcionalidad añadir una leyenda de colores con la categoría de cada tipo se muestra en la figura \ref{leyenda}, por último, se muestra el diseño de la funcionalidad ejercicios de relacionar contenido mediante flechas en la figura \ref{flecha}. No se ha realizado diseño de todas las funcionalidades ya que algunas de ellas irán incorporadas en el editable y no en una pestaña aparte.
 
+\subsection{Diseño final}
+
+\subsubsection{Pantalla de inicio}
+El diseño de esta funcionalidad se muestra en la imagen \ref{pantallaInicio}. Para llegar a él partimos del diseño de cada integrante en las imagenes.. Ninguno de dichos diseños son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad selecionada. 
+
+\subsubsection{Generar resumen}
+El diseño de esta funcionalidad se muestra en la imagen \ref{resuemn}. Para llegar a él partimos del diseño de cada integrante en las imagenes..El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. Cuando el usuario esté de acuerdo con el resumen generado pulsará el botón de ok para incluir el resumen en el documento.
+
+\subsubsection{Ejercicio de huecos}
+El diseño de esta funcionalidad se muestra en la imagen \ref{definir_hueco}. Para llegar a él partimos del diseño de cada integrante en las imagenes.. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de editar texto y pulsando sobre la palabra se pondrá un hueco. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 8 caracteres, mediano, 16 caracteres y grande, que es el por defecto, 33 caracteres.  
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Pantalla_inicio.png}
+  \caption{Diseño final pantalla de inicio.}
+  \label{pantallaInicio}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Resuemn.PNG}
+  \caption{Diseño final generar resumen.}
+  \label{resuemn}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Definir_huecos.PNG}
+  \caption{Diseño final definir huecos.}
+  \label{definir_hueco}
+\end{figure}
 
 \begin{figure}[ht!]
     \centering
