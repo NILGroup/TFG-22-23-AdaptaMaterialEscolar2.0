@@ -81,16 +81,26 @@ Por lo tanto, las funcionalidades que vamos a implementar son las que se muestra
 \label{disenyoDeLaAplicacion}
 Para el diseño de la aplicación web hemos realizado una iteración competitiva. Cada integrante del grupo ha proporcionado un diseño de las funcionalidades. El diseño de Álvaro Gómez Sittima se muestra en las figuras \ref{IteracionCompetitiva1}, \ref{IteracionCompetitiva2}, el de Dunia Namour Doughani se reflejan en la figura \ref{IteracionCompetitiva3}, el diseño de Alberto Alejandro Rivas Fernández se muestra en las figuras \ref{IteracionCompetitiva4}, \ref{IteracionCompetitivaA2}, \ref{IteracionCompetitivaA3} y por el último, el diseño de Johan Sebastian Salvatierra Gutierrez se muestra en las figuras \ref{IteracionCompetitivaJ1}, \ref{IteracionCompetitivaJ2}. Una vez que cada integrante ha explicado su diseño, hemos cogido lo mejor de cada uno. El diseño de la pantalla de inicio se muestra en la figura \ref{diseño_final}, el diseño de la funcionalidad generar un resumen a partir de un texto aparece en la figura \ref{resuemn}, el diseño de la funcionalidad añadir un pictotraductor se muestra en la figura \ref{picto}, el diseño de la funcionalidad añadir una leyenda de colores con la categoría de cada tipo se muestra en la figura \ref{leyenda}, por último, se muestra el diseño de la funcionalidad ejercicios de relacionar contenido mediante flechas en la figura \ref{flecha}. No se ha realizado diseño de todas las funcionalidades ya que algunas de ellas irán incorporadas en el editable y no en una pestaña aparte.
 
-\subsection{Diseño final}
 
+\subsection{Diseño de los integrantes}
+
+
+\subsection{Diseño final}
+Partimos de los diseños de los miembros del equipo para llevar a cabo el diseño final de las funconalidades descritas a continuación. 
 \subsubsection{Pantalla de inicio}
-El diseño de esta funcionalidad se muestra en la imagen \ref{pantallaInicio}. Para llegar a él partimos del diseño de cada integrante en las imagenes.. Ninguno de dichos diseños son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad selecionada. 
+El diseño de esta funcionalidad se muestra en la imagen \ref{pantallaInicio}. Ninguno de los diseños de los integrantes  son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad selecionada. 
 
 \subsubsection{Generar resumen}
-El diseño de esta funcionalidad se muestra en la imagen \ref{resuemn}. Para llegar a él partimos del diseño de cada integrante en las imagenes..El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. Cuando el usuario esté de acuerdo con el resumen generado pulsará el botón de ok para incluir el resumen en el documento.
+El diseño de esta funcionalidad se muestra en la imagen \ref{resuemn}. El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. Cuando el usuario esté de acuerdo con el resumen generado pulsará el botón de ok para incluir el resumen en el documento.
 
 \subsubsection{Ejercicio de huecos}
-El diseño de esta funcionalidad se muestra en la imagen \ref{definir_hueco}. Para llegar a él partimos del diseño de cada integrante en las imagenes.. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de editar texto y pulsando sobre la palabra se pondrá un hueco. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 8 caracteres, mediano, 16 caracteres y grande, que es el por defecto, 33 caracteres.  
+El diseño de esta funcionalidad se muestra en la imagen \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de editar texto y pulsando sobre la palabra se pondrá un hueco. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 8 caracteres, mediano, 16 caracteres y grande, que es el por defecto, 33 caracteres.  
+
+\subsubsection{Sopa de letras}
+El diseño de esta funcionalidad se muestra en la imagen \ref{sopaLetras}. Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra y otro, que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión de que el diseño era poco intuitivo para el usuario. Para ayudar al usuario a que sea más intuitivo decidimos poner un campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varios botones para que el usuario elija cómo disponer las palabras en la sopa de letras. Por último, para que el usuario elija el tamaño de la sopa de letras hemos creado una vista previa la cual se podrá aumentar o disminuir en cualquier dirección. Finalmente, cuando se le da al botón de OK se pondrá la sopa de letras en el documento junto a un enunciado escrito automáticamente. 
+
+\subsubsection{Pictotraductor}
+El diseño de esta funcionalidad se muestra en la imagen \ref{pictotraductor}. Inicialmente se pensó un diseño bastante simple en el que había un campo para añdir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas, el problema de este diseño fue que no se tuvo en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra, añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar completamente o de eliminar unicamente el pictograma. 
 
 \begin{figure}[ht!]
   \centering
@@ -111,6 +121,20 @@ El diseño de esta funcionalidad se muestra en la imagen \ref{definir_hueco}. Pa
   \includegraphics[width=15cm]{Diseño/Definir_huecos.PNG}
   \caption{Diseño final definir huecos.}
   \label{definir_hueco}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Sopa_Letras.PNG}
+  \caption{Diseño final sopa de letras.}
+  \label{sopaLetras}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Pictotraductor.PNG}
+  \caption{Diseño final del pictotraductor.}
+  \label{pictotraductor}
 \end{figure}
 
 \begin{figure}[ht!]
