@@ -88,19 +88,32 @@ Para el diseño de la aplicación web hemos realizado una iteración competitiva
 \subsection{Diseño final}
 Partimos de los diseños de los miembros del equipo para llevar a cabo el diseño final de las funconalidades descritas a continuación. 
 \subsubsection{Pantalla de inicio}
-El diseño de esta funcionalidad se muestra en la imagen \ref{pantallaInicio}. Ninguno de los diseños de los integrantes  son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad selecionada. 
+El diseño de esta funcionalidad se muestra en la Imagen \ref{pantallaInicio}. Ninguno de los diseños de los integrantes  son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad selecionada. 
 
 \subsubsection{Generar resumen}
-El diseño de esta funcionalidad se muestra en la imagen \ref{resuemn}. El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. Cuando el usuario esté de acuerdo con el resumen generado pulsará el botón de ok para incluir el resumen en el documento.
+El diseño de esta funcionalidad se muestra en la Imagen \ref{resuemn}. El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. Cuando el usuario esté de acuerdo con el resumen generado pulsará el botón de ok para incluir el resumen en el documento.
 
 \subsubsection{Ejercicio de huecos}
-El diseño de esta funcionalidad se muestra en la imagen \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de editar texto y pulsando sobre la palabra se pondrá un hueco. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 8 caracteres, mediano, 16 caracteres y grande, que es el por defecto, 33 caracteres.  
+El diseño de esta funcionalidad se muestra en la Imagen \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de editar texto y pulsando sobre la palabra se pondrá un hueco. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 8 caracteres, mediano, 16 caracteres y grande, que es el por defecto, 33 caracteres.  
 
 \subsubsection{Sopa de letras}
-El diseño de esta funcionalidad se muestra en la imagen \ref{sopaLetras}. Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra y otro, que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión de que el diseño era poco intuitivo para el usuario. Para ayudar al usuario a que sea más intuitivo decidimos poner un campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varios botones para que el usuario elija cómo disponer las palabras en la sopa de letras. Por último, para que el usuario elija el tamaño de la sopa de letras hemos creado una vista previa la cual se podrá aumentar o disminuir en cualquier dirección. Finalmente, cuando se le da al botón de OK se pondrá la sopa de letras en el documento junto a un enunciado escrito automáticamente. 
+El diseño de esta funcionalidad se muestra en la Imagen \ref{sopaLetras}. Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra y otro, que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión de que el diseño era poco intuitivo para el usuario. Para ayudar al usuario a que sea más intuitivo decidimos poner un campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varios botones para que el usuario elija cómo disponer las palabras en la sopa de letras. Por último, para que el usuario elija el tamaño de la sopa de letras hemos creado una vista previa la cual se podrá aumentar o disminuir en cualquier dirección. Finalmente, cuando se le da al botón de OK se pondrá la sopa de letras en el documento junto a un enunciado escrito automáticamente. 
 
 \subsubsection{Pictotraductor}
-El diseño de esta funcionalidad se muestra en la imagen \ref{pictotraductor}. Inicialmente se pensó un diseño bastante simple en el que había un campo para añdir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas, el problema de este diseño fue que no se tuvo en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra, añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar completamente o de eliminar unicamente el pictograma. 
+El diseño de esta funcionalidad se muestra en la Imagen \ref{pictotraductor}. Inicialmente se pensó un diseño bastante simple en el que había un campo para añdir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas, el problema de este diseño fue que no se tuvo en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra, añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar completamente o de eliminar unicamente el pictograma. 
+
+\subsubsection{Ejercicio de flechas}
+El diseño de esta funcionalidad se muestra en la Imagen \ref{flechas}. Inicialmente dabamos la opción de solo hacer dos columnas para relacionar con flechas pero nos dimos cuenta que el usuario debería poder elegir tantas columnas cómo desee, tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera una tabla vacía de dichas dimensiones. Una vez que el usuario rellena dicha tabla tiene la opción de mezclar, la cual reordenaría cada columna y en el caso de que al usuario no le guste como se ha reordenado podrá darle de nuevo a mezclar. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automaticamnete cada vez que el usuario realice un cambio en la tabla. 
+
+\subsubsection{Ejercicio de desarrollo}
+ Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Imagen \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta y tampoco dejaba elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Imagen \ref{Desarrollo}.    
+
+ \subsubsection{Ejercicio de definiciones}
+ Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Imagen \ref{defiAE1} , dicho diseño tenía los mismos problemas que el de ejercicios de desarollo. El diseño de esta funcionalidad se muestra en la Imagen \ref{defi}.
+
+ \subsubsection{Ejercicios espacio para dibujar}
+ El diseño de esta funcionalidad se muestra en la Imagen \ref{espaciosDibu}. Para este diseño nos hemos basado en los ejercicios de desarrollo y definiciones, dejando solo dos  tipos de pauta. Además, en este diseño el tamaño del espacio en vez de definirse como número de filas se define la altura en centímetros.  
+
 
 \begin{figure}[ht!]
   \centering
@@ -136,6 +149,55 @@ El diseño de esta funcionalidad se muestra en la imagen \ref{pictotraductor}. I
   \caption{Diseño final del pictotraductor.}
   \label{pictotraductor}
 \end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/flechas.png}
+  \caption{Diseño final de ejercicios de fechas.}
+  \label{flechas}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Desarrollo.PNG}
+  \caption{Diseño final de ejercicios de desarrollar.}
+  \label{Desarrollo}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/desarrolloAE1.PNG}
+  \caption{Diseño ejercicios de desarrollar AdaptaMaterialEscolar 1.0.}
+  \label{desAE1}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/definiciones.PNG}
+  \caption{Diseño final ejercicios de definiciones.}
+  \label{defi}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/definicionesAE1.PNG}
+  \caption{Diseño ejercicios de definiciones AdaptaMaterialEscolar 1.0.}
+  \label{defiAE1}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/EspacioDibu.PNG}
+  \caption{Diseño final ejercicios espacios para dibujar.}
+  \label{espaciosDibu}
+\end{figure}
+
+
+
+
+
+
+
 
 \begin{figure}[ht!]
     \centering
