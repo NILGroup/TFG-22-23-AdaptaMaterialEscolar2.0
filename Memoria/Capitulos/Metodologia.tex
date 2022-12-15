@@ -3,7 +3,7 @@
 En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{cap:pruebas}.
 \section{Metodología de desarrollo}
 \label{cap:Kanban}
- Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología se tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explicitas.
+ Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología se tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas.
 
 \subsection{Tablero Kanban}
 Previamente hemos distinguido dos tipos de tareas que habrá en el proyecto, las tareas relacionadas con la memoria y las de implementación. Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}.  Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
@@ -44,10 +44,10 @@ En Kanban para priorizar las tareas del tablero en ocasiones se emplean las clas
     \item Expedite: Tareas que necesitan ser gestionadas de manera acelerada o urgente. Por ejemplo, algún problema con el editor que nos impediría implementar cualquier otra tarea hasta que esta esté terminada.
     \item Fixed Delivery Date: Tareas con fecha fija que debemos cumplir. Por ejemplo, la corrección de la documentación.
     \item Standard: Tareas que ya ha hecho antes el equipo y que no tienen una fecha fija. Por ejemplo, una función que tenga similitudes con otra.
-    \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va a dedicar y el riesgo que suponen. Por ejemplo, la función generar resúmenes.
+    \item Intangible: Tareas que son nuevas, se desconoce el tiempo que se le va a dedicar y el riesgo que suponen. Por ejemplo, alguna de las funcionalidades nuevas de la aplicación.
 \end{itemize}
 
-Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \textit{Expedite} son las más prioritarias por lo que serán las primeras en ser realizadas. Las \textit{Fixed Delivery Date} si en su debida fecha, la cual estará indicada en su descripción, no están implementadas se convierten en \textit{Expedite}. Las \textit{standard} son un poco menos prioritaria que las anteriores al contar con el coste y el esfuerzo que suponen pero presentan un cierto grado de incertidumbre al no tener una fecha fija. Por último, las \textit{Intangibles} su prioridad varía al presentar un alto grado de incertidumbre, inicialmente se desconoce el riesgo que suponen pero pueden convertirse en \textit{Standard} o en \textit{Expedite}.
+Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \textit{Expedite} son las más prioritarias por lo que serán las primeras en ser realizadas. Las \textit{Fixed Delivery Date}, si en su debida fecha (la cual estará indicada en su descripción) no están implementadas, se convierten en \textit{Expedite}. Las \textit{Standard} son un poco menos prioritaria que las anteriores al contar con el coste y el esfuerzo que suponen pero presentan un cierto grado de incertidumbre al no tener una fecha fija. Por último, en las \textit{Intangibles} su prioridad varía al presentar un alto grado de incertidumbre, ya que inicialmente se desconoce el riesgo que suponen pero pueden convertirse en \textit{Standard} o en \textit{Expedite}.
 
 \section{Plan de Pruebas}
 \label{cap:pruebas}
@@ -79,12 +79,12 @@ En este proyecto las pruebas de integración se realizarán de forma incremental
 
 Puede darse el caso de que una prueba de integración no se pueda realizar debido a que alguno de los módulos a integrar está en desarrollo o todavía se está probando individualmente. En este caso, se utilizarán \textit{stubs} para simular la dependencia entre módulos.
 
-Para implementar las pruebas de integración, se utilizará la herramienta Jest (ver sección de herramientas).
+Para implementar las pruebas de integración también se utilizará la herramienta Jest (ver sección de herramientas).
 
 \subsection{Integración continua}
 Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases automatizadas por las que va pasando el software. Esta serie de fases se conoce como \textit{pipeline}.
 
-El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se esta intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasará a la fase \textit{Release}. En caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasará a la fase \textit{Release} y por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release} se subirán los cambios automáticamente al repositorio.
+El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se está intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasará a la fase \textit{Release}. En caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasará a la fase \textit{Release} y por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release} se subirán los cambios automáticamente al repositorio.
 
 Las razones por las que creemos necesaria la integración continua en este proyecto son las siguientes:
 \begin{itemize}

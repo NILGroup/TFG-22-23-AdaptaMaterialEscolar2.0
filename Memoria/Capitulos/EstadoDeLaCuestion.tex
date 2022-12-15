@@ -91,10 +91,10 @@ Para las altas capacidades intelectuales no se requiere de adaptaciones de acces
 Para llevar a cabo el proyecto y poder ofrecer a nuestros usuarios finales una herramienta de calidad, hemos investigado herramientas existentes que faciliten la adaptación curricular para ayudarnos a diseñar las funcionalidades de AdaptaMaterialEscolar 2.0. A continuación, se explica el funcionamiento básico de algunas de las herramientas existentes que hemos investigado y se explica en detalle AdaptaMaterialEscolar 1.0.
 
 \subsection{SymWriter}
-SymWriter\footnote{\url{https://www.widgit.com/es/support/index.htm}} es un procesador de texto que traduce las palabras a pictogramas a medida que se escriben, lo que facilita el acceso a vocabulario nuevo o complejo. También puede ayudar a profesores a crear textos basados en símbolos para potenciar la comprensión visual, entre otras cosas. Además de la traducción automática de palabras a pictogramas, ofrece una función de apoyo auditivo, para que el alumno pueda escuchar las frases del documento o archivos de sonido proporcionados por el profesor. También ofrece un corrector ortográfico con soporte para símbolos y permite añadir imágenes. A medida que se escribe el texto, aparecen los pictogramas encima de las palabras. Estos pictogramas luego se pueden cambiar por otros o por una imagen propia. En la figura \ref{fig:SymWriter} se muestra la interfaz, se puede ver como aparecen los pictogramas encima de las palabras y se pueden ver las opciones de los pictogramas en el panel de la derecha. Esta herramienta ofrece una versión de prueba de 21 días, pero al acabarse será necesario adquirir la versión completa\footnote{\url{https://qinera.com/es/software-para-la-comunicacion-y-lectoescritura/132-communicate-symwriter.html}} para poder seguir usándola.
+SymWriter\footnote{\url{https://www.widgit.com/es/support/index.htm}} es un procesador de texto que traduce las palabras a pictogramas a medida que se escriben, lo que facilita el acceso a vocabulario nuevo o complejo. También puede ayudar a profesores a crear textos basados en símbolos para potenciar la comprensión visual, entre otras cosas. Además de la traducción automática de palabras a pictogramas, ofrece una función de apoyo auditivo, para que el alumno pueda escuchar las frases del documento o archivos de sonido proporcionados por el profesor. También ofrece un corrector ortográfico con soporte para símbolos y permite añadir imágenes. A medida que se escribe el texto, aparecen los pictogramas encima de las palabras. Estos pictogramas luego se pueden cambiar por otros o por una imagen propia. En la Figura \ref{fig:SymWriter} se muestra la interfaz, y se puede ver como aparecen los pictogramas encima de las palabras y las opciones de los pictogramas en el panel de la derecha. Esta herramienta ofrece una versión de prueba de 21 días, pero al acabarse será necesario adquirir la versión completa\footnote{\url{https://qinera.com/es/software-para-la-comunicacion-y-lectoescritura/132-communicate-symwriter.html}} para poder seguir usándola.
 
 \subsection{EducaPlay}
-EducaPlay\footnote{\url{https://es.educaplay.com/?lang=es}} es una aplicación web que permite crear actividades interactivas o juegos didácticos. Entre las actividades que se pueden realizar en EducaPlay hay sopas de letras, juegos de memoria, mapas interactivos, ejercicios de relacionar columnas, etc. EducaPlay está pensada, principalmente, para que los alumnos realicen las actividades desde un ordenador o dispositivo móvil, pero permite imprimir las actividades en papel. En la figura \ref{fig:EducaPlay_Actividad} se muestra una actividad interactiva de EducaPlay y en la figura \ref{fig:EducaPlay_Impresion} se muestra el formato de impresión de esta actividad.
+EducaPlay\footnote{\url{https://es.educaplay.com/?lang=es}} es una aplicación web que permite crear actividades interactivas o juegos didácticos. Entre las actividades que se pueden realizar en EducaPlay hay sopas de letras, juegos de memoria, mapas interactivos, ejercicios de relacionar columnas, etc. EducaPlay está pensada, principalmente, para que los alumnos realicen las actividades desde un ordenador o dispositivo móvil, pero permite imprimir las actividades en papel. En la Figura \ref{fig:EducaPlay_Actividad} se muestra una actividad interactiva de EducaPlay y en la Figura \ref{fig:EducaPlay_Impresion} se muestra el formato de impresión de esta actividad.
 
 
 \begin{figure}[h!]
@@ -122,8 +122,8 @@ EducaPlay\footnote{\url{https://es.educaplay.com/?lang=es}} es una aplicación w
 \label{cap:adaptaMaterial}
 La finalidad de AdaptaMaterialEscolar es proporcionar una herramienta para el profesorado con el fin de realizar adaptaciones no significativas a los contenidos de las asignaturas de forma intuitiva, rápida y simple. Actualmente permite realizar las siguientes funciones:
 \begin{itemize}
-    \item Subir un documento fuente PDF, a partir del cual se puede realizar las adaptaciones, ejercicios, etc (Figura \ref{SubirPDF}).
-    \item Buscar pictogramas: Dado una palabra devuelve un pictograma (Figura \ref{Pictogramas}).
+    \item Subir un documento fuente PDF, a partir del cual se puede realizar las adaptaciones, ejercicios, etc.
+    \item Buscar pictogramas: Dada una palabra devuelve un pictograma (Figura \ref{Pictogramas}).
     \item Generar ejercicios de completar huecos: Dado un texto se pueden seleccionar las palabras que deben ser sustituidas por espacios en blanco (Figura \ref{Huecos}).
     \item Proporcionar ejercicios de definiciones: Recibe una serie de conceptos a definir y devuelve un ejercicio en base a ellos (Figura \ref{Definiciones}).
     \item Crear ejercicios de desarrollo: Permite crear un enunciado y añadir un cierto número de líneas para la respuesta (Figura \ref{Desarrollo}).
@@ -131,12 +131,6 @@ La finalidad de AdaptaMaterialEscolar es proporcionar una herramienta para el pr
     \item Crear ejercicios de verdadero o falso: Genera una lista con las frases introducidas permitiendo definir cuales son verdaderas o falsas (Figura \ref{VF}).
 \end{itemize}
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/SubirPDF}
-    \caption{Subir PDF}
-    \label{SubirPDF}
-\end{figure}
 \begin{figure}[ht!]
     \centering
     \includegraphics[scale=0.3]{ AdaptaMaterialEscolar/Pictogramas}
@@ -177,12 +171,11 @@ La aplicación se creó siguiendo un Diseño Centrado en el Usuario, para que se
 
 Para desarrollar AdaptaMaterialEscolar 1.0 se utilizó React. Para simplificar la gestión del estado de la aplicación, se utilizó Redux. Para el editor de texto de la aplicación se utilizó CKEditor. Por último, para el buscador de pictogramas, se empleó la API de ARASAAC. Esta API permite hacer una petición con un término de búsqueda y devuelve una serie de pictogramas relacionados.
 
-Finalmente la aplicación fue evaluada por los usuarios finales, con el objetivo de descubrir si la aplicación es, en cuanto a la adaptación curricular no significativa, realmente útil para los profesores y si les ayudaba a resolver sus problemas. Para esto se creó un examen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar 1.0. Luego, se replicó este examen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales. Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. Además, se pasó a los evaluadores el cuestionario SUS (System Usability Scale), que sirve para medir que tan buena es la usabilidad de un sistema. Esta evaluación de la aplicación se realizó con 6 profesores. Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando. Se observó que los pictogramas a veces eran muy pequeños y debían poder aumentarse de tamaño.
-A partir del feedback de los usuarios finales que evaluaron la aplicación, se obtuvo una nueva lista de requisitos a implementar para mejorar la aplicación:
+Finalmente la aplicación fue evaluada por los usuarios finales, con el objetivo de descubrir si la aplicación es, en cuanto a la adaptación curricular no significativa, realmente útil para los profesores y si les ayudaba a resolver sus problemas. Para esto se creó un examen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar 1.0. Luego, se replicó este examen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales. Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. Además, se pasó a los evaluadores el cuestionario SUS (System Usability Scale), que sirve para medir que tan buena es la usabilidad de un sistema. Esta evaluación de la aplicación se realizó con 6 profesores. Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando. A partir del feedback de los usuarios finales que evaluaron la aplicación, se obtuvo una nueva lista de requisitos a implementar para mejorar la aplicación:
 
 \begin{itemize}
-    \item Dado un texto traducirla a pictogramas.
-    \item Introducir cuadrícula para ejercicios de matemática.
+    \item Dado un texto traducirlo a pictogramas.
+    \item Introducir cuadrícula para ejercicios de matemáticas.
     \item Poder añadir doble pauta, en vez de renglones de una línea, para determinar el tamaño de letra del alumno.
     \item Añadir una herramienta para recortar imágenes.
     \item Añadir encabezado con el nombre del centro educativo, asignatura y nombre del alumno.
