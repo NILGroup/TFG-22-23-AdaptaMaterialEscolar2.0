@@ -6,12 +6,12 @@ En este capítulo explicaremos la obtención de requisitos y cómo se han clasif
 \section{Requisitos}
 \label{cap:requisitos}
 
-Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 (\cite*{AdaptaMaterialEscolar1.0}) extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una serie de cambios y nuevas funcionalidades. Uno de los cambios fue agrupar dichas funcionalidades en formato (funcionalidades que tienen relación con el estilo o la estructura del documento), en ejercicios (funcionalidades relacionadas con la creación de actividades) y finalmente en auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Quedando las funcionalidades agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 (\cite*{AdaptaMaterialEscolar1.0}) extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis surgieron una serie de cambios y nuevas funcionalidades. Uno de los cambios fue agrupar dichas funcionalidades en formato (funcionalidades que tienen relación con el estilo o la estructura del documento), en ejercicios (funcionalidades relacionadas con la creación de actividades) y finalmente en auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Quedan así las funcionalidades agrupadas de la siguiente manera:
 \\
 
-Formato: 
+Funcionalidades relacionadas con el formato: 
 \begin{itemize}
-  \item Añadir encabezado al texto: El usuario elijará un encabezado y se le añadirá al docuemnto.
+  \item Añadir encabezado al texto: El usuario eligirá un encabezado que se añadirá al docuemnto.
   \item Añadir un tipo de fuente escolar: Incluir en los tipos de fuentes la escolar. Dicha fuente se refleja en la Figura \ref{escolar}.
   \begin{figure}[ht!]
     \centering
@@ -19,40 +19,40 @@ Formato:
     \caption{Fuente escolar.}
     \label{escolar}
 \end{figure}
-  \item Añadir una leyenda de colores con la categoría de cada tipo: Crear una tabla con valores donde cada valor esta asociado a un color.
+  \item Añadir una leyenda de colores con la categoría de cada tipo: Crear una lista de conceptos asociados a un color.
   \item Añadir leyenda de colores para el tema de cada asignatura: Dar la posibilidad de que cada asignatura tenga un color. Al crear un documento según la asignatura se pondrá el borde del documento del color que corresponde a dicha asignatura.
-  \item Añadir cuadrícula para escribir los números.
-  \item Añadir la alternativa de añadir doble pauta: En vez de renglones de una única línea se podrá poner para responder a una pregunta la doble pauta.
-  \item Estandarizar formato para títulos e índices del temario: dar la opción de crear estilos para estandarizar documento.
+  \item Añadir cuadrícula: En vez de renglones de una única línea se podrá poner para responder a una pregunta la cuadrícula.
+  \item Añadir la opción de añadir doble pauta: En vez de renglones de una única línea se podrá poner para responder a una pregunta la doble pauta.
+  \item Estandarizar formato para títulos e índices del temario: Dar la opción de crear estilos para estandarizar documento.
   \item Enumerar ejercicios de forma automática: Establecer un orden numérico para los ejercicios de forma automática según se van creando para que el usuario no se tenga que preocupar de ese aspecto.
 \end{itemize}
-Ejercicios:
+Funcionalidades asociadas con la creación de ejercicios:
 \begin{itemize}
   \item Ejercicios de relacionar contenido mediante flechas: Generar un ejercicio para relacionar conceptos mediante flechas.
   \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno: Posibilidad de introducir ejercicios de cálculo con espacios en blanco para que el alumno rellene dichos huecos con contenido adecuado.
-  \item Añadir ejercicios con espacio para dibujar: Amplio hueco en blanco con el fin de que el alumno pueda dibujar.
+  \item Añadir ejercicios con espacio para dibujar: Añadir amplio hueco en blanco con el fin de que el alumno pueda dibujar.
   \item Ejercicios de completar los espacios en blanco en tablas y esquemas: Dada una tabla o un esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
 \end{itemize}
-Auxiliar:
+Funcionalidades auxiliares:
 \begin{itemize}
   \item Generar un resumen a partir de un texto.
   \item Exportar el documento a formato Word.
-  \item Añadir un pictotraductor: Dado una frase traducirla a pictogramas.
+  \item Añadir un pictotraductor: Dada una frase traducirla a pictogramas.
   \item Añadir imágenes buscando una palabra: A partir de una palabra se busca su respectiva imagen en las bases de datos de imágenes libres.
   \item Sustituir una palabra por una imagen: Una palabra se reemplazará por una imagen.
-  \item Crear una herramienta de recorte de imágenes para el texto original: Tras seleccionar una imágen tendrás la opción de quitar partes de una imagen. 
+  \item Crear una herramienta de recorte de imágenes: Tras seleccionar una imagen se dará la opción de quitar partes de la misma. 
   \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: Tras la selección de contenido por parte del usuario se creará una tabla en base a la información seleccionada, con un formato predefinido.
   \item Creación de esquemas.
 \end{itemize}
-Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias funciones ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas ya que consideramos que no tenemos la información suficiente para implementarlas. Las siguientes funcionalidades son las que ya están implementadas en la versión original:
+Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias funciones ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas ya que consideramos que no tenemos la información suficiente para ello. Las siguientes funcionalidades son las que ya están implementadas en la versión original:
   \begin{itemize}
-    \item Añadir encabezado al texto: El documento editable tiene una opción con una lista de encabezados para añadir uno, cuando se pulsa a un encabezado el documento editable convierte el formato de la letra en el del encabezado seleccionado. 
+    \item Añadir encabezado al texto: El documento editable tiene una opción con una lista de encabezados para añadir uno y cuando se pulsa un encabezado el documento editable convierte el formato de la letra en el del encabezado seleccionado. 
     \item Enumerar ejercicios de forma automática: El documento editable permite añadir listas enumeradas.
   \end{itemize}
 Las funcionalidades que hemos decidido descartar de momento por falta de información son las siguientes:
 \begin{itemize}
   \item Añadir imágenes buscando una palabra. Partimos de que debemos usar una base de datos de imagen libre pero no tenemos la información suficiente para definir cuál sería la base de datos correcta.
-  \item Sustituir una palabra por una imagen: Una palabra se reemplazará por una imagen.
+  \item Sustituir una palabra por una imagen.
   \item Crear una herramienta de recorte de imágenes para el texto original: No la realizaremos ya que no tenemos claro que tipo de recorte tenía pensado el usuario. 
   \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido: Descartamos dicha funcionalidad ya que no tenemos la información suficiente del formato que desea el usuario.
   \item Crear esquemas: Descartamos dicha funcionalidad ya que no tenemos la información suficiente del formato que desea el usuario.
@@ -63,28 +63,29 @@ Por lo tanto, las funcionalidades que vamos a implementar son las que se muestra
 
 
 \begin{itemize}
-  \item Generar un resumen a partir de un texto se realizará con el fin de ayudar a un alumno a comprender loas elementos claves del texto de manera mas rápida.
-  \item Exportar el documento a formato Word para hacer modificaciones se realizará para que el usuario pueda continuar con las modificiones del documento. 
-  \item Añadir un pictotraductor se realizará con el fin de trasformar un texto a pictotraductor para que el alumno pueda adquirir nuevos conocimientos de forma más sencilla.
-  \item Ejercicios de relacionar contenido mediante flechas se realizará ya que ayuda al alumno a consolidar conceptos.
-  \item Añadir un tipo de fuente escolar se realizará con el fin de facilitar la lectura y la escritura al alumno.
-  \item Añadir una leyenda de colores con la categoría de cada tipo se realizará con el fin de  ayudar al alumno a relacionar conceptos. 
-  \item  Añadir ejercicios de cálculo con huecos a rellenar por el alumno se realizará para que el alumno practique el cálculo.
-  \item  Añadir ejercicios con espacio para dibujar se realizará con el fin de que el alumno pueda reflejar lo que piensa, interpreta y representa sobre algo.
-  \item Añadir leyenda de colores para el tema de cada asignatura se realizará con el fin de que el alumno pueda distinguir entre las asignaturas.
-  \item Añadir cuadrícula para escribir los números se realizará con el fin de facilitar los ejercicios de matemáticas.
-  \item Añadir la alternativa de añadir doble pauta se realizará con el fin de que el alumno adquiera un tamaño de letra adecuado.
+  \item Generar un resumen a partir de un texto con el fin de ayudar a un alumno a comprender loas elementos claves del texto de manera mas rápida.
+  \item Exportar el documento a formato Word para hacer modificaciones para que el usuario pueda continuar con las modificiones del documento. 
+  \item Añadir un pictotraductor con el fin de trasformar un texto a su equivalente en pictogramas para que el alumno pueda adquirir nuevos conocimientos de forma más sencilla.
+  \item Ejercicios de relacionar contenido mediante flechas ya que ayuda al alumno a consolidar conceptos.
+  \item Añadir un tipo de fuente escolar con el fin de facilitar la lectura y la escritura al alumno.
+  \item Añadir una leyenda de colores con la categoría de cada tipo con el fin de  ayudar al alumno a relacionar conceptos. 
+  \item  Añadir ejercicios de cálculo con huecos a rellenar por el alumno para que el alumno practique el cálculo.
+  \item  Añadir ejercicios con espacio para dibujar con el fin de que el alumno pueda reflejar lo que piensa, interpreta y representa sobre algo.
+  \item Añadir leyenda de colores para el tema de cada asignatura con el fin de que el alumno pueda distinguir entre las asignaturas.
+  \item Añadir cuadrícula para escribir los números con el fin de facilitar los ejercicios de matemáticas.
+  \item Añadir la alternativa de añadir doble pauta con el fin de que el alumno adquiera un tamaño de letra adecuado.
   \item Estandarizar formato para títulos e índices del temario con el fin de que el profesor pueda definir un estilo. 
 
 \end{itemize}                                               
 
 \section{Diseño de la aplicación}
-\label{disenyoDeLaAplicacion}
-Para el rediseño de la aplicación web hemos realizado una iteración de diseño competitiva. Cada integrante del grupo ha creado un nuevo diseño de la aplicación. El diseño de Álvaro Gómez Sittima se muestra en las figuras \ref{IteracionCompetitiva1}, \ref{IteracionCompetitiva2}, el de Dunia Namour Doughani se reflejan en la figura \ref{IteracionCompetitiva3}, el diseño de Alberto Alejandro Rivas Fernández se muestra en las figuras \ref{IteracionCompetitiva4}, \ref{IteracionCompetitivaA2}, \ref{IteracionCompetitivaA3} y por el último, el diseño de Johan Sebastian Salvatierra Gutierrez se muestra en las figuras \ref{IteracionCompetitivaJ1}, \ref{IteracionCompetitivaJ2}. Una vez que cada integrante ha explicado su diseño, hemos cogido lo mejor de cada uno. El diseño de la pantalla de inicio se muestra en la figura \ref{diseño_final}, el diseño de la funcionalidad generar un resumen a partir de un texto aparece en la figura \ref{resuemn}, el diseño de la funcionalidad añadir un pictotraductor se muestra en la figura \ref{picto}, el diseño de la funcionalidad añadir una leyenda de colores con la categoría de cada tipo se muestra en la figura \ref{leyenda}, por último, se muestra el diseño de la funcionalidad ejercicios de relacionar contenido mediante flechas en la figura \ref{flecha}. No se ha realizado diseño de todas las funcionalidades ya que algunas de ellas irán incorporadas en el editable y no en una pestaña aparte. A continuación, se expone el diseño de la aplicación de cada integrante. 
+\label{disenyoDeLaAplicacion} 
+Analizando la interfaz de AdaptaMaterialEscolar 1.0 hemos llegado a la conclusión de que la experiencia de usuario no era cómoda, por ejemplo, te obliga a cargar un PDF y las funcionalidades se abren en una ventana bastante pequeña. Además, la selección de colores no nos pareció la adecuada y el estilo general de la aplicación no era actual. Por todo lo anterior decidimos rediseñar la aplicación.
 
+Para el rediseño hemos realizado una iteración de diseño competitiva. La cual trata de la creación, por parte de cada integrante, de un nuevo diseño de la aplicación, la puesta en común de los diseños, es decir, debatir sobre qué sería lo óptimo e intuitivo para el usuario, y por último, construir el diseño final de la aplicación.
 
 \subsection{Diseño de los integrantes}
-En esta sección se explicará los diseños creados por cada integrante juntos a las imágenes de los mismos. 
+En esta sección se explicará los diseños creados por cada integrante junto a las imágenes de los mismos. 
 \subsubsection{Álvaro Gómez Sittima}
 Para empezar, diseñé la página de inicio, la cual dispone de un menú superior con el logo de la aplicación a la izquierda y enlaces a las distintas páginas de la aplicación (Ayuda y Contacto) a la derecha. Este menú superior aparecerá en todas las páginas de la aplicación y se utilizará el logo de la aplicación como enlace a la página de inicio. En esta página el usuario podrá cargar un fichero PDF y utilizar un editor de documentos para poder adaptar el material del PDF. El acceso a las opciones de archivo, formato y adaptaciones se encontrarán como botones integrados en la barra de herramientas del editor de documentos. Además, también se mostrarán opciones relevantes en un barra de herramientas flotante encima del texto que tenga seleccionado en el PDF o en el editor de documentos. El diseño de la página sin un PDF cargado se puede ver en la Figura \ref{fig:disenyoAlvaro01} y con un PDF cargado en la Figura \ref{fig:disenyoAlvaro02}. Si el usuario pulsa el enlace de ayuda en el menú superior, este le llevará a la página de ayuda la cual dispondrá de un buscador, con el que podrá buscar información sobre un tema en concreto relacionado con el uso de la aplicación. Si no se realiza una búsqueda aparecerán todos los temas sobre los que se ofrece ayuda. Cada tema aparecerá en una tarjeta con información sobre el tema y un breve video para apoyar lo explicado en la información. En la Figura \ref{fig:disenyoAlvaro03} se muestra el diseño de esta página.
 
@@ -142,7 +143,7 @@ Por otra parte, las funcionalidades de pictograma, completar huecos, definicione
 
 
 \subsection{Diseño final}
-A continuación, expondremos el diseño final de la aplicación, para ello partimos de los diseños que ha creado cada integrante del equipo. 
+A continuación, expondremos el diseño final de la aplicación, para ello partimos de los diseños expuestos anteriormente. 
 \subsubsection{Pantalla de inicio}
 El diseño de esta funcionalidad se muestra en la Figura \ref{pantallaInicio}. Ninguno de los diseños de los integrantes son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. Las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad seleccionada. 
 
@@ -165,7 +166,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialm
  Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta y tampoco dejaba elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{Desarrollo}.    
 
  \subsubsection{Ejercicio de definiciones}
- Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{defiAE1} , dicho diseño tenía los mismos problemas que el de ejercicios de desarrollo. El diseño de esta funcionalidad se muestra en la Figura \ref{defi}.
+ Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{defiAE1}, dicho diseño tenía los mismos problemas que el de ejercicios de desarrollo. El diseño de esta funcionalidad se muestra en la Figura \ref{defi}.
 
  \subsubsection{Ejercicios espacio para dibujar}
  El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. Para este diseño nos hemos basado en los ejercicios de desarrollo y definiciones, dejando solo dos tipos de pauta. Además, en este diseño el tamaño del espacio en vez de definirse como número de filas se define la altura en centímetros.  
@@ -174,9 +175,12 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialm
  El diseño de esta funcionalidad se muestra en la Figura \ref{LeyendaColores}. Para diseñar esta funcionalidad nos hemos basado en la funcionalidad de definir conceptos. En este caso cuando se añade un nuevo concepto también de le asigna un color. La leyenda de color se situará en el lado derecho del editable, en el caso de que se cree una leyenda por ejercicio, esta se situará debajo del ejercicio en el centro.
 
  \subsubsection{Ejercicio de matematicas huecos}
- El diseño de esta funcionalidad se muestra en la Figura \ref{ matesHueco}. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el editabe con un cuadrado vacío en cada hueco.
+ El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco}. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el editable con un cuadrado vacío en cada hueco.
 
+ \subsubsection{Configuración general}
+ Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página hay una configuración general por cada tipo de funcionalidad. El diseño de la configuración se muestra en la Figura \ref{configu}.
 
+ 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Pantalla_inicio.png}
@@ -269,7 +273,12 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialm
   \label{matesHueco}
 \end{figure}
 
-
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Configuracion.PNG}
+  \caption{Diseño final de la configuración general.}
+  \label{configu}
+\end{figure}
 
 
 
