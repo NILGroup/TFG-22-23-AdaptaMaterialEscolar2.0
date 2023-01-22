@@ -1,20 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from 'react-redux';
-import {store} from './redux/store'
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import "./index.css";
+
+// Routes
+import Root from './routes/Root';
+import ErrorPage from './routes/ErrorPage';
+import Home from './routes/Home';
+import Configuration from './routes/Configuration';
+import Help from './routes/Help';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "",
+        element: <Home />
+      },
+      {
+        path: "configuracion",
+        element: <Configuration />
+      },
+      {
+        path: "ayuda",
+        element: <Help />
+      }
+    ]
+  }
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
