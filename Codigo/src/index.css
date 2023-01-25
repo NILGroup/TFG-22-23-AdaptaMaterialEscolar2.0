@@ -4,9 +4,10 @@
     --color-background-white: white;
     --color-background-grey: #FBFBFB;
     --color-background-grey-dk: #D2D2D2;
-    --color-background-blue: #0C8CE9;
     --color-text-black: black;
     --color-text-white: white;
+    --color-button-blue: #0C8CE9;
+    --color-button-blue-dk: #0b7ecf;
 }
 
 *,

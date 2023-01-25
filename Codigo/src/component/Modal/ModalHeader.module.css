@@ -1,0 +1,33 @@
+.modalHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+
+    border-radius: 6px 6px 0px 0px;
+}
+
+.modalTitle {
+    font-size: 2.2rem;
+    margin: auto;
+}
+
+.modalClose {
+    display: flex;
+
+    background-color: transparent;
+    border: none;
+
+    font-size: 2.2rem;
+    color: var(--color-text-white);
+
+    cursor: pointer;
+}
+
+.modalClose:hover {
+    color: var(--color-button-blue);
+}

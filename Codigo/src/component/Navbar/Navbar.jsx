@@ -13,8 +13,14 @@ export default function Navbar() {
                 <Link to="/"><img src="/img/Logo.png" alt="Logo de AME2" /></Link>
             </div>
             <div className={style.navbarLinks}>
-                <Link to="ayuda" className={style.navbarLink}><BiHelpCircle /></Link>
-                <Link to="configuracion" className={style.navbarLink}><AiTwotoneSetting /></Link>
+                <Link to="ayuda" className={style.navbarLink}>
+                    <BiHelpCircle className={style.navbarLinkIcon} />
+                    <p className={style.navbarLinkText}>Ayuda</p>
+                </Link>
+                <Link to="configuracion" className={style.navbarLink}>
+                    <AiTwotoneSetting className={style.navbarLinkIcon} />
+                    <p className={style.navbarLinkText}>Configuración</p>
+                </Link>
             </div>
         </div>
     );
