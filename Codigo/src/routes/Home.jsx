@@ -1,11 +1,9 @@
-import Editor from "../component/Editor/Editor";
-import "react-quill/dist/quill.snow.css";
+import SlateEditor from "../component/SlateEditor/SlateEditor";
 
 export default function Home() {
-
   return (
-    <>
-      <Editor />
-    </>
+      <> 
+        <SlateEditor />
+      </>
   );
 }
