@@ -8,6 +8,11 @@
     --color-text-white: white;
     --color-button-blue: #0C8CE9;
     --color-button-blue-dk: #0b7ecf;
+    --color-editor-bg: #E6E6E6;
+    --color-editor-border: #C6C6C6;
+    --color-editor-bg-toolbar: white;
+    --color-editor-bg-editable: white;
+    --color-editor-border-editable: #C6C6C6;
 }
 
 *,

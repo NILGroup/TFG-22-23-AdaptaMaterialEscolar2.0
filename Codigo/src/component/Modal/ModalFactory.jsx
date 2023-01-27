@@ -6,12 +6,12 @@ export const ModalType = Object.freeze({
     wordSearch: Symbol("wordSearch")
 });
 
-export function ModalFactory({ isOpen, onClose, type }) {
+export function ModalFactory({ editor, isOpen, onClose, type }) {
     switch (type) {
         case ModalType.searchPicto:
-            return <SearchPictoModal isOpen={isOpen} onClose={onClose} />;
+            return <SearchPictoModal editor={editor} isOpen={isOpen} onClose={onClose} />;
         case ModalType.wordSearch:
-            return <WordSearchModal isOpen={isOpen} onClose={onClose} />;
+            return <WordSearchModal editor={editor} isOpen={isOpen} onClose={onClose} />;
         default:
             return null;
     }

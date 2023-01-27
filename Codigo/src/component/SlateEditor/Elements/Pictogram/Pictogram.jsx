@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Image.css'
+import style from './Pictogram.css'
 
 export default function Image ({ attributes, children, element }){
     return (

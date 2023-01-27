@@ -1,11 +1,21 @@
 import { useState } from "react";
+
 import modalStyle from "./Modal.module.css";
-
 import ModalHeader from "./ModalHeader";
+import ModalPictogramList from "./ModalPictogramList";
 
-export default function SearchPictoModal({ isOpen, onClose }) {
+import Spinner from "../Spinner/Spinner";
+
+export default function SearchPictoModal({ editor, isOpen, onClose }) {
+    // Estados del modal
+    const [pictogramList, setPictogramList] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+
+    // Funciones auxiliares
     // Funcion para obtener los pictogramas segun lo que busque el usuario
     const getPictograms = (searchParam, callback) => {
+        setIsLoading(true);
+
         fetch(`https://api.arasaac.org/api/pictograms/es/search/${searchParam}`)
             .then((response) => response.json())
             .then(data => {
@@ -14,19 +24,18 @@ export default function SearchPictoModal({ isOpen, onClose }) {
                     items.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`)
                 }
 
+                setIsLoading(false);
                 callback(items);
             })
+            .catch(error => console.log(error));
     };
-
-    const [pictogramList, setPictogramList] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
 
     if (!isOpen)
         return null;
 
     return (
         <div className={modalStyle.modalOverlay}>
-            <div onClick={(e) => e.stopPropagation()} className={modalStyle.modalContainer} >
+            <div className={modalStyle.modalContainer} >
                 <ModalHeader title="Buscar Pictogramas" onClose={onClose} />
                 <form className={modalStyle.modalBody} onSubmit={(e) => {
                     e.preventDefault();
@@ -34,18 +43,14 @@ export default function SearchPictoModal({ isOpen, onClose }) {
                     const searchParam = e.target.searchPictogram.value;
                     getPictograms(searchParam, setPictogramList);
                 }} >
-                    <div className={modalStyle.modalGroup}>
-                        <label htmlFor="searchPictogram">Buscador</label>
-                        <input type="text" name="searchPictogram" id="searchPictogram" />
+                    <div className={modalStyle.modalFormGroup}>
+                        <label htmlFor="searchPictogram" className={modalStyle.modalLabel}>Buscador</label>
+                        <input type="text" name="searchPictogram" id="searchPictogram" className={modalStyle.modalInput} required />
                     </div>
-                    <input type="submit" value="Buscar" className={`${modalStyle.modalButton} ${modalStyle.modalCenter}`} />
+                    <input type="submit" value="Buscar" className={`${modalStyle.modalButton}  ${modalStyle.modalCenter}`} />
                 </form>
                 {pictogramList && <hr className={modalStyle.modalHorizontalRule} />}
-                <div className={modalStyle.modalImageList}>
-                    {pictogramList && pictogramList.map((pictogram, index) =>
-                        <img key={`pictogram-${index}`} src={pictogram} alt={`Pictogram ${index}`} className={modalStyle.modalImage} />
-                    )}
-                </div>
+                {isLoading ? <Spinner /> : <ModalPictogramList editor={editor} pictograms={pictogramList} />}
             </div>
         </div>
     );

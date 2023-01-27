@@ -1,0 +1,9 @@
+.function_buttons {
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+}
+
+.function_buttons:hover {
+    opacity: 0.8;
+}

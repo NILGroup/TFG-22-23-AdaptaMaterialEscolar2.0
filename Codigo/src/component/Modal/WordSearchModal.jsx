@@ -8,7 +8,7 @@ export default function WordSearchModal({ isOpen, onClose }) {
 
     return (
         <div className={modalStyle.modalOverlay}>
-            <div onClick={(e) => e.stopPropagation()} className={modalStyle.modalContainer} >
+            <div className={modalStyle.modalContainer} >
                 <ModalHeader title="Sopa de Letras" onClose={onClose} />
                 <div className={modalStyle.modalBody}>
                     <h4>Cuerpo Sopa de Letras</h4>
