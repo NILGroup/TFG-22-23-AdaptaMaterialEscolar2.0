@@ -1,0 +1,46 @@
+
+.modalBody{
+    padding: 1.5em;
+}
+
+.enunciado{
+
+}
+
+.enunciado textarea{
+    width: 100%;
+    background-color: #F9F4F4;
+    border: none;
+    border-radius: 6px;
+    padding: 1em;
+}
+
+.numFilas{
+
+}
+
+.numFilas input{
+    width: 4em;
+}
+
+
+.modalHorizontalRule {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.vistaPrevia{
+    border: 1px solid #bababa;
+    border-radius: 7px;
+}
+
+.vistaPreviaHeader{
+    background-color: #E8E8E8;
+    padding: 1em;
+}
+
+.vistaPreviaBody{
+    background-color: #FBFBFB;
+    min-height: 3em;
+    padding: 1em;
+}
