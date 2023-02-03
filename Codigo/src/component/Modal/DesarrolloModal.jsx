@@ -4,14 +4,39 @@ import modalStyle from "./Modal.module.css";
 import desarrolloModalStyle from "./DesarrolloModal.module.css";
 import ModalHeader from "./ModalHeader";
 
+import { Transforms } from 'slate';
+
+
 
 export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
     const [textareaValue, setTextareaValue] = useState('');
+    const [numFilas, setNumFilas] = useState(1);
 
     const handleChange = (event) => {
         setTextareaValue(event.target.value);
     };
+
+    const handleNumFilasChange = (event) => {
+        setNumFilas(event.target.value);
+    }
+
+    const renderLines = (numFilas) => {
+
+        let lines = [];
+
+        for(let i = 0; i < numFilas; i++){
+            lines.push(<div className={desarrolloModalStyle.line} key={i}></div>)
+        }
+
+        return lines;
+    }
+
+    const insertInEditor = (editor) => {
+        const text = { text: '' };
+        const enunciado = { type: 'desarrollo', enunciado: textareaValue, children: [text] };
+        Transforms.insertNodes(editor, enunciado);
+    }
     
     if (!isOpen)
         return null;
@@ -30,7 +55,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
                     <div className={desarrolloModalStyle.numFilas}>
                         <label htmlFor="num_filas">Número de filas: </label>
-                        <input type="number" />
+                        <input type="number" onChange={handleNumFilasChange}/>
                     </div>
 
                     <div className={desarrolloModalStyle.tipoPauta}>
@@ -47,13 +72,19 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
                         </div>
                         <div className={desarrolloModalStyle.vistaPreviaBody}>
                             {textareaValue}
+
+                            {renderLines(numFilas)}
                         </div>
                     </div>
 
+                    <div className={desarrolloModalStyle.okButtonContainer}>
+                        <button onClick={event => {
+                            event.preventDefault()
+                            insertInEditor(editor)
+                        }}>OK</button>
+                    </div>
+
                 </div>
-
-
-
                 
             </div>
         </div>

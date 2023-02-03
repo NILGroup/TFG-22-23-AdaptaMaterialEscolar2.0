@@ -16,11 +16,15 @@
 }
 
 .numFilas{
-
+    margin-top: 1em;
 }
 
 .numFilas input{
     width: 4em;
+}
+
+.tipoPauta{
+    margin-top: 1em;
 }
 
 
@@ -43,4 +47,24 @@
     background-color: #FBFBFB;
     min-height: 3em;
     padding: 1em;
+}
+
+.line{
+    border-bottom: 1px solid black;
+    height: 25px;
+}
+
+.okButtonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+.okButtonContainer button{
+    background-color: #0C8CE9;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
 }
