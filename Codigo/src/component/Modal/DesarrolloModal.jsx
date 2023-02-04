@@ -33,9 +33,29 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
     }
 
     const insertInEditor = (editor) => {
-        const text = { text: '' };
-        const enunciado = { type: 'desarrollo', enunciado: textareaValue, children: [text] };
-        Transforms.insertNodes(editor, enunciado);
+        const ejercicio = { type: 'desarrollo', children: [] };
+
+        const enunciado = { type: 'enunciado', children: [{ text: textareaValue }]};
+
+        ejercicio.children.push(enunciado);
+
+        for(let i = 0; i < numFilas; i++){
+            ejercicio.children.push({ type: 'linea', children: [{ text: '' }] })
+        }
+
+        console.log(ejercicio.children)
+
+        Transforms.insertNodes(editor, ejercicio);
+    }
+
+    const submit = (e)=>{
+        e.preventDefault()
+        insertInEditor(editor);
+        
+        setTextareaValue("");
+        setNumFilas(1);
+        e.target.enunciado.value="";
+        e.target.num_filas.value=1;
     }
     
     if (!isOpen)
@@ -48,43 +68,44 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
                 <div className={desarrolloModalStyle.modalBody}>
 
-                    <div className={desarrolloModalStyle.enunciado}>
-                        <h3>Enunciado</h3>
-                        <textarea name="enunciado" id="" rows="5" onChange={handleChange}></textarea>
-                    </div>
+                    <form onSubmit={submit}>
 
-                    <div className={desarrolloModalStyle.numFilas}>
-                        <label htmlFor="num_filas">Número de filas: </label>
-                        <input type="number" onChange={handleNumFilasChange}/>
-                    </div>
-
-                    <div className={desarrolloModalStyle.tipoPauta}>
-                        <h3>Tipo de pauta</h3>
-
-                    </div>
-
-
-                    {<hr className={desarrolloModalStyle.modalHorizontalRule} />}
-
-                    <div className={desarrolloModalStyle.vistaPrevia}>
-                        <div className={desarrolloModalStyle.vistaPreviaHeader}>
-                            <h3>Vista previa</h3>
+                        <div className={desarrolloModalStyle.enunciado}>
+                            <h3>Enunciado</h3>
+                            <textarea name="enunciado" id="" rows="5" onChange={handleChange}></textarea>
                         </div>
-                        <div className={desarrolloModalStyle.vistaPreviaBody}>
-                            {textareaValue}
 
-                            {renderLines(numFilas)}
+                        <div className={desarrolloModalStyle.numFilas}>
+                            <label htmlFor="num_filas">Número de filas: </label>
+                            <input type="number" name="num_filas" onChange={handleNumFilasChange}/>
                         </div>
-                    </div>
 
-                    <div className={desarrolloModalStyle.okButtonContainer}>
-                        <button onClick={event => {
-                            event.preventDefault()
-                            insertInEditor(editor)
-                        }}>OK</button>
-                    </div>
+                        <div className={desarrolloModalStyle.tipoPauta}>
+                            <h3>Tipo de pauta</h3>
+
+                        </div>
+
+
+                        {<hr className={desarrolloModalStyle.modalHorizontalRule} />}
+
+                        <div className={desarrolloModalStyle.vistaPrevia}>
+                            <div className={desarrolloModalStyle.vistaPreviaHeader}>
+                                <h3>Vista previa</h3>
+                            </div>
+                            <div className={desarrolloModalStyle.vistaPreviaBody}>
+                                {textareaValue}
+
+                                {renderLines(numFilas)}
+                            </div>
+                        </div>
+
+                        <div className={desarrolloModalStyle.okButtonContainer}>
+                            <button type="submit">OK</button>
+                        </div>
+                    </form>
 
                 </div>
+
                 
             </div>
         </div>
