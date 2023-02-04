@@ -85,7 +85,6 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
                         </div>
 
-
                         {<hr className={desarrolloModalStyle.modalHorizontalRule} />}
 
                         <div className={desarrolloModalStyle.vistaPrevia}>
