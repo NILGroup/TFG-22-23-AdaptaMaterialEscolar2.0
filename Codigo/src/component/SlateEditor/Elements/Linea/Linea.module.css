@@ -1,5 +1,12 @@
 
-.line{
+.lineaNormal{
     border-bottom: 1px solid black;
     height: 25px;
+}
+
+.lineaDoblePauta{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    height: 15px;
+    margin: 30px 0;
 }
