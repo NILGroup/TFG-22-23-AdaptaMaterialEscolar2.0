@@ -7,7 +7,6 @@ import { createEditor } from 'slate'
 // Importamos los componentes de slate y los plugigs de react
 import { Slate, Editable, withReact } from 'slate-react'
 import Pictogram from './Elements/Pictogram/Pictogram';
-import Desarrollo from './Elements/Desarrollo/Desarrollo';
 import Linea from './Elements/Linea/Linea';
 import Toolbar from './Toolbar/Toolbar';
 
@@ -30,8 +29,6 @@ export default function SlateEditor() {
     switch (props.element.type) {
       case 'image':
         return <Pictogram {...props} />
-      case 'desarrollo':
-        return <Desarrollo {...props} />
       case 'linea':
         return <Linea {...props} />
       default:
