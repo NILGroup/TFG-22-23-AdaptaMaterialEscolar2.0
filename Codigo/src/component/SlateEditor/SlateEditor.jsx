@@ -8,6 +8,7 @@ import { createEditor } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import Pictogram from './Elements/Pictogram/Pictogram';
 import Definition from './Elements/Definition/Definition';
+import Linea from './Elements/Linea/Linea';
 import Toolbar from './Toolbar/Toolbar';
 
 import style from "./SlateEditor.module.css";
@@ -26,6 +27,9 @@ export default function SlateEditor() {
 
   // Define a rendering function based on the element passed to `props`. We use
   // `useCallback` here to memoize the function for subsequent renders.
+
+  //TODO staff indica todos lo tipos de pauta.
+  
   const renderElement = useCallback(props => {
     switch (props.element.type) {
       case 'image':
@@ -34,6 +38,8 @@ export default function SlateEditor() {
         return <Definition {...props} />
       case 'staff':
         return <Staff {...props} />
+      case 'linea':
+        return <Linea {...props} />
       default:
         return <DefaultElement {...props} />
     }
