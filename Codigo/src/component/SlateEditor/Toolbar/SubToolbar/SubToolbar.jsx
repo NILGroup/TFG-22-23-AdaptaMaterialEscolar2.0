@@ -34,6 +34,13 @@ export default function Subtoolbar({ editor }) {
                     }}>
                     BP
                 </button>
+                <button className={style.function_buttons}
+                    onMouseDown={event => {
+                        event.preventDefault()
+                        openModal(ModalType.definition)
+                    }}>
+                    DEF
+                </button>
             </div>
             <ModalFactory editor={editor} isOpen={isOpen} onClose={() => setIsOpen(false)} type={modalType} />
         </>
