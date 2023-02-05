@@ -1,4 +1,4 @@
-import SlateEditor from "../component/SlateEditor/SlateEditor";
+import SlateEditor from "../components/SlateEditor/SlateEditor";
 
 export default function Home() {
   return (
