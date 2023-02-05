@@ -1,0 +1,126 @@
+.frase {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+}
+
+.add {
+    color: #0C8CE9;
+    font-size: 1.3rem;
+}
+
+.btn {
+    border: 0px;
+    background-color: transparent;
+
+}
+
+.liF {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.lisF {
+    margin-bottom: 1.5rem;
+    height: 150px;
+    overflow: auto;
+    padding-left: 10px;
+}
+
+.ed {
+    padding: 1px;
+    color: #FFFFFF;
+    background-color: #0C8CE9;
+    border-radius: 4px;
+}
+
+input {
+    width: 50%;
+}
+
+label {
+    font-size: 22px;
+}
+
+.imagenes {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.vistaP {
+    margin-top: 2rem;
+    border: 0.1px solid #BABABA;
+    border-radius: 0.5rem;
+}
+
+.vistaPCab {
+    padding: 1.8rem 0.5rem;
+    height: 2rem;
+    background-color: #E8E8E8;
+    border: 0.2px solid #BABABA;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnReor {
+    background-color: #0C8CE9;
+    border-radius: 4px;
+    border-color: transparent;
+    color: #FFFFFF;
+}
+
+.ulD::-webkit-scrollbar,
+.lisF::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.ulD::-webkit-scrollbar-track,
+.lisF::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.ulD::-webkit-scrollbar-thumb,
+.lisF::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+}
+
+.ulD {
+    overflow: auto;
+    height: 7.9rem;
+    max-height: 7.9rem;
+}
+
+.liD {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.rect {
+    margin-right: 0.4rem;
+}
+
+.enunciado {
+    margin: 0.5rem;
+}
+
+.uldina {
+    padding-left: 1.4rem;
+}
+
+.botonDiv {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}

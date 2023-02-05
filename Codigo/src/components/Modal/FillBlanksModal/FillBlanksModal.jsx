@@ -35,7 +35,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
     };
 
     return (
-        <Modal title={"Completar Huecos"} isOpen={isOpen} onClose={closeModal}>
+        <Modal title="Completar Huecos" isOpen={isOpen} onClose={closeModal}>
             <form
                 className={style.modalForm}
                 onSubmit={(e) => {

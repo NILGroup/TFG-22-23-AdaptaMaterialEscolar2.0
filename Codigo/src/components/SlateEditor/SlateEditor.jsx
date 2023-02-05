@@ -7,11 +7,14 @@ import { createEditor } from 'slate'
 // Importamos los componentes de slate y los plugigs de react
 import { Slate, Editable, withReact } from 'slate-react'
 import Pictogram from './elements/Pictogram/Pictogram';
+import Definition from './elements/Definition/Definition';
+import Linea from './elements/Linea/Linea';
 import Toolbar from './Toolbar/Toolbar';
 
 import { ModalFactory } from "../Modal/ModalFactory";
 
 import style from "./SlateEditor.module.css";
+import Staff from './elements/Staff/Staff';
 
 const initialValue = [];
 
@@ -21,10 +24,19 @@ export default function SlateEditor() {
 
   // Define a rendering function based on the element passed to `props`. We use
   // `useCallback` here to memoize the function for subsequent renders.
+
+  //TODO staff indica todos lo tipos de pauta.
+
   const renderElement = useCallback(props => {
     switch (props.element.type) {
       case 'pictogram':
         return <Pictogram {...props} />
+      case 'definition':
+        return <Definition {...props} />
+      case 'staff':
+        return <Staff {...props} />
+      case 'linea':
+        return <Linea {...props} />
       default:
         return <DefaultElement {...props} />
     }

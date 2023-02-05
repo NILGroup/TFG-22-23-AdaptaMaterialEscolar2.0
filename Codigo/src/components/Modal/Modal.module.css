@@ -82,14 +82,17 @@
     border-radius: 0px 0px 6px 6px;
 
     font-size: 1.2rem;
+
+    overflow-y: auto;
+    max-height: 70vh;
+
+    padding: 1rem 1.5rem;
 }
 
 .modalForm {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-
-    padding: 1rem 1.5rem;
 }
 
 .modalFormGroup {
@@ -101,15 +104,18 @@
 }
 
 .modalInlineFormGroup {
-    display: grid;
-    grid-template-columns: 13rem auto;
-    grid-template-rows: 1fr;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
 
     gap: 1rem;
 }
 
 .modalInput {
     align-self: stretch;
+
+    width: 100%;
 
     padding: 0.2rem 0.8rem;
 
@@ -374,10 +380,13 @@ input[type="radio"] {
 
     padding: 0.2rem 0.6rem;
 
+    overflow: auto;
+
     height: 15.5rem;
     max-height: 15.5rem;
-
-    overflow-y: auto;
+    
+    width: 27rem;
+    max-width: 27rem;
 }
 
 .wordSearchGrid {
@@ -387,8 +396,6 @@ input[type="radio"] {
 
     margin: 1rem 0.4rem;
 
-    border: 2px solid var(--color-text-black);
-
     font-size: 1rem;
 }
 
@@ -396,18 +403,12 @@ input[type="radio"] {
     display: flex;
 }
 
-.wordSearchGridRow + .wordSearchGridRow {
-    border-top: 2px solid var(--color-text-black);
-}
-
 .wordSearchGridCol {
     display: flex;
     justify-content: center;
 
-
+    min-width: 1.5rem;
     width: 100%;
-}
 
-.wordSearchGridCol + .wordSearchGridCol {
-    border-left: 2px solid var(--color-text-black);
+    border: 1px solid var(--color-text-black);
 }

@@ -4,22 +4,46 @@ import { ToolbarGroup, ToolbarGroupFactory } from "./ToolbarGroups/ToolbarGroupF
 import ToolbarButton from "./ToolbarButton";
 
 import style from "./Toolbar.module.css"
+import toolbarButtonStyle from "./ToolbarButton.module.css";
+
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 
 export default function Toolbar({ editor, openModal }) {
+    const [anchorElement, setAnchorElement] = useState(null);
     const [activeToolbarGroup, setActiveToolbarGroup] = useState(ToolbarGroup.format);
+
+    const handleClose = () => {
+        setAnchorElement(null);
+    };
+
+    const handleExportPDF = () => {
+        setAnchorElement(null);
+        alert("Exportar a PDF");
+    };
+
+    const handleExportWord = () => {
+        setAnchorElement(null);
+        alert("Exportar a WORD");
+    };
+
+    const handleImportDocument = () => {
+        setAnchorElement(null);
+        alert("Importar documento");
+    };
 
     return (
         <>
             <div className={style.toolbar}>
                 <div className={style.mainToolbar}>
                     {/* Archivo */}
-                    <ToolbarButton
-                        text={"Archivo"}
-                        onClick={setActiveToolbarGroup}
-                        toolbarGroup={ToolbarGroup.file}
-                        activeGroup={activeToolbarGroup}
-                    />
+                    <button className={toolbarButtonStyle.toolbarButton} onClick={(e) => setAnchorElement(e.currentTarget)}>Archivo</button>
+                    <Menu open={anchorElement !== null} anchorEl={anchorElement} onClose={handleClose}>
+                        <MenuItem onClick={handleExportPDF}>Exportar a PDF</MenuItem>
+                        <MenuItem onClick={handleExportWord}>Exportar a WORD</MenuItem>
+                        <MenuItem onClick={handleImportDocument}>Importar documento</MenuItem>
+                    </Menu>
                     {/* Formato */}
                     <ToolbarButton
                         text={"Formato"}

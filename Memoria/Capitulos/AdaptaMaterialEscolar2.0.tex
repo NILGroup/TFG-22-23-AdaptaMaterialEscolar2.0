@@ -145,48 +145,40 @@ Por otra parte, las funcionalidades de pictograma, completar huecos, definicione
 \subsection{Diseño final}
 A continuación, expondremos el diseño final de la aplicación, para ello partimos de los diseños expuestos anteriormente. Todas las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad seleccionada y diponen de un boton \textit{OK} para confirmar la vista previa y trasferir el ejercicio al editable.  
 \subsubsection{Pantalla de inicio}
-El diseño de esta funcionalidad se muestra en la Figura \ref{pantallaInicio}. Ninguno de los diseños de los integrantes son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las agrupaciones de las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. El diseño de las agrupaciones se muestran en las Figuras \ref{archivo},\ref{Forato}.
+Ninguno de los diseños de los integrantes son factibles porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor, solo para copiar contenido, no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del enlace a las agrupaciones de las funcionalidades, inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor por ello lo descartamos y pensamos en disponer el enlace a las funcionalidades encima del editor. El diseño de las agrupaciones se muestran en las Figuras \ref{archivo},\ref{Forato},\ref{ejercicios}, \ref{texto}.
 
 \subsubsection{Generar resumen}
-El diseño de esta funcionalidad se muestra en la Figura \ref{resuemn}. El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. 
+El diseño de esta funcionalidad se muestra en la Figura \ref{resuemn}. El usuario dispone de un panel en el que aparece el texto a resumir y el número de palabras que tendrá el resumen, al pulsar el botón de resumir aparecerá en la parte inferior de la ventana modal una vista previa del resumen generado. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable1} en el ejercicio 4.
 
 \subsubsection{Ejercicio de huecos}
-El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable, pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de añadir huecos y pulsando sobre la palabra se pondrá un hueco y viceversa. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 5 caracteres, mediano, 12 caracteres y grande, que es el por defecto, 23 caracteres.  
+El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el editable, pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto, una vez terminado le dará al botón de añadir huecos y pulsando sobre la palabra se pondrá un hueco y viceversa. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, 5 caracteres, mediano, 12 caracteres y grande, que es el por defecto, 23 caracteres. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable3} en el ejercicio 3. 
 
 \subsubsection{Sopa de letras}
-El diseño de esta funcionalidad se muestra en la Figura \ref{sopaLetras}. Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra y otro, que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión de que el diseño era poco intuitivo para el usuario. Para ayudar al usuario a que sea más intuitivo decidimos incluir dos campos para que el usuario introduzca las filas y las columnas de la sopa de letras, también añadimos otro campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varias opciones para que el usuario elija cómo disponer las palabras en la sopa de letras (horizontal, vertical, diagonal y al revés).
+El diseño de esta funcionalidad se muestra en la Figura \ref{sopaLetras}. Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra y otro, que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión de que el diseño era poco intuitivo para el usuario. Para ayudar al usuario a que sea más intuitivo decidimos incluir dos campos para que el usuario introduzca las filas y las columnas de la sopa de letras, también añadimos otro campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varias opciones para que el usuario elija cómo disponer las palabras en la sopa de letras (horizontal, vertical, diagonal y al revés). El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable2} en el ejercicio 5.
 
 \subsubsection{Pictotraductor}
-El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor}. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas, el problema de este diseño fue que no se tuvo en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra, añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar un nuevo estilo del pictograma, en el caso de que haya varias opciones. 
+El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor}. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas, el problema de este diseño fue que no se tuvo en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra, añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar un nuevo estilo del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable1} en el ejercicio 3.
 
 \subsubsection{Ejercicio de flechas}
-El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialmente dábamos la opción de solo hacer dos columnas para relacionar con flechas, pero nos dimos cuenta de que el usuario debería poder elegir tantas columnas cómo desee, tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera tantas columnas vacías como haya indicado el usuario. Una vez que el usuario rellena dichas columnas tiene la opción de reordenar, la cual reordenaría cada columna. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automáticamente cada vez que el usuario realice un cambio en alguna de las columnas. 
+El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialmente dábamos la opción de solo hacer dos columnas para relacionar con flechas, pero nos dimos cuenta de que el usuario debería poder elegir tantas columnas cómo desee, tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera tantas columnas vacías como haya indicado el usuario. Una vez que el usuario rellena dichas columnas tiene la opción de reordenar, la cual reordenaría cada columna. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automáticamente cada vez que el usuario realice un cambio en alguna de las columnas. El resultado de esta funcionalidad  en el editable se muestra en la Figura \ref{editable1} en el ejercicio 1.
 
 \subsubsection{Ejercicio de desarrollo}
- Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{Desarrollo}.    
+ Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{Desarrollo}. El resultado de esta funcionalidad  en el editable se muestra en la Figura \ref{editable1} en el ejercicio 2.    
 
  \subsubsection{Ejercicio de definiciones}
- Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{defiAE1}, dicho diseño tenía los mismos problemas que el de ejercicios de desarrollo. El diseño de esta funcionalidad se muestra en la Figura \ref{defi}.
+ Partimos del diseño de AdaptaMaterialEscolar 1.0, la cual se muestra en la Figura \ref{defiAE1}, dicho diseño tenía los mismos problemas que el de ejercicios de desarrollo. El diseño de esta funcionalidad se muestra en la Figura \ref{defi}. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable2} en el ejercicio 3.
 
  \subsubsection{Ejercicios espacio para dibujar}
- El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En esta funcionalidad el usuario inicialmente tendrá que escribir el enunciado e indiciar el epacio que desea dejar para dibujar. Además, incorpora una opción de recuadrar la cual hace un recuadro del tamaño indicado.  
+ El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En esta funcionalidad el usuario inicialmente tendrá que escribir el enunciado e indiciar el epacio que desea dejar para dibujar. Además, incorpora una opción de recuadrar la cual hace un recuadro del tamaño indicado. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable3} en el ejercicio 5. 
 
  \subsubsection{Leyenda de colores}
- El diseño de esta funcionalidad se muestra en la Figura \ref{LeyendaColores}. Para diseñar esta funcionalidad nos hemos basado en la funcionalidad de definir conceptos. En este caso cuando se añade un nuevo concepto también se ha de escoger un color para cada palabra. Además, se ha de incluir un título para la leyenda. La leyenda de color se situará en el editable donde se encuentre el cursor y el usuario podrá ajustar su posicionamiento.
+ El diseño de esta funcionalidad se muestra en la Figura \ref{LeyendaColores}. Para diseñar esta funcionalidad nos hemos basado en la funcionalidad de definir conceptos. En este caso cuando se añade un nuevo concepto también se ha de escoger un color para cada palabra. Además, se ha de incluir un título para la leyenda. La leyenda de color se situará en el editable donde se encuentre el cursor y el usuario podrá ajustar su posicionamiento. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable2} en el ejercicio 2.
 
  \subsubsection{Ejercicio de matematicas huecos}
- El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco}. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el editable con un cuadrado vacío en cada hueco.
+ El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco}. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el editable con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el editable se muestra en la Figura \ref{editable3} en el ejercicio 2.
 
  \subsubsection{Configuración general}
  Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página hay una configuración general por cada tipo de funcionalidad. El diseño de la configuración se muestra en la Figura \ref{configu}.
-
- 
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=15cm]{Diseño/Pantalla_inicio.png}
-  \caption{Diseño final pantalla de inicio.}
-  \label{pantallaInicio}
-\end{figure}
 
 \begin{figure}[ht!]
   \centering
@@ -195,12 +187,54 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}. Inicialm
   \label{Forato}
 \end{figure}
 
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Ejercicios.PNG}
+  \caption{Diseño de ejercicios pantalla de inicio.}
+  \label{ejercicios}
+\end{figure}
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Texto.PNG}
+  \caption{Diseño de texto pantalla de inicio.}
+  \label{texto}
+\end{figure}
+
+
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Archivo.PNG}
   \caption{Diseño de Archivo pantalla de inicio.}
   \label{archivo}
 \end{figure}
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Editable1.PNG}
+  \caption{Resultado de las funcionalidades en el editable.}
+  \label{editable1}
+\end{figure}
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/editable2.PNG}
+  \caption{Resultado de las funcionalidades en el editable.}
+  \label{editable2}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Diseño/Editable3.PNG}
+  \caption{Resultado de las funcionalidades en el editable.}
+  \label{editable3}
+\end{figure}
+
+
 
 \begin{figure}[ht!]
   \centering

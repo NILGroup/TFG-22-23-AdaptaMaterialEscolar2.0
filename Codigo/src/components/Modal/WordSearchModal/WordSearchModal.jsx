@@ -76,11 +76,11 @@ export default function WordSearchModal({ isOpen, onClose }) {
                     <h4 className={style.modalHeading}>Tamaño</h4>
                     <div className={style.modalInlineFormGroup}>
                         <label htmlFor="numRows">Número de filas</label>
-                        <input type="number" id="numRows" name="numRows" min="1" className={style.modalInput} value={numRows} onChange={(e) => setNumRows(e.target.value)} />
+                        <input type="number" id="numRows" name="numRows" min="1" value={numRows} onChange={(e) => setNumRows(e.target.value)} />
                     </div>
                     <div className={style.modalInlineFormGroup}>
                         <label htmlFor="numCols">Número de columnas</label>
-                        <input type="number" id="numCols" name="numCols" min="1" className={style.modalInput} value={numCols} onChange={(e) => setNumCols(e.target.value)} />
+                        <input type="number" id="numCols" name="numCols" min="1" value={numCols} onChange={(e) => setNumCols(e.target.value)} />
                     </div>
                 </div>
                 <div className={style.modalWordSearchGrid}>
@@ -112,6 +112,13 @@ export default function WordSearchModal({ isOpen, onClose }) {
                             <p>Encuentra {wordList?.length === 1 ? "la palabra" : `las ${wordList?.length ?? 0} palabras`}: </p>
                             <WordSearchGrid wordSearchGrid={wordSearchGrid} />
                         </ModalPreview>
+                        <div>
+                            {/* TODO: Botones de direccion
+                            <button>Hola</button>
+                            <button>Hola</button>
+                            <button>Hola</button>
+                            <button>Hola</button> */}
+                        </div>
                     </div>
                 </div>
                 <button className={`${style.modalButton} ${style.modalCenter}`}>Ok</button>
