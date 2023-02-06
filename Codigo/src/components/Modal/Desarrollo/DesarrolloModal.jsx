@@ -3,17 +3,57 @@ import { useState } from "react";
 import desarrolloModalStyle from "./DesarrolloModal.module.css";
 import lineStyle from "../../SlateEditor/elements/Linea/Linea.module.css";
 
+
+import { IoAddCircle } from "react-icons/io5";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { FiTrash2 } from "react-icons/fi";
+import { BiPencil, BiRectangle } from "react-icons/bi";
+import { AiOutlineBorderlessTable } from "react-icons/ai";
+import { HiOutlineMinus } from "react-icons/hi";
+import IconButton from '@mui/material/IconButton';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { TfiLineDouble } from "react-icons/tfi"
+import style from "./DefinitionModal.module.css";
+import guideLine from "./GuideLine.module.css";
+
 import Modal from "../Modal";
 
 import { Transforms } from 'slate';
 
+const typeStaff = {
+    grid: 0,
+    doubleLine: 1,
+    line: 2
+}
+
+
 export default function DesarrolloModal({ editor, isOpen, onClose }) {
+
+    const [option, setOption] = useState("doubleLine_2_5");
+    //Boton de pauta:
+    const [open, setOpen] = useState(Array(3).fill(false));
+
+    const handleChange = (event) => {
+        setOption(event.target.value);
+    };
+
+    const handleClose = (i) => {
+        setOpen(open.map((e, j) => false));
+    };
+
+    const handleOpen = (i) => {
+        setOpen(open.map((e, j) => i === j));
+    };
+
+
 
     const [textareaValue, setTextareaValue] = useState('');
     const [numFilas, setNumFilas] = useState(1);
     const [tipoPauta, setTipoPauta] = useState('lineaNormal');
 
-    const handleChange = (event) => {
+    const handleEnunciadoChange = (event) => {
         setTextareaValue(event.target.value);
     };
 
@@ -25,7 +65,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
         setTipoPauta(event.target.value);
     }
 
-    const renderLines = (numFilas, tipoPauta) => {
+    /*const renderLines = (numFilas, tipoPauta) => {
 
         let lines = [];
 
@@ -46,20 +86,40 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
         }
 
         return lines;
+    }*/
+
+    const renderLines = () => {
+
+        let lines = [];
+        let space = (num) => /^doubleLine/.test(option) ? <div className={guideLine.space} key={`space_${num}`}></div> : <></>
+
+        for (let i = 0; i < numFilas; i++) {
+            lines.push(
+                <>
+                    <div className={guideLine[option]} key={`pauta_${i}`}></div>
+                    {space(i)}
+                </>
+            )
+
+        }
+
+        return lines;
     }
 
     const insertInEditor = (editor) => {
+        
+        onClose()
+
         const ejercicio = { type: 'desarrollo', children: [] };
-
         const enunciado = { type: 'enunciado', children: [{ text: textareaValue }] };
-
         ejercicio.children.push(enunciado);
 
         for (let i = 0; i < numFilas; i++) {
-            ejercicio.children.push({ type: 'linea', tipoPauta: tipoPauta, children: [{ text: '' }] })
+            //ejercicio.children.push({ type: 'linea', tipoPauta: tipoPauta, children: [{ text: '' }] })
+            ejercicio.children.push({ type: 'staff', style: option, children: [{ text: '' }] })
+            ejercicio.children.push({ type: 'staff', style: "space", children: [{ text: '' }] })
         }
 
-        console.log(ejercicio.children)
 
         Transforms.insertNodes(editor, ejercicio);
     }
@@ -82,7 +142,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
                     <div className={desarrolloModalStyle.enunciado}>
                         <h3>Enunciado</h3>
-                        <textarea name="enunciado" id="" rows="5" onChange={handleChange}></textarea>
+                        <textarea name="enunciado" id="" rows="5" onChange={handleEnunciadoChange}></textarea>
                     </div>
 
                     <div className={desarrolloModalStyle.numFilas}>
@@ -97,6 +157,97 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
                             <option value="lineaNormal">Normal</option>
                             <option value="lineaDoblePauta">Doble pauta</option>
                         </select>
+
+                        <div className={style.buttons}>
+
+                            <div className={style.staff}>
+                                <IconButton className={style.staffButton} onClick={() => handleOpen(typeStaff.grid)}>
+                                    <AiOutlineBorderlessTable style={{ width: '1rem', height: '1rem' }} />
+                                    <IoMdArrowDropdown style={{ width: '0.8rem', height: '0.8rem' }} />
+                                </IconButton>
+                                <FormControl>
+                                    <Select
+                                        className={style.select}
+                                        id="demo-controlled-open-select"
+                                        open={open[typeStaff.grid]}
+                                        onClose={() => handleClose(typeStaff.grid)}
+                                        onOpen={() => handleOpen(typeStaff.grid)}
+                                        value={option}
+                                        onChange={handleChange}
+                                        disableUnderline
+                                        variant="standard"
+                                        inputProps={{ IconComponent: () => null }}
+                                    >
+                                        <MenuItem value="grid_5">5 mm</MenuItem>
+                                        <MenuItem value="grid_6">6 mm</MenuItem>
+                                        <MenuItem value="grid_8">8 mm</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+
+
+                            <div className={style.staff}>
+                                <IconButton className={style.staffButton} onClick={() => handleOpen(typeStaff.doubleLine)}>
+                                    <TfiLineDouble style={{ width: '1rem', height: '1rem' }} />
+                                    <IoMdArrowDropdown style={{ width: '0.8rem', height: '0.8rem' }} />
+                                </IconButton>
+                                <FormControl>
+                                    <Select
+                                        className={style.select}
+                                        id="demo-controlled-open-select"
+                                        open={open[typeStaff.doubleLine]}
+                                        onClose={() => handleClose(typeStaff.doubleLine)}
+                                        onOpen={() => handleOpen(typeStaff.doubleLine)}
+                                        value={option}
+                                        onChange={handleChange}
+                                        disableUnderline
+                                        variant="standard"
+                                        inputProps={{ IconComponent: () => null }}
+                                    >
+                                        <MenuItem value="doubleLine_2_5">2,5 mm</MenuItem>
+                                        <MenuItem value="doubleLine_3">3 mm</MenuItem>
+                                        <MenuItem value="doubleLine_3_5">3,5 mm</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+
+                            <div className={style.staff}>
+                                <IconButton className={style.staffButton} onClick={() => handleOpen(typeStaff.line)}>
+                                    <HiOutlineMinus style={{ width: '1rem', height: '1rem' }} />
+                                    <IoMdArrowDropdown style={{ width: '0.8rem', height: '0.8rem' }} />
+                                </IconButton>
+                                <FormControl>
+                                    <Select
+                                        className={style.select}
+                                        id="demo-controlled-open-select"
+                                        open={open[typeStaff.line]}
+                                        onClose={() => handleClose(typeStaff.line)}
+                                        onOpen={() => handleOpen(typeStaff.line)}
+                                        value={option}
+                                        onChange={handleChange}
+                                        disableUnderline
+                                        variant="standard"
+                                        inputProps={{ IconComponent: () => null }}
+                                    >
+                                        <MenuItem value="line_2_5">2,5 mm</MenuItem>
+                                        <MenuItem value="line_3">3 mm</MenuItem>
+                                        <MenuItem value="line_3_5">3,5 mm</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
+
+                            <div className={style.staff}>
+                                <IconButton className={style.staffButton_small} onClick={() => setOption("square")}>
+                                    <BiRectangle style={{ width: '1rem', height: '1rem' }} />
+                                </IconButton>
+                            </div>
+
+                            <div className={style.staff} onClick={() => setOption("square_space")}>
+                                <IconButton className={style.staffButton_small}>
+                                    <BiRectangle style={{ width: '1rem', height: '1rem', color: 'transparent' }} />
+                                </IconButton>
+                            </div>
+                        </div>
 
                     </div>
 
