@@ -23,4 +23,6 @@
     background-color: var(--color-editor-bg-editable);
 
     border: 1px solid var(--color-editor-border-editable);
+
+    overflow: hidden;
 }
