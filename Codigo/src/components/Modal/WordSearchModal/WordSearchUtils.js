@@ -14,7 +14,7 @@ export const generateOptionsObject = (numRows, numCols, directions) => {
 
     let backwardsProbability = 0.0;
     if (directions.backwards)
-        backwardsProbability = 0.3;
+        backwardsProbability = 0.5;
 
     return {
         cols: parseInt(numCols),
@@ -31,7 +31,7 @@ export const createWordSearch = (wordList, options) => {
     try {
         const wordSearch = new WordSearch({ ...options, dictionary: wordList, maxWords: wordList.length });
 
-        return wordSearch;
+        return wordSearch.data.grid;
     }
     catch (error) {
         return null;

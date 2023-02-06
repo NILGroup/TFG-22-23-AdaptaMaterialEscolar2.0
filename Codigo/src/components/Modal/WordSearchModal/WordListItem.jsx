@@ -41,7 +41,7 @@ export default function WordListItem({ word, index, onEdit, onDelete }) {
 
                     const action = e.nativeEvent.submitter.name;
 
-                    if (action === "edit")
+                    if (action === "edit" && newValue)
                         editWord(newValue);
                     else
                         cancelEdit(false);

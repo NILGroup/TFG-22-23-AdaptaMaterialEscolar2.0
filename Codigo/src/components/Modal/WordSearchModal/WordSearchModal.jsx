@@ -10,11 +10,13 @@ import WordSearchGrid from "./WordSearchGrid";
 
 import { generateOptionsObject, createWordSearch } from "./WordSearchUtils";
 
-export default function WordSearchModal({ isOpen, onClose }) {
+import { Transforms } from 'slate';
+
+export default function WordSearchModal({ editor, isOpen, onClose }) {
     const DEFAULT_NUM_ROWS = 1;
     const DEFAULT_NUM_COLS = 1;
     const DEFAULT_WORD_LIST = [];
-    const DEFAULT_DIRECTIONS = { horizontal: true, vertical: true, diagonal: true, backwards: false };
+    const DEFAULT_DIRECTIONS = { horizontal: true, vertical: false, diagonal: false, backwards: false };
     const DEFAULT_WORD_SEARCH_GRID = null;
 
     const [numRows, setNumRows] = useState(DEFAULT_NUM_ROWS);
@@ -52,6 +54,29 @@ export default function WordSearchModal({ isOpen, onClose }) {
         setWordList((previousWordList) => previousWordList.map((word, wordIndex) => (wordIndex === index ? String(newValue) : word)));
     }
 
+    const setDirection = (direction, value) => {
+        let newDirections = { ...directions };
+
+        switch (direction) {
+            case "horizontal":
+                newDirections.horizontal = value;
+                break;
+            case "vertical":
+                newDirections.vertical = value;
+                break;
+            case "diagonal":
+                newDirections.diagonal = value;
+                break;
+            case "backwards":
+                newDirections.backwards = value;
+                break;
+            default:
+                throw Error("Undefined direction!");
+        }
+
+        setDirections(newDirections);
+    }
+
     const closeModal = () => {
         setNumRows(DEFAULT_NUM_ROWS);
         setNumCols(DEFAULT_NUM_COLS);
@@ -62,11 +87,20 @@ export default function WordSearchModal({ isOpen, onClose }) {
         onClose();
     }
 
+    const handleOk = (editor, wordSearchGrid) => {
+        const text = { text: `Encuentra ${wordList?.length === 1 ? "la palabra" : `las ${wordList?.length ?? 0} palabras`}: ` };
+        const wordSearch = { type: 'wordSearch', wordSearchGrid, children: [text] };
+
+        Transforms.insertNodes(editor, wordSearch);
+
+        closeModal();
+    };
+
     useEffect(() => {
         const options = generateOptionsObject(numRows, numCols, directions);
         const wordSearch = createWordSearch(wordList, options);
 
-        setWordSearchGrid(wordSearch.data.grid);
+        setWordSearchGrid(wordSearch);
     }, [numRows, numCols, wordList, directions]);
 
     return (
@@ -83,8 +117,8 @@ export default function WordSearchModal({ isOpen, onClose }) {
                         <input type="number" id="numCols" name="numCols" min="1" value={numCols} onChange={(e) => setNumCols(e.target.value)} />
                     </div>
                 </div>
-                <div className={style.modalWordSearchGrid}>
-                    <div className={style.modalGridCol}>
+                <div className={style.modalFlexRow}>
+                    <div className={style.modalFlexCol}>
                         <h4 className={style.modalHeading}>Palabras</h4>
                         <form className={style.modalFormGroup} onSubmit={(e) => {
                             e.preventDefault();
@@ -107,21 +141,40 @@ export default function WordSearchModal({ isOpen, onClose }) {
                             })}
                         </ul>
                     </div>
-                    <div className={style.modalGridCol}>
+                    <div className={style.modalFlexCol}>
                         <ModalPreview>
                             <p>Encuentra {wordList?.length === 1 ? "la palabra" : `las ${wordList?.length ?? 0} palabras`}: </p>
                             <WordSearchGrid wordSearchGrid={wordSearchGrid} />
                         </ModalPreview>
-                        <div>
-                            {/* TODO: Botones de direccion
-                            <button>Hola</button>
-                            <button>Hola</button>
-                            <button>Hola</button>
-                            <button>Hola</button> */}
+                        <div className={style.modalCheckboxGroup}>
+                            <div className={style.modalCheckbox}>
+                                <input type="checkbox" name="horizontal" id="horizontal" onChange={(e) => {
+                                    setDirection("horizontal", e.target.checked);
+                                }} defaultChecked={true} />
+                                <label htmlFor="horizontal">Horizontal</label>
+                            </div>
+                            <div className={style.modalCheckbox}>
+                                <input type="checkbox" name="vertical" id="vertical" onChange={(e) => {
+                                    setDirection("vertical", e.target.checked);
+                                }} />
+                                <label htmlFor="vertical">Vertical</label>
+                            </div>
+                            <div className={style.modalCheckbox}>
+                                <input type="checkbox" name="diagonal" id="diagonal" onChange={(e) => {
+                                    setDirection("diagonal", e.target.checked);
+                                }} />
+                                <label htmlFor="diagonal">Diagonal</label>
+                            </div>
+                            <div className={style.modalCheckbox}>
+                                <input type="checkbox" name="backwards" id="backwards" onChange={(e) => {
+                                    setDirection("backwards", e.target.checked);
+                                }} />
+                                <label htmlFor="backwards">Al revés</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button className={`${style.modalButton} ${style.modalCenter}`}>Ok</button>
+                <button className={`${style.modalButton} ${style.modalCenter}`} onClick={() => handleOk(editor, wordSearchGrid)}>Ok</button>
             </div>
         </Modal>
     );

@@ -1,4 +1,4 @@
-import style from "../Modal.module.css";
+import style from "./WordSearchGrid.module.css";
 
 export default function WordSearchGrid({ wordSearchGrid }) {
     if (wordSearchGrid === null)

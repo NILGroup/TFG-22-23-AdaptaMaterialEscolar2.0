@@ -9,6 +9,7 @@ import { Slate, Editable, withReact } from 'slate-react'
 import Pictogram from './elements/Pictogram/Pictogram';
 import Definition from './elements/Definition/Definition';
 import Linea from './elements/Linea/Linea';
+import WordSearch from './elements/WordSearch/WordSearch';
 import Toolbar from './Toolbar/Toolbar';
 
 import { ModalFactory } from "../Modal/ModalFactory";
@@ -37,6 +38,8 @@ export default function SlateEditor() {
         return <Staff {...props} />
       case 'linea':
         return <Linea {...props} />
+      case 'wordSearch':
+        return <WordSearch {...props} />
       default:
         return <DefaultElement {...props} />
     }

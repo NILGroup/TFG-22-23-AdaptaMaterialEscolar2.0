@@ -13,8 +13,8 @@
 
 .modalContainer {
     position: fixed;
-    max-width: 850px;
-    width: 50vw;
+    max-width: 1000px;
+    width: 60vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -113,10 +113,7 @@
 }
 
 .modalInput {
-    align-self: stretch;
-
-    width: 100%;
-
+    flex-grow: 1;
     padding: 0.2rem 0.8rem;
 
     background-color: var(--color-background-grey);
@@ -347,18 +344,6 @@ input[type="radio"] {
     align-items: center;
 }
 
-.modalWordSearchGrid {
-    display: grid;
-    grid-template-columns: 1fr 1.25fr;
-    gap: 2rem;
-}
-
-.modalGridCol {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
 .modalPreview {
     border: 2px solid var(--color-background-grey-dk);
     border-radius: 6px;
@@ -384,31 +369,33 @@ input[type="radio"] {
 
     height: 15.5rem;
     max-height: 15.5rem;
-    
+
     width: 27rem;
     max-width: 27rem;
 }
 
-.wordSearchGrid {
+.modalFlexRow {
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    justify-content: space-between;
 
-    margin: 1rem 0.4rem;
-
-    font-size: 1rem;
+    gap: 1rem;
 }
 
-.wordSearchGridRow {
+.modalCheckboxGroup {
     display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
 }
 
-.wordSearchGridCol {
+.modalCheckbox {
     display: flex;
-    justify-content: center;
+    align-items: center;
 
-    min-width: 1.5rem;
-    width: 100%;
+    gap: 0.6rem;
+}
 
-    border: 1px solid var(--color-text-black);
+.modalCheckbox > label {
+    font-size: 1.25rem;
+
+    white-space: nowrap;
 }

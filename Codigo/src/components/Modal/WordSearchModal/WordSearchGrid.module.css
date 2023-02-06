@@ -1,0 +1,31 @@
+.wordSearchGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    margin: 1rem 0.4rem;
+
+    font-size: 1rem;
+}
+
+.wordSearchGridRow {
+    display: flex;
+}
+
+.wordSearchGridRow + .wordSearchGridRow > .wordSearchGridCol {
+    border-top: none;
+}
+
+.wordSearchGridCol {
+    display: flex;
+    justify-content: center;
+
+    min-width: 1.5rem;
+    width: 100%;
+
+    border: 1px solid var(--color-text-black);
+}
+
+.wordSearchGridCol + .wordSearchGridCol {
+    border-left: none;
+}
