@@ -44,6 +44,12 @@
 \def\tituloPortadaVal{#1}
 }
 
+% Título de la portada en ingles
+\def\tituloPortadaEngVal{\titulo}
+\newcommand{\tituloPortadaEng}[1]{
+	\def\tituloPortadaEngVal{#1}
+}
+
 % Autor
 \def\autorPortadaVal{\autor}
 \newcommand{\autorPortada}[1]{
@@ -52,10 +58,19 @@
 
 % Tutor
 \def\directorPortadaVal{Tutor no definido. Usa
-  \texttt{$\backslash$tutorPortada}}
+  \texttt{$\backslash$directorPortada}}
 \newcommand{\directorPortada}[1]{
 \def\directorPortadaVal{#1}
 }
+
+
+% Colaborador
+% \def\colaboradorPortadaVal{Colaborador no definido. Usa
+% 	\texttt{$\backslash$colaboradorPortada}}
+% \newcommand{\colaboradorPortada}[1]{
+% 	\def\colaboradorPortadaVal{#1}
+% }
+
 
 % Fecha de publicacion
 \def\fechaPublicacionVal{}
@@ -73,7 +88,7 @@
 \def\escalaImagenPortadaVal{#1}
 }
 % Tipo de documento (TESIS, MANUAL, ...)
-\def\tipoDocumentoVal{TRABAJO DE FIN DE GRADO}
+\def\tipoDocumentoVal{TESIS DOCTORAL}
 \newcommand{\tipoDocumento}[1]{
 \def\tipoDocumentoVal{#1}
 }
@@ -93,6 +108,14 @@
 \def\textoPrimerSubtituloPortadaVal{#1}
 }
 
+% Segundo subtítulo de la segunda portada
+\def\textoSegundoSubtituloPortadaVal{%
+\textit{Dirigida por el Doctor}  \\ [0.3em]
+\textbf{\directorPortadaVal}
+}
+\newcommand{\textoSegundoSubtituloPortada}[1]{
+\def\textoSegundoSubtituloPortadaVal{#1}
+}
 
 % ISBN
 \newcommand{\isbn}[1]{
@@ -269,7 +292,7 @@
 \setlength{\oddsidemargin}{0cm}
 
 % Comienza el tex...
-\begin{huge}
+\begin{Large}
 \mbox{ }
 \vfill
 
@@ -280,11 +303,12 @@
 \begin{center}
 \rule{\longTitulo}{.5mm}\\
 \vskip 1cm
-\textbf{\tituloPortadaVal}
+\textbf{\tituloPortadaVal}\\
+\textbf{\tituloPortadaEngVal}
 \vskip 0.7cm
 \rule{\longTitulo}{.5mm}\\
 \end{center}
-\end{huge}
+\end{Large}
 
 \vfill
 
@@ -294,9 +318,13 @@
 
 \vfill
 
+\newcounter{lastyear}
+\setcounter{lastyear}{\the\year}
+\addtocounter{lastyear}{-1}
+
 \begin{center}
   {\Large \textbf{\tipoDocumentoVal}}\\
-  {\Large \textbf{Curso 2022--2023}}
+  {\Large \textbf{Curso \thelastyear--\the\year}}
   
 \end{center}
 
@@ -304,10 +332,12 @@
 
 \begin{large}
 \begin{center}
-{\Large \bfseries Autores}\\
+{\Large \bfseries Autor}\\
 \textbf{\autorPortadaVal}\\[0.5cm]
-{\Large \bfseries Directoras}\\
+{\Large \bfseries Director}\\
 \textbf{\directorPortadaVal}\\[0.5cm]
+% {\Large \bfseries Colaborador}\\
+% \textbf{\colaboradorPortadaVal}\\[0.5cm]
 \textbf{\institucionVal}\\[1em]
 %\textbf{\fechaPublicacionVal}
 \end{center}
@@ -358,7 +388,8 @@
 
 \begin{Huge}
 \begin{center}
-\tituloPortadaVal
+\tituloPortadaVal \\
+\tituloPortadaEngVal
 \end{center}
 \end{Huge}
 
@@ -368,11 +399,14 @@
 \begin{center}
 \textoPrimerSubtituloPortadaVal
 \mbox{ } \\ \mbox{ } \\ 
-{\Large \bfseries Autores}\\
+{\Large \bfseries Autor}\\
 \textbf{\autorPortadaVal}\\[1.0cm]
-{\Large \bfseries Directoras}\\
+{\Large \bfseries Director}\\
 \textbf{\directorPortadaVal}\\[0.3cm]
+% {\Large \bfseries Colaborador}\\
+% \textbf{\colaboradorPortadaVal}\\[0.3cm]
 \mbox{ } \\ \mbox{ } \\ 
+\textoSegundoSubtituloPortadaVal \\ [0.3em]
 \end{center}
 \end{large}
 
