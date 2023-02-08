@@ -1,13 +1,9 @@
 import { useState } from "react";
 
 import desarrolloModalStyle from "./DesarrolloModal.module.css";
-import lineStyle from "../../SlateEditor/elements/Linea/Linea.module.css";
 
-
-import { IoAddCircle } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { FiTrash2 } from "react-icons/fi";
-import { BiPencil, BiRectangle } from "react-icons/bi";
+import { BiRectangle } from "react-icons/bi";
 import { AiOutlineBorderlessTable } from "react-icons/ai";
 import { HiOutlineMinus } from "react-icons/hi";
 import IconButton from '@mui/material/IconButton';

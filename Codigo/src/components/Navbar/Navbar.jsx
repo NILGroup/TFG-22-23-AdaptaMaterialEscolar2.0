@@ -10,7 +10,7 @@ export default function Navbar() {
     return (
         <div className={style.navbar}>
             <div className={style.navbarLogo}>
-                <Link to="/"><img src="/img/Logo.png" alt="Logo de AME2" /></Link>
+                <Link to=""><img src={`${process.env.PUBLIC_URL}/img/Logo.png`} alt="Logo de AME2" /></Link>
             </div>
             <div className={style.navbarLinks}>
                 <Link to="ayuda" className={style.navbarLink}>

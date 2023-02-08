@@ -18,20 +18,25 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "",
-        element: <Home />
-      },
-      {
-        path: "configuracion",
-        element: <Configuration />
-      },
-      {
-        path: "ayuda",
-        element: <Help />
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "",
+            element: <Home />
+          },
+          {
+            path: "configuracion",
+            element: <Configuration />
+          },
+          {
+            path: "ayuda",
+            element: <Help />
+          }
+        ]
       }
     ]
   }
-]);
+], { basename: "/TFG-22-23-AdaptaMaterialEscolar2.0/" });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
