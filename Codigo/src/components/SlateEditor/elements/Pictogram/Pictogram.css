@@ -1,9 +1,9 @@
-.pictogram{
-    display: block;
-    max-width: 100px;
-    max-height: 15px;
+.pictogram {
+	display: block;
+	max-width: 100px;
+	max-height: 15px;
 }
 
-.relative{
-    position: relative
+.relative {
+	position: relative;
 }

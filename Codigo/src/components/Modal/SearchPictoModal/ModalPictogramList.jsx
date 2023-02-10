@@ -1,37 +1,47 @@
+import React from "react";
+
 import style from "../Modal.module.css";
 
-import { Transforms } from 'slate';
+import { Transforms } from "slate";
 
 export default function ModalPictogramList({ editor, pictograms, callback }) {
-    const insertPictogram = (editor, url) => {
-        const text = { text: '' };
-        const pictogram = { type: 'pictogram', url, children: [text] };
-        
-        //TODO: Seleccionar editor
-        Transforms.insertNodes(editor, pictogram);
-    };
+	const insertPictogram = (editor, url) => {
+		const text = { text: "" };
+		const pictogram = { type: "pictogram", url, children: [text] };
 
-    if (pictograms === null)
-        return null;
+		//TODO: Seleccionar editor
+		Transforms.insertNodes(editor, pictogram);
+	};
 
-    if (pictograms.length <= 0)
-        return <h4 className={style.modalWarning}>No se han encontrado imágenes.</h4>;
+	if (pictograms === null) return null;
 
-    return (
-        <div className={style.modalPictogramList}>
-            {pictograms.map((pictogram, index) =>
-                <button key={`pictogram-${index}`} onClick={event => {
-                    event.preventDefault();
-                    insertPictogram(editor, pictogram);
+	if (pictograms.length <= 0)
+		return (
+			<h4 className={style.modalWarning}>
+				No se han encontrado imágenes.
+			</h4>
+		);
 
-                    if(callback)
-                        callback();
-                }} className={style.modalPictogram}>
-                    <img src={pictogram} alt={`Pictogram ${index}`} className={style.modalImage} />
-                </button>
-            )}
-        </div>
-    );
+	return (
+		<div className={style.modalPictogramList}>
+			{pictograms.map((pictogram, index) => (
+				<button
+					key={`pictogram-${index}`}
+					onClick={(event) => {
+						event.preventDefault();
+						insertPictogram(editor, pictogram);
+
+						if (callback) callback();
+					}}
+					className={style.modalPictogram}
+				>
+					<img
+						src={pictogram}
+						alt={`Pictogram ${index}`}
+						className={style.modalImage}
+					/>
+				</button>
+			))}
+		</div>
+	);
 }
-
-

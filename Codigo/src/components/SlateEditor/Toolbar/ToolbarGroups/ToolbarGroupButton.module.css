@@ -1,18 +1,18 @@
 .toolbarButton {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
+	display: flex;
+	align-items: center;
+	gap: 0.2rem;
 
-    background-color: transparent;
-    border: none;
+	background-color: transparent;
+	border: none;
 
-    cursor: pointer;
+	cursor: pointer;
 
-    position: relative;
+	position: relative;
 
-    padding: 0.2rem 0.5rem;
+	padding: 0.2rem 0.5rem;
 }
 
 .toolbarButton:hover {
-    background-color: var(--color-background-grey-md);
+	background-color: var(--color-background-grey-md);
 }

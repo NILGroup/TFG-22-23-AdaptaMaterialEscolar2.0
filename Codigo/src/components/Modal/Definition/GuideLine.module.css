@@ -1,67 +1,63 @@
-.line_2_5{
-    border-bottom: 1px solid black;
-    height: 2.5mm;
+.line_2_5 {
+	border-bottom: 1px solid black;
+	height: 2.5mm;
 }
-.line_3{
-    border-bottom: 1px solid black;
-    height: 3mm;
+.line_3 {
+	border-bottom: 1px solid black;
+	height: 3mm;
 }
-.line_3_5{
-    border-bottom: 1px solid black;
-    height: 3.5mm;
-}
-
-.doubleLine_2_5{
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    height: 2.5mm;
-    margin: 0 2mm;
-}
-.doubleLine_3{
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    height: 3mm;
-
-}
-.doubleLine_3_5{
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    height: 3.5mm;
+.line_3_5 {
+	border-bottom: 1px solid black;
+	height: 3.5mm;
 }
 
-.square{
-    border: 1px solid black;
-    height: 100mm;
-    margin: 0 2mm;
+.doubleLine_2_5 {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	height: 2.5mm;
+	margin: 0 2mm;
 }
-.square_space{
-    height: 100mm;
-    margin: 0 2mm;
+.doubleLine_3 {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	height: 3mm;
 }
-.grid_8{
-    background-size: 8mm 8mm;
-    height: 16.1mm;
+.doubleLine_3_5 {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	height: 3.5mm;
+}
 
-    background-image:
-        linear-gradient(to right, black 0.5px, transparent 0.5px),
-        linear-gradient(to bottom, black 0.5px, transparent 0.5px);
+.square {
+	border: 1px solid black;
+	height: 100mm;
+	margin: 0 2mm;
 }
-.grid_6{
-    background-size: 6mm 6mm;
-    height: 12.1mm;
+.square_space {
+	height: 100mm;
+	margin: 0 2mm;
+}
+.grid_8 {
+	background-size: 8mm 8mm;
+	height: 16.1mm;
 
-    background-image:
-        linear-gradient(to right, black 0.5px, transparent 0.5px),
-        linear-gradient(to bottom, black 0.5px, transparent 0.5px);
+	background-image: linear-gradient(to right, black 0.5px, transparent 0.5px),
+		linear-gradient(to bottom, black 0.5px, transparent 0.5px);
 }
-.grid_5{
-    background-size: 5mm 5mm;
-    height: 10.1mm;
+.grid_6 {
+	background-size: 6mm 6mm;
+	height: 12.1mm;
 
-    background-image:
-        linear-gradient(to right, black 0.5px, transparent 0.5px),
-        linear-gradient(to bottom, black 0.5px, transparent 0.5px);
+	background-image: linear-gradient(to right, black 0.5px, transparent 0.5px),
+		linear-gradient(to bottom, black 0.5px, transparent 0.5px);
 }
-.space{
-    height: 10mm;
+.grid_5 {
+	background-size: 5mm 5mm;
+	height: 10.1mm;
+
+	background-image: linear-gradient(to right, black 0.5px, transparent 0.5px),
+		linear-gradient(to bottom, black 0.5px, transparent 0.5px);
+}
+.space {
+	height: 10mm;
 }

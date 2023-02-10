@@ -1,55 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap");
 
 :root {
-    --color-primary: #E38787;
-    --color-secondary: #2D4555;
-    --color-background-white: white;
-    --color-background-grey: #FBFBFB;
-    --color-background-grey-md: #EFEFEF;
-    --color-background-grey-dk: #D2D2D2;
-    --color-text-black: black;
-    --color-text-white: white;
-    --color-button-blue: #0C8CE9;
-    --color-button-blue-dk: #0b7ecf;
-    --color-tooltip: #0c8de9ab;
-    --color-editor-bg: #E6E6E6;
-    --color-editor-border: #C6C6C6;
-    --color-editor-bg-toolbar: white;
-    --color-editor-bg-editable: white;
-    --color-editor-border-editable: #C6C6C6;
-    --font-main: 'Open Sans', sans-serif;
-    --font-modal-title: 'Roboto Slab', serif;
+	--color-primary: #e38787;
+	--color-secondary: #2d4555;
+	--color-background-white: white;
+	--color-background-grey: #fbfbfb;
+	--color-background-grey-md: #efefef;
+	--color-background-grey-dk: #d2d2d2;
+	--color-text-black: black;
+	--color-text-white: white;
+	--color-button-blue: #0c8ce9;
+	--color-button-blue-dk: #0b7ecf;
+	--color-tooltip: #0c8de9ab;
+	--color-editor-bg: #e6e6e6;
+	--color-editor-border: #c6c6c6;
+	--color-editor-bg-toolbar: white;
+	--color-editor-bg-editable: white;
+	--color-editor-border-editable: #c6c6c6;
+	--font-main: "Open Sans", sans-serif;
+	--font-modal-title: "Roboto Slab", serif;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 
-    background-color: var(--color-background-white);
-    color: var(--color-text-black);
+	background-color: var(--color-background-white);
+	color: var(--color-text-black);
 }
 
 a {
-    color: inherit;
+	color: inherit;
 }
 
 input,
 button,
 textarea,
 select {
-    font: inherit;
-    outline: none;
+	font: inherit;
+	outline: none;
 }
 
 img,
@@ -57,11 +57,11 @@ picture,
 video,
 canvas,
 svg {
-    display: block;
-    max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 #root,
 #__next {
-    isolation: isolate;
+	isolation: isolate;
 }

@@ -1,42 +1,40 @@
 const WordSearch = require("@blex41/word-search");
 
 export const generateOptionsObject = (numRows, numCols, directions) => {
-    let disabledDirections = [];
+	let disabledDirections = [];
 
-    if (!directions.horizontal)
-        disabledDirections.push("W", "E");
+	if (!directions.horizontal) disabledDirections.push("W", "E");
 
-    if (!directions.vertical)
-        disabledDirections.push("N", "S");
+	if (!directions.vertical) disabledDirections.push("N", "S");
 
-    if (!directions.diagonal)
-        disabledDirections.push("NW", "NE", "SW", "SE");
+	if (!directions.diagonal) disabledDirections.push("NW", "NE", "SW", "SE");
 
-    let backwardsProbability = 0.0;
-    if (directions.backwards)
-        backwardsProbability = 0.5;
+	let backwardsProbability = 0.0;
+	if (directions.backwards) backwardsProbability = 0.5;
 
-    return {
-        cols: parseInt(numCols),
-        rows: parseInt(numRows),
-        disabledDirections,
-        backwardsProbability
-    };
+	return {
+		cols: parseInt(numCols),
+		rows: parseInt(numRows),
+		disabledDirections,
+		backwardsProbability,
+	};
 };
 
 export const createWordSearch = (wordList, options) => {
-    if (options.rows <= 0 || options.cols <= 0)
-        return null;
+	if (options.rows <= 0 || options.cols <= 0) return null;
 
-    try {
-        const wordSearch = new WordSearch({ ...options, dictionary: wordList, maxWords: wordList.length });
+	try {
+		const wordSearch = new WordSearch({
+			...options,
+			dictionary: wordList,
+			maxWords: wordList.length,
+		});
 
-        return wordSearch.data.grid;
-    }
-    catch (error) {
-        return null;
-    }
-}
+		return wordSearch.data.grid;
+	} catch (error) {
+		return null;
+	}
+};
 
 // export const manageError = (error, wordSearchObject, dictionaryLength) => {
 //     if (wordSearchObject !== null) {

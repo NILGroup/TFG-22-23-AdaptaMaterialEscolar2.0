@@ -1,43 +1,42 @@
 .toolbarButton {
-    background-color: transparent;
-    border: none;
-  
-    display: inline-block;
-    position: relative;
-  
-    font-size: 1rem;
-  
-    transition: color 0.35s;
-  }
-  
-  .toolbarButton:not([isactive]):hover {
-    cursor: pointer;
-    
-    color: var(--color-primary);
-  }
-  
-  /* ---------------Efecto de subrayado--------------- */
-  .toolbarButton:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    height: 1rem;
-    width: 100%;
-    border-bottom: 2px solid var(--color-primary);
-    margin-top: 10px;
-    opacity: 0;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-    -webkit-transform: scale(0, 1);
-    transform: scale(0, 1);
-  }
-  
-  .toolbarButton[isactive]:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  
-  /* ------------------------------------------------- */
-  
+	background-color: transparent;
+	border: none;
+
+	display: inline-block;
+	position: relative;
+
+	font-size: 1rem;
+
+	transition: color 0.35s;
+}
+
+.toolbarButton:not([isactive]):hover {
+	cursor: pointer;
+
+	color: var(--color-primary);
+}
+
+/* ---------------Efecto de subrayado--------------- */
+.toolbarButton:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	display: inline-block;
+	height: 1rem;
+	width: 100%;
+	border-bottom: 2px solid var(--color-primary);
+	margin-top: 10px;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0, 1);
+	transform: scale(0, 1);
+}
+
+.toolbarButton[isactive]:after {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+/* ------------------------------------------------- */
