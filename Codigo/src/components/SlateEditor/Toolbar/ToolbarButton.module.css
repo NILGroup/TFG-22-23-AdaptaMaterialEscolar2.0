@@ -10,7 +10,7 @@
 	transition: color 0.35s;
 }
 
-.toolbarButton:not([isactive]):hover {
+.toolbarButton:not([data-isactive]):hover {
 	cursor: pointer;
 
 	color: var(--color-primary);
@@ -33,7 +33,7 @@
 	transform: scale(0, 1);
 }
 
-.toolbarButton[isactive]:after {
+.toolbarButton[data-isactive]:after {
 	opacity: 1;
 	-webkit-transform: scale(1);
 	transform: scale(1);

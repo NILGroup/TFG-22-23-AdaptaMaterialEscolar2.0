@@ -12,7 +12,7 @@ export default function ToolbarButton({
 		<button
 			className={style.toolbarButton}
 			onClick={() => onClick(toolbarGroup)}
-			isactive={activeGroup === toolbarGroup ? "" : undefined}
+			data-isactive={activeGroup === toolbarGroup ? "" : undefined}
 		>
 			{text}
 		</button>
