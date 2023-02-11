@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/css/main.7637c96c.css",
-    "main.js": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/js/main.2928c419.js",
+    "main.css": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/css/main.e2bd2b9e.css",
+    "main.js": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/js/main.cef22c3a.js",
     "index.html": "/TFG-22-23-AdaptaMaterialEscolar2.0/index.html",
-    "main.7637c96c.css.map": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/css/main.7637c96c.css.map",
-    "main.2928c419.js.map": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/js/main.2928c419.js.map"
+    "main.e2bd2b9e.css.map": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/css/main.e2bd2b9e.css.map",
+    "main.cef22c3a.js.map": "/TFG-22-23-AdaptaMaterialEscolar2.0/static/js/main.cef22c3a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7637c96c.css",
-    "static/js/main.2928c419.js"
+    "static/css/main.e2bd2b9e.css",
+    "static/js/main.cef22c3a.js"
   ]
 }
