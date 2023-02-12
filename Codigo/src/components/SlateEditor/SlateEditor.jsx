@@ -80,6 +80,7 @@ export default function SlateEditor() {
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
 							className={style.editable}
+							autoFocus
 						/>
 					</div>
 				</div>

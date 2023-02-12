@@ -10,6 +10,10 @@
 	transition: color 0.35s;
 }
 
+.toolbarButton[data-isactive] {
+	font-weight: bold;
+}
+
 .toolbarButton:not([data-isactive]):hover {
 	cursor: pointer;
 
@@ -24,8 +28,8 @@
 	display: inline-block;
 	height: 1rem;
 	width: 100%;
-	border-bottom: 2px solid var(--color-primary);
-	margin-top: 10px;
+	border-bottom: 3px solid var(--color-primary);
+	margin-top: 12px;
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
