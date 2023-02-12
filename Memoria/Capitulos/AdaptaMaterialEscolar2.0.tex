@@ -95,7 +95,7 @@ Analizando la interfaz de AdaptaMaterialEscolar 1.0 hemos llegado a la conclusi�
 
 A continuación, se explicará el diseño de la aplicación por parte de cada integrante y el diseño final de la aplicación.
 \subsection{Diseño de los integrantes}
-En esta sección se explicará los diseños creados por cada integrante junto a las imágenes de los mismos.
+En esta sección se explicará los diseños creados por cada integrante junto a las imágenes de los mismos. Todos los diseños mencionados se encuentran en el Anexo (Capítulo \ref{cap:anexo}), en las secciones \ref{sec:disenyoAlvaro}, \ref{sec:disenyoDunia}, \ref{sec:disenyoAlberto}, \ref{sec:disenyoJohan}.
 
 \subsubsection{Álvaro Gómez Sittima}
 Para empezar, diseñé la página de inicio la cual dispone de un menú superior con el logo de la aplicación a la izquierda y enlaces a las distintas páginas de la aplicación (Ayuda y Contacto) a la derecha. Este menú superior aparecerá en todas las páginas de la aplicación y se utilizará el logo de la aplicación como enlace a la página de inicio. En esta página el usuario podrá cargar un fichero PDF y utilizar un editor de documentos para poder adaptar el material del PDF. El acceso a las opciones de archivo, formato y adaptaciones se encontrarán como botones integrados en la barra de herramientas del editor de documentos. Además, también se mostrarán opciones relevantes en un barra de herramientas flotante encima del texto que tenga seleccionado en el PDF o en el editor de documentos. El diseño de esta página sin un PDF cargado se puede ver en la Figura \ref{fig:disenyoAlvaro01} y con un PDF cargado en la Figura \ref{fig:disenyoAlvaro02}. Si el usuario pulsa el enlace de ayuda en el menú superior, este le llevará a la página de ayuda la cual dispondrá de un buscador, con el que podrá buscar información sobre un tema en concreto relacionado con el uso de la aplicación. Si no se realiza una búsqueda aparecerán todos los temas sobre los que se ofrece ayuda. Cada tema aparecerá en una tarjeta con información sobre el tema y un breve video para apoyar lo explicado en la información.
@@ -123,17 +123,26 @@ Inicialmente realicé el diseño de la página principal, la cual dispone de una
 \end{itemize}
 No realicé los rediseños para las funcionalidades implementadas en AdaptaMaterialEscolar 1.0  ya que no sabía cómo mejorar el diseño de las funcionalidades.
 
+
 \subsubsection{Alberto Alejandro Rivas}
-Para hacer los diseños de las funcionalidades ya implementadas en AdaptaMaterial 1.0 he utilizado una estructura bastante similar a la que ya existía, pero actualizando los colores y haciendo algunos pequeños ajustes para darle un estilo un poco más profesional, pero manteniendo el mismo funcionamiento.
+El diseño que realicé es bastante parecido al de la aplicación ya existente. Intenté mantener la misma estructura y funcionalidad pero haciendo que la interfaz de usuario sea más profesional. Para esto ajusté el diseño de la barra de navegación, los botones, el componente para seleccionar un fichero pdf, etc. En la pantalla principal tenemos la barra de navegación y un componente en el que podemos arrastrar o seleccionar un fichero pdf. Una vez seleccionado el archivo, nos lleva a otra página que se divide en dos, en una mitad tenemos el pdf y en la otra tenemos el editor de texto. Estos diseños se pueden observar en las figuras \ref{AlbertoPaginaPrincipal1} y \ref{AlbertoPaginaPrincipal2}. Por último, el usuario podrá acceder a cada funcionalidad haciendo click en los botones que se encuentran en la parte superior del editor.
 
-Para la mayoría de las funcionalidades nuevas hice un diseño bastante simple en el que simplemente se tiene un input de texto. Por ejemplo, en la funcionalidad de añadir doble pauta, solamente añadí un input en el que se ingresa el número de líneas que se quiere insertar. Y Para la funcionalidad de generar un resumen simplemente añadí un input en el que se puede pegar el texto a resumir.
+Para hacer el diseño de las funcionalidades ya implementadas en AdaptaMaterial 1.0 también he utilizado la misma estructura, haciendo algunos ajustes para darles un estilo más profesional, pero manteniendo el mismo funcionamiento. En las figuras \ref{Alberto13}, \ref{Alberto14}, \ref{Alberto15}, \ref{Alberto16} y \ref{Alberto17} se muestran los diseños de estas funcionalidades.
 
-Para otras funcionalidades más complejas realicé diseños con más elementos. Por ejemplo, para la funcionalidad de insertar una leyenda de colores hay un input de texto acompañado de un input en el que se puede seleccionar un color y un botón para añadir este color a la leyenda. Luego en la parte inferior hay una vista previa en la que se puede observar cómo va a quedar la leyenda al ser añadida al editor.
+En cuanto a las nuevas funcionalidades que no estaban implementadas en AdaptaMaterial 1.0, realicé los siguientes diseños:
 
-Por último, para crear ejercicios de relacionar contenido mediante flechas, los inputs de texto se dividen en dos columnas y en estos se puede añadir el contenido que se quiere relacionar. Luego también hay un botón en la parte inferior para añadir una nueva fila.
+\begin{itemize}
+  \item \textbf{Leyenda de colores:} tenemos un input en el que se puede escribir el nombre de la categoría y un selector de colores para poder elegir el color que le corresponde. Una vez hecho esto se puede hacer click en el botón con el símbolo de más para añadir la categoría a la lista. También tenemos una vista previa en la que podemos ver cómo será el resultado. Este diseño se puede ver en la figura \ref{Alberto1}.
+  \item \textbf{Leyenda de colores por asignatura:} consta de un selector de colores para elegir el color de la asignatura. Una vez seleccionado, a la página se le añadirá un borde de este color. Este diseño se puede ver en la figura \ref{Alberto2}.
+  \item \textbf{Cuadrícula y doble pauta:} estas dos funcionalidades tienen un modal igual, en el que simplemente seleccionamos el número de líneas que queremos insertar en el documento de trabajo. Este diseño se puede ver en las figuras \ref{Alberto3} y \ref{Alberto4}.
+  \item \textbf{Relacionar conceptos mediante flechas:} los inputs de texto se dividen en dos columnas y en estos se puede añadir el contenido que se quiere relacionar. También hay un botón en la parte inferior para añadir una nueva fila. Este diseño se puede ver en la figura \ref{Alberto5}.
+  \item \textbf{Fórmulas matemáticas:} para este ejercicio simplemente añadí un input en el que se pueda escribir una fórmula matemática en LaTeX. Este diseño se puede ver en la figura \ref{Alberto6}.
+  \item \textbf{Generar resumen y pictotraductor:} estas dos funcionalidades también tienen una interfaz igual, simplemente hay un input en el que el usuario puede pegar el contenido que quiere resumir o traducir a pictogramas y al dar click en el botón de aceptar, se generará automáticamente a través de una API y se insertará el resultado en el documento de trabajo. Este diseño se puede ver en las figuras \ref{Alberto8} y \ref{Alberto10}.
+  \item \textbf{Espacio para dibujar:} tenemos dos inputs, en los cuales podemos escribir la altura y anchura en centímetros que va a tener el espacio para dibujar. Al insertarse en el documento de trabajo, este espacio será simplemente un rectángulo vacío con un borde para delimitar el espacio. Este diseño se puede ver en la figura \ref{Alberto7}.
+  \item \textbf{Buscar imágenes:} el funcionamiento es igual al de la funcionalidad de buscar pictogramas, el usuario puede hacer una búsqueda y se le mostrarán todos los resultados encontrados y al darle click a uno de ellos, esta imagen se insertará en el documento de trabajo. Este diseño se puede ver en la figura \ref{Alberto12}.
+\end{itemize}
 
 
-Todas estas funcionalidades se pueden ver en el Anexo \ref{cap:anexo}
 
 \subsubsection{Johan Sebastian Salvatierra Gutierrez}
 Para realizar el diseño de la aplicación realice una división entre páginas y funcionalidades.
@@ -203,7 +212,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. In
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/DefinirHuecos.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/DefinirHuecos.PNG}
   \caption{Diseño final definir huecos.}
   \label{definir_hueco}
 \end{figure}
@@ -215,7 +224,7 @@ de que era mejor que el botón de añadir palabras fuera fijo y no cambiara de p
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/Sopa.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/Sopa.PNG}
   \caption{Diseño final sopa de letras.}
   \label{sopaLetras}
 \end{figure}
@@ -226,7 +235,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor}, s
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/picto.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/picto.PNG}
   \caption{Diseño final del pictotraductor.}
   \label{pictotraductor}
 \end{figure}
@@ -237,19 +246,19 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{flechas}, se basa 
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/Flechas.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/Flechas.PNG}
   \caption{Diseño final de ejercicios de fechas.}
   \label{flechas}
 \end{figure}
 
 \subsubsection{Ejercicio de desarrollo}
-Partimos del diseño de AdaptaMaterialEscolar 1.0, el cual se muestra en la Figura \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{Desarrollo}. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 2.
+Partimos del diseño de AdaptaMaterialEscolar 1.0, el cual se muestra en la Figura \ref{desAE1}, dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también, se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{DesarrolloFinal}. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 2.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/Desarollo.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/Desarollo.PNG}
   \caption{Diseño final de ejercicios de desarrollar.}
-  \label{Desarrollo}
+  \label{DesarrolloFinal}
 \end{figure}
 
 \begin{figure}[ht!]
@@ -264,14 +273,14 @@ Partimos del diseño de AdaptaMaterialEscolar 1.0, el cual se muestra en la Figu
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/definiciones.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/definiciones.PNG}
   \caption{Diseño final ejercicios de definiciones.}
   \label{defi}
 \end{figure}
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/definicionesAE1.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/definicionesAE1.PNG}
   \caption{Diseño ejercicios de definiciones AdaptaMaterialEscolar 1.0.}
   \label{defiAE1}
 \end{figure}
@@ -281,7 +290,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En 
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/espacioDibu.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/espacioDibu.PNG}
   \caption{Diseño final ejercicios espacios para dibujar.}
   \label{espaciosDibu}
 \end{figure}
@@ -291,7 +300,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{LeyendaColores}, p
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/Leyenda.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/Leyenda.PNG}
   \caption{Diseño final leyenda de colores.}
   \label{LeyendaColores}
 \end{figure}
@@ -302,7 +311,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco}, para 
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=15cm]{Diseño/EjerMatesHuecos.PNG}
+  \includegraphics[width=0.7\textwidth]{Diseño/EjerMatesHuecos.PNG}
   \caption{Diseño final ejercicios de matemáticas con huecos.}
   \label{matesHueco}
 \end{figure}
