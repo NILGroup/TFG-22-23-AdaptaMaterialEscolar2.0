@@ -17,7 +17,12 @@ import { ModalFactory } from "../Modal/ModalFactory";
 import style from "./SlateEditor.module.css";
 import Staff from "./elements/Staff/Staff";
 
-const initialValue = [];
+const initialValue = [
+	{
+		type: "paragraph",
+		children: [{ text: "" }],
+	},
+];
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
