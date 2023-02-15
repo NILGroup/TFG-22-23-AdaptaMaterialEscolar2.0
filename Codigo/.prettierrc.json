@@ -8,5 +8,11 @@
 	"trailingComma": "es5",
 	"bracketSpacing": true,
 	"bracketSameLine": false,
-	"arrowParens": "always"
+	"arrowParens": "always",
+	"plugins": [
+		"prettier-plugin-organize-imports",
+		"prettier-plugin-tailwindcss"
+	],
+	"pluginSearchDirs": false,
+	"organizeImportsSkipDestructiveCodeActions": true
 }

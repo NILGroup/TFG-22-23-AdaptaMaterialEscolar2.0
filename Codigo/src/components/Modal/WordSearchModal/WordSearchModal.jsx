@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 
 import { AiOutlinePlus } from "react-icons/ai";
 
-import Modal from "../Modal";
-import style from "../Modal.module.css";
-import ModalPreview from "../ModalPreview";
-import WordListItem from "./WordListItem";
+import Modal from "../common/Modal";
+import ModalPreview from "../common/ModalPreview";
 import WordSearchGrid from "./WordSearchGrid";
 
-import { generateOptionsObject, createWordSearch } from "./WordSearchUtils";
+import { createWordSearch, generateOptionsObject } from "./WordSearchUtils";
 
 import { Transforms } from "slate";
+
+import style from "../common/Modal.module.css";
+import ModalNewWordInput from "../common/ModalNewWordInput";
+import ModalWordList from "../common/ModalWordList";
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
 	const DEFAULT_NUM_ROWS = 1;
@@ -31,6 +33,13 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	const [wordSearchGrid, setWordSearchGrid] = useState(
 		DEFAULT_WORD_SEARCH_GRID
 	);
+
+	useEffect(() => {
+		const options = generateOptionsObject(numRows, numCols, directions);
+		const wordSearch = createWordSearch(wordList, options);
+
+		setWordSearchGrid(wordSearch);
+	}, [numRows, numCols, wordList, directions]);
 
 	const addWordToList = (word) => {
 		const wordToAdd = word.replace(/\s/g, "");
@@ -83,7 +92,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 				newDirections.backwards = value;
 				break;
 			default:
-				throw Error("Undefined direction!");
+				throw new Error("Undefined direction!");
 		}
 
 		setDirections(newDirections);
@@ -99,13 +108,54 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		onClose();
 	};
 
+	const parseDirection = (direction) => {
+		switch (direction) {
+			case "horizontal":
+				return "horizontal";
+			case "vertical":
+				return "vertical";
+			case "diagonal":
+				return "diagonal";
+			case "backwards":
+				return "al revés";
+			default:
+				throw new Error("Undefined direction!");
+		}
+	};
+
+	const generateExerciseStatement = () => {
+		// TODO: Temporal --> Borrar cuando se manejen los errores de la sopa de letras
+		if (!wordList?.length > 0) return "";
+
+		const enabledDirections = Object.keys(directions)
+			.filter((key) => directions[key] === true)
+			.map((key) => parseDirection(key));
+
+		// TODO: Temporal --> Borrar cuando se manejen los errores de la sopa de letras
+		if (!enabledDirections?.length > 0) return "";
+
+		const directionsStatement = `, ${
+			wordList.length === 1 ? "escrita" : "escritas"
+		} de manera ${enabledDirections.reduce(
+			(result, current, index, array) =>
+				result +
+				(index > 0 ? (index === array.length - 1 ? " y " : ", ") : "") +
+				current,
+			""
+		)}`;
+
+		const statement = `Encuentra ${
+			wordList.length === 1
+				? "la palabra"
+				: `las ${wordList.length} palabras`
+		}${directionsStatement}: `;
+
+		return statement;
+	};
+
 	const handleOk = (editor, wordSearchGrid) => {
 		const text = {
-			text: `Encuentra ${
-				wordList?.length === 1
-					? "la palabra"
-					: `las ${wordList?.length ?? 0} palabras`
-			}: `,
+			text: generateExerciseStatement(),
 		};
 		const wordSearch = {
 			type: "wordSearch",
@@ -118,34 +168,32 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		closeModal();
 	};
 
-	useEffect(() => {
-		const options = generateOptionsObject(numRows, numCols, directions);
-		const wordSearch = createWordSearch(wordList, options);
-
-		setWordSearchGrid(wordSearch);
-	}, [numRows, numCols, wordList, directions]);
-
 	return (
-		<Modal title={"Sopa de Letras"} isOpen={isOpen} onClose={closeModal}>
-			<div className={style.modalForm}>
-				<div className={style.modalFormGroup}>
+		<Modal
+			title={"Sopa de Letras"}
+			className="w-6/12"
+			isOpen={isOpen}
+			onClose={closeModal}
+		>
+			<div className="flex flex-col">
+				<div className="flex flex-col">
 					<h4 className={style.modalHeading}>Tamaño</h4>
-					<div className={style.modalInlineFormGroup}>
+					<div className="grid grid-cols-2 gap-y-4 p-4">
 						<label htmlFor="numRows">Número de filas</label>
 						<input
 							type="number"
 							id="numRows"
+							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 							name="numRows"
 							min="1"
 							value={numRows}
 							onChange={(e) => setNumRows(e.target.value)}
 						/>
-					</div>
-					<div className={style.modalInlineFormGroup}>
 						<label htmlFor="numCols">Número de columnas</label>
 						<input
 							type="number"
 							id="numCols"
+							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 							name="numCols"
 							min="1"
 							value={numCols}
@@ -153,66 +201,30 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						/>
 					</div>
 				</div>
-				<div className={style.modalFlexRow}>
-					<div className={style.modalFlexCol}>
-						<h4 className={style.modalHeading}>Palabras</h4>
-						<form
-							className={style.modalFormGroup}
-							onSubmit={(e) => {
-								e.preventDefault();
-
-								const newWord = e.target.newWord.value;
+				<div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-2">
+					<div className="">
+						<ModalNewWordInput
+							title="Palabras"
+							onSubmit={(newWord) => {
 								addWordToList(newWord);
-
-								e.target.reset();
 							}}
-						>
-							<div className={style.modalInlineFormGroup}>
-								<input
-									type="text"
-									name="newWord"
-									id="newWord"
-									className={style.modalInput}
-									required
-								/>
-								<button
-									type="submit"
-									className={style.modalIconButton}
-								>
-									<AiOutlinePlus size={22} />
-								</button>
-							</div>
-						</form>
-						<ul className={style.modalWordList}>
-							{wordList &&
-								wordList.map((word, index) => {
-									return (
-										<WordListItem
-											key={`word-${index}`}
-											word={word}
-											index={index}
-											onEdit={(newValue, index) =>
-												editWord(newValue, index)
-											}
-											onDelete={() => deleteWord(index)}
-										/>
-									);
-								})}
-						</ul>
+						/>
+
+						<ModalWordList
+							wordList={wordList}
+							onEdit={(newValue, index) =>
+								editWord(newValue, index)
+							}
+							onDelete={(index) => deleteWord(index)}
+						/>
 					</div>
-					<div className={style.modalFlexCol}>
+					<div className="">
 						<ModalPreview>
-							<p>
-								Encuentra{" "}
-								{wordList?.length === 1
-									? "la palabra"
-									: `las ${wordList?.length ?? 0} palabras`}
-								:{" "}
-							</p>
+							<p>{generateExerciseStatement()}</p>
 							<WordSearchGrid wordSearchGrid={wordSearchGrid} />
 						</ModalPreview>
-						<div className={style.modalCheckboxGroup}>
-							<div className={style.modalCheckbox}>
+						<div className="my-2 flex flex-wrap items-center justify-evenly gap-x-2 p-2">
+							<div className="flex items-center gap-x-1 whitespace-nowrap">
 								<input
 									type="checkbox"
 									name="horizontal"
@@ -227,7 +239,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								/>
 								<label htmlFor="horizontal">Horizontal</label>
 							</div>
-							<div className={style.modalCheckbox}>
+							<div className="flex items-center gap-x-1 whitespace-nowrap">
 								<input
 									type="checkbox"
 									name="vertical"
@@ -241,7 +253,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								/>
 								<label htmlFor="vertical">Vertical</label>
 							</div>
-							<div className={style.modalCheckbox}>
+							<div className="flex items-center gap-x-1 whitespace-nowrap">
 								<input
 									type="checkbox"
 									name="diagonal"
@@ -255,7 +267,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								/>
 								<label htmlFor="diagonal">Diagonal</label>
 							</div>
-							<div className={style.modalCheckbox}>
+							<div className="flex items-center gap-x-1 whitespace-nowrap">
 								<input
 									type="checkbox"
 									name="backwards"
@@ -273,7 +285,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					</div>
 				</div>
 				<button
-					className={`${style.modalButton} ${style.modalCenter}`}
+					className="mt-5 w-2/12 self-center rounded-md bg-sky-500 py-2 text-[1.4rem] text-white hover:bg-sky-600"
 					onClick={() => handleOk(editor, wordSearchGrid)}
 				>
 					Ok

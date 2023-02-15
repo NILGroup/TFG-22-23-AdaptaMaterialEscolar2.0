@@ -1,13 +1,13 @@
 import React from "react";
 
-import style from "../Modal.module.css";
+import style from "../common/Modal.module.css";
 
 import { Transforms } from "slate";
 
 export default function ModalPictogramList({ editor, pictograms, callback }) {
 	const insertPictogram = (editor, url) => {
 		const text = { text: "" };
-		const pictogram = { type: "pictogram", url, children: [text] };
+		const pictogram = { type: "image", url, children: [text] };
 
 		//TODO: Seleccionar editor
 		Transforms.insertNodes(editor, pictogram);

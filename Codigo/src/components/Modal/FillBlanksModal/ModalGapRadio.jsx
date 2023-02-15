@@ -1,8 +1,8 @@
 import React from "react";
 
-import style from "../Modal.module.css";
+import style from "../common/Modal.module.css";
 
-import { getGapTypeFromName, getGapTypeInfo, Gap } from "./Gap";
+import { Gap, getGapTypeFromName, getGapTypeInfo } from "./Gap";
 
 export function ModalGapRadio({ gapType, defaultChecked = false, onChange }) {
 	const gapInfo = getGapTypeInfo(gapType);

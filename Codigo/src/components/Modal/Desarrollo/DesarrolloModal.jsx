@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 import desarrolloModalStyle from "./DesarrolloModal.module.css";
 
-import { IoMdArrowDropdown } from "react-icons/io";
-import { BiRectangle } from "react-icons/bi";
-import { AiOutlineBorderlessTable } from "react-icons/ai";
-import { HiOutlineMinus } from "react-icons/hi";
-import IconButton from "@mui/material/IconButton";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import { AiOutlineBorderlessTable } from "react-icons/ai";
+import { BiRectangle } from "react-icons/bi";
+import { HiOutlineMinus } from "react-icons/hi";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { TfiLineDouble } from "react-icons/tfi";
 import style from "./DefinitionModal.module.css";
 import guideLine from "./GuideLine.module.css";
 
-import Modal from "../Modal";
+import Modal from "../common/Modal";
 
 import { Transforms } from "slate";
 
@@ -141,6 +141,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	return (
 		<Modal
 			title="Ejercicio de desarrollo"
+			className="w-6/12"
 			isOpen={isOpen}
 			onClose={onClose}
 		>

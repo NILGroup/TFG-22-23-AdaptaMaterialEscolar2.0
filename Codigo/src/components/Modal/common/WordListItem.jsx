@@ -1,41 +1,53 @@
 import React, { useState } from "react";
 
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
-import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 
-import style from "../Modal.module.css";
+import style from "../common/Modal.module.css";
 
-export default function WordListItem({ word, index, onEdit, onDelete }) {
-	const [newValue, setNewValue] = useState(word);
-	const [isEdittingWord, setIsEdittingWord] = useState(false);
+export default function ModalWordListItem({
+	word,
+	index,
+	isEdittingWord,
+	setIsEdittingWord,
+	onEdit,
+	onDelete,
+}) {
+	const [newValue, setNewValue] = useState(null);
 
-	const editWord = () => {
+	const editWord = (newValue) => {
 		onEdit(newValue, index);
 
-		setIsEdittingWord(false);
+		setIsEdittingWord(null);
 	};
 
-	const cancelEdit = (e) => {
+	const cancelEdit = () => {
 		setNewValue(word);
 
-		setIsEdittingWord(false);
+		setIsEdittingWord(null);
 	};
 
-	if (!isEdittingWord) {
+	if (isEdittingWord !== index) {
 		return (
 			<li className={style.modalWordListItem}>
 				<span>{word}</span>
 				<div className={style.modalButtonContainer}>
 					<button
 						className={style.modalIconButton}
-						onClick={() => setIsEdittingWord(true)}
+						onClick={() => {
+							setNewValue(word);
+							setIsEdittingWord(index);
+						}}
 					>
 						<HiOutlinePencil />
 					</button>
 					<button
 						className={style.modalIconButton}
-						onClick={() => onDelete()}
+						onClick={() => {
+							onDelete(index);
+							setIsEdittingWord(null);
+						}}
 					>
 						<IoMdTrash />
 					</button>
@@ -53,7 +65,7 @@ export default function WordListItem({ word, index, onEdit, onDelete }) {
 						const action = e.nativeEvent.submitter.name;
 
 						if (action === "edit" && newValue) editWord(newValue);
-						else cancelEdit(false);
+						else cancelEdit();
 					}}
 				>
 					<input

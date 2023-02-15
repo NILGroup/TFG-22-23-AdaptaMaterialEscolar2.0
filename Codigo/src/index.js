@@ -5,11 +5,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 // Routes
-import Root from "./routes/Root";
-import ErrorPage from "./routes/ErrorPage";
-import Home from "./routes/Home";
 import Configuration from "./routes/Configuration";
+import ErrorPage from "./routes/ErrorPage";
 import Help from "./routes/Help";
+import Home from "./routes/Home";
+import Root from "./routes/Root";
 
 const router = createBrowserRouter(
 	[

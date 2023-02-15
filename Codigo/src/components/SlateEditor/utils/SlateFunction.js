@@ -1,4 +1,4 @@
-import { Editor, Transforms, Text } from "slate";
+import { Editor, Text, Transforms } from "slate";
 
 function isBoldMarkActive(editor) {
 	const [match] = Editor.nodes(editor, {

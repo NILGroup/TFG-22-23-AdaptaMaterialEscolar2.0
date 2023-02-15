@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { IoAddCircle } from "react-icons/io5";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { FiTrash2 } from "react-icons/fi";
-import { BiPencil, BiRectangle } from "react-icons/bi";
-import { AiOutlineBorderlessTable } from "react-icons/ai";
-import { HiOutlineMinus } from "react-icons/hi";
-import IconButton from "@mui/material/IconButton";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
+import { AiOutlineBorderlessTable } from "react-icons/ai";
+import { BiPencil, BiRectangle } from "react-icons/bi";
+import { FiTrash2 } from "react-icons/fi";
+import { HiOutlineMinus } from "react-icons/hi";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoAddCircle } from "react-icons/io5";
 import { TfiLineDouble } from "react-icons/tfi";
-import style from "./DefinitionModal.module.css";
-import guideLine from "./GuideLine.module.css";
-import { useState } from "react";
+
 import { Transforms } from "slate";
 
-import Modal from "../Modal";
+import style from "./DefinitionModal.module.css";
+import guideLine from "./GuideLine.module.css";
+
+import Modal from "../common/Modal";
+import ModalNewWordInput from "../common/ModalNewWordInput";
+import ModalWordList from "../common/ModalWordList";
 
 const introduction = (n) => `Define los ${n} siguientes conceptos:`;
 const MAX_LENGTH = 23;
@@ -118,47 +122,15 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 	return (
 		<Modal
 			title="Ejercicio de definiciones"
+			className="w-6/12"
 			isOpen={isOpen}
 			onClose={onClose}
 		>
 			<div className={style.options}>
-				<div>
-					<form
-						onSubmit={(e) => {
-							e.preventDefault();
-							if (e.target.concept.value === "") return;
-
-							const concept = e.target.concept.value;
-							setConcepts([...concepts, concept]);
-							e.target.concept.value = "";
-						}}
-					>
-						<div className={style.form}>
-							<label className={style.label} htmlFor="concept">
-								Conceptos:
-							</label>
-							<div className={style.align}>
-								<input
-									name="concept"
-									id="concept"
-									type="text"
-									className={style.input}
-									required
-									maxLength={MAX_LENGTH}
-								/>
-								<button
-									type="submit"
-									className={style.plusButton}
-									onClick={() => {
-										setModify([...isModify, false]);
-									}}
-								>
-									<IoAddCircle size={35} />
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
+				<ModalNewWordInput
+					title="Conceptos"
+					onSubmit={(newWord) => setConcepts([...concepts, newWord])}
+				/>
 				<div>
 					<div className={style.form}>
 						<label className={style.label}>Tipo de pauta: </label>
@@ -338,68 +310,15 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 				</div>
-				<div className={style.grid_start}>
-					<ul className={style.ul}>
-						{concepts.map((concept, index) => {
-							return (
-								<li
-									className={style.li}
-									key={`concept-${index}`}
-								>
-									{isModify[index] ? (
-										<input
-											type="text"
-											required
-											maxLength={MAX_LENGTH}
-											className={style.input}
-											value={concept}
-											onChange={(e) =>
-												setConcepts(
-													concepts.map((c, i) =>
-														i === index
-															? e.target.value
-															: c
-													)
-												)
-											}
-										/>
-									) : (
-										<p className={style.concept}>
-											{concept}{" "}
-										</p>
-									)}
-									<div className={style.botonera}>
-										<button
-											className={`${style.buttonUpdate} ${
-												isModify[index] &&
-												style.button_lg
-											}`}
-											onClick={() => updateConcept(index)}
-										>
-											<BiPencil
-												style={{
-													width: "21px",
-													height: "21px",
-												}}
-											/>
-										</button>
-										<button
-											className={style.button}
-											onClick={() => removeConcept(index)}
-										>
-											<FiTrash2
-												style={{
-													width: "21px",
-													height: "21px",
-												}}
-											/>
-										</button>
-									</div>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
+				<ModalWordList
+					wordList={concepts}
+					onEdit={(newValue, index) =>
+						setConcepts(
+							concepts.map((c, i) => (i === index ? newValue : c))
+						)
+					}
+					onDelete={(index) => removeConcept(index)}
+				/>
 
 				<div className={style.end}>
 					<label className={style.labelnum}>Número de filas:</label>

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 
-import style from "../Modal.module.css";
+import style from "../common/Modal.module.css";
 import ModalPictogramList from "./ModalPictogramList";
 
 import Spinner from "../../Spinner/Spinner";
-import Modal from "../Modal";
+import Modal from "../common/Modal";
 
 export default function SearchPictoModal({ editor, isOpen, onClose }) {
 	// Estados del modal
@@ -40,7 +40,12 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 	};
 
 	return (
-		<Modal title={"Buscar Pictograma"} isOpen={isOpen} onClose={closeModal}>
+		<Modal
+			title={"Buscar Pictograma"}
+			className="w-6/12"
+			isOpen={isOpen}
+			onClose={closeModal}
+		>
 			<form
 				className={style.modalForm}
 				onSubmit={(e) => {

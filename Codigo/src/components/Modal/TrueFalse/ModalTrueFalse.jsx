@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import modalStyleVF from "./VFModal.module.css";
 
+import { BiRectangle } from "react-icons/bi";
 import { IoAddCircle } from "react-icons/io5";
-import { FiTrash2 } from "react-icons/fi";
-import { BiPencil, BiRectangle } from "react-icons/bi";
 import { Transforms } from "slate";
 
-import Modal from "../Modal";
+import Modal from "../common/Modal";
+import ModalNewWordInput from "../common/ModalNewWordInput";
+import ModalWordList from "../common/ModalWordList";
 
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
 	const [aleatorio, setaleatorio] = useState([]);
-	const [ListaVistaP, setListaVistaP] = useState([]);
+	const [listaVistaP, setListaVistaP] = useState([]);
+
+	// useEffect(() => {
+	// 	if(!lista)
+	// 		setListaVistaP([]);
+	// 	else
+	// 		setListaVistaP((previousList) => [...previousList, lista[lista.length - 1]]);
+
+	// 	console.log(listaVistaP);
+	// }, [lista]);
 
 	const icon = "◻"; // TODO: Cambiar por un icono SVG ya que podria haber problemas de compatibilidad
 	const inserjer = (editor, items, icon) => {
@@ -36,110 +46,64 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 		Transforms.insertNodes(editor, list);
 	};
 
-	const submit = (e) => {
-		e.preventDefault();
-		if (e.target.frase.value !== "") {
-			setLista([...lista, e.target.frase.value]);
-			setListaVistaP([...ListaVistaP, e.target.frase.value]);
-			e.target.frase.value = "";
-			setmodificado([...modificado, false]);
-			setaleatorio([...aleatorio, Math.random()]);
-		}
+	const submit = (newWord) => {
+		setLista([...lista, newWord]);
+		setListaVistaP([...listaVistaP, newWord]);
+
+		setmodificado([...modificado, false]);
+		setaleatorio([...aleatorio, Math.random()]);
+	};
+
+	const deleteWord = (index) => {
+		if (!lista)
+			throw new Error("Cannot update word, word list does not exist!");
+
+		if (index < 0 || index >= lista.length)
+			throw new Error("Cannot update word, index out of range!");
+
+		setLista((previousWordList) => {
+			const newList = previousWordList.filter(
+				(word, wordIndex) => wordIndex !== index
+			);
+
+			setListaVistaP([...newList]);
+
+			return newList;
+		});
+	};
+
+	const editWord = (newValue, index) => {
+		if (!lista)
+			throw new Error("Cannot update word, word list does not exist!");
+
+		if (index < 0 || index >= lista.length)
+			throw new Error("Cannot update word, index out of range!");
+
+		setLista((previousWordList) => {
+			const newList = previousWordList.map((word, wordIndex) =>
+				wordIndex === index ? String(newValue) : word
+			);
+
+			setListaVistaP([...newList]);
+
+			return newList;
+		});
 	};
 
 	return (
-		<Modal title="Verdadero/Falso" isOpen={isOpen} onClose={onClose}>
+		<Modal
+			className="w-6/12"
+			title="Verdadero/Falso"
+			isOpen={isOpen}
+			onClose={onClose}
+		>
 			<div className={modalStyleVF.frase}>
-				<form onSubmit={submit}>
-					<label>Frase:</label>
-					<div className={modalStyleVF.contenido}>
-						<input type="text" name="frase" />
-
-						<button type="submit" className={modalStyleVF.btn}>
-							<IoAddCircle
-								className={modalStyleVF.add}
-								size={35}
-							/>
-						</button>
-					</div>
-				</form>
-
-				<ul className={modalStyleVF.lisF}>
-					{lista.map((elem, i) => {
-						return (
-							<li
-								key={`concepto-${i}`}
-								className={modalStyleVF.liF}
-							>
-								{modificado[i] === true ? (
-									<input
-										type="text"
-										value={elem}
-										onChange={(event) => {
-											event.preventDefault();
-											setLista(
-												lista.map((elemen, k) => {
-													if (i === k) {
-														return event.target
-															.value;
-													} else {
-														return elemen;
-													}
-												})
-											);
-										}}
-									/>
-								) : (
-									elem
-								)}
-
-								<div className={modalStyleVF.imagenes}>
-									<BiPencil
-										style={{
-											width: "21px",
-											height: "21px",
-										}}
-										className={`${modalStyleVF.ed} ${modalStyleVF.pencil}`}
-										onClick={(event) => {
-											event.preventDefault();
-											setmodificado(
-												modificado.map((elemen, k) => {
-													if (i === k) {
-														return !elemen;
-													} else {
-														return false;
-													}
-												})
-											);
-											setListaVistaP(lista);
-										}}
-									/>
-
-									<FiTrash2
-										style={{
-											width: "21px",
-											height: "21px",
-										}}
-										className={modalStyleVF.ed}
-										onClick={(event) => {
-											event.preventDefault();
-											setLista(
-												lista.filter((element, j) => {
-													return i !== j;
-												})
-											);
-											setListaVistaP(
-												lista.filter((element, j) => {
-													return i !== j;
-												})
-											);
-										}}
-									/>
-								</div>
-							</li>
-						);
-					})}
-				</ul>
+				<ModalNewWordInput title="Frase" onSubmit={(newWord) => submit(newWord)} />
+				<ModalWordList
+					wordList={lista}
+					onEdit={(newValue, index) => editWord(newValue, index)}
+					onDelete={(index) => deleteWord(index)}
+				/>
 
 				<hr />
 				<div className={modalStyleVF.vistaP}>
@@ -157,7 +121,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 								);
 
 								let nuevaLista, listaOrdenada, listaFinal;
-								nuevaLista = ListaVistaP.map((lis, i) => ({
+								nuevaLista = listaVistaP.map((lis, i) => ({
 									lis,
 									random: aleatorio[i],
 								}));
@@ -183,7 +147,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 							</p>
 						)}
 						<ul className={modalStyleVF.uldina}>
-							{ListaVistaP.map((elem, i) => {
+							{listaVistaP.map((elem, i) => {
 								return (
 									<li
 										key={`concepto-${i}`}
@@ -205,7 +169,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 						onClick={(event) => {
 							event.preventDefault();
 							event.preventDefault();
-							inserjer(editor, ListaVistaP, icon);
+							inserjer(editor, listaVistaP, icon);
 							setLista([]);
 							setListaVistaP([]);
 							setaleatorio([]);

@@ -1,7 +1,8 @@
 import React from "react";
 
-import ToolbarFormatGroup from "./ToolbarFormatGroup";
 import ToolbarExercisesGroup from "./ToolbarExercisesGroup";
+import ToolbarFileGroup from "./ToolbarFileGroup";
+import ToolbarFormatGroup from "./ToolbarFormatGroup";
 import ToolbarTextGroup from "./ToolbarTextGroup";
 
 export const ToolbarGroup = Object.freeze({
@@ -13,6 +14,8 @@ export const ToolbarGroup = Object.freeze({
 
 export function ToolbarGroupFactory({ type, editor, openModal }) {
 	switch (type) {
+		case ToolbarGroup.file:
+			return <ToolbarFileGroup editor={editor} openModal={openModal} />;
 		case ToolbarGroup.format:
 			return <ToolbarFormatGroup editor={editor} openModal={openModal} />;
 		case ToolbarGroup.exercises:

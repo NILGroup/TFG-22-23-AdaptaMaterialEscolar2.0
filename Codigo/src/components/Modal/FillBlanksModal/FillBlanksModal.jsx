@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import style from "../Modal.module.css";
+import style from "../common/Modal.module.css";
 
 import { GapType, getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { Transforms } from "slate";
-import Modal from "../Modal";
+import Modal from "../common/Modal";
 
 export default function FillBlanksModal({ editor, isOpen, onClose }) {
 	const [isAddingGaps, setIsAddingGaps] = useState(false);
@@ -33,7 +33,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 	};
 
 	return (
-		<Modal title="Completar Huecos" isOpen={isOpen} onClose={closeModal}>
+		<Modal title="Completar Huecos" className="w-6/12" isOpen={isOpen} onClose={closeModal}>
 			<form
 				className={style.modalForm}
 				onSubmit={(e) => {

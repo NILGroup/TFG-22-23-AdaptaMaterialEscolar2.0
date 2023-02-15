@@ -2,13 +2,11 @@ import React from "react";
 
 import { IoCloseSharp } from "react-icons/io5";
 
-import style from "./Modal.module.css";
-
 export default function ModalHeader({ title, onClose }) {
 	return (
-		<div className={style.modalHeader}>
-			<h3 className={style.modalTitle}>{title}</h3>
-			<button className={style.modalClose} onClick={onClose}>
+		<div className="flex bg-red-300 p-3 text-4xl text-white">
+			<h3 className="mx-auto">{title}</h3>
+			<button className="hover:text-sky-500" onClick={onClose}>
 				<IoCloseSharp />
 			</button>
 		</div>
