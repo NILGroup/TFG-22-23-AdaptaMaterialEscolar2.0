@@ -6,7 +6,7 @@ export default function WordSearch({ attributes, children, element }) {
 	return (
 		<div {...attributes}>
 			{children}
-			<div className={style.wordSearch}>
+			<div contentEditable={false} className={style.wordSearch}>
 				{element.wordSearchGrid.map((row, index) => {
 					return (
 						<div
