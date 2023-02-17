@@ -18,6 +18,8 @@ import Modal from "../common/Modal";
 
 import { Transforms } from "slate";
 
+import ModalPreview from "../common/ModalPreview";
+
 const typeStaff = {
 	grid: 0,
 	doubleLine: 1,
@@ -359,16 +361,10 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 						/>
 					}
 
-					<div className={desarrolloModalStyle.vistaPrevia}>
-						<div className={desarrolloModalStyle.vistaPreviaHeader}>
-							<h3>Vista previa</h3>
-						</div>
-						<div className={desarrolloModalStyle.vistaPreviaBody}>
-							{textareaValue}
-
-							{renderLines(numFilas, tipoPauta)}
-						</div>
-					</div>
+					<ModalPreview>
+						{textareaValue}
+						{renderLines(numFilas, tipoPauta)}
+					</ModalPreview>
 
 					<div className={desarrolloModalStyle.okButtonContainer}>
 						<button type="submit">OK</button>
