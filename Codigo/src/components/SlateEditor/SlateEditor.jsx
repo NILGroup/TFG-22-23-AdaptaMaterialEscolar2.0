@@ -18,6 +18,7 @@ import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
 import { withImages } from "./plugins/withImages";
 import style from "./SlateEditor.module.css";
+import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 
 const initialValue = [
 	{
@@ -47,6 +48,8 @@ export default function SlateEditor() {
 				return <Linea {...props} />;
 			case "wordSearch":
 				return <WordSearch {...props} />;
+			case "list-item":
+				return <VerdaderoFalso {...props}/>
 			default:
 				return <DefaultElement {...props} />;
 		}
