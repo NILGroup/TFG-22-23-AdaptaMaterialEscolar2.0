@@ -7,11 +7,10 @@ import style from "../common/Modal.module.css";
 export default function ModalNewWordInput({ title, onSubmit }) {
 	return (
 		<form
-			className="p-4"
 			onSubmit={(e) => {
 				e.preventDefault();
 
-                const newWord = e.target.newWord.value;
+				const newWord = e.target.newWord.value;
 
 				onSubmit(newWord);
 
@@ -21,7 +20,7 @@ export default function ModalNewWordInput({ title, onSubmit }) {
 			<label className={style.modalHeading} htmlFor="newWord">
 				{title}
 			</label>
-			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-x-3">
+			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-x-3 p-4">
 				<input
 					type="text"
 					name="newWord"

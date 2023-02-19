@@ -18,6 +18,9 @@ import Modal from "../common/Modal";
 
 import { Transforms } from "slate";
 
+import ModalPreview from "../common/ModalPreview";
+import ModalButton from "../common/ModalButton";
+
 const typeStaff = {
 	grid: 0,
 	doubleLine: 1,
@@ -145,37 +148,39 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 			isOpen={isOpen}
 			onClose={onClose}
 		>
-			<div className={desarrolloModalStyle.modalBody}>
+			<div className="">
 				<form onSubmit={submit}>
-					<div className={desarrolloModalStyle.enunciado}>
-						<h3>Enunciado</h3>
+					<div className="">
+						<h3 className="text-xl">Enunciado:</h3>
 						<textarea
 							name="enunciado"
 							id=""
 							rows="5"
 							onChange={handleEnunciadoChange}
+							className="w-full rounded bg-textarea p-3"
 						></textarea>
 					</div>
 
-					<div className={desarrolloModalStyle.numFilas}>
-						<label htmlFor="num_filas">Número de filas: </label>
+					<div className="my-5">
+						<h2 className="text-xl inline-block mr-5">Número de filas:</h2>
 						<input
 							type="number"
 							name="num_filas"
 							onChange={handleNumFilasChange}
+							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 						/>
 					</div>
 
-					<div className={desarrolloModalStyle.tipoPauta}>
-						<h3>Tipo de pauta</h3>
+					<div className="">
+						<h3 className="text-xl">Tipo de pauta</h3>
 
-						<select
+						{/* <select
 							value={tipoPauta}
 							onChange={handleTipoPautaChange}
 						>
 							<option value="lineaNormal">Normal</option>
 							<option value="lineaDoblePauta">Doble pauta</option>
-						</select>
+						</select> */}
 
 						<div className={style.buttons}>
 							<div className={style.staff}>
@@ -353,26 +358,19 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 
-					{
-						<hr
-							className={desarrolloModalStyle.modalHorizontalRule}
-						/>
-					}
+					
+					<hr className="my-6" />
+					
 
-					<div className={desarrolloModalStyle.vistaPrevia}>
-						<div className={desarrolloModalStyle.vistaPreviaHeader}>
-							<h3>Vista previa</h3>
-						</div>
-						<div className={desarrolloModalStyle.vistaPreviaBody}>
-							{textareaValue}
+					<ModalPreview>
+						{textareaValue}
+						{renderLines(numFilas, tipoPauta)}
+					</ModalPreview>
 
-							{renderLines(numFilas, tipoPauta)}
-						</div>
+					<div className="flex justify-center">
+						<button type="submit" className="mt-5 w-2/12 self-center py-2 text-[1.4rem] rounded-md bg-sky-500 text-white hover:bg-sky-600">OK</button>
 					</div>
 
-					<div className={desarrolloModalStyle.okButtonContainer}>
-						<button type="submit">OK</button>
-					</div>
 				</form>
 			</div>
 		</Modal>

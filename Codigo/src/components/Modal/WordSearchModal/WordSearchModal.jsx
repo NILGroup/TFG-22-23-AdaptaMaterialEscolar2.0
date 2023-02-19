@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-import { AiOutlinePlus } from "react-icons/ai";
-
 import Modal from "../common/Modal";
+import ModalButton from "../common/ModalButton";
+import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalPreview from "../common/ModalPreview";
+import ModalWordList from "../common/ModalWordList";
 import WordSearchGrid from "./WordSearchGrid";
 
-import { createWordSearch, generateOptionsObject } from "./WordSearchUtils";
+import { TbMoodSad } from "react-icons/tb";
+
+import {
+	checkErrors,
+	createWordSearch,
+	generateOptionsObject,
+} from "./WordSearchUtils";
 
 import { Transforms } from "slate";
 
 import style from "../common/Modal.module.css";
-import ModalNewWordInput from "../common/ModalNewWordInput";
-import ModalWordList from "../common/ModalWordList";
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
 	const DEFAULT_NUM_ROWS = 1;
@@ -25,6 +30,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		backwards: false,
 	};
 	const DEFAULT_WORD_SEARCH_GRID = null;
+	const DEFAULT_ERRORS = [];
 
 	const [numRows, setNumRows] = useState(DEFAULT_NUM_ROWS);
 	const [numCols, setNumCols] = useState(DEFAULT_NUM_ROWS);
@@ -33,12 +39,22 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	const [wordSearchGrid, setWordSearchGrid] = useState(
 		DEFAULT_WORD_SEARCH_GRID
 	);
+	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 
 	useEffect(() => {
 		const options = generateOptionsObject(numRows, numCols, directions);
 		const wordSearch = createWordSearch(wordList, options);
 
-		setWordSearchGrid(wordSearch);
+		setErrors(
+			checkErrors(
+				wordList,
+				wordSearch.object,
+				numRows,
+				numCols,
+				directions
+			)
+		);
+		setWordSearchGrid(wordSearch.grid);
 	}, [numRows, numCols, wordList, directions]);
 
 	const addWordToList = (word) => {
@@ -104,6 +120,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		setWordList(DEFAULT_WORD_LIST);
 		setDirections(DEFAULT_DIRECTIONS);
 		setWordSearchGrid(DEFAULT_WORD_SEARCH_GRID);
+		setErrors(DEFAULT_ERRORS);
 
 		onClose();
 	};
@@ -124,15 +141,9 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	};
 
 	const generateExerciseStatement = () => {
-		// TODO: Temporal --> Borrar cuando se manejen los errores de la sopa de letras
-		if (!wordList?.length > 0) return "";
-
 		const enabledDirections = Object.keys(directions)
 			.filter((key) => directions[key] === true)
 			.map((key) => parseDirection(key));
-
-		// TODO: Temporal --> Borrar cuando se manejen los errores de la sopa de letras
-		if (!enabledDirections?.length > 0) return "";
 
 		const directionsStatement = `, ${
 			wordList.length === 1 ? "escrita" : "escritas"
@@ -176,9 +187,9 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 			onClose={closeModal}
 		>
 			<div className="flex flex-col">
-				<div className="flex flex-col">
+				<div className="">
 					<h4 className={style.modalHeading}>Tamaño</h4>
-					<div className="grid grid-cols-2 gap-y-4 p-4">
+					<div className="grid grid-cols-2 items-end gap-4 p-4">
 						<label htmlFor="numRows">Número de filas</label>
 						<input
 							type="number"
@@ -201,7 +212,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						/>
 					</div>
 				</div>
-				<div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-2">
+				<div className="lg:grid lg:grid-cols-2 lg:gap-x-2">
 					<div className="">
 						<ModalNewWordInput
 							title="Palabras"
@@ -220,8 +231,19 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					</div>
 					<div className="">
 						<ModalPreview>
-							<p>{generateExerciseStatement()}</p>
-							<WordSearchGrid wordSearchGrid={wordSearchGrid} />
+							{!errors || errors.length <= 0 ? (
+								<>
+									<p>{generateExerciseStatement()}</p>
+									<WordSearchGrid
+										wordSearchGrid={wordSearchGrid}
+									/>
+								</>
+							) : (
+								<div className="flex h-full flex-col items-center justify-center gap-y-2 text-[2rem] text-red-500">
+									<p>Ha habido un error.</p>
+									<TbMoodSad size={50} />
+								</div>
+							)}
 						</ModalPreview>
 						<div className="my-2 flex flex-wrap items-center justify-evenly gap-x-2 p-2">
 							<div className="flex items-center gap-x-1 whitespace-nowrap">
@@ -284,12 +306,22 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 				</div>
-				<button
-					className="mt-5 w-2/12 self-center rounded-md bg-sky-500 py-2 text-[1.4rem] text-white hover:bg-sky-600"
+				{errors && errors.length > 0 && (
+					<div className="m-5 rounded-lg bg-red-500 p-3 text-white">
+						<ul className="list-inside list-disc">
+							{errors.map((error, index) => (
+								<li key={`error-${index}`}>{error}</li>
+							))}
+						</ul>
+					</div>
+				)}
+				<ModalButton
+					className="mt-5 w-2/12 self-center py-2 text-[1.4rem]"
 					onClick={() => handleOk(editor, wordSearchGrid)}
+					disabled={errors && errors.length > 0}
 				>
 					Ok
-				</button>
+				</ModalButton>
 			</div>
 		</Modal>
 	);
