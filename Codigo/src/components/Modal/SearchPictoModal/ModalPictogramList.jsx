@@ -9,7 +9,6 @@ export default function ModalPictogramList({ editor, pictograms, callback }) {
 		const text = { text: "" };
 		const pictogram = { type: "image", url, children: [text] };
 
-		//TODO: Seleccionar editor
 		Transforms.insertNodes(editor, pictogram);
 	};
 

@@ -4,7 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 import style from "../common/Modal.module.css";
 
-export default function ModalNewWordInput({ title, onSubmit }) {
+export default function ModalNewWordInput({ title, onSubmit, ...restProps }) {
 	return (
 		<form
 			onSubmit={(e) => {
@@ -16,11 +16,12 @@ export default function ModalNewWordInput({ title, onSubmit }) {
 
 				e.target.reset();
 			}}
+			{...restProps}
 		>
 			<label className={style.modalHeading} htmlFor="newWord">
 				{title}
 			</label>
-			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-x-3 p-4">
+			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-3 p-4">
 				<input
 					type="text"
 					name="newWord"

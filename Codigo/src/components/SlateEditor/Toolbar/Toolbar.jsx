@@ -1,9 +1,9 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 import ToolbarButton from "./ToolbarButton";
 import {
-ToolbarGroup,
-ToolbarGroupFactory
+	ToolbarGroup,
+	ToolbarGroupFactory,
 } from "./ToolbarGroups/ToolbarGroupFactory";
 
 import style from "./Toolbar.module.css";
@@ -19,28 +19,28 @@ export default function Toolbar({ editor, openModal }) {
 				<div className={style.mainToolbar}>
 					{/* Archivo */}
 					<ToolbarButton
-						text={"Archivo"}
+						text="Archivo"
 						onClick={setActiveToolbarGroup}
 						toolbarGroup={ToolbarGroup.file}
 						activeGroup={activeToolbarGroup}
 					/>
 					{/* Formato */}
 					<ToolbarButton
-						text={"Formato"}
+						text="Formato"
 						onClick={setActiveToolbarGroup}
 						toolbarGroup={ToolbarGroup.format}
 						activeGroup={activeToolbarGroup}
 					/>
 					{/* Ejercicios */}
 					<ToolbarButton
-						text={"Ejercicios"}
+						text="Ejercicios"
 						onClick={setActiveToolbarGroup}
 						toolbarGroup={ToolbarGroup.exercises}
 						activeGroup={activeToolbarGroup}
 					/>
 					{/* Texto */}
 					<ToolbarButton
-						text={"Texto"}
+						text="Texto"
 						onClick={setActiveToolbarGroup}
 						toolbarGroup={ToolbarGroup.text}
 						activeGroup={activeToolbarGroup}

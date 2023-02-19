@@ -1,24 +1,18 @@
 import React from "react";
 
-import style from "./WordSearchGrid.module.css";
-
 export default function WordSearchGrid({ wordSearchGrid }) {
-	if (wordSearchGrid === null)
-		return <p>ERROR: La sopa de letras no esta definida</p>;
-
 	return (
-		<div className={style.wordSearchGrid}>
-			{wordSearchGrid.map((row, index) => {
+		<div className="my-4 mx-2 flex w-full flex-col items-stretch text-[0.5cm]">
+			{wordSearchGrid.map((row, rowIndex) => {
 				return (
-					<div
-						key={`row-${index}`}
-						className={style.wordSearchGridRow}
-					>
-						{row.map((col, index) => {
+					<div key={`row-${rowIndex}`} className="flex">
+						{row.map((col, colIndex) => {
 							return (
 								<div
-									key={`col-${index}`}
-									className={style.wordSearchGridCol}
+									key={`col-${colIndex}`}
+									className={`flex h-[1cm] w-[1cm] flex-shrink-0 items-center justify-center border-[1px] border-black ${
+										rowIndex > 0 ? "border-t-0" : ""
+									} ${colIndex > 0 ? "border-l-0" : ""}`}
 								>
 									{col}
 								</div>

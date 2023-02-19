@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 import style from "../common/Modal.module.css";
 import ModalPictogramList from "./ModalPictogramList";
@@ -41,7 +41,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 
 	return (
 		<Modal
-			title={"Buscar Pictograma"}
+			title="Buscar Pictograma"
 			className="w-6/12"
 			isOpen={isOpen}
 			onClose={closeModal}

@@ -98,7 +98,10 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			onClose={onClose}
 		>
 			<div className={modalStyleVF.frase}>
-				<ModalNewWordInput title="Frase" onSubmit={(newWord) => submit(newWord)} />
+				<ModalNewWordInput
+					title="Frase"
+					onSubmit={(newWord) => submit(newWord)}
+				/>
 				<ModalWordList
 					wordList={lista}
 					onEdit={(newValue, index) => editWord(newValue, index)}

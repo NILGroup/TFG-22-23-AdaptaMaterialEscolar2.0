@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Modal from "../common/Modal";
-import ModalButton from "../common/ModalButton";
 import ModalNewWordInput from "../common/ModalNewWordInput";
+import ModalButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import WordSearchGrid from "./WordSearchGrid";
@@ -16,10 +16,10 @@ import {
 } from "./WordSearchUtils";
 
 import { Transforms } from "slate";
-
-import style from "../common/Modal.module.css";
+import ModalCheckbox from "../common/ModalCheckbox";
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
+	// Valores por defecto del estado
 	const DEFAULT_NUM_ROWS = 1;
 	const DEFAULT_NUM_COLS = 1;
 	const DEFAULT_WORD_LIST = [];
@@ -29,34 +29,28 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		diagonal: false,
 		backwards: false,
 	};
-	const DEFAULT_WORD_SEARCH_GRID = null;
-	const DEFAULT_ERRORS = [];
 
+	// Estado del componente
 	const [numRows, setNumRows] = useState(DEFAULT_NUM_ROWS);
 	const [numCols, setNumCols] = useState(DEFAULT_NUM_ROWS);
 	const [wordList, setWordList] = useState(DEFAULT_WORD_LIST);
 	const [directions, setDirections] = useState(DEFAULT_DIRECTIONS);
-	const [wordSearchGrid, setWordSearchGrid] = useState(
-		DEFAULT_WORD_SEARCH_GRID
+
+	// Datos que se pueden generar con el estado (se calculan cada vez que se renderiza la vista)
+	const options = generateOptionsObject(numRows, numCols, directions);
+	const wordSearch = createWordSearch(wordList, options);
+
+	const errors = checkErrors(
+		wordList,
+		wordSearch.object,
+		numRows,
+		numCols,
+		directions
 	);
-	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 
-	useEffect(() => {
-		const options = generateOptionsObject(numRows, numCols, directions);
-		const wordSearch = createWordSearch(wordList, options);
+	const wordSearchGrid = wordSearch.grid;
 
-		setErrors(
-			checkErrors(
-				wordList,
-				wordSearch.object,
-				numRows,
-				numCols,
-				directions
-			)
-		);
-		setWordSearchGrid(wordSearch.grid);
-	}, [numRows, numCols, wordList, directions]);
-
+	// Metodos auxiliares
 	const addWordToList = (word) => {
 		const wordToAdd = word.replace(/\s/g, "");
 
@@ -119,8 +113,6 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		setNumCols(DEFAULT_NUM_COLS);
 		setWordList(DEFAULT_WORD_LIST);
 		setDirections(DEFAULT_DIRECTIONS);
-		setWordSearchGrid(DEFAULT_WORD_SEARCH_GRID);
-		setErrors(DEFAULT_ERRORS);
 
 		onClose();
 	};
@@ -181,38 +173,36 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 	return (
 		<Modal
-			title={"Sopa de Letras"}
-			className="w-6/12"
+			title="Sopa de Letras"
+			className="w-7/12"
 			isOpen={isOpen}
 			onClose={closeModal}
 		>
 			<div className="flex flex-col">
-				<div className="">
-					<h4 className={style.modalHeading}>Tamaño</h4>
-					<div className="grid grid-cols-2 items-end gap-4 p-4">
-						<label htmlFor="numRows">Número de filas</label>
-						<input
-							type="number"
-							id="numRows"
-							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
-							name="numRows"
-							min="1"
-							value={numRows}
-							onChange={(e) => setNumRows(e.target.value)}
-						/>
-						<label htmlFor="numCols">Número de columnas</label>
-						<input
-							type="number"
-							id="numCols"
-							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
-							name="numCols"
-							min="1"
-							value={numCols}
-							onChange={(e) => setNumCols(e.target.value)}
-						/>
-					</div>
+				<h4 className="text-[2rem]">Tamaño</h4>
+				<div className="grid grid-cols-2 items-end gap-4 p-4">
+					<label htmlFor="numRows">Número de filas</label>
+					<input
+						type="number"
+						id="numRows"
+						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
+						name="numRows"
+						min="1"
+						value={numRows}
+						onChange={(e) => setNumRows(e.target.value)}
+					/>
+					<label htmlFor="numCols">Número de columnas</label>
+					<input
+						type="number"
+						id="numCols"
+						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
+						name="numCols"
+						min="1"
+						value={numCols}
+						onChange={(e) => setNumCols(e.target.value)}
+					/>
 				</div>
-				<div className="lg:grid lg:grid-cols-2 lg:gap-x-2">
+				<div className="lg:grid lg:grid-cols-2 lg:gap-2">
 					<div className="">
 						<ModalNewWordInput
 							title="Palabras"
@@ -239,75 +229,56 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 									/>
 								</>
 							) : (
-								<div className="flex h-full flex-col items-center justify-center gap-y-2 text-[2rem] text-red-500">
-									<p>Ha habido un error.</p>
-									<TbMoodSad size={50} />
+								<div className="flex h-full flex-col items-center justify-center gap-2 text-red-500">
+									<p className="text-[2rem]">
+										Ha habido un error.
+									</p>
+									<TbMoodSad className="flex-shrink-0 text-[3.5rem]" />
 								</div>
 							)}
 						</ModalPreview>
-						<div className="my-2 flex flex-wrap items-center justify-evenly gap-x-2 p-2">
-							<div className="flex items-center gap-x-1 whitespace-nowrap">
-								<input
-									type="checkbox"
-									name="horizontal"
-									id="horizontal"
-									onChange={(e) => {
-										setDirection(
-											"horizontal",
-											e.target.checked
-										);
-									}}
-									defaultChecked={true}
-								/>
-								<label htmlFor="horizontal">Horizontal</label>
-							</div>
-							<div className="flex items-center gap-x-1 whitespace-nowrap">
-								<input
-									type="checkbox"
-									name="vertical"
-									id="vertical"
-									onChange={(e) => {
-										setDirection(
-											"vertical",
-											e.target.checked
-										);
-									}}
-								/>
-								<label htmlFor="vertical">Vertical</label>
-							</div>
-							<div className="flex items-center gap-x-1 whitespace-nowrap">
-								<input
-									type="checkbox"
-									name="diagonal"
-									id="diagonal"
-									onChange={(e) => {
-										setDirection(
-											"diagonal",
-											e.target.checked
-										);
-									}}
-								/>
-								<label htmlFor="diagonal">Diagonal</label>
-							</div>
-							<div className="flex items-center gap-x-1 whitespace-nowrap">
-								<input
-									type="checkbox"
-									name="backwards"
-									id="backwards"
-									onChange={(e) => {
-										setDirection(
-											"backwards",
-											e.target.checked
-										);
-									}}
-								/>
-								<label htmlFor="backwards">Al revés</label>
-							</div>
+						<div className="my-6 md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
+							<ModalCheckbox
+								label="Horizontal"
+								name="horizontal"
+								id="horizontal"
+								onChange={(e) => {
+									setDirection(
+										"horizontal",
+										e.target.checked
+									);
+								}}
+								defaultChecked
+							/>
+							<ModalCheckbox
+								label="Vertical"
+								name="vertical"
+								id="vertical"
+								onChange={(e) => {
+									setDirection("vertical", e.target.checked);
+								}}
+							/>
+							<ModalCheckbox
+								label="Diagonal"
+								name="diagonal"
+								id="diagonal"
+								onChange={(e) => {
+									setDirection("diagonal", e.target.checked);
+								}}
+							/>
+							<ModalCheckbox
+								label="Al revés"
+								name="backwards"
+								id="backwards"
+								onChange={(e) => {
+									setDirection("backwards", e.target.checked);
+								}}
+							/>
 						</div>
 					</div>
 				</div>
 				{errors && errors.length > 0 && (
-					<div className="m-5 rounded-lg bg-red-500 p-3 text-white">
+					<div className="w-full rounded-lg bg-red-500 bg-opacity-30 p-3 text-[1.2rem] text-red-900">
 						<ul className="list-inside list-disc">
 							{errors.map((error, index) => (
 								<li key={`error-${index}`}>{error}</li>
@@ -316,12 +287,10 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					</div>
 				)}
 				<ModalButton
-					className="mt-5 w-2/12 self-center py-2 text-[1.4rem]"
+					className="mt-5 self-center"
 					onClick={() => handleOk(editor, wordSearchGrid)}
 					disabled={errors && errors.length > 0}
-				>
-					Ok
-				</ModalButton>
+				/>
 			</div>
 		</Modal>
 	);

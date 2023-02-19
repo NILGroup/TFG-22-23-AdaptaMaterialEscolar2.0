@@ -23,7 +23,7 @@ export default function Modal({ title, className, isOpen, onClose, children }) {
 				<div className="flex min-h-full items-center justify-center text-center">
 					{/* Modal Dialog */}
 					<div
-						className={`relative ${className} transform overflow-hidden rounded-md text-left shadow-xl`}
+						className={`${className} relative transform overflow-hidden rounded-md text-left shadow-xl`}
 					>
 						{/* Modal Header */}
 						<ModalHeader title={title} onClose={closeModal} />

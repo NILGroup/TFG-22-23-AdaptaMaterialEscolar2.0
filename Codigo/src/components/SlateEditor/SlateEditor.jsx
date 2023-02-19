@@ -9,7 +9,7 @@ import { Editable, Slate, withReact } from "slate-react";
 import Definition from "./elements/Definition/Definition";
 import ImageElement from "./elements/ImageElement/ImageElement";
 import Linea from "./elements/Linea/Linea";
-import WordSearch from "./elements/WordSearch/WordSearch";
+import WordSearch from "./elements/WordSearchElement/WordSearchElement";
 import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";

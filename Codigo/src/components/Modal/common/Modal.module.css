@@ -184,52 +184,6 @@
 	border-color: var(--color-primary);
 }
 
-input[type="radio"] {
-	-webkit-appearance: none;
-	appearance: none;
-
-	background-color: transparent;
-
-	margin: 0;
-}
-
-.modalRadio {
-	display: grid;
-	grid-template-columns: auto 6rem auto;
-	gap: 0.7rem;
-
-	align-items: center;
-}
-
-.modalRadio > input[type="radio"] {
-	color: var(--color-button-blue);
-	width: 1.15rem;
-	height: 1.15rem;
-	border: 0.15rem solid var(--color-button-blue);
-	border-radius: 50%;
-
-	display: grid;
-	place-content: center;
-}
-
-.modalRadio > input[type="radio"]::before {
-	content: "";
-	width: 0.55em;
-	height: 0.55em;
-	border-radius: 50%;
-	transform: scale(0);
-	transition: 120ms transform ease-in-out;
-	box-shadow: inset 1em 1em var(--color-button-blue);
-}
-
-.modalRadio > input[type="radio"]:checked::before {
-	transform: scale(1);
-}
-
-.modalRadio > label {
-	font-weight: bold;
-}
-
 .modalInteractable {
 	cursor: pointer;
 }

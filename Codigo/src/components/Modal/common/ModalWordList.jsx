@@ -5,7 +5,7 @@ export default function ModalWordList({ wordList, onEdit, onDelete }) {
 	const [isEdittingWord, setIsEdittingWord] = useState(null);
 
 	return (
-		<ul className="custom-scrollbar mb-8 flex max-h-48 flex-col gap-y-3 overflow-y-auto p-4">
+		<ul className="custom-scrollbar mb-8 flex max-h-48 flex-col gap-3 overflow-y-auto p-4">
 			{wordList &&
 				wordList.map((word, index) => {
 					return (
@@ -14,7 +14,7 @@ export default function ModalWordList({ wordList, onEdit, onDelete }) {
 							word={word}
 							index={index}
 							isEdittingWord={isEdittingWord}
-							setIsEdittingWord={(index) => setIsEdittingWord(index)}
+							setIsEdittingWord={setIsEdittingWord}
 							onEdit={onEdit}
 							onDelete={onDelete}
 						/>

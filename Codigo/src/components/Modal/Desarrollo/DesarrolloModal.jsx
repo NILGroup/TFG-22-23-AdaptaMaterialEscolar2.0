@@ -18,8 +18,8 @@ import Modal from "../common/Modal";
 
 import { Transforms } from "slate";
 
-import ModalPreview from "../common/ModalPreview";
 import ModalButton from "../common/ModalButton";
+import ModalPreview from "../common/ModalPreview";
 
 const typeStaff = {
 	grid: 0,
@@ -162,7 +162,9 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</div>
 
 					<div className="my-5">
-						<h2 className="text-xl inline-block mr-5">Número de filas:</h2>
+						<h2 className="mr-5 inline-block text-xl">
+							Número de filas:
+						</h2>
 						<input
 							type="number"
 							name="num_filas"
@@ -358,9 +360,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 
-					
 					<hr className="my-6" />
-					
 
 					<ModalPreview>
 						{textareaValue}
@@ -368,9 +368,13 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</ModalPreview>
 
 					<div className="flex justify-center">
-						<button type="submit" className="mt-5 w-2/12 self-center py-2 text-[1.4rem] rounded-md bg-sky-500 text-white hover:bg-sky-600">OK</button>
+						<button
+							type="submit"
+							className="mt-5 w-2/12 self-center rounded-md bg-sky-500 py-2 text-[1.4rem] text-white hover:bg-sky-600"
+						>
+							OK
+						</button>
 					</div>
-
 				</form>
 			</div>
 		</Modal>

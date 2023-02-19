@@ -1,21 +1,10 @@
 import React from "react";
 
-export default function ModalButton({
-	className,
-	children,
-	onClick,
-	disabled,
-}) {
-	const enabledClass = "rounded-md bg-sky-500 text-white hover:bg-sky-600";
-	const disabledClass = "rounded-md bg-sky-500 text-white bg-opacity-50";
-
+export default function ModalButton({ children, className, ...restProps }) {
 	return (
 		<button
-			className={`${className} ${
-				!disabled ? enabledClass : disabledClass
-			}`}
-			onClick={() => onClick()}
-			disabled={disabled}
+			className={`${className} rounded-md bg-sky-500 text-white enabled:hover:bg-sky-600 disabled:bg-opacity-60`}
+			{...restProps}
 		>
 			{children}
 		</button>

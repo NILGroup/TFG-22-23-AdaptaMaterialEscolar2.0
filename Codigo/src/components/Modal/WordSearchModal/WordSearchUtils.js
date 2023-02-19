@@ -34,7 +34,13 @@ export const createWordSearch = (wordList, options) => {
 	}
 };
 
-export const checkErrors = (wordList, wordSearchObject, rows, cols, directions) => {
+export const checkErrors = (
+	wordList,
+	wordSearchObject,
+	rows,
+	cols,
+	directions
+) => {
 	const ERROR_NO_WORDS =
 		"Es necesario introducir alguna palabra para la sopa de letras.";
 	const ERROR_NO_DIRECTIONS =
@@ -42,7 +48,7 @@ export const checkErrors = (wordList, wordSearchObject, rows, cols, directions) 
 	const ERROR_INVALID_DIMENSIONS =
 		"Número de filas y/o columnas inválido. Deben ser números positivos mayores que cero.";
 	const ERROR_NOT_ENOUGH_CELLS =
-		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el valor de las filas o las columnas.";
+		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el valor de las filas, las columnas o las direcciones permitidas.";
 
 	let errors = [];
 
@@ -61,7 +67,10 @@ export const checkErrors = (wordList, wordSearchObject, rows, cols, directions) 
 		errors.push(ERROR_INVALID_DIMENSIONS);
 	}
 
-	if (!wordSearchObject.words || wordSearchObject.words < wordList.length) {
+	if (
+		!wordSearchObject.words ||
+		wordSearchObject.words.length < wordList.length
+	) {
 		errors.push(ERROR_NOT_ENOUGH_CELLS);
 	}
 
