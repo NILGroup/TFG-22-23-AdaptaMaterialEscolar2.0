@@ -13,43 +13,49 @@ import ModalWordList from "../common/ModalWordList";
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
+	const [isListaModified, setIsListaModified] = useState(false);
 	const [aleatorio, setaleatorio] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
 
-	// useEffect(() => {
-	// 	if(!lista)
-	// 		setListaVistaP([]);
-	// 	else
-	// 		setListaVistaP((previousList) => [...previousList, lista[lista.length - 1]]);
+	useEffect(() => {
+		if(lista.length>0 && !isListaModified)
+			setListaVistaP((previousList) => [...previousList, lista[lista.length - 1]]);
+		
+		else if(lista.length<=0){
+			setListaVistaP([]);
 
-	// 	console.log(listaVistaP);
-	// }, [lista]);
+		}
 
-	const icon = "◻"; // TODO: Cambiar por un icono SVG ya que podria haber problemas de compatibilidad
-	const inserjer = (editor, items, icon) => {
+	}, [lista]);
+
+	
+	const inserjer = (editor, items) => {
+		onClose();
 		const list = { type: "list", children: [] };
 		const listItem = {
-			type: "list-item",
+			type: "paragraph",
 			children: [
 				{ text: "Responde Verdadero o Falso. Según corresponda." },
 			],
 		};
+	
 		list.children.push(listItem);
 		items.forEach((item) => {
 			const listItem = {
 				type: "list-item",
-				children: [{ text: icon }, { text: item }],
+				texto:item,
+				children: [{ text: "" }],
 			};
 
 			list.children.push(listItem);
 		});
+	
 		Transforms.insertNodes(editor, list);
 	};
 
 	const submit = (newWord) => {
 		setLista([...lista, newWord]);
-		setListaVistaP([...listaVistaP, newWord]);
-
+		//setListaVistaP([...listaVistaP, newWord]);
 		setmodificado([...modificado, false]);
 		setaleatorio([...aleatorio, Math.random()]);
 	};
@@ -65,8 +71,9 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.filter(
 				(word, wordIndex) => wordIndex !== index
 			);
-
+			setIsListaModified(true)
 			setListaVistaP([...newList]);
+		
 
 			return newList;
 		});
@@ -83,9 +90,9 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.map((word, wordIndex) =>
 				wordIndex === index ? String(newValue) : word
 			);
-
+			setIsListaModified(true)
 			setListaVistaP([...newList]);
-
+		
 			return newList;
 		});
 	};
@@ -151,6 +158,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 						)}
 						<ul className={modalStyleVF.uldina}>
 							{listaVistaP.map((elem, i) => {
+								
 								return (
 									<li
 										key={`concepto-${i}`}
@@ -172,7 +180,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 						onClick={(event) => {
 							event.preventDefault();
 							event.preventDefault();
-							inserjer(editor, listaVistaP, icon);
+							inserjer(editor, listaVistaP);
 							setLista([]);
 							setListaVistaP([]);
 							setaleatorio([]);
