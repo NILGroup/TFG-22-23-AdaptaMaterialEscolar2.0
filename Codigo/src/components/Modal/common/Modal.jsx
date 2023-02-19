@@ -29,7 +29,9 @@ export default function Modal({ title, className, isOpen, onClose, children }) {
 						<ModalHeader title={title} onClose={closeModal} />
 
 						{/* Modal Body */}
-						<div className="bg-white px-5 py-6">{children}</div>
+						<div className="bg-white px-5 py-6 font-main text-modal-base">
+							{children}
+						</div>
 					</div>
 				</div>
 			</div>

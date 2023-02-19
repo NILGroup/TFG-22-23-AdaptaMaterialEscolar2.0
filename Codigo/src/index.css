@@ -4,25 +4,27 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap");
 
-:root {
-	--color-primary: #e38787;
-	--color-secondary: #2d4555;
-	--color-background-white: white;
-	--color-background-grey: #fbfbfb;
-	--color-background-grey-md: #efefef;
-	--color-background-grey-dk: #d2d2d2;
-	--color-text-black: black;
-	--color-text-white: white;
-	--color-button-blue: #0c8ce9;
-	--color-button-blue-dk: #0b7ecf;
-	--color-tooltip: #0c8de9ab;
-	--color-editor-bg: #e6e6e6;
-	--color-editor-border: #c6c6c6;
-	--color-editor-bg-toolbar: white;
-	--color-editor-bg-editable: white;
-	--color-editor-border-editable: #c6c6c6;
-	--font-main: "Open Sans", sans-serif;
-	--font-modal-title: "Roboto Slab", serif;
+@layer base {
+	:root {
+		--color-primary: #e38787;
+		--color-secondary: #2d4555;
+		--color-background-white: white;
+		--color-background-grey: #fbfbfb;
+		--color-background-grey-md: #efefef;
+		--color-background-grey-dk: #d2d2d2;
+		--color-text-black: black;
+		--color-text-white: white;
+		--color-button: #0c8ce9;
+		--color-button-dk: #0b7ecf;
+		--color-tooltip: #0c8de9ab;
+		--color-editor-bg: #e6e6e6;
+		--color-editor-border: #c6c6c6;
+		--color-editor-bg-toolbar: white;
+		--color-editor-bg-editable: white;
+		--color-editor-border-editable: #c6c6c6;
+		--font-main: "Open Sans", sans-serif;
+		--font-modal-title: "Roboto Slab", serif;
+	}
 }
 
 *,
@@ -42,10 +44,6 @@ body {
 
 	background-color: var(--color-background-white);
 	color: var(--color-text-black);
-}
-
-body.modal-open {
-	overflow-y: hidden;
 }
 
 a {

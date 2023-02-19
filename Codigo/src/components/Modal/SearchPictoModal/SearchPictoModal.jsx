@@ -5,6 +5,9 @@ import ModalPictogramList from "./ModalPictogramList";
 
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
+import ModalButton from "../common/ModalButton";
+
+import { MdOutlineImageSearch } from "react-icons/md";
 
 export default function SearchPictoModal({ editor, isOpen, onClose }) {
 	// Estados del modal
@@ -47,7 +50,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 			onClose={closeModal}
 		>
 			<form
-				className={style.modalForm}
+				className="flex flex-col gap-5"
 				onSubmit={(e) => {
 					e.preventDefault();
 
@@ -55,10 +58,10 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 					getPictograms(searchParam, setPictogramList);
 				}}
 			>
-				<div className={style.modalFormGroup}>
+				<div>
 					<label
 						htmlFor="searchPictogram"
-						className={style.modalLabelHeading}
+						className="text-modal-heading"
 					>
 						Buscador
 					</label>
@@ -66,15 +69,17 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 						type="text"
 						name="searchPictogram"
 						id="searchPictogram"
-						className={style.modalInput}
+						className="w-full rounded-md border-2 border-gray-300 bg-gray-100 px-2 py-1 focus:border-blue-300"
 						required
 					/>
 				</div>
-				<input
+				<ModalButton
 					type="submit"
-					value="Buscar"
-					className={`${style.modalButton} ${style.modalCenter}`}
-				/>
+					className="flex items-center gap-2 self-center py-2 px-4 text-modal-base-lg"
+				>
+					Buscar
+					<MdOutlineImageSearch />
+				</ModalButton>
 			</form>
 			{pictogramList && <hr className={style.modalHorizontalRule} />}
 			{isLoading ? (
