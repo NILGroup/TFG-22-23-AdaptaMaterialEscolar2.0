@@ -18,6 +18,7 @@ import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
 import { withImages } from "./plugins/withImages";
 import style from "./SlateEditor.module.css";
+import { withEmbeds } from "./plugins/withEmbeds";
 
 const initialValue = [
 	{
@@ -28,7 +29,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withImages(withReact(createEditor())), []);
+	const editor = useMemo(() => withImages(withEmbeds(withReact(createEditor()))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -41,7 +42,7 @@ export default function SlateEditor() {
 				return <ImageElement {...props} />;
 			case "definition":
 				return <Definition {...props} />;
-			case "staff":
+			case "embeds":
 				return <Staff {...props} />;
 			case "linea":
 				return <Linea {...props} />;
