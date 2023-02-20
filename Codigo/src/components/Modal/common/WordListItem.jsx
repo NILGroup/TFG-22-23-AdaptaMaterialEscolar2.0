@@ -34,7 +34,7 @@ export default function ModalWordListItem({
 				<span>{word}</span>
 				<div className={style.modalButtonContainer}>
 					<button
-						className={style.modalIconButton}
+						className="rounded-full bg-button p-2 text-modal-base text-white"
 						onClick={() => {
 							setNewValue(word);
 							setIsEdittingWord(index);
@@ -43,7 +43,7 @@ export default function ModalWordListItem({
 						<HiOutlinePencil />
 					</button>
 					<button
-						className={style.modalIconButton}
+						className="rounded-full bg-button p-2 text-modal-base text-white"
 						onClick={() => {
 							onDelete(index);
 							setIsEdittingWord(null);

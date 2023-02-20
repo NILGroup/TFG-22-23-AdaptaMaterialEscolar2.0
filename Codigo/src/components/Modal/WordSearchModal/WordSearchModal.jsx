@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
@@ -18,104 +18,162 @@ import {
 import { Transforms } from "slate";
 import ModalCheckbox from "../common/ModalCheckbox";
 
-export default function WordSearchModal({ editor, isOpen, onClose }) {
-	// Valores por defecto del estado
-	const DEFAULT_NUM_ROWS = 1;
-	const DEFAULT_NUM_COLS = 1;
-	const DEFAULT_WORD_LIST = [];
-	const DEFAULT_DIRECTIONS = {
+// Valores por defecto del estado
+const initialState = {
+	numRows: 1,
+	numCols: 1,
+	wordList: [],
+	directions: {
 		horizontal: true,
 		vertical: false,
 		diagonal: false,
 		backwards: false,
-	};
+	},
+};
 
+// Tipos de accion para modificar el estado del componente
+const ActionType = Object.freeze({
+	resetState: Symbol("resetstate"),
+	updateNumRows: Symbol("updatenumrows"),
+	updateNumCols: Symbol("updatenumcols"),
+	addWordToWordList: Symbol("addwordtowordlist"),
+	editWordOfWordList: Symbol("editwordofwordlist"),
+	deleteWordFromWordList: Symbol("deletewordfromwordlist"),
+	updateDirections: Symbol("updatedirections"),
+});
+
+// Modificar el estado dependiendo de la accion ejecutada
+const reducer = (state, action) => {
+	switch (action.type) {
+		case ActionType.resetState: {
+			return { ...initialState };
+		}
+		case ActionType.updateNumRows: {
+			const nextNumRows = action.nextValue;
+
+			if (nextNumRows < 1) return { ...state };
+
+			return { ...state, numRows: nextNumRows };
+		}
+		case ActionType.updateNumCols: {
+			const nextNumCols = action.nextValue;
+
+			if (nextNumCols < 1) return { ...state };
+
+			return { ...state, numCols: nextNumCols };
+		}
+		case ActionType.addWordToWordList: {
+			const wordToAdd = action.newWord.replace(/\s/g, "");
+
+			return { ...state, wordList: [...state.wordList, wordToAdd] };
+		}
+		case ActionType.editWordOfWordList: {
+			const index = action.index;
+			const newValue = action.newValue.replace(/\s/g, "");
+
+			if (!state.wordList || state.wordList.length <= 0)
+				throw new Error(
+					"Cannot update word, word list does not exist or is empty!"
+				);
+
+			if (index < 0 || index >= state.wordList.length)
+				throw new Error(
+					`Cannot update word, index out of range: ${index} - Wordlist's length: ${state.wordList.length}`
+				);
+
+			return {
+				...state,
+				wordList: state.wordList.map((word, wordIndex) =>
+					wordIndex === index ? String(newValue) : word
+				),
+			};
+		}
+		case ActionType.deleteWordFromWordList: {
+			const index = action.index;
+
+			if (!state.wordList || state.wordList.length <= 0)
+				throw new Error(
+					"Cannot delete word, word list does not exist or is empty!"
+				);
+
+			if (index < 0 || index >= state.wordList.length)
+				throw new Error(
+					`Cannot delete word, index out of range: ${index} - Wordlist's length: ${state.wordList.length}`
+				);
+
+			return {
+				...state,
+				wordList: state.wordList.filter(
+					(word, wordIndex) => wordIndex !== index
+				),
+			};
+		}
+		//TODO: Mejorar la forma en la que se gestionan las direcciones
+		case ActionType.updateDirections: {
+			switch (action.direction) {
+				case "horizontal":
+					return {
+						...state,
+						directions: {
+							...state.directions,
+							horizontal: action.newValue,
+						},
+					};
+				case "vertical":
+					return {
+						...state,
+						directions: {
+							...state.directions,
+							vertical: action.newValue,
+						},
+					};
+				case "diagonal":
+					return {
+						...state,
+						directions: {
+							...state.directions,
+							diagonal: action.newValue,
+						},
+					};
+				case "backwards":
+					return {
+						...state,
+						directions: {
+							...state.directions,
+							backwards: action.newValue,
+						},
+					};
+				default:
+					throw new Error(`Undefined direction: ${action.direction}`);
+			}
+		}
+		default:
+			throw new Error(`Undefined action: ${action}`);
+	}
+};
+
+export default function WordSearchModal({ editor, isOpen, onClose }) {
 	// Estado del componente
-	const [numRows, setNumRows] = useState(DEFAULT_NUM_ROWS);
-	const [numCols, setNumCols] = useState(DEFAULT_NUM_ROWS);
-	const [wordList, setWordList] = useState(DEFAULT_WORD_LIST);
-	const [directions, setDirections] = useState(DEFAULT_DIRECTIONS);
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	// Datos que se pueden generar con el estado (se calculan cada vez que se renderiza la vista)
-	const options = generateOptionsObject(numRows, numCols, directions);
-	const wordSearch = createWordSearch(wordList, options);
-
-	const errors = checkErrors(
-		wordList,
-		wordSearch.object,
-		numRows,
-		numCols,
-		directions
+	const options = generateOptionsObject(
+		state.numRows,
+		state.numCols,
+		state.directions
+	);
+	const { object: wordSearch, grid: wordSearchGrid } = createWordSearch(
+		state.wordList,
+		options
 	);
 
-	const wordSearchGrid = wordSearch.grid;
-
-	// Metodos auxiliares
-	const addWordToList = (word) => {
-		const wordToAdd = word.replace(/\s/g, "");
-
-		if (!wordList) setWordList([wordToAdd]);
-		else
-			setWordList((previousWordList) => [...previousWordList, wordToAdd]);
-	};
-
-	const deleteWord = (index) => {
-		if (!wordList)
-			throw new Error("Cannot delete word, word list does not exist!");
-
-		if (index < 0 || index >= wordList.length)
-			throw new Error("Cannot delete word, index out of range!");
-
-		setWordList((previousWordList) =>
-			previousWordList.filter((word, wordIndex) => wordIndex !== index)
-		);
-	};
-
-	const editWord = (newValue, index) => {
-		if (!wordList)
-			throw new Error("Cannot update word, word list does not exist!");
-
-		if (index < 0 || index >= wordList.length)
-			throw new Error("Cannot update word, index out of range!");
-
-		setWordList((previousWordList) =>
-			previousWordList.map((word, wordIndex) =>
-				wordIndex === index ? String(newValue) : word
-			)
-		);
-	};
-
-	const setDirection = (direction, value) => {
-		let newDirections = { ...directions };
-
-		switch (direction) {
-			case "horizontal":
-				newDirections.horizontal = value;
-				break;
-			case "vertical":
-				newDirections.vertical = value;
-				break;
-			case "diagonal":
-				newDirections.diagonal = value;
-				break;
-			case "backwards":
-				newDirections.backwards = value;
-				break;
-			default:
-				throw new Error("Undefined direction!");
-		}
-
-		setDirections(newDirections);
-	};
-
-	const closeModal = () => {
-		setNumRows(DEFAULT_NUM_ROWS);
-		setNumCols(DEFAULT_NUM_COLS);
-		setWordList(DEFAULT_WORD_LIST);
-		setDirections(DEFAULT_DIRECTIONS);
-
-		onClose();
-	};
+	const errors = checkErrors(
+		state.wordList,
+		wordSearch,
+		state.numRows,
+		state.numCols,
+		state.directions
+	);
 
 	const parseDirection = (direction) => {
 		switch (direction) {
@@ -133,6 +191,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	};
 
 	const generateExerciseStatement = () => {
+		const { wordList, directions } = state;
+
 		const enabledDirections = Object.keys(directions)
 			.filter((key) => directions[key] === true)
 			.map((key) => parseDirection(key));
@@ -154,6 +214,12 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		}${directionsStatement}: `;
 
 		return statement;
+	};
+
+	const closeModal = () => {
+		dispatch({ type: ActionType.resetState });
+
+		onClose();
 	};
 
 	const handleOk = (editor, wordSearchGrid) => {
@@ -188,8 +254,13 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 						name="numRows"
 						min="1"
-						value={numRows}
-						onChange={(e) => setNumRows(e.target.value)}
+						value={state.numRows}
+						onChange={(e) =>
+							dispatch({
+								type: ActionType.updateNumRows,
+								nextValue: e.target.value,
+							})
+						}
 					/>
 					<label htmlFor="numCols">Número de columnas</label>
 					<input
@@ -198,25 +269,42 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 						name="numCols"
 						min="1"
-						value={numCols}
-						onChange={(e) => setNumCols(e.target.value)}
+						value={state.numCols}
+						onChange={(e) =>
+							dispatch({
+								type: ActionType.updateNumCols,
+								nextValue: e.target.value,
+							})
+						}
 					/>
 				</div>
 				<div className="lg:grid lg:grid-cols-2 lg:gap-2">
 					<div className="">
 						<ModalNewWordInput
 							title="Palabras"
-							onSubmit={(newWord) => {
-								addWordToList(newWord);
-							}}
+							onSubmit={(newWord) =>
+								dispatch({
+									type: ActionType.addWordToWordList,
+									newWord,
+								})
+							}
 						/>
 
 						<ModalWordList
-							wordList={wordList}
+							wordList={state.wordList}
 							onEdit={(newValue, index) =>
-								editWord(newValue, index)
+								dispatch({
+									type: ActionType.editWordOfWordList,
+									index,
+									newValue,
+								})
 							}
-							onDelete={(index) => deleteWord(index)}
+							onDelete={(index) =>
+								dispatch({
+									type: ActionType.deleteWordFromWordList,
+									index,
+								})
+							}
 						/>
 					</div>
 					<div className="">
@@ -243,10 +331,11 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="horizontal"
 								id="horizontal"
 								onChange={(e) => {
-									setDirection(
-										"horizontal",
-										e.target.checked
-									);
+									dispatch({
+										type: ActionType.updateDirections,
+										direction: "horizontal",
+										newValue: e.target.checked,
+									});
 								}}
 								defaultChecked
 							/>
@@ -255,7 +344,11 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="vertical"
 								id="vertical"
 								onChange={(e) => {
-									setDirection("vertical", e.target.checked);
+									dispatch({
+										type: ActionType.updateDirections,
+										direction: "vertical",
+										newValue: e.target.checked,
+									});
 								}}
 							/>
 							<ModalCheckbox
@@ -263,7 +356,11 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="diagonal"
 								id="diagonal"
 								onChange={(e) => {
-									setDirection("diagonal", e.target.checked);
+									dispatch({
+										type: ActionType.updateDirections,
+										direction: "diagonal",
+										newValue: e.target.checked,
+									});
 								}}
 							/>
 							<ModalCheckbox
@@ -271,7 +368,11 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="backwards"
 								id="backwards"
 								onChange={(e) => {
-									setDirection("backwards", e.target.checked);
+									dispatch({
+										type: ActionType.updateDirections,
+										direction: "backwards",
+										newValue: e.target.checked,
+									});
 								}}
 							/>
 						</div>
