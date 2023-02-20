@@ -14,4 +14,5 @@
 *.blg
 *.bbl
 *.blg
-!build/*.pdf
+*.pdf
+build

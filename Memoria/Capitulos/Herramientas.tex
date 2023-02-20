@@ -1,0 +1,15 @@
+\chapter{Herramientas Empleadas}\label{ch:herramientas}
+
+En este capítulo se explican las herramientas, librerias y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la seccion~\ref{sec:tailwind} se explica el framework Tailwind CSS.
+
+\section{Tailwind CSS}\label{sec:tailwind}
+A continuación se explica que es Tailwind CSS, porque hemos decidido utilizarlo y que algunas de las ventajas que ofrece. Además se muestran y explican algunos ejemplos de uso básicos.
+
+Tailwind CSS\footnote{\url{https://tailwindcss.com/}} es un framework CSS que permite aplicar estilos predefinidos directamente en el HTML sin tener que crear y manejar archivos CSS propios para conseguir un estilo concreto. Hemos decidido utilizar este framework porque facilita la labor de dar estilo al HTML de la página, debido a que no tenemos que pensar en que clases o identificadores dar a los elementos HTML y, por lo general, tampoco necesitamos gestionar un archivo CSS por cada página o componente de React. Otra de las razones por las que hemos escogido este framework frente a otros muy parecidos, como Bootstrap\footnote{\url{https://getbootstrap.com/}}, es la facilidad que ofrece para personalizarlo y adaptarlo a nuestras necesidades. En el caso de Bootstrap, necesitas utilizar SASS o crear tus propios archivos CSS para poder mantener un esquema de colores, mientras que en Tailwind CSS modificando un archivo de configuración puedes añadir colores, cambiar el tipo de fuente, el tamaño de letra, etc. Otras ventajas que ofrece son:
+\begin{itemize}
+    \item \textbf{Rendimiento}: Tailwind elimina automáticamente todo el CSS que no se utilice a la hora de desplegar en producción la apliación, consiguiendo que el paquete de CSS que se envía al cliente sea lo más pequeño posible.
+    \item \textbf{Diseño responsive}: Permite aplicar distintos estilos dependiendo del tamaño de la ventana sin necesidad de pelearse con media queries\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries}} de CSS.
+    \item \textbf{Reutilización}: Tailwind permite reutilizar conjuntos de utilidades que se repitan mucho definiendo una clase CSS propia que los aplique todos. Aun así, nosotros no utilizaremos, principalmente, el método que ofrece Tailwind para reutilizar estilos, ya que podemos conseguir el mismo resultado creando un componente de React, con la ventaja de poder añadir lógica de JavaScript.
+\end{itemize}
+
+% TODO: Añadir ejemplos de uso
