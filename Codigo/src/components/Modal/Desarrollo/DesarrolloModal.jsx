@@ -21,32 +21,15 @@ import { Transforms } from "slate";
 import ModalButton from "../common/ModalButton";
 import ModalPreview from "../common/ModalPreview";
 
-const typeStaff = {
-	grid: 0,
-	doubleLine: 1,
-	line: 2,
-};
+import StaffButtons from "../common/StaffButtons";
+
+
 
 export default function DesarrolloModal({ editor, isOpen, onClose }) {
-	const [option, setOption] = useState("doubleLine_2_5");
-	//Boton de pauta:
-	const [open, setOpen] = useState(Array(3).fill(false));
-
-	const handleChange = (event) => {
-		setOption(event.target.value);
-	};
-
-	const handleClose = (i) => {
-		setOpen(open.map((e, j) => false));
-	};
-
-	const handleOpen = (i) => {
-		setOpen(open.map((e, j) => i === j));
-	};
 
 	const [textareaValue, setTextareaValue] = useState("");
 	const [numFilas, setNumFilas] = useState(1);
-	const [tipoPauta, setTipoPauta] = useState("lineaNormal");
+	const [value, setValue] = useState('');
 
 	const handleEnunciadoChange = (event) => {
 		setTextareaValue(event.target.value);
@@ -56,51 +39,22 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		setNumFilas(event.target.value);
 	};
 
-	const handleTipoPautaChange = (event) => {
-		setTipoPauta(event.target.value);
-	};
-
-	/*const renderLines = (numFilas, tipoPauta) => {
-
-        let lines = [];
-
-        let clase = lineStyle.lineaNormal;
-
-        if (tipoPauta === "lineaNormal") {
-            clase = lineStyle.lineaNormal;
-        }
-        else if (tipoPauta === "lineaDoblePauta") {
-            clase = lineStyle.lineaDoblePauta;
-        }
-        else {
-            clase = lineStyle.lineaNormal;
-        }
-
-        for (let i = 0; i < numFilas; i++) {
-            lines.push(<div className={clase} key={i}></div>)
-        }
-
-        return lines;
-    }*/
-
 	const renderLines = () => {
 		let lines = [];
-		let space = (num) =>
-			/^doubleLine/.test(option) ? (
-				<div className={guideLine.space} key={`space_${num}`}></div>
-			) : (
-				<></>
-			);
+		let renderOption = value === '' ? 'doubleLine_2_5': value
+		let space = () =>
+			/^doubleLine/.test(renderOption) && (
+				<div className={guideLine.space}></div>
+			)
 
 		for (let i = 0; i < numFilas; i++) {
 			lines.push(
-				<>
-					<div className={guideLine[option]} key={`pauta_${i}`}></div>
-					{space(i)}
-				</>
+				<div key={`pauta_${i}`}>
+					<div className={guideLine[renderOption]}> </div>
+					{space()}
+				</div>
 			);
 		}
-
 		return lines;
 	};
 
@@ -114,19 +68,28 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		};
 		ejercicio.children.push(enunciado);
 
-		for (let i = 0; i < numFilas; i++) {
-			//ejercicio.children.push({ type: 'linea', tipoPauta: tipoPauta, children: [{ text: '' }] })
+		let renderOption = value === '' ? 'doubleLine_2_5': value;
+
+
+		for (let j = 0; j < numFilas; j++) {
 			ejercicio.children.push({
-				type: "staff",
-				style: option,
+				type: "embeds",
+				style: renderOption,
 				children: [{ text: "" }],
 			});
 			ejercicio.children.push({
-				type: "staff",
+				type: "embeds",
 				style: "space",
 				children: [{ text: "" }],
 			});
 		}
+
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
+
+		setValue("");
 
 		Transforms.insertNodes(editor, ejercicio);
 	};
@@ -174,197 +137,14 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</div>
 
 					<div className="">
-						<h3 className="text-xl">Tipo de pauta</h3>
-
-						{/* <select
-							value={tipoPauta}
-							onChange={handleTipoPautaChange}
-						>
-							<option value="lineaNormal">Normal</option>
-							<option value="lineaDoblePauta">Doble pauta</option>
-						</select> */}
-
-						<div className={style.buttons}>
-							<div className={style.staff}>
-								<IconButton
-									className={style.staffButton}
-									onClick={() => handleOpen(typeStaff.grid)}
-								>
-									<AiOutlineBorderlessTable
-										style={{
-											width: "1rem",
-											height: "1rem",
-										}}
-									/>
-									<IoMdArrowDropdown
-										style={{
-											width: "0.8rem",
-											height: "0.8rem",
-										}}
-									/>
-								</IconButton>
-								<FormControl>
-									<Select
-										className={style.select}
-										id="demo-controlled-open-select"
-										open={open[typeStaff.grid]}
-										onClose={() =>
-											handleClose(typeStaff.grid)
-										}
-										onOpen={() =>
-											handleOpen(typeStaff.grid)
-										}
-										value={option}
-										onChange={handleChange}
-										disableUnderline
-										variant="standard"
-										inputProps={{
-											IconComponent: () => null,
-										}}
-									>
-										<MenuItem value="grid_5">5 mm</MenuItem>
-										<MenuItem value="grid_6">6 mm</MenuItem>
-										<MenuItem value="grid_8">8 mm</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
-
-							<div className={style.staff}>
-								<IconButton
-									className={style.staffButton}
-									onClick={() =>
-										handleOpen(typeStaff.doubleLine)
-									}
-								>
-									<TfiLineDouble
-										style={{
-											width: "1rem",
-											height: "1rem",
-										}}
-									/>
-									<IoMdArrowDropdown
-										style={{
-											width: "0.8rem",
-											height: "0.8rem",
-										}}
-									/>
-								</IconButton>
-								<FormControl>
-									<Select
-										className={style.select}
-										id="demo-controlled-open-select"
-										open={open[typeStaff.doubleLine]}
-										onClose={() =>
-											handleClose(typeStaff.doubleLine)
-										}
-										onOpen={() =>
-											handleOpen(typeStaff.doubleLine)
-										}
-										value={option}
-										onChange={handleChange}
-										disableUnderline
-										variant="standard"
-										inputProps={{
-											IconComponent: () => null,
-										}}
-									>
-										<MenuItem value="doubleLine_2_5">
-											2,5 mm
-										</MenuItem>
-										<MenuItem value="doubleLine_3">
-											3 mm
-										</MenuItem>
-										<MenuItem value="doubleLine_3_5">
-											3,5 mm
-										</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
-
-							<div className={style.staff}>
-								<IconButton
-									className={style.staffButton}
-									onClick={() => handleOpen(typeStaff.line)}
-								>
-									<HiOutlineMinus
-										style={{
-											width: "1rem",
-											height: "1rem",
-										}}
-									/>
-									<IoMdArrowDropdown
-										style={{
-											width: "0.8rem",
-											height: "0.8rem",
-										}}
-									/>
-								</IconButton>
-								<FormControl>
-									<Select
-										className={style.select}
-										id="demo-controlled-open-select"
-										open={open[typeStaff.line]}
-										onClose={() =>
-											handleClose(typeStaff.line)
-										}
-										onOpen={() =>
-											handleOpen(typeStaff.line)
-										}
-										value={option}
-										onChange={handleChange}
-										disableUnderline
-										variant="standard"
-										inputProps={{
-											IconComponent: () => null,
-										}}
-									>
-										<MenuItem value="line_2_5">
-											2,5 mm
-										</MenuItem>
-										<MenuItem value="line_3">3 mm</MenuItem>
-										<MenuItem value="line_3_5">
-											3,5 mm
-										</MenuItem>
-									</Select>
-								</FormControl>
-							</div>
-
-							<div className={style.staff}>
-								<IconButton
-									className={style.staffButton_small}
-									onClick={() => setOption("square")}
-								>
-									<BiRectangle
-										style={{
-											width: "1rem",
-											height: "1rem",
-										}}
-									/>
-								</IconButton>
-							</div>
-
-							<div
-								className={style.staff}
-								onClick={() => setOption("square_space")}
-							>
-								<IconButton className={style.staffButton_small}>
-									<BiRectangle
-										style={{
-											width: "1rem",
-											height: "1rem",
-											color: "transparent",
-										}}
-									/>
-								</IconButton>
-							</div>
-						</div>
+						<StaffButtons setValue={setValue}/>
 					</div>
 
 					<hr className="my-6" />
 
 					<ModalPreview>
 						{textareaValue}
-						{renderLines(numFilas, tipoPauta)}
+						{renderLines()}
 					</ModalPreview>
 
 					<div className="flex justify-center">
