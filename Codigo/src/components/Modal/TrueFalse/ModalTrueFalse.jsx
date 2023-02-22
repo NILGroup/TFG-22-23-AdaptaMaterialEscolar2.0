@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-import modalStyleVF from "./VFModal.module.css";
-
-import { BiRectangle } from "react-icons/bi";
-import { IoAddCircle } from "react-icons/io5";
 import { Transforms } from "slate";
+import { BiRectangle } from "react-icons/bi";
 
 import Modal from "../common/Modal";
+import ModalButton from "../common/ModalButton";
 import ModalNewWordInput from "../common/ModalNewWordInput";
+import ModalOkButton from "../common/ModalOkButton";
+import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
+
 
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
@@ -17,19 +17,23 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [aleatorio, setaleatorio] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
 
+
 	useEffect(() => {
-		if(lista.length>0 && !isListaModified)
+		if (lista.length > 0 && !isListaModified)
 			setListaVistaP((previousList) => [...previousList, lista[lista.length - 1]]);
-		
-		else if(lista.length<=0){
+
+		else if (lista.length <= 0) {
 			setListaVistaP([]);
 
+		}
+		else{
+			setIsListaModified(false)
 		}
 
 	}, [lista]);
 
-	
-	const inserjer = (editor, items) => {
+
+	const okButton = (editor, items) => {
 		onClose();
 		const list = { type: "list", children: [] };
 		const listItem = {
@@ -38,18 +42,18 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 				{ text: "Responde Verdadero o Falso. Según corresponda." },
 			],
 		};
-	
+
 		list.children.push(listItem);
 		items.forEach((item) => {
 			const listItem = {
 				type: "list-item",
-				texto:item,
+				texto: item,
 				children: [{ text: "" }],
 			};
 
 			list.children.push(listItem);
 		});
-	
+
 		Transforms.insertNodes(editor, list);
 	};
 
@@ -73,7 +77,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			);
 			setIsListaModified(true)
 			setListaVistaP([...newList]);
-		
+
 
 			return newList;
 		});
@@ -92,7 +96,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			);
 			setIsListaModified(true)
 			setListaVistaP([...newList]);
-		
+
 			return newList;
 		});
 	};
@@ -104,7 +108,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			isOpen={isOpen}
 			onClose={onClose}
 		>
-			<div className={modalStyleVF.frase}>
+			<div className="flex flex-col">
 				<ModalNewWordInput
 					title="Frase"
 					onSubmit={(newWord) => submit(newWord)}
@@ -116,80 +120,69 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 				/>
 
 				<hr />
-				<div className={modalStyleVF.vistaP}>
-					<div className={modalStyleVF.vistaPCab}>
-						<p>Vista Previa </p>
-						<button
-							className={modalStyleVF.btnReor}
-							onClick={(event) => {
-								event.preventDefault();
 
-								setaleatorio(
-									aleatorio.map((elem) => {
-										return Math.random();
-									})
-								);
 
-								let nuevaLista, listaOrdenada, listaFinal;
-								nuevaLista = listaVistaP.map((lis, i) => ({
-									lis,
-									random: aleatorio[i],
-								}));
+				<ModalPreview
+					attributes={<ModalButton
+						className="px-1"
+						disabled={lista.length < 2}
+						onClick={(event) => {
+							event.preventDefault();
 
-								listaOrdenada = nuevaLista.sort(
-									(a, b) => a.random - b.random
-								);
+							setaleatorio(
+								aleatorio.map((elem) => {
+									return Math.random();
+								})
+							);
 
-								listaFinal = listaOrdenada.map(
-									(item) => item.lis
-								);
+							let nuevaLista, listaOrdenada, listaFinal;
+							nuevaLista = listaVistaP.map((lis, i) => ({
+								lis,
+								random: aleatorio[i],
+							}));
 
-								setListaVistaP(listaFinal);
-							}}
-						>
-							Reordenar
-						</button>
-					</div>
-					<div className={modalStyleVF.ulD}>
+							listaOrdenada = nuevaLista.sort(
+								(a, b) => a.random - b.random
+							);
+
+							listaFinal = listaOrdenada.map(
+								(item) => item.lis
+							);
+
+							setListaVistaP(listaFinal);
+						}}
+					>
+						Reordenar
+					</ModalButton>}>
+					<div>
 						{lista.length > 0 && (
-							<p className={modalStyleVF.enunciado}>
-								Responde Verdadero o Falso. Según corresponda.
-							</p>
+							<p>Responde Verdadero o Falso. Según corresponda.</p>
 						)}
-						<ul className={modalStyleVF.uldina}>
+						<ul>
 							{listaVistaP.map((elem, i) => {
 								
 								return (
 									<li
 										key={`concepto-${i}`}
-										className={modalStyleVF.liD}
+										className="flex items-center"
 									>
 										<BiRectangle
-											className={modalStyleVF.rect}
+											
 										/>
-										<p>{elem}</p>
+										<p className="pl-1">{elem}</p>
 									</li>
 								);
 							})}
 						</ul>
 					</div>
-				</div>
-				<div className={modalStyleVF.botonDiv}>
-					<button
-						className={modalStyleVF.btnReor}
-						onClick={(event) => {
-							event.preventDefault();
-							event.preventDefault();
-							inserjer(editor, listaVistaP);
-							setLista([]);
-							setListaVistaP([]);
-							setaleatorio([]);
-							setmodificado([]);
-						}}
-					>
-						OK
-					</button>
-				</div>
+				</ModalPreview>
+
+
+				<ModalOkButton 
+					className="mt-2 self-center" 
+					onClick={() => okButton(editor, listaVistaP)}
+					disabled={lista.length == 0}/>
+				
 			</div>
 		</Modal>
 	);
