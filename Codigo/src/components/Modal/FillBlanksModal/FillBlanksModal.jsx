@@ -60,15 +60,15 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 				}}
 			>
 				<div className="flex flex-col items-start gap-2">
-					<h4 className="text-[2rem]">Texto:</h4>
+					<h4 className="text-modal-heading">Texto:</h4>
 					<div className="mt-2 flex w-full flex-col gap-4 px-4">
 						{isAddingGaps ? (
 							<>
-								<p className="self-center text-blue-500 text-opacity-75">
+								<p className="self-center text-tooltip text-opacity-75">
 									Haz clic izquierdo sobre las palabras para
 									convertirlas en huecos
 								</p>
-								<div className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-gray-300 bg-gray-100 p-3">
+								<div className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey p-3">
 									{words?.map((word, index, array) => {
 										if (!word) return null;
 
@@ -76,7 +76,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 											// TODO: Crear un componente para las palabras interactivas
 											<span
 												key={`word-${index}`}
-												className="cursor-pointer hover:font-bold hover:text-red-300"
+												className="cursor-pointer hover:font-bold hover:text-primary"
 												onClick={(e) => {
 													if (
 														e.target.getAttribute(
@@ -129,7 +129,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 							<textarea
 								name="originalText"
 								id="originalText"
-								className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-gray-300 bg-gray-100 p-3 focus:border-sky-500 focus:ring-8 focus:ring-opacity-25"
+								className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey p-3 focus:border-sky-500 focus:ring-8 focus:ring-opacity-25"
 								onChange={handleInput}
 								value={originalText}
 							/>
@@ -148,7 +148,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 					</div>
 				</div>
 				<div className="">
-					<h4 className="text-[2rem] font-normal">
+					<h4 className="text-modal-heading font-normal">
 						Longitud del hueco:
 					</h4>
 					<div className="mt-2 w-full px-4">

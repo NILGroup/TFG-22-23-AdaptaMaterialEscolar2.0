@@ -19,16 +19,20 @@ import { Transforms } from "slate";
 import ModalCheckbox from "../common/ModalCheckbox";
 
 // Valores por defecto del estado
+const DIRECTIONS = {
+	horizontal: "horizontal",
+	vertical: "vertical",
+	diagonal: "diagonal",
+	backwards: "al revés",
+};
+
 const initialState = {
 	numRows: 1,
 	numCols: 1,
 	wordList: [],
-	directions: {
-		horizontal: true,
-		vertical: false,
-		diagonal: false,
-		backwards: false,
-	},
+	directions: Object.keys(DIRECTIONS).reduce((obj, key) => {
+		return { ...obj, [key]: false };
+	}, {}),
 };
 
 // Tipos de accion para modificar el estado del componente
@@ -63,11 +67,15 @@ const reducer = (state, action) => {
 			return { ...state, numCols: nextNumCols };
 		}
 		case ActionType.addWordToWordList: {
+			if (!action.newWord) return { ...state };
+
 			const wordToAdd = action.newWord.replace(/\s/g, "");
 
 			return { ...state, wordList: [...state.wordList, wordToAdd] };
 		}
 		case ActionType.editWordOfWordList: {
+			if (!action.newValue) return { ...state };
+
 			const index = action.index;
 			const newValue = action.newValue.replace(/\s/g, "");
 
@@ -108,44 +116,14 @@ const reducer = (state, action) => {
 				),
 			};
 		}
-		//TODO: Mejorar la forma en la que se gestionan las direcciones
 		case ActionType.updateDirections: {
-			switch (action.direction) {
-				case "horizontal":
-					return {
-						...state,
-						directions: {
-							...state.directions,
-							horizontal: action.newValue,
-						},
-					};
-				case "vertical":
-					return {
-						...state,
-						directions: {
-							...state.directions,
-							vertical: action.newValue,
-						},
-					};
-				case "diagonal":
-					return {
-						...state,
-						directions: {
-							...state.directions,
-							diagonal: action.newValue,
-						},
-					};
-				case "backwards":
-					return {
-						...state,
-						directions: {
-							...state.directions,
-							backwards: action.newValue,
-						},
-					};
-				default:
-					throw new Error(`Undefined direction: ${action.direction}`);
-			}
+			return {
+				...state,
+				directions: {
+					...state.directions,
+					[action.direction]: action.newValue,
+				},
+			};
 		}
 		default:
 			throw new Error(`Undefined action: ${action}`);
@@ -175,27 +153,12 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		state.directions
 	);
 
-	const parseDirection = (direction) => {
-		switch (direction) {
-			case "horizontal":
-				return "horizontal";
-			case "vertical":
-				return "vertical";
-			case "diagonal":
-				return "diagonal";
-			case "backwards":
-				return "al revés";
-			default:
-				throw new Error("Undefined direction!");
-		}
-	};
-
 	const generateExerciseStatement = () => {
 		const { wordList, directions } = state;
 
 		const enabledDirections = Object.keys(directions)
 			.filter((key) => directions[key] === true)
-			.map((key) => parseDirection(key));
+			.map((key) => DIRECTIONS[key]);
 
 		const directionsStatement = `, ${
 			wordList.length === 1 ? "escrita" : "escritas"
@@ -251,7 +214,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					<input
 						type="number"
 						id="numRows"
-						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
+						className="w-12 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
 						name="numRows"
 						min="1"
 						value={state.numRows}
@@ -266,7 +229,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					<input
 						type="number"
 						id="numCols"
-						className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
+						className="w-12 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
 						name="numCols"
 						min="1"
 						value={state.numCols}
@@ -308,6 +271,46 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						/>
 					</div>
 					<div className="">
+						<div className="mb-6">
+							<h4 className="text-modal-heading">
+								Posicionamiento
+							</h4>
+							<div className="md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
+								{DIRECTIONS &&
+									Object.keys(DIRECTIONS)
+										.map((key) => {
+											return {
+												key: key,
+												value: DIRECTIONS[key],
+											};
+										})
+										.map(({ key, value }) => {
+											const capitalizedValue = `${value
+												.charAt(0)
+												.toUpperCase()}${value.slice(
+												1
+											)}`;
+
+											return (
+												<ModalCheckbox
+													key={`positionCheckbox-${key}`}
+													label={capitalizedValue}
+													name={key}
+													id={key}
+													onChange={(e) => {
+														dispatch({
+															type: ActionType.updateDirections,
+															direction: key,
+															newValue:
+																e.target
+																	.checked,
+														});
+													}}
+												/>
+											);
+										})}
+							</div>
+						</div>
 						<ModalPreview>
 							{!errors || errors.length <= 0 ? (
 								<>
@@ -317,7 +320,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 									/>
 								</>
 							) : (
-								<div className="flex h-full flex-col items-center justify-center gap-2 text-red-500">
+								<div className="flex h-full flex-col items-center justify-center gap-2 text-alert-danger">
 									<p className="text-[2rem]">
 										Ha habido un error.
 									</p>
@@ -325,61 +328,10 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								</div>
 							)}
 						</ModalPreview>
-						<div className="my-6 md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
-							<ModalCheckbox
-								label="Horizontal"
-								name="horizontal"
-								id="horizontal"
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateDirections,
-										direction: "horizontal",
-										newValue: e.target.checked,
-									});
-								}}
-								defaultChecked
-							/>
-							<ModalCheckbox
-								label="Vertical"
-								name="vertical"
-								id="vertical"
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateDirections,
-										direction: "vertical",
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-							<ModalCheckbox
-								label="Diagonal"
-								name="diagonal"
-								id="diagonal"
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateDirections,
-										direction: "diagonal",
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-							<ModalCheckbox
-								label="Al revés"
-								name="backwards"
-								id="backwards"
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateDirections,
-										direction: "backwards",
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-						</div>
 					</div>
 				</div>
 				{errors && errors.length > 0 && (
-					<div className="w-full rounded-lg bg-red-500 bg-opacity-30 p-3 text-[1.2rem] text-red-900">
+					<div className="mt-4 w-full rounded-lg border-2 border-alert-danger-dark border-opacity-30 bg-alert-danger bg-opacity-30 p-3 text-[1.2rem] text-alert-danger-dark">
 						<ul className="list-inside list-disc">
 							{errors.map((error, index) => (
 								<li key={`error-${index}`}>{error}</li>

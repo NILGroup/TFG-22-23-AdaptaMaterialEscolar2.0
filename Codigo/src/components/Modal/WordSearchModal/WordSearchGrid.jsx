@@ -10,7 +10,7 @@ export default function WordSearchGrid({ wordSearchGrid }) {
 							return (
 								<div
 									key={`col-${colIndex}`}
-									className={`flex h-[1cm] w-[1cm] flex-shrink-0 items-center justify-center border-[1px] border-black ${
+									className={`flex h-[1cm] w-[1cm] flex-shrink-0 items-center justify-center border-[1px] border-black text-black ${
 										rowIndex > 0 ? "border-t-0" : ""
 									} ${colIndex > 0 ? "border-l-0" : ""}`}
 								>

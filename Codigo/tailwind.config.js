@@ -1,19 +1,19 @@
-/** @type {import('tailwindcss').Config} */
-
 module.exports = {
 	content: ["./src/**/*.{js,jsx}"],
 	theme: {
 		extend: {
 			colors: {
 				textarea: "#f9f4f4",
-				primary: "var(--color-primary)",
-				secondary: "var(--color-secondary)",
-				button: "var(--color-button)",
-				"button-dark": "var(--color-button-dk)",
-				tooltip: "var(--color-tooltip)",
-				"grey-light": "var(--color-background-grey)",
-				grey: "var(--color-background-grey-md)",
-				"grey-dark": "var(--color-background-grey-dk)",
+				primary: "#e38787",
+				secondary: "#2d4555",
+				button: "#0c8ce9",
+				"button-dark": "#0b7ecf",
+				tooltip: "#0c8de9",
+				"grey-light": "#fbfbfb",
+				grey: "#efefef",
+				"grey-dark": "#d2d2d2",
+				"alert-danger": "#cc3333",
+				"alert-danger-dark": "#6a040f",
 			},
 			fontFamily: {
 				main: "var(--font-main)",

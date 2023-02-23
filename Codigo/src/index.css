@@ -16,12 +16,14 @@
 		--color-text-white: white;
 		--color-button: #0c8ce9;
 		--color-button-dk: #0b7ecf;
-		--color-tooltip: #0c8de9ab;
+		--color-tooltip: #0c8de9;
 		--color-editor-bg: #e6e6e6;
 		--color-editor-border: #c6c6c6;
 		--color-editor-bg-toolbar: white;
 		--color-editor-bg-editable: white;
 		--color-editor-border-editable: #c6c6c6;
+		--color-alert-danger: #cc3333;
+		--color-alert-danger-dark: #6a040f;
 		--font-main: "Open Sans", sans-serif;
 		--font-modal-title: "Roboto Slab", serif;
 	}
