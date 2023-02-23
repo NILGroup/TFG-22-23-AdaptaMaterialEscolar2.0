@@ -25,7 +25,7 @@ export default function ButtonSelect({children, id, options, setValue, open, set
         </IconButton>
         <FormControl className="p-0">
             <Select
-                className="!max-h-0 !text-transparent !w-10 focus-within:!bg-transparent"
+                className="!max-h-0 !text-transparent !w-10  focus:[&_div]:!bg-transparent"
                 id="demo-controlled-open-select"
                 open={open === id}
                 onClose={() =>

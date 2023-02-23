@@ -11,11 +11,16 @@ const isImageUrl = (url) => {
 };
 
 export const withImages = (editor) => {
-	const { insertData, isVoid } = editor;
+	const { insertData, isVoid, isInline } = editor;
 
 	editor.isVoid = (element) => {
 		return element.type === "image" ? true : isVoid(element);
 	};
+	editor.isInline = (element) => {
+        return (element.type) === 'image'
+            ? true
+            : isInline(element);
+    };
 
 	editor.insertData = (data) => {
 		const text = data.getData("text/plain");

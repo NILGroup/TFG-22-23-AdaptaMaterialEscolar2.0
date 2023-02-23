@@ -8,21 +8,9 @@ import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalWordList from "../common/ModalWordList";
 import ModalPreview from "../common/ModalPreview";
-import StaffButtons from "../common/StaffButtons";
+import {StaffButtonFactory, StaffType} from "../common/StaffButtonFactory";
 
-const introduction = (n) => `Define los ${n} siguientes conceptos:`;
 
-const staffStyle={
-	grid_5: 'bg-8 h-16 bg-gradient-to-r from-black bg-gradient-to-b',
-	grid_6: '',
-	grid_8: '',
-	doubleLine_2_5: 'border-t border-b border-solid border-black h-2.5 mx-2 my-0',
-	doubleLine_3: 'border-t border-b border-solid border-black h-2 mx-2 my-0',
-	doubleLine_3_5: 'border-t border-b border-solid border-black h-3.5 mx-2 my-0',
-	line_2_5: 'border-b border-solid border-black h-2.5',
-	line_3: 'border-b border-solid border-black h-3',
-	line_3_5: 'border-b border-solid border-black h-3.5'
-}
 
 export default function DefinitionModal({ editor, isOpen, onClose }) {
 	const [concepts, setConcepts] = useState([]);
@@ -30,6 +18,8 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 	const [number, setNumber] = useState(1);
 	const [value, setValue] = useState('');
 
+	const introduction = (n) => `Define ${n === 1 ? 'el siguiente concepto' : `los siguientes ${n} conceptos`} :`;
+	
 	//Funciones para modificar los conceptos.
 	const removeConcept = (index) => {
 		setConcepts(concepts.filter((e, i) => i !== index));
@@ -106,7 +96,17 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 					title="Conceptos"
 					onSubmit={(newWord) => setConcepts([...concepts, newWord])}
 				/>
-				<StaffButtons setValue={setValue}/>
+				  <div className="flex flex-col p-4">
+						<label className="text-base">Tipo de pauta: </label>
+						<div className="flex flex-wrap gap-4">
+							<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
+							<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
+							<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
+							<StaffButtonFactory setValue={setValue} type={StaffType.box}/>
+							<StaffButtonFactory setValue={setValue} type={StaffType.space}/>
+						</div>
+					</div>
+
 				<ModalWordList
 					wordList={concepts}
 					onEdit={(newValue, index) =>
