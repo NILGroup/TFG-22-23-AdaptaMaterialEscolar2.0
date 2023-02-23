@@ -1,6 +1,6 @@
 \chapter{Herramientas Empleadas}\label{ch:herramientas}
 
-En este capítulo se explican las herramientas, librerias y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la seccion~\ref{sec:tailwind} se explica el framework Tailwind CSS.
+En este capítulo se explican las herramientas, librerias y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la sección~\ref{sec:tailwind} se explica el framework Tailwind CSS. En la seccón \ref{sec:Slate} se expone el framework Slate. En la seccón \ref{sec:React} se presenta la libreria React.
 
 \section{Tailwind CSS}\label{sec:tailwind}
 A continuación se explica que es Tailwind CSS, porque hemos decidido utilizarlo y que algunas de las ventajas que ofrece. Además se muestran y explican algunos ejemplos de uso básicos.
@@ -27,12 +27,42 @@ Las principales características de Slate incluyen:
 \end{itemize}
 Es utilizado por variedad de aplicaciones web como, por ejemplo:
 \begin{itemize}
-    \item \textbf{Discord}: utiliza Slate para sus canales de comunicación para colaborar y compartir
-    \item \textbf{Eraser}: es una aplicación web de borrador de fondos que utiliza Slate para permitir a los usuarios escribir y editar el texto en su sitio web.
-    \item \textbf{GitBook}: es una plataforma de creación y publicación de libros electrónicos que utiliza Slate como editor de texto para que los autores puedan escribir y editar sus libros
+    \item \textbf{Discord}: Utiliza Slate para sus canales de comunicación para colaborar y compartir
+    \item \textbf{Eraser}: Es una aplicación web de borrador de fondos que utiliza Slate para permitir a los usuarios escribir y editar el texto en su sitio web.
+    \item \textbf{GitBook}: Es una plataforma de creación y publicación de libros electrónicos que utiliza Slate como editor de texto para que los autores puedan escribir y editar sus libros
     
 \end{itemize}
 Por todo lo mencionado, hemos considerado que Slate es ideal para este proyecto que busca construir un editor de texto de alta calidad que permite realizar diversos tipos de adaptación curricular.
 
+\section{React}\label{sec:React}
+React es una librería de JavaScript que se utiliza para crear interfaces de usuario interactivas y dinámicas en aplicaciones web. Fue desarrollada por Facebook y es una de las herramientas más populares para construir aplicaciones web modernas.
 
+React utiliza un enfoque basado en componentes para construir interfaces de usuario, lo que significa que cada parte de la interfaz de usuario se representa como un componente. Dichos componentes son reutilizables y están diseñados para ser simples, fáciles de mantener y declarativos, es decir, describe qué se quiere hacer y no cómo hacerlo. Otras ventajas que ofrece son:
 
+\begin{itemize}
+    \item \textbf{Mayor eficiencia}: React utiliza un enfoque llamado "reconciliación virtual" para actualizar la interfaz de usuario de manera eficiente y minimizar el impacto en el rendimiento. Este enfoque se basa en la comparación de los estados previos y actuales de los componentes, permitiendo actualizar solo las partes necesarias de la interfaz.
+    \item \textbf{Facilidad de mantenimiento}: Como se ha mencionado anteriormente los componentes de React son simples y declarativos, lo que hace que sea más fácil mantener y actualizar una aplicación web construida con React.
+   \item \textbf{Biblioteca de componentes}: React tiene una gran biblioteca de componentes disponibles para su uso, lo que permite a los desarrolladores construir aplicaciones web complejas con facilidad.
+\end{itemize}
+
+Para representar las interfaces de usuario en React se utiliza una extensión de sintaxis llamada JSX que permite escribir HTML en JavaScript, lo que hace que el código sea más legible y fácil de entender. En JSX, los elementos de la interfaz de usuario se definen como etiquetas HTML dentro del código JavaScript. En la Figura \ref{JSX} se muestra un ejemplo de un componente usando JSX y en la Figura \ref{SJSX} se encuentra la misma funcionalidad pero sin JSX.
+
+Hemos empleado esta librería para implementar las interfaces de usuario de la aplicación.
+  \begin{figure}[ht!]
+   
+    \begin{subfigure}{\textwidth}
+      \centering
+      \includegraphics[width=0.6\textwidth]{Herraientas_Empleadas/ReactJSX.PNG}
+      \caption{Componente con JSX.}
+      \label{JSX}
+    \end{subfigure}
+  
+    \begin{subfigure}{\textwidth}
+      \centering
+      \includegraphics[width=0.6\textwidth]{Herraientas_Empleadas/ReactSinJSX.PNG}
+      \caption{Componente sin JSX.}
+      \label{SJSX}
+    \end{subfigure}
+    \caption{Componentes React}
+    \label{fig:react}
+  \end{figure}
