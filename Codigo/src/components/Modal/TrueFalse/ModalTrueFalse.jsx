@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Transforms } from "slate";
 import { BiRectangle } from "react-icons/bi";
+import { Transforms } from "slate";
 
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
@@ -9,7 +9,6 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 
-
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
@@ -17,21 +16,18 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [aleatorio, setaleatorio] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
 
-
 	useEffect(() => {
 		if (lista.length > 0 && !isListaModified)
-			setListaVistaP((previousList) => [...previousList, lista[lista.length - 1]]);
-
+			setListaVistaP((previousList) => [
+				...previousList,
+				lista[lista.length - 1],
+			]);
 		else if (lista.length <= 0) {
 			setListaVistaP([]);
-
+		} else {
+			setIsListaModified(false);
 		}
-		else{
-			setIsListaModified(false)
-		}
-
-	}, [lista]);
-
+	}, [lista, isListaModified]);
 
 	const okButton = (editor, items) => {
 		onClose();
@@ -75,9 +71,8 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.filter(
 				(word, wordIndex) => wordIndex !== index
 			);
-			setIsListaModified(true)
+			setIsListaModified(true);
 			setListaVistaP([...newList]);
-
 
 			return newList;
 		});
@@ -94,7 +89,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.map((word, wordIndex) =>
 				wordIndex === index ? String(newValue) : word
 			);
-			setIsListaModified(true)
+			setIsListaModified(true);
 			setListaVistaP([...newList]);
 
 			return newList;
@@ -121,54 +116,55 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 
 				<hr />
 
-
 				<ModalPreview
-					attributes={<ModalButton
-						className="px-1"
-						disabled={lista.length < 2}
-						onClick={(event) => {
-							event.preventDefault();
+					attributes={
+						<ModalButton
+							className="px-1"
+							disabled={lista.length < 2}
+							onClick={(event) => {
+								event.preventDefault();
 
-							setaleatorio(
-								aleatorio.map((elem) => {
-									return Math.random();
-								})
-							);
+								setaleatorio(
+									aleatorio.map((elem) => {
+										return Math.random();
+									})
+								);
 
-							let nuevaLista, listaOrdenada, listaFinal;
-							nuevaLista = listaVistaP.map((lis, i) => ({
-								lis,
-								random: aleatorio[i],
-							}));
+								let nuevaLista, listaOrdenada, listaFinal;
+								nuevaLista = listaVistaP.map((lis, i) => ({
+									lis,
+									random: aleatorio[i],
+								}));
 
-							listaOrdenada = nuevaLista.sort(
-								(a, b) => a.random - b.random
-							);
+								listaOrdenada = nuevaLista.sort(
+									(a, b) => a.random - b.random
+								);
 
-							listaFinal = listaOrdenada.map(
-								(item) => item.lis
-							);
+								listaFinal = listaOrdenada.map(
+									(item) => item.lis
+								);
 
-							setListaVistaP(listaFinal);
-						}}
-					>
-						Reordenar
-					</ModalButton>}>
+								setListaVistaP(listaFinal);
+							}}
+						>
+							Reordenar
+						</ModalButton>
+					}
+				>
 					<div>
 						{lista.length > 0 && (
-							<p>Responde Verdadero o Falso. Según corresponda.</p>
+							<p>
+								Responde Verdadero o Falso. Según corresponda.
+							</p>
 						)}
 						<ul>
 							{listaVistaP.map((elem, i) => {
-								
 								return (
 									<li
 										key={`concepto-${i}`}
 										className="flex items-center"
 									>
-										<BiRectangle
-											
-										/>
+										<BiRectangle />
 										<p className="pl-1">{elem}</p>
 									</li>
 								);
@@ -177,12 +173,11 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 					</div>
 				</ModalPreview>
 
-
-				<ModalOkButton 
-					className="mt-2 self-center" 
+				<ModalOkButton
+					className="mt-2 self-center"
 					onClick={() => okButton(editor, listaVistaP)}
-					disabled={lista.length == 0}/>
-				
+					disabled={lista.length == 0}
+				/>
 			</div>
 		</Modal>
 	);

@@ -1,6 +1,6 @@
 import React from "react";
 
-import WordSearchGrid from "../../../Modal/WordSearchModal/WordSearchGrid";
+import WordSearchGrid from "../../../Modal/WordSearch/WordSearchGrid";
 
 export default function WordSearch({ attributes, children, element }) {
 	return (

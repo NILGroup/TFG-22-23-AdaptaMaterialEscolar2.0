@@ -6,6 +6,7 @@ import ModalPictogramList from "./ModalPictogramList";
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
+import ModalInputText from "../common/ModalInputText";
 
 import { MdOutlineImageSearch } from "react-icons/md";
 
@@ -59,17 +60,9 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 				}}
 			>
 				<div>
-					<label
-						htmlFor="searchPictogram"
-						className="text-modal-heading"
-					>
-						Buscador
-					</label>
-					<input
-						type="text"
-						name="searchPictogram"
+					<ModalInputText
 						id="searchPictogram"
-						className="w-full rounded-md border-2 border-gray-300 bg-gray-100 px-2 py-1 focus:border-blue-300"
+						label="Buscador"
 						required
 					/>
 				</div>

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React,{ useReducer,useState } from "react";
 
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
@@ -10,13 +10,14 @@ import WordSearchGrid from "./WordSearchGrid";
 import { TbMoodSad } from "react-icons/tb";
 
 import {
-	checkErrors,
-	createWordSearch,
-	generateOptionsObject,
+checkErrors,
+createWordSearch,
+generateOptionsObject
 } from "./WordSearchUtils";
 
 import { Transforms } from "slate";
 import ModalCheckbox from "../common/ModalCheckbox";
+import ModalInputNumber from "../common/ModalInputNumber";
 
 // Valores por defecto del estado
 const DIRECTIONS = {
@@ -210,11 +211,9 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 			<div className="flex flex-col">
 				<h4 className="text-[2rem]">Tamaño</h4>
 				<div className="grid grid-cols-2 items-end gap-4 p-4">
-					<label htmlFor="numRows">Número de filas</label>
-					<input
-						type="number"
+					<ModalInputNumber
 						id="numRows"
-						className="w-12 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
+						label="Número de filas"
 						name="numRows"
 						min="1"
 						value={state.numRows}
@@ -225,11 +224,9 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							})
 						}
 					/>
-					<label htmlFor="numCols">Número de columnas</label>
-					<input
-						type="number"
+					<ModalInputNumber
 						id="numCols"
-						className="w-12 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
+						label="Número de columnas"
 						name="numCols"
 						min="1"
 						value={state.numCols}

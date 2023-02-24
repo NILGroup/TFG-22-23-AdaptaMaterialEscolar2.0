@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 
-import { GapType, getGapTypeInfo } from "./Gap";
+import { GapType,getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { Transforms } from "slate";
@@ -68,7 +68,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 									Haz clic izquierdo sobre las palabras para
 									convertirlas en huecos
 								</p>
-								<div className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey p-3">
+								<div className="input-textarea h-32 w-full">
 									{words?.map((word, index, array) => {
 										if (!word) return null;
 
@@ -129,7 +129,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 							<textarea
 								name="originalText"
 								id="originalText"
-								className="h-32 resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey p-3 focus:border-sky-500 focus:ring-8 focus:ring-opacity-25"
+								className="input-textarea h-32 w-full"
 								onChange={handleInput}
 								value={originalText}
 							/>

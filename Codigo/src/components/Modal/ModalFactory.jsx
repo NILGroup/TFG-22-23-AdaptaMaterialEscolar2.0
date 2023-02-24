@@ -2,10 +2,10 @@ import React from "react";
 
 import DefinitionModal from "./Definition/DefinitionModal";
 import DesarrolloModal from "./Desarrollo/DesarrolloModal";
-import FillBlanksModal from "./FillBlanksModal/FillBlanksModal";
-import SearchPictoModal from "./SearchPictoModal/SearchPictoModal";
+import FillBlanksModal from "./FillBlanks/FillBlanksModal";
+import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
-import WordSearchModal from "./WordSearchModal/WordSearchModal";
+import WordSearchModal from "./WordSearch/WordSearchModal";
 
 export const ModalType = Object.freeze({
 	searchPicto: Symbol("searchPicto"),

@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 
-import desarrolloModalStyle from "./DesarrolloModal.module.css";
-
-import guideLine from "./GuideLine.module.css";
-import Modal from "../common/Modal";
 import { Transforms } from "slate";
+import Modal from "../common/Modal";
+import ModalInputNumber from "../common/ModalInputNumber";
 import ModalPreview from "../common/ModalPreview";
-import {StaffButtonFactory, StaffType} from "../common/StaffButtonFactory";
-
-
+import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
+import guideLine from "./GuideLine.module.css";
 
 export default function DesarrolloModal({ editor, isOpen, onClose }) {
-
 	const [textareaValue, setTextareaValue] = useState("");
 	const [numFilas, setNumFilas] = useState(1);
-	const [value, setValue] = useState('');
+	const [value, setValue] = useState("");
 
 	const handleEnunciadoChange = (event) => {
 		setTextareaValue(event.target.value);
@@ -26,11 +22,11 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 	const renderLines = () => {
 		let lines = [];
-		let renderOption = value === '' ? 'doubleLine_2_5': value
+		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		let space = () =>
 			/^doubleLine/.test(renderOption) && (
 				<div className={guideLine.space}></div>
-			)
+			);
 
 		for (let i = 0; i < numFilas; i++) {
 			lines.push(
@@ -53,8 +49,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		};
 		ejercicio.children.push(enunciado);
 
-		let renderOption = value === '' ? 'doubleLine_2_5': value;
-
+		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
 		for (let j = 0; j < numFilas; j++) {
 			ejercicio.children.push({
@@ -105,19 +100,16 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							id=""
 							rows="5"
 							onChange={handleEnunciadoChange}
-							className="w-full rounded bg-textarea p-3"
+							className="input-textarea w-full"
 						></textarea>
 					</div>
 
-					<div className="my-5">
-						<h2 className="mr-5 inline-block text-xl">
-							Número de filas:
-						</h2>
-						<input
-							type="number"
+					<div className="my-5 flex gap-6">
+						<ModalInputNumber
+							id="num_filas"
+							label="Número de filas:"
 							name="num_filas"
 							onChange={handleNumFilasChange}
-							className="w-12 rounded-md border-2 border-gray-300 bg-gray-50 pl-2"
 						/>
 					</div>
 
@@ -128,11 +120,26 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 						<div className="flex flex-col p-4">
 							<div className="flex flex-wrap gap-4">
-								<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
-								<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
-								<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
-								<StaffButtonFactory setValue={setValue} type={StaffType.box}/>
-								<StaffButtonFactory setValue={setValue} type={StaffType.space}/>
+								<StaffButtonFactory
+									setValue={setValue}
+									type={StaffType.grid}
+								/>
+								<StaffButtonFactory
+									setValue={setValue}
+									type={StaffType.doubleLine}
+								/>
+								<StaffButtonFactory
+									setValue={setValue}
+									type={StaffType.line}
+								/>
+								<StaffButtonFactory
+									setValue={setValue}
+									type={StaffType.box}
+								/>
+								<StaffButtonFactory
+									setValue={setValue}
+									type={StaffType.space}
+								/>
 							</div>
 						</div>
 					</div>
