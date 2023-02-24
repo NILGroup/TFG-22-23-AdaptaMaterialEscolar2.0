@@ -1,6 +1,6 @@
 \chapter{Herramientas Empleadas}\label{ch:herramientas}
 
-En este capítulo se explican las herramientas, librerias y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la sección~\ref{sec:tailwind} se explica el framework Tailwind CSS. En la seccón \ref{sec:Slate} se expone el framework Slate. En la seccón \ref{sec:React} se presenta la libreria React.
+En este capítulo se explican las herramientas, librerias y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la sección~\ref{sec:tailwind} se explica el framework Tailwind CSS. En la sección \ref{sec:Slate} se expone el framework Slate. En la sección \ref{sec:React} se presenta la libreria React. Y en la sección \ref{sec:MaterialUI} se explica qué es libería Material UI.
 
 \section{Tailwind CSS}\label{sec:tailwind}
 A continuación se explica que es Tailwind CSS, porque hemos decidido utilizarlo y que algunas de las ventajas que ofrece. Además se muestran y explican algunos ejemplos de uso básicos.
@@ -66,3 +66,20 @@ Hemos empleado esta librería para implementar las interfaces de usuario de la a
     \caption{Componentes React}
     \label{fig:react}
   \end{figure}
+
+
+\section{Material UI}\label{sec:MaterialUI}
+Material UI\footnote{\url{https://mui.com/}} es una librería de componentes de React con estilos y funcionalidades predeterminadas. Estos componentes siguen un estilo de diseño llamado Material Design, que fue creado por Google y tiene una apariencia simple y profesional. Es bastante útil para implementar funcionalidades de una forma más rápida, ya que no hay que crear todos los componentes desde cero.
+
+La librería permite añadir estilos personalizados al crear cada componente, sin necesidad de crear un fichero CSS propio, lo que permite hacer cambios con facilidad. También es bastante fácil realizar un diseño responsive gracias a las opciones que nos ofrece.
+
+En nuestra aplicación, decidimos utilizar Material UI principalmente para implementar un componente que usamos en los modales de “Ejercicio de definiciones” y “Ejercicio de desarrollo”. Este componente es un selector que nos permite escoger el tipo de pauta que se usará en el ejercicio, por ejemplo, líneas normales, líneas de doble pauta, cuadrícula, etc. También permite seleccionar la separación entre las líneas y el tamaño de las celdas de la cuadrícula.
+
+Podemos observar esta funcionalidad en la Figura \ref{selectorMaterialUI}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Herraientas_Empleadas/SelectorMaterialUI.PNG}
+  \caption{Selector de tipo de pauta}
+  \label{selectorMaterialUI}
+\end{figure}

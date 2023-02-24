@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+
+import desarrolloModalStyle from "./DesarrolloModal.module.css";
+
 import guideLine from "./GuideLine.module.css";
 import Modal from "../common/Modal";
 import { Transforms } from "slate";
 import ModalPreview from "../common/ModalPreview";
 import {StaffButtonFactory, StaffType} from "../common/StaffButtonFactory";
-
 
 
 
@@ -119,14 +121,19 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 						/>
 					</div>
 
-					<div className="flex flex-col p-4">
-						<label className="text-base">Tipo de pauta: </label>
-						<div className="flex flex-wrap gap-4">
-							<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
-							<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
-							<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
-							<StaffButtonFactory setValue={setValue} type={StaffType.box}/>
-							<StaffButtonFactory setValue={setValue} type={StaffType.space}/>
+					<div className="">
+						<h2 className="mr-5 inline-block text-xl">
+							Tipo de pauta:
+						</h2>
+
+						<div className="flex flex-col p-4">
+							<div className="flex flex-wrap gap-4">
+								<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.box}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.space}/>
+							</div>
 						</div>
 					</div>
 
