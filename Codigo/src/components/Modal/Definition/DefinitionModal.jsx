@@ -128,7 +128,7 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 					/>
 				</div>
 			</div>
-
+			<hr className="my-6" />
 			<ModalPreview >
 					{concepts.length > 0 && (<p key="title-0">{introduction(concepts.length)}</p>)}
 					{concepts.map((concept, i) => {
