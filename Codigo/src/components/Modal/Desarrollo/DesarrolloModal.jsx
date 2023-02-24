@@ -2,26 +2,13 @@ import React, { useState } from "react";
 
 import desarrolloModalStyle from "./DesarrolloModal.module.css";
 
-import FormControl from "@mui/material/FormControl";
-import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import { AiOutlineBorderlessTable } from "react-icons/ai";
-import { BiRectangle } from "react-icons/bi";
-import { HiOutlineMinus } from "react-icons/hi";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { TfiLineDouble } from "react-icons/tfi";
-import style from "./DefinitionModal.module.css";
 import guideLine from "./GuideLine.module.css";
 
 import Modal from "../common/Modal";
+import ModalPreview from "../common/ModalPreview";
+import {StaffButtonFactory, StaffType} from "../common/StaffButtonFactory";
 
 import { Transforms } from "slate";
-
-import ModalButton from "../common/ModalButton";
-import ModalPreview from "../common/ModalPreview";
-
-import StaffButtons from "../common/StaffButtons";
 
 
 
@@ -137,7 +124,19 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</div>
 
 					<div className="">
-						<StaffButtons setValue={setValue}/>
+						<h2 className="mr-5 inline-block text-xl">
+							Tipo de pauta:
+						</h2>
+
+						<div className="flex flex-col p-4">
+							<div className="flex flex-wrap gap-4">
+								<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.box}/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.space}/>
+							</div>
+						</div>
 					</div>
 
 					<hr className="my-6" />
