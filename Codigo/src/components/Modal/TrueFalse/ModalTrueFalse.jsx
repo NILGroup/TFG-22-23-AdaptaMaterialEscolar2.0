@@ -55,7 +55,6 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 
 	const submit = (newWord) => {
 		setLista([...lista, newWord]);
-		//setListaVistaP([...listaVistaP, newWord]);
 		setmodificado([...modificado, false]);
 		setaleatorio([...aleatorio, Math.random()]);
 	};
