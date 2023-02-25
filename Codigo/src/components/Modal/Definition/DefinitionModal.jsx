@@ -8,6 +8,7 @@ import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalWordList from "../common/ModalWordList";
 import ModalPreview from "../common/ModalPreview";
+import ModalInputNumber from "../common/ModalInputNumber";
 import {StaffButtonFactory, StaffType} from "../common/StaffButtonFactory";
 
 
@@ -20,6 +21,9 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 
 	const introduction = (n) => `Define ${n === 1 ? 'el siguiente concepto' : `los siguientes ${n} conceptos`} :`;
 	
+	const handleNumFilasChange = (event) => {
+		setNumber(event.target.value);
+	};
 	//Funciones para modificar los conceptos.
 	const removeConcept = (index) => {
 		setConcepts(concepts.filter((e, i) => i !== index));
@@ -97,8 +101,10 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 					onSubmit={(newWord) => setConcepts([...concepts, newWord])}
 				/>
 				  <div className="flex flex-col p-4">
-						<label className="text-base">Tipo de pauta: </label>
-						<div className="flex flex-wrap gap-4">
+						<h2 className="mr-5 inline-block text-xl">
+							Tipo de pauta:
+						</h2>						
+						<div className="flex flex-wrap gap-4 p-4">
 							<StaffButtonFactory setValue={setValue} type={StaffType.grid}/>
 							<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine}/>
 							<StaffButtonFactory setValue={setValue} type={StaffType.line}/>
@@ -117,15 +123,13 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 					onDelete={(index) => removeConcept(index)}
 				/>
 
-				<div className="self-start justify-self-center p-4">
-					<label className="text-base">Número de filas:</label>
-					<input
-						className="w-3/12"
-						type="number"
-						value={number}
-						min="1"
-						onChange={(e) => setNumber(e.target.value)}
-					/>
+				<div className="self-start justify-self-start p-4">
+					<ModalInputNumber
+							id="num_filas"
+							label="Número de filas:"
+							name="num_filas"
+							onChange={handleNumFilasChange}
+						/>
 				</div>
 			</div>
 			<hr className="my-6" />
