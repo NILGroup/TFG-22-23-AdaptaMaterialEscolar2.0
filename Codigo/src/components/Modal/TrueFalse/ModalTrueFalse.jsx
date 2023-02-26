@@ -23,6 +23,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 		}
 	}, [lista]);
 
+	
 	const okButton = (editor, items) => {
 		
 		const list = { type: "list", children: [] };
@@ -35,12 +36,11 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 
 		list.children.push(listItem);
 		items.forEach((item) => {
-			const letras = item.split("");
-			const letrasList= letras.map((letra) => ({ text: letra }));
+			
 			const listItem = {
-				type: "list-item",
-				children: letrasList,
-			  };
+				type: "paragraph",
+				children: [{type:"icon", icon:<BiRectangle/>, children: [{text:""}]},{ text: item }],
+			};
 
 			list.children.push(listItem);
 		});
