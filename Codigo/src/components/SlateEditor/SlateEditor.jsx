@@ -14,10 +14,15 @@ import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";
 
+import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
-import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
+import {
+	default as VerdaderoFalso,
+	default as VerdaderoFalso,
+} from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
+import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
 import style from "./SlateEditor.module.css";
 
@@ -31,7 +36,7 @@ const initialValue = [
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
 	const editor = useMemo(
-		() => withImages(withEmbeds(withReact(createEditor()))),
+		() => withIcons(withImages(withEmbeds(withReact(createEditor())))),
 		[]
 	);
 
@@ -49,6 +54,8 @@ export default function SlateEditor() {
 				return <Definition {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
+			case "icon":
+				return <Icon {...props} />;
 			case "linea":
 				return <Linea {...props} />;
 			case "wordSearch":

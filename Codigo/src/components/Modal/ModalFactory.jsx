@@ -6,6 +6,7 @@ import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
 import WordSearchModal from "./WordSearch/WordSearchModal";
+import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import ColorLegend from "./ColorLegend/ModalColorLegend"
 
 export const ModalType = Object.freeze({
@@ -15,6 +16,7 @@ export const ModalType = Object.freeze({
 	definition: Symbol("definition"),
 	TrueFalse: Symbol("TrueFalse"),
 	desarrollo: Symbol("desarrollo"),
+	relateConcepts: Symbol("relateConcepts"),
 	colorLegend: Symbol("ColorLegend"),
 });
 
@@ -68,6 +70,13 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 					onClose={onClose}
 				/>
 			);
+		case ModalType.relateConcepts:
+			return (
+				<RelateConceptsModal
+					editor={editor}
+					isOpen={isOpen}
+					onClose={onClose}
+				/>);
 		case ModalType.colorLegend:
 			return (
 				<ColorLegend
