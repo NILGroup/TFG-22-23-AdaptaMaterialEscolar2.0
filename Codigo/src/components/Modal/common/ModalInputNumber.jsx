@@ -1,15 +1,20 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-export default function ModalInputNumber({ id, label, ...restProps }) {
+const ModalInputNumber = forwardRef(({ id, label, ...restProps }, ref) => {
 	return (
 		<>
 			{label && <label htmlFor={id}>{label}</label>}
 			<input
 				type="number"
 				id={id}
-				className="w-12 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
+				className="w-16 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
+				ref={ref}
 				{...restProps}
 			/>
 		</>
 	);
-}
+});
+
+ModalInputNumber.displayName = "ModalInputNumber";
+
+export default ModalInputNumber;

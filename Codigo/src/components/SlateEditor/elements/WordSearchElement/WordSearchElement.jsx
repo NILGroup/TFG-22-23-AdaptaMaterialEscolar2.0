@@ -4,11 +4,11 @@ import WordSearchGrid from "../../../Modal/WordSearch/WordSearchGrid";
 
 export default function WordSearch({ attributes, children, element }) {
 	return (
-		<div {...attributes}>
+		<span {...attributes}>
+			<span contentEditable={false} className="relative">
+				<WordSearchGrid wordSearchGrid={element.grid} />
+			</span>
 			{children}
-			<div contentEditable={false}>
-				<WordSearchGrid wordSearchGrid={element.wordSearchGrid} />
-			</div>
-		</div>
+		</span>
 	);
 }

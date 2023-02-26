@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
-import { GapType,getGapTypeInfo } from "./Gap";
+import { GapType, getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { Transforms } from "slate";

@@ -16,10 +16,10 @@ import { ModalFactory } from "../Modal/ModalFactory";
 
 import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
+import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
+import { withEmbeds } from "./plugins/withEmbeds";
 import { withImages } from "./plugins/withImages";
 import style from "./SlateEditor.module.css";
-import { withEmbeds } from "./plugins/withEmbeds";
-import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 
 const initialValue = [
 	{
@@ -30,7 +30,10 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withImages(withEmbeds(withReact(createEditor()))), []);
+	const editor = useMemo(
+		() => withImages(withEmbeds(withReact(createEditor()))),
+		[]
+	);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -39,6 +42,7 @@ export default function SlateEditor() {
 
 	const renderElement = useCallback((props) => {
 		switch (props.element.type) {
+			// TODO: No funciona el alt de la imagen
 			case "image":
 				return <ImageElement {...props} />;
 			case "definition":
@@ -50,7 +54,7 @@ export default function SlateEditor() {
 			case "wordSearch":
 				return <WordSearch {...props} />;
 			case "list-item":
-				return <VerdaderoFalso {...props}/>
+				return <VerdaderoFalso {...props} />;
 			default:
 				return <DefaultElement {...props} />;
 		}

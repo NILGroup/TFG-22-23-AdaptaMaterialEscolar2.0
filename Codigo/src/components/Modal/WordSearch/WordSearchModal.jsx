@@ -1,5 +1,6 @@
-import React,{ useReducer,useState } from "react";
+import React, { useReducer } from "react";
 
+import { clamp } from "../../../utils/math";
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalButton from "../common/ModalOkButton";
@@ -9,17 +10,14 @@ import WordSearchGrid from "./WordSearchGrid";
 
 import { TbMoodSad } from "react-icons/tb";
 
-import {
-checkErrors,
-createWordSearch,
-generateOptionsObject
-} from "./WordSearchUtils";
+import { createWordSearch } from "./WordSearchUtils";
 
 import { Transforms } from "slate";
+
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 
-// Valores por defecto del estado
+// Valores Constantes
 const DIRECTIONS = {
 	horizontal: "horizontal",
 	vertical: "vertical",
@@ -27,6 +25,13 @@ const DIRECTIONS = {
 	backwards: "al revés",
 };
 
+const MIN_ROWS = 1;
+const MAX_ROWS = 20;
+
+const MIN_COLS = 1;
+const MAX_COLS = 20;
+
+// Valores por defecto del estado
 const initialState = {
 	numRows: 1,
 	numCols: 1,
@@ -54,16 +59,12 @@ const reducer = (state, action) => {
 			return { ...initialState };
 		}
 		case ActionType.updateNumRows: {
-			const nextNumRows = action.nextValue;
-
-			if (nextNumRows < 1) return { ...state };
+			const nextNumRows = clamp(action.nextValue, MIN_ROWS, MAX_ROWS);
 
 			return { ...state, numRows: nextNumRows };
 		}
 		case ActionType.updateNumCols: {
-			const nextNumCols = action.nextValue;
-
-			if (nextNumCols < 1) return { ...state };
+			const nextNumCols = clamp(action.nextValue, MIN_COLS, MAX_COLS);
 
 			return { ...state, numCols: nextNumCols };
 		}
@@ -132,26 +133,18 @@ const reducer = (state, action) => {
 };
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
+	// TODO: Inicialmente no debe mostrar un error (Solo deberia mostrar un error si no estan todas las palabras)
+	// TODO: Mejorar los inputs de numero de filas y de numero de columnas
+
 	// Estado del componente
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	// Datos que se pueden generar con el estado (se calculan cada vez que se renderiza la vista)
-	const options = generateOptionsObject(
+	const { grid, errors } = createWordSearch(
 		state.numRows,
 		state.numCols,
-		state.directions
-	);
-	const { object: wordSearch, grid: wordSearchGrid } = createWordSearch(
-		state.wordList,
-		options
-	);
-
-	const errors = checkErrors(
-		state.wordList,
-		wordSearch,
-		state.numRows,
-		state.numCols,
-		state.directions
+		state.directions,
+		state.wordList
 	);
 
 	const generateExerciseStatement = () => {
@@ -186,16 +179,20 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		onClose();
 	};
 
-	const handleOk = (editor, wordSearchGrid) => {
-		const text = {
-			text: generateExerciseStatement(),
+	const handleOk = (editor, grid) => {
+		const exerciseStatement = {
+			type: "paragraph",
+			children: [{ text: generateExerciseStatement() }],
 		};
+
+		const text = { text: "" };
 		const wordSearch = {
 			type: "wordSearch",
-			wordSearchGrid,
+			grid,
 			children: [text],
 		};
 
+		Transforms.insertNodes(editor, exerciseStatement);
 		Transforms.insertNodes(editor, wordSearch);
 
 		closeModal();
@@ -215,7 +212,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numRows"
 						label="Número de filas"
 						name="numRows"
-						min="1"
+						min={MIN_ROWS}
+						max={MAX_ROWS}
 						value={state.numRows}
 						onChange={(e) =>
 							dispatch({
@@ -228,7 +226,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numCols"
 						label="Número de columnas"
 						name="numCols"
-						min="1"
+						min={MIN_COLS}
+						max={MAX_COLS}
 						value={state.numCols}
 						onChange={(e) =>
 							dispatch({
@@ -312,9 +311,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							{!errors || errors.length <= 0 ? (
 								<>
 									<p>{generateExerciseStatement()}</p>
-									<WordSearchGrid
-										wordSearchGrid={wordSearchGrid}
-									/>
+									<WordSearchGrid wordSearchGrid={grid} />
 								</>
 							) : (
 								<div className="flex h-full flex-col items-center justify-center gap-2 text-alert-danger">
@@ -338,7 +335,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 				)}
 				<ModalButton
 					className="mt-5 self-center"
-					onClick={() => handleOk(editor, wordSearchGrid)}
+					onClick={() => handleOk(editor, grid)}
 					disabled={errors && errors.length > 0}
 				/>
 			</div>

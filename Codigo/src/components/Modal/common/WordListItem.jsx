@@ -4,7 +4,7 @@ import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
 
-import style from "../common/Modal.module.css";
+import ModalInputText from "../common/ModalInputText";
 
 export default function ModalWordListItem({
 	word,
@@ -30,11 +30,11 @@ export default function ModalWordListItem({
 
 	if (isEdittingWord !== index) {
 		return (
-			<li className={style.modalWordListItem}>
+			<li className="grid grid-cols-2 items-center gap-4">
 				<span>{word}</span>
-				<div className={style.modalButtonContainer}>
+				<div className="flex flex-wrap items-center gap-2">
 					<button
-						className="rounded-full bg-button p-2 text-modal-base text-white"
+						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						onClick={() => {
 							setNewValue(word);
 							setIsEdittingWord(index);
@@ -43,7 +43,7 @@ export default function ModalWordListItem({
 						<HiOutlinePencil />
 					</button>
 					<button
-						className="rounded-full bg-button p-2 text-modal-base text-white"
+						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						onClick={() => {
 							onDelete(index);
 							setIsEdittingWord(null);
@@ -58,7 +58,7 @@ export default function ModalWordListItem({
 		return (
 			<li>
 				<form
-					className={style.modalWordListItem}
+					className="grid grid-cols-2 items-center gap-4"
 					onSubmit={(e) => {
 						e.preventDefault();
 
@@ -68,26 +68,24 @@ export default function ModalWordListItem({
 						else cancelEdit();
 					}}
 				>
-					<input
-						type="text"
-						name="editWord"
+					<ModalInputText
 						id="editWord"
+						name="editWord"
 						value={newValue}
 						onChange={(e) => setNewValue(e.target.value)}
-						className={style.modalInput}
 					/>
-					<div className={style.modalButtonContainer}>
+					<div className="flex flex-wrap items-center gap-2">
 						<button
 							type="submit"
 							name="edit"
-							className={style.modalIconButton}
+							className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						>
 							<AiOutlineCheck />
 						</button>
 						<button
 							type="submit"
 							name="cancel"
-							className={style.modalIconButton}
+							className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						>
 							<AiOutlineClose />
 						</button>

@@ -1,6 +1,6 @@
 const WordSearch = require("@blex41/word-search");
 
-export const generateOptionsObject = (numRows, numCols, directions) => {
+const generateOptionsObject = (numRows, numCols, directions) => {
 	let disabledDirections = [];
 
 	if (!directions.horizontal) disabledDirections.push("W", "E");
@@ -20,27 +20,34 @@ export const generateOptionsObject = (numRows, numCols, directions) => {
 	};
 };
 
-export const createWordSearch = (wordList, options) => {
+export const createWordSearch = (numRows, numCols, directions, wordList) => {
 	try {
+		const options = generateOptionsObject(numRows, numCols, directions);
+
 		const wordSearch = new WordSearch({
 			...options,
 			dictionary: wordList,
 			maxWords: wordList.length,
 		});
 
-		return { object: wordSearch, grid: wordSearch.data.grid };
+		const errors = checkErrors(
+			wordList,
+			wordSearch,
+			numRows,
+			numCols,
+			directions
+		);
+
+		return {
+			grid: wordSearch.data.grid,
+			errors,
+		};
 	} catch (error) {
 		return null;
 	}
 };
 
-export const checkErrors = (
-	wordList,
-	wordSearchObject,
-	rows,
-	cols,
-	directions
-) => {
+const checkErrors = (wordList, wordSearchObject, rows, cols, directions) => {
 	const ERROR_NO_WORDS =
 		"Es necesario introducir alguna palabra para la sopa de letras.";
 	const ERROR_NO_DIRECTIONS =
@@ -76,19 +83,3 @@ export const checkErrors = (
 
 	return errors;
 };
-
-// export const manageError = (error, wordSearchObject, dictionaryLength) => {
-//     if (wordSearchObject !== null) {
-//         if (wordSearchObject.words.length < dictionaryLength) {
-//             error = "No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el valor de las filas, columnas y/o número máximo de palabras";
-//         }
-//         else {
-//             error = "";
-//         }
-//     }
-//     else {
-//         error = "Las filas y columnas deben tener un valor positivo mayor que 0";
-//     }
-
-//     return error;
-// }
