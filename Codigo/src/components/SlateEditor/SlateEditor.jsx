@@ -17,10 +17,7 @@ import { ModalFactory } from "../Modal/ModalFactory";
 import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
-import {
-	default as VerdaderoFalso,
-	default as VerdaderoFalso,
-} from "./elements/VerdaderoFalso/VerdaderoFalso";
+import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
