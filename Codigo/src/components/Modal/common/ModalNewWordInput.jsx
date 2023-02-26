@@ -28,11 +28,11 @@ export default function ModalNewWordInput({ title, onSubmit,attributes ,...restP
 				</div>
 				<button
 					type="submit"
-					className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 p-2 text-white hover:bg-sky-600"
+					className="flex h-10 w-10 items-center justify-center rounded-full bg-button p-2 text-white hover:bg-button-dark"
 				>
 					<AiOutlinePlus size={30} />
 				</button>
-				
+
 			</div>
 		</form>
 	);
