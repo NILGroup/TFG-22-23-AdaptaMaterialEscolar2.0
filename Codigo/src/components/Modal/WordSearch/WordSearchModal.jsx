@@ -187,7 +187,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 		const text = { text: "" };
 		const wordSearch = {
-			type: "wordSearch",
+			type: "table",
 			grid,
 			children: [text],
 		};

@@ -21,6 +21,7 @@ import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
+import { withTables } from "./plugins/withTables";
 import style from "./SlateEditor.module.css";
 
 const initialValue = [
@@ -33,7 +34,10 @@ const initialValue = [
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
 	const editor = useMemo(
-		() => withIcons(withImages(withEmbeds(withReact(createEditor())))),
+		() =>
+			withTables(
+				withIcons(withImages(withEmbeds(withReact(createEditor()))))
+			),
 		[]
 	);
 
@@ -55,7 +59,8 @@ export default function SlateEditor() {
 				return <Icon {...props} />;
 			case "linea":
 				return <Linea {...props} />;
-			case "wordSearch":
+			// TODO: Cambiar el WordSearch por un elemento generico de Tabla
+			case "table":
 				return <WordSearch {...props} />;
 			case "list-item":
 				return <VerdaderoFalso {...props} />;
