@@ -17,9 +17,11 @@ import { ModalFactory } from "../Modal/ModalFactory";
 import Leaf from "./elements/Leaf/Leaf";
 import Staff from "./elements/Staff/Staff";
 import { withImages } from "./plugins/withImages";
+import { withIcons} from "./plugins/withIcons";
 import style from "./SlateEditor.module.css";
 import { withEmbeds } from "./plugins/withEmbeds";
 import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
+import Icon from "./elements/Icon/Icon";
 
 const initialValue = [
 	{
@@ -30,7 +32,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withImages(withEmbeds(withReact(createEditor()))), []);
+	const editor = useMemo(() => withIcons( withImages(withEmbeds(withReact(createEditor())))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -45,6 +47,8 @@ export default function SlateEditor() {
 				return <Definition {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
+			case "icon":
+				return <Icon {...props} />;
 			case "linea":
 				return <Linea {...props} />;
 			case "wordSearch":
