@@ -12,25 +12,19 @@ import ModalWordList from "../common/ModalWordList";
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
-	const [isListaModified, setIsListaModified] = useState(false);
 	const [aleatorio, setaleatorio] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
 
 	useEffect(() => {
-		if (lista.length > 0 && !isListaModified)
-			setListaVistaP((previousList) => [
-				...previousList,
-				lista[lista.length - 1],
-			]);
-		else if (lista.length <= 0) {
+		if (lista.length > 0)
+			setListaVistaP(lista);
+		else{
 			setListaVistaP([]);
-		} else {
-			setIsListaModified(false);
 		}
-	}, [lista, isListaModified]);
+	}, [lista]);
 
 	const okButton = (editor, items) => {
-		onClose();
+		
 		const list = { type: "list", children: [] };
 		const listItem = {
 			type: "paragraph",
@@ -41,21 +35,22 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 
 		list.children.push(listItem);
 		items.forEach((item) => {
+			const letras = item.split("");
+			const letrasList= letras.map((letra) => ({ text: letra }));
 			const listItem = {
 				type: "list-item",
-				texto: item,
-				children: [{ text: "" }],
-			};
+				children: letrasList,
+			  };
 
 			list.children.push(listItem);
 		});
 
 		Transforms.insertNodes(editor, list);
+		closeModal();
 	};
 
 	const submit = (newWord) => {
 		setLista([...lista, newWord]);
-		//setListaVistaP([...listaVistaP, newWord]);
 		setmodificado([...modificado, false]);
 		setaleatorio([...aleatorio, Math.random()]);
 	};
@@ -71,7 +66,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.filter(
 				(word, wordIndex) => wordIndex !== index
 			);
-			setIsListaModified(true);
+			
 			setListaVistaP([...newList]);
 
 			return newList;
@@ -89,19 +84,27 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			const newList = previousWordList.map((word, wordIndex) =>
 				wordIndex === index ? String(newValue) : word
 			);
-			setIsListaModified(true);
 			setListaVistaP([...newList]);
 
 			return newList;
 		});
 	};
 
+	const closeModal = () => {
+		setListaVistaP([]);
+		setLista([]);
+		setmodificado([]);
+		setaleatorio([]);
+		onClose();
+	};
+	
+
 	return (
 		<Modal
 			className="w-6/12"
 			title="Verdadero/Falso"
 			isOpen={isOpen}
-			onClose={onClose}
+			onClose={closeModal}
 		>
 			<div className="flex flex-col">
 				<ModalNewWordInput
@@ -125,7 +128,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 								event.preventDefault();
 
 								setaleatorio(
-									aleatorio.map((elem) => {
+									aleatorio.map(() => {
 										return Math.random();
 									})
 								);

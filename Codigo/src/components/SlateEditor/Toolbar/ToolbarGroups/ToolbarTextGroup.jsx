@@ -12,6 +12,11 @@ export default function ToolbarTextGroup({ editor, openModal }) {
 			>
 				<span>Buscar Pictograma</span>
 			</ToolbarGroupButton>
+			<ToolbarGroupButton
+				onClick={() => openModal(ModalType.colorLegend)}
+			>
+				<span>Leyenda de Colores</span>
+			</ToolbarGroupButton>
 		</>
 	);
 }

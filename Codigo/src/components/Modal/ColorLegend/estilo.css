@@ -1,0 +1,18 @@
+.inputColor {
+    width: 50px;
+    height: 36px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 3rem;
+
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 5px;
+}

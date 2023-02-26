@@ -7,6 +7,7 @@ import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
 import WordSearchModal from "./WordSearch/WordSearchModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
+import ColorLegend from "./ColorLegend/ModalColorLegend"
 
 export const ModalType = Object.freeze({
 	searchPicto: Symbol("searchPicto"),
@@ -16,6 +17,7 @@ export const ModalType = Object.freeze({
 	TrueFalse: Symbol("TrueFalse"),
 	desarrollo: Symbol("desarrollo"),
 	relateConcepts: Symbol("relateConcepts"),
+	colorLegend: Symbol("ColorLegend"),
 });
 
 export function ModalFactory({ type, editor, isOpen, onClose }) {
@@ -71,6 +73,13 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 		case ModalType.relateConcepts:
 			return (
 				<RelateConceptsModal
+					editor={editor}
+					isOpen={isOpen}
+					onClose={onClose}
+				/>);
+		case ModalType.colorLegend:
+			return (
+				<ColorLegend
 					editor={editor}
 					isOpen={isOpen}
 					onClose={onClose}
