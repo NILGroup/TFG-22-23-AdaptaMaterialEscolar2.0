@@ -12,12 +12,14 @@ import ModalWordList from "../common/ModalWordList";
 export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
-	const [aleatorio, setaleatorio] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
 
 	useEffect(() => {
-		if (lista.length > 0)
-			setListaVistaP(lista);
+		if (lista.length > 0){
+			let ni = lista.slice();
+			setListaVistaP(ni);
+		}
+			
 		else{
 			setListaVistaP([]);
 		}
@@ -52,7 +54,6 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const submit = (newWord) => {
 		setLista([...lista, newWord]);
 		setmodificado([...modificado, false]);
-		setaleatorio([...aleatorio, Math.random()]);
 	};
 
 	const deleteWord = (index) => {
@@ -94,7 +95,6 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 		setListaVistaP([]);
 		setLista([]);
 		setmodificado([]);
-		setaleatorio([]);
 		onClose();
 	};
 	
@@ -124,30 +124,18 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 						<ModalButton
 							className="px-1"
 							disabled={lista.length < 2}
-							onClick={(event) => {
-								event.preventDefault();
-
-								setaleatorio(
-									aleatorio.map(() => {
-										return Math.random();
-									})
-								);
-
-								let nuevaLista, listaOrdenada, listaFinal;
-								nuevaLista = listaVistaP.map((lis, i) => ({
-									lis,
-									random: aleatorio[i],
-								}));
-
-								listaOrdenada = nuevaLista.sort(
-									(a, b) => a.random - b.random
-								);
-
-								listaFinal = listaOrdenada.map(
-									(item) => item.lis
-								);
-
-								setListaVistaP(listaFinal);
+							onClick={() => {
+								
+								let nuevaLista =listaVistaP.slice();
+									
+									for (var i = nuevaLista.length-1; i > 0; i--) {
+										var j = Math.floor(Math.random() * i);
+										var tmp = nuevaLista[i];
+										nuevaLista[i] = nuevaLista[j];
+										nuevaLista[j] = tmp;
+									}
+									
+								setListaVistaP(nuevaLista)
 							}}
 						>
 							Reordenar
@@ -161,12 +149,15 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 							</p>
 						)}
 						<ul>
+							{console.log(listaVistaP)}
 							{listaVistaP.map((elem, i) => {
+								{console.log(elem,i)}
 								return (
 									<li
+										
 										key={`concepto-${i}`}
 										className="flex items-center"
-									>
+									>									
 										<BiRectangle />
 										<p className="pl-1">{elem}</p>
 									</li>
