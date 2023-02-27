@@ -29,7 +29,7 @@
 	}
 
 	.input-textarea {
-		@apply resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey p-3 focus:border-button;
+		@apply resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey-light p-3 focus:border-button;
 	}
 }
 

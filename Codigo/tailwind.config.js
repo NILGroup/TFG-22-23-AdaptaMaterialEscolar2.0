@@ -14,6 +14,7 @@ module.exports = {
 				"grey-dark": "#d2d2d2",
 				"alert-danger": "#cc3333",
 				"alert-danger-dark": "#6a040f",
+				focus: "#0c8ce9",
 			},
 			fontFamily: {
 				main: "var(--font-main)",

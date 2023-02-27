@@ -149,9 +149,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 							</p>
 						)}
 						<ul>
-							{console.log(listaVistaP)}
-							{listaVistaP.map((elem, i) => {
-								{console.log(elem,i)}
+							{listaVistaP.map((elem, i) => {	
 								return (
 									<li
 										

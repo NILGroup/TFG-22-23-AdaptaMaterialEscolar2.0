@@ -7,7 +7,7 @@ const ModalInputNumber = forwardRef(({ id, label, ...restProps }, ref) => {
 			<input
 				type="number"
 				id={id}
-				className="w-16 rounded-md border-2 border-grey-dark bg-grey-light pl-2"
+				className="w-16 rounded-md border-2 border-grey-dark bg-grey-light pl-2 focus:border-focus"
 				ref={ref}
 				{...restProps}
 			/>

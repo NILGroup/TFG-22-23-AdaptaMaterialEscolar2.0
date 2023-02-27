@@ -1,7 +1,5 @@
 import React from "react";
 
-import style from "../common/Modal.module.css";
-
 import { Transforms } from "slate";
 
 export default function ModalPictogramList({ editor, pictograms, callback }) {
