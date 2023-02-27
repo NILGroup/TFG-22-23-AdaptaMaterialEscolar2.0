@@ -12,8 +12,10 @@ module.exports = {
 				"grey-light": "#fbfbfb",
 				grey: "#efefef",
 				"grey-dark": "#d2d2d2",
-				"alert-danger": "#cc3333",
-				"alert-danger-dark": "#6a040f",
+				"alert-warning": "#ffc107",
+				"alert-warning-dark": "#b67a04",
+				"alert-danger": "#dc4c64",
+				"alert-danger-dark": "#721c24",
 				focus: "#0c8ce9",
 			},
 			fontFamily: {

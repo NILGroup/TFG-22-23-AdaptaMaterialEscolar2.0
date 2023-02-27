@@ -21,8 +21,27 @@ const generateOptionsObject = (numRows, numCols, directions) => {
 };
 
 export const createWordSearch = (numRows, numCols, directions, wordList) => {
+	const ERROR_NO_DIRECTIONS =
+		"Es necesario seleccionar alguna dirección principal (Horizontal, Vertical o Diagonal).";
+	const ERROR_INVALID_DIMENSIONS =
+		"Número de filas y/o columnas inválido. Deben ser números positivos mayores que cero.";
+	const WARNING_NOT_ENOUGH_CELLS =
+		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el número de las filas y/o las columnas, o las direcciones permitidas.";
+
+	const options = generateOptionsObject(numRows, numCols, directions);
+	const noDirections = !directions.horizontal && !directions.vertical && !directions.diagonal;
+
+	// Gestion de errores
+	let errors = [];
+
+	if (numRows <= 0 || numCols <= 0) errors.push(ERROR_INVALID_DIMENSIONS);
+	if (noDirections) errors.push(ERROR_NO_DIRECTIONS);
+
+	if (errors.length > 0) return { grid: null, warnings: null, errors };
+
 	try {
-		const options = generateOptionsObject(numRows, numCols, directions);
+		// Gestion de avisos
+		let warnings = [];
 
 		const wordSearch = new WordSearch({
 			...options,
@@ -30,56 +49,16 @@ export const createWordSearch = (numRows, numCols, directions, wordList) => {
 			maxWords: wordList.length,
 		});
 
-		const errors = checkErrors(
-			wordList,
-			wordSearch,
-			numRows,
-			numCols,
-			directions
-		);
+		if (!wordSearch.words || wordSearch.words.length < wordList.length) warnings.push(WARNING_NOT_ENOUGH_CELLS);
 
 		return {
 			grid: wordSearch.data.grid,
-			errors,
+			warnings: warnings,
+			errors: null,
 		};
 	} catch (error) {
+		console.log(error);
+
 		return null;
 	}
-};
-
-const checkErrors = (wordList, wordSearchObject, rows, cols, directions) => {
-	const ERROR_NO_WORDS =
-		"Es necesario introducir alguna palabra para la sopa de letras.";
-	const ERROR_NO_DIRECTIONS =
-		"Es necesario seleccionar alguna dirección principal (Horizontal, Vertical o Diagonal).";
-	const ERROR_INVALID_DIMENSIONS =
-		"Número de filas y/o columnas inválido. Deben ser números positivos mayores que cero.";
-	const ERROR_NOT_ENOUGH_CELLS =
-		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el valor de las filas, las columnas o las direcciones permitidas.";
-
-	let errors = [];
-
-	if (!wordList || wordList.length <= 0) {
-		errors.push(ERROR_NO_WORDS);
-	}
-
-	const noDirections =
-		!directions.horizontal && !directions.vertical && !directions.diagonal;
-
-	if (noDirections) {
-		errors.push(ERROR_NO_DIRECTIONS);
-	}
-
-	if (rows <= 0 || cols <= 0) {
-		errors.push(ERROR_INVALID_DIMENSIONS);
-	}
-
-	if (
-		!wordSearchObject.words ||
-		wordSearchObject.words.length < wordList.length
-	) {
-		errors.push(ERROR_NOT_ENOUGH_CELLS);
-	}
-
-	return errors;
 };
