@@ -4,14 +4,11 @@ import { Transforms } from "slate";
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
 
-export default function DesarrolloModal({ editor, isOpen, onClose }) {
+export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 	const [formula, setFormula] = useState(["4","","5","=","20"]);
 
 	const handleInputChange = (event, index) => {
-
-		console.log(event.target.value)
-		console.log(index)
 
 		let newValue = event.target.value;
 
@@ -26,21 +23,66 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	const handleKeyDown = (event, index) => {
 		if (event.keyCode === 32) {
 			event.preventDefault();
-		  	console.log("space")
 
 			let newFormula = [...formula];
 
 			newFormula.splice(index+1,0,"")
 
 			setFormula(newFormula)
+		}
+		else if(event.keyCode === 8){
+
+			if(event.target.value == ""){
+				event.preventDefault();
+
+				let newFormula = [...formula];
+
+				newFormula.splice(index, 1);
+
+				if(newFormula.length == 0){
+					newFormula = [""];
+				}
+
+				setFormula(newFormula);
+			}
 
 		}
+	};
+
+
+	const insertInEditor = (editor) => {
+		onClose();
+
+		let ejercicioString = "";
+
+		formula.forEach(elemento => {
+
+			if(elemento === ""){
+				ejercicioString += "___";
+			}
+			else{
+				ejercicioString += elemento;
+			}
+
+			ejercicioString += " ";
+
+		})
+
+		const ejercicio = {
+			type: "ejercicio",
+			children: [{ text: ejercicioString }],
+		};
+
+		Transforms.insertNodes(editor, ejercicio);
 	};
 
 
 	const submit = (e) => {
 		e.preventDefault();
 		
+		insertInEditor(editor);
+
+		setFormula([""]);
 	};
 
 
