@@ -1,14 +1,11 @@
 import React, { useReducer } from "react";
 
-import { clamp } from "../../../utils/math";
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import WordSearchGrid from "./WordSearchGrid";
-
-import { TbMoodSad } from "react-icons/tb";
 
 import { createWordSearch } from "./WordSearchUtils";
 
@@ -25,16 +22,13 @@ const DIRECTIONS = {
 	backwards: "al revés",
 };
 
-const MIN_ROWS = 1;
-const MAX_ROWS = 20;
-
-const MIN_COLS = 1;
-const MAX_COLS = 20;
+const MIN_DIMENSION = 1;
+const MAX_DIMENSION = 30;
 
 // Valores por defecto del estado
 const initialState = {
-	numRows: 1,
-	numCols: 1,
+	numRows: MIN_DIMENSION,
+	numCols: MIN_DIMENSION,
 	wordList: [],
 	directions: Object.keys(DIRECTIONS).reduce((obj, key) => {
 		return { ...obj, [key]: false };
@@ -59,12 +53,12 @@ const reducer = (state, action) => {
 			return { ...initialState };
 		}
 		case ActionType.updateNumRows: {
-			const nextNumRows = clamp(action.nextValue, MIN_ROWS, MAX_ROWS);
+			const nextNumRows = action.nextValue;
 
 			return { ...state, numRows: nextNumRows };
 		}
 		case ActionType.updateNumCols: {
-			const nextNumCols = clamp(action.nextValue, MIN_COLS, MAX_COLS);
+			const nextNumCols = action.nextValue;
 
 			return { ...state, numCols: nextNumCols };
 		}
@@ -125,8 +119,6 @@ const reducer = (state, action) => {
 };
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
-	// TODO: Mejorar los inputs de numero de filas y de numero de columnas
-
 	// Estado del componente
 	const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -136,7 +128,14 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	let errors = null;
 
 	if (state.wordList && state.wordList.length > 0)
-		({ grid, warnings, errors } = createWordSearch(state.numRows, state.numCols, state.directions, state.wordList));
+		({ grid, warnings, errors } = createWordSearch(
+			state.numRows,
+			state.numCols,
+			state.directions,
+			state.wordList,
+			MIN_DIMENSION,
+			MAX_DIMENSION
+		));
 
 	//#region Funciones auxiliares
 	const generateExerciseStatement = () => {
@@ -198,8 +197,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numRows"
 						label="Número de filas"
 						name="numRows"
-						min={MIN_ROWS}
-						max={MAX_ROWS}
+						min={MIN_DIMENSION}
+						max={MAX_DIMENSION}
 						value={state.numRows}
 						onChange={(e) =>
 							dispatch({
@@ -212,8 +211,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numCols"
 						label="Número de columnas"
 						name="numCols"
-						min={MIN_COLS}
-						max={MAX_COLS}
+						min={MIN_DIMENSION}
+						max={MAX_DIMENSION}
 						value={state.numCols}
 						onChange={(e) =>
 							dispatch({

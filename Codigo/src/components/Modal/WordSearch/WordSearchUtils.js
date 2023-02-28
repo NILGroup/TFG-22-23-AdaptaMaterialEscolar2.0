@@ -1,32 +1,11 @@
 const WordSearch = require("@blex41/word-search");
 
-const generateOptionsObject = (numRows, numCols, directions) => {
-	let disabledDirections = [];
-
-	if (!directions.horizontal) disabledDirections.push("W", "E");
-
-	if (!directions.vertical) disabledDirections.push("N", "S");
-
-	if (!directions.diagonal) disabledDirections.push("NW", "NE", "SW", "SE");
-
-	let backwardsProbability = 0.0;
-	if (directions.backwards) backwardsProbability = 0.5;
-
-	return {
-		cols: parseInt(numCols),
-		rows: parseInt(numRows),
-		disabledDirections,
-		backwardsProbability,
-	};
-};
-
-export const createWordSearch = (numRows, numCols, directions, wordList) => {
+export const createWordSearch = (numRows, numCols, directions, wordList, minDimension, maxDimension) => {
 	const ERROR_NO_DIRECTIONS =
 		"Es necesario seleccionar alguna dirección principal (Horizontal, Vertical o Diagonal).";
-	const ERROR_INVALID_DIMENSIONS =
-		"Número de filas y/o columnas inválido. Deben ser números positivos mayores que cero.";
+	const ERROR_INVALID_DIMENSIONS = `Número de filas y/o columnas inválido. Deben ser números entre ${minDimension} y ${maxDimension}, ambos incluidos.`;
 	const WARNING_NOT_ENOUGH_CELLS =
-		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el número de las filas y/o las columnas, o las direcciones permitidas.";
+		"No todas las palabras introducidas están en la sopa de letras. Prueba a cambiar el número de filas/columnas y/o las direcciones permitidas.";
 
 	const options = generateOptionsObject(numRows, numCols, directions);
 	const noDirections = !directions.horizontal && !directions.vertical && !directions.diagonal;
@@ -34,7 +13,9 @@ export const createWordSearch = (numRows, numCols, directions, wordList) => {
 	// Gestion de errores
 	let errors = [];
 
-	if (numRows <= 0 || numCols <= 0) errors.push(ERROR_INVALID_DIMENSIONS);
+	if (numRows < minDimension || numRows > maxDimension || numCols < minDimension || numCols > maxDimension)
+		errors.push(ERROR_INVALID_DIMENSIONS);
+
 	if (noDirections) errors.push(ERROR_NO_DIRECTIONS);
 
 	if (errors.length > 0) return { grid: null, warnings: null, errors };
@@ -61,4 +42,24 @@ export const createWordSearch = (numRows, numCols, directions, wordList) => {
 
 		return null;
 	}
+};
+
+const generateOptionsObject = (numRows, numCols, directions) => {
+	let disabledDirections = [];
+
+	if (!directions.horizontal) disabledDirections.push("W", "E");
+
+	if (!directions.vertical) disabledDirections.push("N", "S");
+
+	if (!directions.diagonal) disabledDirections.push("NW", "NE", "SW", "SE");
+
+	let backwardsProbability = 0.0;
+	if (directions.backwards) backwardsProbability = 0.5;
+
+	return {
+		cols: parseInt(numCols),
+		rows: parseInt(numRows),
+		disabledDirections,
+		backwardsProbability,
+	};
 };

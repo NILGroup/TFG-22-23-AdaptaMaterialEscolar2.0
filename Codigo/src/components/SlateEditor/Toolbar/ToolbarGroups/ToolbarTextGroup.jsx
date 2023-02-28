@@ -17,6 +17,11 @@ export default function ToolbarTextGroup({ editor, openModal }) {
 			>
 				<span>Leyenda de Colores</span>
 			</ToolbarGroupButton>
+			<ToolbarGroupButton
+				onClick={() => openModal(ModalType.summary)}
+			>
+				<span>Generar Resumen</span>
+			</ToolbarGroupButton>
 		</>
 	);
 }
