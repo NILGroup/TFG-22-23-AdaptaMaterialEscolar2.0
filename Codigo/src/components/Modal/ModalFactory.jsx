@@ -8,6 +8,7 @@ import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
 import WordSearchModal from "./WordSearch/WordSearchModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import ColorLegend from "./ColorLegend/ModalColorLegend"
+import MathFormulaModal from "./MathFormula/MathFormulaModal";
 
 export const ModalType = Object.freeze({
 	searchPicto: Symbol("searchPicto"),
@@ -18,6 +19,7 @@ export const ModalType = Object.freeze({
 	desarrollo: Symbol("desarrollo"),
 	relateConcepts: Symbol("relateConcepts"),
 	colorLegend: Symbol("ColorLegend"),
+	mathFormula: Symbol("mathFormula"),
 });
 
 export function ModalFactory({ type, editor, isOpen, onClose }) {
@@ -85,6 +87,13 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 					onClose={onClose}
 				/>
 			);
+		case ModalType.mathFormula:
+			return (
+				<MathFormulaModal
+					editor={editor}
+					isOpen={isOpen}
+					onClose={onClose}
+				/>);
 		default:
 			return null;
 	}
