@@ -23,6 +23,7 @@ import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
 import { withTables } from "./plugins/withTables";
 import style from "./SlateEditor.module.css";
+import RelateConcepts from "./elements/RelateConcepts/RelateConcepts";
 
 const initialValue = [
 	{
@@ -63,7 +64,9 @@ export default function SlateEditor() {
 			case "table":
 				return <WordSearch {...props} />;
 			case "list":
-				return <VerdaderoFalso {...props} />;
+				return <VerdaderoFalso {...props} />
+			case "relateConcepts":
+				return <RelateConcepts {...props} />;
 			default:
 				return <DefaultElement {...props} />;
 		}

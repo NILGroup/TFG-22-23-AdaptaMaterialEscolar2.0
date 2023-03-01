@@ -8,6 +8,16 @@ import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalButton from "../common/ModalButton";
 import {BsFillCircleFill} from "react-icons/bs"
+import RelateConceptsView from "./RelateConceptsView";
+import RelateConceptsTable from "./RelateConceptsTable";
+
+
+const MIN_ROWS = 1;
+const MAX_ROWS = 20;
+
+const MIN_COLS = 1;
+const MAX_COLS = 20;
+
 
 function reordenador (list){
 	let result = list.slice();
@@ -32,79 +42,49 @@ export default function RelateConceptsModal({ editor, isOpen, onClose })  {
 	const handleNumColumnasChange = (event) => {
 		setNumColumnas(event.target.value);
 	};
+	const isCorrect = ()=>{
+		return numFilas <= MAX_ROWS && numColumnas <= MAX_COLS 
+		&& numFilas > MIN_COLS && numColumnas > MIN_ROWS ;
+	}
 	const enunciado = "Relaciona los siguientes conceptos mediante flechas:"
 	useEffect(() => {
-		let temp = [];
-		for(let i = 0; i < numColumnas; i++){
-			temp.push(Array(Number(numFilas)).fill(''))
-			if(valores.length > i ){
-				for(let j = 0; j < Math.min(valores[i].length, numFilas); j++){
-					temp[i][j] = valores[i][j];
+		if(isCorrect()){
+			let temp = [];
+			for(let i = 0; i < numColumnas; i++){
+				temp.push(Array(Number(numFilas)).fill(''))
+				if(valores.length > i ){
+					for(let j = 0; j < Math.min(valores[i].length, numFilas); j++){
+						temp[i][j] = valores[i][j];
+					}
 				}
 			}
+			setValores(temp)
+		}else{
+			setValores([])
 		}
-		setValores(temp)
 	},
 	[numFilas, numColumnas]);
 
 	useEffect(()=>{
-		setValoresVp(valores)
+		setValoresVp(isCorrect() ? valores : [])
 	},[valores])
 
-	const renderTable = ()=>{
-		let result = [];
-		for(let i = 0; i < valores.length; i++){
-			let temp = valores[i].map((valor,j) => {
-				return (
-					<div key={`flechas_${j}`} className="p-1">
-						<input className="w-24 p-2 text-center" value={valores[i][j]} onChange={(event)=>{
-							let temp1 = valores.slice()
-							temp1[i][j] = event.target.value
-							setValores(temp1)
-						}}/>
-					</div>
-				)
-			});
-			result.push(
-				<div key={`flechas_${i}`} className="flex flex-col border border-black rounded divide-y divide-black">
-					{temp}
-				</div>
-			)
-		}
-		return result;
-	}
+	
 	const reset = ()=>{
 		setValores([]);
 		setNumColumnas(0);
 		setNumFilas(0);
 	}
-	const renderVistaPrevia = ()=>{
-		let result = [];
-		for(let i = 0; i < valoresVp.length; i++){
-			let temp = valoresVp[i].filter(valor => valor!== '').map((valor,j) => {
-				return (
-					<div key={`flechas_${j}`} className="p-1 flex items-center justify-center gap-3">
-						{i !== 0 && <BsFillCircleFill size={8} color="black"/>} 
-						{valor}
-						{i !== valoresVp.length - 1 && <BsFillCircleFill size={8} color="black"/>} 
-					</div>
-				)
-			});
-			result.push(
-				<div key={`flechas_${i}`} className="flex flex-col justify-center gap-4">
-					{temp}
-				</div>
-			)
-		}
-		return result;
-	}
 	const insertDatos= ()=>{
-		const result = {	type: "paragraph",
-		children: [
-			{ text: "Hola" },
-			{type:"icon", icon:<BiRectangle/>, children: [{text:""}]},
-			{ text: "Los gatos caminan" },
-		],}
+		const result = {	
+			type: "relateConcepts",
+			icon: <BsFillCircleFill size={8} color="black"/>,
+			concepts: valoresVp,
+			children: [
+				{ text: "" },
+				{type:"icon", icon: <BsFillCircleFill size={8} color="black"/>, children:[{text:""}]}
+			]
+		}
 		Transforms.insertNodes(editor, result);
 		onClose()
 	}
@@ -130,7 +110,8 @@ export default function RelateConceptsModal({ editor, isOpen, onClose })  {
 								name="num_filas"
 								value={numFilas}
 								onChange={handleNumFilasChange}
-								min="0"
+								min={MIN_ROWS}
+								max={MAX_ROWS}
 						/>
 					</div>
 					<div className="flex gap-4 px-8">
@@ -140,25 +121,14 @@ export default function RelateConceptsModal({ editor, isOpen, onClose })  {
 							name="num_filas"
 							value={numColumnas}
 							onChange={handleNumColumnasChange}
-							min="0"
-							max="4"
+							min={MIN_COLS}
+							max={MAX_COLS}
 						/>
 					</div>
 				</div>
-				<div className="flex flex-col p-4 gap-3">
-					<h4 className="text-modal-heading" htmlFor="newWord">
-						Conceptos
-					</h4>
-					<div className="custom-scrollbar h-60 max-h-60 overflow-auto py-2">
 
-						<div className='flex justify-around align-middle '>
-							{renderTable()}
-						</div>
-					</div>
+				<RelateConceptsTable title={"Conceptos"} values={valores} setValores={setValores}/>
 
-				</div>
-
-				
 			</div>
 			<hr className="my-6" />
 			<ModalPreview
@@ -175,17 +145,18 @@ export default function RelateConceptsModal({ editor, isOpen, onClose })  {
 						</ModalButton>
 					}
 			>
-				{(numColumnas > 0 && numFilas > 0) && enunciado}
-				<div className='flex justify-around align-middle'>
-					{renderVistaPrevia()}
-				</div>
+				{isCorrect() && enunciado}
+				<RelateConceptsView 
+					values={valoresVp}
+					icon = {<BsFillCircleFill size={8} color="black"/>}
+				/>
 			</ModalPreview>	
 					
 			<div className="flex justify-center">
 				<ModalOkButton
 					className="mt-5 self-center"
 					onClick={() => insertDatos()}
-					disabled={valores.length < 2}
+					disabled={!valores.some(valor=> { return valor.filter(v => v !== '').length >= 2})}
 				/>
 			</div>
 		</Modal>
