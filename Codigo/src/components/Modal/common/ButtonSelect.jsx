@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 
 
 export default function ButtonSelect({children, id, options, setValue, open, setOpen}) {
-    const [option, setOption] = useState(options[0].value);
+    const [option, setOption] = useState('');
 
     const handleChange = (event) => {
         setValue(event.target.value)
