@@ -351,3 +351,9 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
   \caption{Resultado de las funcionalidades en el documento de trabajo.}
   \label{editable3}
 \end{figure}
+
+
+\section{Arquitectura}
+En este TFG hemos decidido usar Slate, una biblioteca de JavaScript que se utiliza para contruir editores de texto enriquecido. Lo hemos combinado con React lo que nos permite crear una aplicación basada en componentes que a largo plazo será más escalable. Ambas herramientas se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Dicho patrón se encuentra integrado en Slate lo que nos facilita la configuración del mismo. En cuanto a la estructura interna de React ayuda a implementarlo, por nuetra parte lo hemos empleado para el diseño de los modales. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor.
+
+En cuento a cómo se encuentran conectados Slate y React cabe mencionar que hemos creado un conjunto de funciones que hacen de intermediario entre los modales y el editor.
