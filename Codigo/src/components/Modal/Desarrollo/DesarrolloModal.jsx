@@ -20,7 +20,24 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		setNumFilas(event.target.value);
 	};
 
+	const handleClose = ()=>{
+
+		resetValues();
+		onClose();
+	}
+
+	const resetValues = ()=>{
+		setTextareaValue("");
+		setNumFilas(1);
+		setValue("");
+	}
+
 	const renderLines = () => {
+
+		if(textareaValue == ""){
+			return;
+		}
+
 		let lines = [];
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		let space = () =>
@@ -40,11 +57,10 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	};
 
 	const insertInEditor = (editor) => {
-		onClose();
 
 		const ejercicio = { type: "desarrollo", children: [] };
 		const enunciado = {
-			type: "enunciado",
+			type: "paragraph",
 			children: [{ text: textareaValue }],
 		};
 		ejercicio.children.push(enunciado);
@@ -69,19 +85,19 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 			children: [{ text: "" }],
 		});
 
-		setValue("");
-
 		Transforms.insertNodes(editor, ejercicio);
 	};
 
 	const submit = (e) => {
 		e.preventDefault();
+
+		if(textareaValue.trim() == ""){
+			return;
+		}
+
 		insertInEditor(editor);
 
-		setTextareaValue("");
-		setNumFilas(1);
-		e.target.enunciado.value = "";
-		e.target.num_filas.value = 1;
+		handleClose();
 	};
 
 	return (
@@ -89,7 +105,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 			title="Ejercicio de desarrollo"
 			className="w-6/12"
 			isOpen={isOpen}
-			onClose={onClose}
+			onClose={handleClose}
 		>
 			<div className="">
 				<form onSubmit={submit}>
@@ -101,6 +117,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							rows="5"
 							onChange={handleEnunciadoChange}
 							className="input-textarea w-full"
+							required
 						></textarea>
 					</div>
 
@@ -109,6 +126,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							id="num_filas"
 							label="Número de filas:"
 							name="num_filas"
+							min="1"
 							onChange={handleNumFilasChange}
 						/>
 					</div>

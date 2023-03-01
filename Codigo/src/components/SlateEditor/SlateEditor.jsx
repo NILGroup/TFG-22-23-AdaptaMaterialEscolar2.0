@@ -7,6 +7,7 @@ import { createEditor } from "slate";
 // Importamos los componentes de slate y los plugigs de react
 import { Editable, Slate, withReact } from "slate-react";
 import Definition from "./elements/Definition/Definition";
+import Desarrollo from "./elements/Desarrollo/Desarrollo";
 import ImageElement from "./elements/ImageElement/ImageElement";
 import Linea from "./elements/Linea/Linea";
 import WordSearch from "./elements/WordSearchElement/WordSearchElement";
@@ -54,6 +55,8 @@ export default function SlateEditor() {
 				return <ImageElement {...props} />;
 			case "definition":
 				return <Definition {...props} />;
+			case "desarrollo":
+				return <Desarrollo {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
 			case "icon":

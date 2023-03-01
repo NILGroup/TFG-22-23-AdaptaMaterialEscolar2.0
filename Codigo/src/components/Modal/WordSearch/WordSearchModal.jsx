@@ -1,14 +1,11 @@
 import React, { useReducer } from "react";
 
-import { clamp } from "../../../utils/math";
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import WordSearchGrid from "./WordSearchGrid";
-
-import { TbMoodSad } from "react-icons/tb";
 
 import { createWordSearch } from "./WordSearchUtils";
 
@@ -25,16 +22,13 @@ const DIRECTIONS = {
 	backwards: "al revés",
 };
 
-const MIN_ROWS = 1;
-const MAX_ROWS = 20;
-
-const MIN_COLS = 1;
-const MAX_COLS = 20;
+const MIN_DIMENSION = 1;
+const MAX_DIMENSION = 30;
 
 // Valores por defecto del estado
 const initialState = {
-	numRows: 1,
-	numCols: 1,
+	numRows: MIN_DIMENSION,
+	numCols: MIN_DIMENSION,
 	wordList: [],
 	directions: Object.keys(DIRECTIONS).reduce((obj, key) => {
 		return { ...obj, [key]: false };
@@ -59,12 +53,12 @@ const reducer = (state, action) => {
 			return { ...initialState };
 		}
 		case ActionType.updateNumRows: {
-			const nextNumRows = clamp(action.nextValue, MIN_ROWS, MAX_ROWS);
+			const nextNumRows = action.nextValue;
 
 			return { ...state, numRows: nextNumRows };
 		}
 		case ActionType.updateNumCols: {
-			const nextNumCols = clamp(action.nextValue, MIN_COLS, MAX_COLS);
+			const nextNumCols = action.nextValue;
 
 			return { ...state, numCols: nextNumCols };
 		}
@@ -82,9 +76,7 @@ const reducer = (state, action) => {
 			const newValue = action.newValue.replace(/\s/g, "");
 
 			if (!state.wordList || state.wordList.length <= 0)
-				throw new Error(
-					"Cannot update word, word list does not exist or is empty!"
-				);
+				throw new Error("Cannot update word, word list does not exist or is empty!");
 
 			if (index < 0 || index >= state.wordList.length)
 				throw new Error(
@@ -93,18 +85,14 @@ const reducer = (state, action) => {
 
 			return {
 				...state,
-				wordList: state.wordList.map((word, wordIndex) =>
-					wordIndex === index ? String(newValue) : word
-				),
+				wordList: state.wordList.map((word, wordIndex) => (wordIndex === index ? String(newValue) : word)),
 			};
 		}
 		case ActionType.deleteWordFromWordList: {
 			const index = action.index;
 
 			if (!state.wordList || state.wordList.length <= 0)
-				throw new Error(
-					"Cannot delete word, word list does not exist or is empty!"
-				);
+				throw new Error("Cannot delete word, word list does not exist or is empty!");
 
 			if (index < 0 || index >= state.wordList.length)
 				throw new Error(
@@ -113,9 +101,7 @@ const reducer = (state, action) => {
 
 			return {
 				...state,
-				wordList: state.wordList.filter(
-					(word, wordIndex) => wordIndex !== index
-				),
+				wordList: state.wordList.filter((word, wordIndex) => wordIndex !== index),
 			};
 		}
 		case ActionType.updateDirections: {
@@ -133,20 +119,25 @@ const reducer = (state, action) => {
 };
 
 export default function WordSearchModal({ editor, isOpen, onClose }) {
-	// TODO: Inicialmente no debe mostrar un error (Solo deberia mostrar un error si no estan todas las palabras)
-	// TODO: Mejorar los inputs de numero de filas y de numero de columnas
-
 	// Estado del componente
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	// Datos que se pueden generar con el estado (se calculan cada vez que se renderiza la vista)
-	const { grid, errors } = createWordSearch(
-		state.numRows,
-		state.numCols,
-		state.directions,
-		state.wordList
-	);
+	let grid = null;
+	let warnings = null;
+	let errors = null;
 
+	if (state.wordList && state.wordList.length > 0)
+		({ grid, warnings, errors } = createWordSearch(
+			state.numRows,
+			state.numCols,
+			state.directions,
+			state.wordList,
+			MIN_DIMENSION,
+			MAX_DIMENSION
+		));
+
+	//#region Funciones auxiliares
 	const generateExerciseStatement = () => {
 		const { wordList, directions } = state;
 
@@ -158,27 +149,19 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 			wordList.length === 1 ? "escrita" : "escritas"
 		} de manera ${enabledDirections.reduce(
 			(result, current, index, array) =>
-				result +
-				(index > 0 ? (index === array.length - 1 ? " y " : ", ") : "") +
-				current,
+				result + (index > 0 ? (index === array.length - 1 ? " y " : ", ") : "") + current,
 			""
 		)}`;
 
 		const statement = `Encuentra ${
-			wordList.length === 1
-				? "la palabra"
-				: `las ${wordList.length} palabras`
+			wordList.length === 1 ? "la palabra" : `las ${wordList.length} palabras`
 		}${directionsStatement}: `;
 
 		return statement;
 	};
+	//#endregion
 
-	const closeModal = () => {
-		dispatch({ type: ActionType.resetState });
-
-		onClose();
-	};
-
+	//#region Manejadores de eventos
 	const handleOk = (editor, grid) => {
 		const exerciseStatement = {
 			type: "paragraph",
@@ -195,16 +178,18 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		Transforms.insertNodes(editor, exerciseStatement);
 		Transforms.insertNodes(editor, wordSearch);
 
-		closeModal();
+		handleClose();
 	};
 
+	const handleClose = () => {
+		dispatch({ type: ActionType.resetState });
+
+		onClose();
+	};
+	//#endregion
+
 	return (
-		<Modal
-			title="Sopa de Letras"
-			className="w-7/12"
-			isOpen={isOpen}
-			onClose={closeModal}
-		>
+		<Modal title="Sopa de Letras" className="w-7/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="flex flex-col">
 				<h4 className="text-[2rem]">Tamaño</h4>
 				<div className="grid grid-cols-2 items-end gap-4 p-4">
@@ -212,8 +197,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numRows"
 						label="Número de filas"
 						name="numRows"
-						min={MIN_ROWS}
-						max={MAX_ROWS}
+						min={MIN_DIMENSION}
+						max={MAX_DIMENSION}
 						value={state.numRows}
 						onChange={(e) =>
 							dispatch({
@@ -226,8 +211,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						id="numCols"
 						label="Número de columnas"
 						name="numCols"
-						min={MIN_COLS}
-						max={MAX_COLS}
+						min={MIN_DIMENSION}
+						max={MAX_DIMENSION}
 						value={state.numCols}
 						onChange={(e) =>
 							dispatch({
@@ -268,9 +253,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					</div>
 					<div className="">
 						<div className="mb-6">
-							<h4 className="text-modal-heading">
-								Posicionamiento
-							</h4>
+							<h4 className="text-modal-heading">Posicionamiento</h4>
 							<div className="md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
 								{DIRECTIONS &&
 									Object.keys(DIRECTIONS)
@@ -281,9 +264,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 											};
 										})
 										.map(({ key, value }) => {
-											const capitalizedValue = `${value
-												.charAt(0)
-												.toUpperCase()}${value.slice(
+											const capitalizedValue = `${value.charAt(0).toUpperCase()}${value.slice(
 												1
 											)}`;
 
@@ -297,9 +278,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 														dispatch({
 															type: ActionType.updateDirections,
 															direction: key,
-															newValue:
-																e.target
-																	.checked,
+															newValue: e.target.checked,
 														});
 													}}
 												/>
@@ -308,27 +287,29 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							</div>
 						</div>
 						<ModalPreview>
-							{!errors || errors.length <= 0 ? (
+							{grid && (
 								<>
 									<p>{generateExerciseStatement()}</p>
 									<WordSearchGrid wordSearchGrid={grid} />
 								</>
-							) : (
-								<div className="flex h-full flex-col items-center justify-center gap-2 text-alert-danger">
-									<p className="text-[2rem]">
-										Ha habido un error.
-									</p>
-									<TbMoodSad className="flex-shrink-0 text-[3.5rem]" />
-								</div>
 							)}
 						</ModalPreview>
 					</div>
 				</div>
 				{errors && errors.length > 0 && (
-					<div className="mt-4 w-full rounded-lg border-2 border-alert-danger-dark border-opacity-30 bg-alert-danger bg-opacity-30 p-3 text-[1.2rem] text-alert-danger-dark">
+					<div className="mt-4 w-full rounded-lg bg-alert-danger bg-opacity-20 p-3 text-[1.2rem] text-alert-danger-dark">
 						<ul className="list-inside list-disc">
 							{errors.map((error, index) => (
 								<li key={`error-${index}`}>{error}</li>
+							))}
+						</ul>
+					</div>
+				)}
+				{warnings && warnings.length > 0 && (
+					<div className="mt-4 w-full rounded-lg bg-alert-warning bg-opacity-20 p-3 text-[1.2rem] text-alert-warning-dark">
+						<ul className="list-inside list-disc">
+							{warnings.map((warning, index) => (
+								<li key={`warning-${index}`}>{warning}</li>
 							))}
 						</ul>
 					</div>
