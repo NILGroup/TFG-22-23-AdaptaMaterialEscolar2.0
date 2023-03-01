@@ -7,6 +7,10 @@ import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import guideLine from "./GuideLine.module.css";
 
+
+const MIN_ROWS = 1;
+const MAX_ROWS = 100;
+
 export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	const [textareaValue, setTextareaValue] = useState("");
 	const [numFilas, setNumFilas] = useState(1);
@@ -35,6 +39,9 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	const renderLines = () => {
 
 		if(textareaValue == ""){
+			return;
+		}
+		if(numFilas > MAX_ROWS){
 			return;
 		}
 
@@ -126,7 +133,8 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							id="num_filas"
 							label="Número de filas:"
 							name="num_filas"
-							min="1"
+							min={MIN_ROWS}
+							max={MAX_ROWS}
 							onChange={handleNumFilasChange}
 						/>
 					</div>
