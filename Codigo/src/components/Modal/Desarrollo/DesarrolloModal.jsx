@@ -21,6 +21,11 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	};
 
 	const renderLines = () => {
+
+		if(textareaValue == ""){
+			return;
+		}
+
 		let lines = [];
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		let space = () =>
@@ -44,7 +49,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 		const ejercicio = { type: "desarrollo", children: [] };
 		const enunciado = {
-			type: "enunciado",
+			type: "paragraph",
 			children: [{ text: textareaValue }],
 		};
 		ejercicio.children.push(enunciado);
@@ -76,6 +81,11 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 	const submit = (e) => {
 		e.preventDefault();
+
+		if(textareaValue.trim() == ""){
+			return;
+		}
+
 		insertInEditor(editor);
 
 		setTextareaValue("");
@@ -101,6 +111,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							rows="5"
 							onChange={handleEnunciadoChange}
 							className="input-textarea w-full"
+							required
 						></textarea>
 					</div>
 
@@ -109,6 +120,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							id="num_filas"
 							label="Número de filas:"
 							name="num_filas"
+							min="1"
 							onChange={handleNumFilasChange}
 						/>
 					</div>
