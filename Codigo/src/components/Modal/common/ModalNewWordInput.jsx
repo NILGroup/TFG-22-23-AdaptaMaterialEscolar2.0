@@ -4,15 +4,15 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 import ModalInputText from "./ModalInputText";
 
-export default function ModalNewWordInput({ title, onSubmit,attributes ,...restProps }) {
+export default function ModalNewWordInput({ title, onSubmit, attributes, ...restProps }) {
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
 
-				const newWord = e.target.newWord.value;
+				const newWord = String(e.target.newWord.value).trim();
 
-				onSubmit(newWord);
+				if (newWord.length > 0) onSubmit(newWord);
 
 				e.target.reset();
 			}}
@@ -32,7 +32,6 @@ export default function ModalNewWordInput({ title, onSubmit,attributes ,...restP
 				>
 					<AiOutlinePlus size={30} />
 				</button>
-
 			</div>
 		</form>
 	);

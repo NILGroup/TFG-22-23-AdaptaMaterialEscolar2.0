@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
@@ -23,14 +24,27 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 	//#endregion
 
 	//#region Funciones auxiliares
-	// Funcion para obtener los pictogramas segun lo que busque el usuario
-	const summarize = (originalText) => {
+	const summarize = async (originalText) => {
 		setIsLoading(true);
 
-		// TODO: Fetch API
-		console.log("Fetch API");
+		try {
+			const response = await fetch(`/texto/resumen?longitud=${20}`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(originalText),
+			});
 
-		setIsLoading(false);
+			// const summary = response.json().resumen;
+			console.log(response);
+
+			setSummary(summary);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 	//#endregion
 
@@ -61,12 +75,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 				<hr className="my-4" />
 			</form>
-			<ModalPreview>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit sit laborum eligendi fugiat nemo
-				quae autem pariatur architecto nostrum molestiae adipisci natus consequatur dolore ex recusandae minus,
-				optio iste temporibus?
-			</ModalPreview>
-			<ModalOkButton className="self-center my-2" onClick={handleClose} />
+			<ModalPreview>{isLoading ? <Spinner /> : <p>{summary}</p>}</ModalPreview>
 		</Modal>
 	);
 }
