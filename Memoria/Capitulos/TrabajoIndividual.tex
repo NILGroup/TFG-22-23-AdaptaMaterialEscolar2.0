@@ -5,113 +5,150 @@ En este capítulo se habla del trabajo que ha realizado cada miembro del equipo 
 
 \section{Álvaro Gómez Sittima}
 Con respecto a la memoria he realizado la Sección \ref{cap:herramientas} en la cual se comparan algunas aplicaciones similares a AdaptaMaterialEscolar. También, he redactado la Sección \ref{cap:pruebas} donde se explica el plan de pruebas que ha seguido este proyecto. Además, junto a mis compañeros, he realizado los objetivos, el diseño y la metodología empleada.
+\begin{itemize}
+    \item Código
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item Investigue para encontrar una alternativa a CKEditor y propuse Quill.js, aunque finalmente nos decantamos por la opción que propuso Johan, ya que se ajustaba más a nuestras necesidades.
+                        \item Investigue para encontrar un framework CSS que nos facilitará dar estilo a la aplicación y propuse Tailwind CSS.
+                        \item Refactorización y limpieza del código, para que escalar/añadir nuevas funcionalidades sea lo más sencillo posible.
+                        \item Función para crear ejercicios de completar huecos.
+                        \item Función para crear ejercicios de sopa de letras.
+                        \item Función para generar resúmenes.
+                        \item Testing de la función de Verdadero/Falso.
+                        \item He añadido Prettier para formatear el código y ESLINT para analizar estáticamente el código y encontra problemas. Ambos se pueden aplicar facilmente en el pipeline de integración continua.
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Hemos desarrollado la estructura principal de la aplicación (página de inicio, barra de navegación y editor).
+                        \item Hemos desarrollado la función de buscar pictograma.
+                    \end{itemize}
+          \end{itemize}
+    \item Memoria
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item La Sección \ref{sec:tailwind}, en la cual se explica el framework Tailwind CSS.
+                        \item La Sección ..., en la cual se explica la API de pictogramas.
+                        \item Redactar los diseños que hice para la iteración competitiva
+                        \item Propuestas de diseño para el rediseño de la aplicación.
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Junto a Johan, hemos realizado el diseño de las funcionalidades en Figma.
+                        \item He ayudado a redactar el diseño final de las funcionalidades.
+                        \item He ayudado a redactar los requisitos y la arquitectura con mis compañeros.
+                    \end{itemize}
+          \end{itemize}
+\end{itemize}
 
 \section{Dunia Namour Doughani}
 Con respecto a la memoria he realizado la Sección \ref{cap:adaptacion} en la cual se explica la adaptación curricular y sus tipos. Además, he redactado la estructura del proyecto. Junto a mis compañeros he realizado los objetivos, la parte relacionada con la metodología de desarollo.
 \begin{itemize}
     \item Código
-        \begin{itemize}
-            \item Individual
-                \begin{itemize}
-                    \item implementar modal de la funcionalidad de V/f
-                    \item He testado la funcionalidad de sopa de letras y escribirlo en el plan de pruebas 
-                    \item Test de buscar pictograma y escribirlo en el plan de pruebas 
-                    \item Escribir con mis compañeros en el plan de pruebas la funcionalidad de V/F
-                    \item Correccion de los bugs de V/F
-                    \item Refactorizar la funcionalidad de crear V/F para usar Tailwind en vez de CSS
-                    \item Funcionalidad de leyeda
-                    \item Ayudar a la refactorización del codigo
-                \end{itemize}
-        \end{itemize}
-        \item Memoria
-    \begin{itemize}
-        \item Individual
-            \begin{itemize}
-                \item Diseño en figma de como se ven los ejercicios en el editable 
-                \item Sacar capturas de las fucnionalidades para insertarlas en la memoria 
-                \item Redactar los diseños que hice para la iteración competitiva
-                \item Escribir React en la seccion de herramientas empeadas
-                
-            \end{itemize}
-        \item En grupo
-            \begin{itemize}
-                \item Redactar diseño final de las funcionalidades 
-                \item Redactar requisitos y arquetctura con mis compañeros
-            
-                
-                
-            \end{itemize}
-    \end{itemize}
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item implementar modal de la funcionalidad de V/f
+                        \item He testado la funcionalidad de sopa de letras y escribirlo en el plan de pruebas
+                        \item Test de buscar pictograma y escribirlo en el plan de pruebas
+                        \item Escribir con mis compañeros en el plan de pruebas la funcionalidad de V/F
+                        \item Correccion de los bugs de V/F
+                        \item Refactorizar la funcionalidad de crear V/F para usar Tailwind en vez de CSS
+                        \item Funcionalidad de leyeda
+                        \item Ayudar a la refactorización del codigo
+                    \end{itemize}
+          \end{itemize}
+    \item Memoria
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item Diseño en figma de como se ven los ejercicios en el editable
+                        \item Sacar capturas de las fucnionalidades para insertarlas en la memoria
+                        \item Redactar los diseños que hice para la iteración competitiva
+                        \item Escribir React en la seccion de herramientas empeadas
+
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Redactar diseño final de las funcionalidades
+                        \item Redactar requisitos y arquetctura con mis compañeros
+
+
+
+                    \end{itemize}
+          \end{itemize}
 \end{itemize}
 
 \section{Alberto Alejandro Rivas Fernandez}
 \begin{itemize}
     \item Código
-        \begin{itemize}
-            \item Individual
-                \begin{itemize}
-                    \item Investigar cómo añadir un plugin a CKEditor para poder exportar el documento en formato Word
-                    \item Contactar con CKEditor con el fin de obtener una licencia gratuita, para poder utilizar las funciones de exportar en formato Word y PDF. No fue posible obtener la licencia por lo que tuvimos que buscar otra librería para implementar el editor de texto
-                    \item Intentar implementar un modal en React usando Redux y Quill.js
-                    \item Implementar funcionalidad para crear ejercicios de desarrollo usando Slate
-                    \item Refactorizar la funcionalidad de crear ejercicios de desarrollo para usar Tailwind en vez de CSS
-                    \item Realizar testing en la funcionalidad de crear ejercicios de definición
-                    \item Arreglar errores encontrados en mi funcionalidad durante el testing realizado por mi compañero Johan
-                    \item Empezar a implementar la funcionalidad de crear ejercicios de matemática con huecos
-                \end{itemize}
-        \end{itemize}
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item Investigar cómo añadir un plugin a CKEditor para poder exportar el documento en formato Word
+                        \item Contactar con CKEditor con el fin de obtener una licencia gratuita, para poder utilizar las funciones de exportar en formato Word y PDF. No fue posible obtener la licencia por lo que tuvimos que buscar otra librería para implementar el editor de texto
+                        \item Intentar implementar un modal en React usando Redux y Quill.js
+                        \item Implementar funcionalidad para crear ejercicios de desarrollo usando Slate
+                        \item Refactorizar la funcionalidad de crear ejercicios de desarrollo para usar Tailwind en vez de CSS
+                        \item Realizar testing en la funcionalidad de crear ejercicios de definición
+                        \item Arreglar errores encontrados en mi funcionalidad durante el testing realizado por mi compañero Johan
+                        \item Empezar a implementar la funcionalidad de crear ejercicios de matemática con huecos
+                    \end{itemize}
+          \end{itemize}
     \item Memoria
-    \begin{itemize}
-        \item Individual
-            \begin{itemize}
-                \item He realizado la Sección \ref{cap:adaptaMaterial} que habla sobre la primera versión de AdaptaMaterialEscolar
-                \item Diseño de la página principal para comprarlo con los de mis compañeros
-                \item Hacer diseños de cada funcionalidad en Figma para compararlos con los de mis compañeros
-                \item Escribir la explicación de mis diseños en la memoria
-                \item Escribir sección en “Herramientas Empleadas” explicando el uso de MaterialUI
-            \end{itemize}
-        \item En grupo
-            \begin{itemize}
-                \item Junto a mis compañeros hemos explicado la metodología y priorizado las funcionalidades
-            \end{itemize}
-    \end{itemize}
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item He realizado la Sección \ref{cap:adaptaMaterial} que habla sobre la primera versión de AdaptaMaterialEscolar
+                        \item Diseño de la página principal para comprarlo con los de mis compañeros
+                        \item Hacer diseños de cada funcionalidad en Figma para compararlos con los de mis compañeros
+                        \item Escribir la explicación de mis diseños en la memoria
+                        \item Escribir sección en “Herramientas Empleadas” explicando el uso de MaterialUI
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Junto a mis compañeros hemos explicado la metodología y priorizado las funcionalidades
+                    \end{itemize}
+          \end{itemize}
 \end{itemize}
 
 \section{Johan Sebastian Salvatierra Gutierrez}
 \begin{itemize}
     \item Código
-        \begin{itemize}
-            \item Individual
-                \begin{itemize}
-                    \item Investigue para obtener un editor que se ajuste a nuestras necesidades
-                    \item Propuse Slate el cual es un framework de editor de texto altamente personalizable 
-                    \item Cree un prototipo con Slate para poder combrobar si era una opción adecuada
-                    \item Función para crear ejercicio de definiciones
-                    \item Funcion para crear ejercicios de relacionar conceptos
-                    \item Realice operaciones de testing en la función de crear ejercicios de desarrollo
-                \end{itemize}
-            \item En grupo
-                \begin{itemize}
-                    \item Desarrollamos la función buscar pictograma
-                    \item Diseñamos un logo
-                    \item Ayude a Alvaro con la abstracción del código
-                \end{itemize}
-        \end{itemize}
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item Investigue para obtener un editor que se ajuste a nuestras necesidades
+                        \item Propuse Slate el cual es un framework de editor de texto altamente personalizable
+                        \item Cree un prototipo con Slate para poder combrobar si era una opción adecuada
+                        \item Función para crear ejercicio de definiciones
+                        \item Funcion para crear ejercicios de relacionar conceptos
+                        \item Realice operaciones de testing en la función de crear ejercicios de desarrollo
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Desarrollamos la función buscar pictograma
+                        \item Diseñamos un logo
+                        \item Ayude a Alvaro con la abstracción del código
+                    \end{itemize}
+          \end{itemize}
     \item Memoria
-    \begin{itemize}
-        \item Individual
-            \begin{itemize}
-                \item La Seccion \ref{cap:motivacio} en la cual se explica la motivación de nuestro TFG
-                \item La Sección \ref{claseDeServicio} donde se aclara las clases de servicio que empleamos para el tablero Kanban.
-                \item Cree una propuesta de diseño
-                \item En el capitulo de las herramientas la subsección de figma y slate.
-            \end{itemize}
-        \item En grupo
-            \begin{itemize}
-                \item Los objetivos
-                \item Junto a Alvaro hemos realizado el diseño de las funcionalidades.
-                \item La metodología empleada.
-                \item Requisitos
-            \end{itemize}
-    \end{itemize}
+          \begin{itemize}
+              \item Individual
+                    \begin{itemize}
+                        \item La Seccion \ref{cap:motivacio} en la cual se explica la motivación de nuestro TFG
+                        \item La Sección \ref{claseDeServicio} donde se aclara las clases de servicio que empleamos para el tablero Kanban.
+                        \item Cree una propuesta de diseño
+                        \item En el capitulo de las herramientas la subsección de figma y slate.
+                    \end{itemize}
+              \item En grupo
+                    \begin{itemize}
+                        \item Los objetivos
+                        \item Junto a Alvaro hemos realizado el diseño de las funcionalidades.
+                        \item La metodología empleada.
+                        \item Requisitos
+                    \end{itemize}
+          \end{itemize}
 \end{itemize}
