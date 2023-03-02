@@ -75,7 +75,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				</ModalButton>
 
 				<hr className="my-4" />
-			</form>9
+			</form>
 			<ModalPreview>{isLoading ? <Spinner /> : <p>{summary}</p>}</ModalPreview>
 			<ModalOkButton className="my-2 self-center" onClick={handleClose} />
 		</Modal>
