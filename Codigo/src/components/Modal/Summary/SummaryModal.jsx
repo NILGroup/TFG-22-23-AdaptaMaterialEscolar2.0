@@ -28,10 +28,11 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 		setIsLoading(true);
 
 		try {
-			const response = await fetch(`/texto/resumen?longitud=${20}`, {
+			const response = await fetch(`https://holstein.fdi.ucm.es/nil-ws-api/v1/texto/resumen?longitud=${20}`, {
 				method: "POST",
+				mode: "no-cors",
 				headers: {
-					"Content-Type": "application/json",
+					"Content-Type": "text/plain",
 				},
 				body: JSON.stringify(originalText),
 			});
@@ -74,8 +75,9 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				</ModalButton>
 
 				<hr className="my-4" />
-			</form>
+			</form>9
 			<ModalPreview>{isLoading ? <Spinner /> : <p>{summary}</p>}</ModalPreview>
+			<ModalOkButton className="my-2 self-center" onClick={handleClose} />
 		</Modal>
 	);
 }

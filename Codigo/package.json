@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"homepage": "https://nilgroup.github.io/TFG-22-23-AdaptaMaterialEscolar2.0",
-	"proxy": "https://holstein.fdi.ucm.es/nil-ws-api/v1",
 	"dependencies": {
 		"@blex41/word-search": "^1.2.0",
 		"@emotion/react": "^11.10.5",
