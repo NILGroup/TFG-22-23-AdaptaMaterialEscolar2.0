@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
+import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 
 export default function SummaryModal({ editor, isOpen, onClose }) {
@@ -45,7 +46,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				}}
 			>
 				<div className="w-full max-w-full">
-					<div className="flex justify-between rounded-md rounded-b-none border-2 border-b-0 border-gray-300 bg-gray-200 px-4 py-2">
+					<div className="flex justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey-medium px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
 					</div>
 					<textarea
@@ -54,13 +55,18 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 						className="input-textarea h-32 w-full rounded-t-none"
 					/>
 				</div>
-				<ModalButton type="submit" className="flex items-center gap-2 self-center py-2 px-4 text-modal-base-lg">
+				<ModalButton type="submit" className="self-center py-2 px-4 text-modal-base-lg">
 					Resumir
 				</ModalButton>
 
-				<hr className="my-8" />
+				<hr className="my-4" />
 			</form>
-			<ModalPreview>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit sit laborum eligendi fugiat nemo quae autem pariatur architecto nostrum molestiae adipisci natus consequatur dolore ex recusandae minus, optio iste temporibus?</ModalPreview>
+			<ModalPreview>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit sit laborum eligendi fugiat nemo
+				quae autem pariatur architecto nostrum molestiae adipisci natus consequatur dolore ex recusandae minus,
+				optio iste temporibus?
+			</ModalPreview>
+			<ModalOkButton className="self-center my-2" onClick={handleClose} />
 		</Modal>
 	);
 }

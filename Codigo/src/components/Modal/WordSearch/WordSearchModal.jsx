@@ -191,7 +191,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	return (
 		<Modal title="Sopa de Letras" className="w-7/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="flex flex-col">
-				<h4 className="text-[2rem]">Tamaño</h4>
+				<h4 className="text-modal-heading">Tamaño</h4>
 				<div className="grid grid-cols-2 items-end gap-4 p-4">
 					<ModalInputNumber
 						id="numRows"

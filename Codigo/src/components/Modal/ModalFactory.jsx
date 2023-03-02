@@ -25,6 +25,8 @@ export const ModalType = Object.freeze({
 });
 
 export function ModalFactory({ type, editor, isOpen, onClose }) {
+	document.body.style.overflow = isOpen ? "hidden" : "auto";
+
 	switch (type) {
 		case ModalType.searchPicto:
 			return <SearchPictoModal editor={editor} isOpen={isOpen} onClose={onClose} />;

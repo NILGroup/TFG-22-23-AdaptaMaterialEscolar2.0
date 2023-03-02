@@ -18,11 +18,11 @@ import style from "./Modal.module.css";
 export default function ModalPreview({ children, attributes }) {
 	return (
 		<div className="w-full max-w-full">
-			<div className="flex justify-between rounded-md rounded-b-none border-2 border-gray-300 bg-gray-200 px-4 py-2">
-				<h4 className={style.modalHeading}>Vista previa</h4>
+			<div className="flex justify-between rounded-md rounded-b-none border-2 border-grey-dark bg-grey-medium px-4 py-2">
+				<h4 className="text-modal-heading">Vista previa</h4>
 				{attributes}
 			</div>
-			<div className="h-60 max-h-60 overflow-auto rounded-md rounded-t-none border-2 border-t-0 border-gray-300 bg-gray-100 px-4 py-2">
+			<div className="h-40 max-h-40 overflow-auto rounded-md rounded-t-none border-2 border-t-0 border-grey-dark bg-grey px-4 py-2">
 				{children}
 			</div>
 		</div>
