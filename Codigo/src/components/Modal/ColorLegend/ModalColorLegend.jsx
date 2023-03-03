@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react";
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalInputText from "../common/ModalInputText"
-import ModalOkButton from "../common/ModalOkButton";
-import ModalPreview from "../common/ModalPreview";
-import ModalWordList from "../common/ModalWordList";
 import  "../ColorLegend/estilo.css"
+import ModalWordListLegend from "./ModalWordListLegend"
+
 
 export default function ModalColorLegend({ editor, isOpen, onClose }) {
     const [conceptos, setConceptos] = useState([]);
-    const [Colores, setColores] = useState([]);
+    const [colores, setColores] = useState([]);
     const [color, setColor] = useState("#000000");
 
     const changeColor = (event) => {
@@ -19,10 +18,11 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 
     const submit = (newWord) => {
 		setConceptos([...conceptos, newWord]);
-       setColores([...Colores, color])
+       setColores([...colores, color])
+       setColor("#000000")
 	};
 
-    const editWord = (newValue, index) => {
+    const editWord = (newValue,newColor, index) => {
 		if (!conceptos)
 			throw new Error("Cannot update word, word list does not exist!");
 
@@ -30,12 +30,16 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 			throw new Error("Cannot update word, index out of range!");
 
             setConceptos((previousWordList) => {
-			const newList = previousWordList.map((word, wordIndex) =>
-				wordIndex === index ? String(newValue) : word
-			);
-		
-			return newList;
-		});
+                    const newList = previousWordList.map((word, wordIndex) =>
+                    wordIndex === index ? String(newValue) : word
+                );
+			return newList;});
+            console.log(newValue,newColor)
+            setColores((previousWordList) => {
+                const newList = previousWordList.map((color, colorIndex) =>
+                colorIndex === index ? String(newColor) : color
+            );
+        return newList;});
 	};
 
     const deleteWord = (index) => {
@@ -44,13 +48,16 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 
 		if (index < 0 || index >= conceptos.length)
 			throw new Error("Cannot update word, index out of range!");
-
-            setConceptos((previousWordList) => {
-			const newList = previousWordList.filter(
-				(wordIndex) => wordIndex !== index
-			);
-			return newList;
-		});
+        
+       const concetosNew= conceptos.filter((elem,i)=>{
+            return i!==index
+        })
+        const ColoresNew= colores.filter((elem,i)=>{
+            return i!==index
+        })
+        setConceptos(concetosNew);
+        setColores(ColoresNew);
+		
 	};
 
 	return (
@@ -77,26 +84,13 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
                     />
                 </div> 
 
-               
-             
-                <div>
-                    
-                    <ul>
-                        {conceptos.map((elem, i) => {
-                            return (
-                                <li
-                                    key={`concepto-${i}`}
-                                    className="flex items-center"
-                                    style={{ color: elem.color }}
-                                >
-                                    
-                                    <p className="pl-1">{elem.word}</p>
-                                </li>
-                            );
-                        })}
-                    </ul>
-				</div>
-                    
+              
+               <ModalWordListLegend
+					wordList={conceptos}
+                    colorList={colores}
+					onEdit={(newValue,newColor, index) => editWord(newValue,newColor, index)}
+					onDelete={(index) => deleteWord(index)}
+				/>
             </div>
 		
 	    </Modal>

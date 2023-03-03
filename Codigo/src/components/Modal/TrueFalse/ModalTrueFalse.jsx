@@ -152,7 +152,6 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 							{listaVistaP.map((elem, i) => {	
 								return (
 									<li
-										
 										key={`concepto-${i}`}
 										className="flex items-center"
 									>									

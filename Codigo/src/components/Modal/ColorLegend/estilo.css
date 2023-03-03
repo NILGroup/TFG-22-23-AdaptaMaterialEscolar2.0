@@ -1,10 +1,10 @@
 .inputColor {
-    width: 50px;
+    width: 45px;
     height: 36px;
     background-color: #fff;
     border: none;
     cursor: pointer;
-    margin-right: 3rem;
+    margin-right: 1.5rem;
 
 }
 
@@ -15,4 +15,11 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 5px;
+}
+.inputColorl {
+    width: 40px;
+    height: 36px;
+    background-color: #fff;
+    border: none;  
+    margin-right: 2rem;
 }
