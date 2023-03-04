@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 
 import ToolbarButton from "./ToolbarButton";
-import {
-	ToolbarGroup,
-	ToolbarGroupFactory,
-} from "./ToolbarGroups/ToolbarGroupFactory";
-
-import style from "./Toolbar.module.css";
+import { ToolbarGroup, ToolbarGroupFactory } from "./ToolbarGroups/ToolbarGroupFactory";
 
 export default function Toolbar({ editor, openModal }) {
-	const [activeToolbarGroup, setActiveToolbarGroup] = useState(
-		ToolbarGroup.format
-	);
+	const [activeToolbarGroup, setActiveToolbarGroup] = useState(ToolbarGroup.format);
 
 	return (
 		<>
-			<div className={style.toolbar}>
-				<div className={style.mainToolbar}>
+			<div className="flex flex-col font-main">
+				<div className="flex flex-wrap gap-8 border-b-[1px] border-editor-border bg-editor-toolbar p-4 ">
 					{/* Archivo */}
 					<ToolbarButton
 						text="Archivo"
@@ -46,12 +39,8 @@ export default function Toolbar({ editor, openModal }) {
 						activeGroup={activeToolbarGroup}
 					/>
 				</div>
-				<div className={style.subToolbar}>
-					<ToolbarGroupFactory
-						type={activeToolbarGroup}
-						editor={editor}
-						openModal={openModal}
-					/>
+				<div className="flex h-[3rem] overflow-x-auto whitespace-nowrap border-b-[1px] border-editor-border bg-editor-subtoolbar p-2">
+					<ToolbarGroupFactory type={activeToolbarGroup} editor={editor} openModal={openModal} />
 				</div>
 			</div>
 		</>

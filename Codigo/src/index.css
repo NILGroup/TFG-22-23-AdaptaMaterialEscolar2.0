@@ -6,24 +6,26 @@
 
 @layer base {
 	:root {
-		--color-primary: #e38787;
-		--color-secondary: #2d4555;
-		--color-background-white: white;
-		--color-background-grey: #fbfbfb;
-		--color-background-grey-md: #efefef;
-		--color-background-grey-dk: #d2d2d2;
-		--color-text-black: black;
-		--color-text-white: white;
-		--color-button: #0c8ce9;
-		--color-button-dk: #0b7ecf;
-		--color-tooltip: #0c8de9;
-		--color-editor-bg: #e6e6e6;
-		--color-editor-border: #c6c6c6;
-		--color-editor-bg-toolbar: white;
-		--color-editor-bg-editable: white;
-		--color-editor-border-editable: #c6c6c6;
-		--color-alert-danger: #cc3333;
-		--color-alert-danger-dark: #6a040f;
+		--color-primary: 227 135 135;
+		--color-secondary: 45 69 85;
+		--color-grey-light: 251 251 251;
+		--color-grey: 239 239 239;
+		--color-grey-medium: 226 226 226;
+		--color-grey-dark: 210 210 210;
+		--color-warning: 255 193 7;
+		--color-warning-dark: 182 122 4;
+		--color-danger: 220 76 100;
+		--color-danger-dark: 114 28 36;
+		--color-focus: 12 140 233;
+		--color-button: 12 140 233;
+		--color-button-dark: 11 126 207;
+		--color-tooltip: 12 141 233;
+		--color-editor: 230 230 230;
+		--color-editor-border: 198 198 198;
+		--color-editor-toolbar: 255 255 255;
+		--color-editor-subtoolbar: 251 251 251;
+		--color-editable: 255 255 255;
+		--color-editable-border: 198 198 198;
 		--font-main: "Open Sans", sans-serif;
 		--font-modal-title: "Roboto Slab", serif;
 	}

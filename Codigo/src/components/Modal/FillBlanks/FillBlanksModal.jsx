@@ -158,7 +158,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 						</ModalButton>
 					</div>
 				</div>
-				<div className="">
+				<div>
 					<h4 className="text-modal-heading font-normal">Longitud del hueco:</h4>
 					<div className="mt-2 w-full px-4">
 						{Object.keys(GapType).map((key, i) => (
