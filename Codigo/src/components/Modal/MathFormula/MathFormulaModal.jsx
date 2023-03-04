@@ -2,11 +2,10 @@ import React, { useState } from "react";
 
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
-import ModalInputNumber from "../common/ModalInputNumber";
 
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
-	const [formula, setFormula] = useState(["4","","5","=","20"]);
+	const [formula, setFormula] = useState([""]);
 
 	const handleInputChange = (event, index) => {
 
@@ -96,18 +95,13 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 			<div className="">
 				<form onSubmit={submit}>
 
-					<h3>Formula:</h3>
+					<h3 className="text-modal-heading">Fórmula:</h3>
 
-					{/* 
-					
-					onEdit={(newValue, index) =>
-						setConcepts(
-							concepts.map((c, i) => (i === index ? newValue : c))
-						)
-					}
-					*/}
+					<div className="text-center mb-2">
+						<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
+					</div>
 
-					<div className="p-2 bg-gray-200 p-3">
+					<div className="px-3 pt-3 pb-1 bg-gray-100 rounded">
 						
 						{
 							formula.map((elemento, i) => {
@@ -121,7 +115,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 										onKeyDown={e => {
 											handleKeyDown(e,i);
 										}}
-										className="w-14 p-2 border-solid border-2 border-indigo-600" 
+										className="w-14 p-2 mr-2 mb-2 border-solid border-2 border-black text-center" 
 									/>
 								);
 							})
