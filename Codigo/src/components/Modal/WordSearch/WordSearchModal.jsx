@@ -223,7 +223,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					/>
 				</div>
 				<div className="lg:grid lg:grid-cols-2 lg:gap-2">
-					<div className="">
+					<div>
 						<ModalNewWordInput
 							title="Palabras"
 							onSubmit={(newWord) =>
@@ -251,7 +251,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							}
 						/>
 					</div>
-					<div className="">
+					<div>
 						<div className="mb-6">
 							<h4 className="text-modal-heading">Posicionamiento</h4>
 							<div className="md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
