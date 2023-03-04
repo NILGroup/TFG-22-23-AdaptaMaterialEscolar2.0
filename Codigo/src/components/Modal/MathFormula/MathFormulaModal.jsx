@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createRef } from "react";
 
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
@@ -19,15 +19,26 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 	};
 
+	const handleClose = ()=>{
+
+		resetValues();
+		onClose();
+	}
+
+	const resetValues = ()=>{
+		setFormula([""]);
+	}
+
 	const handleKeyDown = (event, index) => {
 		if (event.keyCode === 32) {
 			event.preventDefault();
 
 			let newFormula = [...formula];
 
-			newFormula.splice(index+1,0,"")
+			newFormula.splice(index+1,0,"");
 
-			setFormula(newFormula)
+			setFormula(newFormula);
+
 		}
 		else if(event.keyCode === 8){
 
@@ -50,7 +61,6 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 
 	const insertInEditor = (editor) => {
-		onClose();
 
 		let ejercicioString = "";
 
@@ -78,10 +88,14 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 	const submit = (e) => {
 		e.preventDefault();
+
+		if(formula.length == 1 && formula[0] == ""){
+			return;
+		}
 		
 		insertInEditor(editor);
-
-		setFormula([""]);
+		
+		handleClose();
 	};
 
 
@@ -90,7 +104,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 			title="Definir huecos de matemáticas"
 			className="w-6/12"
 			isOpen={isOpen}
-			onClose={onClose}
+			onClose={handleClose}
 		>
 			<div className="">
 				<form onSubmit={submit}>
