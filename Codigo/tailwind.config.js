@@ -8,7 +8,6 @@ module.exports = {
 				grey: {
 					light: "rgb(var(--color-grey-light) / <alpha-value>)",
 					DEFAULT: "rgb(var(--color-grey) / <alpha-value>)",
-					medium: "rgb(var(--color-grey-medium) / <alpha-value>)",
 					dark: "rgb(var(--color-grey-dark) / <alpha-value>)",
 				},
 				alert: {
@@ -39,11 +38,13 @@ module.exports = {
 				"modal-title": "var(--font-modal-title)",
 			},
 			fontSize: {
-				"navbar-link": "clamp(1.2rem, 4vw, 1.55rem)",
+				"navbar-link-text": "clamp(1.2rem, 4vw, 1.55rem)",
+				"navbar-link-icon": "1.75rem",
 				"modal-title": "clamp(1.5rem, 6vw, 2rem)",
 				"modal-heading": "clamp(1.2rem, 4vw, 1.6rem)",
 				"modal-base": "clamp(0.6rem, 2.5vw, 1.25rem)",
 				"modal-base-lg": "clamp(0.8rem, 3vw, 1.4rem)",
+				"modal-alert-box": "clamp(0.75rem, 2vw, 1.1rem)",
 			},
 		},
 	},

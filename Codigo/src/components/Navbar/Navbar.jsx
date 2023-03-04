@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // React Icons
-import { AiTwotoneSetting } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
+import { HiOutlineCog } from "react-icons/hi";
 
 import NavbarLink from "./NavbarLink";
 
@@ -18,12 +18,12 @@ export default function Navbar() {
 			</div>
 			<div className="flex gap-2">
 				<NavbarLink to="ayuda">
-					<BiHelpCircle />
-					<p>Ayuda</p>
+					<BiHelpCircle className="text-navbar-link-icon" />
+					<p className="text-navbar-link-text">Ayuda</p>
 				</NavbarLink>
 				<NavbarLink to="configuracion">
-					<AiTwotoneSetting />
-					<p>Configuración</p>
+					<HiOutlineCog className="text-navbar-link-icon" />
+					<p className="text-navbar-link-text">Configuración</p>
 				</NavbarLink>
 			</div>
 		</div>

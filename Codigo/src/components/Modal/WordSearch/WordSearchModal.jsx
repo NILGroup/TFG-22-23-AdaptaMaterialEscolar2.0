@@ -286,7 +286,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 										})}
 							</div>
 						</div>
-						<ModalPreview>
+						<ModalPreview showAlerts warnings={warnings} errors={errors}>
 							{grid && (
 								<>
 									<p>{generateExerciseStatement()}</p>
@@ -296,24 +296,6 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						</ModalPreview>
 					</div>
 				</div>
-				{errors && errors.length > 0 && (
-					<div className="mt-4 w-full rounded-lg bg-alert-danger bg-opacity-20 p-3 text-[1.2rem] text-alert-danger-dark">
-						<ul className="list-inside list-disc">
-							{errors.map((error, index) => (
-								<li key={`error-${index}`}>{error}</li>
-							))}
-						</ul>
-					</div>
-				)}
-				{warnings && warnings.length > 0 && (
-					<div className="mt-4 w-full rounded-lg bg-alert-warning bg-opacity-20 p-3 text-[1.2rem] text-alert-warning-dark">
-						<ul className="list-inside list-disc">
-							{warnings.map((warning, index) => (
-								<li key={`warning-${index}`}>{warning}</li>
-							))}
-						</ul>
-					</div>
-				)}
 				<ModalButton
 					className="mt-5 self-center"
 					onClick={() => handleOk(editor, grid)}

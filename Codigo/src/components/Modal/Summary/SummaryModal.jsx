@@ -61,7 +61,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				}}
 			>
 				<div className="w-full max-w-full">
-					<div className="flex justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey-medium px-4 py-2">
+					<div className="flex justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
 					</div>
 					<textarea
