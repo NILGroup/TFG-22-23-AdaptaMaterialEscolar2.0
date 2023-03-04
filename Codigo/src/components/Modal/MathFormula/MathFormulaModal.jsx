@@ -39,6 +39,18 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 			setFormula(newFormula);
 
+			/*let nextInput = document.getElementById(`math-input-${index+1}`);
+			nextInput.focus();*/
+
+			setFormula(newFormula);
+
+			setTimeout(()=>{
+
+				let input = document.getElementById(`input-math-${index+1}`);
+				input.focus();
+
+			}, 50);
+
 		}
 		else if(event.keyCode === 8){
 
@@ -54,6 +66,16 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 				}
 
 				setFormula(newFormula);
+
+				if(index > 0){
+					setTimeout(()=>{
+
+						let input = document.getElementById(`input-math-${index-1}`);
+						input.focus();
+		
+					}, 50);
+				}
+
 			}
 
 		}
@@ -129,7 +151,9 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 										onKeyDown={e => {
 											handleKeyDown(e,i);
 										}}
-										className="w-14 p-2 mr-2 mb-2 border-solid border-2 border-black text-center" 
+										className="w-14 p-2 mr-2 mb-2 border-solid border-2 border-black text-center"
+										id={`input-math-${i}`}
+										autoComplete="off"
 									/>
 								);
 							})
