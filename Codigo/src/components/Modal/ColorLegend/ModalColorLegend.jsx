@@ -1,25 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
+import { IoMdSquare } from "react-icons/io";
+import { Transforms } from "slate";
 
+import  "../ColorLegend/estilo.css"
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalInputText from "../common/ModalInputText"
-import  "../ColorLegend/estilo.css"
+import ModalPreview from "../common/ModalPreview";
 import ModalWordListLegend from "./ModalWordListLegend"
-
+import ModalOkButton from "../common/ModalOkButton"
 
 export default function ModalColorLegend({ editor, isOpen, onClose }) {
     const [conceptos, setConceptos] = useState([]);
     const [colores, setColores] = useState([]);
     const [color, setColor] = useState("#000000");
+    const [titulo, setTitulo] = useState("");
 
     const changeColor = (event) => {
         setColor(event.target.value);
     };
-
+    const changeTitle = (event) => {
+        setTitulo(event.target.value);
+    };
     const submit = (newWord) => {
 		setConceptos([...conceptos, newWord]);
        setColores([...colores, color])
        setColor("#000000")
+       
+	};
+
+    const okButton = (editor,conceptos,colores) => {
+
+        const list = { type: "list", children: [] };
+		const listItem = {
+			type: "paragraph",
+			children: [
+				{ text: titulo },
+			],
+		};
+
+		list.children.push(listItem);
+		conceptos.forEach((item,i) => {
+			
+			const listItem = {
+				type: "paragraph",
+				children: [{type:"icon", icon: <IoMdSquare size={25} style={{color: colores[i]}}/>, children: [{text:""}]},{ text: item }],
+			};
+
+			list.children.push(listItem);
+		});
+
+		Transforms.insertNodes(editor, list);
+		closeModal();
+    }
+
+    const closeModal = () => {
+		setConceptos([]);
+		setColores([]);
+		setColor(null);
+        setTitulo("")
+		onClose();
 	};
 
     const editWord = (newValue,newColor, index) => {
@@ -67,12 +107,13 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 			isOpen={isOpen}
 			onClose={onClose}
 		>
-            <div>
+            <div className="flex flex-col">
                 <div>
                     <ModalInputText
                         id="Titulo"
                         label="Título"
                         required
+                        onInput={changeTitle}
                     />
                 </div>
               
@@ -91,6 +132,28 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 					onEdit={(newValue,newColor, index) => editWord(newValue,newColor, index)}
 					onDelete={(index) => deleteWord(index)}
 				/>
+                <ModalPreview>
+                    <div>
+                     <p>{titulo}</p>   
+                
+                        {conceptos.map((elem, i) => {	
+                            return (
+                                <div key={`concepts_preview_${i}`} className="flex items-center mt-3">
+                                  <IoMdSquare size={25} style={{color: colores[i]}}/>
+									<p className="pl-1">{elem}</p>
+                                </div>
+                            );
+                        })}
+					
+                    </div>
+                </ModalPreview>
+               
+                <ModalOkButton
+					className="mt-2 self-center"
+					onClick={() => okButton(editor,conceptos,colores)}
+					disabled={conceptos.length == 0 || titulo.length==0}
+				/>
+              
             </div>
 		
 	    </Modal>
