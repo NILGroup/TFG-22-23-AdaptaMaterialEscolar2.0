@@ -16,7 +16,7 @@ export default function ModalPictogramList({ editor, pictograms, callback }) {
 		return <h4 className="my-10 text-center text-modal-base-lg">No se han encontrado imágenes.</h4>;
 
 	return (
-		<div className="grid max-h-80 grid-cols-4 gap-8 overflow-y-auto p-4">
+		<div className="grid max-h-80 grid-cols-1 gap-8 overflow-y-auto p-4 md:grid-cols-4">
 			{pictograms.map((pictogram, index) => (
 				<button
 					key={`pictogram-${index}`}
@@ -25,7 +25,7 @@ export default function ModalPictogramList({ editor, pictograms, callback }) {
 
 						if (callback) callback();
 					}}
-					className="w-fit rounded-md hover:shadow-[inner_0_0_0_2px] hover:shadow-black focus:ring-4 focus:ring-blue-300 focus:ring-opacity-60"
+					className="w-fit rounded-md shadow-[inner_0_0_0_2px] shadow-grey hover:shadow-black focus:ring-4 focus:ring-blue-300 focus:ring-opacity-60"
 					tabIndex="0"
 				>
 					<img src={pictogram} alt={`Pictogram ${index}`} className="max-w-[10rem]" />
