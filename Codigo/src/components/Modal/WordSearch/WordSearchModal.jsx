@@ -254,7 +254,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 					<div>
 						<div className="mb-6">
 							<h4 className="text-modal-heading">Posicionamiento</h4>
-							<div className="md:flex md:flex-wrap md:items-center md:justify-between md:gap-2">
+							<div className="lg:flex lg:flex-wrap lg:items-center lg:justify-between lg:gap-2">
 								{DIRECTIONS &&
 									Object.keys(DIRECTIONS)
 										.map((key) => {
@@ -299,7 +299,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 				<ModalButton
 					className="mt-5 self-center"
 					onClick={() => handleOk(editor, grid)}
-					disabled={errors && errors.length > 0}
+					disabled={grid === null}
 				/>
 			</div>
 		</Modal>
