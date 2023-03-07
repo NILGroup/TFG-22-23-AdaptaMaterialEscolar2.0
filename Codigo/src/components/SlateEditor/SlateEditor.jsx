@@ -23,7 +23,10 @@ import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
-import { withTables } from "./plugins/withTables";
+import { withTable } from "./plugins/withTable";
+import Table from "./elements/Table/Table";
+import Tr from "./elements/Table/Tr";
+import Td from "./elements/Table/Td";
 
 const initialValue = [
 	{
@@ -34,7 +37,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withTables(withIcons(withImages(withEmbeds(withReact(createEditor()))))), []);
+	const editor = useMemo(() => withTable(withIcons(withImages(withEmbeds(withReact(createEditor()))))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -56,9 +59,15 @@ export default function SlateEditor() {
 				return <Icon {...props} />;
 			case "linea":
 				return <Linea {...props} />;
-			// TODO: Cambiar el WordSearch por un elemento generico de Tabla
-			case "table":
-				return <WordSearch {...props} />;
+			case 'table':
+				return <Table {...props}/>
+			case 'table-row':
+				return <Tr {...props}/>
+			case 'table-cell':
+				return <Td {...props}/>
+			// // TODO: Cambiar el WordSearch por un elemento generico de Tabla
+			// case "table":
+			// 	return <WordSearch {...props} />;
 			case "list":
 				return <VerdaderoFalso {...props} />;
 			case "relateConcepts":

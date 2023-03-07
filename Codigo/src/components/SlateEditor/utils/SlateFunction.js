@@ -17,3 +17,5 @@ export function toggleBoldMark(editor) {
 		{ match: (n) => Text.isText(n), split: true }
 	);
 }
+
+ 

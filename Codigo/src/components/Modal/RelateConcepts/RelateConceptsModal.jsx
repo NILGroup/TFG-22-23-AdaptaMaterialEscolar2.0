@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import { Transforms } from "slate";
-import { BiRectangle } from "react-icons/bi";
 import Modal from "../common/Modal";
 import ModalPreview from "../common/ModalPreview";
 import ModalInputNumber from "../common/ModalInputNumber";

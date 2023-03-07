@@ -5,6 +5,8 @@ import { toggleBoldMark } from "../../utils/SlateFunction";
 import ToolbarGroupButton from "./ToolbarGroupButton";
 
 import { AiOutlineBold } from "react-icons/ai";
+import { TableSelector } from "./TableSelector";
+
 
 export default function ToolbarFormatGroup({ editor, openModal }) {
 	return (
@@ -12,6 +14,7 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			<ToolbarGroupButton onClick={() => toggleBoldMark(editor)}>
 				<AiOutlineBold />
 			</ToolbarGroupButton>
+			<TableSelector editor={editor}/>
 		</>
 	);
 }
