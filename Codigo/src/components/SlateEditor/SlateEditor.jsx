@@ -88,7 +88,7 @@ export default function SlateEditor() {
 	return (
 		<>
 			<Slate editor={editor} value={initialValue}>
-				<div className="my-12 mx-auto w-[70vw] min-w-[A4] border-[1px] border-editor-border bg-editor">
+				<div className="my-12 mx-auto w-[85vw] border-[1px] border-editor-border bg-editor">
 					<div>
 						<Toolbar editor={editor} openModal={openModal} />
 					</div>

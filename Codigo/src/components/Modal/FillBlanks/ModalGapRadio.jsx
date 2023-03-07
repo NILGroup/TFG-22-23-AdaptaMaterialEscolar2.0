@@ -8,7 +8,7 @@ export function ModalGapRadio({ gapType, defaultChecked = false, onChange }) {
 	const gapInfo = getGapTypeInfo(gapType);
 
 	return (
-		<div className="w-full min-w-[20rem] gap-4 md:grid md:w-2/4 md:grid-cols-2 md:items-end">
+		<div className="w-full min-w-[20rem] gap-4 lg:grid lg:w-2/4 lg:grid-cols-2 lg:items-end">
 			<ModalRadioButton
 				label={gapInfo.description}
 				name="gapLength"
