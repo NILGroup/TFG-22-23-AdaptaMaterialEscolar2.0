@@ -146,7 +146,7 @@ En cuanto a las nuevas funcionalidades que no estaban implementadas en AdaptaMat
 
 \subsubsection{Johan Sebastian Salvatierra Gutierrez}
 Para realizar el diseño de la aplicación realice una división entre páginas y funcionalidades.
-En primer lugar, las páginas, para estas tuve de inspiración Youtube, estas se dividen en tres: página de inicio, página sobre nosotros y página de información. Comenzando con la página de inicio, con un editor de texto y una cabecera que dispone de un menú para moverte entre las páginas y un botón de configuración con forma de engranaje que permite elegir si tener un visualizador de PDF o una barra de funciones como se ve en la Figura \ref{Johan10}. Si el usuario decide usar personalizar la pantalla de inicio con el botón de configuración obtendra una pantalla similar a la mostrada en la Figura \ref{Johan9} donde podemos ver que el cuadrado izquierdo superior es el visualizador de PDF y el inferior es la barra de funciones y el cuadrado derecho es el editor de texto. Si el usuario decide usar el menú para cambiar de página aparecera un panel a la derecha que servirá como barra de navegación como se puede ver en la Figura \ref{Johan7}. Para la página de información el usuario dispondrá de una serie de videos didacticos y un buscador para conocer como explotar al máximo el potencial de AdaptaMaterialEscolar2 esto lo podemos ver en la Figura \ref{Johan11}. En cuanto a la página sobre nosotros el usuario se encontrara con unas recuadros con forma de tarjeta con información de cada integrante esto lo podemos ver en la Figura \ref{Johan6}.
+En primer lugar, las páginas, para estas tuve de inspiración Youtube, estas se dividen en tres: página de inicio, página sobre nosotros y página de información. Comenzando con la página de inicio, con un editor de texto y una cabecera que dispone de un menú para moverte entre las páginas y un botón de configuración con forma de engranaje que permite elegir si tener un visualizador de PDF o una barra de funciones como se ve en la Figura \ref{Johan10}. Si el usuario decide usar personalizar la pantalla de inicio con el botón de configuración obtendra una pantalla similar a la mostrada en la Figura \ref{Johan9} donde podemos ver que el cuadrado izquierdo superior es el visualizador de PDF y el inferior es la barra de funciones y el cuadrado derecho es el editor de texto. Si el usuario decide usar el menú para cambiar de página aparecera un panel a la derecha que servirá como barra de navegación como se puede ver en la Figura \ref{Johan7}. Para la página de información el usuario dispondrá de una serie de videos didacticos y un buscador para conocer como explotar al máximo el potencial de AdaptaMaterialEscolar 2.0 esto lo podemos ver en la Figura \ref{Johan11}. En cuanto a la página sobre nosotros el usuario se encontrara con unas recuadros con forma de tarjeta con información de cada integrante esto lo podemos ver en la Figura \ref{Johan6}.
 En segundo lugar, las funcionalidades auxiliares aparecerán  como botones en el editor y las funcionalidades que no sean auxiliares, aparecerán en el cuadrado mencionado anteriórmente, son las siguientes:
 \begin{itemize}
   \item \textbf{Sopa de letras:} El usuario elegirá la cantidad de filas y columnas y podrá introducir las palabras y eliminarlas con un botón con signo de más y otro con signo de menos además podrá elegir si añadir un ejemplo de como resolver la sopa de letras el usuario mediante una caja de verificación para generar, resetear o tener una vista previa se podrá hacer a través de botones \ref{Johan1}.
@@ -154,7 +154,7 @@ En segundo lugar, las funcionalidades auxiliares aparecerán  como botones en el
   \item \textbf{Ejercicio de flechas:} El usuario introducirá los conceptos en el orden que elija y podrá aumentar el número de columnas tendrá la opción de generar o resetear como se ve en la Figura \ref{Johan3}.
   \item  \textbf{Leyenda de colores:} El usuario podrá elegir el color del concepto y la descripción del concepto podrá modificarlos en cualquier momento además podrá añadir y eliminar conceptos con su respectivo color, para generar o resetear dispondrá de botones. Todo esto se puede ver en la Figura \ref{Johan2}. Este diseño es para la leyenda por conceptos y la leyenda de temas.
 \end{itemize}
-Por otra parte, las funcionalidades de pictograma, completar huecos, definiciones y desarrollo consideré emplear el diseño de AdaptaMaterialEscolar1. Para la funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadricula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se dispondrá de botones.
+Por otra parte, las funcionalidades de pictograma, completar huecos, definiciones y desarrollo consideré emplear el diseño de AdaptaMaterialEscolar 1.0. Para la funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadricula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se dispondrá de botones.
 
 
 \subsection{Diseño final}\label{subsec:DisenyoFinal}
@@ -352,8 +352,33 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
   \label{editable3}
 \end{figure}
 
-
-\section{Arquitectura}
+\section{Implementación}
+% TODO: Introduccion
+\subsection{Arquitectura}
 En este TFG hemos decidido usar Slate, una biblioteca de JavaScript que se utiliza para construir editores de texto enriquecido. Lo hemos combinado con React lo que nos permite crear una aplicación basada en componentes que a largo plazo será más escalable. Ambas herramientas se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Dicho patrón se encuentra integrado en Slate lo que nos facilita la configuración de este. En cuanto a la estructura interna de React ayuda a implementarlo, por nuestra parte lo hemos empleado para el diseño de los modales. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor.
 
 En cuanto a cómo se encuentran conectados Slate y React cabe mencionar que hemos creado un conjunto de funciones que hacen de intermediario entre los modales y el editor.
+
+\begin{figure}[ht!]
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Arquitectura/ArquitecturaPaginaInicio.png}
+    \caption{Visión general de la página de inicio}
+    \label{fig:arquitecturageneral1}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Arquitectura/ArquitecturaPictoTraductor.png}
+    \caption{Visión general de funcionalidad con conexión a API}
+    \label{fig:arquitecturageneral2}
+  \end{subfigure}
+  \caption{Visión general de AdaptaMaterialEscolar 2.0}
+  \label{fig:arquitecturageneral}
+\end{figure}
+
+\subsection{Funcionalidades}
+A continuación se explican los detalles de implentación de las distintas funcionalidades que hemos rediseñado o creado de cero.
+% TODO: Terminar introduccion
+
+Para la explicación de las funcionalidades se pensó en realizar diagramas para facilitar la comprensión, pero tras debatirlo con las tutoras de este TFG y con Antonio Navarro Martín (profesor de Ingeniería y Modelado de Software), se llegó a la conclusión de que no hay aproximaciones para modelar React y JavaScript. Se comentó la posibilad de extender diagramas UML, utilizando la tesis de Humberto Cortés y Antonio Navarro\footnote{\url{https://www.worldscientific.com/doi/abs/10.1142/S0218194017500486}}, para poder modelar React y JavaScript, pero eso podría ser un TFG en sí mismo.
