@@ -3,7 +3,7 @@
 En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{cap:pruebas}.
 \section{Metodología de desarrollo}
 \label{cap:Kanban}
- Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas. Estas reglas las hemos desarrollado en las siguientes subsecciones. 
+Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Está metodología tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas. Estas reglas las hemos desarrollado en las siguientes subsecciones.
 
 \subsection{Visualizar el flujo de trabajo: Tablero Kanban}
 En el proyecto hemos distinguido dos tipos de tareas, las tareas relacionadas con la memoria y las de implementación. Para el tablero Kanban hemos decidido crear cinco columnas: \textit{To Do}, \textit{Doing}, \textit{Testing}, \textit{Validate} y \textit{Done}.  Las tareas continuarán a través del flujo siguiendo las siguientes definiciones de las columnas:
@@ -11,13 +11,13 @@ En el proyecto hemos distinguido dos tipos de tareas, las tareas relacionadas co
     \item \textbf{\textit{To Do}}: Listado de todas las tareas sin empezar.
     \item \textbf{\textit{Doing}}: Tareas que se encuentran en desarrollo, ya sea la implementación de código o la redacción de la memoria.
     \item \textbf{\textit{Testing}}: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
-    Para las tareas de documentación el testing sera realizado por todos integrantes del equipo siguiendo los siguientes pasos:
-\begin{enumerate}
-    \item Cuando haya una tarea de memoria en dicha columna, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
-    \item Cuando un miembro del equipo haya terminado de revisar la tarea debe marcarlo en el \textit{checkbox} referido a él.
-    \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{Validate}.
-\end{enumerate}
-Para las tareas de código si se encuentra un error en una funcionalidad, ya sea durante esta fase o tras haberse dado por terminada, se creará una nueva tarea de tipo \textit{bug} en la columna \textit{To Do}.
+          Para las tareas de documentación el testing sera realizado por todos integrantes del equipo siguiendo los siguientes pasos:
+          \begin{enumerate}
+              \item Cuando haya una tarea de memoria en dicha columna, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
+              \item Cuando un miembro del equipo haya terminado de revisar la tarea debe marcarlo en el \textit{checkbox} referido a él.
+              \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{Validate}.
+          \end{enumerate}
+          Para las tareas de código si se encuentra un error en una funcionalidad, ya sea durante esta fase o tras haberse dado por terminada, se creará una nueva tarea de tipo \textit{bug} en la columna \textit{To Do}.
     \item \textbf{\textit{Validate}}: La tarea de memoria será comprobada por las tutoras.
     \item \textbf{\textit{Done}}: Las tutoras han dado el visto bueno a la tarea de memoria o cuando un integrante del grupo haya finalizado su tarea de código.
 \end{itemize}
@@ -26,7 +26,7 @@ Para las tareas de código si se encuentra un error en una funcionalidad, ya sea
 A continuación se presentan las políticas explicitas que hemos ido estableciendo a lo largo del proyecto:
 
 \begin{itemize}
-    \item Límites del trabajo en curso (WIP): en las columnas de \textit{Doing} y \textit{Testing} habrá como máximo 2 tareas por persona en cada columna, es decir, no podrá haber más de 8 tareas en cada una de esas columnas. 
+    \item Límites del trabajo en curso (WIP): en las columnas de \textit{Doing} y \textit{Testing} habrá como máximo 2 tareas por persona en cada columna, es decir, no podrá haber más de 8 tareas en cada una de esas columnas.
     \item Definición de \textit{Done}:
           \begin{itemize}
               \item Tareas de memoria: Cuando hayan sido validadas por las tutoras.
@@ -35,7 +35,7 @@ A continuación se presentan las políticas explicitas que hemos ido establecien
     \item Cuando un integrante del grupo haya terminado su tarea él será el encargado de moverla a la columna correspondiente.
     \item Cualquier integrante del grupo puede poner una tarea en el tablero tras consultarlo con el resto.
     \item Hemos llegado al acuerdo de realizar reuniones todos los domingos a las 12:00, para poner en común el trabajo realizado por cada miembro.
-    \item Se realizará una reunión de todos los integrantes una semana antes de la revisión con las tutoras para comprobar el trabajo realizado por cada miembro del equipo. 
+    \item Se realizará una reunión de todos los integrantes una semana antes de la revisión con las tutoras para comprobar el trabajo realizado por cada miembro del equipo.
 \end{itemize}
 
 \subsection{Clases de servicios}
@@ -53,35 +53,21 @@ Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \t
 \section{Plan de Pruebas}
 \label{cap:pruebas}
 \nocite{pipelineRedHat}
-\nocite{testingSW}
 \nocite{ciAmazon}
 
-Las pruebas de implementación consistirán en dos tipos de pruebas: las pruebas unitarias y las pruebas de integración. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+Para asegurar el correcto funcionamiento del software se ha decidido realizar pruebas manuales, ya que son más sencillas de diseñar y ejecutar. Además, se ha considerado que para el tamaño actual del proyecto no supone un problema realizar pruebas manuales para comprobar las distintas funcionalidades. Si, en un futuro, se decide extender la aplicación y añadir más funcionalidades es recomendable actualizar este plan de pruebas, incluyendo pruebas automatizadas. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
-\subsection{Pruebas Unitarias}
-Las pruebas unitarias son pruebas, mayoritariamente automatizadas, que verifican la funcionalidad de una unidad software (componente, clase o método), de forma aislada. Esta verificación no se debe ver afectada por otros casos de prueba que se hayan ejecutado anteriormente o por dependencias con otros módulos de la aplicación. Para evitar que las dependencias de un módulo, por ejemplo el acceso a una base de datos o una petición a una API externa, afecten al resultado de la prueba, se pueden usar \textit{stubs} para simular esas dependencias.
+\subsection{Pruebas manuales}
+Cuando un miembro del equipo se haya asignado una tarea de implementación para probar, tendrá que seguir los siguientes pasos:
+\begin{enumerate}
+    \item \textbf{Generación de los casos de prueba}: Se realizará una tabla con los distintos casos de prueba que se utilizarán para probar una funcionalidad concreta, teniendo en cuenta los requisitos de usuario. Los casos de prueba se entienden como las condiciones de ejecución (precondiciones), el conjunto de entradas, el objetivo de la prueba y los resultados esperados tras ejecutar la prueba (postcondiciones).
+    \item \textbf{Definición de los procedimientos de la prueba}: Después de generar los casos de prueba, se definirá un guión en el que se explicarán los pasos a seguir para la ejecutar la prueba. En este guión se deben de tener en cuenta todos los casos de prueba generados anteriormente. Cada paso debe ser claro y concreto, además de ofrecer ejemplos de datos de entrada, por ejemplo ``Escribir `hola'\, en el campo de añadir frase.'' o ``Pulsar botón de añadir frase.''.
+    \item \textbf{Ejecución de la prueba}: Una vez se hayan definido los pasos necesarios para probar una funcionalidad concreta, hay que ejecutar la prueba, siguiendo estos pasos. Durante la ejecución, se registrarán los resultados obtenidos que no concuerden con los resultados esperados o comportamientos de la funcionalidad que puedan afectar negativamente a la experiencia de usuario.
+    \item \textbf{Realización de un informe de la prueba}: Finalmente, se deberá crear una incidencia de tipo \textit{bug} con la clase de servicio \textit{Expedite}. En la descripción de esta incidencia se deberá informar de los resultados obtenidos, los resultados esperados y los pasos a seguir para replicar cada fallo o problema que haya ocurrido durante la ejecución de la prueba. También se puede incluir información que pueda ser relevante para encontrar una solución a cada fallo o problema.
+\end{enumerate}
+%TODO: Añadir apéndice con los distintos casos de prueba y guiones
 
-La razón por la que vamos a realizar pruebas unitarias es porque permiten detectar errores en fases tempranas y evitar que los errores se propaguen a fases posteriores, aumentando la calidad del software. Además, facilitan los cambios, ya que se puede comprobar rápidamente que estos no han afectado al funcionamiento esperado de la aplicación.
-
-Para aprovechar al máximo las ventajas que ofrecen las pruebas unitarias hay que asegurarse de que cumplen las siguientes características:
-\begin{itemize}
-    \item Deben ser automáticas y repetibles, es decir, se deben poder ejecutar tantas veces como uno quiera sin necesidad de intervención manual durante las pruebas.
-    \item Deben ser rápidas, ya que si el ejecutar las pruebas unitarias es un proceso lento, no se va a llevar a cabo tantas veces como sea necesario.
-    \item Cada caso de prueba debe estar aislado completamente del resto de casos o pruebas de otros módulos. Si no se aísla correctamente, se pueden producir resultados no consistentes, complicando la detección de errores.
-    \item Las pruebas deben ser relevantes para el futuro y deben tratar de cubrir la totalidad del código.
-\end{itemize}
-
-Para implementar las pruebas unitarias, se utilizará la herramienta Jest, ver Sección \ref{ch:herramientas}.
-
-\subsection{Pruebas de integración}
-Las pruebas de integración se utilizan para comprobar que las conexiones o interfaces entre los distintos módulos, ya probados individualmente (pruebas unitarias), funcionan correctamente.
-
-En este proyecto las pruebas de integración se realizarán de forma incremental, es decir, los módulos se integran uno a uno, a medida que estos se van desarrollando y probando. Además, se seguirá una estrategia \textit{Top-Down} para realizar las pruebas, por lo que la integración se llevará a cabo de arriba abajo, siguiendo el flujo natural de la aplicación. 
-
-Puede darse el caso de que una prueba de integración no se pueda realizar debido a que alguno de los módulos a integrar está en desarrollo o todavía se está probando individualmente. En este caso, se utilizarán \textit{stubs} para simular la dependencia entre módulos.
-
-Para implementar las pruebas de integración también se utilizará la herramienta Jest (ver Sección de herramientas).
-
+% TODO: Reescribir integración continua
 \subsection{Integración continua}
 Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases automatizadas por las que va pasando el software. Esta serie de fases se conoce como \textit{pipeline}.
 
