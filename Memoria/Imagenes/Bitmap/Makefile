@@ -2,7 +2,7 @@
 #
 # Copyright 2009 Pedro Pablo Gomez-Martin,
 #                Marco Antonio Gomez-Martin
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -19,9 +19,9 @@
 #----------------------------------------------------------
 
 #
-# Convierte las imágenes png/jpg de todos los subdirectorios
-# de nivel 1 de éste a .eps.
-# Hace uso del guión updateAll.sh (que a su vez usa
+# Convierte las imï¿½genes png/jpg de todos los subdirectorios
+# de nivel 1 de ï¿½ste a .eps.
+# Hace uso del guiï¿½n updateAll.sh (que a su vez usa
 # update-eps.sh) que aparecen en este directorio.
 #
 convert:
@@ -40,4 +40,3 @@ clean:
 # y los ficheros generados
 #
 distclean: clean
-# 	TODO: no sé... quizá haya que borrar algún backup o algo :-m

@@ -65,9 +65,6 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
-			// // TODO: Cambiar el WordSearch por un elemento generico de Tabla
-			// case "table":
-			// 	return <WordSearch {...props} />;
 			case "list":
 				return <VerdaderoFalso {...props} />;
 			case "relateConcepts":
