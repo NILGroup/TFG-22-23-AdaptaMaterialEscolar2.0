@@ -1,6 +1,6 @@
 \chapter{Herramientas Empleadas}\label{cap:herramientas}
 
-En este capítulo se explican las herramientas, librerías y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la Sección \ref{sec:Figma} se introduce la herramienta Figma que se ha usado para realizar el diseño de la aplicación. En la Sección \ref{sec:React} se presenta la libreria React que se ha empleado para implementar las interfaces de usuario de la aplicación. En la Sección \ref{sec:tailwind} se explica el framework Tailwind CSS que se ha usado para dar estilo a la aplicación. En la Sección \ref{sec:Slate} se expone el framework Slate que se usa para definir el editor.
+En este capítulo se explican las herramientas, librerías y APIs que se han utilizado en el desarrollo de AdaptaMaterialEscolar 2.0. En la Sección \ref{sec:Figma} se introduce la herramienta Figma que se ha usado para realizar el diseño de la aplicación. En la Sección \ref{sec:React} se presenta la libreria React que se ha empleado para implementar las interfaces de usuario de la aplicación. En la Sección \ref{sec:tailwind} se explica el framework Tailwind CS, que se ha usado para personalizar el estilo de las páginas y los distintos elementos que las componen. En la Sección \ref{sec:Slate} se expone el framework Slate que se usa para definir el editor.
 
 \section{Figma}\label{sec:Figma}
 Figma\footnote{\url{https://www.figma.com/}} es una herramienta de diseño y prototipado de interfaces de usuario basada en la web que ofrece una amplia gama de herramientas y recursos para crear diseños de alta calidad de manera eficiente y efectiva. Esta herramienta es especialmente útil para el diseño de aplicaciones móviles y web debido a su funcionalidad de colaboración en tiempo real y la facilidad de acceso.
@@ -47,11 +47,7 @@ En los componentes de React se utiliza Tailwind CSS, una librería de estilos CS
 
 Hemos empleado esta librería para implementar las interfaces de usuario de la aplicación.
 
-
-
 \section{Tailwind CSS}\label{sec:tailwind}
-A continuación se explica qué es Tailwind CSS, por qué hemos decidido utilizarlo y algunas de las ventajas que ofrece. Además se muestran y explican algunos ejemplos de uso básicos.
-
 Tailwind CSS\footnote{\url{https://tailwindcss.com/}} es un framework CSS que permite aplicar estilos predefinidos directamente en el HTML sin tener que crear y manejar archivos CSS propios para conseguir un estilo concreto. Hemos decidido utilizar este framework porque facilita la labor de dar estilo al HTML de la página, debido a que no tenemos que pensar en que clases o identificadores dar a los elementos HTML y, por lo general, tampoco necesitamos gestionar un archivo CSS por cada página o componente de React. Otra de las razones por las que hemos escogido este framework frente a otros muy parecidos, como Bootstrap\footnote{\url{https://getbootstrap.com/}}, es la facilidad que ofrece para personalizarlo y adaptarlo a nuestras necesidades. En el caso de Bootstrap, necesitas utilizar SASS o crear tus propios archivos CSS para poder personalizar el estilo, mientras que en Tailwind CSS modificando un archivo de configuración puedes personalizar/añadir colores, añadir distintos tipos de fuente de texto, añadir distintos tamaños de letra, etc. Otras ventajas que ofrece son:
 \begin{itemize}
   \item \textbf{Rendimiento}: Tailwind elimina automáticamente todo el CSS que no se utilice a la hora de desplegar en producción la aplicación, consiguiendo que el paquete de CSS que se envía al cliente sea lo más pequeño posible.
