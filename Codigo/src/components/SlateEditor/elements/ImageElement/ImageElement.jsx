@@ -13,11 +13,7 @@ export default function ImageElement({ attributes, children, element }) {
 	return (
 		<span {...attributes}>
 			<span contentEditable={false} className="relative">
-				<img
-					src={element.url}
-					className={imageClass}
-					alt={element.alt}
-				/>
+				<img src={element.url} className={imageClass} alt={element.alt} />
 			</span>
 			{children}
 		</span>

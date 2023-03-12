@@ -39,7 +39,7 @@ export default function Toolbar({ editor, openModal }) {
 						activeGroup={activeToolbarGroup}
 					/>
 				</div>
-				<div className="flex items-center h-[3rem] overflow-x-auto overflow-y-hidden whitespace-nowrap border-b-[1px] border-editor-border bg-editor-subtoolbar p-2">
+				<div className="flex h-[3rem] items-center overflow-x-auto overflow-y-hidden whitespace-nowrap border-b-[1px] border-editor-border bg-editor-subtoolbar p-2">
 					<ToolbarGroupFactory type={activeToolbarGroup} editor={editor} openModal={openModal} />
 				</div>
 			</div>

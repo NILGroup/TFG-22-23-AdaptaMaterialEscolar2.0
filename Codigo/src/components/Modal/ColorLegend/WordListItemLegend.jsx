@@ -8,7 +8,7 @@ import ModalInputText from "../common/ModalInputText";
 
 export default function WordListItemLegend({
 	word,
-    color,
+	color,
 	index,
 	isEdittingWord,
 	setIsEdittingWord,
@@ -19,33 +19,31 @@ export default function WordListItemLegend({
 	const [newColor, setNewColor] = useState(null);
 
 	const editWord = (newValue, newColor) => {
-		onEdit(newValue,newColor ,index);
+		onEdit(newValue, newColor, index);
 
 		setIsEdittingWord(null);
 	};
 
 	const cancelEdit = () => {
 		setNewValue(word);
-		setNewColor(color)
+		setNewColor(color);
 		setIsEdittingWord(null);
 	};
 
 	if (isEdittingWord !== index) {
 		return (
 			<li className="grid grid-cols-2 items-center gap-4">
-				
-				<div className="flex items items-center " >
-				<input className="inputColorl" id="color" type="color" value={color} disabled/>
-				<span>{word}</span>
+				<div className="items flex items-center ">
+					<input className="inputColorl" id="color" type="color" value={color} disabled />
+					<span>{word}</span>
 				</div>
-					
-				
+
 				<div className="flex flex-wrap items-center gap-2">
 					<button
 						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						onClick={() => {
 							setNewValue(word);
-							setNewColor(color)
+							setNewColor(color);
 							setIsEdittingWord(index);
 						}}
 					>
@@ -78,7 +76,13 @@ export default function WordListItemLegend({
 					}}
 				>
 					<div className="flex items-center">
-						<input className="inputColor" id="color" type="color" value={newColor} onChange={(e) => setNewColor(e.target.value)}/>
+						<input
+							className="inputColor"
+							id="color"
+							type="color"
+							value={newColor}
+							onChange={(e) => setNewColor(e.target.value)}
+						/>
 						<ModalInputText
 							id="editWord"
 							name="editWord"
@@ -86,7 +90,7 @@ export default function WordListItemLegend({
 							onChange={(e) => setNewValue(e.target.value)}
 						/>
 					</div>
-					
+
 					<div className="flex flex-wrap items-center gap-2">
 						<button
 							type="submit"

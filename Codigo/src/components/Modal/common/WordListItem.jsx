@@ -6,14 +6,7 @@ import { IoMdTrash } from "react-icons/io";
 
 import ModalInputText from "../common/ModalInputText";
 
-export default function ModalWordListItem({
-	word,
-	index,
-	isEdittingWord,
-	setIsEdittingWord,
-	onEdit,
-	onDelete,
-}) {
+export default function ModalWordListItem({ word, index, isEdittingWord, setIsEdittingWord, onEdit, onDelete }) {
 	const [newValue, setNewValue] = useState(null);
 
 	const editWord = (newValue) => {

@@ -25,9 +25,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 			.then((data) => {
 				let items = [];
 				for (let i = 0; i < data.length && i < 20; i++) {
-					items.push(
-						`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`
-					);
+					items.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
 				}
 
 				setIsLoading(false);
@@ -44,12 +42,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 	};
 
 	return (
-		<Modal
-			title="Buscar Pictograma"
-			className="w-6/12"
-			isOpen={isOpen}
-			onClose={closeModal}
-		>
+		<Modal title="Buscar Pictograma" className="w-6/12" isOpen={isOpen} onClose={closeModal}>
 			<form
 				className="flex flex-col gap-5"
 				onSubmit={(e) => {
@@ -60,16 +53,9 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 				}}
 			>
 				<div>
-					<ModalInputText
-						id="searchPictogram"
-						label="Buscador"
-						required
-					/>
+					<ModalInputText id="searchPictogram" label="Buscador" required />
 				</div>
-				<ModalButton
-					type="submit"
-					className="flex items-center gap-2 self-center py-2 px-4 text-modal-base-lg"
-				>
+				<ModalButton type="submit" className="flex items-center gap-2 self-center py-2 px-4 text-modal-base-lg">
 					Buscar
 					<MdOutlineImageSearch />
 				</ModalButton>
@@ -78,11 +64,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 			{isLoading ? (
 				<Spinner />
 			) : (
-				<ModalPictogramList
-					editor={editor}
-					pictograms={pictogramList}
-					callback={closeModal}
-				/>
+				<ModalPictogramList editor={editor} pictograms={pictogramList} callback={closeModal} />
 			)}
 		</Modal>
 	);

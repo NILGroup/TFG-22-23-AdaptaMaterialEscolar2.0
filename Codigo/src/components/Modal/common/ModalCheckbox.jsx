@@ -1,12 +1,6 @@
 import React from "react";
 
-export default function ModalCheckbox({
-	label,
-	id,
-	checkboxClassName,
-	labelClassName,
-	...restProps
-}) {
+export default function ModalCheckbox({ label, id, checkboxClassName, labelClassName, ...restProps }) {
 	return (
 		<div className="flex items-center gap-4 whitespace-nowrap">
 			<input

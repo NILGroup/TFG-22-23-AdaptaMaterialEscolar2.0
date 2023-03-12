@@ -19,9 +19,7 @@ export function ToolbarGroupFactory({ type, editor, openModal }) {
 		case ToolbarGroup.format:
 			return <ToolbarFormatGroup editor={editor} openModal={openModal} />;
 		case ToolbarGroup.exercises:
-			return (
-				<ToolbarExercisesGroup editor={editor} openModal={openModal} />
-			);
+			return <ToolbarExercisesGroup editor={editor} openModal={openModal} />;
 		case ToolbarGroup.text:
 			return <ToolbarTextGroup editor={editor} openModal={openModal} />;
 		default:

@@ -11,11 +11,5 @@ function isBoldMarkActive(editor) {
 
 export function toggleBoldMark(editor) {
 	const isActive = isBoldMarkActive(editor);
-	Transforms.setNodes(
-		editor,
-		{ bold: isActive ? null : true },
-		{ match: (n) => Text.isText(n), split: true }
-	);
+	Transforms.setNodes(editor, { bold: isActive ? null : true }, { match: (n) => Text.isText(n), split: true });
 }
-
- 

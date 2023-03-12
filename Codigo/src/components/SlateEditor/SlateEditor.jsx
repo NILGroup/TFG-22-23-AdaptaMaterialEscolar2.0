@@ -19,14 +19,14 @@ import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
 import RelateConcepts from "./elements/RelateConcepts/RelateConcepts";
 import Staff from "./elements/Staff/Staff";
+import Table from "./elements/Table/Table";
+import Td from "./elements/Table/Td";
+import Tr from "./elements/Table/Tr";
 import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
 import { withTable } from "./plugins/withTable";
-import Table from "./elements/Table/Table";
-import Tr from "./elements/Table/Tr";
-import Td from "./elements/Table/Td";
 
 const initialValue = [
 	{
@@ -59,12 +59,12 @@ export default function SlateEditor() {
 				return <Icon {...props} />;
 			case "linea":
 				return <Linea {...props} />;
-			case 'table':
-				return <Table {...props}/>
-			case 'table-row':
-				return <Tr {...props}/>
-			case 'table-cell':
-				return <Td {...props}/>
+			case "table":
+				return <Table {...props} />;
+			case "table-row":
+				return <Tr {...props} />;
+			case "table-cell":
+				return <Td {...props} />;
 			// // TODO: Cambiar el WordSearch por un elemento generico de Tabla
 			// case "table":
 			// 	return <WordSearch {...props} />;

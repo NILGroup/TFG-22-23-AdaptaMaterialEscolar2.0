@@ -1,12 +1,6 @@
 import React from "react";
 
-export default function ModalRadioButton({
-	label,
-	id,
-	radioClassName,
-	labelClassName,
-	...restProps
-}) {
+export default function ModalRadioButton({ label, id, radioClassName, labelClassName, ...restProps }) {
 	return (
 		<div className="flex items-center gap-6">
 			<input

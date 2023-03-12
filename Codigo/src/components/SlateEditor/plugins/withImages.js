@@ -17,10 +17,8 @@ export const withImages = (editor) => {
 		return element.type === "image" ? true : isVoid(element);
 	};
 	editor.isInline = (element) => {
-        return (element.type) === 'image'
-            ? true
-            : isInline(element);
-    };
+		return element.type === "image" ? true : isInline(element);
+	};
 
 	editor.insertData = (data) => {
 		const text = data.getData("text/plain");

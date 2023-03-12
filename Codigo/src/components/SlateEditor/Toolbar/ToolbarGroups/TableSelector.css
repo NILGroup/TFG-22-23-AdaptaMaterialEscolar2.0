@@ -1,20 +1,19 @@
-.table-option{
-    display: flex;
-    margin: 5px 2px;
-    gap: 5px;
+.table-option {
+	display: flex;
+	margin: 5px 2px;
+	gap: 5px;
 }
-.table-option{
-    white-space: nowrap;
+.table-option {
+	white-space: nowrap;
 }
-.popup-wrapper{
-    position: relative;
+.popup-wrapper {
+	position: relative;
 }
-.popup{
-    position: absolute;
-    left: 0;
-    background-color: white;
-    padding: 6px 10px;
-    border: 1px solid lightgray;
-    z-index: 9;
-
+.popup {
+	position: absolute;
+	left: 0;
+	background-color: white;
+	padding: 6px 10px;
+	border: 1px solid lightgray;
+	z-index: 9;
 }

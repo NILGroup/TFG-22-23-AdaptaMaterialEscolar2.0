@@ -52,10 +52,8 @@ Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \t
 
 \section{Plan de Pruebas}
 \label{cap:pruebas}
-\nocite{pipelineRedHat}
-\nocite{ciAmazon}
 
-Para asegurar el correcto funcionamiento del software se ha decidido realizar pruebas manuales, ya que son más sencillas de diseñar y ejecutar. Además, se ha considerado que para el tamaño actual del proyecto no supone un problema realizar pruebas manuales para comprobar las distintas funcionalidades. Si, en un futuro, se decide extender la aplicación y añadir más funcionalidades es recomendable actualizar este plan de pruebas, incluyendo pruebas automatizadas. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
+Para asegurar el correcto funcionamiento del software se ha decidido realizar pruebas manuales, ya que son más sencillas de diseñar y ejecutar. Además, se ha considerado que para el tamaño actual del proyecto no supone un problema realizar pruebas manuales para comprobar las distintas funcionalidades. Si, en un futuro, se decide extender la aplicación y añadir más funcionalidades es recomendable actualizar este plan de pruebas, incluyendo pruebas automatizadas e integración continua. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
 \subsection{Pruebas manuales}
 Cuando un miembro del equipo se haya asignado una tarea de implementación para probar, tendrá que seguir los siguientes pasos:
@@ -67,17 +65,3 @@ Cuando un miembro del equipo se haya asignado una tarea de implementación para 
 \end{enumerate}
 
 Los casos de prueba y los guiones de prueba de cada funcionalidad se muestran en el Apéndice \ref{ape:pruebas}.
-
-% TODO: Reescribir integración continua
-\subsection{Integración continua}
-Para complementar las pruebas unitarias y de integración, en este proyecto se implementará integración continua. La integración continua es la práctica de desarrollo software mediante la cual los miembros del equipo combinan su trabajo frecuentemente en un repositorio compartido. Cada integración se verifica mediante una serie de fases automatizadas por las que va pasando el software. Esta serie de fases se conoce como \textit{pipeline}.
-
-El \textit{pipeline} que se va a implementar en este proyecto constará de 3 fases principales: \textit{Build}, \textit{Test} y \textit{Release}. Cuando un miembro integre una nueva versión del proyecto en el repositorio compartido, pasará primero por la fase \textit{Build}, durante la cual se instalarán las dependencias necesarias en una maquina virtual y se preparará todo lo necesario para pasar a la fase \textit{Test}. En la fase \textit{Test}, se ejecutarán todas las pruebas especificadas en el plan de pruebas a la versión que se está intentando subir al repositorio. En caso de que el resultado de las pruebas sea correcto, se pasará a la fase \textit{Release}. En caso de que se produzca un error en alguna de las pruebas se abortará la ejecución de cualquier prueba restante, no se pasará a la fase \textit{Release} y por lo tanto no se subirán los cambios realizados en la versión que se estaba compartiendo. En la fase \textit{Release} se subirán los cambios automáticamente al repositorio.
-
-Las razones por las que creemos necesaria la integración continua en este proyecto son las siguientes:
-\begin{itemize}
-    \item La integración continua mejora la productividad de desarrollo, ya que libera a los desarrolladores de tener que ejecutar las pruebas manualmente y tener que esperar a que se arreglen errores en el repositorio. Si al integrar el trabajo se produce un error en la verificación se notificará a los desarrolladores y el cambio que ha producido ese error no se subirá al repositorio compartido.
-    \item Mejora la detección de errores debido a la ejecución de pruebas de forma automática y frecuente, lo que permite a los desarrolladores descubrir los errores y arreglarlos antes de que se conviertan en problemas graves.
-\end{itemize}
-
-En este proyecto se utilizará la herramienta de GitHub Actions (ver Sección \ref{sec:herramientasexistentes}) para implementar la integración continua.

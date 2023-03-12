@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import WordListItemLegend from "./WordListItemLegend";
 
-export default function ModalWordListLegend({ wordList, colorList,onEdit, onDelete }) {
+export default function ModalWordListLegend({ wordList, colorList, onEdit, onDelete }) {
 	const [isEdittingWord, setIsEdittingWord] = useState(null);
 
 	return (
@@ -12,7 +12,7 @@ export default function ModalWordListLegend({ wordList, colorList,onEdit, onDele
 						<WordListItemLegend
 							key={`word-${index}`}
 							word={word}
-                            color={colorList[index]}
+							color={colorList[index]}
 							index={index}
 							isEdittingWord={isEdittingWord}
 							setIsEdittingWord={setIsEdittingWord}

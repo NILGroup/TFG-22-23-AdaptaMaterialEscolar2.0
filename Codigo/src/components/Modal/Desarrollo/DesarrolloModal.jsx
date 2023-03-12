@@ -7,7 +7,6 @@ import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import guideLine from "./GuideLine.module.css";
 
-
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
@@ -24,33 +23,28 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		setNumFilas(event.target.value);
 	};
 
-	const handleClose = ()=>{
-
+	const handleClose = () => {
 		resetValues();
 		onClose();
-	}
+	};
 
-	const resetValues = ()=>{
+	const resetValues = () => {
 		setTextareaValue("");
 		setNumFilas(1);
 		setValue("");
-	}
+	};
 
 	const renderLines = () => {
-
-		if(textareaValue == ""){
+		if (textareaValue == "") {
 			return;
 		}
-		if(numFilas > MAX_ROWS){
+		if (numFilas > MAX_ROWS) {
 			return;
 		}
 
 		let lines = [];
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		let space = () =>
-			/^doubleLine/.test(renderOption) && (
-				<div className={guideLine.space}></div>
-			);
+		let space = () => /^doubleLine/.test(renderOption) && <div className={guideLine.space}></div>;
 
 		for (let i = 0; i < numFilas; i++) {
 			lines.push(
@@ -64,7 +58,6 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	};
 
 	const insertInEditor = (editor) => {
-
 		const ejercicio = { type: "desarrollo", children: [] };
 		const enunciado = {
 			type: "paragraph",
@@ -98,7 +91,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	const submit = (e) => {
 		e.preventDefault();
 
-		if(textareaValue.trim() == ""){
+		if (textareaValue.trim() == "") {
 			return;
 		}
 
@@ -108,12 +101,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 	};
 
 	return (
-		<Modal
-			title="Ejercicio de desarrollo"
-			className="w-6/12"
-			isOpen={isOpen}
-			onClose={handleClose}
-		>
+		<Modal title="Ejercicio de desarrollo" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
 				<form onSubmit={submit}>
 					<div className="">
@@ -140,32 +128,15 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</div>
 
 					<div className="">
-						<h2 className="mr-5 inline-block text-xl">
-							Tipo de pauta:
-						</h2>
+						<h2 className="mr-5 inline-block text-xl">Tipo de pauta:</h2>
 
 						<div className="flex flex-col p-4">
 							<div className="flex flex-wrap gap-4">
-								<StaffButtonFactory
-									setValue={setValue}
-									type={StaffType.grid}
-								/>
-								<StaffButtonFactory
-									setValue={setValue}
-									type={StaffType.doubleLine}
-								/>
-								<StaffButtonFactory
-									setValue={setValue}
-									type={StaffType.line}
-								/>
-								<StaffButtonFactory
-									setValue={setValue}
-									type={StaffType.box}
-								/>
-								<StaffButtonFactory
-									setValue={setValue}
-									type={StaffType.space}
-								/>
+								<StaffButtonFactory setValue={setValue} type={StaffType.grid} />
+								<StaffButtonFactory setValue={setValue} type={StaffType.doubleLine} />
+								<StaffButtonFactory setValue={setValue} type={StaffType.line} />
+								<StaffButtonFactory setValue={setValue} type={StaffType.box} />
+								<StaffButtonFactory setValue={setValue} type={StaffType.space} />
 							</div>
 						</div>
 					</div>

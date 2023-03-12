@@ -1,33 +1,29 @@
-import React, { useState, createRef } from "react";
+import React, { createRef, useState } from "react";
 
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
 
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
-
 	const [formula, setFormula] = useState([""]);
 
 	const handleInputChange = (event, index) => {
-
 		let newValue = event.target.value;
 
 		setFormula(
-			formula.map((element, i)=>{
+			formula.map((element, i) => {
 				return i === index ? newValue : element;
 			})
-		)
-
+		);
 	};
 
-	const handleClose = ()=>{
-
+	const handleClose = () => {
 		resetValues();
 		onClose();
-	}
+	};
 
-	const resetValues = ()=>{
+	const resetValues = () => {
 		setFormula([""]);
-	}
+	};
 
 	const handleKeyDown = (event, index) => {
 		if (event.keyCode === 32) {
@@ -35,7 +31,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 			let newFormula = [...formula];
 
-			newFormula.splice(index+1,0,"");
+			newFormula.splice(index + 1, 0, "");
 
 			setFormula(newFormula);
 
@@ -44,60 +40,46 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 			setFormula(newFormula);
 
-			setTimeout(()=>{
-
-				let input = document.getElementById(`input-math-${index+1}`);
+			setTimeout(() => {
+				let input = document.getElementById(`input-math-${index + 1}`);
 				input.focus();
-
 			}, 50);
-
-		}
-		else if(event.keyCode === 8){
-
-			if(event.target.value == ""){
+		} else if (event.keyCode === 8) {
+			if (event.target.value == "") {
 				event.preventDefault();
 
 				let newFormula = [...formula];
 
 				newFormula.splice(index, 1);
 
-				if(newFormula.length == 0){
+				if (newFormula.length == 0) {
 					newFormula = [""];
 				}
 
 				setFormula(newFormula);
 
-				if(index > 0){
-					setTimeout(()=>{
-
-						let input = document.getElementById(`input-math-${index-1}`);
+				if (index > 0) {
+					setTimeout(() => {
+						let input = document.getElementById(`input-math-${index - 1}`);
 						input.focus();
-		
 					}, 50);
 				}
-
 			}
-
 		}
 	};
 
-
 	const insertInEditor = (editor) => {
-
 		let ejercicioString = "";
 
-		formula.forEach(elemento => {
-
-			if(elemento === ""){
+		formula.forEach((elemento) => {
+			if (elemento === "") {
 				ejercicioString += "___";
-			}
-			else{
+			} else {
 				ejercicioString += elemento;
 			}
 
 			ejercicioString += " ";
-
-		})
+		});
 
 		const ejercicio = {
 			type: "ejercicio",
@@ -107,60 +89,47 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		Transforms.insertNodes(editor, ejercicio);
 	};
 
-
 	const submit = (e) => {
 		e.preventDefault();
 
-		if(formula.length == 1 && formula[0] == ""){
+		if (formula.length == 1 && formula[0] == "") {
 			return;
 		}
-		
+
 		insertInEditor(editor);
-		
+
 		handleClose();
 	};
 
-
 	return (
-		<Modal
-			title="Definir huecos de matemáticas"
-			className="w-6/12"
-			isOpen={isOpen}
-			onClose={handleClose}
-		>
+		<Modal title="Definir huecos de matemáticas" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
 				<form onSubmit={submit}>
-
 					<h3 className="text-modal-heading">Fórmula:</h3>
 
-					<div className="text-center mb-2">
+					<div className="mb-2 text-center">
 						<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
 					</div>
 
-					<div className="px-3 pt-3 pb-1 bg-gray-100 rounded">
-						
-						{
-							formula.map((elemento, i) => {
-								return (
-									<input 
-										key={i} 
-										value={elemento} 
-										onChange={e => {
-											handleInputChange(e,i);
-										}}
-										onKeyDown={e => {
-											handleKeyDown(e,i);
-										}}
-										className="w-14 p-2 mr-2 mb-2 border-solid border-2 border-black text-center"
-										id={`input-math-${i}`}
-										autoComplete="off"
-									/>
-								);
-							})
-						}
-
+					<div className="rounded bg-gray-100 px-3 pt-3 pb-1">
+						{formula.map((elemento, i) => {
+							return (
+								<input
+									key={i}
+									value={elemento}
+									onChange={(e) => {
+										handleInputChange(e, i);
+									}}
+									onKeyDown={(e) => {
+										handleKeyDown(e, i);
+									}}
+									className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
+									id={`input-math-${i}`}
+									autoComplete="off"
+								/>
+							);
+						})}
 					</div>
-
 
 					<div className="flex justify-center">
 						<button

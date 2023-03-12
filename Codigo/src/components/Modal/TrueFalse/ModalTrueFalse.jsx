@@ -15,33 +15,26 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	const [listaVistaP, setListaVistaP] = useState([]);
 
 	useEffect(() => {
-		if (lista.length > 0){
+		if (lista.length > 0) {
 			let ni = lista.slice();
 			setListaVistaP(ni);
-		}
-			
-		else{
+		} else {
 			setListaVistaP([]);
 		}
 	}, [lista]);
 
-	
 	const okButton = (editor, items) => {
-		
 		const list = { type: "list", children: [] };
 		const listItem = {
 			type: "paragraph",
-			children: [
-				{ text: "Responde Verdadero o Falso. Según corresponda." },
-			],
+			children: [{ text: "Responde Verdadero o Falso. Según corresponda." }],
 		};
 
 		list.children.push(listItem);
 		items.forEach((item) => {
-			
 			const listItem = {
 				type: "paragraph",
-				children: [{type:"icon", icon:<BiRectangle/>, children: [{text:""}]},{ text: item }],
+				children: [{ type: "icon", icon: <BiRectangle />, children: [{ text: "" }] }, { text: item }],
 			};
 
 			list.children.push(listItem);
@@ -57,17 +50,13 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	};
 
 	const deleteWord = (index) => {
-		if (!lista)
-			throw new Error("Cannot update word, word list does not exist!");
+		if (!lista) throw new Error("Cannot update word, word list does not exist!");
 
-		if (index < 0 || index >= lista.length)
-			throw new Error("Cannot update word, index out of range!");
+		if (index < 0 || index >= lista.length) throw new Error("Cannot update word, index out of range!");
 
 		setLista((previousWordList) => {
-			const newList = previousWordList.filter(
-				(word, wordIndex) => wordIndex !== index
-			);
-			
+			const newList = previousWordList.filter((word, wordIndex) => wordIndex !== index);
+
 			setListaVistaP([...newList]);
 
 			return newList;
@@ -75,16 +64,12 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 	};
 
 	const editWord = (newValue, index) => {
-		if (!lista)
-			throw new Error("Cannot update word, word list does not exist!");
+		if (!lista) throw new Error("Cannot update word, word list does not exist!");
 
-		if (index < 0 || index >= lista.length)
-			throw new Error("Cannot update word, index out of range!");
+		if (index < 0 || index >= lista.length) throw new Error("Cannot update word, index out of range!");
 
 		setLista((previousWordList) => {
-			const newList = previousWordList.map((word, wordIndex) =>
-				wordIndex === index ? String(newValue) : word
-			);
+			const newList = previousWordList.map((word, wordIndex) => (wordIndex === index ? String(newValue) : word));
 			setListaVistaP([...newList]);
 
 			return newList;
@@ -97,20 +82,11 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 		setmodificado([]);
 		onClose();
 	};
-	
 
 	return (
-		<Modal
-			className="w-6/12"
-			title="Verdadero/Falso"
-			isOpen={isOpen}
-			onClose={closeModal}
-		>
+		<Modal className="w-6/12" title="Verdadero/Falso" isOpen={isOpen} onClose={closeModal}>
 			<div className="flex flex-col">
-				<ModalNewWordInput
-					title="Frase"
-					onSubmit={(newWord) => submit(newWord)}
-				/>
+				<ModalNewWordInput title="Frase" onSubmit={(newWord) => submit(newWord)} />
 				<ModalWordList
 					wordList={lista}
 					onEdit={(newValue, index) => editWord(newValue, index)}
@@ -125,17 +101,16 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 							className="px-1"
 							disabled={lista.length < 2}
 							onClick={() => {
-								
-								let nuevaLista =listaVistaP.slice();
-									
-									for (var i = nuevaLista.length-1; i > 0; i--) {
-										var j = Math.floor(Math.random() * i);
-										var tmp = nuevaLista[i];
-										nuevaLista[i] = nuevaLista[j];
-										nuevaLista[j] = tmp;
-									}
-									
-								setListaVistaP(nuevaLista)
+								let nuevaLista = listaVistaP.slice();
+
+								for (var i = nuevaLista.length - 1; i > 0; i--) {
+									var j = Math.floor(Math.random() * i);
+									var tmp = nuevaLista[i];
+									nuevaLista[i] = nuevaLista[j];
+									nuevaLista[j] = tmp;
+								}
+
+								setListaVistaP(nuevaLista);
 							}}
 						>
 							Reordenar
@@ -143,18 +118,11 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 					}
 				>
 					<div>
-						{lista.length > 0 && (
-							<p>
-								Responde Verdadero o Falso. Según corresponda.
-							</p>
-						)}
+						{lista.length > 0 && <p>Responde Verdadero o Falso. Según corresponda.</p>}
 						<ul>
-							{listaVistaP.map((elem, i) => {	
+							{listaVistaP.map((elem, i) => {
 								return (
-									<li
-										key={`concepto-${i}`}
-										className="flex items-center"
-									>									
+									<li key={`concepto-${i}`} className="flex items-center">
 										<BiRectangle />
 										<p className="pl-1">{elem}</p>
 									</li>
