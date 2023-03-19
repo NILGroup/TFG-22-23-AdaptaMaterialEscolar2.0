@@ -349,6 +349,7 @@ AdaptaMaterialEscolar es una aplicación web implementada con React, el código 
 
 En las siguientes secciones se explicará en detalle la arquitectura y las funcionalidades. 
 \subsection{Arquitectura}
+\label{sub:Arquitectura}
 Partimos de AdaptaMaterialEscolar 1.0, es una aplicación web \textit{serverless}, es decir, no dispone de \textit{backend}. Y cuyo \textit{frontend} se basa en una arquitectura orientada a componentes debido al uso de React. Se empleó Redux\footnote{\url{https://redux.js.org/}} para gestionar el estado de los componentes y disminuir el número de relaciones entre estos. Para el editor se utilizó CKEditor\footnote{\url{https://ckeditor.com/}}. Para la funcionalidad de buscar pictograma se usó la API de ARASAAC.
 
 Para AdaptaMaterialEscolar 2.0 se ha decidido mantener React debido a la escalabilidad que proporciona y que es uno de los frameworks más utilizados\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}}. En cuanto a Redux lo descartamos ya que la comunicación entre los componentes es descendente. Por otra parte, se decidió cambiar el editor ya que la licencia que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Por lo que se determinó utilizar Slate como editor basado en componentes reutilizables, se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de AdaptaMaterialEscolar 2.0.
@@ -382,3 +383,31 @@ Para la explicación de las funcionalidades se pensó en realizar diagramas para
 
 \subsubsection{Buscar pictograma}
 Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente, se realiza un \textit{fetch} a la API de ARASAAC la cual recibe el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, se itera sobre los pictogramas devueltos y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de lista. En caso contrario, la lista de pictogramas estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''.
+
+
+
+
+
+
+% No estoy seguro si iría aqui lo del editor
+\section{Editor}
+El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación de adaptación curricular.
+
+\subsection{Estructura}
+El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato}
+La barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad. 
+A continuación, se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
+\begin{itemize}
+  \item Barra de herramientas de Archivo: Esta barra de herramientas contiene opciones relacionadas con el manejo de archivos, estas son: Exportar a PDF, Exportar Word e Importar documento.
+  \item Barra de herramientas de Formato: Esta barra de herramientas contiene opciones para formatear el texto que se está editando. Algunas opciones comunes en esta barra de herramientas son: cambiar la fuente, ajustar el tamaño de la fuente, aplicar negrita, cursiva o subrayado, cambiar el color del texto, etc. 
+  \item Barra de herramientas de Ejercicios: Esta barra de herramientas contiene opciones para crear ejercicios. Algunas opciones en esta barra de herramientas son: crear una pregunta de verdadero o falso, crear ejercicios de rellenar huecos, etc. 
+  \item Barra de herramientas de Texto: Esta barra de herramientas contiene opciones para manipular el texto:  Generar resumen, Picotraductor, Buscar pictograma y Leyenda.
+\end{itemize}
+Las barras de herramientas de Ejercicios, Archivo y Formato se han explicado en la Sección 6.1. Además, cabe mencionar que las opciones en las barras de herramientas de Archivo y formato generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección \ref{sub:Arquitectura}.
+
+\subsection{Integración}
+Para su integración hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ''Editable`` que es como una especie de lienzo,  el componente ''Slate`` es el marco de este lienzo y ''withReact`` es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice a tiempo real.
+\\
+Una vez establecido el editor continuaremos con su configuración desde la perspectiva funcional, para entender esto debemos indagar más en el concepto de árbol que nos proporciona Slate. El árbol de Slate es una estructura de datos jerárquica que representa el contenido editable dentro de un editor de texto Slate. Este está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y mucho más. El nodo principal en el árbol de Slate es el nodo documento, que es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo hoja o un nodo de elemento. Los nodos de hoja contienen el contenido de texto real, mientras que los nodos de elemento contienen información sobre el formato, el estilo y otras propiedades del contenido. Cada nodo de elemento puede tener varios nodos secundarios, y estos nodos pueden ser de cualquier tipo que el desarrollador desee definir. Por ejemplo, un nodo de elemento podría representar un párrafo, una lista, etc. Cada nodo en el árbol de Slate también puede tener una serie de propiedades que describen el contenido y su estilo. Estas propiedades se almacenan en un objeto llamado "props”.
+\\
+Con esto ya definido explicar el árbol que hemos definido. En primer lugar, tenemos los nodos hojas que son texto en negrita, itálica, subrayado y tachado, estos se almacena en un componente llamado \textit{Leaf}. En segundo lugar, tenemos los nodos elemento uno por cada ejercicio, imagen, icono, tabla, icono, y lista. Los nodos elemento tienen una estructura similar en la cual se define un componente que representa este nodo. Pero algunos tienen un comportamiento diferente el cual se define mediante lo que denominamos plugin. Slate cuenta con un sistema de plugins estos se comportan como envoltorios como el ``withReact''. Todos nuestros plugins se almacenan en una carpeta llamada plugins. Los elementos que requieren esto son la imagen, tabla e icono. El plugin de las imágenes  define que el editor interprete este elemento como vacío esto se logra  indicando a Slate que su función \textit{isVoid} indique verdadero cuando encuentre una imagen logrando que la imagen se comporte como una unidad indivisible, también le indicamos que es un elemento en línea esto se logra indicando a Slate que su función \textit{isInline} devuelva verdadero y le indicamos que cuando reciba una url de imagen también se interprete como una imagen esto se lo obtenemos al modificar de Slate su función \textit{insertData}. El plugin de los iconos es igual al de las imágenes pero sin modificar la función \textit{insertData}.
