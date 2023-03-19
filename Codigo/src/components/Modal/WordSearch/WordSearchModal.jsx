@@ -14,6 +14,8 @@ import { Transforms } from "slate";
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 
+import { TableUtil } from "../../SlateEditor/utils/TableUtil";
+
 // Valores Constantes
 const DIRECTIONS = {
 	horizontal: "horizontal",
@@ -176,8 +178,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 		};
 
 		Transforms.insertNodes(editor, exerciseStatement);
-		Transforms.insertNodes(editor, wordSearch);
-
+		const table = new TableUtil(editor);
+		table.insertTable(grid, undefined, undefined, 'table-auto !m-auto text-center !mt-2');
 		handleClose();
 	};
 
