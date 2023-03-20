@@ -414,6 +414,46 @@ Se han utilizado, internamente, dos listas: una para almacenar las palabras del 
   \label{fig:impcompletarhuecos}
 \end{figure}
 
+\subsubsection{Ejercicio de definiciones}
+Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadDefinicion}. Para crear este tipo de ejercicio se debe rellenar el siguiente campo:
+\begin{itemize}
+  \item Conceptos a definir: Contiene los conceptos que se quieren definir. Estos deben introducirse en la entrada de texto que se posicióna debajo del título Conceptos, se pueden introducir al pulsar  la tecla \textit{ENTER} o presionando el botón con el icono del mas. En caso de querer borrar el concepto añadido se deberá presionar al boton con el icono de la papelera y si se quiere modificar se deberá presionar al boton con el icono del lapiz.
+\end{itemize}
+Una vez introducido los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto, estos son:
+\begin{itemize}
+  \item Tipos de pauta: Permite seleccionar la pauta que ira con cada concepto. Por defecto es doble pauta.
+  \item Numero de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. Por defecto, su valor es de una fila.
+\end{itemize}
+Esta opción esta gestionada internamente mediante tres estados. El primero almacena el un array de conceptos, inicialmente vacio, con cada insercción se realiza un \textit{push} a este array añadiendole el concepto introducido, las modificaciones son gestionadas mediante el indice y del concepto seleccionado y el valor por el que se quiere rescribir y los eliminaciones mediante un función de orden superior que proporciona JavaScript denominada filter. El segundo estado almacena el numero de filas y el tercer estado el estilo que se quiere emplear para doble pauta.
+Finalmente con estos tres estados se genera la vista previa.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Imagenes/Funcionalidades/EjercicioDefinicion.png}
+  \caption{Funcionalidad de definicion.}
+  \label{fig:funcionalidadDefinicion}
+\end{figure}
+
+\subsubsection{Ejercicio de Desarrollo}
+Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, líneas normales, doble pauta, etc. Para implementarlo se ha usado un \textit{StaffButtonFactory}, el cual devuelve cada uno de estos botones según el valor que se le pase a través de los \textit{props}. Al hacer algún cambio en estos \textit{inputs}, el nuevo valor se almacena en el estado del componente \textit{DesarrolloModal}. Gracias a React, cada vez que se realizan cambios en el estado del componente, estos se ven reflejados en la interfaz de usuario automáticamente, por lo que se pueden ver en la vista previa. La vista previa muestra cómo se va a ver el ejercicio una vez que se inserte en el editor, y esta fue implementada usando un componente reutilizable llamado \textit{ModalPreview}. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadDesarrollo}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Imagenes/Implementacion/DesarrolloModal.PNG}
+  \caption{Funcionalidad de ejercicios de desarrollo.}
+  \label{fig:funcionalidadDesarrollo}
+\end{figure}
+
+\subsubsection{Ejercicio de fórmulas matemáticas}
+Para implementar esta funcionalidad se ha usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmula en el que se almacena cada elemento de la fórmula. Este array se ve reflejado en la vista utilizando los campos de texto mencionados anteriormente. Cuando el usuario realiza un cambio en un \textit{input}, se llama a una función que recorre el array y reemplaza el valor antiguo con el nuevo valor en la posición del array indicada. Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio o el \textit{backspace}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. Al presionar el botón de ok, simplemente se inserta el texto de cada casilla separado por un espacio, y en las posiciones que se encuentren vacías, se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Imagenes/Implementacion/MathFormulaModal.PNG}
+  \caption{Funcionalidad de fórmula matemática.}
+  \label{fig:funcionalidadFormulaMatematica}
+\end{figure}
+
 \subsubsection{Sopa de letras}
 \label{sec:impsopaletras}
 Se ha utilizado una serie de elementos para implementar la funcionalidad de generación de sopas de letras. En primer lugar, se emplean dos campos para introducir el número de filas y columnas deseado. A continuación, se utilizan dos componentes, el \textit{ModalNewWordInput} y el \textit{ModalWordList}, que permiten añadir, modificar y eliminar palabras de la sopa de letras. Para seleccionar las orientaciones permitidas, se ha creado un menú de \textit{checkboxes}. Cada vez que se modifica alguno de estos campos, se llama a la función \textit{createWordSearch}, que utiliza la clase \textit{WordSearch} de la biblioteca \textit{word-search} para generar la sopa de letras. Esta función recibe los valores de los campos del modal y el devuelve un objeto que contiene la sopa de letras, errores y avisos. En caso de que haya algún error, no se generará una sopa de letras y, por lo tanto, esta y los avisos serán nulos. La sopa de letras generada se muestra en una vista previa, y si hay errores o avisos, se muestran en una alerta en la parte superior de la vista previa. Al pulsar el botón de \textit{Ok}, se insertará un ejercicio en el documento de trabajo, con un enunciado predeterminado, especificando el número de palabras a encontrar y las posibles orientaciones de estas, y debajo de este se inserta la sopa de letras, centrada en la página. En la Figura \ref{fig:impsopaletras} se muestra la funcionalidad de la sopa de letras.
