@@ -382,9 +382,10 @@ Para implementar esta funcionalidad se ha empleado un campo de texto en el cual 
 \end{figure}
 
 \subsubsection{Completar huecos}
-Para implementar esta funcionalidad se ha empleado un area de texto en el cual se introduce el texto que se quiere modificar, remplazando palabras por huecos. Tanto el botón de añadir huecos como el botón de \textit{Ok} están desactivados y no se podrán pulsar hasta que se introduzca un texto. Al pulsar el botón de añadir huecos, se permite hacer click a las distintas palabras del texto para convertirlas en huecos, y viceversa, pero no se podrá editar el texto. Se podrá editar el texto volviendo a pulsar el botón de añadir huecos, que ahora se llamará editar texto. Si se edita el texto se perderán todos los huecos que se hayan añadido. Además, se podrá elegir el tamaño de los huecos. Al pulsar el botón de \textit{Ok}, se insertará en el documento de trabajo el ejercicio con un enunciado predeterminado y el texto con los huecos que se hayan definido. En la Figura \ref{fig:impcompletarhuecos} se muestra la funcionalidad de completar huecos.
+\label{sec:impcompletarhuecos}
+Para implementar esta funcionalidad se ha empleado un area de texto en el cual se introduce el texto que se quiere modificar, remplazando palabras por huecos. Tanto el botón de añadir huecos como el botón de \textit{Ok} están desactivados y no se podrán pulsar hasta que se introduzca un texto. Al pulsar el botón de añadir huecos, se permite hacer click a las distintas palabras del texto para convertirlas en huecos, y viceversa, pero no se podrá editar el texto. Se podrá editar el texto volviendo a pulsar el botón de añadir huecos, que ahora se llamará editar texto. Si se edita el texto se perderán todos los huecos que se hayan añadido. Además, se podrá elegir el tamaño de los huecos utilizando botones de radio. Al pulsar el botón de \textit{Ok}, se insertará en el documento de trabajo el ejercicio con un enunciado predeterminado y el texto con los huecos que se hayan definido. En la Figura \ref{fig:impcompletarhuecos} se muestra la funcionalidad de completar huecos.
 
-Internamente se han utilizado dos listas: una lista para almacenar las palabras del texto y otra lista de la misma longitud para marcar si hay un hueco en una posición concreta del texto. También se ha utilizado una variable para guardar el tipo del hueco: pequeño, medio o grande; y una variable para guardar el modo de edición (editar texto o añadir huecos). Cuando se modifica el texto, se crea una nueva lista donde cada elemento es una palabra del texto y una lista de booleanos con tantos elementos como palabras tenga el texto, marcando si una palabra en cierta posición es un hueco o no. Cuando se pulsa el botón de añadir huecos o editar texto se cambia el modo de edición. Al clickar una palabra en el modo de añadir huecos se alterna el estado del booleano, en la lista de huecos, en la posición de la palabra pulsada.
+Se han utilizado, internamente, dos listas: una para almacenar las palabras del texto y otra de igual longitud para indicar si hay un hueco en una posición específica del texto. Además, se han implementado dos variables para guardar información adicional: una para el tamaño del hueco (pequeño, mediano o grande) y otra para el modo de edición (edición de texto o añadir huecos). Cuando se realiza una modificación en el texto, se crea una nueva lista en la que cada elemento es una palabra del texto y una lista de booleanos con tantos elementos como palabras tenga el texto, para indicar si una palabra en una posición determinada es un hueco o no. Al hacer clic en el botón de añadir huecos o editar texto, se cambia el modo de edición. En el modo de añadir huecos, al hacer clic en una palabra, se cambia el estado del booleano correspondiente en la lista de huecos para la posición de la palabra seleccionada.
 
 \begin{figure}[ht!]
   \centering
@@ -411,6 +412,44 @@ Internamente se han utilizado dos listas: una lista para almacenar las palabras 
 
   \caption{Funcionalidad de completar huecos}
   \label{fig:impcompletarhuecos}
+\end{figure}
+
+\subsubsection{Sopa de letras}
+\label{sec:impsopaletras}
+Se ha utilizado una serie de elementos para implementar la funcionalidad de generación de sopas de letras. En primer lugar, se emplean dos campos para introducir el número de filas y columnas deseado. A continuación, se utilizan dos componentes, el \textit{ModalNewWordInput} y el \textit{ModalWordList}, que permiten añadir, modificar y eliminar palabras de la sopa de letras. Para seleccionar las orientaciones permitidas, se ha creado un menú de \textit{checkboxes}. Cada vez que se modifica alguno de estos campos, se llama a la función \textit{createWordSearch}, que utiliza la clase \textit{WordSearch} de la biblioteca \textit{word-search} para generar la sopa de letras. Esta función recibe los valores de los campos del modal y el devuelve un objeto que contiene la sopa de letras, errores y avisos. En caso de que haya algún error, no se generará una sopa de letras y, por lo tanto, esta y los avisos serán nulos. La sopa de letras generada se muestra en una vista previa, y si hay errores o avisos, se muestran en una alerta en la parte superior de la vista previa. Al pulsar el botón de \textit{Ok}, se insertará un ejercicio en el documento de trabajo, con un enunciado predeterminado, especificando el número de palabras a encontrar y las posibles orientaciones de estas, y debajo de este se inserta la sopa de letras, centrada en la página. En la Figura \ref{fig:impsopaletras} se muestra la funcionalidad de la sopa de letras.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.55\textwidth]{Implementacion/SopaLetras01.png}
+    \caption{Funcionalidad de sopa de letras ejecutado con éxito}
+    \label{fig:impsopaletras01}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.55\textwidth]{Implementacion/SopaLetras02.png}
+    \caption{Funcionalidad de sopa de letras con avisos}
+    \label{fig:impsopaletras02}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.55\textwidth]{Implementacion/SopaLetras03.png}
+    \caption{Funcionalidad de sopa de letras con errores}
+    \label{fig:impsopaletras03}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.55\textwidth]{Implementacion/SopaLetras04.png}
+    \caption{Funcionalidad de sopa de letras en documento de trabajo}
+    \label{fig:impsopaletras04}
+  \end{subfigure}
+
+  \caption{Funcionalidad de completar huecos}
+  \label{fig:impsopaletras}
 \end{figure}
 
 % REVIEW: No estoy seguro si iría aqui lo del editor
