@@ -2,7 +2,6 @@
 \label{cap:AdaptaMaterialEscolar2.0}
 En este capítulo explicaremos la obtención de requisitos y cómo se han clasificado en la Sección \ref{cap:requisitos}. También se describirá el diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades en la Sección \ref{disenyoDeLaAplicacion}.
 
-
 \section{Requisitos}
 \label{cap:requisitos}
 
@@ -52,7 +51,6 @@ De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades 
 
 \end{itemize}
 
-
 Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias de ellas ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas actualmente ya que consideramos que no tenemos la información suficiente para ello, pero las realizaremos una vez podamos reunirnos con los usuarios finales y obtener más información sobre ellas. El resto de funcionalidades son las que implementaremos en este proyecto.
 
 Las siguientes funcionalidades son las que ya están implementadas en la versión original:
@@ -71,7 +69,6 @@ Las funcionalidades que hemos decidido descartar de momento por falta de informa
 \end{itemize}
 
 Por lo tanto, las funcionalidades que vamos a implementar son las que se muestran a continuación:
-
 
 \begin{itemize}
   \item Generar un resumen a partir de un texto con el fin de ayudar a un alumno a comprender los elementos claves del texto de manera mas rápida.
@@ -145,8 +142,6 @@ A continuación se muestran los diseños de las nuevas funcionalidades que no es
   \item \textbf{Buscar imágenes:} el funcionamiento es igual al de la funcionalidad de buscar pictogramas. El usuario puede hacer una búsqueda y se le mostrarán todos los resultados encontrados, al darle click a uno de ellos, esta imagen se insertará en el documento de trabajo. Este diseño se puede ver en la figura \ref{Alberto12}.
 \end{itemize}
 
-
-
 \subsubsection{Johan Sebastian Salvatierra Gutierrez}
 Para realizar el diseño de la aplicación se realizo una división entre páginas y funcionalidades.
 En primer lugar, las páginas. Para estas se tuvo de inspiración a Youtube, donde se dividen en tres: página de inicio, página sobre nosotros y página de información. Comenzando con la página de inicio, con un editor de texto y una cabecera que dispone de un menú para moverte entre las páginas y un botón de configuración con forma de engranaje que permite elegir si tener un visualizador de PDF o una barra de funciones como se ve en la Figura \ref{Johan1}. Si el usuario decide personalizar la pantalla de inicio con el botón de configuración obtendra una pantalla similar a la mostrada en la Figura \ref{Johan2} donde podrá ver que el cuadrado izquierdo superior es el visualizador de PDF y el inferior es la barra de funciones y el cuadrado derecho es el editor de texto. Si el usuario decide usar el menú para cambiar de página aparecera un panel a la derecha que servirá como barra de navegación como se puede ver en la Figura \ref{Johan3}. Para la página de información el usuario dispondrá de una serie de videos didácticos y un buscador para conocer como explotar al máximo el potencial de AdaptaMaterialEscolar 2.0 (esto lo podemos ver en la Figura \ref{Johan4}). En cuanto a la página sobre nosotros, el usuario se encontrará con unos recuadros con forma de tarjeta con información de cada integrante (esto lo podemos ver en la Figura \ref{Johan5}).
@@ -159,10 +154,8 @@ En segundo lugar, las funcionalidades auxiliares aparecerán  como botones en el
 \end{itemize}
 Por otra parte, las funcionalidades de pictograma, completar huecos, definiciones y desarrollo se considerá emplear el diseño de AdaptaMaterialEscolar 1.0. La funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadrícula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se emplearán botones.
 
-
 \subsection{Diseño final}\label{subsec:DisenyoFinal}
 A continuación expondremos el diseño final de la aplicación. Para ello partimos de los diseños expuestos anteriormente. Todas las funcionalidades se han diseñado como ventanas modales para centrar la acción del usuario en la funcionalidad seleccionada y disponen de un boton \textit{OK} para confirmar la vista previa y transferir el ejercicio al documento de trabajo.
-
 
 \subsubsection{Pantalla de inicio}
 Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
@@ -174,7 +167,6 @@ Ninguno de los diseños de los integrantes se han considerado razonables porque 
   \label{Forato}
 \end{figure}
 
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Ejercicios.PNG}
@@ -182,14 +174,12 @@ Ninguno de los diseños de los integrantes se han considerado razonables porque 
   \label{ejercicios}
 \end{figure}
 
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Texto.PNG}
   \caption{Diseño de Texto pantalla de inicio.}
   \label{texto}
 \end{figure}
-
 
 \begin{figure}[ht!]
   \centering
@@ -218,7 +208,6 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. In
   \label{definir_hueco}
 \end{figure}
 
-
 \subsubsection{Sopa de letras}
 El diseño de esta funcionalidad se muestra en la Figura \ref{sopaLetras}, se basa en el diseño de Alberto Rivas, (Figura \ref{Alberto16}). Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra, y otro que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión
 de que era mejor que el botón de añadir palabras fuera fijo y no cambiara de posición cada vez que se añadiese una nueva palabra ya que esto le aportaría comodidad y facilidad de uso. Para ayudar al usuario a que sea más intuitivo decidimos incluir dos campos para que el usuario introduzca las filas y las columnas de la sopa de letras. También añadimos otro campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varias opciones para que el usuario elija cómo disponer las palabras en la sopa de letras (horizontal, vertical, diagonal y al revés). El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable2} en el ejercicio 5.
@@ -240,10 +229,6 @@ de que era mejor que el botón de añadir palabras fuera fijo y no cambiara de p
 \subsubsection{Pictotraductor}
 El diseño de esta funcionalidad se muestra en la (Figura \ref{pictotraductor}), se basa en el diseño de Johan Salvatierra, Figura \ref{Johan7} y en la idea de Álvaro Gómez de que los pictogramas puedan cambiar en el caso de que haya varias opciones para una palabra. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas. El problema de este diseño fue que no se tuvieron en cuenta varias opciones que necesita el usuario sobre el diseño de los pictogramas. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra y añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar otro de los pictogramas disponibles para la misma palabra del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 3.
 
-
-
-
-
 \subsubsection{Ejercicio de flechas}
 El diseño de esta funcionalidad se muestra en la Figura \ref{flechas} y se basa en el diseño de Dunia Namour, (Figura \ref{dunia4}). Inicialmente dábamos la opción de solo hacer dos columnas para relacionar con flechas, pero nos dimos cuenta de que el usuario debería poder elegir tantas columnas como desee. Tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera tantas columnas vacías como haya indicado el usuario. Una vez que el usuario rellena dichas columnas tiene la opción de reordenar, la cual reordenaría cada columna. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automáticamente cada vez que el usuario realice un cambio en alguna de las columnas. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 1.
 
@@ -264,7 +249,6 @@ Partimos del diseño de AdaptaMaterialEscolar 1.0, dicho diseño no permitía al
   \label{DesarrolloFinal}
 \end{figure}
 
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Diseño/definiciones.PNG}
@@ -274,7 +258,6 @@ Partimos del diseño de AdaptaMaterialEscolar 1.0, dicho diseño no permitía al
 
 \subsubsection{Ejercicio de definiciones}
 Partimos del diseño de AdaptaMaterialEscolar 1.0. Dicho diseño tenía los mismos problemas que el de ejercicios de desarrollo. El diseño final de esta funcionalidad se muestra en la Figura \ref{defi}. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable2} en el ejercicio 3.
-
 
 \subsubsection{Ejercicios de espacio para dibujar}
 El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En esta funcionalidad el usuario inicialmente tendrá que escribir el enunciado e indicar el espacio que desea dejar para dibujar. Además, incorpora una opción de recuadrar que hace un recuadro del tamaño indicado. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 5.
@@ -299,7 +282,6 @@ El diseño final de esta funcionalidad se muestra en la Figura \ref{LeyendaColor
 \subsubsection{Ejercicio de matemáticas con huecos}
 El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, Figura (\ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
 
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Diseño/EjerMatesHuecos.PNG}
@@ -317,17 +299,12 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
   \label{configu}
 \end{figure}
 
-
-
-
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Editable1.PNG}
   \caption{Resultado de las funcionalidades en el documento de trabajo.}
   \label{editable1}
 \end{figure}
-
 
 \begin{figure}[ht!]
   \centering
