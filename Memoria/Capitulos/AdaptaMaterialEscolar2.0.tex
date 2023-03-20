@@ -413,6 +413,25 @@ Internamente se han utilizado dos listas: una lista para almacenar las palabras 
   \label{fig:impcompletarhuecos}
 \end{figure}
 
+\subsubsection{Ejercicio de definiciones}
+Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadDefinicion}. Para crear este tipo de ejercicio se debe rellenar el siguiente campo:
+\begin{itemize}
+  \item Conceptos a definir: Contiene los conceptos que se quieren definir. Estos deben introducirse en la entrada de texto que se posicióna debajo del título Conceptos, se pueden introducir al pulsar  la tecla \textit{ENTER} o presionando el botón con el icono del mas. En caso de querer borrar el concepto añadido se deberá presionar al boton con el icono de la papelera y si se quiere modificar se deberá presionar al boton con el icono del lapiz.
+\end{itemize}
+Una vez introducido los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto, estos son:
+\begin{itemize}
+  \item Tipos de pauta: Permite seleccionar la pauta que ira con cada concepto. Por defecto es doble pauta.
+  \item Numero de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. Por defecto, su valor es de una fila.
+\end{itemize}
+Esta opción esta gestionada internamente mediante tres estados. El primero almacena el un array de conceptos, inicialmente vacio, con cada insercción se realiza un \textit{push} a este array añadiendole el concepto introducido, las modificaciones son gestionadas mediante el indice y del concepto seleccionado y el valor por el que se quiere rescribir y los eliminaciones mediante un función de orden superior que proporciona JavaScript denominada filter. El segundo estado almacena el numero de filas y el tercer estado el estilo que se quiere emplear para doble pauta.
+Finalmente con estos tres estados se genera la vista previa.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Imagenes/Funcionalidades/EjercicioDefinicion.png}
+  \caption{Funcionalidad de definicion.}
+  \label{fig:funcionalidadDefinicion}
+\end{figure}
 % REVIEW: No estoy seguro si iría aqui lo del editor
 \section{Editor}
 \label{Editor}
