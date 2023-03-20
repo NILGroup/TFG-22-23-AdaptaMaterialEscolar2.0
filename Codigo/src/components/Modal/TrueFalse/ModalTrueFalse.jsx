@@ -122,9 +122,12 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 						<ul>
 							{listaVistaP.map((elem, i) => {
 								return (
-									<li key={`concepto-${i}`} className="flex items-center">
-										<BiRectangle />
-										<p className="pl-1">{elem}</p>
+									<li key={`concepto-${i}`} >
+										<div className="flex items-start">
+											<div className="pt-1 min-w-[2rem]"><BiRectangle /></div>
+											<p className="pl-1">{elem}</p>
+										</div>
+										
 									</li>
 								);
 							})}
