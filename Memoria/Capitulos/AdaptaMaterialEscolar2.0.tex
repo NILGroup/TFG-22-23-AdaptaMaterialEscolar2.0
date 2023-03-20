@@ -109,8 +109,8 @@ En cuanto a las funcionalidades, se realizarón los siguientes diseños:
   \item \textbf{Definir huecos}: En caso de que el usuario tenga texto seleccionado, cuando el usuario pulse la opción de definir huecos, se llevará automáticamente el texto al documento de trabajo y el usuario podrá definir los huecos seleccionando las palabras. En la Figura \ref{fig:disenyoAlvaro04} se muestra el diseño de esta funcionalidad en caso de tener texto seleccionado. En caso de no tener texto original, se abrirá una ventana aparte donde el usuario podrá escribir el texto y definir los huecos.
   \item \textbf{Buscar pictograma}: Cuando el usuario pulse la opción de buscar pictogramas en la barra de herramientas del editor, se abrirá una ventana modal con un buscador. Al pulsar el botón de buscar, se mostrarán todos los pictogramas relacionados con el texto introducido, debajo del buscador. El usuario podrá arrastrar los pictogramas que desee al documento de trabajo. En la Figura \ref{fig:disenyoAlvaro05} se muestra el diseño de esta funcionalidad.
   \item \textbf{Ejercicio de definiciones}: Cuando el usuario pulse la opción de crear ejercicio de definiciones en la barra de herramientas del editor, se creará un recuadro en el documento de trabajo donde el usuario podrá añadir los distintos conceptos a definir y el número de renglones de cada definición. Cuando haya terminado de crear el ejercicio podrá darle al botón de aceptar para que el ejercicio se inserte en el documento de trabajo. En la Figura \ref{fig:disenyoAlvaro06} se muestra el diseño de esta funcionalidad.
-  % \item \textbf{Sopa de letras}: Cuando el usuario pulse la opción de crear sopa de letras en la barra de herramientas del editor, se creará un recuadro en el documento de trabajo donde el usuario podrá definir el número de filas, el número de columnas y añadir las palabras a buscar en la sopa de letras. Cuando haya terminado de crear la sopa de letras podrá darle al botón de aceptar para que se inserte en el documento de trabajo.
-  % \item \textbf{Leyenda de colores}: Cuando el usuario pulse la opción de crear la leyenda de colores en la barra de herramientas del editor, se creará un recuadro en el documento de trabajo donde el usuario podrá añadir los distintos conceptos y asignarles un color, con un selector de colores, a cada uno. Cuando haya terminado de crear la leyenda podrá darle al botón de aceptar para que se inserte en el documento de trabajo.
+        % \item \textbf{Sopa de letras}: Cuando el usuario pulse la opción de crear sopa de letras en la barra de herramientas del editor, se creará un recuadro en el documento de trabajo donde el usuario podrá definir el número de filas, el número de columnas y añadir las palabras a buscar en la sopa de letras. Cuando haya terminado de crear la sopa de letras podrá darle al botón de aceptar para que se inserte en el documento de trabajo.
+        % \item \textbf{Leyenda de colores}: Cuando el usuario pulse la opción de crear la leyenda de colores en la barra de herramientas del editor, se creará un recuadro en el documento de trabajo donde el usuario podrá añadir los distintos conceptos y asignarles un color, con un selector de colores, a cada uno. Cuando haya terminado de crear la leyenda podrá darle al botón de aceptar para que se inserte en el documento de trabajo.
 \end{itemize}
 
 \subsubsection{Dunia Namour Doughani}
@@ -165,7 +165,7 @@ A continuación expondremos el diseño final de la aplicación. Para ello partim
 
 
 \subsubsection{Pantalla de inicio}
-Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las Figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
+Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
 
 \begin{figure}[ht!]
   \centering
@@ -347,13 +347,13 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
 AdaptaMaterialEscolar es una aplicación web implementada con React, el código se encuentra en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0/tree/master/Codigo}}.Es accesible a través de la url:
 \url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0}.
 
-En las siguientes secciones se explicará en detalle la arquitectura y las funcionalidades. 
+En las siguientes secciones se explicará en detalle la arquitectura y las funcionalidades.
 \subsection{Arquitectura}
 \label{sub:Arquitectura}
 Partimos de AdaptaMaterialEscolar 1.0, es una aplicación web \textit{serverless}, es decir, no dispone de \textit{backend}. Y cuyo \textit{frontend} se basa en una arquitectura orientada a componentes debido al uso de React. Se empleó Redux\footnote{\url{https://redux.js.org/}} para gestionar el estado de los componentes y disminuir el número de relaciones entre estos. Para el editor se utilizó CKEditor\footnote{\url{https://ckeditor.com/}}. Para la funcionalidad de buscar pictograma se usó la API de ARASAAC.
 
 Para AdaptaMaterialEscolar 2.0 se ha decidido mantener React debido a la escalabilidad que proporciona y que es uno de los frameworks más utilizados\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}}. En cuanto a Redux lo descartamos ya que la comunicación entre los componentes es descendente. Por otra parte, se decidió cambiar el editor ya que la licencia que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Por lo que se determinó utilizar Slate como editor basado en componentes reutilizables, se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de AdaptaMaterialEscolar 2.0.
-Ambas herramientas se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. 
+Ambas herramientas se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor.
 
 
 
@@ -384,23 +384,50 @@ Para la explicación de las funcionalidades se pensó en realizar diagramas para
 \subsubsection{Buscar pictograma}
 Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente, se realiza un \textit{fetch} a la API de ARASAAC la cual recibe el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, se itera sobre los pictogramas devueltos y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de lista. En caso contrario, la lista de pictogramas estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''.
 
+\subsubsection{Completar huecos}
+Para implementar esta funcionalidad se ha empleado un area de texto en el cual se introduce el texto que se quiere modificar, remplazando palabras por huecos. Tanto el botón de añadir huecos como el botón de \textit{Ok} están desactivados y no se podrán pulsar hasta que se introduzca un texto. Al pulsar el botón de añadir huecos, se permite hacer click a las distintas palabras del texto para convertirlas en huecos, y viceversa, pero no se podrá editar el texto. Se podrá editar el texto volviendo a pulsar el botón de añadir huecos, que ahora se llamará editar texto. Si se edita el texto se perderán todos los huecos que se hayan añadido. Además, se podrá elegir el tamaño de los huecos. Al pulsar el botón de \textit{Ok}, se insertará en el documento de trabajo el ejercicio con un enunciado predeterminado y el texto con los huecos que se hayan definido. En la Figura \ref{fig:impcompletarhuecos} se muestra la funcionalidad de completar huecos.
 
+Internamente se han utilizado dos listas: una lista para almacenar las palabras del texto y otra lista de la misma longitud para marcar si hay un hueco en una posición concreta del texto. También se ha utilizado una variable para guardar el tipo del hueco: pequeño, medio o grande; y una variable para guardar el modo de edición (editar texto o añadir huecos). Cuando se modifica el texto, se crea una nueva lista donde cada elemento es una palabra del texto y una lista de booleanos con tantos elementos como palabras tenga el texto, marcando si una palabra en cierta posición es un hueco o no. Cuando se pulsa el botón de añadir huecos o editar texto se cambia el modo de edición. Al clickar una palabra en el modo de añadir huecos se alterna el estado del booleano, en la lista de huecos, en la posición de la palabra pulsada.
 
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Implementacion/CompletarHuecos01.png}
+    \caption{Funcionalidad de completar huecos sin texto}
+    \label{fig:impcompletarhuecos01}
+  \end{subfigure}
 
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Implementacion/CompletarHuecos02.png}
+    \caption{Funcionalidad de completar huecos tras añadir huecos}
+    \label{fig:impcompletarhuecos02}
+  \end{subfigure}
 
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Implementacion/CompletarHuecos03.png}
+    \caption{Funcionalidad de completar huecos en documento de trabajo}
+    \label{fig:impcompletarhuecos03}
+  \end{subfigure}
 
-% No estoy seguro si iría aqui lo del editor
+  \caption{Funcionalidad de completar huecos}
+  \label{fig:impcompletarhuecos}
+\end{figure}
+
+% REVIEW: No estoy seguro si iría aqui lo del editor
 \section{Editor}
 El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación de adaptación curricular.
 
 \subsection{Estructura}
 El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato}
-La barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad. 
+La barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad.
 A continuación, se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
 \begin{itemize}
   \item Barra de herramientas de Archivo: Esta barra de herramientas contiene opciones relacionadas con el manejo de archivos, estas son: Exportar a PDF, Exportar Word e Importar documento.
-  \item Barra de herramientas de Formato: Esta barra de herramientas contiene opciones para formatear el texto que se está editando. Algunas opciones comunes en esta barra de herramientas son: cambiar la fuente, ajustar el tamaño de la fuente, aplicar negrita, cursiva o subrayado, cambiar el color del texto, etc. 
-  \item Barra de herramientas de Ejercicios: Esta barra de herramientas contiene opciones para crear ejercicios. Algunas opciones en esta barra de herramientas son: crear una pregunta de verdadero o falso, crear ejercicios de rellenar huecos, etc. 
+  \item Barra de herramientas de Formato: Esta barra de herramientas contiene opciones para formatear el texto que se está editando. Algunas opciones comunes en esta barra de herramientas son: cambiar la fuente, ajustar el tamaño de la fuente, aplicar negrita, cursiva o subrayado, cambiar el color del texto, etc.
+  \item Barra de herramientas de Ejercicios: Esta barra de herramientas contiene opciones para crear ejercicios. Algunas opciones en esta barra de herramientas son: crear una pregunta de verdadero o falso, crear ejercicios de rellenar huecos, etc.
   \item Barra de herramientas de Texto: Esta barra de herramientas contiene opciones para manipular el texto:  Generar resumen, Picotraductor, Buscar pictograma y Leyenda.
 \end{itemize}
 Las barras de herramientas de Ejercicios, Archivo y Formato se han explicado en la Sección 6.1. Además, cabe mencionar que las opciones en las barras de herramientas de Archivo y formato generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección \ref{sub:Arquitectura}.
