@@ -25,7 +25,7 @@ const DIRECTIONS = {
 };
 
 const MIN_DIMENSION = 1;
-const MAX_DIMENSION = 30;
+const MAX_DIMENSION = 15;
 
 // Valores por defecto del estado
 const initialState = {
@@ -33,7 +33,7 @@ const initialState = {
 	numCols: MIN_DIMENSION,
 	wordList: [],
 	directions: Object.keys(DIRECTIONS).reduce((obj, key) => {
-		return { ...obj, [key]: false };
+		return { ...obj, [key]: true };
 	}, {}),
 };
 
@@ -276,6 +276,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 													label={capitalizedValue}
 													name={key}
 													id={key}
+													defaultChecked
 													onChange={(e) => {
 														dispatch({
 															type: ActionType.updateDirections,

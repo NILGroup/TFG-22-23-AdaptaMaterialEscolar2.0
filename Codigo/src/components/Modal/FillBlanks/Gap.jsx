@@ -30,7 +30,7 @@ export const getGapTypeInfo = (gapType) => {
 		case GapType.Medium:
 			return {
 				name: "medium",
-				description: "Medio",
+				description: "Mediano",
 				length: 12,
 			};
 		case GapType.Big:

@@ -39,7 +39,7 @@ const reducer = (state, action) => {
 
 			if (!action.newValue) return { ...state, originalText: text, words: null, gaps: null };
 
-			const newWords = text.split(/(\s)/g);
+			const newWords = text.split(/([^\w\d])/g);
 			const newGaps = Array.from({ length: newWords.length }, () => false);
 
 			return { ...state, originalText: text, words: newWords, gaps: newGaps };
@@ -122,9 +122,15 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 									{state.words.map((word, index) => {
 										if (!word) return null;
 
-										if (word === " ") return <>&nbsp;</>;
+										if (word === " ")
+											return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
 
 										if (word === "\n") return <br key={`linebreak-${index}`} />;
+
+										if (/([^\s\w\d])/g.test(word))
+											return (
+												<React.Fragment key={`punctuationSign-${index}`}>{word}</React.Fragment>
+											);
 
 										return (
 											<span
@@ -159,7 +165,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 					</div>
 				</div>
 				<div>
-					<h4 className="text-modal-heading font-normal">Longitud del hueco:</h4>
+					<h4 className="text-modal-heading font-normal">Tamaño de los huecos:</h4>
 					<div className="mt-2 w-full px-4">
 						{Object.keys(GapType).map((key, i) => (
 							<ModalGapRadio
