@@ -179,7 +179,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 		Transforms.insertNodes(editor, exerciseStatement);
 		const table = new TableUtil(editor);
-		table.insertTable(grid, undefined, undefined, 'table-auto !m-auto text-center !mt-2');
+		table.insertTable(grid, undefined, undefined, "table-auto !m-auto text-center !mt-2");
 		handleClose();
 	};
 

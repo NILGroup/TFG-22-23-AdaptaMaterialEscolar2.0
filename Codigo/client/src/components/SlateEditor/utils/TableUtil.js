@@ -6,10 +6,10 @@ export class TableUtil {
 		this.editor = editor;
 	}
 	// Inserccion de tabla, se define en base al numero de columnas y filas elegidas
-	insertTable = (celltext, rows = 0, columns = 0, style='w-[100%]') => {
+	insertTable = (celltext, rows = 0, columns = 0, style = "w-[100%]") => {
 		// Primero evitaremos insertar una tabla dentro de una tabla
 		// Buscamos la tabla en el editor
-		console.log(style)
+		console.log(style);
 		const [tableNode] = Editor.nodes(this.editor, {
 			match: (n) => !Editor.isEditor(n) && Element.isElement(n) && n.type === "table",
 			mode: "highest",
