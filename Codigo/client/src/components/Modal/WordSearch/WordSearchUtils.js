@@ -33,7 +33,7 @@ export const createWordSearch = (numRows, numCols, directions, wordList, minDime
 		if (!wordSearch.words || wordSearch.words.length < wordList.length) warnings.push(WARNING_NOT_ENOUGH_CELLS);
 
 		return {
-			grid: wordSearch.data.grid,
+			grid: wordSearch.grid,
 			warnings: warnings,
 			errors: null,
 		};
