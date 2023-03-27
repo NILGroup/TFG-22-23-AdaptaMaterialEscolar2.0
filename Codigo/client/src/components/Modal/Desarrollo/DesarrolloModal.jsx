@@ -6,6 +6,7 @@ import ModalInputNumber from "../common/ModalInputNumber";
 import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import guideLine from "./GuideLine.module.css";
+import ModalOkButton from "../common/ModalOkButton";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
@@ -100,10 +101,12 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		handleClose();
 	};
 
+	const isOkDisaled = textareaValue.length == 0 || numFilas < MIN_ROWS || numFilas > MAX_ROWS;
+
 	return (
 		<Modal title="Ejercicio de desarrollo" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
-				<form onSubmit={submit}>
+				<div>
 					<div className="">
 						<h3 className="text-xl">Enunciado:</h3>
 						<textarea
@@ -149,14 +152,9 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 					</ModalPreview>
 
 					<div className="flex justify-center">
-						<button
-							type="submit"
-							className="mt-5 w-2/12 self-center rounded-md bg-sky-500 py-2 text-[1.4rem] text-white hover:bg-sky-600"
-						>
-							OK
-						</button>
+						<ModalOkButton className="mt-2 self-center" onClick={submit} disabled={isOkDisaled} />
 					</div>
-				</form>
+				</div>
 			</div>
 		</Modal>
 	);
