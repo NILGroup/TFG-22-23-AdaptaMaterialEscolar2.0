@@ -58,7 +58,25 @@ Tailwind CSS\footnote{\url{https://tailwindcss.com/}} es un framework CSS que pe
 % TODO: Añadir ejemplos de uso
 
 \section{Slate}\label{sec:Slate}
-Slate\footnote{\url{https://docs.slatejs.org/}} es un framework de JavaScript de código abierto que tiene como finalidad la creación de editores de texto personalizados "What You See Is What You Get" (WYSIWYG). Es la herramienta ideal para este proyecto, el cual busca construir un editor de texto de alta calidad capaz de realizar diversos tipos de adaptación curricular. A diferencia de las bibliotecas de edición de texto convencionales, Slate utiliza una estructura de árbol de datos para representar el contenido del editor, y proporciona una API para manipular dicho contenido de forma más efectiva.Las principales características de Slate incluyen:
+Slate\footnote{\url{https://docs.slatejs.org/}} es un framework de JavaScript de código abierto que tiene como finalidad la creación de editores de texto personalizados "What You See Is What You Get" (WYSIWYG). Es la herramienta ideal para este proyecto, el cual busca construir un editor de texto de alta calidad capaz de realizar diversos tipos de adaptación curricular.
+
+A diferencia de las bibliotecas de edición de texto convencionales, Slate utiliza una estructura de árbol de datos jerárquica para representar el contenido editable. En lugar de usar la estructura lineal tradicional, la estructura de árbol permite una mayor flexibilidad y personalización en la creación y edición de contenido.
+
+El árbol de Slate está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y más. El nodo principal del árbol es el nodo documento, que es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo hoja o un nodo de elemento.
+
+Los nodos de hoja contienen el contenido de texto real, mientras que los nodos de elemento contienen información sobre el formato, el estilo y otras propiedades del contenido. Cada nodo de elemento puede tener varios nodos secundarios, y estos nodos pueden ser de cualquier tipo que el desarrollador desee definir. Por ejemplo, un nodo de elemento podría representar un párrafo, una lista, etc. Podemos ver un ejemplo de este en la Figura \ref{fig:arbolSlate}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Herraientas_Empleadas/ArbolSlate.png}
+  \caption{Ejemplo de arbol de slate}
+  \label{fig:arbolSlate}
+\end{figure}
+
+Cada nodo en el árbol de Slate también puede tener una serie de propiedades que describen el contenido y su estilo. Estas propiedades se almacenan en un objeto llamado "props". Además, Slate proporciona una API para manipular el contenido de manera más efectiva.
+
+Las principales características de Slate incluyen:
+
 \begin{itemize}
   \item \textbf{Personalización}: La biblioteca permite a los desarrolladores personalizar el editor de texto según sus necesidades, lo que significa que pueden definir sus propios tipos de nodos y componentes de renderizado.
   \item \textbf{Flexibilidad}: Al ser una biblioteca de JavaScript, SlateJS es altamente flexible y puede integrarse fácilmente con otras bibliotecas y marcos como React.

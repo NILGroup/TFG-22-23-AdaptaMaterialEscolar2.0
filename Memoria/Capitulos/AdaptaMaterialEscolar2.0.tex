@@ -392,18 +392,69 @@ El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{se
 \subsubsection{Estructura}
 El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad.
 A continuación, se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
+
 \begin{itemize}
-  \item Archivo: Esta contiene opciones relacionadas con el manejo de archivos, estas son: Exportar a PDF, Exportar a Word e Importar documento.
-  \item Formato: Esta contiene opciones para formatear el texto que se está editando. Algunas opciones comunes en esta barra de herramientas son: cambiar la fuente, ajustar el tamaño de la fuente, aplicar negrita, cursiva o subrayado, cambiar el color del texto, etc.
-  \item Ejercicios: Esta barra de herramientas contiene opciones para crear ejercicios. Algunas opciones en esta barra de herramientas son: crear una pregunta de verdadero o falso, crear ejercicios de rellenar huecos, etc.
-  \item Texto: Esta barra de herramientas contiene opciones para manipular el texto:  Generar resumen, Picotraductor, Buscar pictograma y Leyenda.
+  \item Archivo: Esta contiene opciones relacionadas con el manejo de archivos, podemos verlas en la Figura \ref{fig:barrraHerramientaArchivo} y son:
+  \begin{itemize}
+    \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}, esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
+    \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, emplea el mismo sistema que el exportar a Word.
+    \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido lo serializa mediante un plugin y se transfiere al editor.
+  \end{itemize}
+  \item Formato: Esta contiene opciones para formatear el texto que se está editando se puede ver en la Figura \ref{fig:barrraHerramientaFormato}. Las opciones que dispone son: 
+  \begin{itemize}
+    \item Negrita: Permite cambiar el formato de texto a negrita.
+    \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
+  \end{itemize}
+  \item Ejercicios: Esta dispone de varias opciones para crear ejercicios se puede ver en la Figura \ref{fig:barrraHerramientaEjercicios}. Las cuales son:
+  \begin{itemize}
+    \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos este se introduce en un nodo parrafo.
+    \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que le permitirá ingresar la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un noda que tiene dos hijos el primero es un nodo de tipo parrafo y el segundo es un nodo de tipo tabla. 
+    \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que le permitirá ingresar la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo parrafo para el enunciado, otro nodo parrafo por cada concepto y un nodo denominado ``Staff'' para los tipos de pauta.
+    \item Verdadero/Falso: Esta opción activa un modal donde puede ingresar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo parrafo para el enunciado y tantos nodos parrafos como conceptos introduzca el usuario, en este se encuanta un nodo llamado ``icon'' para el cuadrado donde indicara el alumno si es verdadero o falso.
+    \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarollo emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
+    \item Formula Matematica: Esta función, desde el punto de vista del editor es igual a la de completar huecos.
+  \end{itemize} 
+  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto todas al igual que la anterior barra de herramientas despliegan un mondal para obtener la información necesaria para crear el nodo: 
+  \begin{itemize}
+    \item Generar resumen: Con la información obtenida se crea un nodo de tipo parrafo.
+    \item Picotraductor: Esta función a traves de los datos obtiene una imagen que se introduce en un nodo que hemos denominado ``image''.
+  \end{itemize}
 \end{itemize}
-Cabe mencionar que las opciones en las barras de herramientas de Archivo y formato generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección \ref{sub:Arquitectura}.
+
+Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección.  \ref{sub:Arquitectura}.Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Editor/Archivo.png}
+  \caption{Barra de herramienta de archivo.}
+  \label{fig:barrraHerramientaArchivo}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Editor/Formato.png}
+  \caption{Barra de herramienta de formato.}
+  \label{fig:barrraHerramientaFormato}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Editor/Ejercicios.png}
+  \caption{Barra de herramienta de ejercicio.}
+  \label{fig:barrraHerramientaEjercicios}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Editor/Texto.png}
+  \caption{Barra de herramienta de texto.}
+  \label{fig:barrraHerramientaTexto}
+\end{figure}
 
 \subsubsection{Integración}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ''Editable`` que es como una especie de lienzo,  el componente ''Slate`` es el marco de este lienzo y ''withReact`` es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
 
-Una vez establecido el editor continuaremos con su configuración desde la perspectiva funcional, para entender esto debemos indagar más en el concepto de árbol que nos proporciona Slate. El árbol de Slate es una estructura de datos jerárquica que representa el contenido editable dentro de un editor de texto Slate. Este está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y mucho más. El nodo principal en el árbol de Slate es el nodo documento, que es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo hoja o un nodo de elemento. Los nodos de hoja contienen el contenido de texto real, mientras que los nodos de elemento contienen información sobre el formato, el estilo y otras propiedades del contenido. Cada nodo de elemento puede tener varios nodos secundarios, y estos nodos pueden ser de cualquier tipo que el desarrollador desee definir. Por ejemplo, un nodo de elemento podría representar un párrafo, una lista, etc. Cada nodo en el árbol de Slate también puede tener una serie de propiedades que describen el contenido y su estilo. Estas propiedades se almacenan en un objeto llamado "props”.
+Una vez establecido el editor continuaremos con su configuración desde la perspectiva funcional, para entender esto debemos indagar más en el concepto de árbol que nos proporciona Slate.
 
 Con esto ya definido explicar el árbol que hemos definido. En primer lugar, tenemos los nodos hojas que son texto en negrita, itálica, subrayado y tachado, estos se almacena en un componente llamado \textit{Leaf}. En segundo lugar, tenemos los nodos elemento uno por cada ejercicio, imagen, icono, tabla, icono, y lista. Los nodos elemento tienen una estructura similar en la cual se define un componente que representa este nodo. Pero algunos tienen un comportamiento diferente el cual se define mediante lo que denominamos plugin. Slate cuenta con un sistema de plugins estos se comportan como envoltorios como el ``withReact''. Todos nuestros plugins se almacenan en una carpeta llamada plugins. Los elementos que requieren esto son la imagen, tabla e icono. El plugin de las imágenes  define que el editor interprete este elemento como vacío esto se logra  indicando a Slate que su función \textit{isVoid} indique verdadero cuando encuentre una imagen logrando que la imagen se comporte como una unidad indivisible, también le indicamos que es un elemento en línea esto se logra indicando a Slate que su función \textit{isInline} devuelva verdadero y le indicamos que cuando reciba una url de imagen también se interprete como una imagen esto se lo obtenemos al modificar de Slate su función \textit{insertData}. El plugin de los iconos es igual al de las imágenes pero sin modificar la función \textit{insertData}.
 
@@ -465,6 +516,8 @@ Una vez introducidos los conceptos a definir se habilitará el botón \textit{Ok
   \caption{Funcionalidad de definicion.}
   \label{fig:funcionalidadDefinicion}
 \end{figure}
+Cabe mencionar que el campo de Tipos de pauta, emplea una botonera la cual se repite en otros ejercicios para reutilizar está, se ha optado por desacoplarla y abstraerla en un componente separado. Este componente permite al usuario seleccionar los botones de pauta deseados. Además, recibe un estado donde introduce la opción elegida.
+Para lograr esto, se ha utilizado el patrón Factory de esta manera, se puede crear el componente de botonera de pautas adaptándolo a cada uno de los ejercicios en los que se utilizará.
 
 \subsubsection{Ejercicio de Desarrollo}
 Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. En la funcionalidad anterior se explica la abstracción de los botones utilizados para las pautas. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadDesarrollo}.
