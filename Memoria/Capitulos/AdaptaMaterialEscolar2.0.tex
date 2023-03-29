@@ -332,11 +332,11 @@ AdaptaMaterialEscolar es una aplicación web implementada con React, el código 
 En las siguientes secciones se explicará en detalle la arquitectura y cómo se han implementado cada una de las funcionalidades de la aplicación.
 \subsection{Arquitectura}
 \label{sub:Arquitectura}
-En la Figura \ref{arquitecturaADME1} se muestra la arquitectura de AdaptaMaterialEscolar 1.0, es una aplicación web \textit{serverless}, es decir, no dispone de \textit{backend}. El \textit{frontend} de esta aplicación se caracteriza por estar basado en una arquitectura orientada a componentes, gracias al uso de la biblioteca de JavaScript React que tiene como objetivo la creación de pequeñas piezas de código independientes, conocidas como componentes, que pueden ser reutilizadas en diferentes partes de la interfaz de usuario. Además, gracias a su enfoque modular, esta arquitectura permite una mayor escalabilidad y mantenibilidad en el desarrollo de aplicaciones web. Sin embargo, como la complejidad de la aplicación puede aumentar significativamente cuando se trabaja con muchos componentes interconectados, se decidió emplear la biblioteca de gestión de estado Redux\footnote{\url{https://redux.js.org/}}. Con Redux, los datos y el estado de los componentes se centralizan en un solo lugar, lo que permite una gestión más eficiente de los mismos y reduce la cantidad de relaciones entre los componentes. 
+En la Figura \ref{arquitecturaADME1} se muestra la arquitectura de AdaptaMaterialEscolar 1.0, es una aplicación web \textit{serverless}, es decir, no dispone de \textit{backend}. El \textit{frontend} de esta aplicación se caracteriza por estar basado en una arquitectura orientada a componentes, gracias al uso de la biblioteca de JavaScript React que tiene como objetivo la creación de pequeñas piezas de código independientes, conocidas como componentes, que pueden ser reutilizadas en diferentes partes de la interfaz de usuario. Además, gracias a su enfoque modular, esta arquitectura permite una mayor escalabilidad y mantenibilidad en el desarrollo de aplicaciones web. Sin embargo, como la complejidad de la aplicación puede aumentar significativamente cuando se trabaja con muchos componentes interconectados, se decidió emplear la biblioteca de gestión de estado Redux\footnote{\url{https://redux.js.org/}}. Con Redux, los datos y el estado de los componentes se centralizan en un solo lugar, lo que permite una gestión más eficiente de los mismos y reduce la cantidad de relaciones entre los componentes.
 
-En cuanto al editor de texto utilizado en la aplicación, se optó por CKEditor\footnote{\url{https://ckeditor.com/}}, una solución open source que proporciona una amplia gama de funciones de edición y formateo de texto todo ello para incluir los ejercicios relizados por el profesor. 
+En cuanto al editor de texto utilizado en la aplicación, se optó por CKEditor\footnote{\url{https://ckeditor.com/}}, una solución open source que proporciona una amplia gama de funciones de edición y formateo de texto todo ello para incluir los ejercicios relizados por el profesor.
 
-Además, para implementar la funcionalidad de búsqueda de pictogramas en la aplicación, se decidió utilizar la API de ARASAAC, un repositorio de recursos gráficos diseñado específicamente para personas con necesidades educativas especiales y trastornos del lenguaje. Esta API proporciona una amplia variedad de pictogramas y materiales gráficos, que pueden ser utilizados en aplicaciones educativas y de comunicación alternativa y aumentativa. 
+Además, para implementar la funcionalidad de búsqueda de pictogramas en la aplicación, se decidió utilizar la API de ARASAAC, un repositorio de recursos gráficos diseñado específicamente para personas con necesidades educativas especiales y trastornos del lenguaje. Esta API proporciona una amplia variedad de pictogramas y materiales gráficos, que pueden ser utilizados en aplicaciones educativas y de comunicación alternativa y aumentativa.
 
 También se ha utilizado la biblioteca de \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}, que incluye varias funcionalidades para generar y resolver sopa de letras, como la posibilidad de especificar el tamaño de la cuadrícula, la lista de palabras a buscar, y la orientación en la que se pueden encontrar las palabras. Además, la biblioteca también proporciona opciones para personalizar la apariencia de la sopa de letras, como la fuente, el color y el fondo del la sopa de letras..
 
@@ -349,12 +349,12 @@ También se ha utilizado la biblioteca de \textit{word-search}\footnote{\url{htt
 \end{figure}
 
 
-Para AdaptaMaterialEscolar 2.0 se ha decidido mantener React debido a la escalabilidad que proporciona y que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}} como en AdaptaMaterialEscolar 1.0. Al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería. 
+Para AdaptaMaterialEscolar 2.0 se ha decidido mantener React debido a la escalabilidad que proporciona y que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}} como en AdaptaMaterialEscolar 1.0. Al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería.
 
 
-En cuanto a Redux lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos. 
+En cuanto a Redux lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
 
-Por otra parte, se decidió cambiar el editor ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, explicado con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0. 
+Por otra parte, se decidió cambiar el editor ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, explicado con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
 
 En cuanto a las APIs y bibliotecas hemos empleado la API de ARASAAC y la biblioteca de \textit{word-search} ya utilizadas por AdaptaMaterialEscolar 1.0.
 
@@ -395,30 +395,30 @@ A continuación, se explicará en detalle cada una de las barras de herramientas
 
 \begin{itemize}
   \item Archivo: Esta contiene opciones relacionadas con el manejo de archivos, podemos verlas en la Figura \ref{fig:barrraHerramientaArchivo} y son:
-  \begin{itemize}
-    \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}, esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
-    \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, emplea el mismo sistema que el exportar a Word.
-    \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido lo serializa mediante un plugin y se transfiere al editor.
-  \end{itemize}
-  \item Formato: Esta contiene opciones para formatear el texto que se está editando se puede ver en la Figura \ref{fig:barrraHerramientaFormato}. Las opciones que dispone son: 
-  \begin{itemize}
-    \item Negrita: Permite cambiar el formato de texto a negrita.
-    \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
-  \end{itemize}
+        \begin{itemize}
+          \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}, esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
+          \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, emplea el mismo sistema que el exportar a Word.
+          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido lo serializa mediante un plugin y se transfiere al editor.
+        \end{itemize}
+  \item Formato: Esta contiene opciones para formatear el texto que se está editando se puede ver en la Figura \ref{fig:barrraHerramientaFormato}. Las opciones que dispone son:
+        \begin{itemize}
+          \item Negrita: Permite cambiar el formato de texto a negrita.
+          \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
+        \end{itemize}
   \item Ejercicios: Esta dispone de varias opciones para crear ejercicios se puede ver en la Figura \ref{fig:barrraHerramientaEjercicios}. Las cuales son:
-  \begin{itemize}
-    \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos este se introduce en un nodo parrafo.
-    \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que le permitirá ingresar la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un noda que tiene dos hijos el primero es un nodo de tipo parrafo y el segundo es un nodo de tipo tabla. 
-    \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que le permitirá ingresar la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo parrafo para el enunciado, otro nodo parrafo por cada concepto y un nodo denominado ``Staff'' para los tipos de pauta.
-    \item Verdadero/Falso: Esta opción activa un modal donde puede ingresar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo parrafo para el enunciado y tantos nodos parrafos como conceptos introduzca el usuario, en este se encuanta un nodo llamado ``icon'' para el cuadrado donde indicara el alumno si es verdadero o falso.
-    \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarollo emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
-    \item Formula Matematica: Esta función, desde el punto de vista del editor es igual a la de completar huecos.
-  \end{itemize} 
-  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto todas al igual que la anterior barra de herramientas despliegan un mondal para obtener la información necesaria para crear el nodo: 
-  \begin{itemize}
-    \item Generar resumen: Con la información obtenida se crea un nodo de tipo parrafo.
-    \item Picotraductor: Esta función a traves de los datos obtiene una imagen que se introduce en un nodo que hemos denominado ``image''.
-  \end{itemize}
+        \begin{itemize}
+          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos este se introduce en un nodo parrafo.
+          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que le permitirá ingresar la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un noda que tiene dos hijos el primero es un nodo de tipo parrafo y el segundo es un nodo de tipo tabla.
+          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que le permitirá ingresar la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo parrafo para el enunciado, otro nodo parrafo por cada concepto y un nodo denominado ``Staff'' para los tipos de pauta.
+          \item Verdadero/Falso: Esta opción activa un modal donde puede ingresar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo parrafo para el enunciado y tantos nodos parrafos como conceptos introduzca el usuario, en este se encuanta un nodo llamado ``icon'' para el cuadrado donde indicara el alumno si es verdadero o falso.
+          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarollo emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
+          \item Formula Matematica: Esta función, desde el punto de vista del editor es igual a la de completar huecos.
+        \end{itemize}
+  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto todas al igual que la anterior barra de herramientas despliegan un mondal para obtener la información necesaria para crear el nodo:
+        \begin{itemize}
+          \item Generar resumen: Con la información obtenida se crea un nodo de tipo parrafo.
+          \item Picotraductor: Esta función a traves de los datos obtiene una imagen que se introduce en un nodo que hemos denominado ``image''.
+        \end{itemize}
 \end{itemize}
 
 Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección.  \ref{sub:Arquitectura}.Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
@@ -452,7 +452,7 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 \end{figure}
 
 \subsubsection{Integración}
-Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real. 
+Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
 
 Para asegurar el correcto funcionamiento de la aplicación, hemos definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
 
@@ -564,28 +564,28 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
   \centering
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.55\textwidth]{Funcionalidades/SopaLetras01.png}
+    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras01.png}
     \caption{Funcionalidad de sopa de letras ejecutado con éxito}
     \label{fig:impsopaletras01}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.55\textwidth]{Funcionalidades/SopaLetras02.png}
+    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras02.png}
     \caption{Funcionalidad de sopa de letras con avisos}
     \label{fig:impsopaletras02}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.55\textwidth]{Funcionalidades/SopaLetras03.png}
+    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras03.png}
     \caption{Funcionalidad de sopa de letras con errores}
     \label{fig:impsopaletras03}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.55\textwidth]{Funcionalidades/SopaLetras04.png}
+    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras04.png}
     \caption{Funcionalidad de sopa de letras en documento de trabajo}
     \label{fig:impsopaletras04}
   \end{subfigure}
@@ -606,6 +606,41 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
   \includegraphics[width=0.7\textwidth]{Funcionalidades/VyF.PNG}
   \caption{Funcionalidad de verdadero y falso.}
   \label{fig:vyf}
+\end{figure}
+
+\subsubsection{Generar resumen}
+\label{sec:impresumen}
+Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados y no se podrán pulsar hasta que se introduzca un texto. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
+
+Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3.5-Turbo. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIAPI}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En la Figura \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIAPI}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada los siguientes parámetros: el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje. La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respustas generadas a partir de los mensajes que se han enviado.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.75\textwidth]{Funcionalidades/OpenAIConfiguracion.png}
+  \caption{Configuración de la clase \textit{OpenAIApi}.}
+  \label{fig:impresumenconfiguracion}
+\end{figure}
+
+Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend}, se llama a la función \textit{createChatCompletion} de la clase \textit{OpenAIAPI}, pidiendo que se realice un resumen del texto con un número de palabras concreto, y se devuelve el resumen generado al cliente. El resumen se mostrará en el panel de vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de completar huecos.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/Resumen01.png}
+    \caption{Ventana modal de la funcionalidad de generar resumen}
+    \label{fig:impresumen01}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/Resumen02.png}
+    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de generar resumen}
+    \label{fig:impresumen02}
+  \end{subfigure}
+
+  \caption{Funcionalidad de generar resumen}
+  \label{fig:impresumen}
 \end{figure}
 
 \subsection{Del modal al editor}
