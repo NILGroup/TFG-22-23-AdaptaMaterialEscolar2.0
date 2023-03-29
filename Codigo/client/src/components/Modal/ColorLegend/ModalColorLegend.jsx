@@ -98,7 +98,7 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 	};
 
 	return (
-		<Modal className="w-6/12" title="Leyenda de Colores" isOpen={isOpen} onClose={onClose}>
+		<Modal className="w-6/12" title="Leyenda de Colores" isOpen={isOpen} onClose={closeModal}>
 			<div className="flex flex-col">
 				<div>
 					<ModalInputText id="Titulo" label="Título" required onInput={changeTitle} />
