@@ -26,7 +26,7 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 	if (isEdittingWord !== index) {
 		return (
 			<li className="grid grid-cols-2 items-center gap-4">
-				<span>{word}</span>
+				<span className="overflow-x-auto max-w-48">{word}</span>
 				<div className="flex flex-wrap items-center gap-2">
 					<button
 						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
@@ -58,8 +58,12 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 						e.preventDefault();
 
 						const action = e.nativeEvent.submitter.name;
-
-						if (action === "edit" && newValue) editWord(newValue);
+						
+						if (action === "edit" && newValue){
+							const newWord = String(newValue).trim();
+							if (newWord.length > 0) editWord(newValue);
+							else cancelEdit();
+						} 
 						else cancelEdit();
 					}}
 				>
