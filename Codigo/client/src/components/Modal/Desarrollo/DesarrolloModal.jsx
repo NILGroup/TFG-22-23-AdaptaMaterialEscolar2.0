@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
+import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import guideLine from "./GuideLine.module.css";
-import ModalOkButton from "../common/ModalOkButton";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;

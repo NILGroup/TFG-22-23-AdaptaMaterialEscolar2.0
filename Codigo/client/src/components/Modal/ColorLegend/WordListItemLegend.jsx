@@ -35,7 +35,7 @@ export default function WordListItemLegend({
 			<li className="grid grid-cols-2 items-center gap-4">
 				<div className="items flex items-center ">
 					<input className="inputColorl" id="color" type="color" value={color} disabled />
-					<span className="overflow-x-auto max-w-48">{word}</span>
+					<span className="max-w-48 overflow-x-auto">{word}</span>
 				</div>
 
 				<div className="flex flex-wrap items-center gap-2">
@@ -75,8 +75,7 @@ export default function WordListItemLegend({
 							const newWord = String(newValue).trim();
 							if (newWord.length > 0) editWord(newValue);
 							else cancelEdit();
-						}
-						else cancelEdit();
+						} else cancelEdit();
 					}}
 				>
 					<div className="flex items-center">

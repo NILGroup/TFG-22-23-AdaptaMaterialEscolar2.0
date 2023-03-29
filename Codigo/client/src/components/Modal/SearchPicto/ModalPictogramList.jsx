@@ -16,7 +16,7 @@ export default function ModalPictogramList({ editor, pictograms, callback }) {
 		return <h4 className="my-10 text-center text-modal-base-lg">No se han encontrado imágenes.</h4>;
 
 	return (
-		<div className="flex flex-wrap justify-evenly max-h-80 gap-8 overflow-y-auto p-4">
+		<div className="flex max-h-80 flex-wrap justify-evenly gap-8 overflow-y-auto p-4">
 			{pictograms.map((pictogram, index) => (
 				<button
 					key={`pictogram-${index}`}
