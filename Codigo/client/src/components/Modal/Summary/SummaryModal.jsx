@@ -61,18 +61,23 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 	const summarize = async (originalText, summaryLength) => {
 		setIsLoading(true);
 
-		const response = await fetch("/openai_api", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ originalText, summaryLength }),
-		});
+		try {
+			const response = await fetch("/summary", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ originalText, summaryLength }),
+			});
 
-		const responseJSON = await response.json();
+			const responseJSON = await response.json();
 
-		setSummary(responseJSON.summary);
-		setIsLoading(false);
+			setSummary(responseJSON.summary);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 	//#endregion
 
@@ -113,7 +118,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 					<textarea
 						name="originalText"
 						id="originalText"
-						className="input-textarea h-32 w-full rounded-t-none"
+						className="input-textarea h-40 w-full rounded-t-none"
 						onChange={handleOriginalTextChange}
 					/>
 				</div>
@@ -127,7 +132,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 				<hr className="my-4" />
 			</form>
-			<ModalPreview>{isLoading ? <Spinner /> : <p>{summary}</p>}</ModalPreview>
+			<ModalPreview>{isLoading ? <Spinner /> : summary}</ModalPreview>
 			<ModalOkButton
 				className="my-2 self-center"
 				onClick={(e) => handleOk(e, summary)}

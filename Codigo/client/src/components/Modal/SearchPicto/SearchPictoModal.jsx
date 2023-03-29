@@ -17,21 +17,28 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 
 	// Funciones auxiliares
 	// Funcion para obtener los pictogramas segun lo que busque el usuario
-	const getPictograms = (searchParam, callback) => {
+	const getPictograms = async (searchParam, callback) => {
 		setIsLoading(true);
 
-		fetch(`https://api.arasaac.org/api/pictograms/es/search/${searchParam}`)
-			.then((response) => response.json())
-			.then((data) => {
-				let items = [];
-				for (let i = 0; i < data.length && i < 20; i++) {
-					items.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
-				}
+		let pictograms = [];
 
-				setIsLoading(false);
-				callback(items);
-			})
-			.catch((error) => console.log(error));
+		try {
+			const response = await fetch("/searchPictogram", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ searchParam }),
+			});
+
+			pictograms = await response.json();
+		} catch (error) {
+			console.log(error.message);
+		} finally {
+			callback(pictograms);
+
+			setIsLoading(false);
+		}
 	};
 
 	const closeModal = () => {

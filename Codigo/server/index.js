@@ -22,8 +22,36 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(express.json());
 
+app.post("/searchPictogram", body("searchParam").notEmpty().trim(), async (request, response) => {
+	const errors = validationResult(request);
+
+	if (!errors.isEmpty()) {
+		console.error(errors.array());
+
+		return response.status(400).end();
+	}
+
+	const searchParam = request.body.searchParam;
+
+	try {
+		const apiResponse = await fetch(`https://api.arasaac.org/api/pictograms/es/search/${searchParam}`);
+		const data = await apiResponse.json();
+
+		let pictograms = [];
+		for (let i = 0; i < data.length && i < 20; i++) {
+			pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
+		}
+
+		response.status(200).json(pictograms);
+	} catch (error) {
+		console.error(error.message);
+
+		response.status(500).end();
+	}
+});
+
 app.post(
-	"/openai_api",
+	"/summary",
 	body("originalText").notEmpty().trim(),
 	body("summaryLength").notEmpty().toInt(),
 	async (request, response) => {
@@ -41,6 +69,7 @@ app.post(
 		try {
 			const apiResponse = await openai.createChatCompletion({
 				model: "gpt-3.5-turbo",
+				temperature: 0.8,
 				messages: [
 					{
 						role: "user",
@@ -49,7 +78,7 @@ app.post(
 				],
 			});
 
-			return response.status(200).json({ summary: apiResponse.data.choices[0].message.content });
+			response.status(200).json({ summary: apiResponse.data.choices[0].message.content });
 		} catch (error) {
 			console.error(error.message);
 

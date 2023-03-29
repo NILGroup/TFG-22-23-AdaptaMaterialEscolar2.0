@@ -10,7 +10,9 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 	const [newValue, setNewValue] = useState(null);
 
 	const editWord = (newValue) => {
-		onEdit(newValue, index);
+		newValue = String(newValue).trim();
+
+		if (newValue.length > 0) onEdit(newValue, index);
 
 		setIsEdittingWord(null);
 	};
