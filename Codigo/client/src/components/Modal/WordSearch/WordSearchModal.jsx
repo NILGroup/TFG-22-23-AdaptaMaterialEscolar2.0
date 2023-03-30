@@ -368,7 +368,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						<h4 className="text-modal-heading">Enunciado</h4>
 						<div className="pl-4">
 							<ModalCheckbox
-								label="Mostrar palabras a encontrar."
+								label="Mostrar las palabras a buscar."
 								name="showWords"
 								id="showWords"
 								defaultChecked={initialState.showWords}
