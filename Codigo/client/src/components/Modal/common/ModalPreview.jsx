@@ -5,7 +5,7 @@ import { MdErrorOutline } from "react-icons/md";
 
 import ModalAlertButton from "./ModalAlertButton";
 
-export default function ModalPreview({ showAlerts, warnings, errors, children, attributes }) {
+export default function ModalPreview({ showAlerts, warnings, errors, previewHeight, children, attributes }) {
 	return (
 		<div className="relative w-full max-w-full">
 			<div className="flex gap-4 rounded-md rounded-b-none border-2 border-grey-dark bg-grey px-4 py-2">
@@ -28,7 +28,11 @@ export default function ModalPreview({ showAlerts, warnings, errors, children, a
 				)}
 				{attributes && <div className="my-auto ml-auto">{attributes}</div>}
 			</div>
-			<div className="h-40 max-h-40 overflow-auto rounded-md rounded-t-none border-2 border-t-0 border-grey-dark bg-grey-light px-4 py-2">
+			<div
+				className={`${
+					previewHeight ?? "h-40 max-h-40"
+				} overflow-auto rounded-md rounded-t-none border-2 border-t-0 border-grey-dark bg-grey-light px-4 py-2`}
+			>
 				{children}
 			</div>
 		</div>

@@ -21,7 +21,7 @@ export default function ModalNewWordInput({ title, onSubmit, attributes, ...rest
 			<h4 className="text-modal-heading" htmlFor="newWord">
 				{title}
 			</h4>
-			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-3 p-4">
+			<div className="grid grid-cols-[minmax(6rem,_1fr)_auto] gap-3 pl-4">
 				<div className="flex items-center">
 					{attributes}
 					<ModalInputText id="newWord" required />
