@@ -8,16 +8,23 @@ import ModalPreview from "../common/ModalPreview";
 import { Transforms } from "slate";
 
 export default function SummaryModal({ editor, isOpen, onClose }) {
+	// Valores constantes
+	const ERROR_SUMMARY =
+		"No se ha podido resumir este texto. Puede que el texto sea demasiado breve o no tenga sentido.";
+	const MIN_WORDS_SIZE = 15;
+
 	// Valores iniciales del estado
 	const DEFAULT_ORIGINAL_TEXT_LENGTH = null;
 	const DEFAULT_SUMMARY_LENGTH = null;
 	const DEFAULT_SUMMARY = null;
+	const DEFAULT_ERRORS = null;
 	const DEFAULT_IS_LOADING = false;
 
 	// Estados del modal
 	const [originalTextLength, setOriginalTextLength] = useState(DEFAULT_ORIGINAL_TEXT_LENGTH);
 	const [summaryLength, setSummaryLength] = useState(DEFAULT_SUMMARY_LENGTH);
 	const [summary, setSummary] = useState(DEFAULT_SUMMARY);
+	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 	const [isLoading, setIsLoading] = useState(DEFAULT_IS_LOADING);
 
 	//#region Manejadores de eventos
@@ -26,8 +33,8 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 		setOriginalTextLength(textLength > 0 ? textLength : null);
 
-		if (textLength === 0) setSummaryLength(null);
-		else if (summaryLength === null) setSummaryLength(100);
+		if (textLength <= MIN_WORDS_SIZE) setSummaryLength(null);
+		else if (summaryLength === null) setSummaryLength(textLength);
 	};
 
 	const handleSummarySizeChange = (e) => {
@@ -40,6 +47,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 		setOriginalTextLength(DEFAULT_ORIGINAL_TEXT_LENGTH);
 		setSummaryLength(DEFAULT_SUMMARY_LENGTH);
 		setSummary(DEFAULT_SUMMARY);
+		setErrors(DEFAULT_ERRORS);
 		setIsLoading(DEFAULT_IS_LOADING);
 
 		onClose();
@@ -70,9 +78,15 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				body: JSON.stringify({ originalText, summaryLength }),
 			});
 
-			const responseJSON = await response.json();
+			const newSummary = await response.json();
 
-			setSummary(responseJSON.summary);
+			if (newSummary === "-1") {
+				setErrors([ERROR_SUMMARY]);
+				setSummary(DEFAULT_SUMMARY);
+			} else {
+				setErrors(DEFAULT_ERRORS);
+				setSummary(newSummary);
+			}
 		} catch (error) {
 			console.log(error);
 		} finally {
@@ -80,9 +94,6 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 		}
 	};
 	//#endregion
-
-	// Valores calculados al renderizar el componente
-	const summaryDesiredWords = summaryLength !== null ? Math.round(originalTextLength * (summaryLength / 100)) : null;
 
 	return (
 		<Modal title="Generar Resumen" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
@@ -93,22 +104,25 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 					const originalText = e.target.originalText.value;
 
-					summarize(originalText, summaryDesiredWords);
+					summarize(originalText, summaryLength ?? Math.min(MIN_WORDS_SIZE, originalTextLength));
 				}}
 			>
 				<div className="w-full max-w-full">
 					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
-						{summaryLength !== null && (
+						{summaryLength !== null && originalTextLength > MIN_WORDS_SIZE && (
 							<div className="flex flex-col gap-2">
 								<p>
 									<strong>Tamaño: </strong>
-									{summaryDesiredWords} palabras
+									{summaryLength} palabras
 								</p>
 								<input
 									type="range"
 									name="summarySize"
 									id="summarySize"
+									min={MIN_WORDS_SIZE}
+									step="1"
+									max={originalTextLength}
 									value={summaryLength}
 									onChange={handleSummarySizeChange}
 								/>
@@ -125,18 +139,18 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				<ModalButton
 					type="submit"
 					className="self-center py-2 px-4 text-modal-base-lg"
-					disabled={originalTextLength === null || summaryDesiredWords === null || summaryDesiredWords === 0}
+					disabled={originalTextLength === null}
 				>
 					Resumir
 				</ModalButton>
 
 				<hr className="my-4" />
 			</form>
-			<ModalPreview>{isLoading ? <Spinner /> : summary}</ModalPreview>
+			<ModalPreview errors={errors}>{isLoading ? <Spinner /> : summary}</ModalPreview>
 			<ModalOkButton
 				className="my-2 self-center"
 				onClick={(e) => handleOk(e, summary)}
-				disabled={summary === null}
+				disabled={summary === DEFAULT_SUMMARY}
 			/>
 		</Modal>
 	);

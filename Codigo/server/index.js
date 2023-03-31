@@ -73,12 +73,12 @@ app.post(
 				messages: [
 					{
 						role: "user",
-						content: `Resume este texto en aproximadamente ${summaryLength} palabras: ${originalText}`,
+						content: `Resume este texto en aproximadamente ${summaryLength} palabras, si no se puede resumir el texto devuelve -1: ${originalText}`,
 					},
 				],
 			});
 
-			response.status(200).json({ summary: apiResponse.data.choices[0].message.content });
+			response.status(200).json(apiResponse.data.choices[0].message.content);
 		} catch (error) {
 			console.error(error.message);
 
