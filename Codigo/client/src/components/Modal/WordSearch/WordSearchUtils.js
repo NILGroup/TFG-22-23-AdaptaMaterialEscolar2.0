@@ -1,6 +1,14 @@
 const WordSearch = require("@blex41/word-search");
 
-export const createWordSearch = (numRows, numCols, directions, backwardsProbability, wordList, minDimension, maxDimension) => {
+export const createWordSearch = (
+	numRows,
+	numCols,
+	directions,
+	backwardsProbability,
+	wordList,
+	minDimension,
+	maxDimension
+) => {
 	const ERROR_NO_DIRECTIONS =
 		"Es necesario seleccionar alguna dirección principal (Horizontal, Vertical o Diagonal).";
 	const ERROR_INVALID_DIMENSIONS = `Número de filas y/o columnas inválido. Deben ser números entre ${minDimension} y ${maxDimension}, ambos incluidos.`;

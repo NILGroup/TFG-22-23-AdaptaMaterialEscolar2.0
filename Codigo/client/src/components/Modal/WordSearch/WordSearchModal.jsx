@@ -236,7 +236,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 	return (
 		<Modal title="Sopa de Letras" className="w-7/12" isOpen={isOpen} onClose={handleClose}>
-			<div className="grid grid-cols-2 gap-12">
+			<div className="flex flex-col gap-12 xl:grid xl:grid-cols-2">
 				<div className="flex flex-col gap-5">
 					<div>
 						<h4 className="text-modal-heading">Tamaño</h4>
@@ -282,6 +282,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							}
 						/>
 						<ModalWordList
+							className="mt-4"
 							wordList={state.wordList}
 							onEdit={(newValue, index) =>
 								dispatch({
@@ -297,72 +298,6 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								})
 							}
 						/>
-					</div>
-					<div>
-						<h4 className="text-modal-heading">Posicionamiento</h4>
-						<div className="pl-4 lg:flex lg:flex-wrap lg:items-center lg:justify-between lg:gap-2">
-							{DIRECTIONS &&
-								Object.keys(DIRECTIONS)
-									.map((key) => {
-										return {
-											key: key,
-											value: DIRECTIONS[key],
-										};
-									})
-									.map(({ key, value }) => {
-										const capitalizedValue = `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
-
-										return (
-											<ModalCheckbox
-												key={`positionCheckbox-${key}`}
-												label={capitalizedValue}
-												name={key}
-												id={key}
-												defaultChecked={initialState.directions[key]}
-												onChange={(e) => {
-													dispatch({
-														type: ActionType.updateDirections,
-														direction: key,
-														newValue: e.target.checked,
-													});
-												}}
-											/>
-										);
-									})}
-						</div>
-						<div className="flex items-center gap-4 pl-4">
-							<ModalCheckbox
-								label="Al revés"
-								name="backwards"
-								id="backwards"
-								defaultChecked={initialState.backwards}
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateBackwards,
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-							<div className="flex gap-4">
-								<input
-									type="range"
-									name="backwardsProbability"
-									id="backwardsProbability"
-									min="0"
-									max="1"
-									step="0.05"
-									value={state.backwardsProbability}
-									disabled={!state.backwards}
-									onChange={(e) =>
-										dispatch({
-											type: ActionType.updateBackwardsProbability,
-											newValue: e.target.value,
-										})
-									}
-								/>
-								<p className={`${state.backwards ? "" : "opacity-50"}`}>{state.backwardsProbability}</p>
-							</div>
-						</div>
 					</div>
 					<div>
 						<h4 className="text-modal-heading">Enunciado</h4>
@@ -396,18 +331,102 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 				</div>
-				<ModalPreview showAlerts warnings={warnings} errors={errors} previewHeight="h-[40rem] max-h-[40rem]">
-					{grid && (
-						<>
-							<p>{generateExerciseStatement(addedWords)}</p>
-							<WordSearchGrid wordSearchGrid={grid} />
-						</>
-					)}
-				</ModalPreview>
+				<div className="flex flex-col gap-8">
+					<ModalPreview
+						showAlerts
+						warnings={warnings}
+						errors={errors}
+						previewHeight="h-48 max-h-48 xl:h-[25rem] xl:max-h-[25rem]"
+					>
+						{grid && (
+							<div className="flex flex-col gap-2">
+								<p>{generateExerciseStatement(addedWords)}</p>
+								<WordSearchGrid className="self-center" wordSearchGrid={grid} />
+							</div>
+						)}
+					</ModalPreview>
+					<div>
+						<h4 className="text-modal-heading">Posicionamiento</h4>
+						<div className="pl-4 2xl:flex 2xl:items-center 2xl:justify-between 2xl:gap-2">
+							{DIRECTIONS &&
+								Object.keys(DIRECTIONS)
+									.map((key) => {
+										return {
+											key: key,
+											value: DIRECTIONS[key],
+										};
+									})
+									.map(({ key, value }) => {
+										const capitalizedValue = `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+
+										return (
+											<ModalCheckbox
+												key={`positionCheckbox-${key}`}
+												label={capitalizedValue}
+												name={key}
+												id={key}
+												defaultChecked={initialState.directions[key]}
+												onChange={(e) => {
+													dispatch({
+														type: ActionType.updateDirections,
+														direction: key,
+														newValue: e.target.checked,
+													});
+												}}
+											/>
+										);
+									})}
+						</div>
+						<div className="flex flex-col gap-1 pl-4">
+							<ModalCheckbox
+								label="Al revés"
+								name="backwards"
+								id="backwards"
+								defaultChecked={initialState.backwards}
+								onChange={(e) => {
+									dispatch({
+										type: ActionType.updateBackwards,
+										newValue: e.target.checked,
+									});
+								}}
+							/>
+							<div className="pl-8">
+								<label
+									className={`${state.backwards ? "" : "opacity-50"}`}
+									htmlFor="backwardsProbability"
+								>
+									Probabilidad de aparecer al revés
+								</label>
+								<div className="flex gap-2">
+									<input
+										type="range"
+										name="backwardsProbability"
+										id="backwardsProbability"
+										className="w-2/4"
+										min="0"
+										max="1"
+										step="0.05"
+										value={state.backwardsProbability}
+										disabled={!state.backwards}
+										onChange={(e) =>
+											dispatch({
+												type: ActionType.updateBackwardsProbability,
+												newValue: e.target.value,
+											})
+										}
+									/>
+									<p className={`${state.backwards ? "" : "opacity-50"}`}>
+										{state.backwardsProbability}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<ModalButton
 				className="mt-8 self-center"
-				onClick={() => handleOk(editor, addedWords)}
+				onClick={() => handleOk(editor, grid, addedWords)}
 				disabled={grid === null}
 			/>
 		</Modal>

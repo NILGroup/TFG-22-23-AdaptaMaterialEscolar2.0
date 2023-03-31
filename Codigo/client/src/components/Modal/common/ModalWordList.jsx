@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ModalWordListItem from "./WordListItem";
 
-export default function ModalWordList({ wordList, onEdit, onDelete }) {
+export default function ModalWordList({ className, wordList, onEdit, onDelete }) {
 	const [isEdittingWord, setIsEdittingWord] = useState(null);
 
 	return (
-		<ul className="custom-scrollbar mb-8 flex h-48 max-h-48 flex-col gap-3 overflow-y-auto p-4">
+		<ul
+			className={`${className} custom-scrollbar mb-8 flex h-[15vw] max-h-52 min-h-[6.5rem] flex-col gap-3 overflow-y-auto p-4`}
+		>
 			{wordList &&
 				wordList.map((word, index) => {
 					return (

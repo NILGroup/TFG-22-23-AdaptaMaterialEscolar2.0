@@ -7,7 +7,7 @@ export default function ModalInputNumber({ id, label, ...restProps }) {
 			<input
 				type="number"
 				id={id}
-				className="w-16 rounded-md border-2 border-grey-dark bg-grey-light pl-2 focus:border-focus"
+				className="w-[4vw] min-w-[2.5rem] max-w-[3rem] rounded-md border-2 border-grey-dark bg-grey-light pl-2 focus:border-focus"
 				{...restProps}
 			/>
 		</>
