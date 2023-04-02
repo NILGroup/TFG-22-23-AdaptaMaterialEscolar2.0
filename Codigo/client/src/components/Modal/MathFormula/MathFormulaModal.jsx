@@ -8,6 +8,8 @@ import ModalOkButton from "../common/ModalOkButton";
 
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	const [formula, setFormula] = useState([""]);
+	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
+	const [backKeyIsDown, setBackKeyIsDown] = useState(false);
 
 	const handleInputChange = (event, index) => {
 		let newValue = event.target.value;
@@ -29,45 +31,70 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	};
 
 	const handleKeyDown = (event, index) => {
+
 		if (event.keyCode === 32) {
 			event.preventDefault();
 
-			let newFormula = [...formula];
+			setSpaceKeyIsDown(true);
 
-			newFormula.splice(index + 1, 0, "");
-
-			setFormula(newFormula);
-
-			/*let nextInput = document.getElementById(`math-input-${index+1}`);
-			nextInput.focus();*/
-
-			setFormula(newFormula);
-
-			setTimeout(() => {
-				let input = document.getElementById(`input-math-${index + 1}`);
-				input.focus();
-			}, 50);
-		} else if (event.keyCode === 8) {
-			if (event.target.value == "") {
-				event.preventDefault();
-
+			if(!spaceKeyIsDown){
+	
 				let newFormula = [...formula];
-
-				newFormula.splice(index, 1);
-
-				if (newFormula.length == 0) {
-					newFormula = [""];
-				}
-
+	
+				newFormula.splice(index + 1, 0, "");
+	
 				setFormula(newFormula);
+	
+				/*let nextInput = document.getElementById(`math-input-${index+1}`);
+				nextInput.focus();*/
+	
+				setFormula(newFormula);
+	
+				setTimeout(() => {
+					let input = document.getElementById(`input-math-${index + 1}`);
+					input.focus();
+				}, 50);
 
-				if (index > 0) {
-					setTimeout(() => {
-						let input = document.getElementById(`input-math-${index - 1}`);
-						input.focus();
-					}, 50);
-				}
 			}
+
+		} else if (event.keyCode === 8) {
+
+			setBackKeyIsDown(true);
+
+			if (event.target.value == "") {
+
+				if(!backKeyIsDown){
+
+					let newFormula = [...formula];
+	
+					newFormula.splice(index, 1);
+	
+					if (newFormula.length == 0) {
+						newFormula = [""];
+					}
+	
+					setFormula(newFormula);
+	
+					if (index > 0) {
+						setTimeout(() => {
+							let input = document.getElementById(`input-math-${index - 1}`);
+							input.focus();
+						}, 50);
+					}
+				}
+
+			}
+		}
+	};
+
+	const handleKeyUp = (event, index) => {
+		if (event.keyCode === 32) {
+			
+			setSpaceKeyIsDown(false);
+
+		} else if (event.keyCode === 8) {
+			
+			setBackKeyIsDown(false);
 		}
 	};
 
@@ -126,6 +153,9 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 								}}
 								onKeyDown={(e) => {
 									handleKeyDown(e, i);
+								}}
+								onKeyUp={(e)=>{
+									handleKeyUp(e,i);
 								}}
 								className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
 								id={`input-math-${i}`}
