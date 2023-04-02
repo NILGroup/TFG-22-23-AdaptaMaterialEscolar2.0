@@ -3,6 +3,9 @@ import React, { createRef, useState } from "react";
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
 
+import ModalOkButton from "../common/ModalOkButton";
+
+
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	const [formula, setFormula] = useState([""]);
 
@@ -101,45 +104,40 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		handleClose();
 	};
 
+	const isOkDisaled = formula.length == 1 && formula[0] == "";
+
 	return (
 		<Modal title="Definir huecos de matemáticas" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
-				<form onSubmit={submit}>
-					<h3 className="text-modal-heading">Fórmula:</h3>
+				<h3 className="text-modal-heading">Fórmula:</h3>
 
-					<div className="mb-2 text-center">
-						<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
-					</div>
+				<div className="mb-2 text-center">
+					<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
+				</div>
 
-					<div className="rounded bg-gray-100 px-3 pt-3 pb-1">
-						{formula.map((elemento, i) => {
-							return (
-								<input
-									key={i}
-									value={elemento}
-									onChange={(e) => {
-										handleInputChange(e, i);
-									}}
-									onKeyDown={(e) => {
-										handleKeyDown(e, i);
-									}}
-									className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
-									id={`input-math-${i}`}
-									autoComplete="off"
-								/>
-							);
-						})}
-					</div>
+				<div className="rounded bg-gray-100 px-3 pt-3 pb-1">
+					{formula.map((elemento, i) => {
+						return (
+							<input
+								key={i}
+								value={elemento}
+								onChange={(e) => {
+									handleInputChange(e, i);
+								}}
+								onKeyDown={(e) => {
+									handleKeyDown(e, i);
+								}}
+								className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
+								id={`input-math-${i}`}
+								autoComplete="off"
+							/>
+						);
+					})}
+				</div>
 
-					<div className="flex justify-center">
-						<button
-							type="submit"
-							className="mt-5 w-2/12 self-center rounded-md bg-sky-500 py-2 text-[1.4rem] text-white hover:bg-sky-600"
-						>
-							OK
-						</button>
-					</div>
-				</form>
+				<div className="flex justify-center">
+					<ModalOkButton className="mt-2 self-center" onClick={submit} disabled={isOkDisaled} />
+				</div>
 			</div>
 		</Modal>
 	);
