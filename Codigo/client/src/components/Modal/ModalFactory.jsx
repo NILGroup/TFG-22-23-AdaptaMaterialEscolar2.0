@@ -5,6 +5,7 @@ import DefinitionModal from "./Definition/DefinitionModal";
 import DesarrolloModal from "./Desarrollo/DesarrolloModal";
 import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import MathFormulaModal from "./MathFormula/MathFormulaModal";
+import PictoTranslator from "./PictoTranslator/PictoTranslatorModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
@@ -22,6 +23,7 @@ export const ModalType = Object.freeze({
 	colorLegend: Symbol("ColorLegend"),
 	mathFormula: Symbol("mathFormula"),
 	summary: Symbol("summary"),
+	pictoTranslator: Symbol("pictoTranslator"),
 });
 
 export function ModalFactory({ type, editor, isOpen, onClose }) {
@@ -48,6 +50,8 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 			return <MathFormulaModal editor={editor} isOpen={isOpen} onClose={onClose} />;
 		case ModalType.summary:
 			return <SummaryModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+		case ModalType.pictoTranslator:
+			return <PictoTranslator editor={editor} isOpen={isOpen} onClose={onClose} />;
 		default:
 			return null;
 	}

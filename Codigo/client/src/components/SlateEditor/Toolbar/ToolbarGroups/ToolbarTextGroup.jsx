@@ -16,6 +16,9 @@ export default function ToolbarTextGroup({ editor, openModal }) {
 			<ToolbarGroupButton onClick={() => openModal(ModalType.summary)}>
 				<span>Generar Resumen</span>
 			</ToolbarGroupButton>
+			<ToolbarGroupButton onClick={() => openModal(ModalType.pictoTranslator)}>
+				<span>Pictotraductor</span>
+			</ToolbarGroupButton>
 		</>
 	);
 }

@@ -29,7 +29,10 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 	//#region Manejadores de eventos
 	const handleOriginalTextChange = (e) => {
-		const textLength = e.target.value.split(/(\s)/g).filter((word) => /[\S]/.test(word)).length;
+		const textLength = e.target.value
+			.trim()
+			.split(/(\s)/g)
+			.filter((word) => /[\S]/.test(word)).length;
 
 		setOriginalTextLength(textLength > 0 ? textLength : null);
 
@@ -102,7 +105,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				onSubmit={(e) => {
 					e.preventDefault();
 
-					const originalText = e.target.originalText.value;
+					const originalText = e.target.originalText.value.trim();
 
 					summarize(originalText, summaryLength ?? Math.min(MIN_WORDS_SIZE, originalTextLength));
 				}}
