@@ -112,7 +112,7 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 					Pictotraducir
 				</ModalButton>
 			</form>
-			{(pictos && <hr className="mt-8" />}
+			{(pictos || isLoading) && <hr className="mt-8" />}
 			{isLoading ? (
 				<Spinner />
 			) : (
