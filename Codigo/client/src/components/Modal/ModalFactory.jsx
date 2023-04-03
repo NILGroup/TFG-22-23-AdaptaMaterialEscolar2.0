@@ -5,7 +5,7 @@ import DefinitionModal from "./Definition/DefinitionModal";
 import DesarrolloModal from "./Desarrollo/DesarrolloModal";
 import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import MathFormulaModal from "./MathFormula/MathFormulaModal";
-import PictoTranslator from "./PictoTranslator/PictoTranslatorModal";
+import Pictotranslator from "./Pictotranslator/PictotranslatorModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
@@ -51,7 +51,7 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 		case ModalType.summary:
 			return <SummaryModal editor={editor} isOpen={isOpen} onClose={onClose} />;
 		case ModalType.pictoTranslator:
-			return <PictoTranslator editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <Pictotranslator editor={editor} isOpen={isOpen} onClose={onClose} />;
 		default:
 			return null;
 	}

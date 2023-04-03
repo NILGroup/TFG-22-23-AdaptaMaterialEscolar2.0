@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import style from "../common/Modal.module.css";
 import ModalPictogramList from "./ModalPictogramList";
 
 import Spinner from "../../Spinner/Spinner";
@@ -67,7 +66,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 					<MdOutlineImageSearch />
 				</ModalButton>
 			</form>
-			{pictogramList && <hr className={style.modalHorizontalRule} />}
+			{pictogramList && <hr className="mt-8" />}
 			{isLoading ? (
 				<Spinner />
 			) : (

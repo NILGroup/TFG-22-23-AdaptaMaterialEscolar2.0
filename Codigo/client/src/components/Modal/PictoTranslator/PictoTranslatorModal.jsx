@@ -3,11 +3,11 @@ import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
-import ModalPreview from "../common/ModalPreview";
+import PictogramGrid from "./PictogramGrid";
 
 import { Transforms } from "slate";
 
-export default function PictoTranslator({ editor, isOpen, onClose }) {
+export default function Pictotranslator({ editor, isOpen, onClose }) {
 	// Valores iniciales del estado
 	const DEFAULT_HAS_ORIGINAL_TEXT = false;
 	const DEFAULT_PICTOS = null;
@@ -40,7 +40,12 @@ export default function PictoTranslator({ editor, isOpen, onClose }) {
 	const handleOk = (e, pictos) => {
 		e.preventDefault();
 
-		// TODO: Insert pictos
+		pictos.forEach((picto) => {
+			const text = { text: "" };
+			const pictogram = { type: "image", url: picto.pictograms[picto.currentPicto], children: [text] };
+
+			Transforms.insertNodes(editor, pictogram);
+		});
 
 		handleClose();
 	};
@@ -51,7 +56,7 @@ export default function PictoTranslator({ editor, isOpen, onClose }) {
 		setIsLoading(true);
 
 		try {
-			const response = await fetch("/pictoTranslator", {
+			const response = await fetch("/pictotranslator", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -67,6 +72,12 @@ export default function PictoTranslator({ editor, isOpen, onClose }) {
 		} finally {
 			setIsLoading(false);
 		}
+	};
+
+	const setWordPicto = (wordIndex, pictoIndex) => {
+		if (!pictos || pictos.length <= 0) return;
+
+		pictos[wordIndex].currentPicto = pictoIndex;
 	};
 	//#endregion
 
@@ -100,15 +111,22 @@ export default function PictoTranslator({ editor, isOpen, onClose }) {
 				>
 					Pictotraducir
 				</ModalButton>
-
-				<hr className="my-4" />
 			</form>
-			<ModalPreview errors={errors}>{isLoading ? <Spinner /> : JSON.stringify(pictos)}</ModalPreview>
-			<ModalOkButton
-				className="my-2 self-center"
-				onClick={(e) => handleOk(e, pictos)}
-				disabled={pictos === DEFAULT_PICTOS}
-			/>
+			{(pictos && <hr className="mt-8" />}
+			{isLoading ? (
+				<Spinner />
+			) : (
+				pictos && (
+					<>
+						<PictogramGrid words={pictos} setPicto={setWordPicto} />
+						<ModalOkButton
+							className="my-2 self-center"
+							onClick={(e) => handleOk(e, pictos)}
+							disabled={pictos === DEFAULT_PICTOS}
+						/>
+					</>
+				)
+			)}
 		</Modal>
 	);
 }
