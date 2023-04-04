@@ -77,7 +77,7 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 				pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
 			}
 
-			pictos.push({ word, currentPicto: 0, pictograms });
+			pictos.push({ word, currentPicto: 0, disabled: false, pictograms });
 		}
 
 		response.status(200).json(pictos);

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
-import PictogramGrid from "./PictogramGrid";
+import ModalRadioButton from "../common/ModalRadioButton";
+import { PictogramGrid, TextPosition } from "./PictogramGrid";
 
 import { Transforms } from "slate";
 
@@ -11,13 +13,13 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 	// Valores iniciales del estado
 	const DEFAULT_HAS_ORIGINAL_TEXT = false;
 	const DEFAULT_PICTOS = null;
-	const DEFAULT_ERRORS = null;
+	const DEFAULT_TEXT_POSITION = TextPosition.above;
 	const DEFAULT_IS_LOADING = false;
 
 	// Estados del modal
 	const [hasOriginalText, setHasOriginalText] = useState(DEFAULT_HAS_ORIGINAL_TEXT);
+	const [textPosition, setTextPosition] = useState(DEFAULT_TEXT_POSITION);
 	const [pictos, setPictos] = useState(DEFAULT_PICTOS);
-	const [errors, setErrors] = useState(DEFAULT_ERRORS);
 	const [isLoading, setIsLoading] = useState(DEFAULT_IS_LOADING);
 
 	//#region Manejadores de eventos
@@ -31,7 +33,6 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 	const handleClose = () => {
 		setHasOriginalText(DEFAULT_HAS_ORIGINAL_TEXT);
 		setPictos(DEFAULT_PICTOS);
-		setErrors(DEFAULT_ERRORS);
 		setIsLoading(DEFAULT_IS_LOADING);
 
 		onClose();
@@ -44,7 +45,7 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 			const text = { text: "" };
 			const pictogram = { type: "image", url: picto.pictograms[picto.currentPicto], children: [text] };
 
-			Transforms.insertNodes(editor, pictogram);
+			if (!picto.disabled) Transforms.insertNodes(editor, pictogram);
 		});
 
 		handleClose();
@@ -78,6 +79,12 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 		if (!pictos || pictos.length <= 0) return;
 
 		pictos[wordIndex].currentPicto = pictoIndex;
+	};
+
+	const disablePicto = (wordIndex) => {
+		if (!pictos || pictos.length <= 0) return;
+
+		pictos[wordIndex].disabled = !pictos[wordIndex].disabled;
 	};
 	//#endregion
 
@@ -118,7 +125,40 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 			) : (
 				pictos && (
 					<>
-						<PictogramGrid words={pictos} setPicto={setWordPicto} />
+						<h4 className="mt-2 text-modal-heading">Opciones de texto</h4>
+						<div className="flex flex-col lg:flex-row lg:justify-evenly">
+							<ModalRadioButton
+								label="Arriba"
+								name="textPosition"
+								id={`textPositionAbove`}
+								value={TextPosition.above}
+								defaultChecked={textPosition === TextPosition.above}
+								onChange={(e) => setTextPosition(e.target.value)}
+							/>
+							<ModalRadioButton
+								label="Debajo"
+								name="textPosition"
+								id={`textPositionBelow`}
+								value={TextPosition.below}
+								defaultChecked={textPosition === TextPosition.below}
+								onChange={(e) => setTextPosition(e.target.value)}
+							/>
+							<ModalRadioButton
+								label="Sin texto"
+								name="textPosition"
+								id={`textPositionNoText`}
+								value={TextPosition.noText}
+								defaultChecked={textPosition === TextPosition.noText}
+								onChange={(e) => setTextPosition(e.target.value)}
+							/>
+						</div>
+						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
+						<PictogramGrid
+							words={pictos}
+							setPicto={setWordPicto}
+							disablePicto={disablePicto}
+							textPosition={textPosition}
+						/>
 						<ModalOkButton
 							className="my-2 self-center"
 							onClick={(e) => handleOk(e, pictos)}
