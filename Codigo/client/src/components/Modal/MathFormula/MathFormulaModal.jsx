@@ -5,6 +5,8 @@ import Modal from "../common/Modal";
 
 import ModalOkButton from "../common/ModalOkButton";
 
+import ModalPreview from "../common/ModalPreview";
+
 
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	const [formula, setFormula] = useState([""]);
@@ -98,7 +100,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		}
 	};
 
-	const insertInEditor = (editor) => {
+	const renderFormula = () => {
 		let ejercicioString = "";
 
 		formula.forEach((elemento) => {
@@ -110,6 +112,13 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 			ejercicioString += " ";
 		});
+
+		return ejercicioString;
+	}
+
+	const insertInEditor = (editor) => {
+		
+		let ejercicioString = renderFormula();
 
 		const ejercicio = {
 			type: "ejercicio",
@@ -142,7 +151,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 					<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
 				</div>
 
-				<div className="rounded bg-gray-100 px-3 pt-3 pb-1">
+				<div className="rounded bg-gray-100 px-3 pt-3 pb-1 mb-3">
 					{formula.map((elemento, i) => {
 						return (
 							<input
@@ -164,6 +173,10 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 						);
 					})}
 				</div>
+
+				<ModalPreview>
+					{renderFormula()}
+				</ModalPreview>
 
 				<div className="flex justify-center">
 					<ModalOkButton className="mt-2 self-center" onClick={submit} disabled={isOkDisaled} />

@@ -5,7 +5,7 @@ import DefinitionModal from "./Definition/DefinitionModal";
 import DesarrolloModal from "./Desarrollo/DesarrolloModal";
 import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import MathFormulaModal from "./MathFormula/MathFormulaModal";
-import Pictotranslator from "./Pictotranslator/PictotranslatorModal";
+import Pictotranslator from "./PictoTranslator/PictoTranslatorModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
