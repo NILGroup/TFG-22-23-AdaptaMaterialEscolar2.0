@@ -174,6 +174,8 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 					})}
 				</div>
 
+				<hr className="my-6" />
+
 				<ModalPreview>
 					{renderFormula()}
 				</ModalPreview>

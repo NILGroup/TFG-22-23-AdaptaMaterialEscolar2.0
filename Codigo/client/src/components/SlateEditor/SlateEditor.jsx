@@ -27,6 +27,7 @@ import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
 import { withTable } from "./plugins/withTable";
+import DrawingSpace from "./elements/DrawingSpace/DrawingSpace";
 
 const initialValue = [
 	{
@@ -69,6 +70,8 @@ export default function SlateEditor() {
 				return <VerdaderoFalso {...props} />;
 			case "relateConcepts":
 				return <RelateConcepts {...props} />;
+			case "drawingSpace":
+				return <DrawingSpace {...props} />;
 			default:
 				return <DefaultElement {...props} />;
 		}

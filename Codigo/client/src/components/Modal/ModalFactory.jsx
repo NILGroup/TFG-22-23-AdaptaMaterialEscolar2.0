@@ -11,6 +11,7 @@ import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
 import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
 import WordSearchModal from "./WordSearch/WordSearchModal";
+import DrawingModal from "./Drawing/DrawingModal";
 
 export const ModalType = Object.freeze({
 	searchPicto: Symbol("searchPicto"),
@@ -24,6 +25,7 @@ export const ModalType = Object.freeze({
 	mathFormula: Symbol("mathFormula"),
 	summary: Symbol("summary"),
 	pictoTranslator: Symbol("pictoTranslator"),
+	drawing: Symbol("drawing"),
 });
 
 export function ModalFactory({ type, editor, isOpen, onClose }) {
@@ -52,6 +54,8 @@ export function ModalFactory({ type, editor, isOpen, onClose }) {
 			return <SummaryModal editor={editor} isOpen={isOpen} onClose={onClose} />;
 		case ModalType.pictoTranslator:
 			return <Pictotranslator editor={editor} isOpen={isOpen} onClose={onClose} />;
+		case ModalType.drawing:
+			return <DrawingModal editor={editor} isOpen={isOpen} onClose={onClose} />;
 		default:
 			return null;
 	}
