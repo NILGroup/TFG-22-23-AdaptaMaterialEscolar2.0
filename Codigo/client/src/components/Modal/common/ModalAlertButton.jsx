@@ -23,7 +23,7 @@ export default function ModalAlertButton({ icon, iconButtonClassName, alertBoxCl
 			</button>
 			{contentList && contentList.length > 0 && isOpen && (
 				<div
-					className={`${alertBoxClassName} absolute top-0 left-0 grid w-[20vw] min-w-[10rem] translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-30 px-2 py-4 text-start text-modal-alert-box shadow-md backdrop-blur-lg`}
+					className={`${alertBoxClassName} absolute top-0 left-4 grid w-[20vw] min-w-[10rem] translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-30 px-2 py-4 text-start text-modal-alert-box shadow-md backdrop-blur-lg`}
 				>
 					<ul className="list-inside list-disc">
 						{contentList.map((alertBoxElement, index) => (
