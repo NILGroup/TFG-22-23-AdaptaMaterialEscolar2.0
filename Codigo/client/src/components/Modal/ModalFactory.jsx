@@ -3,15 +3,15 @@ import React from "react";
 import ColorLegend from "./ColorLegend/ModalColorLegend";
 import DefinitionModal from "./Definition/DefinitionModal";
 import DesarrolloModal from "./Desarrollo/DesarrolloModal";
+import DrawingModal from "./Drawing/DrawingModal";
 import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import MathFormulaModal from "./MathFormula/MathFormulaModal";
-import Pictotranslator from "./PictoTranslator/PictoTranslatorModal";
+import Pictotranslator from "./Pictotranslator/PictotranslatorModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
 import TrueFalseModal from "./TrueFalse/ModalTrueFalse";
 import WordSearchModal from "./WordSearch/WordSearchModal";
-import DrawingModal from "./Drawing/DrawingModal";
 
 export const ModalType = Object.freeze({
 	searchPicto: Symbol("searchPicto"),
@@ -24,7 +24,7 @@ export const ModalType = Object.freeze({
 	colorLegend: Symbol("ColorLegend"),
 	mathFormula: Symbol("mathFormula"),
 	summary: Symbol("summary"),
-	pictoTranslator: Symbol("pictoTranslator"),
+	pictotranslator: Symbol("pictoTranslator"),
 	drawing: Symbol("drawing"),
 });
 

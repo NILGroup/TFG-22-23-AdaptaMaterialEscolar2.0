@@ -12,6 +12,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 	const ERROR_SUMMARY =
 		"No se ha podido resumir este texto. Puede que el texto sea demasiado breve o no tenga sentido.";
 	const MIN_WORDS_SIZE = 15;
+	const MIN_SUMMARY_PERCENTAGE = 0.75;
 
 	// Valores iniciales del estado
 	const DEFAULT_ORIGINAL_TEXT_LENGTH = null;
@@ -113,7 +114,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				<div className="w-full max-w-full">
 					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
-						{summaryLength !== null && originalTextLength > MIN_WORDS_SIZE && (
+						{summaryLength !== null && originalTextLength * MIN_SUMMARY_PERCENTAGE >= MIN_WORDS_SIZE && (
 							<div className="flex flex-col gap-2">
 								<p>
 									<strong>Tamaño: </strong>
