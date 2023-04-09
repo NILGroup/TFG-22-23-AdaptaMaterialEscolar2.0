@@ -122,6 +122,7 @@ export default function SlateEditor() {
 					</div>
 					<div className="max-h-[40rem] overflow-y-auto">
 						<Editable
+							id="editable"
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
