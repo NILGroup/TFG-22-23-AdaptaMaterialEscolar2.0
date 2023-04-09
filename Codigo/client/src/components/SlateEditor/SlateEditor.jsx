@@ -28,6 +28,7 @@ import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
 import { withTable } from "./plugins/withTable";
 import DrawingSpace from "./elements/DrawingSpace/DrawingSpace";
+import { withRelateConcepts } from "./plugins/withRelateConcepts";
 
 const initialValue = [
 	{
@@ -38,7 +39,21 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withTable(withIcons(withImages(withEmbeds(withReact(createEditor()))))), []);
+	const editor = useMemo(() => 
+	withTable(
+		withIcons(
+			withImages(
+				withEmbeds(
+					withReact(
+						withRelateConcepts(
+							createEditor()
+						)
+						)
+					)
+				)
+			)
+			
+		), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -69,7 +84,7 @@ export default function SlateEditor() {
 			case "list":
 				return <VerdaderoFalso {...props} />;
 			case "relateConcepts":
-				return <RelateConcepts {...props} />;
+				return <RelateConcepts {...props}  openModal={openModal}/>;
 			case "drawingSpace":
 				return <DrawingSpace {...props} />;
 			default:
@@ -88,10 +103,14 @@ export default function SlateEditor() {
 	// Tipo de modal [tipo actual, cambiar el tipo de modal]
 	const [modalType, setModalType] = useState(null);
 
+	// Tipo de modal [tipo actual, cambiar el tipo de modal]
+	const [modalData, setModalData] = useState(null);
+
 	// Funcion auxiliar para abrir el modal de un tipo especifico
-	const openModal = (modalType) => {
+	const openModal = (modalType, data=undefined) => {
 		setIsOpen(true);
 		setModalType(modalType);
+		setModalData(data);
 	};
 
 	return (
@@ -113,7 +132,7 @@ export default function SlateEditor() {
 				</div>
 			</Slate>
 
-			<ModalFactory type={modalType} editor={editor} isOpen={isOpen} onClose={() => setIsOpen(false)} />
+			<ModalFactory type={modalType} editor={editor} isOpen={isOpen} onClose={() => setIsOpen(false)} data={modalData} />
 		</>
 	);
 }

@@ -7,7 +7,7 @@ export default function RelateConceptsView({ icon, values }) {
 			.filter((valor) => valor !== "")
 			.map((valor, j) => {
 				return (
-					<div key={`flechas_${j}`} className="flex items-center justify-center gap-3 p-1">
+					<div key={`flechas_${j}`} className="flex items-center justify-between gap-3 p-1">
 						{i !== 0 && icon}
 						{valor}
 						{i !== values.length - 1 && icon}

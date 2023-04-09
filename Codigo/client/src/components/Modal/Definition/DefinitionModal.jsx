@@ -60,8 +60,8 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 			type: "paragraph",
 			children: [{ text: introduction(numConcepts) }],
 		};
-		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		ejercicio.children.push(enunciado);
+		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
 		for (let i = 0; i < numConcepts; i++) {
 			ejercicio.children.push({

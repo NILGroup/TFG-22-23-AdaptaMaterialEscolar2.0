@@ -6,7 +6,7 @@ import DesarrolloModal from "./Desarrollo/DesarrolloModal";
 import DrawingModal from "./Drawing/DrawingModal";
 import FillBlanksModal from "./FillBlanks/FillBlanksModal";
 import MathFormulaModal from "./MathFormula/MathFormulaModal";
-import Pictotranslator from "./Pictotranslator/PictotranslatorModal";
+import Pictotranslator from "./PictoTranslator/PictoTranslatorModal";
 import RelateConceptsModal from "./RelateConcepts/RelateConceptsModal";
 import SearchPictoModal from "./SearchPicto/SearchPictoModal";
 import SummaryModal from "./Summary/SummaryModal";
@@ -28,34 +28,34 @@ export const ModalType = Object.freeze({
 	drawing: Symbol("drawing"),
 });
 
-export function ModalFactory({ type, editor, isOpen, onClose }) {
+export function ModalFactory({ type, editor, isOpen, onClose, data}) {
 	document.body.style.overflow = isOpen ? "hidden" : "auto";
 
 	switch (type) {
 		case ModalType.searchPicto:
-			return <SearchPictoModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <SearchPictoModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.wordSearch:
-			return <WordSearchModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <WordSearchModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.fillBlanks:
-			return <FillBlanksModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <FillBlanksModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.definition:
-			return <DefinitionModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <DefinitionModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.TrueFalse:
-			return <TrueFalseModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <TrueFalseModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.desarrollo:
-			return <DesarrolloModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <DesarrolloModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.relateConcepts:
-			return <RelateConceptsModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <RelateConceptsModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.colorLegend:
-			return <ColorLegend editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <ColorLegend editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.mathFormula:
-			return <MathFormulaModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <MathFormulaModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.summary:
-			return <SummaryModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <SummaryModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.pictoTranslator:
-			return <Pictotranslator editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <Pictotranslator editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		case ModalType.drawing:
-			return <DrawingModal editor={editor} isOpen={isOpen} onClose={onClose} />;
+			return <DrawingModal editor={editor} isOpen={isOpen} onClose={onClose} data={data}/>;
 		default:
 			return null;
 	}
