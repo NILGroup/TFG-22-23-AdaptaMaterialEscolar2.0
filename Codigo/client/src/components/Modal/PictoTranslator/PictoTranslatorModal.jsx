@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
@@ -9,31 +9,31 @@ import { PictogramGrid, TextPosition } from "./PictogramGrid";
 
 import { Transforms } from "slate";
 
-export default function Pictotranslator({ editor, isOpen, onClose }) {
+export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 	// Valores iniciales del estado
-	const DEFAULT_HAS_ORIGINAL_TEXT = false;
+	const DEFAULT_ORIGINAL_TEXT = null;
+	const DEFAULT_SEARCHED_TEXT = null;
 	const DEFAULT_PICTOS = null;
 	const DEFAULT_TEXT_POSITION = TextPosition.above;
 	const DEFAULT_IS_LOADING = false;
 
 	// Estados del modal
-	const [hasOriginalText, setHasOriginalText] = useState(DEFAULT_HAS_ORIGINAL_TEXT);
+	const [originalText, setOriginalText] = useState(DEFAULT_ORIGINAL_TEXT);
+	const [searchedText, setSearchedText] = useState(DEFAULT_SEARCHED_TEXT);
 	const [textPosition, setTextPosition] = useState(DEFAULT_TEXT_POSITION);
 	const [pictos, setPictos] = useState(DEFAULT_PICTOS);
 	const [isLoading, setIsLoading] = useState(DEFAULT_IS_LOADING);
 
 	//#region Manejadores de eventos
 	const handleOriginalTextChange = (e) => {
-		const newText = e.target.value.trim();
+		const newText = e.target.value;
 
-		if (newText.length > 0) setHasOriginalText(true);
-		else setHasOriginalText(false);
+		if (newText.length > 0) setOriginalText(newText);
+		else setOriginalText(null);
 	};
 
 	const handleClose = () => {
-		setHasOriginalText(DEFAULT_HAS_ORIGINAL_TEXT);
-		setPictos(DEFAULT_PICTOS);
-		setIsLoading(DEFAULT_IS_LOADING);
+		reset();
 
 		onClose();
 	};
@@ -41,19 +41,25 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 	const handleOk = (e, pictos) => {
 		e.preventDefault();
 
-		pictos.forEach((picto) => {
-			const text = { text: "" };
-			const pictogram = { type: "image", url: picto.pictograms[picto.currentPicto], children: [text] };
+		const values = { textPosition, text: searchedText, words: pictos.filter((picto) => !picto.disabled) };
 
-			if (!picto.disabled) Transforms.insertNodes(editor, pictogram);
-		});
+		if (data !== undefined) Transforms.setNodes(editor, { values });
+		else {
+			const pictograms = {
+				type: "pictotranslator",
+				values,
+				children: [{ text: "" }],
+			};
+
+			Transforms.insertNodes(editor, pictograms);
+		}
 
 		handleClose();
 	};
 	//#endregion
 
 	//#region Funciones auxiliares
-	const pictoTranslate = async (originalText) => {
+	const pictotranslate = async (originalText) => {
 		setIsLoading(true);
 
 		try {
@@ -67,6 +73,7 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 
 			const newPictos = await response.json();
 
+			setSearchedText(originalText);
 			setPictos(newPictos);
 		} catch (error) {
 			console.log(error);
@@ -86,7 +93,29 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 
 		pictos[wordIndex].disabled = !pictos[wordIndex].disabled;
 	};
+
+	const reset = () => {
+		setOriginalText(DEFAULT_ORIGINAL_TEXT);
+		setSearchedText(DEFAULT_SEARCHED_TEXT);
+		setPictos(DEFAULT_PICTOS);
+		setTextPosition(DEFAULT_TEXT_POSITION);
+		setIsLoading(DEFAULT_IS_LOADING);
+	};
 	//#endregion
+
+	useEffect(() => {
+		if (data !== undefined) {
+			setOriginalText(data?.text ?? DEFAULT_ORIGINAL_TEXT);
+			setSearchedText(data?.text ?? DEFAULT_SEARCHED_TEXT);
+			setTextPosition(data?.textPosition ?? DEFAULT_TEXT_POSITION);
+			setPictos(
+				data?.words.map((word) => {
+					return { ...word };
+				}) ?? DEFAULT_PICTOS
+			);
+			setIsLoading(false);
+		} else reset();
+	}, [isOpen]);
 
 	return (
 		<Modal title="Pictotraductor" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
@@ -95,9 +124,9 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 				onSubmit={(e) => {
 					e.preventDefault();
 
-					const originalText = e.target.originalText.value;
+					if (originalText === null) return;
 
-					pictoTranslate(originalText);
+					pictotranslate(originalText);
 				}}
 			>
 				<div className="w-full max-w-full">
@@ -108,13 +137,14 @@ export default function Pictotranslator({ editor, isOpen, onClose }) {
 						name="originalText"
 						id="originalText"
 						className="input-textarea h-40 w-full rounded-t-none"
+						value={originalText ?? ""}
 						onChange={handleOriginalTextChange}
 					/>
 				</div>
 				<ModalButton
 					type="submit"
 					className="self-center py-2 px-4 text-modal-base-lg"
-					disabled={!hasOriginalText}
+					disabled={originalText === null}
 				>
 					Pictotraducir
 				</ModalButton>

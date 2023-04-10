@@ -15,8 +15,10 @@ import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";
 
+import DrawingSpace from "./elements/DrawingSpace/DrawingSpace";
 import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
+import PictotranslatorElement from "./elements/PictotranslatorElement/PictotranslatorElement";
 import RelateConcepts from "./elements/RelateConcepts/RelateConcepts";
 import Staff from "./elements/Staff/Staff";
 import Table from "./elements/Table/Table";
@@ -26,9 +28,8 @@ import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withIcons } from "./plugins/withIcons";
 import { withImages } from "./plugins/withImages";
-import { withTable } from "./plugins/withTable";
-import DrawingSpace from "./elements/DrawingSpace/DrawingSpace";
 import { withRelateConcepts } from "./plugins/withRelateConcepts";
+import { withTable } from "./plugins/withTable";
 
 const initialValue = [
 	{
@@ -39,21 +40,10 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => 
-	withTable(
-		withIcons(
-			withImages(
-				withEmbeds(
-					withReact(
-						withRelateConcepts(
-							createEditor()
-						)
-						)
-					)
-				)
-			)
-			
-		), []);
+	const editor = useMemo(
+		() => withTable(withIcons(withImages(withEmbeds(withReact(withRelateConcepts(createEditor())))))),
+		[]
+	);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -83,8 +73,10 @@ export default function SlateEditor() {
 				return <Td {...props} />;
 			case "list":
 				return <VerdaderoFalso {...props} />;
+			case "pictotranslator":
+				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
-				return <RelateConcepts {...props}  openModal={openModal}/>;
+				return <RelateConcepts {...props} openModal={openModal} />;
 			case "drawingSpace":
 				return <DrawingSpace {...props} />;
 			default:
@@ -107,7 +99,7 @@ export default function SlateEditor() {
 	const [modalData, setModalData] = useState(null);
 
 	// Funcion auxiliar para abrir el modal de un tipo especifico
-	const openModal = (modalType, data=undefined) => {
+	const openModal = (modalType, data = undefined) => {
 		setIsOpen(true);
 		setModalType(modalType);
 		setModalData(data);
@@ -133,7 +125,13 @@ export default function SlateEditor() {
 				</div>
 			</Slate>
 
-			<ModalFactory type={modalType} editor={editor} isOpen={isOpen} onClose={() => setIsOpen(false)} data={modalData} />
+			<ModalFactory
+				type={modalType}
+				editor={editor}
+				isOpen={isOpen}
+				onClose={() => setIsOpen(false)}
+				data={modalData}
+			/>
 		</>
 	);
 }
