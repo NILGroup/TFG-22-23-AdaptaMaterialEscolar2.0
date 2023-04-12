@@ -441,7 +441,7 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 \subsubsection{Integración}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
 
-Para asegurar el correcto funcionamiento de la aplicación, hemos definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
+Slate de partida proporciona lo equivalente a un área de texto por lo que se debe configurar desde cero por lo cual, se ha definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
 
 Continuamos con los nodos de elemento, para los cuales creamos un nodo para cada tipo de ejercicio, lo que nos permite identificarlos de manera más efectiva y tratarlos de forma dinámica. Estos nodos tienen una estructura simple de envoltorio, representado por la etiqueta ``div''.
 
