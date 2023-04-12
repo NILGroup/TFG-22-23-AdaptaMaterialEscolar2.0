@@ -110,6 +110,7 @@ En cuanto a las funcionalidades, se realizarón los siguientes diseños:
 \end{itemize}
 
 \subsubsection{Dunia Namour Doughani}
+\label{sec:duniaIter}
 El diseño inicial de la página principal incluye una cabecera con el logo de la aplicación, un menú desplegable que contiene las funcionalidades y un botón que te redirige a la vista de ayuda. En la parte izquierda se encuentra el documento de trabajo, mientras que la zona derecha se divide en dos secciones, una para incluir la funcionalidad seleccionada por el usuario y otra para insertar un archivo PDF, ambas con la opción de ajustar el tamaño de la ventana. Este diseño se puede visualizar en la Figura \ref{dunia1} Con respecto a las funcionalidades, he realizado los siguientes diseños:
 \begin{itemize}
   \item \textbf{Generar un resumen:} El diseño de esta funcionalidad consta de un recuadro en el que introduces el texto y al pulsar un botón se genera el resumen. Para incluirlo en el documento de trabajo el usuario tendrá que darle a la opción de copiar y pegarlo en el documento de trabajo. Este diseño se puede ver en la Figura \ref{dunia2}.
@@ -581,6 +582,7 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
 \end{figure}
 
 \subsubsection{Ejercicio de verdadero/falso}
+\label{sec:funcioVF}
 Para esta funcionalidad se ha utilizado un campo de texto en el cual se introducen las frases del ejercicio. Al darle a la tecla ENTER se introducirán dichas frases debajo del campo de texto y se guardarán en una lista. Se proporcionan dos opciones para editar las frases: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
 
 La vista previa se genera automáticamente y muestra el enunciado del ejercicio ``Responde Verdadero o Falso. Según corresponda.'' junto con las frases y un cuadrado. El botón de ``Reordenar'' aparecerá cuando haya más de dos frases en la vista previa. Para reordenar las frases, se aplica el algoritmo Sattolo Cycle a una lista distinta a la incial donde se encuentras todas las frases. Este algoritmo reorganiza los elementos de una lista de forma aleatoria, pero sin repetir el mismo elemento en la misma posición dos veces seguidas.
