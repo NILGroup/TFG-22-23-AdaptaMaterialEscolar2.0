@@ -7,7 +7,6 @@ import ModalOkButton from "../common/ModalOkButton";
 
 import ModalPreview from "../common/ModalPreview";
 
-
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	const [formula, setFormula] = useState([""]);
 	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
@@ -33,50 +32,43 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	};
 
 	const handleKeyDown = (event, index) => {
-
 		if (event.keyCode === 32) {
 			event.preventDefault();
 
 			setSpaceKeyIsDown(true);
 
-			if(!spaceKeyIsDown){
-	
+			if (!spaceKeyIsDown) {
 				let newFormula = [...formula];
-	
+
 				newFormula.splice(index + 1, 0, "");
-	
+
 				setFormula(newFormula);
-	
+
 				/*let nextInput = document.getElementById(`math-input-${index+1}`);
 				nextInput.focus();*/
-	
+
 				setFormula(newFormula);
-	
+
 				setTimeout(() => {
 					let input = document.getElementById(`input-math-${index + 1}`);
 					input.focus();
 				}, 50);
-
 			}
-
 		} else if (event.keyCode === 8) {
-
 			setBackKeyIsDown(true);
 
 			if (event.target.value == "") {
-
-				if(!backKeyIsDown){
-
+				if (!backKeyIsDown) {
 					let newFormula = [...formula];
-	
+
 					newFormula.splice(index, 1);
-	
+
 					if (newFormula.length == 0) {
 						newFormula = [""];
 					}
-	
+
 					setFormula(newFormula);
-	
+
 					if (index > 0) {
 						setTimeout(() => {
 							let input = document.getElementById(`input-math-${index - 1}`);
@@ -84,18 +76,14 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 						}, 50);
 					}
 				}
-
 			}
 		}
 	};
 
 	const handleKeyUp = (event, index) => {
 		if (event.keyCode === 32) {
-			
 			setSpaceKeyIsDown(false);
-
 		} else if (event.keyCode === 8) {
-			
 			setBackKeyIsDown(false);
 		}
 	};
@@ -114,10 +102,9 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		});
 
 		return ejercicioString;
-	}
+	};
 
 	const insertInEditor = (editor) => {
-		
 		let ejercicioString = renderFormula();
 
 		const ejercicio = {
@@ -151,7 +138,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 					<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
 				</div>
 
-				<div className="rounded bg-gray-100 px-3 pt-3 pb-1 mb-3">
+				<div className="mb-3 rounded bg-gray-100 px-3 pt-3 pb-1">
 					{formula.map((elemento, i) => {
 						return (
 							<input
@@ -163,8 +150,8 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 								onKeyDown={(e) => {
 									handleKeyDown(e, i);
 								}}
-								onKeyUp={(e)=>{
-									handleKeyUp(e,i);
+								onKeyUp={(e) => {
+									handleKeyUp(e, i);
 								}}
 								className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
 								id={`input-math-${i}`}
@@ -176,9 +163,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 				<hr className="my-6" />
 
-				<ModalPreview>
-					{renderFormula()}
-				</ModalPreview>
+				<ModalPreview>{renderFormula()}</ModalPreview>
 
 				<div className="flex justify-center">
 					<ModalOkButton className="mt-2 self-center" onClick={submit} disabled={isOkDisaled} />

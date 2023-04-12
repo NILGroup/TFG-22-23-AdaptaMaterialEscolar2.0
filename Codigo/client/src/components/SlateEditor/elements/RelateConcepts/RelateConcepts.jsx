@@ -3,14 +3,14 @@ import React from "react";
 import { HiOutlinePencil } from "react-icons/hi";
 import { useFocused, useSelected } from "slate-react";
 import { ModalType } from "../../../Modal/ModalFactory";
- 
-export default function RelateConcepts({ attributes, children, element, openModal}) {
+
+export default function RelateConcepts({ attributes, children, element, openModal }) {
 	const isSelected = useSelected();
 	const isFocused = useFocused();
 
 	const relateConceptsClass =
 		isSelected && isFocused
-				? "flex justify-around align-middle p-3 border-2 border-[#B4D5FF] "
+			? "flex justify-around align-middle p-3 border-2 border-[#B4D5FF] "
 			: "flex justify-around align-middle p-3 border-2 border-transparent";
 
 	let result = [];
@@ -34,19 +34,18 @@ export default function RelateConcepts({ attributes, children, element, openModa
 	}
 
 	return (
-	<div {...attributes}>
-		{children}
-		<div className="relative" contentEditable={false} >
-			<span className={`bg-button p-1 text-modal-base text-white hover:bg-button-dark absolute top-0 left-0
-			${isSelected && isFocused ? 'inline' : 'hidden'} `}
-			onClick={() => openModal(ModalType.relateConcepts, {values: element.values})}
-			>
-				<HiOutlinePencil />
-			</span>
-			<div className={relateConceptsClass}>
-				{result}
+		<div {...attributes}>
+			{children}
+			<div className="relative" contentEditable={false}>
+				<span
+					className={`absolute top-0 left-0 bg-button p-1 text-modal-base text-white hover:bg-button-dark
+			${isSelected && isFocused ? "inline" : "hidden"} `}
+					onClick={() => openModal(ModalType.relateConcepts, { values: element.values })}
+				>
+					<HiOutlinePencil />
+				</span>
+				<div className={relateConceptsClass}>{result}</div>
 			</div>
 		</div>
-		
-	</div>);
+	);
 }

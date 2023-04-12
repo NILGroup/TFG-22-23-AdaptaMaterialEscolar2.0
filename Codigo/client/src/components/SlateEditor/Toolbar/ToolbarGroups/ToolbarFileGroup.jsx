@@ -1,12 +1,16 @@
 import React from "react";
 
-import ToolbarGroupButton from "./ToolbarGroupButton";
 import exportPDF from "../../utils/exportPDF";
+import ToolbarGroupButton from "./ToolbarGroupButton";
 
 export default function ToolbarFileGroup({ editor, openModal }) {
 	return (
 		<>
-			<ToolbarGroupButton onClick={() => {exportPDF()}}>
+			<ToolbarGroupButton
+				onClick={() => {
+					exportPDF();
+				}}
+			>
 				<span>Exportar a PDF</span>
 			</ToolbarGroupButton>
 			<ToolbarGroupButton onClick={() => {}}>

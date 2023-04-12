@@ -10,7 +10,7 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 						className="w-24 p-2 text-center"
 						value={values[i][j]}
 						onChange={(event) => {
-							setValores(valor => {
+							setValores((valor) => {
 								const copiaValores = [...valor];
 								copiaValores[i][j] = event.target.value;
 								return copiaValores;

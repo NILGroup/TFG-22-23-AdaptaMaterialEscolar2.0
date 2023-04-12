@@ -28,7 +28,7 @@ export const ModalType = Object.freeze({
 	drawing: Symbol("drawing"),
 });
 
-export function ModalFactory({ type, editor, isOpen, onClose, data}) {
+export function ModalFactory({ type, editor, isOpen, onClose, data }) {
 	document.body.style.overflow = isOpen ? "hidden" : "auto";
 
 	switch (type) {

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
+import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import guideLine from "./GuideLine.module.css";
-import ModalCheckbox from "../common/ModalCheckbox";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
@@ -47,12 +47,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 			return;
 		}
 
-		return(
-			<div className={recuadrar? guideLine.recuadrar : ""} style={{"height": espacio+"cm"}}>
-
-			</div>
-		)
-
+		return <div className={recuadrar ? guideLine.recuadrar : ""} style={{ height: espacio + "cm" }}></div>;
 	};
 
 	const insertInEditor = (editor) => {
@@ -68,7 +63,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 		ejercicio.children.push({
 			type: "drawingSpace",
 			style: renderOption,
-			height: espacio+"cm",
+			height: espacio + "cm",
 			children: [{ text: "" }],
 		});
 		ejercicio.children.push({
@@ -127,7 +122,6 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 					</div>
 
 					<div className="my-5">
-
 						<ModalCheckbox
 							label={"Recuadrar"}
 							name={"recuadrar"}

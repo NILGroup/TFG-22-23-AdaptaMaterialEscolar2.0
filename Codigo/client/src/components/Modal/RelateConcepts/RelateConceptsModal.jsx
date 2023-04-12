@@ -28,7 +28,7 @@ function reordenador(list) {
 	return result;
 }
 
-export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
+export default function RelateConceptsModal({ editor, isOpen, onClose, data }) {
 	const [valores, setValores] = useState([]);
 	const [valoresVp, setValoresVp] = useState([]);
 	const [numFilas, setNumFilas] = useState(0);
@@ -36,17 +36,16 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 
 	// Comprobamos la recepción de datos, el else es necesario porque los componentes ya estan montados en el DOM
 	useEffect(() => {
-		if(data !== undefined){
+		if (data !== undefined) {
 			setValores(copiarArreglo(data.values));
 			setNumFilas(data.values[0].length);
 			setNumColumnas(data.values.length);
-		}
-		else{
+		} else {
 			reset();
 		}
 	}, [isOpen]);
 
-	// Funciones para actualizar 
+	// Funciones para actualizar
 	const handleNumFilasChange = (event) => {
 		setNumFilas(event.target.value);
 	};
@@ -56,10 +55,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 
 	// Comprobador de los datos
 	const isCorrect = () => {
-		return numFilas <= MAX_ROWS && numColumnas <= MAX_COLS 
-		&& numFilas > MIN_COLS 
-		&& numColumnas > MIN_ROWS
-		;
+		return numFilas <= MAX_ROWS && numColumnas <= MAX_COLS && numFilas > MIN_COLS && numColumnas > MIN_ROWS;
 	};
 
 	// Actualizamos el array al formato adecuado
@@ -79,10 +75,10 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 			setValores([]);
 		}
 	}, [numFilas, numColumnas]);
-	
+
 	// Sincronizamos el array input con el array a mostrar
 	useEffect(() => {
-		setValoresVp(isCorrect() ? valores.filter(valor => valor.filter(e => e != '').length > 0) : []);
+		setValoresVp(isCorrect() ? valores.filter((valor) => valor.filter((e) => e != "").length > 0) : []);
 	}, [valores]);
 
 	// Función para resetear los valores dados
@@ -91,7 +87,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 		setValores([]);
 		setNumColumnas(0);
 		setNumFilas(0);
-		
+
 		//  Vaciamos el parametro data para evitar posibles errores
 		data = undefined;
 	};
@@ -99,25 +95,27 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 	// Esta función ademas de insertar actualiza dependiendo de la procedencia
 	const insertDatos = () => {
 		// Si data tiene valores actualizamos los datos del nodo que ha invocado el modal
-		if(data !== undefined){ // 
+		if (data !== undefined) {
+			//
 			// setNodes permite actrualizar los atributos de un
-			Transforms.setNodes(editor, {values: valoresVp});
-		}else{ // En caso contrario insertamos un nuevo nod
+			Transforms.setNodes(editor, { values: valoresVp });
+		} else {
+			// En caso contrario insertamos un nuevo nod
 			const enunciado = {
 				type: "paragraph",
-				children: [{ text: STATEMENT}],
+				children: [{ text: STATEMENT }],
 			};
 			Transforms.insertNodes(editor, enunciado);
-			const ejercicio = { 
-				type: "relateConcepts", 
+			const ejercicio = {
+				type: "relateConcepts",
 				values: valoresVp,
-				icon:<BsFillCircleFill size={8} color="black" />,
-				children: [{text:" "}] ,
+				icon: <BsFillCircleFill size={8} color="black" />,
+				children: [{ text: " " }],
 			};
 			Transforms.insertNodes(editor, ejercicio);
 			Transforms.insertNodes(editor, {
 				type: "paragraph",
-				children: [{ text: ""}],
+				children: [{ text: "" }],
 			});
 		}
 		// Resteamos los estados
@@ -185,9 +183,14 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 					</ModalButton>
 				}
 			>
-				{valores.filter((valor) => {return valor.filter((v) => v !== "").length >= 1;}).length >= 2 && STATEMENT}
-				{valores.filter((valor) => {return valor.filter((v) => v !== "").length >= 1;}).length >= 2 &&
-				<RelateConceptsView values={valoresVp} icon={<BsFillCircleFill size={8} color="black" />} />}
+				{valores.filter((valor) => {
+					return valor.filter((v) => v !== "").length >= 1;
+				}).length >= 2 && STATEMENT}
+				{valores.filter((valor) => {
+					return valor.filter((v) => v !== "").length >= 1;
+				}).length >= 2 && (
+					<RelateConceptsView values={valoresVp} icon={<BsFillCircleFill size={8} color="black" />} />
+				)}
 			</ModalPreview>
 
 			<div className="flex justify-center">
@@ -207,7 +210,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data}) {
 
 // Función para crear una copia profunda de un arreglo bidimensional
 function copiarArreglo(arreglo) {
-	return arreglo.map(function(elemento) {
-	  return Array.isArray(elemento) ? copiarArreglo(elemento) : elemento;
+	return arreglo.map(function (elemento) {
+		return Array.isArray(elemento) ? copiarArreglo(elemento) : elemento;
 	});
-  }
+}
