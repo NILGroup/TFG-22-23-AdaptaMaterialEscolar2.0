@@ -170,6 +170,23 @@ La aplicación se creó siguiendo un Diseño Centrado en el Usuario, para que se
 
 Para desarrollar AdaptaMaterialEscolar 1.0 se utilizó React. Para simplificar la gestión del estado de la aplicación, se utilizó Redux. Para el editor de texto de la aplicación se utilizó CKEditor. Por último, para el buscador de pictogramas, se empleó la API de ARASAAC. Esta API permite hacer una petición con un término de búsqueda y devuelve una serie de pictogramas relacionados.
 
+Desde el punto de vista de la arquitectura Figura \ref{arquitecturaADME1}, AdaptaMaterialEscolar 1.0 es una aplicación web \textit{serverless}, es decir, no dispone de \textit{backend}. El \textit{frontend} de esta aplicación se caracteriza por estar basado en una arquitectura orientada a componentes, gracias al uso de la biblioteca de JavaScript React que tiene como objetivo la creación de pequeñas piezas de código independientes, conocidas como componentes, que pueden ser reutilizadas en diferentes partes de la interfaz de usuario. Además, gracias a su enfoque modular, esta arquitectura permite una mayor escalabilidad y mantenibilidad en el desarrollo de aplicaciones web. Sin embargo, como la complejidad de la aplicación puede aumentar significativamente cuando se trabaja con muchos componentes interconectados, se decidió emplear la biblioteca de gestión de estado Redux\footnote{\url{https://redux.js.org/}}. Con Redux, los datos y el estado de los componentes se centralizan en un solo lugar, lo que permite una gestión más eficiente de los mismos y reduce la cantidad de relaciones entre los componentes.
+
+En cuanto al editor de texto utilizado en la aplicación, se optó por CKEditor\footnote{\url{https://ckeditor.com/}}, una solución open source que proporciona una amplia gama de funciones de edición y formateo de texto todo ello para incluir los ejercicios relizados por el profesor.
+
+Además, para implementar la funcionalidad de búsqueda de pictogramas en la aplicación, se decidió utilizar la API de ARASAAC, un repositorio de recursos gráficos diseñado específicamente para personas con necesidades educativas especiales y trastornos del lenguaje. Esta API proporciona una amplia variedad de pictogramas y materiales gráficos, que pueden ser utilizados en aplicaciones educativas y de comunicación alternativa y aumentativa.
+
+También se ha utilizado la biblioteca de \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}, que incluye varias funcionalidades para generar y resolver sopa de letras, como la posibilidad de especificar el tamaño de la cuadrícula, la lista de palabras a buscar, y la orientación en la que se pueden encontrar las palabras. Además, la biblioteca también proporciona opciones para personalizar la apariencia de la sopa de letras, como la fuente, el color y el fondo del la sopa de letras..
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=15cm]{Arquitectura/ArquitecturaADME1.PNG}
+  \caption{Arquitectura de AdaptaMaterialEscolar 1.0.
+  }
+  \label{arquitecturaADME1}
+\end{figure}
+
+
 Finalmente la aplicación fue evaluada por los usuarios finales, con el objetivo de descubrir si la aplicación es, en cuanto a la adaptación curricular no significativa, realmente útil para los profesores y si les ayudaba a resolver sus problemas. Para esto se creó un examen de Ciencias Naturales adaptado usando AdaptaMaterialEscolar 1.0. Luego, se replicó este examen con los profesores para mostrarles cómo se usaría la herramienta en situaciones reales. Después de esta demostración, se les hizo una encuesta a los profesores para que pudieran dar su opinión y feedback. Este cuestionario tenía preguntas sobre usabilidad, diseño, funcionalidades y utilidad real de la aplicación. Además, se pasó a los evaluadores el cuestionario SUS (System Usability Scale), que sirve para medir que tan buena es la usabilidad de un sistema. Esta evaluación de la aplicación se realizó con 6 profesores. Como resultado de la evaluación se llegó a la conclusión de que la aplicación sí resuelve problemas reales que tienen los profesores y que se debería seguir desarrollando. A partir del feedback de los usuarios finales que evaluaron la aplicación, se obtuvo una nueva lista de requisitos a implementar para mejorar la aplicación:
 
 \begin{itemize}
