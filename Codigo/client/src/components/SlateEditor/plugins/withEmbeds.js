@@ -1,7 +1,9 @@
+const embedTypes = ["embeds", "icons", "image", "relateConcepts", "pictotranslator"];
+
 export const withEmbeds = (editor) => {
 	const { isVoid } = editor;
 
-	editor.isVoid = (element) => (element.type === "embeds" ? true : isVoid(element));
+	editor.isVoid = (element) => (embedTypes.some((type) => type === element.type) ? true : isVoid(element));
 
 	return editor;
 };

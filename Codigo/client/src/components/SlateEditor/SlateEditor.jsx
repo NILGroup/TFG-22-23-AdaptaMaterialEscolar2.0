@@ -10,7 +10,6 @@ import Definition from "./elements/Definition/Definition";
 import Desarrollo from "./elements/Desarrollo/Desarrollo";
 import ImageElement from "./elements/ImageElement/ImageElement";
 import Linea from "./elements/Linea/Linea";
-import WordSearch from "./elements/WordSearchElement/WordSearchElement";
 import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";
@@ -26,9 +25,6 @@ import Td from "./elements/Table/Td";
 import Tr from "./elements/Table/Tr";
 import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
-import { withIcons } from "./plugins/withIcons";
-import { withImages } from "./plugins/withImages";
-import { withRelateConcepts } from "./plugins/withRelateConcepts";
 import { withTable } from "./plugins/withTable";
 
 const initialValue = [
@@ -40,10 +36,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(
-		() => withTable(withIcons(withImages(withEmbeds(withReact(withRelateConcepts(createEditor())))))),
-		[]
-	);
+	const editor = useMemo(() => withTable(withEmbeds(withReact(createEditor()))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.

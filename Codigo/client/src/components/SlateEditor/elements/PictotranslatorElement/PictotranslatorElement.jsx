@@ -8,10 +8,12 @@ export default function PictotranslatorElement({ attributes, children, element, 
 	const isSelected = useSelected();
 	const isFocused = useFocused();
 
+	const commonClass = "flex flex-wrap gap-4 align-middle p-3";
+
 	const pictogramClass =
 		isSelected && isFocused
-			? "flex justify-around align-middle p-3 border-2 border-[#B4D5FF] "
-			: "flex justify-around align-middle p-3 border-2 border-transparent";
+			? `${commonClass} border-2 border-[#B4D5FF]`
+			: `${commonClass} border-2 border-transparent`;
 
 	return (
 		<div {...attributes}>
@@ -33,7 +35,7 @@ export default function PictotranslatorElement({ attributes, children, element, 
 									key={`pictogram_${index}`}
 									className={`flex ${
 										element.values.textPosition === "Below" ? "flex-col-reverse" : "flex-col"
-									} rounded-md border-2 border-black`}
+									} max-w-[10rem] rounded-md border-2 border-black`}
 								>
 									{element.values.textPosition !== "NoText" && (
 										<p
