@@ -124,6 +124,7 @@ El diseño inicial de la página principal incluye una cabecera con el logo de l
 Los rediseños para las funcionalidades implementadas en AdaptaMaterialEscolar 1.0 no se realizaron ya que no se encontró una manera de mejorar el diseño.
 
 \subsubsection{Alberto Alejandro Rivas}
+\label{sec:albertoIter}
 En este caso, los diseños fueron realizados con una herramienta de diseño de interfaces de usuario llamada Figma, con el objetivo de poder obtener un resultado más detallado y tener en cuenta la paleta de colores.
 
 Se ha intentado mantener la misma estructura y funcionalidad que en la aplicación existente, pero haciendo que la interfaz de usuario sea más profesional. Para esto se ajustó el diseño de la barra de navegación, los botones, el componente para seleccionar un fichero pdf, etc. En la pantalla principal hay una barra de navegación y un componente en el que se puede arrastrar o seleccionar un fichero pdf. Una vez seleccionado el archivo, se muestra otra página que se divide en dos, en una mitad está el pdf y en la otra está el editor de texto. Estos diseños se pueden observar en las figuras \ref{AlbertoPaginaPrincipal1} y \ref{AlbertoPaginaPrincipal2}. Por último, el usuario podrá acceder a cada funcionalidad haciendo click en los botones que se encuentran en la parte superior del editor.
@@ -517,6 +518,7 @@ Cabe mencionar que el campo de Tipos de pauta, emplea una botonera la cual se re
 Para lograr esto, se ha utilizado el patrón Factory de esta manera, se puede crear el componente de botonera de pautas adaptándolo a cada uno de los ejercicios en los que se utilizará.
 
 \subsubsection{Ejercicio de Desarrollo}
+\label{sec:impdesarrollo}
 Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. En la funcionalidad anterior se explica la abstracción de los botones utilizados para las pautas. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadDesarrollo}.
 
 \begin{figure}[ht!]
@@ -527,6 +529,7 @@ Para implementar esta funcionalidad se han usado varios elementos como un campo 
 \end{figure}
 
 \subsubsection{Ejercicio de fórmulas matemáticas}
+\label{sec:impmatematica}
 Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmula en el que se almacena cada elemento de la fórmula. Este array se ve reflejado en la vista utilizando los campos de texto mencionados anteriormente. Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio o el \textit{backspace}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. Al presionar el botón de ok, simplemente se inserta el texto de cada casilla separado por un espacio, y en las posiciones que se encuentren vacías, se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
 
 \begin{figure}[ht!]

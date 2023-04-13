@@ -22,37 +22,24 @@ En mi trabajo individual en el código, implementé el modal de la funcionalidad
 Como trabajo en equipo, escribimos el plan de pruebas para la funcionalidad de verdadero y falso y ayudé en la refactorización del código.
 
 \section{Alberto Alejandro Rivas Fernandez}
-\begin{itemize}
-    \item Código
-          \begin{itemize}
-              \item Individual
-                    \begin{itemize}
-                        \item Investigar cómo añadir un plugin a CKEditor para poder exportar el documento en formato Word
-                        \item Contactar con CKEditor con el fin de obtener una licencia gratuita, para poder utilizar las funciones de exportar en formato Word y PDF. No fue posible obtener la licencia por lo que tuvimos que buscar otra librería para implementar el editor de texto
-                        \item Intentar implementar un modal en React usando Redux y Quill.js
-                        \item Implementar funcionalidad para crear ejercicios de desarrollo usando Slate
-                        \item Refactorizar la funcionalidad de crear ejercicios de desarrollo para usar Tailwind en vez de CSS
-                        \item Realizar testing en la funcionalidad de crear ejercicios de definición
-                        \item Arreglar errores encontrados en mi funcionalidad durante el testing realizado por mi compañero Johan
-                        \item Empezar a implementar la funcionalidad de crear ejercicios de matemática con huecos
-                    \end{itemize}
-          \end{itemize}
-    \item Memoria
-          \begin{itemize}
-              \item Individual
-                    \begin{itemize}
-                        \item He realizado la Sección \ref{cap:adaptaMaterial} que habla sobre la primera versión de AdaptaMaterialEscolar
-                        \item Diseño de la página principal para comprarlo con los de mis compañeros
-                        \item Hacer diseños de cada funcionalidad en Figma para compararlos con los de mis compañeros
-                        \item Escribir la explicación de mis diseños en la memoria
-                        \item Escribir sección en “Herramientas Empleadas” explicando el uso de MaterialUI
-                    \end{itemize}
-              \item En grupo
-                    \begin{itemize}
-                        \item Junto a mis compañeros hemos explicado la metodología y priorizado las funcionalidades
-                    \end{itemize}
-          \end{itemize}
-\end{itemize}
+Al principio del proyecto, uno de los desafíos que enfrentamos fue la necesidad de implementar la funcionalidad de exportar documentos en formato Word y PDF. CKEditor tiene un plugin que nos permite hacer esto, pero necesitábamos una licencia de pago para poder utilizarlo. Me puse en contacto con el equipo de CKEditor con el fin de obtener una licencia gratuita, sin embargo, después de varios intentos y comunicaciones con el equipo, no pudimos obtenerla, por lo que tuvimos que buscar otra librería para implementar el editor de texto.
+
+Una de las librerías que decidimos probar fue Quill.js. En nuestra aplicaciones usamos modales para cada funcionalidad, entonces hice la prueba de implementar modales utilizando esta librería y utilizando también Redux. Sin embargo decidimos no usar Redux ya que encontramos una forma más sencilla de implementar los modales en Quill. Luego decidimos no usar Quill.js ya que encontramos otra librería llamada Slate.js que se adapta mejor a nuestras necesidades.
+
+Una vez que decidimos cuál librería utilizar, empezamos a implementar las funcionalidades. La primera funcionalidad que implementé fue la de ejercicios de desarrollo. Para implementar esta funcionalidad tuve que aprender a utilizar Slate, para poder insertar el ejercicio en nuestro editor de texto.
+
+Los estilos de la funcionalidad anterior los había realizado con CSS, sin embargo, decidimos usar Tailwind, el cual es un framework de CSS. Debido a esto, tuve que aprender a usar este framework y refactorizar el código para implementar los estilos con Tailwind en vez de CSS.
+
+Una vez terminada mi funcionalidad, realicé el testing de la funcionalidad de ejercicios de definiciones para garantizar su correcto funcionamiento. Un compañero también hizo el testing de la funcionalidad que yo había implementado y encontró algunos errores que tuve que arreglar, por ejemplo, se podía insertar el ejercicio en el editor sin enunciado, el modal no se reseteaba al cerrarlo, etc.
+
+Luego de esto trabajé en implementar la funcionalidad de crear ejercicios de matemática con huecos. Una vez terminada, realicé el testing de la funcionalidad de leyenda de colores. Al igual que antes, un compañero realizó el testing de la funcionalidad de crear ejercicios de matemática y encontró una serie de errores que tuve que arreglar.
+
+Por último, también empecé la implementación de la funcionalidad de espacios para dibujar.
+
+Con respecto a la memoria, me encargué de redactar la sección \ref{cap:adaptaMaterial} que habla sobre la primera versión de AdaptaMaterialEscolar. También escribí la sección en “Herramientas empleadas” que explica el uso de MaterialUI en nuestro proyecto, sin embargo, hemos decidido dejar de utilizar esta librería, por lo cual esta sección ya no existe. Además expliqué la implementación de las funcionalidades de ejercicios de desarrollo y de ejercicios de matemática con huecos en las secciones \ref{sec:impdesarrollo} y \ref{sec:impmatematica}.
+
+Realicé el diseño de la página principal para compararlo con los de mis compañeros. También hice los diseños individuales de cada funcionalidad en Figma para la iteración competitiva. Después de esto, redacté la explicación de cada uno de estos diseños en la sección \ref{sec:albertoIter} de la memoria.
+
 
 \section{Johan Sebastian Salvatierra Gutierrez}
 En el desarrollo de nuestro TFG en grupo, he tenido una participación activa en la creación del código y en la redacción de la memoria. En la sección de código, he trabajado tanto individualmente como en grupo para lograr los objetivos propuestos.
