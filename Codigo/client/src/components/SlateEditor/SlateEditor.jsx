@@ -26,6 +26,7 @@ import Tr from "./elements/Table/Tr";
 import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withTable } from "./plugins/withTable";
+import { withInline } from "./plugins/withInline";
 
 const initialValue = [
 	{
@@ -36,7 +37,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withTable(withEmbeds(withReact(createEditor()))), []);
+	const editor = useMemo(() => withTable(withEmbeds(withInline(withReact(createEditor())))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.

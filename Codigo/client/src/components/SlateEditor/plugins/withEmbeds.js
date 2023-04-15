@@ -1,4 +1,4 @@
-const embedTypes = ["embeds", "icons", "image", "relateConcepts", "pictotranslator"];
+const embedTypes = ["embeds", "icon", "image", "relateConcepts", "pictotranslator"];
 
 export const withEmbeds = (editor) => {
 	const { isVoid } = editor;
