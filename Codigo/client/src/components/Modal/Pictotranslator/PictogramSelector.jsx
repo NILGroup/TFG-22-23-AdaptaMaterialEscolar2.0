@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-export default function PictogramSelector({ disabled, pictograms, setPicto }) {
+export default function PictogramSelector({ disabled, pictograms, isBlackWhite, setPicto }) {
 	const [currentPicto, setCurrentPicto] = useState(0);
 
 	if (!pictograms || pictograms.length <= 0) return null;
@@ -26,7 +26,11 @@ export default function PictogramSelector({ disabled, pictograms, setPicto }) {
 			>
 				<AiOutlineLeft size={25} />
 			</button>
-			<img src={pictograms[currentPicto]} alt="Pictogram" className={`${disabled ? "opacity-30" : ""}`} />
+			<img
+				src={pictograms[currentPicto]}
+				alt="Pictogram"
+				className={`${disabled ? "opacity-30" : ""} ${isBlackWhite ? "grayscale" : ""}`}
+			/>
 			<button
 				className="rounded-full bg-black bg-opacity-0 p-0.5 enabled:hover:bg-opacity-20 disabled:opacity-30"
 				onClick={() => changePicto(1)}

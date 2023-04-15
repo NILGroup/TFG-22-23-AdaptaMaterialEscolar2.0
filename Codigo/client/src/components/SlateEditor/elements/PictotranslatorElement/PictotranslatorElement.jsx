@@ -46,7 +46,11 @@ export default function PictotranslatorElement({ attributes, children, element, 
 											{word.word}
 										</p>
 									)}
-									<img src={word.pictograms[word.currentPicto]} alt="Pictogram" />
+									<img
+										src={word.pictograms[word.currentPicto]}
+										alt="Pictogram"
+										className={`${element.values.isBlackWhite ? "grayscale" : ""}`}
+									/>
 								</div>
 							);
 						})}

@@ -10,7 +10,7 @@ export const TextPosition = Object.freeze({
 	noText: "NoText",
 });
 
-export function PictogramGrid({ words, setPicto, disablePicto, textPosition }) {
+export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isBlackWhite }) {
 	const [disabledPictos, setDisabledPictos] = useState(Array.from(words, (word) => word.disabled));
 
 	//#region Manejadores de eventos
@@ -46,6 +46,7 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition }) {
 								<PictogramSelector
 									pictograms={word.pictograms}
 									disabled={disabledPictos[index]}
+									isBlackWhite={isBlackWhite}
 									setPicto={(pictoIndex) => setPicto(index, pictoIndex)}
 								/>
 							</div>

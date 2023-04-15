@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
+import ModalCheckbox from "../common/ModalCheckbox";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalRadioButton from "../common/ModalRadioButton";
 import { PictogramGrid, TextPosition } from "./PictogramGrid";
@@ -13,14 +14,16 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 	// Valores iniciales del estado
 	const DEFAULT_ORIGINAL_TEXT = null;
 	const DEFAULT_SEARCHED_TEXT = null;
-	const DEFAULT_PICTOS = null;
 	const DEFAULT_TEXT_POSITION = TextPosition.above;
+	const DEFAULT_IS_BLACK_WHITE = false;
+	const DEFAULT_PICTOS = null;
 	const DEFAULT_IS_LOADING = false;
 
 	// Estados del modal
 	const [originalText, setOriginalText] = useState(DEFAULT_ORIGINAL_TEXT);
 	const [searchedText, setSearchedText] = useState(DEFAULT_SEARCHED_TEXT);
 	const [textPosition, setTextPosition] = useState(DEFAULT_TEXT_POSITION);
+	const [isBlackWhite, setIsBlackWhite] = useState(DEFAULT_IS_BLACK_WHITE);
 	const [pictos, setPictos] = useState(DEFAULT_PICTOS);
 	const [isLoading, setIsLoading] = useState(DEFAULT_IS_LOADING);
 
@@ -41,7 +44,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 	const handleOk = (e, pictos) => {
 		e.preventDefault();
 
-		const values = { textPosition, text: searchedText, words: pictos.filter((picto) => !picto.disabled) };
+		const values = {
+			textPosition,
+			isBlackWhite,
+			text: searchedText,
+			words: pictos.filter((picto) => !picto.disabled),
+		};
 
 		if (data !== undefined) Transforms.setNodes(editor, { values });
 		else {
@@ -85,20 +93,25 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 	const setWordPicto = (wordIndex, pictoIndex) => {
 		if (!pictos || pictos.length <= 0) return;
 
-		pictos[wordIndex].currentPicto = pictoIndex;
+		setPictos((previousState) =>
+			previousState.map((word, index) => (index === wordIndex ? { ...word, currentPicto: pictoIndex } : word))
+		);
 	};
 
 	const disablePicto = (wordIndex) => {
 		if (!pictos || pictos.length <= 0) return;
 
-		pictos[wordIndex].disabled = !pictos[wordIndex].disabled;
+		setPictos((previousState) =>
+			previousState.map((word, index) => (index === wordIndex ? { ...word, disabled: !word.disabled } : word))
+		);
 	};
 
 	const reset = () => {
 		setOriginalText(DEFAULT_ORIGINAL_TEXT);
 		setSearchedText(DEFAULT_SEARCHED_TEXT);
-		setPictos(DEFAULT_PICTOS);
 		setTextPosition(DEFAULT_TEXT_POSITION);
+		setIsBlackWhite(DEFAULT_IS_BLACK_WHITE);
+		setPictos(DEFAULT_PICTOS);
 		setIsLoading(DEFAULT_IS_LOADING);
 	};
 	//#endregion
@@ -108,6 +121,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			setOriginalText(data?.text ?? DEFAULT_ORIGINAL_TEXT);
 			setSearchedText(data?.text ?? DEFAULT_SEARCHED_TEXT);
 			setTextPosition(data?.textPosition ?? DEFAULT_TEXT_POSITION);
+			setIsBlackWhite(data?.isBlackWhite ?? DEFAULT_IS_BLACK_WHITE);
 			setPictos(
 				data?.words.map((word) => {
 					return { ...word };
@@ -155,7 +169,8 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			) : (
 				pictos && (
 					<>
-						<h4 className="mt-2 text-modal-heading">Opciones de texto</h4>
+						<h4 className="mt-2 text-modal-heading">Opciones de pictograma</h4>
+						<h5 className="text-modal-base-lg">Opciones de texto</h5>
 						<div className="flex flex-col lg:flex-row lg:justify-evenly">
 							<ModalRadioButton
 								label="Arriba"
@@ -182,12 +197,25 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 								onChange={(e) => setTextPosition(e.target.value)}
 							/>
 						</div>
+						<h5 className="text-modal-base-lg">Opciones de color</h5>
+						<div className="flex flex-col lg:flex-row lg:justify-evenly">
+							<ModalCheckbox
+								label="Blanco y negro"
+								name="pictoColor"
+								id="pictoColor"
+								defaultChecked={DEFAULT_IS_BLACK_WHITE}
+								onChange={(e) => {
+									setIsBlackWhite(e.target.checked);
+								}}
+							/>
+						</div>
 						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
 						<PictogramGrid
 							words={pictos}
 							setPicto={setWordPicto}
 							disablePicto={disablePicto}
 							textPosition={textPosition}
+							isBlackWhite={isBlackWhite}
 						/>
 						<ModalOkButton
 							className="my-2 self-center"
