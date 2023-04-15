@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-import IconButton from "@mui/material/IconButton";
 import { AiOutlineBorderlessTable } from "react-icons/ai";
 import { BiRectangle } from "react-icons/bi";
 import { HiOutlineMinus } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { TfiLineDouble } from "react-icons/tfi";
 import ButtonSelect from "./ButtonSelect";
+import { Button } from "flowbite-react";
 
 const staff = {
 	grid: {
@@ -44,15 +44,11 @@ export const StaffType = Object.freeze({
 });
 
 export function StaffButtonFactory({ type, setValue }) {
-	const [open, setOpen] = useState(null);
 	switch (type) {
 		case StaffType.grid:
 			return (
 				<ButtonSelect
-					id={staff.grid.id}
 					options={staff.grid.option}
-					open={open}
-					setOpen={setOpen}
 					setValue={setValue}
 				>
 					<AiOutlineBorderlessTable size={16} />
@@ -62,10 +58,7 @@ export function StaffButtonFactory({ type, setValue }) {
 		case StaffType.doubleLine:
 			return (
 				<ButtonSelect
-					id={staff.doubleLine.id}
 					options={staff.doubleLine.option}
-					open={open}
-					setOpen={setOpen}
 					setValue={setValue}
 				>
 					<TfiLineDouble size={16} />
@@ -75,10 +68,7 @@ export function StaffButtonFactory({ type, setValue }) {
 		case StaffType.line:
 			return (
 				<ButtonSelect
-					id={staff.line.id}
 					options={staff.line.option}
-					open={open}
-					setOpen={setOpen}
 					setValue={setValue}
 				>
 					<HiOutlineMinus size={16} />
@@ -88,23 +78,21 @@ export function StaffButtonFactory({ type, setValue }) {
 		case StaffType.box:
 			return (
 				<div className="flex flex-col">
-					<IconButton
-						className="!w-8 !rounded !border !border-solid !border-black  !text-black"
+					<Button color="light"
 						onClick={() => setValue("square")}
 					>
 						<BiRectangle size={16} />
-					</IconButton>
+					</Button>
 				</div>
 			);
 		case StaffType.space:
 			return (
 				<div className="flex flex-col">
-					<IconButton
-						className="!w-8 !rounded !border !border-solid !border-black  !text-black"
+					<Button color="light"
 						onClick={() => setValue("square_space")}
 					>
 						<BiRectangle size={16} style={{ color: "transparent" }} />
-					</IconButton>
+					</Button>
 				</div>
 			);
 		default:
