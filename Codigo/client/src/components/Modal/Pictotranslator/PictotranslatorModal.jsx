@@ -203,7 +203,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 								label="Blanco y negro"
 								name="pictoColor"
 								id="pictoColor"
-								defaultChecked={DEFAULT_IS_BLACK_WHITE}
+								defaultChecked={isBlackWhite}
 								onChange={(e) => {
 									setIsBlackWhite(e.target.checked);
 								}}
