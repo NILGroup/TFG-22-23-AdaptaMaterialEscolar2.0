@@ -37,7 +37,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 
 		setOriginalTextLength(textLength > 0 ? textLength : null);
 
-		if (textLength <= MIN_WORDS_SIZE) setSummaryLength(null);
+		if (textLength * MIN_SUMMARY_PERCENTAGE < MIN_WORDS_SIZE) setSummaryLength(null);
 		else if (summaryLength === null) setSummaryLength(textLength);
 	};
 
@@ -114,7 +114,7 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 				<div className="w-full max-w-full">
 					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
-						{summaryLength !== null && originalTextLength * MIN_SUMMARY_PERCENTAGE >= MIN_WORDS_SIZE && (
+						{summaryLength !== null && (
 							<div className="flex flex-col gap-2">
 								<p>
 									<strong>Tamaño: </strong>

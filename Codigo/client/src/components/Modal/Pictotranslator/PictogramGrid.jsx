@@ -47,6 +47,7 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isB
 									pictograms={word.pictograms}
 									disabled={disabledPictos[index]}
 									isBlackWhite={isBlackWhite}
+									selectedPicto={word.currentPicto}
 									setPicto={(pictoIndex) => setPicto(index, pictoIndex)}
 								/>
 							</div>

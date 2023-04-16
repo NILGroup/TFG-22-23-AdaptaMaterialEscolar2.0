@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+import { Dropdown } from "flowbite-react";
+import { HiChevronDown } from "react-icons/hi";
+import { HiCog6Tooth } from "react-icons/hi2";
+
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
@@ -146,6 +150,67 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 				<div className="w-full max-w-full">
 					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
 						<h4 className="text-modal-heading">Texto original</h4>
+						<Dropdown
+							label={
+								<div className="flex items-center">
+									<HiCog6Tooth size={25} />
+									<HiChevronDown size={18} />
+								</div>
+							}
+							arrowIcon={false}
+							dismissOnClick={false}
+							title="Opciones de Pictograma"
+							class="rounded-md bg-button text-white enabled:hover:bg-button-dark disabled:bg-opacity-60"
+						>
+							<Dropdown.Item>
+								<div className="flex flex-col">
+									<h5 className="font-bold">Opciones de texto:</h5>
+									<div className="mt-1.5 flex flex-col pl-2">
+										<ModalRadioButton
+											label="Arriba"
+											name="textPosition"
+											id={`textPositionAbove`}
+											value={TextPosition.above}
+											defaultChecked={textPosition === TextPosition.above}
+											onChange={(e) => setTextPosition(e.target.value)}
+										/>
+										<ModalRadioButton
+											label="Debajo"
+											name="textPosition"
+											id={`textPositionBelow`}
+											value={TextPosition.below}
+											defaultChecked={textPosition === TextPosition.below}
+											onChange={(e) => setTextPosition(e.target.value)}
+										/>
+										<ModalRadioButton
+											label="Sin texto"
+											name="textPosition"
+											id={`textPositionNoText`}
+											value={TextPosition.noText}
+											defaultChecked={textPosition === TextPosition.noText}
+											onChange={(e) => setTextPosition(e.target.value)}
+										/>
+									</div>
+								</div>
+							</Dropdown.Item>
+							<Dropdown.Divider />
+							<Dropdown.Item>
+								<div className="flex flex-col">
+									<h5 className="font-bold">Opciones de color:</h5>
+									<div className="mt-1.5 flex flex-col pl-2 lg:flex-row lg:justify-evenly">
+										<ModalCheckbox
+											label="Blanco y negro"
+											name="pictoColor"
+											id="pictoColor"
+											defaultChecked={isBlackWhite}
+											onChange={(e) => {
+												setIsBlackWhite(e.target.checked);
+											}}
+										/>
+									</div>
+								</div>
+							</Dropdown.Item>
+						</Dropdown>
 					</div>
 					<textarea
 						name="originalText"
@@ -169,46 +234,6 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			) : (
 				pictos && (
 					<>
-						<h4 className="mt-2 text-modal-heading">Opciones de pictograma</h4>
-						<h5 className="text-modal-base-lg">Opciones de texto</h5>
-						<div className="flex flex-col lg:flex-row lg:justify-evenly">
-							<ModalRadioButton
-								label="Arriba"
-								name="textPosition"
-								id={`textPositionAbove`}
-								value={TextPosition.above}
-								defaultChecked={textPosition === TextPosition.above}
-								onChange={(e) => setTextPosition(e.target.value)}
-							/>
-							<ModalRadioButton
-								label="Debajo"
-								name="textPosition"
-								id={`textPositionBelow`}
-								value={TextPosition.below}
-								defaultChecked={textPosition === TextPosition.below}
-								onChange={(e) => setTextPosition(e.target.value)}
-							/>
-							<ModalRadioButton
-								label="Sin texto"
-								name="textPosition"
-								id={`textPositionNoText`}
-								value={TextPosition.noText}
-								defaultChecked={textPosition === TextPosition.noText}
-								onChange={(e) => setTextPosition(e.target.value)}
-							/>
-						</div>
-						<h5 className="text-modal-base-lg">Opciones de color</h5>
-						<div className="flex flex-col lg:flex-row lg:justify-evenly">
-							<ModalCheckbox
-								label="Blanco y negro"
-								name="pictoColor"
-								id="pictoColor"
-								defaultChecked={isBlackWhite}
-								onChange={(e) => {
-									setIsBlackWhite(e.target.checked);
-								}}
-							/>
-						</div>
 						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
 						<PictogramGrid
 							words={pictos}

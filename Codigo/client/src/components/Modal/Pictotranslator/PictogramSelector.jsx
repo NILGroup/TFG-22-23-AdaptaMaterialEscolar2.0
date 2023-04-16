@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { AiOutlineLeft,AiOutlineRight } from "react-icons/ai";
 
-export default function PictogramSelector({ disabled, pictograms, isBlackWhite, setPicto }) {
-	const [currentPicto, setCurrentPicto] = useState(0);
+
+export default function PictogramSelector({ disabled, pictograms, isBlackWhite, selectedPicto, setPicto }) {
+	const [currentPicto, setCurrentPicto] = useState(selectedPicto);
 
 	if (!pictograms || pictograms.length <= 0) return null;
 
