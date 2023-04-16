@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Transforms } from "slate";
 import guideLine from "./GuideLine.module.css";
@@ -14,13 +14,24 @@ import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
-export default function DefinitionModal({ editor, isOpen, onClose }) {
+export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 	const [concepts, setConcepts] = useState([]);
 	const [isModify, setModify] = useState([]);
 	const [number, setNumber] = useState(1);
 	const [value, setValue] = useState("");
 
 	const introduction = (n) => `Define ${n === 1 ? "el siguiente concepto" : `los siguientes ${n} conceptos`} :`;
+
+	// Comprobamos la recepción de datos, el else es necesario porque los componentes ya estan montados en el DOM
+	useEffect(() => {
+		if (data !== undefined) {
+			setConcepts(data.concepts);
+			setNumber(data.number);
+			setValue(data.value);
+		} else {
+			reset();
+		}
+	}, [isOpen]);
 
 	const handleNumFilasChange = (event) => {
 		setNumber(event.target.value);
@@ -34,6 +45,9 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 		setConcepts([]);
 		setNumber(1);
 		setValue("");
+
+		//  Vaciamos el parametro data para evitar posibles errores
+		data = undefined;
 	};
 
 	const renderLines = () => {
@@ -53,43 +67,39 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 	};
 	//Insertar datos en el editor
 	const insertDatos = () => {
-		onClose();
-		const ejercicio = { type: "definition", children: [] };
-		const numConcepts = concepts.length;
-		const enunciado = {
-			type: "paragraph",
-			children: [{ text: introduction(numConcepts) }],
-		};
-		ejercicio.children.push(enunciado);
-		let renderOption = value === "" ? "doubleLine_2_5" : value;
-
-		for (let i = 0; i < numConcepts; i++) {
-			ejercicio.children.push({
+		if (data !== undefined) {
+			//
+			// setNodes permite actrualizar los atributos de un
+			Transforms.setNodes(editor, { concepts: concepts,
+				number: number,
+				value: value
+			 });
+		} else {
+			const enunciado = {
 				type: "paragraph",
-				children: [{ text: `${concepts[i]}:` }],
-			});
-			for (let j = 0; j < number; j++) {
-				ejercicio.children.push({
-					type: "embeds",
-					style: renderOption,
-					children: [{ text: "" }],
-				});
-				ejercicio.children.push({
-					type: "embeds",
-					style: "space",
-					children: [{ text: "" }],
-				});
-			}
-		}
-		ejercicio.children.push({
-			type: "paragraph",
-			children: [{ text: "" }],
-		});
+				children: [{ text: introduction(concepts.length) }],
+			};
+			Transforms.insertNodes(editor, enunciado);
+			const ejercicio = { 
+				type: "definition",
+				concepts: concepts,
+				number: number,
+				value: value,
+				children: [{ text: " " }],
+			};
+			Transforms.insertNodes(editor, ejercicio);
 
+			Transforms.insertNodes(editor, {
+				type: "paragraph",
+				children: [{ text: "" }],
+			});
+		}
+		onClose();
 		reset();
-		Transforms.insertNodes(editor, ejercicio);
 	};
-	const isOkDisaled = concepts.length == 0 || number < MIN_ROWS || number > MAX_ROWS;
+
+	const isOkDisabled = concepts.length == 0 || number < MIN_ROWS || number > MAX_ROWS;
+
 	const handleClose = () => {
 		reset();
 		onClose();
@@ -139,7 +149,7 @@ export default function DefinitionModal({ editor, isOpen, onClose }) {
 				})}
 			</ModalPreview>
 			<div className="flex justify-center">
-				<ModalOkButton className="mt-2 self-center" onClick={insertDatos} disabled={isOkDisaled} />
+				<ModalOkButton className="mt-2 self-center" onClick={insertDatos} disabled={isOkDisabled} />
 			</div>
 		</Modal>
 	);

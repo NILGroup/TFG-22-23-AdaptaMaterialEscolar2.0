@@ -50,7 +50,7 @@ export default function SlateEditor() {
 			case "image":
 				return <ImageElement {...props} />;
 			case "definition":
-				return <Definition {...props} />;
+				return <Definition {...props} openModal={openModal}/>;
 			case "desarrollo":
 				return <Desarrollo {...props} />;
 			case "embeds":
