@@ -601,6 +601,12 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
   \label{fig:vyf}
 \end{figure}
 
+\subsubsection{Leyenda de colores}
+\label{sec:funcioVF}
+Para implementar esta funcionalidad se ha utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz). 
+
+La vista previa se genera automáticamente y muestra el título de la leyenda de colores junto con los conceptos y su respectivo color. Al pulsar el botón \textit{OK} se envía la leyenda de colores al editor de trabajo, dicho botón se encuentra inhabilitado al ingresar al modal.
+
 \subsubsection{Generar resumen}
 \label{sec:impresumen}
 Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados, por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
