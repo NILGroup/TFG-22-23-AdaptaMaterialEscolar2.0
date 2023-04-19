@@ -170,9 +170,9 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data }) {
 					<ModalButton
 						className="px-1"
 						disabled={
-							!valores.some((valor) => {
+							 valores.filter((valor) => {
 								return valor.filter((v) => v !== "").length >= 2;
-							})
+							}).length < 2
 						}
 						onClick={() => {
 							let result = valoresVp.map((valor) => (Math.random() < 0.7 ? reordenador(valor) : valor));
@@ -198,9 +198,9 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data }) {
 					className="mt-5 self-center"
 					onClick={() => insertDatos()}
 					disabled={
-						!valores.some((valor) => {
-							return valor.filter((v) => v !== "").length >= 2;
-						})
+						valores.filter((valor) => {
+								return valor.filter((v) => v !== "").length >= 2;
+							}).length < 2
 					}
 				/>
 			</div>
