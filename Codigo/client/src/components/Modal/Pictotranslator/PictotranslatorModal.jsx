@@ -165,13 +165,13 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 							<Dropdown.Item>
 								<div className="flex flex-col">
 									<h5 className="font-bold">Opciones de texto:</h5>
-									<div className="mt-1.5 flex flex-col pl-2">
+									<div className="mt-2 flex flex-col gap-1.5 pl-2">
 										<ModalRadioButton
 											label="Arriba"
 											name="textPosition"
 											id={`textPositionAbove`}
 											value={TextPosition.above}
-											defaultChecked={textPosition === TextPosition.above}
+											checked={textPosition === TextPosition.above}
 											onChange={(e) => setTextPosition(e.target.value)}
 										/>
 										<ModalRadioButton
@@ -179,7 +179,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											name="textPosition"
 											id={`textPositionBelow`}
 											value={TextPosition.below}
-											defaultChecked={textPosition === TextPosition.below}
+											checked={textPosition === TextPosition.below}
 											onChange={(e) => setTextPosition(e.target.value)}
 										/>
 										<ModalRadioButton
@@ -187,7 +187,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											name="textPosition"
 											id={`textPositionNoText`}
 											value={TextPosition.noText}
-											defaultChecked={textPosition === TextPosition.noText}
+											checked={textPosition === TextPosition.noText}
 											onChange={(e) => setTextPosition(e.target.value)}
 										/>
 									</div>
@@ -197,12 +197,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 							<Dropdown.Item>
 								<div className="flex flex-col">
 									<h5 className="font-bold">Opciones de color:</h5>
-									<div className="mt-1.5 flex flex-col pl-2 lg:flex-row lg:justify-evenly">
+									<div className="mt-2 flex flex-col pl-2 lg:flex-row lg:justify-evenly">
 										<ModalCheckbox
 											label="Blanco y negro"
 											name="pictoColor"
 											id="pictoColor"
-											defaultChecked={isBlackWhite}
+											checked={isBlackWhite}
 											onChange={(e) => {
 												setIsBlackWhite(e.target.checked);
 											}}
@@ -223,7 +223,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 				<ModalButton
 					type="submit"
 					className="self-center py-2 px-4 text-modal-base-lg"
-					disabled={originalText === null}
+					disabled={originalText === null || originalText.trim().length === 0}
 				>
 					Pictotraducir
 				</ModalButton>
@@ -232,7 +232,8 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			{isLoading ? (
 				<Spinner />
 			) : (
-				pictos && (
+				pictos &&
+				(pictos.length > 0 ? (
 					<>
 						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
 						<PictogramGrid
@@ -245,10 +246,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 						<ModalOkButton
 							className="my-2 self-center"
 							onClick={(e) => handleOk(e, pictos)}
-							disabled={pictos === DEFAULT_PICTOS}
+							disabled={pictos === DEFAULT_PICTOS || pictos.every((word) => word.disabled)}
 						/>
 					</>
-				)
+				) : (
+					<h4 className="mt-4 self-center text-modal-heading">No se han encontrado pictogramas</h4>
+				))
 			)}
 		</Modal>
 	);
