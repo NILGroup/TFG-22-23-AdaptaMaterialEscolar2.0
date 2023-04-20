@@ -11,8 +11,8 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 						value={values[i][j]}
 						onChange={(event) => {
 							
-							if(event.target.value.trim() === '')
-								return
+							if(event.target.value.match(/^\s+$/))
+								 return;
 							setValores((valor) => {
 								const copiaValores = [...valor];
 								copiaValores[i][j] = event.target.value;
