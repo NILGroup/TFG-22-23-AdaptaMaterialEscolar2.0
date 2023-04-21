@@ -11,8 +11,9 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
 	const [backKeyIsDown, setBackKeyIsDown] = useState(false);
+	const [enterKeyIsDown, setEnterKeyIsDown] = useState(false);
 
-	const [formulas, setFormulas] = useState([["4"], ["45", ""]]);
+	const [formulas, setFormulas] = useState([[""]]);
 
 	const handleInputChange = (event, formula_i, element_i) => {
 
@@ -59,7 +60,8 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 					input.focus();
 				}, 50);
 			}
-		} else if (event.keyCode === 8) {
+		}
+		else if (event.keyCode === 8) {
 			setBackKeyIsDown(true);
 
 			if (event.target.value == "") {
@@ -71,8 +73,11 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 					newFormulas[formula_i].splice(element_i, 1);
 
-					if(newFormulas[formula_i].length == 0){
+					if(newFormulas[formula_i].length == 0 && newFormulas.length == 1){
 						newFormulas[formula_i] = [""];
+					}
+					else if(newFormulas[formula_i].length == 0 && newFormulas.length > 1){
+						newFormulas.splice(formula_i, 1);
 					}
 
 					setFormulas(newFormulas);
@@ -87,13 +92,40 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 				}
 			}
 		}
+		else if (event.keyCode === 13) {
+
+			event.preventDefault();
+			
+			setEnterKeyIsDown(true);
+
+			if (!enterKeyIsDown) {
+
+				let newFormulas = [...formulas];
+
+				newFormulas.splice(formula_i + 1, 0, [""]);
+
+				setFormulas(newFormulas);
+
+
+				setTimeout(() => {
+					let input = document.getElementById(`input-math-${formula_i+1}-${0}`);
+					input.focus();
+				}, 50);
+
+			}
+
+		}
 	};
 
 	const handleKeyUp = (event) => {
 		if (event.keyCode === 32) {
 			setSpaceKeyIsDown(false);
-		} else if (event.keyCode === 8) {
+		}
+		else if (event.keyCode === 8) {
 			setBackKeyIsDown(false);
+		}
+		else if (event.keyCode === 13) {
+			setEnterKeyIsDown(false);
 		}
 	};
 
@@ -133,6 +165,13 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 			children: [],
 		};
 
+		let enunciado = {
+			type: "paragraph",
+			children: [{ text: "Completa las siguientes expresiones matemáticas:" }],
+		};
+
+		ejercicio.children.push(enunciado);
+
 		ejercicioStrings.forEach((formulaString, i)=>{
 
 			let formula = {
@@ -164,7 +203,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 				<h3 className="text-modal-heading">Fórmula:</h3>
 
 				<div className="mb-2 text-center">
-					<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
+					<span className="text-sky-400 text-sm">Presiona la tecla de espacio para crear un hueco y la tecla enter para crear una nueva fórmula</span>
 				</div>
 
 
@@ -203,7 +242,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 				<ModalPreview>
 					<p>Completa las siguientes expresiones matemáticas:</p>
-					<div style={{height: ".5em"}}></div>
+					<div className="h-2"></div>
 
 					{getArrayOfFormulasAsStrings().map((formulaString, i) => {
 						return(

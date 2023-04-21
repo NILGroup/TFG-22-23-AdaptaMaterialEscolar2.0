@@ -154,7 +154,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 					<ModalPreview>
 						{textareaValue}
-						<p style={{height: "1em"}}> </p>
+						<p className="h-4"> </p>
 						{renderLines()}
 					</ModalPreview>
 
