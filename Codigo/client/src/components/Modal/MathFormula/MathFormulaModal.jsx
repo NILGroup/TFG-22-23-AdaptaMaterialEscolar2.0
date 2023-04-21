@@ -63,31 +63,39 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		}
 		else if (event.keyCode === 8) {
 			setBackKeyIsDown(true);
-
+			
 			if (event.target.value == "") {
 				event.preventDefault();
-
+				
 				if (!backKeyIsDown) {
 
 					let newFormulas = [...formulas];
 
 					newFormulas[formula_i].splice(element_i, 1);
 
+					let seEliminoLaFila = false;
+
 					if(newFormulas[formula_i].length == 0 && newFormulas.length == 1){
 						newFormulas[formula_i] = [""];
 					}
 					else if(newFormulas[formula_i].length == 0 && newFormulas.length > 1){
 						newFormulas.splice(formula_i, 1);
+						seEliminoLaFila = true;
 					}
 
 					setFormulas(newFormulas);
 
-
-					if (element_i > 0) {
+					if(seEliminoLaFila){
+						setTimeout(() => {
+							let input = document.getElementById(`input-math-${formula_i-1}-${0}`);
+							input.focus();
+						}, 50);
+					}
+					else if (element_i > 0) {
 						setTimeout(() => {
 							let input = document.getElementById(`input-math-${formula_i}-${element_i - 1}`);
 							input.focus();
-						}, 100);
+						}, 50);
 					}
 				}
 			}

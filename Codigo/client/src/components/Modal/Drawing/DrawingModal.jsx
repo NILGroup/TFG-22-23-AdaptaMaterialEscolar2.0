@@ -95,7 +95,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 	const isOkDisaled = textareaValue.length == 0 || espacio < MIN_ROWS || espacio > MAX_ROWS;
 
 	return (
-		<Modal title="Ejercicio de desarrollo" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
+		<Modal title="Ejercicio de espacio para dibujar" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
 				<div>
 					<div className="">
