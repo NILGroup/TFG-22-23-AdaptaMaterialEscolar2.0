@@ -6,7 +6,7 @@ export default function ModalWordList({ className, wordList, onEdit, onDelete })
 
 	return (
 		<ul
-			className={`${className} custom-scrollbar mb-8 flex h-[15vw] max-h-52 min-h-[6.5rem] flex-col gap-3 overflow-y-auto p-4`}
+			className={`${className} custom-scrollbar flex h-[15vw] max-h-48 min-h-[6.5rem] flex-col gap-3 overflow-y-auto`}
 		>
 			{wordList &&
 				wordList.map((word, index) => {

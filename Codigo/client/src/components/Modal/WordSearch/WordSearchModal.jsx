@@ -236,10 +236,10 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 	return (
 		<Modal title="Sopa de Letras" className="w-7/12" isOpen={isOpen} onClose={handleClose}>
-			<div className="flex flex-col gap-12 xl:grid xl:grid-cols-2">
+			<div className="flex flex-col gap-8 xl:grid xl:grid-cols-[2fr_3fr] xl:gap-12">
 				<div className="flex flex-col gap-5">
 					<div>
-						<h4 className="text-modal-heading">Tamaño</h4>
+						<h4 className="mb-2 text-modal-heading">Tamaño</h4>
 						<div className="grid grid-cols-2 items-end gap-4 pl-4">
 							<ModalInputNumber
 								id="numRows"
@@ -272,82 +272,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						</div>
 					</div>
 					<div>
-						<ModalNewWordInput
-							title="Palabras"
-							onSubmit={(newWord) =>
-								dispatch({
-									type: ActionType.addWordToWordList,
-									newWord,
-								})
-							}
-						/>
-						<ModalWordList
-							className="mt-4"
-							wordList={state.wordList}
-							onEdit={(newValue, index) =>
-								dispatch({
-									type: ActionType.editWordOfWordList,
-									index,
-									newValue,
-								})
-							}
-							onDelete={(index) =>
-								dispatch({
-									type: ActionType.deleteWordFromWordList,
-									index,
-								})
-							}
-						/>
-					</div>
-					<div>
-						<h4 className="text-modal-heading">Enunciado</h4>
-						<div className="pl-4">
-							<ModalCheckbox
-								label="Mostrar las palabras a buscar."
-								name="showWords"
-								id="showWords"
-								defaultChecked={initialState.showWords}
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateShowWords,
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-						</div>
-						<div className="pl-4">
-							<ModalCheckbox
-								label="Mostrar direcciones."
-								name="showDirections"
-								id="showDirections"
-								defaultChecked={initialState.showDirections}
-								onChange={(e) => {
-									dispatch({
-										type: ActionType.updateShowDirections,
-										newValue: e.target.checked,
-									});
-								}}
-							/>
-						</div>
-					</div>
-				</div>
-				<div className="flex flex-col gap-8">
-					<ModalPreview
-						showAlerts
-						warnings={warnings}
-						errors={errors}
-						previewHeight="h-48 max-h-48 xl:h-[25rem] xl:max-h-[25rem]"
-					>
-						{grid && (
-							<div className="flex flex-col gap-2">
-								<p>{generateExerciseStatement(addedWords)}</p>
-								<WordSearchGrid className="self-center" wordSearchGrid={grid} />
-							</div>
-						)}
-					</ModalPreview>
-					<div>
-						<h4 className="text-modal-heading">Posicionamiento</h4>
-						<div className="pl-4 2xl:flex 2xl:items-center 2xl:justify-between 2xl:gap-2">
+						<h4 className="mb-2 text-modal-heading">Posicionamiento</h4>
+						<div className="pl-4 xl:flex xl:items-center xl:gap-6">
 							{DIRECTIONS &&
 								Object.keys(DIRECTIONS)
 									.map((key) => {
@@ -422,7 +348,74 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 							</div>
 						</div>
 					</div>
+					<div>
+						<ModalNewWordInput
+							title="Palabras"
+							onSubmit={(newWord) =>
+								dispatch({
+									type: ActionType.addWordToWordList,
+									newWord,
+								})
+							}
+						/>
+						<ModalWordList
+							className="mt-4 px-4"
+							wordList={state.wordList}
+							onEdit={(newValue, index) =>
+								dispatch({
+									type: ActionType.editWordOfWordList,
+									index,
+									newValue,
+								})
+							}
+							onDelete={(index) =>
+								dispatch({
+									type: ActionType.deleteWordFromWordList,
+									index,
+								})
+							}
+						/>
+					</div>
+					<div>
+						<h4 className="text-modal-heading mb-2">Enunciado</h4>
+						<div className="pl-4">
+							<ModalCheckbox
+								label="Mostrar las palabras a buscar."
+								name="showWords"
+								id="showWords"
+								defaultChecked={initialState.showWords}
+								onChange={(e) => {
+									dispatch({
+										type: ActionType.updateShowWords,
+										newValue: e.target.checked,
+									});
+								}}
+							/>
+						</div>
+						<div className="pl-4">
+							<ModalCheckbox
+								label="Mostrar direcciones."
+								name="showDirections"
+								id="showDirections"
+								defaultChecked={initialState.showDirections}
+								onChange={(e) => {
+									dispatch({
+										type: ActionType.updateShowDirections,
+										newValue: e.target.checked,
+									});
+								}}
+							/>
+						</div>
+					</div>
 				</div>
+				<ModalPreview showAlerts warnings={warnings} errors={errors} previewHeight="h-[40rem] max-h-[40rem]">
+					{grid && (
+						<div className="flex flex-col gap-2">
+							<p>{generateExerciseStatement(addedWords)}</p>
+							<WordSearchGrid className="self-center" wordSearchGrid={grid} />
+						</div>
+					)}
+				</ModalPreview>
 			</div>
 			<ModalButton
 				className="mt-8 self-center"
