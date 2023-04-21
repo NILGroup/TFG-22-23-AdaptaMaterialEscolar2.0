@@ -8,18 +8,27 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 
 export default function MathFormulaModal({ editor, isOpen, onClose }) {
-	const [formula, setFormula] = useState([""]);
+
 	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
 	const [backKeyIsDown, setBackKeyIsDown] = useState(false);
 
-	const handleInputChange = (event, index) => {
+	const [formulas, setFormulas] = useState([["4"], ["45", ""]]);
+
+	const handleInputChange = (event, formula_i, element_i) => {
+
 		let newValue = event.target.value;
 
-		setFormula(
-			formula.map((element, i) => {
-				return i === index ? newValue : element;
+		setFormulas(
+
+			formulas.map((formula,j)=>{
+				return formula.map((element, i)=>{
+
+					return (j == formula_i && i == element_i) ? newValue : element;
+
+				})
 			})
-		);
+		)
+
 	};
 
 	const handleClose = () => {
@@ -28,29 +37,25 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 	};
 
 	const resetValues = () => {
-		setFormula([""]);
+		setFormulas([[""]]);
 	};
 
-	const handleKeyDown = (event, index) => {
+	const handleKeyDown = (event, formula_i, element_i) => {
 		if (event.keyCode === 32) {
 			event.preventDefault();
 
 			setSpaceKeyIsDown(true);
 
 			if (!spaceKeyIsDown) {
-				let newFormula = [...formula];
 
-				newFormula.splice(index + 1, 0, "");
+				let newFormulas = [...formulas];
 
-				setFormula(newFormula);
+				newFormulas[formula_i].splice(element_i + 1, 0, "");
 
-				/*let nextInput = document.getElementById(`math-input-${index+1}`);
-				nextInput.focus();*/
-
-				setFormula(newFormula);
+				setFormulas(newFormulas);
 
 				setTimeout(() => {
-					let input = document.getElementById(`input-math-${index + 1}`);
+					let input = document.getElementById(`input-math-${formula_i}-${element_i + 1}`);
 					input.focus();
 				}, 50);
 			}
@@ -58,29 +63,33 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 			setBackKeyIsDown(true);
 
 			if (event.target.value == "") {
+				event.preventDefault();
+
 				if (!backKeyIsDown) {
-					let newFormula = [...formula];
 
-					newFormula.splice(index, 1);
+					let newFormulas = [...formulas];
 
-					if (newFormula.length == 0) {
-						newFormula = [""];
+					newFormulas[formula_i].splice(element_i, 1);
+
+					if(newFormulas[formula_i].length == 0){
+						newFormulas[formula_i] = [""];
 					}
 
-					setFormula(newFormula);
+					setFormulas(newFormulas);
 
-					if (index > 0) {
+
+					if (element_i > 0) {
 						setTimeout(() => {
-							let input = document.getElementById(`input-math-${index - 1}`);
+							let input = document.getElementById(`input-math-${formula_i}-${element_i - 1}`);
 							input.focus();
-						}, 50);
+						}, 100);
 					}
 				}
 			}
 		}
 	};
 
-	const handleKeyUp = (event, index) => {
+	const handleKeyUp = (event) => {
 		if (event.keyCode === 32) {
 			setSpaceKeyIsDown(false);
 		} else if (event.keyCode === 8) {
@@ -88,46 +97,66 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 		}
 	};
 
-	const renderFormula = () => {
-		let ejercicioString = "";
+	const getArrayOfFormulasAsStrings = () => {
 
-		formula.forEach((elemento) => {
-			if (elemento === "") {
-				ejercicioString += "___";
-			} else {
-				ejercicioString += elemento;
-			}
+		let ejercicioStrings = [];
 
-			ejercicioString += " ";
-		});
+		formulas.forEach((formula, j)=>{
 
-		return ejercicioString;
+			let formulaString = "";
+
+			formula.forEach((elemento) => {
+				if (elemento === "") {
+					formulaString += "___";
+				} else {
+					formulaString += elemento;
+				}
+
+				formulaString += " ";
+			});
+
+			ejercicioStrings.push(formulaString);
+
+		})
+
+		return ejercicioStrings;
+
+		
 	};
 
 	const insertInEditor = (editor) => {
-		let ejercicioString = renderFormula();
+
+		let ejercicioStrings = getArrayOfFormulasAsStrings();
 
 		const ejercicio = {
-			type: "ejercicio",
-			children: [{ text: ejercicioString }],
+			type: "paragraph",
+			children: [],
 		};
 
+		ejercicioStrings.forEach((formulaString, i)=>{
+
+			let formula = {
+				type: "paragraph",
+				children: [{ text: formulaString }],
+			};
+
+			ejercicio.children.push(formula);
+
+		});
+
 		Transforms.insertNodes(editor, ejercicio);
+
 	};
 
 	const submit = (e) => {
 		e.preventDefault();
-
-		if (formula.length == 1 && formula[0] == "") {
-			return;
-		}
 
 		insertInEditor(editor);
 
 		handleClose();
 	};
 
-	const isOkDisaled = formula.length == 1 && formula[0] == "";
+	const isOkDisaled = formulas.length == 1 && formulas[0].length == 1 && formulas[0][0] == "";
 
 	return (
 		<Modal title="Definir huecos de matemáticas" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
@@ -138,32 +167,53 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 					<span className="text-sky-400">Presiona la tecla de espacio para crear un hueco</span>
 				</div>
 
-				<div className="mb-3 rounded bg-gray-100 px-3 pt-3 pb-1">
-					{formula.map((elemento, i) => {
-						return (
-							<input
-								key={i}
-								value={elemento}
-								onChange={(e) => {
-									handleInputChange(e, i);
-								}}
-								onKeyDown={(e) => {
-									handleKeyDown(e, i);
-								}}
-								onKeyUp={(e) => {
-									handleKeyUp(e, i);
-								}}
-								className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
-								id={`input-math-${i}`}
-								autoComplete="off"
-							/>
-						);
-					})}
-				</div>
+
+				{formulas.map((formula, j)=>{
+
+					return (
+						<div key={j} className="mb-3 rounded bg-gray-100 px-3 pt-3 pb-1">
+							{formula.map((elemento, i) => {
+								return (
+									<input
+										key={i}
+										value={elemento}
+										onChange={(e) => {
+											handleInputChange(e, j, i);
+										}}
+										onKeyDown={(e) => {
+											handleKeyDown(e, j, i);
+										}}
+										onKeyUp={(e) => {
+											handleKeyUp(e);
+										}}
+										className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
+										id={`input-math-${j}-${i}`}
+										autoComplete="off"
+									/>
+								);
+							})}
+						</div>
+					)
+
+				})}
+
+
 
 				<hr className="my-6" />
 
-				<ModalPreview>{renderFormula()}</ModalPreview>
+				<ModalPreview>
+					<p>Completa las siguientes expresiones matemáticas:</p>
+					<div style={{height: ".5em"}}></div>
+
+					{getArrayOfFormulasAsStrings().map((formulaString, i) => {
+						return(
+							<>
+								<div key={i}>{formulaString}</div>
+								<br />
+							</>
+						)
+					})}
+				</ModalPreview>
 
 				<div className="flex justify-center">
 					<ModalOkButton className="mt-2 self-center" onClick={submit} disabled={isOkDisaled} />
