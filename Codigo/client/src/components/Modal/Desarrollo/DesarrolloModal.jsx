@@ -66,6 +66,12 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		};
 		ejercicio.children.push(enunciado);
 
+		//Salto de linea
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
+
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
 		for (let j = 0; j < numFilas; j++) {
@@ -148,6 +154,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 					<ModalPreview>
 						{textareaValue}
+						<p style={{height: "1em"}}> </p>
 						{renderLines()}
 					</ModalPreview>
 
