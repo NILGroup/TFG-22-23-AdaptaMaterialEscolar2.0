@@ -3,10 +3,14 @@ import React, { useReducer } from "react";
 import { GapType, getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Transforms } from "slate";
 import Modal from "../common/Modal";
+import ModalAlertButton from "../common/ModalAlertButton";
 import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
+import ModalPanel from "../common/ModalPanel";
+import ModalTextPanel from "../common/ModalTextPanel";
 
 // Valores por defecto para el estado
 const initialState = {
@@ -110,59 +114,58 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 	return (
 		<Modal title="Completar Huecos" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<form className="flex flex-col" onSubmit={handleFormSubmit}>
-				<div className="flex flex-col items-start gap-2">
-					<h4 className="text-modal-heading">Texto:</h4>
-					<div className="mt-2 flex w-full flex-col gap-4 px-4">
-						{state.isAddingGaps ? (
-							<>
-								<p className="self-center text-tooltip text-opacity-75">
-									Haz clic izquierdo sobre las palabras para convertirlas en huecos
-								</p>
-								<div className="input-textarea h-32 w-full break-words">
-									{state.words.map((word, index) => {
-										if (!word) return null;
-
-										if (word === " ")
-											return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
-
-										if (word === "\n") return <br key={`linebreak-${index}`} />;
-
-										if (/([^\s\w\d])/g.test(word))
-											return (
-												<React.Fragment key={`punctuationSign-${index}`}>{word}</React.Fragment>
-											);
-
-										return (
-											<span
-												key={`word-${index}`}
-												className="cursor-pointer hover:font-bold hover:text-primary"
-												onClick={() => handleWordClick(index)}
-											>
-												{state.gaps[index]
-													? "_".repeat(getGapTypeInfo(state.gapType).length)
-													: word}
-											</span>
-										);
-									})}
-								</div>
-							</>
-						) : (
-							<textarea
-								name="originalText"
-								id="originalText"
-								className="input-textarea h-32 w-full"
-								onChange={handleTextAreaInput}
-								value={state.originalText}
-							/>
-						)}
-						<ModalButton
-							className="self-end py-2 px-3"
-							onClick={handleChangeModeButton}
-							disabled={state.words === null}
+				<div className="flex flex-col items-start gap-4">
+					{state.isAddingGaps ? (
+						<ModalPanel
+							label="Texto"
+							panelClassName="break-words"
+							attributes={
+								<ModalAlertButton
+									icon={<AiOutlineInfoCircle size={30} />}
+									iconButtonClassName="text-alert-info-dark hover:text-alert-info"
+									listStyle="list-none"
+									alertBoxClassName="bg-alert-info text-alert-info-dark"
+									contentList={["Haz clic izquierdo sobre las palabras para convertirlas en huecos"]}
+								/>
+							}
 						>
-							{!state.isAddingGaps ? "Añadir huecos" : "Editar texto"}
-						</ModalButton>
-					</div>
+							{state.words.map((word, index) => {
+								if (!word) return null;
+
+								if (word === " ") return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
+
+								if (word === "\n") return <br key={`linebreak-${index}`} />;
+
+								if (/([^\s\w\d])/g.test(word))
+									return <React.Fragment key={`punctuationSign-${index}`}>{word}</React.Fragment>;
+
+								return (
+									<span
+										key={`word-${index}`}
+										className="cursor-pointer hover:font-bold hover:text-primary"
+										onClick={() => handleWordClick(index)}
+									>
+										{state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word}
+									</span>
+								);
+							})}
+						</ModalPanel>
+					) : (
+						<ModalTextPanel
+							label="Texto"
+							name="originalText"
+							id="originalText"
+							value={state.originalText}
+							onChange={handleTextAreaInput}
+						/>
+					)}
+					<ModalButton
+						className="self-end py-2 px-3"
+						onClick={handleChangeModeButton}
+						disabled={state.words === null}
+					>
+						{!state.isAddingGaps ? "Añadir huecos" : "Editar texto"}
+					</ModalButton>
 				</div>
 				<div>
 					<h4 className="text-modal-heading font-normal">Tamaño de los huecos:</h4>

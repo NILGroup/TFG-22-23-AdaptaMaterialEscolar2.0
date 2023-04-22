@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import PictogramSelector from "./PictogramSelector";
 
@@ -11,18 +11,6 @@ export const TextPosition = Object.freeze({
 });
 
 export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isBlackWhite }) {
-	const [disabledPictos, setDisabledPictos] = useState(Array.from(words, (word) => word.disabled));
-
-	//#region Manejadores de eventos
-	const handleDelete = (index) => {
-		setDisabledPictos((previousState) =>
-			previousState.map((disabled, disabledIndex) => (index === disabledIndex ? !disabled : disabled))
-		);
-
-		disablePicto(index);
-	};
-	//#endregion
-
 	return (
 		<div className="grid max-h-80 grid-cols-1 justify-center gap-8 overflow-y-auto break-words p-4 md:grid-cols-2 md:justify-evenly xl:grid-cols-4">
 			{words.map((word, index) => {
@@ -31,7 +19,7 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isB
 						<div
 							className={`flex ${
 								textPosition === TextPosition.below ? "flex-col-reverse" : "flex-col"
-							} rounded-md border-2 border-black ${disabledPictos[index] ? "opacity-30" : ""}`}
+							} rounded-md border-2 border-black ${word.disabled ? "opacity-30" : ""}`}
 						>
 							{textPosition !== TextPosition.noText && (
 								<p
@@ -44,7 +32,7 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isB
 							)}
 							<PictogramSelector
 								pictograms={word.pictograms}
-								disabled={disabledPictos[index]}
+								disabled={word.disabled}
 								isBlackWhite={isBlackWhite}
 								selectedPicto={word.currentPicto}
 								setPicto={(pictoIndex) => setPicto(index, pictoIndex)}
@@ -52,9 +40,9 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isB
 						</div>
 						<button
 							className="flex h-[4vw] max-h-[2.5rem] min-h-[2rem] w-[4vw] min-w-[2rem] max-w-[2.5rem] items-center justify-center self-center rounded-full bg-button p-2 text-white hover:bg-button-dark"
-							onClick={() => handleDelete(index)}
+							onClick={() => disablePicto(index)}
 						>
-							{disabledPictos[index] ? <MdVisibility /> : <MdVisibilityOff />}
+							{word.disabled ? <MdVisibility /> : <MdVisibilityOff />}
 						</button>
 					</div>
 				);
