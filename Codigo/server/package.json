@@ -24,8 +24,6 @@
 		"prettier-plugin-organize-imports": "^3.2.2"
 	},
 	"dependencies": {
-		"flowbite": "^1.6.5",
-		"flowbite-react": "^0.4.3",
 		"openai": "^3.2.1"
 	},
 	"engines": {

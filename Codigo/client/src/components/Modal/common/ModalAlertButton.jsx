@@ -8,6 +8,7 @@ export default function ModalAlertButton({
 	icon,
 	iconButtonClassName,
 	alertBoxClassName,
+	placement = "center",
 	listStyle = "list-inside list-disc",
 	contentList,
 }) {
@@ -35,7 +36,9 @@ export default function ModalAlertButton({
 			</button>
 			{contentList && contentList.length > 0 && isOpen && (
 				<div
-					className={`${alertBoxClassName} absolute top-0 left-4 mx-2 grid w-[20vw] min-w-[10rem] translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-30 px-2 py-4 text-start text-modal-alert-box shadow-md backdrop-blur-lg`}
+					className={`${alertBoxClassName} absolute ${
+						placement === "center" ? "left-4" : placement === "left" ? "left-[-5.5vw]" : "left-[5.5vw]"
+					} top-0 grid w-[20vw] min-w-[5rem] max-w-xs translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-30 px-2 py-4 text-start text-modal-alert-box shadow-md backdrop-blur-md`}
 				>
 					<ul className={listStyle}>
 						{contentList.map((alertBoxElement, index) => (
@@ -43,7 +46,7 @@ export default function ModalAlertButton({
 						))}
 					</ul>
 					<button className="flex items-start" onClick={onClose}>
-						<AiOutlineClose size={25} className="hover:text-button" />
+						<AiOutlineClose className="hover:text-button" />
 					</button>
 				</div>
 			)}

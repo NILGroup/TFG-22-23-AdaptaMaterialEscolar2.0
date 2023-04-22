@@ -124,8 +124,9 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 									icon={<AiOutlineInfoCircle size={30} />}
 									iconButtonClassName="text-alert-info-dark hover:text-alert-info"
 									listStyle="list-none"
+									placement="left"
 									alertBoxClassName="bg-alert-info text-alert-info-dark"
-									contentList={["Haz clic izquierdo sobre las palabras para convertirlas en huecos"]}
+									contentList={["Haz clic izquierdo sobre las palabras para convertirlas en huecos, y viceversa."]}
 								/>
 							}
 						>
