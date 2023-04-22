@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 
 import { Dropdown } from "flowbite-react";
 import { HiChevronDown } from "react-icons/hi";
@@ -10,37 +10,122 @@ import ModalButton from "../common/ModalButton";
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalRadioButton from "../common/ModalRadioButton";
+import ModalTextPanel from "../common/ModalTextPanel";
 import { PictogramGrid, TextPosition } from "./PictogramGrid";
 
 import { Transforms } from "slate";
 
-export default function Pictotranslator({ editor, isOpen, onClose, data }) {
-	// Valores iniciales del estado
-	const DEFAULT_ORIGINAL_TEXT = null;
-	const DEFAULT_SEARCHED_TEXT = null;
-	const DEFAULT_TEXT_POSITION = TextPosition.above;
-	const DEFAULT_IS_BLACK_WHITE = false;
-	const DEFAULT_PICTOS = null;
-	const DEFAULT_IS_LOADING = false;
+// Valores por defecto del estado
+const initialState = {
+	originalText: null,
+	searchedText: null,
+	textPosition: TextPosition.above,
+	isBlackWhite: false,
+	pictos: null,
+	isLoading: false,
+};
 
+// Tipos de accion para modificar el estado del componente
+const ActionType = Object.freeze({
+	resetState: Symbol("resetState"),
+	updateOriginalText: Symbol("updateOriginalText"),
+	updateSearchedText: Symbol("updateSearchedText"),
+	updateTextPosition: Symbol("updateTextPosition"),
+	updateIsBlackWhite: Symbol("updateIsBlackWhite"),
+	updatePictos: Symbol("updatePictos"),
+	changePictogram: Symbol("changePictogram"),
+	disablePictogram: Symbol("disablePictogram"),
+	updateIsLoading: Symbol("updateIsLoading"),
+});
+
+// Modificar el estado dependiendo de la accion ejecutada
+const reducer = (state, action) => {
+	switch (action.type) {
+		case ActionType.resetState: {
+			const data = action.newValue;
+
+			return {
+				originalText: data?.text ?? initialState.originalText,
+				searchedText: data?.text ?? initialState.searchedText,
+				textPosition: data?.textPosition ?? initialState.textPosition,
+				isBlackWhite: data?.isBlackWhite ?? initialState.isBlackWhite,
+				pictos:
+					data?.words.map((word) => {
+						return { ...word };
+					}) ?? initialState.pictos,
+				isLoading: false,
+			};
+		}
+		case ActionType.updateOriginalText: {
+			const newText = action.newValue;
+
+			if (newText.length > 0) return { ...state, originalText: newText };
+			else return { ...state, originalText: null };
+		}
+		case ActionType.updateSearchedText: {
+			const newText = action.newValue;
+
+			if (newText.length > 0) return { ...state, searchedText: newText };
+			else return { ...state, searchedText: null };
+		}
+		case ActionType.updateTextPosition: {
+			const newTextPosition = action.newValue;
+
+			return { ...state, textPosition: newTextPosition };
+		}
+		case ActionType.updateIsBlackWhite: {
+			const newIsBlackWhite = Boolean(action.newValue);
+
+			return { ...state, isBlackWhite: newIsBlackWhite };
+		}
+		case ActionType.updatePictos: {
+			const newPictos = action.newValue;
+
+			return { ...state, pictos: newPictos };
+		}
+		case ActionType.changePictogram: {
+			const wordIndex = action.wordIndex;
+			const pictoIndex = action.pictoIndex;
+
+			if (!state.pictos || state.pictos.length <= 0) return { ...state };
+
+			return {
+				...state,
+				pictos: state.pictos.map((word, index) =>
+					index === wordIndex ? { ...word, currentPicto: pictoIndex } : { ...word }
+				),
+			};
+		}
+		case ActionType.disablePictogram: {
+			const wordIndex = action.wordIndex;
+
+			if (!state.pictos || state.pictos.length <= 0) return;
+
+			return {
+				...state,
+				pictos: state.pictos.map((word, index) =>
+					index === wordIndex ? { ...word, disabled: !word.disabled } : { ...word }
+				),
+			};
+		}
+		case ActionType.updateIsLoading: {
+			const newIsLoading = Boolean(action.newValue);
+
+			return { ...state, isLoading: newIsLoading };
+		}
+		default:
+			throw new Error(`Undefined action: ${action}`);
+	}
+};
+
+export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 	// Estados del modal
-	const [originalText, setOriginalText] = useState(DEFAULT_ORIGINAL_TEXT);
-	const [searchedText, setSearchedText] = useState(DEFAULT_SEARCHED_TEXT);
-	const [textPosition, setTextPosition] = useState(DEFAULT_TEXT_POSITION);
-	const [isBlackWhite, setIsBlackWhite] = useState(DEFAULT_IS_BLACK_WHITE);
-	const [pictos, setPictos] = useState(DEFAULT_PICTOS);
-	const [isLoading, setIsLoading] = useState(DEFAULT_IS_LOADING);
+	const [state, dispatch] = useReducer(reducer, initialState);
+	const { originalText, searchedText, textPosition, isBlackWhite, pictos, isLoading } = state;
 
 	//#region Manejadores de eventos
-	const handleOriginalTextChange = (e) => {
-		const newText = e.target.value;
-
-		if (newText.length > 0) setOriginalText(newText);
-		else setOriginalText(null);
-	};
-
 	const handleClose = () => {
-		reset();
+		dispatch({ type: ActionType.resetState });
 
 		onClose();
 	};
@@ -52,7 +137,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			textPosition,
 			isBlackWhite,
 			text: searchedText,
-			words: pictos.filter((picto) => !picto.disabled),
+			words: pictos,
 		};
 
 		if (data !== undefined) Transforms.setNodes(editor, { values });
@@ -72,7 +157,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 
 	//#region Funciones auxiliares
 	const pictotranslate = async (originalText) => {
-		setIsLoading(true);
+		dispatch({ type: ActionType.updateIsLoading, newValue: true });
 
 		try {
 			const response = await fetch("/pictotranslator", {
@@ -85,54 +170,18 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 
 			const newPictos = await response.json();
 
-			setSearchedText(originalText);
-			setPictos(newPictos);
+			dispatch({ type: ActionType.updateSearchedText, newValue: originalText });
+			dispatch({ type: ActionType.updatePictos, newValue: newPictos });
 		} catch (error) {
 			console.log(error);
 		} finally {
-			setIsLoading(false);
+			dispatch({ type: ActionType.updateIsLoading, newValue: false });
 		}
-	};
-
-	const setWordPicto = (wordIndex, pictoIndex) => {
-		if (!pictos || pictos.length <= 0) return;
-
-		setPictos((previousState) =>
-			previousState.map((word, index) => (index === wordIndex ? { ...word, currentPicto: pictoIndex } : word))
-		);
-	};
-
-	const disablePicto = (wordIndex) => {
-		if (!pictos || pictos.length <= 0) return;
-
-		setPictos((previousState) =>
-			previousState.map((word, index) => (index === wordIndex ? { ...word, disabled: !word.disabled } : word))
-		);
-	};
-
-	const reset = () => {
-		setOriginalText(DEFAULT_ORIGINAL_TEXT);
-		setSearchedText(DEFAULT_SEARCHED_TEXT);
-		setTextPosition(DEFAULT_TEXT_POSITION);
-		setIsBlackWhite(DEFAULT_IS_BLACK_WHITE);
-		setPictos(DEFAULT_PICTOS);
-		setIsLoading(DEFAULT_IS_LOADING);
 	};
 	//#endregion
 
 	useEffect(() => {
-		if (data !== undefined) {
-			setOriginalText(data?.text ?? DEFAULT_ORIGINAL_TEXT);
-			setSearchedText(data?.text ?? DEFAULT_SEARCHED_TEXT);
-			setTextPosition(data?.textPosition ?? DEFAULT_TEXT_POSITION);
-			setIsBlackWhite(data?.isBlackWhite ?? DEFAULT_IS_BLACK_WHITE);
-			setPictos(
-				data?.words.map((word) => {
-					return { ...word };
-				}) ?? DEFAULT_PICTOS
-			);
-			setIsLoading(false);
-		} else reset();
+		dispatch({ type: ActionType.resetState, newValue: data });
 	}, [isOpen]);
 
 	return (
@@ -147,9 +196,9 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 					pictotranslate(originalText);
 				}}
 			>
-				<div className="w-full max-w-full">
-					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
-						<h4 className="text-modal-heading">Texto original</h4>
+				<ModalTextPanel
+					label="Texto original"
+					attributes={
 						<Dropdown
 							label={
 								<div className="flex items-center">
@@ -172,7 +221,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											id={`textPositionAbove`}
 											value={TextPosition.above}
 											checked={textPosition === TextPosition.above}
-											onChange={(e) => setTextPosition(e.target.value)}
+											onChange={(e) =>
+												dispatch({
+													type: ActionType.updateTextPosition,
+													newValue: e.target.value,
+												})
+											}
 										/>
 										<ModalRadioButton
 											label="Debajo"
@@ -180,7 +234,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											id={`textPositionBelow`}
 											value={TextPosition.below}
 											checked={textPosition === TextPosition.below}
-											onChange={(e) => setTextPosition(e.target.value)}
+											onChange={(e) =>
+												dispatch({
+													type: ActionType.updateTextPosition,
+													newValue: e.target.value,
+												})
+											}
 										/>
 										<ModalRadioButton
 											label="Sin texto"
@@ -188,7 +247,12 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											id={`textPositionNoText`}
 											value={TextPosition.noText}
 											checked={textPosition === TextPosition.noText}
-											onChange={(e) => setTextPosition(e.target.value)}
+											onChange={(e) =>
+												dispatch({
+													type: ActionType.updateTextPosition,
+													newValue: e.target.value,
+												})
+											}
 										/>
 									</div>
 								</div>
@@ -204,22 +268,22 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 											id="pictoColor"
 											checked={isBlackWhite}
 											onChange={(e) => {
-												setIsBlackWhite(e.target.checked);
+												dispatch({
+													type: ActionType.updateIsBlackWhite,
+													newValue: e.target.checked,
+												});
 											}}
 										/>
 									</div>
 								</div>
 							</Dropdown.Item>
 						</Dropdown>
-					</div>
-					<textarea
-						name="originalText"
-						id="originalText"
-						className="input-textarea h-40 w-full rounded-t-none"
-						value={originalText ?? ""}
-						onChange={handleOriginalTextChange}
-					/>
-				</div>
+					}
+					name="originalText"
+					id="originalText"
+					value={originalText ?? ""}
+					onChange={(e) => dispatch({ type: ActionType.updateOriginalText, newValue: e.target.value })}
+				/>
 				<ModalButton
 					type="submit"
 					className="self-center py-2 px-4 text-modal-base-lg"
@@ -238,15 +302,17 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
 						<PictogramGrid
 							words={pictos}
-							setPicto={setWordPicto}
-							disablePicto={disablePicto}
+							setPicto={(wordIndex, pictoIndex) =>
+								dispatch({ type: ActionType.changePictogram, wordIndex, pictoIndex })
+							}
+							disablePicto={(wordIndex) => dispatch({ type: ActionType.disablePictogram, wordIndex })}
 							textPosition={textPosition}
 							isBlackWhite={isBlackWhite}
 						/>
 						<ModalOkButton
 							className="my-2 self-center"
 							onClick={(e) => handleOk(e, pictos)}
-							disabled={pictos === DEFAULT_PICTOS || pictos.every((word) => word.disabled)}
+							disabled={pictos === initialState.pictos || pictos.every((word) => word.disabled)}
 						/>
 					</>
 				) : (

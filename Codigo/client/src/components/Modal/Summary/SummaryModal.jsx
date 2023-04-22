@@ -6,6 +6,7 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 
 import { Transforms } from "slate";
+import ModalTextPanel from "../common/ModalTextPanel";
 
 export default function SummaryModal({ editor, isOpen, onClose }) {
 	// Valores constantes
@@ -111,10 +112,10 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 					summarize(originalText, summaryLength ?? Math.min(MIN_WORDS_SIZE, originalTextLength));
 				}}
 			>
-				<div className="w-full max-w-full">
-					<div className="flex items-center justify-between rounded-md rounded-b-none border-2 border-b-0 border-grey-dark bg-grey px-4 py-2">
-						<h4 className="text-modal-heading">Texto original</h4>
-						{summaryLength !== null && (
+				<ModalTextPanel
+					label="Texto original"
+					attributes={
+						summaryLength !== null ? (
 							<div className="flex flex-col gap-2">
 								<p>
 									<strong>Tamaño: </strong>
@@ -131,15 +132,12 @@ export default function SummaryModal({ editor, isOpen, onClose }) {
 									onChange={handleSummarySizeChange}
 								/>
 							</div>
-						)}
-					</div>
-					<textarea
-						name="originalText"
-						id="originalText"
-						className="input-textarea h-40 w-full rounded-t-none"
-						onChange={handleOriginalTextChange}
-					/>
-				</div>
+						) : null
+					}
+					name="originalText"
+					id="originalText"
+					onChange={handleOriginalTextChange}
+				/>
 				<ModalButton
 					type="submit"
 					className="self-center py-2 px-4 text-modal-base-lg"

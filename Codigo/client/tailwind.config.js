@@ -1,8 +1,5 @@
 module.exports = {
-	content: [
-		"./src/**/*.{js,jsx}",
-		"node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"
-	],
+	content: ["./src/**/*.{js,jsx}", "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"],
 	theme: {
 		extend: {
 			colors: {
@@ -14,6 +11,10 @@ module.exports = {
 					dark: "rgb(var(--color-grey-dark) / <alpha-value>)",
 				},
 				alert: {
+					info: {
+						DEFAULT: "rgb(var(--color-info) / <alpha-value>)",
+						dark: "rgb(var(--color-info-dark) / <alpha-value>)",
+					},
 					warning: {
 						DEFAULT: "rgb(var(--color-warning) / <alpha-value>)",
 						dark: "rgb(var(--color-warning-dark) / <alpha-value>)",
@@ -51,7 +52,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [
-		require('flowbite/plugin')
-	],
+	plugins: [require("flowbite/plugin")],
 };

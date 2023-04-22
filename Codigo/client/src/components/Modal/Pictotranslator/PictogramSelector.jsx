@@ -1,21 +1,14 @@
-import React,{ useState } from "react";
+import React from "react";
 
-import { AiOutlineLeft,AiOutlineRight } from "react-icons/ai";
-
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 export default function PictogramSelector({ disabled, pictograms, isBlackWhite, selectedPicto, setPicto }) {
-	const [currentPicto, setCurrentPicto] = useState(selectedPicto);
-
 	if (!pictograms || pictograms.length <= 0) return null;
 
 	const changePicto = (increment) => {
-		setCurrentPicto((previousIndex) => {
-			const nextIndex = Math.min(Math.max(previousIndex + increment, 0), pictograms.length - 1);
+		const nextIndex = Math.min(Math.max(selectedPicto + increment, 0), pictograms.length - 1);
 
-			setPicto(nextIndex);
-
-			return nextIndex;
-		});
+		setPicto(nextIndex);
 	};
 
 	return (
@@ -23,19 +16,19 @@ export default function PictogramSelector({ disabled, pictograms, isBlackWhite, 
 			<button
 				className="rounded-full bg-black bg-opacity-0 p-0.5 enabled:hover:bg-opacity-20 disabled:opacity-30"
 				onClick={() => changePicto(-1)}
-				disabled={currentPicto === 0 || disabled}
+				disabled={selectedPicto === 0 || disabled}
 			>
 				<AiOutlineLeft size={25} />
 			</button>
 			<img
-				src={pictograms[currentPicto]}
+				src={pictograms[selectedPicto]}
 				alt="Pictogram"
 				className={`${disabled ? "opacity-30" : ""} ${isBlackWhite ? "grayscale" : ""}`}
 			/>
 			<button
 				className="rounded-full bg-black bg-opacity-0 p-0.5 enabled:hover:bg-opacity-20 disabled:opacity-30"
 				onClick={() => changePicto(1)}
-				disabled={currentPicto === pictograms.length - 1 || disabled}
+				disabled={selectedPicto === pictograms.length - 1 || disabled}
 			>
 				<AiOutlineRight size={25} />
 			</button>

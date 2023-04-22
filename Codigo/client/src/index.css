@@ -11,6 +11,8 @@
 		--color-grey-light: 251 251 251;
 		--color-grey: 239 239 239;
 		--color-grey-dark: 210 210 210;
+		--color-info: 0 181 226;
+		--color-info-dark: 0 73 134;
 		--color-warning: 255 193 7;
 		--color-warning-dark: 182 122 4;
 		--color-danger: 220 76 100;
@@ -30,7 +32,7 @@
 	}
 
 	.input-textarea {
-		@apply resize-none self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey-light p-3 focus:border-button;
+		@apply h-40 min-h-[5rem] resize-y self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey-light p-2 focus:border-focus focus:ring-2 focus:ring-focus focus:ring-opacity-20;
 	}
 }
 
