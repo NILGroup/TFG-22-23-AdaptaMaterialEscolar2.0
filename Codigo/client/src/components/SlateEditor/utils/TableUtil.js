@@ -50,7 +50,7 @@ export const createTableCell = (text) => {
 	};
 };
 // Funcion para crear filas
-const createRow = (cellText) => {
+export const createRow = (cellText) => {
 	const newRow = Array.from(cellText, (value) => createTableCell(value));
 	return {
 		type: "table-row",
