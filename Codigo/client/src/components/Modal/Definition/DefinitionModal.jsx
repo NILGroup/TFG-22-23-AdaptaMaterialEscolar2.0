@@ -10,6 +10,7 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
+import imagenes from "../../../assets/imagenes";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
@@ -55,13 +56,21 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 		if (number > MAX_ROWS) return;
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		let space = () => /^doubleLine/.test(renderOption) && <div className={guideLine.space}></div>;
-		for (let i = 0; i < number; i++) {
+		if(renderOption === 'square'){
 			lines.push(
-				<div key={`pauta_${i}`}>
-					<div className={guideLine[renderOption]}> </div>
-					{space()}
+				<div className='border border-black border-solid' style={{ height: `${5 * number}mm` }}>
 				</div>
 			);
+		}
+		else{
+			for (let i = 0; i < number; i++) {
+				lines.push(
+					<div key={`pauta_${i}`}>
+						<img src={imagenes[renderOption]} />
+						{space()}
+					</div>
+				);
+			}
 		}
 		return lines;
 	};
