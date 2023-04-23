@@ -18,9 +18,9 @@ export default function WordListItemLegend({
 	const [newValue, setNewValue] = useState(null);
 	const [newColor, setNewColor] = useState(null);
 
-	const editWord = (newValue, newColor) => {
+	const editWord = (newValue) => {
 		onEdit(newValue, newColor, index);
-
+		
 		setIsEdittingWord(null);
 	};
 
@@ -84,7 +84,8 @@ export default function WordListItemLegend({
 							id="color"
 							type="color"
 							value={newColor}
-							onChange={(e) => setNewColor(e.target.value)}
+							onChange={(e) => {
+								setNewColor(e.target.value)}}
 						/>
 						<ModalInputText
 							id="editWord"
