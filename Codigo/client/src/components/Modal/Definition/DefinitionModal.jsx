@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import { Transforms } from "slate";
-import guideLine from "./GuideLine.module.css";
 
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
@@ -55,7 +54,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 		let lines = [];
 		if (number > MAX_ROWS) return;
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		let space = () => /^doubleLine/.test(renderOption) && <div className={guideLine.space}></div>;
+		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: '5mm' }}></div>;
 		if(renderOption === 'square'){
 			lines.push(
 				<div className='border border-black border-solid' style={{ height: `${5 * number}mm` }}>
@@ -76,33 +75,57 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 	};
 	//Insertar datos en el editor
 	const insertDatos = () => {
-		if (data !== undefined) {
-			//
-			// setNodes permite actrualizar los atributos de un
-			Transforms.setNodes(editor, { concepts: concepts,
-				number: number,
-				value: value
-			 });
-		} else {
-			const enunciado = {
-				type: "paragraph",
-				children: [{ text: introduction(concepts.length) }],
-			};
-			Transforms.insertNodes(editor, enunciado);
-			const ejercicio = { 
-				type: "definition",
-				concepts: concepts,
-				number: number,
-				value: value,
-				children: [{ text: " " }],
-			};
-			Transforms.insertNodes(editor, ejercicio);
+		if (data !== undefined) 
+			Transforms.removeNodes(editor, { at: data.path })
 
-			Transforms.insertNodes(editor, {
+		const ejercicio = { 
+			type: "definition",
+			concepts: concepts,
+			number: number,
+			value: value,
+			children: [],
+		};
+
+		const enunciado = {
+			type: "paragraph",
+			children: [{ text: introduction(concepts.length) }],
+		};
+		ejercicio.children.push(enunciado);
+		//Salto de linea
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
+			
+		let renderOption = value === "" ? "doubleLine_2_5" : value;
+		concepts.map((concept => {
+			ejercicio.children.push({
 				type: "paragraph",
-				children: [{ text: "" }],
+				children: [{ text: `${concept}:` }],
 			});
-		}
+			if(renderOption === 'square'){
+				ejercicio.children.push({
+					type: "staff",
+					renderOption,
+					number,
+					children: [{ text: "" }],
+				});
+			}else{
+				for (let j = 0; j < number; j++) {
+					ejercicio.children.push({
+						type: "staff",
+						renderOption,
+						children: [{ text: "" }],
+					});
+				}
+			}
+		}))
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
+		Transforms.insertNodes(editor, ejercicio);		
+		Transforms.insertBlock(editor, { type: "paragraph", children: [{ text: "" }] });
 		onClose();
 		reset();
 	};

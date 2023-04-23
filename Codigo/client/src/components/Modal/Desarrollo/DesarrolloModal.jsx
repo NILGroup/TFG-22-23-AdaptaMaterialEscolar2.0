@@ -6,7 +6,7 @@ import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
-import guideLine from "./GuideLine.module.css";
+import imagenes from "../../../assets/imagenes";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
@@ -45,15 +45,23 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 		let lines = [];
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		let space = () => /^doubleLine/.test(renderOption) && <div className={guideLine.space}></div>;
+		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: '5mm' }}></div>;
 
-		for (let i = 0; i < numFilas; i++) {
+		if(renderOption === 'square'){
 			lines.push(
-				<div key={`pauta_${i}`}>
-					<div className={guideLine[renderOption]}> </div>
-					{space()}
+				<div className='border border-black border-solid' style={{ height: `${5 * numFilas}mm` }}>
 				</div>
 			);
+		}
+		else{
+			for (let i = 0; i < numFilas; i++) {
+				lines.push(
+					<div key={`pauta_${i}`}>
+						<img src={imagenes[renderOption]} />
+						{space()}
+					</div>
+				);
+			}
 		}
 		return lines;
 	};
@@ -74,17 +82,21 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
-		for (let j = 0; j < numFilas; j++) {
+		if(renderOption === 'square'){
 			ejercicio.children.push({
-				type: "embeds",
-				style: renderOption,
+				type: "staff",
+				renderOption,
+				number:numFilas,
 				children: [{ text: "" }],
 			});
-			ejercicio.children.push({
-				type: "embeds",
-				style: "space",
-				children: [{ text: "" }],
-			});
+		}else {
+			for (let j = 0; j < numFilas; j++) {
+				ejercicio.children.push({
+					type: "staff",
+					renderOption,
+					children: [{ text: "" }],
+				});
+			}
 		}
 
 		ejercicio.children.push({

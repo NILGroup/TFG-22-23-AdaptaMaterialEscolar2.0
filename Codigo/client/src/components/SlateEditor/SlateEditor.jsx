@@ -55,6 +55,8 @@ export default function SlateEditor() {
 				return <Desarrollo {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
+			case "staff":
+				return <Staff {...props} />;
 			case "icon":
 				return <Icon {...props} />;
 			case "linea":

@@ -1,11 +1,19 @@
 import React from "react";
 
-import style from "./Staff.module.css";
+import imagenes from "../../../../assets/imagenes.js"
+
 
 export default function Staff({ attributes, children, element }) {
+
+	let space = () => /^doubleLine/.test(element.renderOption) && <div style={{ height: '5mm' }}></div>;
 	return (
-		<div contentEditable={false} {...attributes}>
-			<div contentEditable={false} className={style[element.style]}></div>
+		<div {...attributes} contentEditable={false}>
+			{
+				element.renderOption === 'square' ? (<div className='border border-black border-solid' style={{ height: `${5 * element.number}mm` }}>
+				</div>):
+				<img src={imagenes[element.renderOption]} />
+			}
+			{space()}
 			{children}
 		</div>
 	);
