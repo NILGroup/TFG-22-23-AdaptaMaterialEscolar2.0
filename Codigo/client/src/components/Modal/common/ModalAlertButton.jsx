@@ -38,7 +38,7 @@ export default function ModalAlertButton({
 				<div
 					className={`${alertBoxClassName} absolute ${
 						placement === "center" ? "left-4" : placement === "left" ? "left-[-5.5vw]" : "left-[5.5vw]"
-					} top-0 grid w-[20vw] min-w-[5rem] max-w-xs translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-30 px-2 py-4 text-start text-modal-alert-box shadow-md backdrop-blur-md`}
+					} top-0 grid w-[20vw] min-w-[5rem] max-w-xs translate-y-[2rem] translate-x-[-50%] grid-cols-[auto_auto] gap-4 rounded-md bg-opacity-95 px-2 py-4 text-start text-modal-alert-box shadow-md supports-[backdrop-filter]:bg-opacity-30 supports-[backdrop-filter]:backdrop-blur`}
 				>
 					<ul className={listStyle}>
 						{contentList.map((alertBoxElement, index) => (

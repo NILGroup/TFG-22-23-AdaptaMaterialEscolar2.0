@@ -25,8 +25,8 @@ import Td from "./elements/Table/Td";
 import Tr from "./elements/Table/Tr";
 import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
-import { withTable } from "./plugins/withTable";
 import { withInline } from "./plugins/withInline";
+import { withTable } from "./plugins/withTable";
 
 const initialValue = [
 	{
@@ -50,7 +50,7 @@ export default function SlateEditor() {
 			case "image":
 				return <ImageElement {...props} />;
 			case "definition":
-				return <Definition {...props} openModal={openModal}/>;
+				return <Definition {...props} openModal={openModal} />;
 			case "desarrollo":
 				return <Desarrollo {...props} />;
 			case "embeds":
@@ -111,10 +111,10 @@ export default function SlateEditor() {
 					<div className="max-h-[40rem] overflow-y-auto">
 						<Editable
 							id="editable"
+							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4"
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
-							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4"
 							autoFocus
 						/>
 					</div>

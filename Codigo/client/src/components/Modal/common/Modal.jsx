@@ -8,7 +8,7 @@ export default function Modal({ title, className, isOpen, onClose, children }) {
 	return (
 		<div className="relative z-10">
 			{/* Modal Overlay */}
-			<div className="fixed inset-0 bg-gray-800 bg-opacity-75 backdrop-blur-sm"></div>
+			<div className="fixed inset-0 bg-gray-800 bg-opacity-95 supports-[backdrop-filter]:bg-opacity-75 supports-[backdrop-filter]:backdrop-blur-sm"></div>
 
 			{/* Modal */}
 			<div className="fixed inset-0 z-10 overflow-y-auto py-5">
