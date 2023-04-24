@@ -125,7 +125,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 			children: [{ text: "" }],
 		});
 		Transforms.insertNodes(editor, ejercicio);		
-		Transforms.insertBlock(editor, { type: "paragraph", children: [{ text: "" }] });
+		Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
 		onClose();
 		reset();
 	};
