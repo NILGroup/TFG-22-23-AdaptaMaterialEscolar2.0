@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BiRectangle } from "react-icons/bi";
-import { Transforms } from "slate";
 
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
@@ -8,11 +7,14 @@ import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
+import { ModalType } from "../ModalFactory";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
-export default function ModalTrueFalse({ editor, isOpen, onClose }) {
+export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 	const [lista, setLista] = useState([]);
 	const [modificado, setmodificado] = useState([]);
 	const [listaVistaP, setListaVistaP] = useState([]);
+	const [path, setPath] = useState(null);
 
 	useEffect(() => {
 		if (lista.length > 0) {
@@ -22,9 +24,26 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			setListaVistaP([]);
 		}
 	}, [lista]);
-
+	const openModalUpdate = (path, data) =>{
+		console.log(ModalType.TrueFalse)
+		openModal(ModalType.TrueFalse);
+		setLista(data.lista);
+		setmodificado(data.modificado);
+		setListaVistaP(data.listaVistaP);
+		setPath(path);
+	}
+	
 	const okButton = (editor, items) => {
-		const list = { type: "list", children: [] };
+		const list = { 
+			type: "definition",
+			openModalUpdate,
+			data:{
+				lista,
+				modificado,
+				listaVistaP
+			},
+			children: [] 
+		};
 		const listItem = {
 			type: "paragraph",
 			children: [{ text: "Responde Verdadero o Falso. Según corresponda." }],
@@ -39,11 +58,11 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 
 			list.children.push(listItem);
 		});
+		list.children.push({type: "paragraph",children: [{text:''}]});
 
-		Transforms.insertNodes(editor, list);
+		insertarEjercicioEditable(editor, list, path)
 		closeModal();
 	};
-
 	const submit = (newWord) => {
 		setLista([...lista, newWord]);
 		setmodificado([...modificado, false]);
@@ -62,7 +81,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose }) {
 			return newList;
 		});
 	};
-
+	
 	const editWord = (newValue, index) => {
 		if (!lista) throw new Error("Cannot update word, word list does not exist!");
 

@@ -1,4 +1,5 @@
 import { Editor } from "slate";
+import { Transforms } from "slate";
 
 export const sizeMap = {
 	xs: { text: "Muy Pequeño", value: "text-xs" },
@@ -39,3 +40,10 @@ export const isMarkActive = (editor, format) => {
 
 	return marks ? marks[format] === true : false;
 };
+export const insertarEjercicioEditable = (editor, nodoEjercicio, path) => {
+	if (path !== null) 
+		Transforms.removeNodes(editor, { at: path })
+
+	Transforms.insertNodes(editor, nodoEjercicio);		
+	Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
+}

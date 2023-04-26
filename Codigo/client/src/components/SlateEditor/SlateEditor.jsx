@@ -50,7 +50,7 @@ export default function SlateEditor() {
 			case "image":
 				return <ImageElement {...props} />;
 			case "definition":
-				return <Definition {...props} openModal={openModal} />;
+				return <Definition {...props} />;
 			case "desarrollo":
 				return <Desarrollo {...props} />;
 			case "embeds":
@@ -91,14 +91,10 @@ export default function SlateEditor() {
 	// Tipo de modal [tipo actual, cambiar el tipo de modal]
 	const [modalType, setModalType] = useState(null);
 
-	// Tipo de modal [tipo actual, cambiar el tipo de modal]
-	const [modalData, setModalData] = useState(null);
-
 	// Funcion auxiliar para abrir el modal de un tipo especifico
-	const openModal = (modalType, data = undefined) => {
+	const openModal = (modalType) => {
 		setIsOpen(true);
 		setModalType(modalType);
-		setModalData(data);
 	};
 
 	return (
@@ -126,7 +122,7 @@ export default function SlateEditor() {
 				editor={editor}
 				isOpen={isOpen}
 				onClose={() => setIsOpen(false)}
-				data={modalData}
+				openModal={openModal}
 			/>
 		</>
 	);

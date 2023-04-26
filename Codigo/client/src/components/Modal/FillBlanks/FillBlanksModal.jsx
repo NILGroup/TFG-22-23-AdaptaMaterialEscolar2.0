@@ -1,16 +1,17 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 import { GapType, getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { Transforms } from "slate";
 import Modal from "../common/Modal";
 import ModalAlertButton from "../common/ModalAlertButton";
 import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPanel from "../common/ModalPanel";
 import ModalTextPanel from "../common/ModalTextPanel";
+import { ModalType } from "../ModalFactory";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 // Valores por defecto para el estado
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
 // Tipos de accion para modificar el estado del componente
 const ActionType = Object.freeze({
 	resetState: Symbol("resetstate"),
+	updateState: Symbol("updateState"),
 	toggleIsAddingGaps: Symbol("isaddinggaps"),
 	updateText: Symbol("originalText"),
 	toggleGap: Symbol("togglegap"),
@@ -34,6 +36,9 @@ const reducer = (state, action) => {
 	switch (action.type) {
 		case ActionType.resetState: {
 			return { ...initialState };
+		}
+		case ActionType.updateState: {
+			return {...action.newValue};
 		}
 		case ActionType.toggleIsAddingGaps: {
 			return { ...state, isAddingGaps: !state.isAddingGaps };
@@ -63,30 +68,67 @@ const reducer = (state, action) => {
 	}
 };
 
-export default function FillBlanksModal({ editor, isOpen, onClose }) {
+export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) {
 	// Estado del componente
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const [path, setPath] = useState(null);
 
 	//#region Manejadores de eventos
 	const handleTextAreaInput = (e) => {
 		dispatch({ type: ActionType.updateTextm, newValue: e.target.value });
 	};
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.fillBlanks);
 
+		dispatch({ type: ActionType.updateState, newValue:{
+			isAddingGaps: false,
+			originalText: data.originalText,
+			words: data.words,
+			gaps: data.gaps,
+			gapType: data.gapType,
+		}});
+		setPath(path);
+	}
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 
 		let exercise;
 		if (!state.words) exercise = "";
-		else
-			exercise = `Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:\n${state.words
-				.map((word, index) => (state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word))
-				.join("")}`;
+		else{
+			exercise =  [
+				{
+					type: "paragraph",
+					children: [{ text: "Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:" }]
+				},
+				{
+					type: "paragraph",
+					children: [{ text:
+						`${state.words
+						.map((word, index) => (state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word))
+						.join("")}`
+				
+					}]
+				},
+				{
+					type: "paragraph",
+					children: [{ text: "" }]
+				},
+				
+				]
+		}
+		console.log(exercise)
 
-		Transforms.insertNodes(editor, {
-			type: "paragraph",
-			children: [{ text: exercise }],
-		});
-
+		insertarEjercicioEditable(editor,  {
+			type: "definition",
+			openModalUpdate,
+			data:{
+				originalText: state.originalText,
+				gapType: state.gapType,
+				gaps: state.gaps,
+				words: state.words,
+			},
+			children: exercise,
+		}, path);
 		handleClose();
 	};
 

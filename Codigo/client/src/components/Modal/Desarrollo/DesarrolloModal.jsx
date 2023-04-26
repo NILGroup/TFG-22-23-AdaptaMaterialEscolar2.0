@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
-import { Transforms } from "slate";
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import imagenes from "../../../assets/imagenes";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
+import { ModalType } from "../ModalFactory";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
-export default function DesarrolloModal({ editor, isOpen, onClose }) {
+export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) {
 	const [textareaValue, setTextareaValue] = useState("");
 	const [numFilas, setNumFilas] = useState(1);
 	const [value, setValue] = useState("");
+	const [path, setPath] = useState(null);
 
 	const handleEnunciadoChange = (event) => {
 		setTextareaValue(event.target.value);
@@ -53,6 +55,12 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 				</div>
 			);
 		}
+		else if(renderOption === 'square_space'){
+			lines.push(
+				<div style={{ height: `${5 * numFilas}mm` }}>
+				</div>
+			);	
+		}
 		else{
 			for (let i = 0; i < numFilas; i++) {
 				lines.push(
@@ -65,9 +73,24 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 		}
 		return lines;
 	};
-
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.desarrollo)
+		setTextareaValue(data.textareaValue);
+		setNumFilas(data.numFilas);
+		setValue(data.value);
+		setPath(path);
+	}
 	const insertInEditor = (editor) => {
-		const ejercicio = { type: "desarrollo", children: [] };
+		const ejercicio = { 
+			type: "definition",
+			openModalUpdate,
+			data: {
+				textareaValue,
+				numFilas,
+				value
+			},
+			children: [] 
+		};
 		const enunciado = {
 			type: "paragraph",
 			children: [{ text: textareaValue }],
@@ -82,14 +105,15 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
-		if(renderOption === 'square'){
+		if(renderOption === 'square' || renderOption === 'square_space'){
 			ejercicio.children.push({
 				type: "staff",
 				renderOption,
 				number:numFilas,
 				children: [{ text: "" }],
 			});
-		}else {
+		}
+		else {
 			for (let j = 0; j < numFilas; j++) {
 				ejercicio.children.push({
 					type: "staff",
@@ -104,7 +128,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 			children: [{ text: "" }],
 		});
 
-		Transforms.insertNodes(editor, ejercicio);
+		insertarEjercicioEditable(editor, ejercicio, path)
 	};
 
 	const submit = (e) => {
@@ -131,6 +155,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							name="enunciado"
 							id=""
 							rows="5"
+							value={textareaValue}
 							onChange={handleEnunciadoChange}
 							className="input-textarea w-full"
 							required
@@ -142,6 +167,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose }) {
 							id="num_filas"
 							label="Número de filas:"
 							name="num_filas"
+							value={numFilas}
 							min={MIN_ROWS}
 							max={MAX_ROWS}
 							onChange={handleNumFilasChange}

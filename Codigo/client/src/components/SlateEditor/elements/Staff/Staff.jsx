@@ -10,6 +10,7 @@ export default function Staff({ attributes, children, element }) {
 		<div {...attributes} contentEditable={false}>
 			{
 				element.renderOption === 'square' ? (<div className='border border-black border-solid' style={{ height: `${5 * element.number}mm` }}>
+				</div>): element.renderOption === 'square_space' ?  (<div style={{ height: `${5 * element.number}mm` }}>
 				</div>):
 				<img src={imagenes[element.renderOption]} />
 			}

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import { Transforms } from "slate";
+import React, { useState } from "react";
 
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
@@ -10,28 +8,20 @@ import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import imagenes from "../../../assets/imagenes";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
+import { ModalType } from "../ModalFactory";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
-export default function DefinitionModal({ editor, isOpen, onClose, data }) {
+export default function DefinitionModal({ editor, isOpen, onClose, openModal }) {
 	const [concepts, setConcepts] = useState([]);
 	const [isModify, setModify] = useState([]);
 	const [number, setNumber] = useState(1);
 	const [value, setValue] = useState("");
+	const [path, setPath] = useState(null);
 
 	const introduction = (n) => `Define ${n === 1 ? "el siguiente concepto" : `los siguientes ${n} conceptos`} :`;
-
-	// Comprobamos la recepción de datos, el else es necesario porque los componentes ya estan montados en el DOM
-	useEffect(() => {
-		if (data !== undefined) {
-			setConcepts(data.concepts);
-			setNumber(data.number);
-			setValue(data.value);
-		} else {
-			reset();
-		}
-	}, [isOpen]);
 
 	const handleNumFilasChange = (event) => {
 		setNumber(event.target.value);
@@ -45,9 +35,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 		setConcepts([]);
 		setNumber(1);
 		setValue("");
-
-		//  Vaciamos el parametro data para evitar posibles errores
-		data = undefined;
+		setPath(null)
 	};
 
 	const renderLines = () => {
@@ -61,6 +49,12 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 				</div>
 			);
 		}
+		else if(renderOption === 'square_space'){
+			lines.push(
+				<div style={{ height: `${5 * number}mm` }}>
+				</div>
+			);	
+		}
 		else{
 			for (let i = 0; i < number; i++) {
 				lines.push(
@@ -73,16 +67,23 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 		}
 		return lines;
 	};
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.definition)
+		setConcepts(data.concepts);
+		setNumber(data.number);
+		setValue(data.value);
+		setPath(path);
+	}
 	//Insertar datos en el editor
 	const insertDatos = () => {
-		if (data !== undefined) 
-			Transforms.removeNodes(editor, { at: data.path })
-
 		const ejercicio = { 
 			type: "definition",
-			concepts: concepts,
-			number: number,
-			value: value,
+			openModalUpdate,
+			data: {
+				concepts,
+				number,
+				value
+			},
 			children: [],
 		};
 
@@ -103,7 +104,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 				type: "paragraph",
 				children: [{ text: `${concept}:` }],
 			});
-			if(renderOption === 'square'){
+			if(renderOption === 'square' || renderOption === 'square_space'){
 				ejercicio.children.push({
 					type: "staff",
 					renderOption,
@@ -124,8 +125,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 			type: "paragraph",
 			children: [{ text: "" }],
 		});
-		Transforms.insertNodes(editor, ejercicio);		
-		Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
+		insertarEjercicioEditable(editor, ejercicio, path)
 		onClose();
 		reset();
 	};
@@ -162,6 +162,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, data }) {
 						id="num_filas"
 						label="Número de filas:"
 						name="num_filas"
+						value={value}
 						onChange={handleNumFilasChange}
 						min={MIN_ROWS}
 						max={MAX_ROWS}

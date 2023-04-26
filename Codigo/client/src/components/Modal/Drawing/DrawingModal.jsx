@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
-import { Transforms } from "slate";
 import Modal from "../common/Modal";
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
-import guideLine from "./GuideLine.module.css";
+import { ModalType } from "../ModalFactory";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
-export default function DrawingModal({ editor, isOpen, onClose }) {
+export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 	const [textareaValue, setTextareaValue] = useState("");
 	const [espacio, setEspacio] = useState(1);
 	const [recuadrar, setRecuadrar] = useState(true);
+	const [path, setPath] = useState(null);
 
 	const handleEnunciadoChange = (event) => {
 		setTextareaValue(event.target.value);
@@ -47,23 +48,42 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 			return;
 		}
 
-		return <div className={recuadrar ? guideLine.recuadrar : ""} style={{ height: espacio + "cm" }}></div>;
+		return <div  className='border border-black border-solid my-1'  style={{ height: `${5 * espacio }mm` }}></div>;
 	};
-
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.drawing)
+		setTextareaValue(data.textareaValue);
+		setEspacio(data.espacio);
+		setRecuadrar(data.recuadrar);
+		setPath(path);
+	}
 	const insertInEditor = (editor) => {
-		const ejercicio = { type: "desarrollo", children: [] };
+		const ejercicio = { 
+			type: "definition", 
+			openModalUpdate,
+			data:{
+				textareaValue,
+				espacio,
+				recuadrar
+			},
+			children: [] 
+		};
 		const enunciado = {
 			type: "paragraph",
 			children: [{ text: textareaValue }],
 		};
 		ejercicio.children.push(enunciado);
-
-		let renderOption = recuadrar ? "recuadrar" : "";
+		
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
+		let renderOption = recuadrar ? "square" : "square_space";
 
 		ejercicio.children.push({
-			type: "drawingSpace",
-			style: renderOption,
-			height: espacio + "cm",
+			type: "staff",
+			renderOption,
+			number:espacio,
 			children: [{ text: "" }],
 		});
 		ejercicio.children.push({
@@ -77,7 +97,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 			children: [{ text: "" }],
 		});
 
-		Transforms.insertNodes(editor, ejercicio);
+		insertarEjercicioEditable(editor, ejercicio, path)
 	};
 
 	const submit = (e) => {
@@ -104,6 +124,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 							name="enunciado"
 							id=""
 							rows="3"
+							value={textareaValue}
 							onChange={handleEnunciadoChange}
 							className="input-textarea w-full"
 							required
@@ -115,6 +136,7 @@ export default function DrawingModal({ editor, isOpen, onClose }) {
 							id="num_filas"
 							label="Espacio:"
 							name="num_filas"
+							value={espacio}
 							min={MIN_ROWS}
 							max={MAX_ROWS}
 							onChange={handleEspacioChange}
