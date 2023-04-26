@@ -34,7 +34,7 @@ export default function Leaf({ leaf, attributes, children }) {
 	// }
 
 	if (leaf.fontSize) {
-		children = <span className={leaf.fontSize}>{children}</span>;
+		children = <span style={{ fontSize: `${leaf.fontSize}px` }}>{children}</span>;
 	}
 
 	// if (leaf.fontFamily) {

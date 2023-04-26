@@ -6,7 +6,7 @@ import ToolbarGroupButton from "./ToolbarGroupButton";
 
 import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnderline } from "react-icons/ai";
 import { TableSelector } from "./TableSelector";
-import ToolbarGroupSelect from "./ToolbarGroupSelect";
+import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -16,12 +16,7 @@ const markTypes = [
 ];
 
 export default function ToolbarFormatGroup({ editor, openModal }) {
-	const changeMarkData = (e, format) => {
-		e.preventDefault();
-
-		const value = e.target.value;
-		addMarkData(editor, { format, value });
-	};
+	const changeMarkData = (value, format) => addMarkData(editor, { format, value });
 
 	return (
 		<div className="flex items-center gap-4">
@@ -46,11 +41,17 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 				})}
 			</div>
 			{/* Opciones de fuente */}
-			<ToolbarGroupSelect
-				options={Object.keys(sizeMap).map((key) => sizeMap[key])}
-				defaultValue={"text-base"}
+			<ToolbarGroupNumberInput
+				label="Tamaño de letra:"
+				defaultValue={16}
 				checkValue={() => activeMark(editor, "fontSize")}
-				onChange={(e) => changeMarkData(e, "fontSize")}
+				min="1"
+				max="100"
+				onChange={(e) => {
+					e.preventDefault();
+
+					changeMarkData(e.target.value, "fontSize");
+				}}
 			/>
 			{/* Tablas */}
 			<TableSelector editor={editor} />
