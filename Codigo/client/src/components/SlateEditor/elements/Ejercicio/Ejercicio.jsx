@@ -3,7 +3,7 @@ import React from "react";
 import { HiOutlinePencil } from "react-icons/hi";
 import { ReactEditor, useFocused, useSelected, useSlateStatic } from "slate-react";
 
-export default function Definition({ attributes, children, element }) {
+export default function Ejercicio({ attributes, children, element }) {
 	const isSelected = useSelected();
 	const isFocused = useFocused();
 	const editor = useSlateStatic()

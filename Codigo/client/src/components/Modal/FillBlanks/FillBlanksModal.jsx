@@ -119,7 +119,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 		console.log(exercise)
 
 		insertarEjercicioEditable(editor,  {
-			type: "definition",
+			type: "ejercicio",
 			openModalUpdate,
 			data:{
 				originalText: state.originalText,
@@ -148,6 +148,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 
 	const handleClose = () => {
 		dispatch({ type: ActionType.resetState });
+		setPath(null);
 
 		onClose();
 	};

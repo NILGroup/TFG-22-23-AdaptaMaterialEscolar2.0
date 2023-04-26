@@ -38,6 +38,7 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 		setTextareaValue("");
 		setEspacio(1);
 		setRecuadrar(true);
+		setPath(null);
 	};
 
 	const renderLines = () => {
@@ -59,7 +60,7 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 	}
 	const insertInEditor = (editor) => {
 		const ejercicio = { 
-			type: "definition", 
+			type: "ejercicio", 
 			openModalUpdate,
 			data:{
 				textareaValue,

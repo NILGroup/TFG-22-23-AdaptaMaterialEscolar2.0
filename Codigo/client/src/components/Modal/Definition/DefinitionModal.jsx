@@ -77,7 +77,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 	//Insertar datos en el editor
 	const insertDatos = () => {
 		const ejercicio = { 
-			type: "definition",
+			type: "ejercicio",
 			openModalUpdate,
 			data: {
 				concepts,

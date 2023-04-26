@@ -25,7 +25,6 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		}
 	}, [lista]);
 	const openModalUpdate = (path, data) =>{
-		console.log(ModalType.TrueFalse)
 		openModal(ModalType.TrueFalse);
 		setLista(data.lista);
 		setmodificado(data.modificado);
@@ -35,7 +34,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 	
 	const okButton = (editor, items) => {
 		const list = { 
-			type: "definition",
+			type: "ejercicio",
 			openModalUpdate,
 			data:{
 				lista,
@@ -99,6 +98,8 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		setListaVistaP([]);
 		setLista([]);
 		setmodificado([]);
+		setPath(null);
+
 		onClose();
 	};
 

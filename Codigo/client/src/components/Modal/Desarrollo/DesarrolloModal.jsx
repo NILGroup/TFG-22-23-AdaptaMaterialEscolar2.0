@@ -35,6 +35,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 		setTextareaValue("");
 		setNumFilas(1);
 		setValue("");
+		setPath(null);
 	};
 
 	const renderLines = () => {
@@ -82,7 +83,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 	}
 	const insertInEditor = (editor) => {
 		const ejercicio = { 
-			type: "definition",
+			type: "ejercicio",
 			openModalUpdate,
 			data: {
 				textareaValue,
