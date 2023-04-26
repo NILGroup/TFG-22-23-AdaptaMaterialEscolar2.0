@@ -297,7 +297,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 				<Spinner />
 			) : (
 				pictos &&
-				(pictos.length > 0 ? (
+				(pictos.some((word) => word.pictograms.length > 0) ? (
 					<>
 						<h4 className="mt-2 text-modal-heading">Pictogramas</h4>
 						<PictogramGrid
@@ -316,7 +316,14 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 						/>
 					</>
 				) : (
-					<h4 className="mt-4 self-center text-modal-heading">No se han encontrado pictogramas</h4>
+					<>
+						<h4 className="mt-4 self-center text-modal-heading">No se han encontrado pictogramas</h4>
+						<ModalOkButton
+							className="my-2 self-center"
+							onClick={(e) => handleOk(e, pictos)}
+							disabled={pictos === initialState.pictos || pictos.every((word) => word.disabled)}
+						/>
+					</>
 				))
 			)}
 		</Modal>

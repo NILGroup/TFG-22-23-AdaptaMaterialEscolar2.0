@@ -27,9 +27,8 @@ export default function PictotranslatorElement({ attributes, children, element, 
 					<HiOutlinePencil />
 				</span>
 				<div className={pictogramClass}>
-					{element.values.words
-						.filter((word) => !word.disabled)
-						.map((word, index) => {
+					{element.values.words.map((word, index) => {
+						if (word.pictograms.length > 0 && !word.disabled) {
 							return (
 								<div
 									key={`pictogram_${index}`}
@@ -53,7 +52,10 @@ export default function PictotranslatorElement({ attributes, children, element, 
 									/>
 								</div>
 							);
-						})}
+						} else {
+							return <span key={`word_${index}`}>{word.word}</span>;
+						}
+					})}
 				</div>
 			</div>
 		</div>

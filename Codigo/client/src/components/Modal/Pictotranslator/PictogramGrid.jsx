@@ -14,6 +14,8 @@ export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isB
 	return (
 		<div className="grid max-h-80 grid-cols-1 justify-center gap-8 overflow-y-auto break-words p-4 md:grid-cols-2 md:justify-evenly xl:grid-cols-4">
 			{words.map((word, index) => {
+				if (word.pictograms.length === 0) return null;
+
 				return (
 					<div key={`pictogram-${index}`} className="flex flex-col gap-2">
 						<div
