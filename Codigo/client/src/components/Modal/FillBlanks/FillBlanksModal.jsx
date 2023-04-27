@@ -1,6 +1,6 @@
-import React, { useReducer } from "react";
+import React,{ useReducer } from "react";
 
-import { GapType, getGapTypeInfo } from "./Gap";
+import { GapType,getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { AiOutlineInfoCircle } from "react-icons/ai";
@@ -11,6 +11,7 @@ import ModalButton from "../common/ModalButton";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPanel from "../common/ModalPanel";
 import ModalTextPanel from "../common/ModalTextPanel";
+
 
 // Valores por defecto para el estado
 const initialState = {
@@ -43,7 +44,7 @@ const reducer = (state, action) => {
 
 			if (!action.newValue) return { ...state, originalText: text, words: null, gaps: null };
 
-			const newWords = text.split(/([^\w\d])/g);
+			const newWords = text.split(/([\n\r\s\t])/g);
 			const newGaps = Array.from({ length: newWords.length }, () => false);
 
 			return { ...state, originalText: text, words: newWords, gaps: newGaps };
@@ -126,7 +127,9 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 									listStyle="list-none"
 									placement="left"
 									alertBoxClassName="bg-alert-info text-alert-info-dark"
-									contentList={["Haz clic izquierdo sobre las palabras para convertirlas en huecos, y viceversa."]}
+									contentList={[
+										"Haz clic izquierdo sobre las palabras para convertirlas en huecos, y viceversa.",
+									]}
 								/>
 							}
 						>
@@ -136,6 +139,8 @@ export default function FillBlanksModal({ editor, isOpen, onClose }) {
 								if (word === " ") return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
 
 								if (word === "\n") return <br key={`linebreak-${index}`} />;
+
+								if (word === "\t") return <React.Fragment key={`tab-${index}`}>&emsp;</React.Fragment>;
 
 								if (/([^\s\w\d])/g.test(word))
 									return <React.Fragment key={`punctuationSign-${index}`}>{word}</React.Fragment>;
