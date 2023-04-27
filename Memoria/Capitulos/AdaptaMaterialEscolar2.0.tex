@@ -121,6 +121,7 @@ El diseño inicial de la página principal incluye una cabecera con el logo de l
   \item  \textbf{Ejercicios de cálculo con huecos:} Este diseño dispone de una opción para elegir el tamaño de la expresión matemática, una vez elegido se muestra tanto huecos como el tamaño escogido, al darle a cada hueco se podrá escribir tanto un número como una operación aritmética elemental, al finalizar se incluirá la expresión matemática en el documento de trabajo donde se encuentre el puntero. Este diseño se puede ver en la Figura \ref{dunia6}.
   \item  \textbf{Leyenda de colores para el tema de cada asignatura:} Al darle a esta opción se abrirá un menú con las asignaturas, y al presionar sobre una asignatura el borde del documento de trabajo pasará a tener el color predeterminado de dicha asignatura.
 \end{itemize}
+
 Los rediseños para las funcionalidades implementadas en AdaptaMaterialEscolar 1.0 no se realizaron ya que no se encontró una manera de mejorar el diseño.
 
 \subsubsection{Alberto Alejandro Rivas}
@@ -338,17 +339,17 @@ En las siguientes secciones se explicará en detalle la arquitectura y cómo se 
 \label{sub:Arquitectura}
 Desde el punto de vista de la arquitectura, se han mantenido partes de AdaptaMaterialEscolar 1.0 (ver Sección \ref{cap:adaptaMaterial}) y se han realizado ciertas modificaciones.
 
-En primer lugar, se ha decidido mantener React debido a la escalabilidad que proporciona y que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}}. Al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería.
+En primer lugar, se ha decidido mantener React debido a la escalabilidad que proporciona y a que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}} sin embargo, al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, ya que dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería.
 
 En cuanto a las APIs y bibliotecas hemos empleado la API de ARASAAC y la biblioteca de \textit{word-search} ya utilizadas por AdaptaMaterialEscolar 1.0.
 
-En cuanto a las modificaciones, se decidió llevar a cabo una refactorización en la arquitectura del proyecto, en concreto se modificó la estructura \textit{serverless} por una arquitectura basada en un servidor \textit{backend} que hace de intermediario entre el cliente y las APIs. Este cambio se ha llevado a cabo porque actualmente los navegadores utilizan en mecanismo \textit{CORS}, es una política de  seguridad que impide que una página web cargada desde un dominio A pueda realizar solicitudes a recursos alojados en un dominio B, sin que este último lo haya permitido previamente. Esto implica que no se pueden consumir APIs por parte del cliente a menos que la API haya desactivado dicho mecanismo.
+En cuanto a las modificaciones con respecto a la aplicación incial, se decidió llevar a cabo una refactorización en la arquitectura del proyecto. En concreto se modificó la estructura \textit{serverless} por una arquitectura basada en un servidor \textit{backend} que hace de intermediario entre el cliente y las APIs. Este cambio se ha llevado a cabo porque actualmente los navegadores utilizan el mecanismo \textit{CORS}, es una política de  seguridad que impide que una página web cargada desde un dominio A pueda realizar solicitudes a recursos alojados en un dominio B sin que este último lo haya permitido previamente. Esto implica que no se pueden consumir APIs por parte del cliente a menos que la API haya desactivado dicho mecanismo.
 
-En relación a Redux lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
+En relación a Redux, lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
 
-Por otra parte, se decidió cambiar el editor ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, explicado con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
+Por otra parte, se decidió cambiar el editor, ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, como se explicará con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
 
-Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. En la Figura \ref{fig:diagramaComponentes} se muestra el diagrama de componentes de nuestra aplicación.
+Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación. Lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. En la Figura \ref{fig:diagramaComponentes} se muestra el diagrama de componentes de nuestra aplicación.
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}{\textwidth}
@@ -370,8 +371,8 @@ Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Arquitectura/Diagrama_de_Componentes.png}
-  \caption{Diagrama de componentes.}
+  \includegraphics[width=0.8\textwidth]{Arquitectura/Diagrama_de_Componentes.png}
+  \caption{Diagrama de componentes de AdaptaMaterialEscolar 2.0}
   \label{fig:diagramaComponentes}
 \end{figure}
 
@@ -379,39 +380,39 @@ Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{
 \label{Editor}
 El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación de adaptación curricular.
 
-\subsubsection{Estructura}
-El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad.
-A continuación, se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
+\subsubsection{Estructura del editor}
+El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido ya explicados en la Sección \ref{cap:requisitos}, y cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador. De esta forma se logra una mayor escalabilidad.
+A continuación se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
 
 \begin{itemize}
-  \item Archivo: Esta contiene opciones relacionadas con el manejo de archivos, podemos verlas en la Figura \ref{fig:barrraHerramientaArchivo} y son:
+  \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, ``Figura \ref{fig:barrraHerramientaArchivo}''; que son:
         \begin{itemize}
-          \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}, esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
-          \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, emplea el mismo sistema que el exportar a Word.
-          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido lo serializa mediante un plugin y se transfiere al editor.
+          \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
+          \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, y emplea el mismo sistema que el exportar a PDF.
+          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido, lo serializa mediante un plugin y se transfiere al editor.
         \end{itemize}
-  \item Formato: Esta contiene opciones para formatear el texto que se está editando se puede ver en la Figura \ref{fig:barrraHerramientaFormato}. Las opciones que dispone son:
+  \item Formato: Esta barra contiene opciones para formatear el texto que se está editando (Figura \ref{fig:barrraHerramientaFormato}). Las opciones que incluye son:
         \begin{itemize}
           \item Negrita: Permite cambiar el formato de texto a negrita.
           \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
         \end{itemize}
-  \item Ejercicios: Esta dispone de varias opciones para crear ejercicios se puede ver en la Figura \ref{fig:barrraHerramientaEjercicios}. Las cuales son:
+  \item Ejercicios: Esta barra dispone de varias opciones para crear ejercicios (Figura \ref{fig:barrraHerramientaEjercicios}), que son:
         \begin{itemize}
-          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos este se introduce en un nodo parrafo.
-          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que le permitirá ingresar la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un noda que tiene dos hijos el primero es un nodo de tipo parrafo y el segundo es un nodo de tipo tabla.
-          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que le permitirá ingresar la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo parrafo para el enunciado, otro nodo parrafo por cada concepto y un nodo denominado ``Staff'' para los tipos de pauta.
-          \item Verdadero/Falso: Esta opción activa un modal donde puede ingresar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo parrafo para el enunciado y tantos nodos parrafos como conceptos introduzca el usuario, en este se encuanta un nodo llamado ``icon'' para el cuadrado donde indicara el alumno si es verdadero o falso.
-          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarollo emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
-          \item Formula Matematica: Esta función, desde el punto de vista del editor es igual a la de completar huecos.
+          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Desde el padre de la estructura interna del editor, este se introduce en un nodo parrafo.
+          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que al usuario permitirá introducir la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un nodo que tiene dos hijos: el primero es un nodo de tipo párrafo y el segundo es un nodo de tipo tabla.
+          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que al usuario permitirá introducir la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo párrafo para el enunciado, otro nodo párrafo por cada concepto y un nodo denominado ``staff'' para los tipos de pauta.
+          \item Verdadero/Falso: Esta opción activa un modal donde puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como conceptos introduzca el usuario. En el cual se encuanta un nodo llamado ``icon'' para el cuadrado donde el alumno indicara si es verdadero o falso.
+          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
+          \item Formula Matemática: Esta función, desde el punto de vista del editor, es igual a la de completar huecos.
         \end{itemize}
-  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto todas al igual que la anterior barra de herramientas despliegan un mondal para obtener la información necesaria para crear el nodo:
+  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
         \begin{itemize}
-          \item Generar resumen: Con la información obtenida se crea un nodo de tipo parrafo.
-          \item Picotraductor: Esta función a traves de los datos obtiene una imagen que se introduce en un nodo que hemos denominado ``image''.
+          \item Generar resumen: Con la información obtenida se crea un nodo de tipo párrafo.
+          \item Picotraductor: Esta función obtiene una imagen usando la API de ARASAAC que se introduce en un nodo que hemos denominado ``image''.
         \end{itemize}
 \end{itemize}
 
-Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección.  \ref{sub:Arquitectura}.Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
+Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explicó en la Sección \ref{sub:Arquitectura}. Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
 
 \begin{figure}[h!]
   \centering
@@ -441,7 +442,7 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
   \label{fig:barrraHerramientaTexto}
 \end{figure}
 
-\subsubsection{Integración}
+\subsubsection{Integración del editor con la aplicación}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
 
 Slate de partida proporciona lo equivalente a un área de texto por lo que se debe configurar desde cero por lo cual, se ha definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
