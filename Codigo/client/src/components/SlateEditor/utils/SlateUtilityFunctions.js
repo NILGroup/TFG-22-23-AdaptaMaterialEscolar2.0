@@ -8,7 +8,7 @@ export const isBlockActive = (editor, format) => {
 		match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format,
 	});
 
-	return !!match;
+	return match;
 };
 
 export const toggleBlock = (editor, format) => {

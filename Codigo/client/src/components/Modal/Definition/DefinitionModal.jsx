@@ -162,7 +162,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 						id="num_filas"
 						label="Número de filas:"
 						name="num_filas"
-						value={value}
+						value={number}
 						onChange={handleNumFilasChange}
 						min={MIN_ROWS}
 						max={MAX_ROWS}
