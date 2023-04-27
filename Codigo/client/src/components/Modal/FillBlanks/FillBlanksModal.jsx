@@ -24,12 +24,12 @@ const initialState = {
 
 // Tipos de accion para modificar el estado del componente
 const ActionType = Object.freeze({
-	resetState: Symbol("resetstate"),
+	resetState: Symbol("resetState"),
 	updateState: Symbol("updateState"),
-	toggleIsAddingGaps: Symbol("isaddinggaps"),
-	updateText: Symbol("originalText"),
-	toggleGap: Symbol("togglegap"),
-	updateGapType: Symbol("updategaptype"),
+	toggleIsAddingGaps: Symbol("isAddingGaps"),
+	updateOriginalText: Symbol("updateOriginalText"),
+	toggleGap: Symbol("toggleGap"),
+	updateGapType: Symbol("updateGapType"),
 });
 
 const reducer = (state, action) => {
@@ -73,25 +73,25 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 	const [state, dispatch] = useReducer(reducer, initialState);
 	const [path, setPath] = useState(null);
 
-	//#region Manejadores de eventos
-	const handleTextAreaInput = (e) => {
-		dispatch({ type: ActionType.updateTextm, newValue: e.target.value });
-	};
+	const { isAddingGaps, originalText, words, gaps, gapType } = state;
 
+	//#region Manejadores de eventos
 	const openModalUpdate = (path, data) => {
 		openModal(ModalType.fillBlanks);
 
 		dispatch({
 			type: ActionType.updateState,
 			newValue: {
-				isAddingGaps: false,
-				originalText: data.originalText,
-				words: data.words,
-				gaps: data.gaps,
-				gapType: data.gapType,
+				...initialState,
+				...data,
 			},
 		});
+
 		setPath(path);
+	};
+
+	const handleTextAreaInput = (e) => {
+		dispatch({ type: ActionType.updateOriginalText, newValue: e.target.value });
 	};
 
 	const handleFormSubmit = (e) => {
@@ -99,7 +99,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 
 		let exercise;
 
-		if (!state.words) exercise = "";
+		if (!words) exercise = "";
 		else {
 			exercise = [
 				{
@@ -112,10 +112,8 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 					type: "paragraph",
 					children: [
 						{
-							text: `${state.words
-								.map((word, index) =>
-									state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word
-								)
+							text: `${words
+								.map((word, index) => (gaps[index] ? "_".repeat(getGapTypeInfo(gapType).length) : word))
 								.join("")}`,
 						},
 					],
@@ -133,10 +131,10 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 				type: "ejercicio",
 				openModalUpdate,
 				data: {
-					originalText: state.originalText,
-					gapType: state.gapType,
-					gaps: state.gaps,
-					words: state.words,
+					originalText: originalText,
+					gapType: gapType,
+					gaps: gaps,
+					words: words,
 				},
 				children: exercise,
 			},
@@ -172,7 +170,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 		<Modal title="Completar Huecos" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<form className="flex flex-col" onSubmit={handleFormSubmit}>
 				<div className="flex flex-col items-start gap-4">
-					{state.isAddingGaps ? (
+					{isAddingGaps ? (
 						<ModalPanel
 							label="Texto"
 							panelClassName="break-words"
@@ -190,7 +188,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 								/>
 							}
 						>
-							{state.words.map((word, index) => {
+							{words.map((word, index) => {
 								if (!word) return null;
 
 								if (word === " ") return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
@@ -208,7 +206,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 										className="cursor-pointer hover:font-bold hover:text-primary"
 										onClick={() => handleWordClick(index)}
 									>
-										{state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word}
+										{gaps[index] ? "_".repeat(getGapTypeInfo(gapType).length) : word}
 									</span>
 								);
 							})}
@@ -218,16 +216,16 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 							label="Texto"
 							name="originalText"
 							id="originalText"
-							value={state.originalText}
+							value={originalText}
 							onChange={handleTextAreaInput}
 						/>
 					)}
 					<ModalButton
 						className="self-end py-2 px-3"
 						onClick={handleChangeModeButton}
-						disabled={state.words === null}
+						disabled={words === null}
 					>
-						{!state.isAddingGaps ? "Añadir huecos" : "Editar texto"}
+						{!isAddingGaps ? "Añadir huecos" : "Editar texto"}
 					</ModalButton>
 				</div>
 				<div>
@@ -237,13 +235,13 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 							<ModalGapRadio
 								key={`gap-${key}${i}`}
 								gapType={GapType[key]}
-								checked={state.gapType === GapType[key]}
+								checked={gapType === GapType[key]}
 								onChange={handleModalGapRadioChange}
 							/>
 						))}
 					</div>
 				</div>
-				<ModalOkButton className="mt-5 self-center" disabled={state.words === null} />
+				<ModalOkButton className="mt-5 self-center" disabled={words === null} />
 			</form>
 		</Modal>
 	);

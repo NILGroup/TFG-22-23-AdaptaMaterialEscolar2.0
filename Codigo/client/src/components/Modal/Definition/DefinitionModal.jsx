@@ -53,7 +53,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			lines.push(
 				<div style={{ height: `${5 * number}mm` }}>
 				</div>
-			);	
+			);
 		}
 		else{
 			for (let i = 0; i < number; i++) {
@@ -76,7 +76,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 	}
 	//Insertar datos en el editor
 	const insertDatos = () => {
-		const ejercicio = { 
+		const ejercicio = {
 			type: "ejercicio",
 			openModalUpdate,
 			data: {
@@ -97,7 +97,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			type: "paragraph",
 			children: [{ text: "" }],
 		});
-			
+
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		concepts.map((concept => {
 			ejercicio.children.push({

@@ -19,8 +19,8 @@ export class TableUtil {
 
 		// Creamos una matriz bidimensional con las dimensiones especificadas por rows y columns o por el array pasado.
 		let newTable;
-		if (rows > 0 && columns > 0) newTable = createTableNode(rows, columns, style);
-		else newTable = createTableNodeByArray(celltext, style);
+		if (rows > 0 && columns > 0) newTable = this.createTableNode(rows, columns, style);
+		else newTable = this.createTableNodeByArray(celltext, style);
 
 		// El mode: highest en el insert indica que se inserte en el nodo más alto.
 		Transforms.insertNodes(this.editor, newTable, {
@@ -34,6 +34,30 @@ export class TableUtil {
 			match: (n) => !Editor.isEditor(n) && Element.isElement(n) && n.type === "table",
 			// mode:'highest'
 		});
+	};
+
+	// Funcion para crear el nodo tabla con celdas vacias
+	createTableNode = (rows, columns, style) => {
+		const cellText = Array.from({ length: rows }, () => Array.from({ length: columns }, () => ""));
+		const tableChildren = Array.from(cellText, (value) => createRow(value));
+
+		let tableNode = {
+			type: "table",
+			style,
+			children: tableChildren,
+		};
+		return tableNode;
+	};
+
+	createTableNodeByArray = (celltext, style) => {
+		const tableChildren = Array.from(celltext, (value) => createRow(value));
+
+		let tableNode = {
+			type: "table",
+			style,
+			children: tableChildren,
+		};
+		return tableNode;
 	};
 }
 
@@ -49,6 +73,7 @@ export const createTableCell = (text) => {
 		],
 	};
 };
+
 // Funcion para crear filas
 export const createRow = (cellText) => {
 	const newRow = Array.from(cellText, (value) => createTableCell(value));
@@ -56,29 +81,4 @@ export const createRow = (cellText) => {
 		type: "table-row",
 		children: newRow,
 	};
-};
-
-// Funcion para crear el nodo tabla con celdas vacias
-const createTableNode = (rows, columns, style) => {
-	const cellText = Array.from({ length: rows }, () => Array.from({ length: columns }, () => ""));
-	const tableChildren = Array.from(cellText, (value) => createRow(value));
-
-	let tableNode = {
-		type: "table",
-		style,
-		children: tableChildren,
-	};
-	return tableNode;
-};
-
-// Funcion para crear el nodo tabla apartir de un array
-const createTableNodeByArray = (celltext, style) => {
-	const tableChildren = Array.from(celltext, (value) => createRow(value));
-
-	let tableNode = {
-		type: "table",
-		style,
-		children: tableChildren,
-	};
-	return tableNode;
 };

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 import Modal from "../common/Modal";
 import ModalNewWordInput from "../common/ModalNewWordInput";
@@ -9,12 +9,12 @@ import WordSearchGrid from "./WordSearchGrid";
 
 import { createWordSearch } from "./WordSearchUtils";
 
-import { Transforms } from "slate";
-
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import { TableUtil } from "../../SlateEditor/utils/TableUtil";
+import { ModalType } from "../ModalFactory";
 
 // Valores Constantes
 const DIRECTIONS = {
@@ -42,17 +42,18 @@ const initialState = {
 
 // Tipos de accion para modificar el estado del componente
 const ActionType = Object.freeze({
-	resetState: Symbol("resetstate"),
-	updateNumRows: Symbol("updatenumrows"),
-	updateNumCols: Symbol("updatenumcols"),
-	addWordToWordList: Symbol("addwordtowordlist"),
-	editWordOfWordList: Symbol("editwordofwordlist"),
-	deleteWordFromWordList: Symbol("deletewordfromwordlist"),
-	updateDirections: Symbol("updatedirections"),
-	updateBackwards: Symbol("updatebackwards"),
-	updateBackwardsProbability: Symbol("updatebackwardsprobability"),
-	updateShowWords: Symbol("updateshowwords"),
-	updateShowDirections: Symbol("updateshowdirections"),
+	resetState: Symbol("resetState"),
+	updateState: Symbol("updateState"),
+	updateNumRows: Symbol("updateNumRows"),
+	updateNumCols: Symbol("updateNumCols"),
+	addWordToWordList: Symbol("addWordToWordList"),
+	editWordOfWordList: Symbol("editWordOfWordList"),
+	deleteWordFromWordList: Symbol("deleteWordFromWordList"),
+	updateDirections: Symbol("updateDirections"),
+	updateBackwards: Symbol("updateBackwards"),
+	updateBackwardsProbability: Symbol("updateBackwardsProbability"),
+	updateShowWords: Symbol("updateShowWords"),
+	updateShowDirections: Symbol("updateShowDirections"),
 });
 
 // Modificar el estado dependiendo de la accion ejecutada
@@ -60,6 +61,9 @@ const reducer = (state, action) => {
 	switch (action.type) {
 		case ActionType.resetState: {
 			return { ...initialState };
+		}
+		case ActionType.updateState: {
+			return { ...action.newValue };
 		}
 		case ActionType.updateNumRows: {
 			const nextNumRows = action.nextValue;
@@ -156,9 +160,13 @@ const reducer = (state, action) => {
 	}
 };
 
-export default function WordSearchModal({ editor, isOpen, onClose }) {
+export default function WordSearchModal({ editor, isOpen, onClose, openModal }) {
 	// Estado del componente
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const [path, setPath] = useState(null);
+
+	const { numRows, numCols, wordList, directions, showWords, showDirections, backwards, backwardsProbability } =
+		state;
 
 	// Datos que se pueden generar con el estado (se calculan cada vez que se renderiza la vista)
 	let grid = null;
@@ -166,18 +174,25 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 	let warnings = null;
 	let errors = null;
 
-	if (state.wordList && state.wordList.length > 0)
+	if (wordList && wordList.length > 0)
 		({ grid, addedWords, warnings, errors } = createWordSearch(
-			state.numRows,
-			state.numCols,
-			state.directions,
-			state.backwards ? state.backwardsProbability : 0.0,
-			state.wordList,
+			numRows,
+			numCols,
+			directions,
+			backwards ? backwardsProbability : 0.0,
+			wordList,
 			MIN_DIMENSION,
 			MAX_DIMENSION
 		));
 
 	//#region Funciones auxiliares
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.wordSearch);
+
+		dispatch({ type: ActionType.updateState, newValue: { ...initialState, ...data } });
+		setPath(path);
+	};
+
 	const generateExerciseStatement = (addedWords) => {
 		const { directions, showWords, showDirections } = state;
 
@@ -192,7 +207,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 				result + (index > 0 ? (index === array.length - 1 ? " y " : ", ") : "") + current,
 			""
 		)}. ${
-			state.backwards
+			backwards
 				? `También ${addedWords.length === 1 ? "puede estar escrita" : "pueden estar escritas"} al revés.`
 				: ""
 		}`;
@@ -214,21 +229,44 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 
 	//#region Manejadores de eventos
 	const handleOk = (editor, grid, addedWords) => {
-		const exerciseStatement = {
-			type: "paragraph",
-			children: [{ text: generateExerciseStatement(addedWords) }],
-		};
-
-		Transforms.insertNodes(editor, exerciseStatement);
-
 		const table = new TableUtil(editor);
-		table.insertTable(grid, undefined, undefined, "table-auto !m-auto text-center !mt-2");
+
+		let exercise;
+
+		if (!grid) exercise = "";
+		else {
+			exercise = [
+				{
+					type: "paragraph",
+					children: [{ text: generateExerciseStatement(addedWords) }],
+				},
+				table.createTableNodeByArray(grid, "table-auto !m-auto text-center !mt-2"),
+				{
+					type: "paragraph",
+					children: [{ text: "" }],
+				},
+			];
+		}
+
+		insertarEjercicioEditable(
+			editor,
+			{
+				type: "ejercicio",
+				openModalUpdate,
+				data: {
+					...state,
+				},
+				children: exercise,
+			},
+			path
+		);
 
 		handleClose();
 	};
 
 	const handleClose = () => {
 		dispatch({ type: ActionType.resetState });
+		setPath(null);
 
 		onClose();
 	};
@@ -247,7 +285,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="numRows"
 								min={MIN_DIMENSION}
 								max={MAX_DIMENSION}
-								value={state.numRows}
+								value={numRows}
 								onChange={(e) =>
 									dispatch({
 										type: ActionType.updateNumRows,
@@ -261,7 +299,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								name="numCols"
 								min={MIN_DIMENSION}
 								max={MAX_DIMENSION}
-								value={state.numCols}
+								value={numCols}
 								onChange={(e) =>
 									dispatch({
 										type: ActionType.updateNumCols,
@@ -317,10 +355,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 								}}
 							/>
 							<div className="pl-8">
-								<label
-									className={`${state.backwards ? "" : "opacity-50"}`}
-									htmlFor="backwardsProbability"
-								>
+								<label className={`${backwards ? "" : "opacity-50"}`} htmlFor="backwardsProbability">
 									Probabilidad de aparecer al revés
 								</label>
 								<div className="flex gap-2">
@@ -332,8 +367,8 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 										min="0"
 										max="1"
 										step="0.05"
-										value={state.backwardsProbability}
-										disabled={!state.backwards}
+										value={backwardsProbability}
+										disabled={!backwards}
 										onChange={(e) =>
 											dispatch({
 												type: ActionType.updateBackwardsProbability,
@@ -341,9 +376,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 											})
 										}
 									/>
-									<p className={`${state.backwards ? "" : "opacity-50"}`}>
-										{state.backwardsProbability}
-									</p>
+									<p className={`${backwards ? "" : "opacity-50"}`}>{backwardsProbability}</p>
 								</div>
 							</div>
 						</div>
@@ -360,7 +393,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						/>
 						<ModalWordList
 							className="mt-4 px-4"
-							wordList={state.wordList}
+							wordList={wordList}
 							onEdit={(newValue, index) =>
 								dispatch({
 									type: ActionType.editWordOfWordList,
@@ -377,7 +410,7 @@ export default function WordSearchModal({ editor, isOpen, onClose }) {
 						/>
 					</div>
 					<div>
-						<h4 className="text-modal-heading mb-2">Enunciado</h4>
+						<h4 className="mb-2 text-modal-heading">Enunciado</h4>
 						<div className="pl-4">
 							<ModalCheckbox
 								label="Mostrar las palabras a buscar."
