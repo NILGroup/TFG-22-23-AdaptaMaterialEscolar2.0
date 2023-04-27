@@ -2,12 +2,8 @@ import React from "react";
 
 import { HiOutlinePencil } from "react-icons/hi";
 import { ReactEditor, useFocused, useSelected, useSlateStatic } from "slate-react";
-import { ModalType } from "../../../Modal/ModalFactory";
-import staff from "../Staff/Staff.module.css";
-import imagenes from "../../../../assets/imagenes.js"
 
-
-export default function Definition({ attributes, children, element, openModal }) {
+export default function Ejercicio({ attributes, children, element }) {
 	const isSelected = useSelected();
 	const isFocused = useFocused();
 	const editor = useSlateStatic()
@@ -17,11 +13,7 @@ export default function Definition({ attributes, children, element, openModal })
 					<span
 						className={`absolute top-0 left-0 bg-button p-1 text-modal-base text-white hover:bg-button-dark
 				${isSelected && isFocused ? "inline" : "hidden"} `}
-						onClick={() => openModal(ModalType.definition, { 	concepts: element.concepts,
-																				number: element.number,
-																				value: element.value,
-																				path
-																			})}
+						onClick={() => element.openModalUpdate(path, element.data)}
 					>
 						<HiOutlinePencil />
 					</span>	

@@ -1,19 +1,21 @@
-import React, { createRef, useState } from "react";
+import React, { useState } from "react";
 
-import { Transforms } from "slate";
 import Modal from "../common/Modal";
 
 import ModalOkButton from "../common/ModalOkButton";
 
 import ModalPreview from "../common/ModalPreview";
+import { ModalType } from "../ModalFactory";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
-export default function MathFormulaModal({ editor, isOpen, onClose }) {
+export default function MathFormulaModal({ editor, isOpen, onClose, openModal }) {
 
 	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
 	const [backKeyIsDown, setBackKeyIsDown] = useState(false);
 	const [enterKeyIsDown, setEnterKeyIsDown] = useState(false);
 
 	const [formulas, setFormulas] = useState([[""]]);
+	const [path, setPath] = useState(null);
 
 	const handleInputChange = (event, formula_i, element_i) => {
 
@@ -39,6 +41,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 	const resetValues = () => {
 		setFormulas([[""]]);
+		setPath(null);
 	};
 
 	const handleKeyDown = (event, formula_i, element_i) => {
@@ -141,7 +144,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 		let ejercicioStrings = [];
 
-		formulas.forEach((formula, j)=>{
+		formulas.forEach((formula)=>{
 
 			let formulaString = "";
 
@@ -163,13 +166,24 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 		
 	};
-
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.mathFormula)
+		setSpaceKeyIsDown(data.spaceKeyIsDown);
+		setBackKeyIsDown(data.backKeyIsDown);
+		setEnterKeyIsDown(data.enterKeyIsDown);
+		setFormulas(data.formulas)
+		setPath(path);
+	}
 	const insertInEditor = (editor) => {
 
 		let ejercicioStrings = getArrayOfFormulasAsStrings();
 
 		const ejercicio = {
-			type: "paragraph",
+			type: "ejercicio",	
+			openModalUpdate,
+			data:{
+				formulas,
+			},
 			children: [],
 		};
 
@@ -180,7 +194,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 		ejercicio.children.push(enunciado);
 
-		ejercicioStrings.forEach((formulaString, i)=>{
+		ejercicioStrings.forEach((formulaString)=>{
 
 			let formula = {
 				type: "paragraph",
@@ -191,8 +205,12 @@ export default function MathFormulaModal({ editor, isOpen, onClose }) {
 
 		});
 
-		Transforms.insertNodes(editor, ejercicio);
+		ejercicio.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
 
+		insertarEjercicioEditable(editor, ejercicio, path);
 	};
 
 	const submit = (e) => {

@@ -1,6 +1,6 @@
 \chapter{AdaptaMaterialEscolar 2.0}
 \label{cap:AdaptaMaterialEscolar2.0}
-En este capítulo explicaremos la obtención de requisitos y cómo se han clasificado en la Sección \ref{cap:requisitos}. También se describirá el diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades en la Sección \ref{disenyoDeLaAplicacion}.
+En este capítulo explicaremos la obtención de requisitos y cómo se han clasificado en la Sección \ref{cap:requisitos}. También se describirá el diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades en la Sección \ref{disenyoDeLaAplicacion}. Por últimmo, en la Sección \ref{sec:implmentaction} se expondrá cómo se ha implementado la aplicación.
 
 \section{Requisitos}
 \label{cap:requisitos}
@@ -115,17 +115,18 @@ En cuanto a las funcionalidades, se realizarón los siguientes diseños:
 El diseño inicial de la página principal incluye una cabecera con el logo de la aplicación, un menú desplegable que contiene las funcionalidades y un botón que te redirige a la vista de ayuda. En la parte izquierda se encuentra el documento de trabajo, mientras que la zona derecha se divide en dos secciones, una para incluir la funcionalidad seleccionada por el usuario y otra para insertar un archivo PDF, ambas con la opción de ajustar el tamaño de la ventana. Este diseño se puede visualizar en la Figura \ref{dunia1} Con respecto a las funcionalidades, he realizado los siguientes diseños:
 \begin{itemize}
   \item \textbf{Generar un resumen:} El diseño de esta funcionalidad consta de un recuadro en el que introduces el texto y al pulsar un botón se genera el resumen. Para incluirlo en el documento de trabajo el usuario tendrá que darle a la opción de copiar y pegarlo en el documento de trabajo. Este diseño se puede ver en la Figura \ref{dunia2}.
-  \item \textbf{Pictotraductor:} Este diseño consta de un recuadro donde introduces el texto y al darle a un botón se generan los pictogramas. Para introducir los pictogramas en el documento de trabajo se hará mediante la tecla CTRL + click arrastrar al documento de trabajo los pictogramas escogidos o arrastrando todos a la vez sin seleccionar ninguno. Este diseño se puede ver en la Figura \ref{dunia3}.
+  \item \textbf{Pictotraductor:} Este diseño consta de un recuadro donde introduces el texto y al darle a un botón se generan los pictogramas correspondientes al texto. Para introducir los pictogramas en el documento de trabajo se hará mediante la tecla CTRL + click arrastrar al documento de trabajo los pictogramas escogidos o arrastrando todos a la vez sin seleccionar ninguno. Este diseño se puede ver en la Figura \ref{dunia3}.
   \item \textbf{Ejercicio de flechas:} Para este diseño se visualizaran dos tablas. Cada tabla tendría un botón de añadir o eliminar filas y aquellas celdas que quedasen vacías se trasformarían en huecos. Al darle al botón de terminar se incluiría el ejercicio de tablas sin el borde de estas en el documento de trabajo, donde se encuentre el puntero. Este diseño se puede ver en la Figura \ref{dunia4}.
   \item  \textbf{Leyenda de colores:} Este diseño consta de un rectángulo donde pones las palabras de la leyenda, y al lado de la palabra hay una opción para seleccionar el color. Además, dispone de dos botones, uno para añadir más palabras y otro para eliminarlas. Una vez el usuario haya finalizado la leyenda de colores pasa a colocarse. Al final del documento de trabajo, en el lado derecho. Este diseño se puede ver en la Figura \ref{dunia5}.
   \item  \textbf{Ejercicios de cálculo con huecos:} Este diseño dispone de una opción para elegir el tamaño de la expresión matemática, una vez elegido se muestra tanto huecos como el tamaño escogido, al darle a cada hueco se podrá escribir tanto un número como una operación aritmética elemental, al finalizar se incluirá la expresión matemática en el documento de trabajo donde se encuentre el puntero. Este diseño se puede ver en la Figura \ref{dunia6}.
   \item  \textbf{Leyenda de colores para el tema de cada asignatura:} Al darle a esta opción se abrirá un menú con las asignaturas, y al presionar sobre una asignatura el borde del documento de trabajo pasará a tener el color predeterminado de dicha asignatura.
 \end{itemize}
+
 Los rediseños para las funcionalidades implementadas en AdaptaMaterialEscolar 1.0 no se realizaron ya que no se encontró una manera de mejorar el diseño.
 
 \subsubsection{Alberto Alejandro Rivas}
 \label{sec:albertoIter}
-En este caso, los diseños fueron realizados con una herramienta de diseño de interfaces de usuario llamada Figma, con el objetivo de poder obtener un resultado más detallado y tener en cuenta la paleta de colores.
+En este caso, los diseños fueron realizados con la herramienta de diseño de interfaces de usuario Figma, con el objetivo de poder obtener un resultado más detallado y tener en cuenta la paleta de colores.
 
 Se ha intentado mantener la misma estructura y funcionalidad que en la aplicación existente, pero haciendo que la interfaz de usuario sea más profesional. Para esto se ajustó el diseño de la barra de navegación, los botones, el componente para seleccionar un fichero pdf, etc. En la pantalla principal hay una barra de navegación y un componente en el que se puede arrastrar o seleccionar un fichero pdf. Una vez seleccionado el archivo, se muestra otra página que se divide en dos, en una mitad está el pdf y en la otra está el editor de texto. Estos diseños se pueden observar en las figuras \ref{AlbertoPaginaPrincipal1} y \ref{AlbertoPaginaPrincipal2}. Por último, el usuario podrá acceder a cada funcionalidad haciendo click en los botones que se encuentran en la parte superior del editor.
 
@@ -158,9 +159,9 @@ En segundo lugar, las funcionalidades auxiliares aparecerán  como botones en el
 Por otra parte, las funcionalidades de pictograma, completar huecos, definiciones y desarrollo se empleó el diseño de AdaptaMaterialEscolar 1.0. La funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadrícula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se emplearán botones.
 
 \subsection{Diseño final}\label{subsec:DisenyoFinal}
-A continuación expondremos el diseño final de la aplicación, para llegar a este diseño hemos llevado a cabo una etapa de diseño individual en la que cada uno de los integrantes del equipo ha trabajado en la creación de su propia propuesta. En este proceso, hemos invertido tiempo y esfuerzo en la elaboración de diversas ideas, explorando diferentes enfoques y considerando las necesidades y requisitos del proyecto. Posteriormente, presentamos nuestras propuestas a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto.
+A continuación expondremos el diseño final de la aplicación. Para llegar a este diseño hemos llevado a cabo una etapa de diseño individual en la que cada uno de los integrantes del equipo ha trabajado en la creación de su propia propuesta. En este proceso, hemos invertido tiempo y esfuerzo en la elaboración de diversas ideas, tal y como se comentó anteriormente explorando diferentes enfoques y considerando las necesidades y requisitos del proyecto. Posteriormente, presentamos nuestras propuestas a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto.
 
-Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón "OK" que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo
+Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón ``OK'' que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo.
 
 \subsubsection{Pantalla de inicio}
 Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
@@ -199,24 +200,24 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{resuemn} y se basa
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/Resumen.PNG}
-  \caption{Diseño final generar resumen.}
+  \caption{Diseño final de Generar resumen.}
   \label{resuemn}
 \end{figure}
 
 \subsubsection{Ejercicio de huecos}
-El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el documento de trabajo, pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto. Una vez terminado le dará al botón de añadir huecos y pulsando sobre la palabra se pondrá un hueco y viceversa. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño, (5 caracteres), mediano, (12 caracteres) y grande, que es el por defecto, (23 caracteres). El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 3.
+El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. Inicialmente habíamos pensado en que esta funcionalidad se pudiese hacer directamente sobre el documento de trabajo, pero al disponer de ventana modal y al ser complejo decidimos descartar dicha opción. En la ventana modal el usuario podrá escribir el texto. Una vez terminado le dará al botón de añadir huecos y pulsando sobre la palabra se pondrá un hueco y viceversa. Además, tiene la opción de elegir el tamaño de hueco, siendo pequeño (5 caracteres), mediano (12 caracteres) y grande, que es el por defecto (23 caracteres). El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 3.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Diseño/DefinirHuecos.PNG}
-  \caption{Diseño final definir huecos.}
+  \caption{Diseño final de Definir huecos.}
   \label{definir_hueco}
 \end{figure}
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Diseño/Sopa.PNG}
-  \caption{Diseño final sopa de letras.}
+  \caption{Diseño final de la Sopa de letras.}
   \label{sopaLetras}
 \end{figure}
 
@@ -227,13 +228,13 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{definir_hueco}. In
   \label{pictotraductor}
 \end{figure}
 \subsubsection{Sopa de letras}
-El diseño de esta funcionalidad se muestra en la Figura \ref{sopaLetras} y se basa en el diseño de Alberto, (Figura \ref{Alberto16}). Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra, y otro que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión
+El diseño de esta funcionalidad se muestra en la Figura \ref{sopaLetras} y se basa en el diseño de Alberto (Figura \ref{Alberto16}). Inicialmente pensamos en tener dos botones, uno para añadir nuevas palabras, que se iba moviendo a la vez que se creaba una nueva palabra, y otro que se encontraba al lado de cada palabra para eliminarla, pero llegamos a la conclusión
 de que era mejor que el botón de añadir palabras fuera fijo y no cambiara de posición cada vez que se añadiese una nueva palabra ya que esto le aportaría comodidad y facilidad de uso. Para ayudar al usuario a que sea más intuitivo decidimos incluir dos campos para que el usuario introduzca las filas y las columnas de la sopa de letras. También añadimos otro campo donde poner la palabra y al darle al botón de añadir la palabra se pondrá debajo de dicho campo junto a dos botones, uno de edición y otro para eliminar la palabra. Además, añadimos varias opciones para que el usuario elija cómo disponer las palabras en la sopa de letras (horizontal, vertical, diagonal y al revés). El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable2} en el ejercicio 5.
 
 
 
 \subsubsection{Pictotraductor}
-El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor} y se basa en el diseño de Johan y Figura \ref{Johan7} y en la idea de Álvaro de que los pictogramas puedan cambiar en el caso de que haya varias opciones para una palabra. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas. Uno de los problemas que encontramos en este diseño fue la falta de consideración de diversas opciones necesarias para satisfacer las necesidades del usuario en cuanto al diseño de los pictogramas. Estas opciones incluyen el posicionamiento y existencia del texto en relación al pictograma, así como la posibilidad de personalizar el color del mismo. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra y añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar otro de los pictogramas disponibles para la misma palabra del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 3.
+El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor} y se basa en el diseño de Johan y (Figura \ref{Johan7}) y en la idea de Álvaro de que los pictogramas puedan cambiar en el caso de que haya varias opciones para una palabra. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas. Uno de los problemas que encontramos en este diseño fue la falta de consideración de diversas opciones necesarias para satisfacer las necesidades del usuario en cuanto al diseño de los pictogramas. Estas opciones incluyen el posicionamiento y existencia del texto en relación al pictograma, así como la posibilidad de personalizar el color del mismo. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra y añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar otro de los pictogramas disponibles para la misma palabra del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 3.
 
 \begin{figure}[ht!]
   \centering
@@ -243,11 +244,11 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor} y 
 \end{figure}
 
 \subsubsection{Ejercicio de flechas}
-El diseño de esta funcionalidad se muestra en la Figura \ref{flechas} y se basa en el diseño de Dunia Namour, (Figura \ref{dunia4}). Inicialmente dábamos la opción de solo hacer dos columnas para relacionar con flechas, pero nos dimos cuenta de que el usuario debería poder elegir tantas columnas como desee. Tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera tantas columnas vacías como haya indicado el usuario. Una vez que el usuario rellena dichas columnas tiene la opción de reordenar, la cual reordenaría cada columna. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automáticamente cada vez que el usuario realice un cambio en alguna de las columnas. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 1.
+El diseño de esta funcionalidad se muestra en la Figura \ref{flechas} y se basa en el diseño de Dunia Namour (Figura \ref{dunia4}). Inicialmente dábamos la opción de solo hacer dos columnas para relacionar con flechas, pero nos dimos cuenta de que el usuario debería poder elegir tantas columnas como desee. Tampoco tuvimos en cuenta que el usuario podría querer desordenar las columnas para que no tenga que pensar en el orden de las palabras. Con todo lo anterior creamos una ventana modal en la que se debe introducir el número filas y columnas, lo que genera tantas columnas vacías como haya indicado el usuario. Una vez que el usuario rellena dichas columnas tiene la opción de reordenar, la cual reordenaría cada columna. La ventana modal dispone de una vista previa en la cual se mostrará cómo quedaría el ejercicio de flechas, generándose automáticamente cada vez que el usuario realice un cambio en alguna de las columnas. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 1.
 
 
 \subsubsection{Ejercicio de desarrollo}
-Partimos del diseño de AdaptaMaterialEscolar 1.0, dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{DesarrolloFinal}. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 2.
+Partimos del diseño de AdaptaMaterialEscolar 1.0. Dicho diseño no permitía al usuario cambiar el tipo de pauta ni elegir el interlineado. Todo lo mencionado anteriormente se ha añadido al nuevo diseño y también se ha incluido una vista previa que se genera automáticamente cada vez que se haga un cambio para que el usuario pueda visualizar cómo quedará el ejercicio. El diseño de esta funcionalidad se muestra en la Figura \ref{DesarrolloFinal}. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 2.
 
 \begin{figure}[ht!]
   \centering
@@ -259,7 +260,7 @@ Partimos del diseño de AdaptaMaterialEscolar 1.0, dicho diseño no permitía al
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Diseño/definiciones.PNG}
-  \caption{Diseño final ejercicios de definiciones.}
+  \caption{Diseño final de ejercicios de definiciones.}
   \label{defi}
 \end{figure}
 
@@ -289,7 +290,7 @@ El diseño final de esta funcionalidad se muestra en la Figura \ref{LeyendaColor
 
 
 \subsubsection{Ejercicio de matemáticas con huecos}
-El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, Figura (\ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
+El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, (Figura \ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
 
 \begin{figure}[ht!]
   \centering
@@ -304,7 +305,7 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para
   \label{configu}
 \end{figure}
 \subsubsection{Configuración general}
-Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página hay una configuración general por cada tipo de funcionalidad. El diseño de la configuración se muestra en la Figura \ref{configu}. Esta página surgió durante el brainstorming con las tutoras por la necesidad de tener ajustes por defecto.
+Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página hay una configuración general por cada tipo de funcionalidad. El diseño de la configuración se muestra en la Figura \ref{configu}. Esta página surgió durante el \textit{brainstorming} con las tutoras por la necesidad de tener ajustes por defecto.
 
 
 
@@ -330,24 +331,25 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
 \end{figure}
 
 \section{Implementación}
-AdaptaMaterialEscolar es una aplicación web implementada con React, el código se encuentra en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0/tree/master/Codigo}}.
+\label{sec:implmentaction}
+AdaptaMaterialEscolar es una aplicación web implementada con React y el código se encuentra en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0/tree/master/Codigo}}.
 
 En las siguientes secciones se explicará en detalle la arquitectura y cómo se han implementado cada una de las funcionalidades de la aplicación.
 \subsection{Arquitectura}
 \label{sub:Arquitectura}
 Desde el punto de vista de la arquitectura, se han mantenido partes de AdaptaMaterialEscolar 1.0 (ver Sección \ref{cap:adaptaMaterial}) y se han realizado ciertas modificaciones.
 
-En primer lugar, se ha decidido mantener React debido a la escalabilidad que proporciona y que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}}. Al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería.
+En primer lugar, se ha decidido mantener React debido a la escalabilidad que proporciona y a que es una de las bibliotecas más utilizadas\footnote{\url{https://gist.github.com/tkrotoff/b1caa4c3a185629299ec234d2314e190}} sin embargo, al haber pasado 2 años del TFG de AdaptaMaterialEscolar 1.0 se han producido una serie de actualizaciones con respecto a esta biblioteca. Uno de los principales cambios en la arquitectura de la aplicación ha sido la transición de los componentes basados en clases a los componentes funcionales. Otra actualización importante que se ha llevado a cabo en AdaptaMaterialEscolar 2.0 es la actualización del router de React a la última versión disponible, ya que dicha actualización  permite aprovechar las últimas funcionalidades y mejoras introducidas en esta librería.
 
 En cuanto a las APIs y bibliotecas hemos empleado la API de ARASAAC y la biblioteca de \textit{word-search} ya utilizadas por AdaptaMaterialEscolar 1.0.
 
-En cuanto a las modificaciones, se decidió llevar a cabo una refactorización en la arquitectura del proyecto, en concreto se modificó la estructura \textit{serverless} por una arquitectura basada en un servidor \textit{backend} que hace de intermediario entre el cliente y las APIs. Este cambio se ha llevado a cabo porque actualmente los navegadores utilizan en mecanismo \textit{CORS}, es una política de  seguridad que impide que una página web cargada desde un dominio A pueda realizar solicitudes a recursos alojados en un dominio B, sin que este último lo haya permitido previamente. Esto implica que no se pueden consumir APIs por parte del cliente a menos que la API haya desactivado dicho mecanismo.
+En cuanto a las modificaciones con respecto a la aplicación incial, se decidió llevar a cabo una refactorización en la arquitectura del proyecto. En concreto se modificó la estructura \textit{serverless} por una arquitectura basada en un servidor \textit{backend} que hace de intermediario entre el cliente y las APIs. Este cambio se ha llevado a cabo porque actualmente los navegadores utilizan el mecanismo \textit{CORS}, es una política de  seguridad que impide que una página web cargada desde un dominio A pueda realizar solicitudes a recursos alojados en un dominio B sin que este último lo haya permitido previamente. Esto implica que no se pueden consumir APIs por parte del cliente a menos que la API haya desactivado dicho mecanismo.
 
-En relación a Redux lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
+En relación a Redux, lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
 
-Por otra parte, se decidió cambiar el editor ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, explicado con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
+Por otra parte, se decidió cambiar el editor, ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, como se explicará con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra facilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
 
-Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación, lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. En la Figura \ref{fig:diagramaComponentes} se muestra el diagrama de componentes de nuestra aplicación.
+Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación. Lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. En la Figura \ref{fig:diagramaComponentes} se muestra el diagrama de componentes de nuestra aplicación.
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}{\textwidth}
@@ -369,8 +371,8 @@ Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Arquitectura/Diagrama_de_Componentes.png}
-  \caption{Diagrama de componentes.}
+  \includegraphics[width=0.8\textwidth]{Arquitectura/Diagrama_de_Componentes.png}
+  \caption{Diagrama de componentes de AdaptaMaterialEscolar 2.0}
   \label{fig:diagramaComponentes}
 \end{figure}
 
@@ -378,39 +380,39 @@ Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{
 \label{Editor}
 El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación de adaptación curricular.
 
-\subsubsection{Estructura}
-El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido explicados en la Sección \ref{cap:requisitos}, cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador de esta forma se logra una mayor escalabilidad.
-A continuación, se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
+\subsubsection{Estructura del editor}
+El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido ya explicados en la Sección \ref{cap:requisitos}, y cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador. De esta forma se logra una mayor escalabilidad.
+A continuación se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
 
 \begin{itemize}
-  \item Archivo: Esta contiene opciones relacionadas con el manejo de archivos, podemos verlas en la Figura \ref{fig:barrraHerramientaArchivo} y son:
+  \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, ``Figura \ref{fig:barrraHerramientaArchivo}''; que son:
         \begin{itemize}
-          \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}, esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
-          \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, emplea el mismo sistema que el exportar a Word.
-          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido lo serializa mediante un plugin y se transfiere al editor.
+          \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
+          \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, y emplea el mismo sistema que el exportar a PDF.
+          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido, lo serializa mediante un plugin y se transfiere al editor.
         \end{itemize}
-  \item Formato: Esta contiene opciones para formatear el texto que se está editando se puede ver en la Figura \ref{fig:barrraHerramientaFormato}. Las opciones que dispone son:
+  \item Formato: Esta barra contiene opciones para formatear el texto que se está editando (Figura \ref{fig:barrraHerramientaFormato}). Las opciones que incluye son:
         \begin{itemize}
           \item Negrita: Permite cambiar el formato de texto a negrita.
           \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
         \end{itemize}
-  \item Ejercicios: Esta dispone de varias opciones para crear ejercicios se puede ver en la Figura \ref{fig:barrraHerramientaEjercicios}. Las cuales son:
+  \item Ejercicios: Esta barra dispone de varias opciones para crear ejercicios (Figura \ref{fig:barrraHerramientaEjercicios}), que son:
         \begin{itemize}
-          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos este se introduce en un nodo parrafo.
-          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que le permitirá ingresar la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un noda que tiene dos hijos el primero es un nodo de tipo parrafo y el segundo es un nodo de tipo tabla.
-          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que le permitirá ingresar la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo parrafo para el enunciado, otro nodo parrafo por cada concepto y un nodo denominado ``Staff'' para los tipos de pauta.
-          \item Verdadero/Falso: Esta opción activa un modal donde puede ingresar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo parrafo para el enunciado y tantos nodos parrafos como conceptos introduzca el usuario, en este se encuanta un nodo llamado ``icon'' para el cuadrado donde indicara el alumno si es verdadero o falso.
-          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarollo emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
-          \item Formula Matematica: Esta función, desde el punto de vista del editor es igual a la de completar huecos.
+          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Desde el padre de la estructura interna del editor, este se introduce en un nodo parrafo.
+          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que al usuario permitirá introducir la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un nodo que tiene dos hijos: el primero es un nodo de tipo párrafo y el segundo es un nodo de tipo tabla.
+          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que al usuario permitirá introducir la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo párrafo para el enunciado, otro nodo párrafo por cada concepto y un nodo denominado ``staff'' para los tipos de pauta.
+          \item Verdadero/Falso: Esta opción activa un modal donde puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como conceptos introduzca el usuario. En el cual se encuanta un nodo llamado ``icon'' para el cuadrado donde el alumno indicara si es verdadero o falso.
+          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
+          \item Formula Matemática: Esta función, desde el punto de vista del editor, es igual a la de completar huecos.
         \end{itemize}
-  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto todas al igual que la anterior barra de herramientas despliegan un mondal para obtener la información necesaria para crear el nodo:
+  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
         \begin{itemize}
-          \item Generar resumen: Con la información obtenida se crea un nodo de tipo parrafo.
-          \item Picotraductor: Esta función a traves de los datos obtiene una imagen que se introduce en un nodo que hemos denominado ``image''.
+          \item Generar resumen: Con la información obtenida se crea un nodo de tipo párrafo.
+          \item Picotraductor: Esta función obtiene una imagen usando la API de ARASAAC que se introduce en un nodo que hemos denominado ``image''.
         \end{itemize}
 \end{itemize}
 
-Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explica en la Sección.  \ref{sub:Arquitectura}.Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
+Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explicó en la Sección \ref{sub:Arquitectura}. Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
 
 \begin{figure}[h!]
   \centering
@@ -440,7 +442,7 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
   \label{fig:barrraHerramientaTexto}
 \end{figure}
 
-\subsubsection{Integración}
+\subsubsection{Integración del editor con la aplicación}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
 
 Slate de partida proporciona lo equivalente a un área de texto por lo que se debe configurar desde cero por lo cual, se ha definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.

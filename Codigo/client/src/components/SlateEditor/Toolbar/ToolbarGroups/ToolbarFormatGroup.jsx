@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { activeMark, addMarkData, isMarkActive, sizeMap, toggleMark } from "../../utils/SlateUtilityFunctions";
+import { activeMark, addMarkData, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
 
 import ToolbarGroupButton from "./ToolbarGroupButton";
 

@@ -6,15 +6,12 @@ import { createEditor } from "slate";
 
 // Importamos los componentes de slate y los plugigs de react
 import { Editable, Slate, withReact } from "slate-react";
-import Definition from "./elements/Definition/Definition";
-import Desarrollo from "./elements/Desarrollo/Desarrollo";
 import ImageElement from "./elements/ImageElement/ImageElement";
 import Linea from "./elements/Linea/Linea";
 import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";
 
-import DrawingSpace from "./elements/DrawingSpace/DrawingSpace";
 import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
 import PictotranslatorElement from "./elements/PictotranslatorElement/PictotranslatorElement";
@@ -23,10 +20,10 @@ import Staff from "./elements/Staff/Staff";
 import Table from "./elements/Table/Table";
 import Td from "./elements/Table/Td";
 import Tr from "./elements/Table/Tr";
-import VerdaderoFalso from "./elements/VerdaderoFalso/VerdaderoFalso";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withInline } from "./plugins/withInline";
 import { withTable } from "./plugins/withTable";
+import Ejercicio from "./elements/Ejercicio/Ejercicio";
 
 const initialValue = [
 	{
@@ -49,10 +46,8 @@ export default function SlateEditor() {
 			// TODO: No funciona el alt de la imagen
 			case "image":
 				return <ImageElement {...props} />;
-			case "definition":
-				return <Definition {...props} openModal={openModal} />;
-			case "desarrollo":
-				return <Desarrollo {...props} />;
+			case "ejercicio":
+				return <Ejercicio {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
 			case "staff":
@@ -67,14 +62,10 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
-			case "list":
-				return <VerdaderoFalso {...props} />;
 			case "pictotranslator":
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
 				return <RelateConcepts {...props} openModal={openModal} />;
-			case "drawingSpace":
-				return <DrawingSpace {...props} />;
 			default:
 				return <DefaultElement {...props} />;
 		}
@@ -91,14 +82,10 @@ export default function SlateEditor() {
 	// Tipo de modal [tipo actual, cambiar el tipo de modal]
 	const [modalType, setModalType] = useState(null);
 
-	// Tipo de modal [tipo actual, cambiar el tipo de modal]
-	const [modalData, setModalData] = useState(null);
-
 	// Funcion auxiliar para abrir el modal de un tipo especifico
-	const openModal = (modalType, data = undefined) => {
+	const openModal = (modalType) => {
 		setIsOpen(true);
 		setModalType(modalType);
-		setModalData(data);
 	};
 
 	return (
@@ -126,7 +113,7 @@ export default function SlateEditor() {
 				editor={editor}
 				isOpen={isOpen}
 				onClose={() => setIsOpen(false)}
-				data={modalData}
+				openModal={openModal}
 			/>
 		</>
 	);
