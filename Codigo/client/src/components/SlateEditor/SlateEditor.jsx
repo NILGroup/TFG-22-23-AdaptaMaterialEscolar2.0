@@ -65,7 +65,7 @@ export default function SlateEditor() {
 			case "pictotranslator":
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
-				return <RelateConcepts {...props} openModal={openModal} />;
+				return <RelateConcepts {...props}/>;
 			default:
 				return <DefaultElement {...props} />;
 		}

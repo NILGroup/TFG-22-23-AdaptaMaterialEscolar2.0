@@ -88,12 +88,6 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 			children: [{ text: "" }],
 		});
 		ejercicio.children.push({
-			type: "embeds",
-			style: "space",
-			children: [{ text: "" }],
-		});
-
-		ejercicio.children.push({
 			type: "paragraph",
 			children: [{ text: "" }],
 		});

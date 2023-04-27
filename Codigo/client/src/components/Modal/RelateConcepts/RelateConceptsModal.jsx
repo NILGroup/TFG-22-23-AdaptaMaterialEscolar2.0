@@ -9,6 +9,8 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import RelateConceptsTable from "./RelateConceptsTable";
 import RelateConceptsView from "./RelateConceptsView";
+import { ModalType } from "../ModalFactory";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 // CONSTANTES
 const MIN_ROWS = 1;
@@ -28,22 +30,12 @@ function reordenador(list) {
 	return result;
 }
 
-export default function RelateConceptsModal({ editor, isOpen, onClose, data }) {
+export default function RelateConceptsModal({ editor, isOpen, onClose, openModal }) {
 	const [valores, setValores] = useState([]);
 	const [valoresVp, setValoresVp] = useState([]);
 	const [numFilas, setNumFilas] = useState(0);
 	const [numColumnas, setNumColumnas] = useState(0);
-
-	// Comprobamos la recepción de datos, el else es necesario porque los componentes ya estan montados en el DOM
-	useEffect(() => {
-		if (data !== undefined) {
-			setValores(copiarArreglo(data.values));
-			setNumFilas(data.values[0].length);
-			setNumColumnas(data.values.length);
-		} else {
-			reset();
-		}
-	}, [isOpen]);
+	const [path, setPath] = useState(null);
 
 	// Funciones para actualizar
 	const handleNumFilasChange = (event) => {
@@ -87,37 +79,47 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, data }) {
 		setValores([]);
 		setNumColumnas(0);
 		setNumFilas(0);
-
-		//  Vaciamos el parametro data para evitar posibles errores
-		data = undefined;
+		setPath(null);
 	};
 
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.relateConcepts);
+
+		setValores(data.valores);
+		setNumColumnas(data.numColumnas);
+		setNumFilas(data.numFilas);
+		setPath(path);
+	}
 	// Esta función ademas de insertar actualiza dependiendo de la procedencia
 	const insertDatos = () => {
 		// Si data tiene valores actualizamos los datos del nodo que ha invocado el modal
-		if (data !== undefined) {
-			//
-			// setNodes permite actrualizar los atributos de un
-			Transforms.setNodes(editor, { values: valoresVp });
-		} else {
-			// En caso contrario insertamos un nuevo nod
-			const enunciado = {
-				type: "paragraph",
-				children: [{ text: STATEMENT }],
-			};
-			Transforms.insertNodes(editor, enunciado);
-			const ejercicio = {
-				type: "relateConcepts",
-				values: valoresVp,
-				icon: <BsFillCircleFill size={8} color="black" />,
-				children: [{ text: " " }],
-			};
-			Transforms.insertNodes(editor, ejercicio);
-			Transforms.insertNodes(editor, {
-				type: "paragraph",
-				children: [{ text: "" }],
-			});
+		const ejercicio = {
+			type: "ejercicio",
+			openModalUpdate,
+			data: {
+				valores: valores,
+				numColumnas: numColumnas,
+				numFilas: numFilas
+			},
+			children: []
 		}
+		const enunciado = {
+			type: "paragraph",
+			children: [{ text: STATEMENT }],
+		};
+		ejercicio.children.push(enunciado);
+
+		const conceptos = {
+			type: "relateConcepts",
+			values: valoresVp,
+			icon: <BsFillCircleFill size={8} color="black" />,
+			children: [{ text: " " }],
+		};
+
+		ejercicio.children.push(conceptos);
+		ejercicio.children.push({type: "paragraph",children: [{ text: "" }]});
+
+		insertarEjercicioEditable(editor, ejercicio, path);
 		// Resteamos los estados
 		reset();
 		// Cerramos el modal
