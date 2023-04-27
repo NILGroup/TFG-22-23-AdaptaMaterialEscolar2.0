@@ -89,6 +89,4 @@ export const insertarEjercicioEditable = (editor, nodoEjercicio, path) => {
 		Transforms.insertNodes(editor, nodoEjercicio );	
 		Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
 	}
-
-
-}
+};
