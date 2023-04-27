@@ -443,27 +443,27 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 \end{figure}
 
 \subsubsection{Integración del editor con la aplicación}
-Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo provee de la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería te proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' es el marco de este lienzo y ``withReact'' es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React es decir que permite que el editor se actualice en tiempo real.
+Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo proporciona la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' que es el marco de este lienzo y ``withReact'' que es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React, es decir, permite que el editor se actualice en tiempo real.
 
 Slate de partida proporciona lo equivalente a un área de texto por lo que se debe configurar desde cero por lo cual, se ha definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
 
 Continuamos con los nodos de elemento, para los cuales creamos un nodo para cada tipo de ejercicio, lo que nos permite identificarlos de manera más efectiva y tratarlos de forma dinámica. Estos nodos tienen una estructura simple de envoltorio, representado por la etiqueta ``div''.
 
-Por último, están los nodos que han requerido una definición de estructura, estilo y comportamiento adicional:
+Por último están los nodos que han requerido una definición de estructura, estilo y comportamiento adicional:
 
 \begin{itemize}
   \item Nodo Imagen: Su estructura se basa en la etiqueta ``img'' de HTML, la cual recibe una URL a través de sus propiedades. El estilo definido utiliza una función de Slate para determinar si el elemento está seleccionado. Para su comportamiento, reescribimos la función ``isEmpty'' de Slate para que, cada vez que el cursor se encuentre con este elemento, devuelva verdadero, lo que hace que el editor lo identifique como un elemento indivisible. De esta manera, al borrarlo, se elimina completamente. También se redefinió la función ``isInline'' para que, al detectar este elemento, lo identifique como verdadero, lo que permite que el editor lo trate como un elemento que puede alinearse con otros elementos.
   \item Nodo Staff: Es una etiqueta ``div'' que recibe mediante sus propiedades el estilo necesario para emular una pauta simple, doble pauta, cuadrícula y cuadro de dibujo. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
   \item Nodo Icono: Es exactamente igual al nodo ``imagen'', pero en su estructura emplea el componente recibido por sus propiedades.
-  \item Nodo Tabla: Estructuralmente es igual a una tabla en HTML, pero el estilo varía en función del componente que lo llama. Por ejemplo, si se crea a partir de la sopa de letras, sus celdas ocuparán justo el espacio necesario para una letra y estarán centradas en el medio. Para definir su comportamiento, redefinimos ``deleteBackward'', lo que nos permite evitar que se borren las celdas de la tabla cuando borramos hacia atrás y evita que al borrar dentro de una celda se borre toda la celda. También redefinimos ``deleteForward'' de manera similar a ``deleteBackward'' pero hacia delante, y ``insertBreak'' para evitar que, una vez se sobrepase el párrafo, la tabla salte al siguiente.
+  \item Nodo Tabla: Estructuralmente es igual a una tabla en HTML, pero el estilo varía en función del componente que lo llama. Por ejemplo, si se crea a partir de la sopa de letras, sus celdas ocuparán justo el espacio necesario para una letra y estarán centradas. Para definir su comportamiento, redefinimos ``deleteBackward'', lo que nos permite evitar que se borren las celdas de la tabla cuando borramos hacia atrás y evita que al borrar dentro de una celda se borre toda la celda. También redefinimos ``deleteForward'' de manera similar a ``deleteBackward'' pero hacia delante, y ``insertBreak'' para evitar que, una vez se sobrepase el párrafo, la tabla salte al siguiente.
 \end{itemize}
 
 \subsection{Funcionalidades}
-A continuación, se explican los detalles de implementación de las distintas funcionalidades que hemos rediseñado o creado de cero.
+A continuación se explican los detalles de implementación de las distintas funcionalidades que hemos rediseñado o creado de cero.
 
 \subsubsection{Buscar pictograma}
 \label{sec:impbuscarpicto}
-Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente, se realiza un \textit{fetch} a la API de ARASAAC a la cual se le pasa el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, la API devuelve un JSON con la información de cada pictograma. Se itera sobre dichos objetos para crear una lista de URLs a cada pictograma y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de tabla debajo del botón buscar. En caso contrario, la lista de objetos con la información de cada pictograma estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''. Esta funcionalidad se muestra en la Figura \ref{fig:buscarPictograma}.
+Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente se realiza un \textit{fetch} a la API de ARASAAC a la cual se le pasa el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, la API devuelve un JSON con la información de cada pictograma. Se itera sobre dichos objetos para crear una lista de URLs de cada pictograma y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de tabla debajo del botón buscar. En caso contrario, la lista de objetos con la información de cada pictograma estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''. Esta funcionalidad se muestra en la Figura \ref{fig:buscarPictograma}.
 
 \begin{figure}[ht!]
   \centering
@@ -504,20 +504,20 @@ Para implementar esta funcionalidad se ha empleado un área de texto en la cual 
 \end{figure}
 
 \subsubsection{Ejercicio de definiciones}
-Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadDefinicion}. Para crear este tipo de ejercicio se debe rellenar el campo de conceptos a definir. Este contiene los conceptos que se quieren definir. Se deben introducir en la entrada de texto que se posicióna debajo del título Conceptos, se pueden introducir al pulsar  la tecla \textit{ENTER} o presionando el botón con el icono del mas. En caso de querer borrar el concepto añadido se deberá presionar al boton con el icono de la papelera y si se quiere modificar se deberá presionar al boton con el icono del lapiz.
-Una vez introducidos los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto, estos son:
+Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadDefinicion}. Para crear este tipo de ejercicio se debe rellenar el campo de conceptos a definir, que contiene los conceptos que se quieren definir. Se deben introducir en la entrada de texto que se posiciona debajo del título Conceptos, y  se pueden introducir al pulsar  la tecla \textit{ENTER} o presionando el botón con el icono del ``+''. En caso de querer borrar el concepto añadido se deberá presionar el botón con el icono de la papelera y si se quiere modificar se deberá presionar al boton con el icono del lápiz.
+Una vez introducidos los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto. Estos son:
 \begin{itemize}
-  \item Tipos de pauta: Permite seleccionar la pauta que ira con cada concepto, el usuario podrá elegir entre espacio pada dibujar, cuadrado para dibujar, doble pauta, pauta simple y cuadricula. Por defecto es doble pauta.
-  \item Numero de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. Por defecto, su valor es de una fila.
+  \item Tipos de pauta: Permite seleccionar la pauta que irá con cada concepto. El usuario podrá elegir entre espacio para dibujar, cuadrado para dibujar, doble pauta, pauta simple y cuadrícula. Por defecto es doble pauta.
+  \item Número de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. El valor por defecto, su valor es de una fila.
 \end{itemize}
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{Imagenes/Funcionalidades/EjercicioDefinicion.png}
-  \caption{Funcionalidad de definicion.}
+  \caption{Funcionalidad de definición.}
   \label{fig:funcionalidadDefinicion}
 \end{figure}
-Cabe mencionar que el campo de Tipos de pauta, emplea una botonera la cual se repite en otros ejercicios para reutilizar está, se ha optado por desacoplarla y abstraerla en un componente separado. Este componente permite al usuario seleccionar los botones de pauta deseados. Además, recibe un estado donde introduce la opción elegida.
-Para lograr esto, se ha utilizado el patrón Factory de esta manera, se puede crear el componente de botonera de pautas adaptándolo a cada uno de los ejercicios en los que se utilizará.
+Cabe mencionar que el campo de Tipos de pauta emplea una botonera que se repite en otros ejercicios. Para reutilizarla se ha optado por desacoplarla y abstraerla en un componente separado. Este componente permite al usuario seleccionar los botones de pauta deseados. Además, recibe un estado donde introduce la opción elegida.
+Para lograr esto, se ha utilizado el patrón \textit{Factory}. De esta manera se puede crear el componente de botonera de pautas adaptándolo a cada uno de los ejercicios en los que se utilizará.
 
 \subsubsection{Ejercicio de Desarrollo}
 \label{sec:impdesarrollo}
@@ -532,7 +532,7 @@ Para implementar esta funcionalidad se han usado varios elementos como un campo 
 
 \subsubsection{Ejercicio de fórmulas matemáticas}
 \label{sec:impmatematica}
-Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmula en el que se almacena cada elemento de la fórmula. Este array se ve reflejado en la vista utilizando los campos de texto mencionados anteriormente. Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio o el \textit{backspace}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. Al presionar el botón de ok, simplemente se inserta el texto de cada casilla separado por un espacio, y en las posiciones que se encuentren vacías, se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
+Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmula en el que se almacena cada elemento de la fórmula. Este array se ve reflejado en la vista utilizando los campos de texto mencionados anteriormente. Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio o el \textit{backspace}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. Al presionar el botón de \textit{Ok}, simplemente se inserta el texto de cada casilla separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
 
 \begin{figure}[ht!]
   \centering
@@ -543,7 +543,7 @@ Para implementar esta funcionalidad se han usado una serie de campos de texto, l
 
 \subsubsection{Sopa de letras}
 \label{sec:impsopaletras}
-Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, la cual requiere un objeto con las distintas opciones de la sopa de letras. En la figura \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
+Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, que requiere un objeto con las distintas opciones de la sopa de letras. En la Figura \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
 
 \begin{figure}[ht!]
   \centering
@@ -590,11 +590,11 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
 
 \subsubsection{Ejercicio de verdadero/falso}
 \label{sec:funcioVF}
-Para esta funcionalidad se ha utilizado un campo de texto en el cual se introducen las frases del ejercicio. Al darle a la tecla ENTER se introducirán dichas frases debajo del campo de texto y se guardarán en una lista. Se proporcionan dos opciones para editar las frases: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
+Para esta funcionalidad se ha utilizado un campo de texto en el cual se introducen las frases del ejercicio. Al darle a la tecla \textit{ENTER} se introducirán dichas frases debajo del campo de texto y se guardarán en una lista. Se proporcionan dos opciones para editar las frases: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
 
-La vista previa se genera automáticamente y muestra el enunciado del ejercicio ``Responde Verdadero o Falso. Según corresponda.'' junto con las frases y un cuadrado. El botón de ``Reordenar'' aparecerá cuando haya más de dos frases en la vista previa. Para reordenar las frases, se aplica el algoritmo Sattolo Cycle a una lista distinta a la incial donde se encuentras todas las frases. Este algoritmo reorganiza los elementos de una lista de forma aleatoria, pero sin repetir el mismo elemento en la misma posición dos veces seguidas.
+La vista previa se genera automáticamente y muestra el enunciado del ejercicio ``Responde Verdadero o Falso según corresponda.'' junto con las frases y un cuadrado. El botón de ``Reordenar'' aparecerá cuando haya más de dos frases en la vista previa. Para reordenar las frases, se aplica el algoritmo Sattolo Cycle\footnote{\url{https://rosettacode.org/wiki/Sattolo_cycle}} a una lista distinta de la inicial donde se encuentran todas las frases. Este algoritmo reorganiza los elementos de una lista de forma aleatoria, pero sin repetir el mismo elemento en la misma posición dos veces seguidas.
 
-Una vez que el usuario ha terminado de editar las frases, se puede enviar el ejercicio al documento de trabajo presionando el botón \textit{OK}, el cual está inhabilitado al ingresar al modal.
+Una vez que el usuario ha terminado de editar las frases, se puede enviar el ejercicio al documento de trabajo presionando el botón \textit{Ok}, el cual está inhabilitado al ingresar al modal.
 
 \begin{figure}[ht!]
   \centering
@@ -603,43 +603,15 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
   \label{fig:vyf}
 \end{figure}
 
-\subsubsection{Leyenda de colores}
-\label{sec:leyendaColores}
-Para implementar esta funcionalidad se ha utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
-
-La vista previa se genera automáticamente y muestra el título de la leyenda de colores junto con los conceptos y su respectivo color. Al pulsar el botón \textit{OK} se envía la leyenda de colores al editor de trabajo, dicho botón se encuentra inhabilitado al ingresar al modal. En la Figura \ref{fig:leyendacolor} se muestra la funcionalidad de leyenda de colores.
-
-\begin{figure}[ht!]
-  \centering
-  \begin{subfigure}{\textwidth}
-    \centering
-    \includegraphics[width=0.7\textwidth]{Funcionalidades/LeyendaColor.PNG}
-    \caption{Ventana modal de la funcionalidad de leyenda de colores}
-    \label{fig:leyendacolor01}
-  \end{subfigure}
-
-  \begin{subfigure}{\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Funcionalidades/LeyendaColor2.PNG}
-    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de leyenda de colores}
-    \label{fig:leyendacolor02}
-  \end{subfigure}
-
-  \caption{Funcionalidad de leyenda de colores}
-  \label{fig:leyendacolor}
-\end{figure}
-
-
 \subsubsection{Generar resumen}
 \label{sec:impresumen}
-Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados, por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
+Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
 
-Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIApi}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En la Figura \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIApi}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje. La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
-
+Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIAPI}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En la Figura \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIAPI}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje. La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.75\textwidth]{Funcionalidades/OpenAIConfiguracion.png}
-  \caption{Configuración de la clase \textit{OpenAIApi}.}
+  \caption{Configuración de la clase \textit{OpenAIAPI}.}
   \label{fig:impresumenconfiguracion}
 \end{figure}
 
@@ -665,8 +637,35 @@ Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la r
   \label{fig:impresumen}
 \end{figure}
 
+\subsubsection{Leyenda de colores}
+\label{sec:leyendaColores}
+Para implementar esta funcionalidad se ha utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
+
+La vista previa se genera automáticamente y muestra el título de la leyenda de colores junto con los conceptos y su respectivo color. Al pulsar el botón \textit{Ok} se envía la leyenda de colores al editor de trabajo, dicho botón se encuentra inhabilitado al ingresar al modal. En la Figura \ref{fig:leyendacolor} se muestra la funcionalidad de leyenda de colores.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/LeyendaColor.PNG}
+    \caption{Ventana modal de la funcionalidad de leyenda de colores}
+    \label{fig:leyendacolor01}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Funcionalidades/LeyendaColor2.PNG}
+    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de leyenda de colores}
+    \label{fig:leyendacolor02}
+  \end{subfigure}
+
+  \caption{Funcionalidad de leyenda de colores}
+  \label{fig:leyendacolor}
+\end{figure}
+
+
 \subsection{Del modal al editor}
-En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{OK}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertNode} de Slate para agregar este nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento.
+En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertNode} de Slate para agregar este nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento.
 
 Además de esto, hemos utilizado plugins definidos para mejorar aún más la integración del contenido del modal en el documento. Estos plugins nos permiten personalizar la forma en que se maneja y se presenta el contenido, lo que nos da una mayor flexibilidad.
 
