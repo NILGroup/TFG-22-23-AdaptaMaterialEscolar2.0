@@ -1,9 +1,10 @@
-import React,{ useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 
-import { GapType,getGapTypeInfo } from "./Gap";
+import { GapType, getGapTypeInfo } from "./Gap";
 import { ModalGapRadio } from "./ModalGapRadio";
 
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalAlertButton from "../common/ModalAlertButton";
 import ModalButton from "../common/ModalButton";
@@ -11,7 +12,6 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPanel from "../common/ModalPanel";
 import ModalTextPanel from "../common/ModalTextPanel";
 import { ModalType } from "../ModalFactory";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 // Valores por defecto para el estado
 const initialState = {
@@ -38,7 +38,7 @@ const reducer = (state, action) => {
 			return { ...initialState };
 		}
 		case ActionType.updateState: {
-			return {...action.newValue};
+			return { ...action.newValue };
 		}
 		case ActionType.toggleIsAddingGaps: {
 			return { ...state, isAddingGaps: !state.isAddingGaps };
@@ -48,7 +48,7 @@ const reducer = (state, action) => {
 
 			if (!action.newValue) return { ...state, originalText: text, words: null, gaps: null };
 
-			const newWords = text.split(/([\n\r\s\t])/g);
+			const newWords = text.split(/([\n\r\s\t?¿!¡,.;:'"])/g);
 			const newGaps = Array.from({ length: newWords.length }, () => false);
 
 			return { ...state, originalText: text, words: newWords, gaps: newGaps };
@@ -77,58 +77,72 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 	const handleTextAreaInput = (e) => {
 		dispatch({ type: ActionType.updateTextm, newValue: e.target.value });
 	};
-	const openModalUpdate = (path, data) =>{
+
+	const openModalUpdate = (path, data) => {
 		openModal(ModalType.fillBlanks);
 
-		dispatch({ type: ActionType.updateState, newValue:{
-			isAddingGaps: false,
-			originalText: data.originalText,
-			words: data.words,
-			gaps: data.gaps,
-			gapType: data.gapType,
-		}});
+		dispatch({
+			type: ActionType.updateState,
+			newValue: {
+				isAddingGaps: false,
+				originalText: data.originalText,
+				words: data.words,
+				gaps: data.gaps,
+				gapType: data.gapType,
+			},
+		});
 		setPath(path);
-	}
+	};
+
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 
 		let exercise;
+
 		if (!state.words) exercise = "";
-		else{
-			exercise =  [
+		else {
+			exercise = [
 				{
 					type: "paragraph",
-					children: [{ text: "Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:" }]
+					children: [
+						{ text: "Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:" },
+					],
 				},
 				{
 					type: "paragraph",
-					children: [{ text:
-						`${state.words
-						.map((word, index) => (state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word))
-						.join("")}`
-
-					}]
+					children: [
+						{
+							text: `${state.words
+								.map((word, index) =>
+									state.gaps[index] ? "_".repeat(getGapTypeInfo(state.gapType).length) : word
+								)
+								.join("")}`,
+						},
+					],
 				},
 				{
 					type: "paragraph",
-					children: [{ text: "" }]
+					children: [{ text: "" }],
 				},
-
-				]
+			];
 		}
-		console.log(exercise)
 
-		insertarEjercicioEditable(editor,  {
-			type: "ejercicio",
-			openModalUpdate,
-			data:{
-				originalText: state.originalText,
-				gapType: state.gapType,
-				gaps: state.gaps,
-				words: state.words,
+		insertarEjercicioEditable(
+			editor,
+			{
+				type: "ejercicio",
+				openModalUpdate,
+				data: {
+					originalText: state.originalText,
+					gapType: state.gapType,
+					gaps: state.gaps,
+					words: state.words,
+				},
+				children: exercise,
 			},
-			children: exercise,
-		}, path);
+			path
+		);
+
 		handleClose();
 	};
 
@@ -166,6 +180,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 								<ModalAlertButton
 									icon={<AiOutlineInfoCircle size={30} />}
 									iconButtonClassName="text-alert-info-dark hover:text-alert-info"
+									defaultIsOpen={false}
 									listStyle="list-none"
 									placement="left"
 									alertBoxClassName="bg-alert-info text-alert-info-dark"
@@ -184,8 +199,8 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 
 								if (word === "\t") return <React.Fragment key={`tab-${index}`}>&emsp;</React.Fragment>;
 
-								if (/([^\s\w\d])/g.test(word))
-									return <React.Fragment key={`punctuationSign-${index}`}>{word}</React.Fragment>;
+								if (/^[.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"]$/.test(word))
+									return <span key={`punctuationSign-${index}`}>{word}</span>;
 
 								return (
 									<span
@@ -222,7 +237,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 							<ModalGapRadio
 								key={`gap-${key}${i}`}
 								gapType={GapType[key]}
-								defaultChecked={initialState.gapType === GapType[key]}
+								checked={state.gapType === GapType[key]}
 								onChange={handleModalGapRadioChange}
 							/>
 						))}

@@ -4,7 +4,7 @@ import ModalRadioButton from "../common/ModalRadioButton";
 
 import { Gap, getGapTypeFromName, getGapTypeInfo } from "./Gap";
 
-export function ModalGapRadio({ gapType, defaultChecked = false, onChange }) {
+export function ModalGapRadio({ gapType, onChange, ...restProps }) {
 	const gapInfo = getGapTypeInfo(gapType);
 
 	return (
@@ -14,8 +14,8 @@ export function ModalGapRadio({ gapType, defaultChecked = false, onChange }) {
 				name="gapLength"
 				id={`${gapInfo.name}GapRadio`}
 				value={gapInfo.name}
-				defaultChecked={defaultChecked}
 				onChange={(e) => onChange(getGapTypeFromName(e.target.value))}
+				{...restProps}
 			/>
 			<Gap gapType={gapType}></Gap>
 		</div>

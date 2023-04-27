@@ -2,17 +2,16 @@ import React, { useState } from "react";
 
 import { AiOutlineClose } from "react-icons/ai";
 
-// TODO: Buscar manera de que no se corte la alerta si sale del modal
-
 export default function ModalAlertButton({
 	icon,
 	iconButtonClassName,
+	defaultIsOpen = true,
 	alertBoxClassName,
 	placement = "center",
 	listStyle = "list-inside list-disc",
 	contentList,
 }) {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(defaultIsOpen);
 
 	//#region Manejadores de eventos
 	const onOpen = () => setIsOpen(contentList && contentList.length > 0 ? !isOpen : false);
