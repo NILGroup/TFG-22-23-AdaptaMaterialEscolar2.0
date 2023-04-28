@@ -52,7 +52,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		items.forEach((item) => {
 			const listItem = {
 				type: "paragraph",
-				children: [{ type: "icon", icon: <BiRectangle />, children: [{ text: "" }] }, { text: item }],
+				children: [ { text: item },{ text: "  V/F" }],
 			};
 
 			list.children.push(listItem);
@@ -144,10 +144,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 								return (
 									<li key={`concepto-${i}`}>
 										<div className="flex items-start">
-											<div className="min-w-[2rem] pt-1">
-												<BiRectangle />
-											</div>
-											<p className="pl-1">{elem}</p>
+											<p className="pl-1">{elem} <span>V/F</span></p>
 										</div>
 									</li>
 								);
