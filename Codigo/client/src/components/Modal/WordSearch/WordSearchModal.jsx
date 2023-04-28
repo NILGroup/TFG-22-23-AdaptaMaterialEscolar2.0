@@ -416,7 +416,7 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 								label="Mostrar las palabras a buscar."
 								name="showWords"
 								id="showWords"
-								defaultChecked={initialState.showWords}
+								defaultChecked={showWords}
 								onChange={(e) => {
 									dispatch({
 										type: ActionType.updateShowWords,
@@ -430,7 +430,7 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 								label="Mostrar direcciones."
 								name="showDirections"
 								id="showDirections"
-								defaultChecked={initialState.showDirections}
+								defaultChecked={showDirections}
 								onChange={(e) => {
 									dispatch({
 										type: ActionType.updateShowDirections,

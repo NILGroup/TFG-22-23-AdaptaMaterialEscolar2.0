@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useState } from "react";
 
 import { Dropdown } from "flowbite-react";
 import { HiChevronDown } from "react-icons/hi";
