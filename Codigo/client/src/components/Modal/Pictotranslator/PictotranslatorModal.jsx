@@ -4,6 +4,7 @@ import { Dropdown } from "flowbite-react";
 import { HiChevronDown } from "react-icons/hi";
 import { HiCog6Tooth } from "react-icons/hi2";
 
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Spinner from "../../Spinner/Spinner";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
@@ -11,9 +12,8 @@ import ModalCheckbox from "../common/ModalCheckbox";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalRadioButton from "../common/ModalRadioButton";
 import ModalTextPanel from "../common/ModalTextPanel";
+import { ModalType } from "../ModalFactory";
 import { PictogramGrid, TextPosition } from "./PictogramGrid";
-
-import { Transforms } from "slate";
 
 // Valores por defecto del estado
 const initialState = {
@@ -42,19 +42,10 @@ const ActionType = Object.freeze({
 const reducer = (state, action) => {
 	switch (action.type) {
 		case ActionType.resetState: {
-			const data = action.newValue;
-
-			return {
-				originalText: data?.text ?? initialState.originalText,
-				searchedText: data?.text ?? initialState.searchedText,
-				textPosition: data?.textPosition ?? initialState.textPosition,
-				isBlackWhite: data?.isBlackWhite ?? initialState.isBlackWhite,
-				pictos:
-					data?.words.map((word) => {
-						return { ...word };
-					}) ?? initialState.pictos,
-				isLoading: false,
-			};
+			return { ...initialState };
+		}
+		case ActionType.updateState: {
+			return { ...action.newValue };
 		}
 		case ActionType.updateOriginalText: {
 			const newText = action.newValue;
@@ -118,18 +109,14 @@ const reducer = (state, action) => {
 	}
 };
 
-export default function Pictotranslator({ editor, isOpen, onClose, data }) {
+export default function Pictotranslator({ editor, isOpen, onClose, openModal }) {
 	// Estados del modal
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const [path, setPath] = useState(null);
+
 	const { originalText, searchedText, textPosition, isBlackWhite, pictos, isLoading } = state;
 
 	//#region Manejadores de eventos
-	const handleClose = () => {
-		dispatch({ type: ActionType.resetState });
-
-		onClose();
-	};
-
 	const handleOk = (e, pictos) => {
 		e.preventDefault();
 
@@ -140,22 +127,55 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 			words: pictos,
 		};
 
-		if (data !== undefined) Transforms.setNodes(editor, { values });
-		else {
-			const pictograms = {
-				type: "pictotranslator",
-				values,
-				children: [{ text: "" }],
-			};
+		let exercise;
 
-			Transforms.insertNodes(editor, pictograms);
+		if (!pictos) exercise = "";
+		else {
+			exercise = [
+				{
+					type: "pictotranslator",
+					values,
+					children: [{ text: "" }],
+				},
+				{
+					type: "paragraph",
+					children: [{ text: "" }],
+				},
+			];
 		}
 
+		insertarEjercicioEditable(
+			editor,
+			{
+				type: "ejercicio",
+				openModalUpdate,
+				data: {
+					...state,
+				},
+				children: exercise,
+			},
+			path
+		);
+
 		handleClose();
+	};
+
+	const handleClose = () => {
+		dispatch({ type: ActionType.resetState });
+		setPath(null);
+
+		onClose();
 	};
 	//#endregion
 
 	//#region Funciones auxiliares
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.pictotranslator);
+
+		dispatch({ type: ActionType.updateState, newValue: { ...initialState, ...data } });
+		setPath(path);
+	};
+
 	const pictotranslate = async (originalText) => {
 		dispatch({ type: ActionType.updateIsLoading, newValue: true });
 
@@ -179,10 +199,6 @@ export default function Pictotranslator({ editor, isOpen, onClose, data }) {
 		}
 	};
 	//#endregion
-
-	useEffect(() => {
-		dispatch({ type: ActionType.resetState, newValue: data });
-	}, [isOpen]);
 
 	return (
 		<Modal title="Pictotraductor" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
