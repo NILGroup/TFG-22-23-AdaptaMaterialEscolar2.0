@@ -45,14 +45,14 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		};
 		const listItem = {
 			type: "paragraph",
-			children: [{ text: "Responde Verdadero o Falso. Según corresponda." }],
+			children: [{ text: `Lea cada una de las siguientes afirmaciones y rodea con un círculo la letra 'V' si es verdadera o la letra 'F' si es falsa.` }],
 		};
 
 		list.children.push(listItem);
 		items.forEach((item) => {
 			const listItem = {
 				type: "paragraph",
-				children: [{ type: "icon", icon: <BiRectangle />, children: [{ text: "" }] }, { text: item }],
+				children: [ { text: item },{ text: "  V/F" }],
 			};
 
 			list.children.push(listItem);
@@ -138,16 +138,13 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 					}
 				>
 					<div>
-						{lista.length > 0 && <p>Responde Verdadero o Falso. Según corresponda.</p>}
+						{lista.length > 0 && <p>Lea cada una de las siguientes afirmaciones y rodea con un círculo la letra V si es verdadera o la letra F si es falsa.</p>}
 						<ul>
 							{listaVistaP.map((elem, i) => {
 								return (
 									<li key={`concepto-${i}`}>
 										<div className="flex items-start">
-											<div className="min-w-[2rem] pt-1">
-												<BiRectangle />
-											</div>
-											<p className="pl-1">{elem}</p>
+											<p className="pl-1">{elem} <span>V/F</span></p>
 										</div>
 									</li>
 								);

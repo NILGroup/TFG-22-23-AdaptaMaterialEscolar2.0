@@ -270,24 +270,29 @@ Partimos del diseño de AdaptaMaterialEscolar 1.0. Dicho diseño tenía los mism
 
 \subsubsection{Ejercicios de espacio para dibujar}
 El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En esta funcionalidad el usuario inicialmente tendrá que escribir el enunciado e indicar el espacio que desea dejar para dibujar. Además, incorpora una opción de recuadrar que hace un recuadro del tamaño indicado. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 5.
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.7\textwidth]{Diseño/espacioDibu.PNG}
-  \caption{Diseño final ejercicios espacios para dibujar.}
-  \label{espaciosDibu}
-\end{figure}
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.55\textwidth]{Diseño/Leyenda.PNG}
-  \caption{Diseño final leyenda de colores.}
-  \label{LeyendaColores}
-\end{figure}
+
+
+
 
 
 
 \subsubsection{Leyenda de colores}
 El diseño final de esta funcionalidad se muestra en la Figura \ref{LeyendaColores} y para realizar esta funcionalidad no hemos basado en el diseño de todos los integrantes ya que son bastante parecidos. También hemos utilizado como referencia la funcionalidad de definir conceptos. En este caso cuando se añade un nuevo concepto también se ha de escoger un color para cada palabra. Además, se ha de incluir un título para la leyenda. La leyenda de color se situará en el documento de trabajo donde se encuentre el cursor y el usuario podrá ajustar su posicionamiento. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable2} en el ejercicio 2.
 
+\begin{multicols}{2}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Diseño/espacioDibu.PNG}
+    \caption{Diseño final ejercicios espacios para dibujar.}
+    \label{espaciosDibu}
+  \end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Diseño/Leyenda.PNG}
+    \caption{Diseño final leyenda de colores.}
+    \label{LeyendaColores}
+  \end{figure}
+\end{multicols} 
 
 \subsubsection{Ejercicio de matemáticas con huecos}
 El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, (Figura \ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
@@ -416,28 +421,28 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Editor/Archivo.png}
+  \includegraphics[width=1\textwidth]{Editor/Archivo.png}
   \caption{Barra de herramienta de archivo.}
   \label{fig:barrraHerramientaArchivo}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Editor/Formato.png}
+  \includegraphics[width=1\textwidth]{Editor/Formato.png}
   \caption{Barra de herramienta de formato.}
   \label{fig:barrraHerramientaFormato}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Editor/Ejercicios.png}
+  \includegraphics[width=1\textwidth]{Editor/Ejercicios.png}
   \caption{Barra de herramienta de ejercicio.}
   \label{fig:barrraHerramientaEjercicios}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Editor/Texto.png}
+  \includegraphics[width=1\textwidth]{Editor/Texto.png}
   \caption{Barra de herramienta de texto.}
   \label{fig:barrraHerramientaTexto}
 \end{figure}
@@ -594,14 +599,28 @@ Para esta funcionalidad se ha utilizado un campo de texto en el cual se introduc
 
 La vista previa se genera automáticamente y muestra el enunciado del ejercicio ``Responde Verdadero o Falso según corresponda.'' junto con las frases y un cuadrado. El botón de ``Reordenar'' aparecerá cuando haya más de dos frases en la vista previa. Para reordenar las frases, se aplica el algoritmo Sattolo Cycle\footnote{\url{https://rosettacode.org/wiki/Sattolo_cycle}} a una lista distinta de la inicial donde se encuentran todas las frases. Este algoritmo reorganiza los elementos de una lista de forma aleatoria, pero sin repetir el mismo elemento en la misma posición dos veces seguidas.
 
-Una vez que el usuario ha terminado de editar las frases, se puede enviar el ejercicio al documento de trabajo presionando el botón \textit{Ok}, el cual está inhabilitado al ingresar al modal.
+Una vez que el usuario ha terminado de editar las frases, se puede enviar el ejercicio al documento de trabajo presionando el botón \textit{Ok}, el cual está inhabilitado al ingresar al modal. En la Figura \ref{fig:veryfalso} se muestra la funcionalidad de verdadero y falso.
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Funcionalidades/VyF.PNG}
-  \caption{Funcionalidad de verdadero y falso.}
-  \label{fig:vyf}
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/VyF.PNG}
+    \caption{Ventana modal de la funcionalidad de verdadero y falso.}
+    \label{fig:vyf}
+  \end{subfigure}
+ 
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/VyFEditor.PNG}
+    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de verdadero y falso.}
+    \label{fig:vyfEdit}
+  \end{subfigure}
+
+  \caption{Funcionalidad de verdadero y falso}
+  \label{fig:veryfalso}
 \end{figure}
+
 
 \subsubsection{Generar resumen}
 \label{sec:impresumen}
