@@ -7,6 +7,7 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { ModalType } from "../ModalFactory";
 import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
+import ModalButton from "../common/ModalButton";
 
 export default function MathFormulaModal({ editor, isOpen, onClose, openModal }) {
 
@@ -194,11 +195,11 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 		ejercicio.children.push(enunciado);
 
-		ejercicioStrings.forEach((formulaString)=>{
+		ejercicioStrings.forEach((formulaString,i)=>{
 
 			let formula = {
 				type: "paragraph",
-				children: [{ text: formulaString }],
+				children: [{ text: i+1 + ")  " + formulaString }],
 			};
 
 			ejercicio.children.push(formula);
@@ -221,21 +222,37 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 		handleClose();
 	};
 
+	const handleAddFormulaButton = ()=>{
+		
+		let newFormulas = [...formulas];
+
+		newFormulas.push([""]);
+
+		setFormulas(newFormulas);
+
+	}
+
 	const isOkDisaled = formulas.length == 1 && formulas[0].length == 1 && formulas[0][0] == "";
 
 	return (
 		<Modal title="Definir huecos de matemáticas" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
 			<div className="">
-				<h3 className="text-modal-heading">Fórmula:</h3>
 
-				<div className="mb-2 text-center">
+				<div className="flex justify-between">
+					<h3 className="text-modal-heading">Fórmula:</h3>
+					<ModalButton className={"px-3"} onClick={handleAddFormulaButton}>+</ModalButton>
+				</div>
+
+				
+
+				<div className="mb-2 mt-4 text-center">
 					<span className="text-sky-400 text-sm">Presiona la tecla de espacio para crear un hueco y la tecla enter para crear una nueva fórmula</span>
 				</div>
 
 
 				{formulas.map((formula, j)=>{
 
-					return (
+					return (<>
 						<div key={j} className="mb-3 rounded bg-gray-100 px-3 pt-3 pb-1">
 							{formula.map((elemento, i) => {
 								return (
@@ -258,6 +275,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 								);
 							})}
 						</div>
+					</>
 					)
 
 				})}
@@ -273,7 +291,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 					{getArrayOfFormulasAsStrings().map((formulaString, i) => {
 						return(
 							<>
-								<div key={i}>{formulaString}</div>
+								<div key={i}>{i+1}) {formulaString}</div>
 								<br />
 							</>
 						)
