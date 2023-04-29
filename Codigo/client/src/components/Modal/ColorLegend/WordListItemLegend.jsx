@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 
-import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCheck,AiOutlineClose } from "react-icons/ai";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
 
@@ -20,7 +20,7 @@ export default function WordListItemLegend({
 
 	const editWord = (newValue) => {
 		onEdit(newValue, newColor, index);
-		
+
 		setIsEdittingWord(null);
 	};
 
@@ -32,13 +32,13 @@ export default function WordListItemLegend({
 
 	if (isEdittingWord !== index) {
 		return (
-			<li className="grid grid-cols-2 items-center gap-4">
+			<li className="grid grid-cols-[1fr_auto] items-center gap-4">
 				<div className="items flex items-center ">
 					<input className="inputColorl" id="color" type="color" value={color} disabled />
 					<span className="max-w-48 overflow-x-auto">{word}</span>
 				</div>
 
-				<div className="flex flex-wrap items-center gap-2">
+				<div className="flex flex-wrap items-center gap-2 px-3">
 					<button
 						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						onClick={() => {
@@ -65,7 +65,7 @@ export default function WordListItemLegend({
 		return (
 			<li>
 				<form
-					className="grid grid-cols-2 items-center gap-4"
+					className="grid grid-cols-[1fr_auto] items-center gap-4"
 					onSubmit={(e) => {
 						e.preventDefault();
 
@@ -78,14 +78,15 @@ export default function WordListItemLegend({
 						} else cancelEdit();
 					}}
 				>
-					<div className="flex items-center">
+					<div className="flex flex-wrap items-center gap-2 px-3">
 						<input
 							className="inputColor"
 							id="color"
 							type="color"
 							value={newColor}
 							onChange={(e) => {
-								setNewColor(e.target.value)}}
+								setNewColor(e.target.value);
+							}}
 						/>
 						<ModalInputText
 							id="editWord"

@@ -23,9 +23,9 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 
 	if (isEdittingWord !== index) {
 		return (
-			<li className="grid grid-cols-2 items-center gap-4">
+			<li className="grid grid-cols-[1fr_auto] items-center gap-4">
 				<span className="max-w-48 overflow-x-auto">{word}</span>
-				<div className="flex flex-wrap items-center gap-2">
+				<div className="flex flex-wrap items-center gap-2 px-3">
 					<button
 						className="rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
 						onClick={() => {
@@ -51,7 +51,7 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 		return (
 			<li>
 				<form
-					className="grid grid-cols-2 items-center gap-4"
+					className="grid grid-cols-[1fr_auto] items-center gap-4"
 					onSubmit={(e) => {
 						e.preventDefault();
 
@@ -71,7 +71,7 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 						value={newValue}
 						onChange={(e) => setNewValue(e.target.value)}
 					/>
-					<div className="flex flex-wrap items-center gap-2">
+					<div className="flex flex-wrap items-center gap-2 px-3">
 						<button
 							type="submit"
 							name="edit"

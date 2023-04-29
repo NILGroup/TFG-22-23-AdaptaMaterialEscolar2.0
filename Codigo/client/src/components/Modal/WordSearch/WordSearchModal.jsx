@@ -392,7 +392,7 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 							}
 						/>
 						<ModalWordList
-							className="mt-4 px-4"
+							className="mt-4 pl-4"
 							wordList={wordList}
 							onEdit={(newValue, index) =>
 								dispatch({
@@ -441,7 +441,7 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 						</div>
 					</div>
 				</div>
-				<ModalPreview showAlerts warnings={warnings} errors={errors} previewHeight="h-[40rem] max-h-[40rem]">
+				<ModalPreview showAlerts warnings={warnings} errors={errors} previewHeight="min-h-[10rem] xl:h-[40rem] xl:max-h-[40rem]">
 					{grid && (
 						<div className="flex flex-col gap-2">
 							<p>{generateExerciseStatement(addedWords)}</p>
