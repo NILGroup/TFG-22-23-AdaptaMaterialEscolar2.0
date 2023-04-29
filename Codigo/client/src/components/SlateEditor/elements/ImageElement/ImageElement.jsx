@@ -7,8 +7,8 @@ export default function ImageElement({ attributes, children, element }) {
 
 	const imageClass =
 		isSelected && isFocused
-			? "max-w-[5cm] max-h-[5cm] border-2 border-black inline-block"
-			: "max-w-[5cm] max-h-[5cm] inline-block";
+			? "max-w-[2.5cm] border-2 border-black inline-block"
+			: "max-w-[2.5cm] inline-block";
 
 	return (
 		<span {...attributes}>
