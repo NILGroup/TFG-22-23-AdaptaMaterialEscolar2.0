@@ -12,7 +12,7 @@ export default function PictotranslatorElement({ attributes, children, element }
 								key={`pictogram_${index}`}
 								className={`flex ${
 									element.values.textPosition === "Below" ? "flex-col-reverse" : "flex-col"
-								} max-w-[2.75cm] rounded-md border-2 border-black`}
+								} max-w-[2.25cm] rounded-md border-2 border-black`}
 							>
 								{element.values.textPosition !== "NoText" && (
 									<p
