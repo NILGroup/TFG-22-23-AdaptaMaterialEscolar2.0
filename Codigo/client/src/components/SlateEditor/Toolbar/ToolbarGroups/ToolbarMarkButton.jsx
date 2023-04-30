@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSlate } from "slate-react";
+import { isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
 
-export default function ToolbarGroupButton({
+export default function ToolbarMarkButton({
 	className,
-	defaultActive = false,
 	children,
-	checkActive,
-	onClick,
+    format,
 	...restProps
 }) {
-	const [isActive, setIsActive] = useState(defaultActive);
-	const editor = useSlate()
+	const editor = useSlate();
 
 	return (
 		<button
 			className={`${className} ${
-				isActive ? "bg-opacity-70" : "bg-opacity-0"
+				isMarkActive(editor, format) ? "bg-opacity-70" : "bg-opacity-0"
 			} flex items-center gap-1 rounded-sm bg-grey-dark p-1.5 hover:bg-opacity-40 focus:ring-2 focus:ring-focus focus:ring-opacity-30`}
-			onClick={(e) => {
-				onClick(e);
-
-				
+			onClick={() => {
+                    toggleMark(editor, format);
 			}}
 			{...restProps}
 		>

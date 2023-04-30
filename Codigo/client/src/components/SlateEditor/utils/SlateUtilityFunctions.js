@@ -1,7 +1,7 @@
 import { Editor, Element as SlateElement, Transforms } from "slate";
 
 const alignment = ["alignLeft", "alignRight", "alignCenter"];
-const list_types = ["orderedList", "unorderedList"];
+const list_types = ["numbered-list", "bulleted-list"];
 
 export const isBlockActive = (editor, format) => {
 	const [match] = Editor.nodes(editor, {

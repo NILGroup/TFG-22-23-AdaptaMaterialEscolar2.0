@@ -1,15 +1,17 @@
 import React from "react";
 
-import { activeMark, addMarkData, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
+import { activeMark, addMarkData, isBlockActive, isMarkActive, toggleBlock, toggleMark } from "../../utils/SlateUtilityFunctions";
 
 import { TableSelector } from "./TableSelector";
 import ToolbarColorPicker from "./ToolbarColorPicker";
 import ToolbarGroupButton from "./ToolbarGroupButton";
 import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 
-import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnderline } from "react-icons/ai";
+import { AiOutlineBold, AiOutlineItalic, AiOutlineOrderedList, AiOutlineStrikethrough, AiOutlineUnderline, AiOutlineUnorderedList } from "react-icons/ai";
 
 import { MdOutlineHorizontalRule } from "react-icons/md";
+import ToolbarMarkButton from "./ToolbarMarkButton";
+import ToolbarBlockButton from "./ToolbarBlockButton";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -17,7 +19,10 @@ const markTypes = [
 	{ format: "underline", icon: <AiOutlineUnderline /> },
 	{ format: "strikethrough", icon: <AiOutlineStrikethrough /> },
 ];
-
+const blockTypes = [
+	{ format: "numbered-list" , icon: <AiOutlineOrderedList /> },
+	{ format: "bulleted-list", icon: <AiOutlineUnorderedList /> },
+];
 export default function ToolbarFormatGroup({ editor, openModal }) {
 	const changeMarkData = (value, format) => addMarkData(editor, { format, value });
 
@@ -27,19 +32,12 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			<div className="flex gap-1">
 				{markTypes.map((mark) => {
 					return (
-						<ToolbarGroupButton
+						<ToolbarMarkButton
 							key={`markButton-${mark.format}`}
-							checkActive={() => {
-								return isMarkActive(editor, mark.format);
-							}}
-							onClick={(e) => {
-								e.preventDefault();
-
-								toggleMark(editor, mark.format);
-							}}
+							format={mark.format}
 						>
 							{mark.icon}
-						</ToolbarGroupButton>
+						</ToolbarMarkButton>
 					);
 				})}
 			</div>
@@ -69,6 +67,19 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 					addMarkData(editor, { format: "color", value: color });
 				}}
 			/>
+			{/* Opciones de bloque */}
+			<div className="flex gap-1">
+				{blockTypes.map((block) => {
+					return (
+						<ToolbarBlockButton
+							key={`blockButton-${block.format}`}
+							format={block.format}
+						>
+							{block.icon}
+						</ToolbarBlockButton>
+					);
+				})}
+			</div>
 			{/* Tablas */}
 			<TableSelector editor={editor} />
 		</div>

@@ -62,6 +62,12 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
+			case 'bulleted-list':
+            	return <ul className="list-disc pl-12" {...props.attributes}>{props.children}</ul>
+        	case 'numbered-list':
+            	return <ol className="list-decimal pl-12" {...props.attributes}>{props.children}</ol>
+			case 'list-item':
+        	    return <li {...props.attributes}>{props.children}</li>
 			case "pictotranslator":
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
