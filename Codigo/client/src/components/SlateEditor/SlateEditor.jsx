@@ -108,6 +108,7 @@ export default function SlateEditor() {
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
+							spellCheck
 							autoFocus
 						/>
 					</div>

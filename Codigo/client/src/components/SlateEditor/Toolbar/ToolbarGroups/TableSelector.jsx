@@ -42,16 +42,16 @@ export function TableSelector({ editor }) {
 						<div className="flex flex-col items-center justify-center p-2">
 							{
 								<span className="text-xs">{`Insert a ${
-									tableData.row >= 1 && `${tableData.row} x ${tableData.column}`
+									tableData.row >= 1 ? `${tableData.row} x ${tableData.column}` : '0 x 0'
 								} table`}</span>
 							}
-							<div className="grid grid-flow-row auto-rows-auto grid-cols-6 gap-1" onClick={handleInsert}>
+							<div className="grid grid-flow-row auto-rows-auto grid-cols-6" onClick={handleInsert}>
 								{tableInput.map((tableCol, row) =>
 									tableCol.map(({ select }, col) => (
 										<div
 											key={row + col}
 											onMouseOver={() => setTableData({ row: row + 1, column: col + 1 })}
-											className={`border p-2 ${
+											className={`border p-2 m-[1px] ${
 												select ? "border-orange-300" : "border-gray-400"
 											} ${row} ${col}`}
 										></div>
