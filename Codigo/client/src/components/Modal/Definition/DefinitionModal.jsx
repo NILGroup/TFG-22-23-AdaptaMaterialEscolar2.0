@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
@@ -17,14 +17,23 @@ const MAX_ROWS = 100;
 export default function DefinitionModal({ editor, isOpen, onClose, openModal }) {
 	const [concepts, setConcepts] = useState([]);
 	const [isModify, setModify] = useState([]);
-	const [number, setNumber] = useState(1);
+	const [numbers, setNumbers] = useState([]);
+	const [selected, setSelected] = useState(0);
 	const [value, setValue] = useState("");
 	const [path, setPath] = useState(null);
+
+	useEffect(() => {
+		setNumbers(Array.from({length: concepts.length}, (concept, i) => i < numbers.length ? numbers[i]: 1));
+	}, [concepts]);
 
 	const introduction = (n) => `Define ${n === 1 ? "el siguiente concepto" : `los siguientes ${n} conceptos`} :`;
 
 	const handleNumFilasChange = (event) => {
-		setNumber(event.target.value);
+		setNumbers(numbers => {
+			let newNumbers = [...numbers];
+			newNumbers[selected] = event.target.value;
+			return newNumbers;
+		});
 	};
 	//Funciones para modificar los conceptos.
 	const removeConcept = (index) => {
@@ -33,30 +42,30 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 	};
 	const reset = () => {
 		setConcepts([]);
-		setNumber(1);
+		setNumbers([1]);
 		setValue("");
 		setPath(null)
 	};
 
 	const renderLines = () => {
 		let lines = [];
-		if (number > MAX_ROWS) return;
+		if (numbers[selected] > MAX_ROWS) return;
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: '5mm' }}></div>;
 		if(renderOption === 'square'){
 			lines.push(
-				<div className='border border-black border-solid' style={{ height: `${5 * number}mm` }}>
+				<div className='border border-black border-solid' style={{ height: `${5 * numbers[selected]}mm` }}>
 				</div>
 			);
 		}
 		else if(renderOption === 'square_space'){
 			lines.push(
-				<div style={{ height: `${5 * number}mm` }}>
+				<div style={{ height: `${5 * numbers[selected]}mm` }}>
 				</div>
 			);
 		}
 		else{
-			for (let i = 0; i < number; i++) {
+			for (let i = 0; i < numbers[selected]; i++) {
 				lines.push(
 					<div key={`pauta_${i}`}>
 						<img src={imagenes[renderOption]} />
@@ -70,7 +79,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 	const openModalUpdate = (path, data) =>{
 		openModal(ModalType.definition)
 		setConcepts(data.concepts);
-		setNumber(data.number);
+		setNumbers(data.numbers);
 		setValue(data.value);
 		setPath(path);
 	}
@@ -81,7 +90,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			openModalUpdate,
 			data: {
 				concepts,
-				number,
+				numbers,
 				value
 			},
 			children: [],
@@ -99,7 +108,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		});
 
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		concepts.map((concept => {
+		concepts.map(((concept, i) => {
 			ejercicio.children.push({
 				type: "paragraph",
 				children: [{ text: `${concept}:` }],
@@ -108,11 +117,11 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 				ejercicio.children.push({
 					type: "staff",
 					renderOption,
-					number,
+					numbers,
 					children: [{ text: "" }],
 				});
 			}else{
-				for (let j = 0; j < number; j++) {
+				for (let j = 0; j < numbers[i]; j++) {
 					ejercicio.children.push({
 						type: "staff",
 						renderOption,
@@ -130,7 +139,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		reset();
 	};
 
-	const isOkDisabled = concepts.length == 0 || number < MIN_ROWS || number > MAX_ROWS;
+	const isOkDisabled = concepts.length == 0 || numbers.every(number => number < MIN_ROWS || number > MAX_ROWS);
 
 	const handleClose = () => {
 		reset();
@@ -155,6 +164,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 					wordList={concepts}
 					onEdit={(newValue, index) => setConcepts(concepts.map((c, i) => (i === index ? newValue : c)))}
 					onDelete={(index) => removeConcept(index)}
+					setSelect={(i)=> {setSelected(i)}}
 				/>
 
 				<div className="self-start justify-self-start p-4">
@@ -162,7 +172,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 						id="num_filas"
 						label="Número de filas:"
 						name="num_filas"
-						value={number}
+						value={numbers[selected]}
 						onChange={handleNumFilasChange}
 						min={MIN_ROWS}
 						max={MAX_ROWS}
