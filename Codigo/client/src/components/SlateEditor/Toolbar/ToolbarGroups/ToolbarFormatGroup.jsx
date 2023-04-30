@@ -1,13 +1,13 @@
 import React from "react";
 
-import { activeMark,addMarkData,isMarkActive,toggleMark } from "../../utils/SlateUtilityFunctions";
+import { activeMark, addMarkData, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
 
 import { TableSelector } from "./TableSelector";
 import ToolbarColorPicker from "./ToolbarColorPicker";
 import ToolbarGroupButton from "./ToolbarGroupButton";
 import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 
-import { AiOutlineBold,AiOutlineItalic,AiOutlineStrikethrough,AiOutlineUnderline } from "react-icons/ai";
+import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnderline } from "react-icons/ai";
 import { IoMdColorFill } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
 
