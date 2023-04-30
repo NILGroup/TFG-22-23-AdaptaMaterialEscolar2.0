@@ -49,10 +49,10 @@ export const toggleBlock = (editor, format) => {
 	}
 };
 
-export const activeMark = (editor, format) => {
+export const getActiveMarkValue = (editor, format) => {
 	const defaultMarkData = {
 		color: "black",
-		bgColor: "black",
+		bgColor: "transparent",
 		fontSize: 16,
 		fontFamily: "sans",
 	};

@@ -42,7 +42,7 @@ export default function Leaf({ leaf, attributes, children }) {
 	}
 
 	if (leaf.bgColor) {
-		children = <span style={{ background: leaf.bgColor }}>{children}</span>;
+		children = <span style={{ backgroundColor: leaf.bgColor }}>{children}</span>;
 	}
 
 	// if (leaf.fontFamily) {

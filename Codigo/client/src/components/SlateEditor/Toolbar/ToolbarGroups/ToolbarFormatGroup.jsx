@@ -1,17 +1,25 @@
 import React from "react";
 
-import { activeMark, addMarkData } from "../../utils/SlateUtilityFunctions";
+import { useSlate } from "slate-react";
 
 import { TableSelector } from "./TableSelector";
 import ToolbarColorPicker from "./ToolbarColorPicker";
-import ToolbarGroupButton from "./ToolbarGroupButton";
 import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 
-import { AiOutlineBold, AiOutlineItalic, AiOutlineOrderedList, AiOutlineStrikethrough, AiOutlineUnderline, AiOutlineUnorderedList } from "react-icons/ai";
+import {
+	AiOutlineBold,
+	AiOutlineItalic,
+	AiOutlineOrderedList,
+	AiOutlineStrikethrough,
+	AiOutlineUnderline,
+	AiOutlineUnorderedList,
+} from "react-icons/ai";
 import { IoMdColorFill } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
-import ToolbarMarkButton from "./ToolbarMarkButton";
 import ToolbarBlockButton from "./ToolbarBlockButton";
+import ToolbarGroupButton from "./ToolbarGroupButton";
+
+import { addMarkData, getActiveMarkValue, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -19,11 +27,14 @@ const markTypes = [
 	{ format: "underline", icon: <AiOutlineUnderline /> },
 	{ format: "strikethrough", icon: <AiOutlineStrikethrough /> },
 ];
+
 const blockTypes = [
-	{ format: "numbered-list" , icon: <AiOutlineOrderedList /> },
+	{ format: "numbered-list", icon: <AiOutlineOrderedList /> },
 	{ format: "bulleted-list", icon: <AiOutlineUnorderedList /> },
 ];
+
 export default function ToolbarFormatGroup({ editor, openModal }) {
+	const reactEditor = useSlate();
 	const changeMarkData = (value, format) => addMarkData(editor, { format, value });
 
 	return (
@@ -32,22 +43,25 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			<div className="flex gap-1">
 				{markTypes.map((mark) => {
 					return (
-						<ToolbarMarkButton
+						<ToolbarGroupButton
 							key={`markButton-${mark.format}`}
-							format={mark.format}
+							isActive={isMarkActive(reactEditor, mark.format)}
+							onClick={(e) => {
+								e.preventDefault();
+
+								toggleMark(reactEditor, mark.format);
+							}}
 						>
 							{mark.icon}
-						</ToolbarMarkButton>
+						</ToolbarGroupButton>
 					);
 				})}
 			</div>
 			{/* Opciones de fuente */}
 			<ToolbarGroupNumberInput
-				label="Tamaño de letra:"
-				defaultValue={16}
-				checkValue={() => activeMark(editor, "fontSize")}
 				min="1"
 				max="100"
+				value={getActiveMarkValue(reactEditor, "fontSize")}
 				onChange={(e) => {
 					e.preventDefault();
 
@@ -56,11 +70,28 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			/>
 			<ToolbarColorPicker
 				label={
-					<div className="flex flex-col items-center gap-0">
-						<IoMdColorFill className="translate-y-[75%] text-[1.20rem] text-black" />
-						<MdOutlineHorizontalRule className="h-10 w-full" />
+					<div className="flex flex-col gap-0">
+						<span className="text-[1.25rem] text-black">A</span>
+						<span className="h-2 w-full -translate-y-[170%]">
+							<MdOutlineHorizontalRule size={35} />
+						</span>
 					</div>
 				}
+				value={getActiveMarkValue(reactEditor, "color")}
+				onColorChange={(color) => {
+					addMarkData(editor, { format: "color", value: color });
+				}}
+			/>
+			<ToolbarColorPicker
+				label={
+					<div className="flex flex-col items-center gap-0">
+						<IoMdColorFill className="text-[1.15rem] text-black" />
+						<span className="h-2 w-full -translate-y-[170%]">
+							<MdOutlineHorizontalRule size={35} />
+						</span>
+					</div>
+				}
+				value={getActiveMarkValue(reactEditor, "bgColor")}
 				onColorChange={(color) => {
 					addMarkData(editor, { format: "bgColor", value: color });
 				}}
@@ -69,16 +100,13 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			<div className="flex gap-1">
 				{blockTypes.map((block) => {
 					return (
-						<ToolbarBlockButton
-							key={`blockButton-${block.format}`}
-							format={block.format}
-						>
+						<ToolbarBlockButton key={`blockButton-${block.format}`} format={block.format}>
 							{block.icon}
 						</ToolbarBlockButton>
 					);
 				})}
 			</div>
-			
+
 			{/* Tablas */}
 			<TableSelector editor={editor} />
 		</div>

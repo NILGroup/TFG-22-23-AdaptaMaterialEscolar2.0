@@ -43,9 +43,8 @@ const defaultColors = [
 	"#3d1466",
 ];
 
-export default function ToolbarColorPicker({ label, defaultColor = "#000000", onColorChange }) {
+export default function ToolbarColorPicker({ label, value, onColorChange }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [value, setValue] = useState(defaultColor);
 
 	const [timeoutId, setTimeoutId] = useState(null);
 
@@ -55,7 +54,6 @@ export default function ToolbarColorPicker({ label, defaultColor = "#000000", on
 		}
 
 		const newTimeoutId = setTimeout(() => {
-			setValue(newColor);
 			onColorChange(newColor);
 			setTimeoutId(null);
 		}, 100);
@@ -76,23 +74,30 @@ export default function ToolbarColorPicker({ label, defaultColor = "#000000", on
 		>
 			<Dropdown.Header>Colores por defecto</Dropdown.Header>
 			<Dropdown.Item>
-				<div className="mx-auto grid grid-cols-7 gap-x-2 gap-y-0.5">
-					{defaultColors.map((color, index) => {
-						return (
-							<div
-								key={`colorOption-${index}`}
-								onClick={() => {
-									setValue(color);
-
-									onColorChange(color);
-									setIsOpen(false);
-								}}
-								className="h-4 w-4 outline-none hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus:ring-2 focus:ring-focus focus:ring-opacity-30"
-								style={{ background: color }}
-								tabIndex="0"
-							></div>
-						);
-					})}
+				<div className="flex flex-col gap-2">
+					<div className="mx-auto grid grid-cols-7 gap-x-2 gap-y-0.5">
+						{defaultColors.map((color, index) => {
+							return (
+								<div
+									key={`colorOption-${index}`}
+									onClick={() => {
+										onColorChange(color);
+										setIsOpen(false);
+									}}
+									className="h-4 w-4 outline-none hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus:ring-2 focus:ring-focus focus:ring-opacity-30"
+									style={{ backgroundColor: color }}
+									tabIndex="0"
+								></div>
+							);
+						})}
+					</div>
+					<button
+						className="flex w-full items-center justify-center gap-2 self-center rounded-sm bg-grey p-1 hover:bg-grey-dark focus:ring-2 focus:ring-focus focus:ring-opacity-30"
+						onClick={() => handleInputColorChange("transparent")}
+					>
+						<div className="h-4 w-4 border-2 border-black"></div>
+						<p>Sin color</p>
+					</button>
 				</div>
 			</Dropdown.Item>
 			<Dropdown.Divider />

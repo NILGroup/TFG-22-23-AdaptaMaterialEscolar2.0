@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function ToolbarGroupNumberInput({
-	className,
-	label,
-	defaultValue,
-	checkValue,
-	onChange,
-	id,
-	...restProps
-}) {
-	const [value, setValue] = useState(defaultValue);
+import { useSlate } from "slate-react";
+
+import { addMarkData, isMarkActive } from "../../utils/SlateUtilityFunctions";
+
+export default function ToolbarGroupNumberInput({ className, format, ...restProps }) {
+	const editor = useSlate();
 
 	return (
-		<div className="flex items-center gap-2">
-			<label htmlFor={id}>{label}</label>
-			<input
-				type="number"
-				id={id}
-				className="w-[4vw] min-w-[2.5rem] max-w-[3.5rem] rounded-md p-0 pl-1 focus:ring-4 focus:ring-focus focus:ring-opacity-25"
-				onChange={(e) => {
-					onChange(e);
-
-					if (checkValue) setValue(checkValue());
-				}}
-				value={value}
-				{...restProps}
-			/>
-		</div>
+		<input
+			type="number"
+			className={`${className} ${
+				isMarkActive(editor, format) ? "bg-opacity-70" : "bg-opacity-0"
+			} w-[4vw] min-w-[2.5rem] max-w-[3.5rem] rounded-md p-0 pl-1 focus:ring-4 focus:ring-focus focus:ring-opacity-25`}
+			onChange={(e) => {
+				addMarkData(editor, { format, value: e.target.value });
+			}}
+			{...restProps}
+		/>
 	);
 }
