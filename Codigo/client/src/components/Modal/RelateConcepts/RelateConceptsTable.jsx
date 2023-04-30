@@ -1,5 +1,8 @@
 import React from "react";
 
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import ModalAlertButton from "../common/ModalAlertButton";
+
 export default function RelateConceptsTable({ title, values, setValores }) {
 	let result = [];
 	for (let i = 0; i < values?.length ?? 0; i++) {
@@ -32,9 +35,26 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 
 	return (
 		<div className="flex flex-col gap-3 p-4">
-			<h4 className="text-modal-heading" htmlFor="newWord">
-				{title}
-			</h4>
+			<div className="flex flex-row justify-between">
+				<h4 className="text-modal-heading" htmlFor="newWord">
+					{title}
+				</h4>
+				{
+					values.filter(value => value.length >= 2).length > 0 &&
+					<ModalAlertButton
+					icon={<AiOutlineInfoCircle size={30} />}
+					iconButtonClassName="text-alert-info-dark hover:text-alert-info"
+					defaultIsOpen={false}
+					listStyle="list-none"
+					placement="left"
+					alertBoxClassName="bg-alert-info text-alert-info-dark"
+					contentList={[
+						"No es necesario rellenar todos los huecos",
+					]}
+				/>
+				}
+				
+		</div>
 			<div className="custom-scrollbar h-60 max-h-60 overflow-auto py-2">
 				<div className="flex justify-around align-middle">{result}</div>
 			</div>
