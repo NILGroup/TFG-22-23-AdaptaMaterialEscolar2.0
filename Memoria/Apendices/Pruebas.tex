@@ -1,3 +1,58 @@
 \chapter{Plan de pruebas: Casos de prueba y guiones de prueba}\label{ape:pruebas}
 
 En este Apéndice se exponen los distintos casos de prueba y guiones que se han definido para probar cada funcionalidad de AdaptaMaterialEscolar 2.0.
+
+\section{Funcionalidad de verdadero/falso}
+\label{planPruebas:v/f}
+A continuación se expondrá una tabla con los casos de prueba, escenarios específicos para verificar si la funcionalidad cumple con los requisitos y funcionalidades establecidas, y el procedimiento para hacer dichos casos.
+\subsection{Casos de Prueba}
+\label{casosPruebas:v/f}
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tabular}{| c | c | p{4cm} |  c |c |}
+    \hline
+    \textbf{Precondición} &  \textbf{Campo} &  \textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}salida esperada\\ (postconticion)\end{tabular}} \\ \hline
+    Lista=[] & Nueva frase & Longitud de frase <= 0 & Frase = “” & Lista = []\\ \hline
+    Lista=[] & Nueva frase & Longitud de frase > 0 & Frase = “hola” & Lista = [“hola”]\\ \hline
+    Lista=[“hola”] & Editar frase &Longitud de frase <= 0 y la Frase existe en la lista & Frase = “” & Lista = [“hola”]\\ \hline
+    Lista=[“hola”] & Editar frase & Longitud de frase > 0 y la Frase existe en la lista & Frase = “adios” & Lista = [“adios”]\\ \hline
+    Lista=[“hola”] & Borrar frase & Existe la frase a borrar en la lista & Frase = “hola” & Lista = []\\ \hline
+    Lista=[“hola”, “adios”] & Reordenar frases &  & Lista=[“hola”, “adios”] & Lista = [“adios”, “hola”]\\ \hline
+    Lista=[] & Reordenar frases &  & Lista=[] & Lista=[] \\ \hline
+    Lista=[“hola”] & Reordenar frases &  & Lista=[“hola”] & Lista=[“hola”]\\ \hline
+    \end{tabular}
+    }
+   \caption{Tabla de ejemplo}
+    \end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:v/f}
+\begin{enumerate}
+    \item Abrir el modal de Verdadero/Falso
+    \item Cerrar el modal
+    \item Abrir el modal de Verdadero/Falso
+    \item Comprobar que no está habilitado el botón de \item “Reordenar” ni el botón de “Ok”
+    \item No introducir datos al insertar frase y dar click a añadir
+    \item Comprobar que no ha producido ningún cambio
+    \item Introducir datos, ejemplo “hola” y dar click a añadir
+    \item Comprobar que se ha introducido en la lista de frases
+    \item Editar la palabra introducida introduciendo “”
+    \item Comprobar que no se ha cambiado el valor
+    \item Editar la palabra introducida introduciendo “adios”
+    \item Comprobar que se ha cambiado el valor al esperado
+    \item Darle a borrar la frase
+    \item Comprobar que se ha borrado
+    \item Introducir datos, ejemplo “pepe”y dar click a añadir
+    \item Comprobar que se ha introducido en la lista de frases
+    \item Comprobar que no está habilitado el botón de reordenar
+    \item Introducir datos, ejemplo “gato”y dar click a añadir
+    \item Comprobar que se ha introducido en la lista de frases
+    \item Darle a reordenar 
+    \item Comprobar que no tiene el orden anterior
+    \item Darle a ok
+    \item Comprobar que se ha cerrado el modal
+    \item Abrir el modal de Verdadero/Falso
+    \item Comprobar que los campos están vacíos
+  \end{enumerate}
