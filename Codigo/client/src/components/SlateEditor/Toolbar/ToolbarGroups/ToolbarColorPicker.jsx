@@ -66,7 +66,6 @@ export default function ToolbarColorPicker({ label, defaultColor = "#000000", on
 	return (
 		<Dropdown
 			label={label}
-			title="Color fuente"
 			class={`${
 				isOpen ? "bg-opacity-70" : "bg-opacity-0"
 			} flex items-center gap-1 rounded-sm bg-grey-dark hover:bg-opacity-40 focus:ring-2 focus:ring-focus focus:ring-opacity-30`}
