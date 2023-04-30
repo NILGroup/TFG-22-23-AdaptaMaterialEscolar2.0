@@ -1,58 +1,442 @@
 \chapter{Plan de pruebas: Casos de prueba y guiones de prueba}\label{ape:pruebas}
 
-En este Apéndice se exponen los distintos casos de prueba y guiones que se han definido para probar cada funcionalidad de AdaptaMaterialEscolar 2.0.
+En este Apéndice se exponen los distintos casos de prueba,  que son escenarios específicos para verificar si la funcionalidad cumple con los requisitos y funcionalidades establecidas, y guiones que se han definido para probar cada funcionalidad de AdaptaMaterialEscolar 2.0.
 
 \section{Funcionalidad de verdadero/falso}
 \label{planPruebas:v/f}
-A continuación se expondrá una tabla con los casos de prueba, escenarios específicos para verificar si la funcionalidad cumple con los requisitos y funcionalidades establecidas, y el procedimiento para hacer dichos casos.
-\subsection{Casos de Prueba}
-\label{casosPruebas:v/f}
+A continuación se expone la tabla (Figura \ref{tab:v/f}) con los casos de prueba de la funcionalidad de verdadero/falso y el procedimiento para hacer dichos casos.
 
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tabular}{| c | c | p{4cm} |  c |c |}
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
     \hline
-    \textbf{Precondición} &  \textbf{Campo} &  \textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}salida esperada\\ (postconticion)\end{tabular}} \\ \hline
-    Lista=[] & Nueva frase & Longitud de frase <= 0 & Frase = “” & Lista = []\\ \hline
-    Lista=[] & Nueva frase & Longitud de frase > 0 & Frase = “hola” & Lista = [“hola”]\\ \hline
-    Lista=[“hola”] & Editar frase &Longitud de frase <= 0 y la Frase existe en la lista & Frase = “” & Lista = [“hola”]\\ \hline
-    Lista=[“hola”] & Editar frase & Longitud de frase > 0 y la Frase existe en la lista & Frase = “adios” & Lista = [“adios”]\\ \hline
-    Lista=[“hola”] & Borrar frase & Existe la frase a borrar en la lista & Frase = “hola” & Lista = []\\ \hline
-    Lista=[“hola”, “adios”] & Reordenar frases &  & Lista=[“hola”, “adios”] & Lista = [“adios”, “hola”]\\ \hline
-    Lista=[] & Reordenar frases &  & Lista=[] & Lista=[] \\ \hline
-    Lista=[“hola”] & Reordenar frases &  & Lista=[“hola”] & Lista=[“hola”]\\ \hline
-    \end{tabular}
+    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    Lista=[ ] & Nueva frase & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
+    Lista=[ ] & Nueva frase & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola'']\\ \hline
+    Lista=[``hola''] & Editar frase &Longitud de frase $\leq$ 0 y la Frase existe en la lista & Frase = ``'' & Lista = [``hola'']\\ \hline
+    Lista=[``hola''] & Editar frase & Longitud de frase > 0 y la Frase existe en la lista & Frase = ``adios'' & Lista = [``adios'']\\ \hline
+    Lista=[``hola''] & Borrar frase & Existe la frase a borrar en la lista & Frase = ``hola'' & Lista = [ ]\\ \hline
+    Lista=[``hola'', ``adios''] & Reordenar frases &  & Lista=[``hola''”, ``adios''] & Lista = [``adios'', ``hola'']\\ \hline
+    Lista=[ ] & Reordenar frases &  & Lista=[ ] & Lista=[ ] \\ \hline
+    Lista=[``hola''] & Reordenar frases &  & Lista=[``hola''] & Lista=[``hola'']\\ \hline
+    \end{tblr}
     }
-   \caption{Tabla de ejemplo}
-    \end{table}
+    \caption{Casos de prueba de la funcionalidad de verdadero/falso.}
+    \label{tab:v/f}
+\end{table}
 
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:v/f}
 \begin{enumerate}
-    \item Abrir el modal de Verdadero/Falso
-    \item Cerrar el modal
-    \item Abrir el modal de Verdadero/Falso
-    \item Comprobar que no está habilitado el botón de \item “Reordenar” ni el botón de “Ok”
-    \item No introducir datos al insertar frase y dar click a añadir
-    \item Comprobar que no ha producido ningún cambio
-    \item Introducir datos, ejemplo “hola” y dar click a añadir
-    \item Comprobar que se ha introducido en la lista de frases
-    \item Editar la palabra introducida introduciendo “”
-    \item Comprobar que no se ha cambiado el valor
-    \item Editar la palabra introducida introduciendo “adios”
+    \item Abrir el modal de Verdadero/Falso.
+    \item Cerrar el modal.
+    \item Abrir el modal de Verdadero/Falso.
+    \item Comprobar que no está habilitado el botón de ``Reordenar'' ni el botón de ``O.k''.
+    \item No introducir datos al insertar frase y dar click a añadir.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir datos, ejemplo ``hola''  y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de frases.
+    \item Editar la palabra introducida introduciendo una cadena vacía.
+    \item Comprobar que no se ha cambiado el valor.
+    \item Editar la palabra introducida introduciendo .“adios”.
     \item Comprobar que se ha cambiado el valor al esperado
-    \item Darle a borrar la frase
-    \item Comprobar que se ha borrado
-    \item Introducir datos, ejemplo “pepe”y dar click a añadir
-    \item Comprobar que se ha introducido en la lista de frases
-    \item Comprobar que no está habilitado el botón de reordenar
-    \item Introducir datos, ejemplo “gato”y dar click a añadir
-    \item Comprobar que se ha introducido en la lista de frases
-    \item Darle a reordenar 
-    \item Comprobar que no tiene el orden anterior
-    \item Darle a ok
-    \item Comprobar que se ha cerrado el modal
-    \item Abrir el modal de Verdadero/Falso
-    \item Comprobar que los campos están vacíos
+    \item Darle a borrar la frase.
+    \item Comprobar que se ha borrado.
+    \item Introducir datos, ejemplo ``pepe'' dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de frases.
+    \item Comprobar que no está habilitado el botón de reordenar.
+    \item Introducir datos, ejemplo ``gato'' y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de frases.
+    \item Darle a reordenar .
+    \item Comprobar que no tiene el orden anterior.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de Verdadero/Falso.
+    \item Comprobar que los campos están vacíos.
   \end{enumerate}
+
+\section{Funcionalidad de buscar pictograma}
+\label{planPruebas:busPicto}
+A continuación se expone la tabla (Figura \ref{tab:busPicto}) con los casos de prueba de la funcionalidad de buscar pictograma y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|m{4.5cm}|}}
+    \hline
+  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto $\leq$ 0 & concepto= ``'' & \hfil ListaPicto=[ ]\\ \hline
+    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto > 0 & concepto= ``hola'' &  ListaPicto=[pictograma1, pictograma2…]\\ \hline
+    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto > 0 & concepto= ``jhfueh'' & ListaPicto=[ ], mensaje=``no se ha encontrado pictograma''\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de buscar pictograma.}
+    \label{tab:busPicto}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:busPicto}
+\begin{enumerate}
+\item Abrir el modal de Buscar pictograma.
+\item Cerrar el modal.
+\item Abrir el modal de Buscar pictograma.
+\item No introducir concepto y dar click a buscar.
+\item Comprobar que no ha producido ningún cambio.
+\item Introducir un concepto y darle a buscar.
+\item Comprobar que salen los pictogramas relacionados con el concepto.
+\item Darle a un pictograma y comprobar que se ha cerrado el modal.
+\item Abrir el modal de Buscar pictograma.
+\item Comprobar que los campos están vacíos.
+
+\end{enumerate}
+
+
+\section{Funcionalidad de desarrollo}
+\label{planPruebas:desarrollo}
+A continuación se expone la tabla (Figura \ref{tab:desarrollo}) con los casos de prueba de la funcionalidad de desarrollo y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+    \hline
+  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado $\leq$  0 & Enunciado=``'' & Enunciado=``''\\ \hline
+  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``hola'' & Enunciado=``hola''\\ \hline
+  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado $\leq$ 0 & Enunciado=``'' & Enunciado=``''\\ \hline
+  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``adios'' &Enunciado=``adios''\\ \hline
+  NumeroFilas=1 & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado & NumeroFilas=-1 & Enunciado = ``''\\ \hline
+  NumeroFilas=1 & Insertar número de filas & Número de filas > 0 y existe un enunciado & NumeroFilas=2 & Enunciado $\neq$ ``''\\ \hline
+  Opción pauta=``'' & Elegir pauta & Número de filas > 0 y existe un enunciado &  Opción pauta $\neq$ ``'' & Opción pauta $\neq$ ``''\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de desarrollo.}
+    \label{tab:desarrollo}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:desarrollo}
+\begin{enumerate}
+\item Abrir el modal de desarrollo.
+\item Cerrar el modal.
+\item Abrir el modal de desarrollo.
+\item Comprobar que no está habilitado el botón de ``Ok''.
+\item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
+\item Introducir número de filas mayor que cero y comprobar que no hay nada en la vista previa.
+\item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
+\item Introducir número de filas menor que cero y comprobar que no hay nada en la vista previa.
+\item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
+\item Introducir texto en el insertar enunciado, introducir número de filas mayor que cero y comprobar que se ve en la vista previa .
+\item Probar tipos de pauta y comprobar que se ve en la visa previa.
+\item Probar a cambiar enunciado y comprobar que el cambio se refleja en la vista previa.
+\item Darle a ``Ok''.
+\item Comprobar que se ha cerrado el modal.
+\item Abrir el modal de desarrollo.
+\item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de sopa de letras}
+\label{planPruebas:sopa}
+A continuación se expone la tabla (Figura \ref{tab:sopa}) con los casos de prueba de la funcionalidad de sopa de letras y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.70}{
+    \begin{tblr}{ colspec = {|m{4cm}|m{4cm}|m{4cm}|c|m{4cm}|}}
+    \hline
+    \textbf{Precondición} &  \hfil\textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    Listapalabra=[ ] & \hfil Insertar palabra & Longitud de palabra  $\leq$ 0 & Palabra = ``'' & Listapalabra = [ ]\\ \hline
+    Listapalabra=[ ] & \hfil Insertar palabra & Longitud de palabra  > 0 & Palabra = ``hola'' & Listapalabra = [``hola'']\\ \hline
+    Listapalabra=[``hola''] & \hfil Insertar palabra & Longitud de palabra  $\leq$ 0 & Palabra = ``'' & Listapalabra = [``hola'']\\ \hline
+    Listapalabra=[“hola”] & \hfil Insertar palabra & Longitud de frase > 0 & Palabra = ``adios'' & Listapalabra = [``hola'',``adios'']\\ \hline
+    Listapalabra=[“hola”] & \hfil Editar palabra & Longitud de palabra $\leq$ 0 y la palabra existe en la lista & Palabra = ``'' & Listapalabra = [``hola'']\\ \hline
+    Listapalabra=[``hola''] & \hfil Editar palabra & Longitud de palabra > 0 y la palabra existe en la lista
+    & Palabra = ``adios'' & Listapalabra = [``adios'']\\ \hline
+    Listapalabra=[``hola''] & \hfil Borrar palabra & Existe la frase a borrar en la lista & Palabra = ``hola'' & Listapalabra=[ ] \\ \hline
+    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas y numCols $\leq$ 0  & NumFilas=0 NumCols=0 & NumFilas=1 y NumCols=1\\ \hline
+    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas y numCols> 0 < 1000 & NumFilas=3 NumCols=8 & NumFilas=3 NumCols=8\\ \hline
+    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas =1000 numCols=1000 & NumFilas= 1000
+    NumCols=1000 & sopa de letras correctamente creada\\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 y 0< numCols <longitud de la palabra más larga & Número de filas=2 numCols=3 & Error\\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical & Insertar número de filas y columnas & NumFilas=número de palabras a insertar larga y numCols >0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical & Insertar número de filas y columnas & NumFilas<número de palabras a insertar larga y numCols >0 & Número de filas=1 numCols=4 & Error \\ \hline
+    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal & Insertar número de filas y columnas & NumFilas=longitud de la palabra más larga
+    larga y numCols=longitud de la palabra más larga
+    & Número de filas=4 numCols=4 & sopa de letras correctamente creada\\ \hline
+    NNumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal & Insertar número de filas y columnas & NumFilas<longitud de la palabra más larga
+    larga y numCols<longitud de la palabra más larga & Número de filas=3 numCols=3 & Error\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de sopa de letras.}
+    \label{tab:sopa}
+\end{table}
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:sopa}
+\begin{enumerate}
+    \item Abrir el modal de sopa de letras.
+    \item Cerrar el modal.
+    \item Abrir el modal de sopa de letras.
+    \item Comprobar que no está habilitado el botón de ``Ok''. 
+    \item No introducir datos al insertar las palabras y dar click a añadir.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir número de filas y columnas mayor que uno.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir uno o varios posicionamientos de la palabra en la sopa de letras.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir datos, ejemplo ``pepe''y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de palabras.
+    \item Editar palabra introduciendo una cadena vacía.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Editar palabra introduciendo ``juan''.
+    \item Comprobar que la palabra se ha modificado por ``juan''.
+    \item Darle a borrar la palabra.
+    \item Comprobar que se ha borrado.
+    \item Introducir un posicionamiento horizontal e introducir tantas columnas como la longitud de la palabra.
+    \item Comprobar que se ha creado la sopa de letras.
+    \item Cambia a un posicionamiento vertical e introducir tantas filas como la longitud de la palabra.
+    \item Comprobar que se ha creado la sopa de letras.
+    \item Cambia a un posicionamiento diagonal e introducir tantas filas y columnas como la longitud de la palabra.
+    \item Comprobar que se ha creado la sopa de letras.
+    \item Cambia a un posicionamiento al revés e introducir tantas columnas como la longitud de la palabra.
+    \item Comprobar que se ha creado la sopa de letras.
+    \item Seleccionar todos los tipos de posicionamiento y adecuar el número de columnas y de filas. 
+    \item Comprobar que se ha creado la sopa de letras.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de sopa de letras.
+    \item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de completar huecos}
+\label{planPruebas:huecos}
+A continuación se expone la tabla (Figura \ref{tab:huecos}) con los casos de prueba de la funcionalidad de completar huecos y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.80}{
+    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+    \hline
+    \hfil\textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    \hfil Texto= ``'' & Nuevo texto & Longitud de texto $\leq$  0 & \hfil Texto= ``'' & \hfil Texto=``''\\ \hline
+    \hfil Texto= ``'' & Nuevo texto & Longitud de texto > 0 & \hfil Texto =``hola'' & \hfil Texto=``hola''\\ \hline
+    \hfil Texto= ``'' & Introducir huecos & Longitud de texto $\leq$ 0 & Tamaño de hueco que pertenece a algún tamaño de hueco disponible & \hfil Texto=``''\\ \hline
+  Texto= ``Hola esto es una prueba'' & Introducir huecos & Longitud de enunciado > 0 y el hueco no sea un espacio & Tamaño de hueco que pertenece a algún tamaño de hueco disponible &Texto =``\rule{10mm}{0.1mm} esto es una \rule{10mm}{0.1mm}''\\ \hline
+  Texto= ``Hola esto es una prueba'' & Editar Texto & Longitud de texto > 0 & Texto =``Adiós esto es una prueba'' &Texto =``Adiós esto es una prueba''\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de completar huecos.}
+    \label{tab:huecos}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:huecos}
+\begin{enumerate}
+    \item Abrir el modal de completar huecos.
+    \item Cerrar el modal.
+    \item Abrir el modal de completar huecos.
+    \item Comprobar que sin texto introducido no se puede darle a ``Ok''. 
+    \item Comprobar que sin texto introducido no se puede darle a añadir huecos.
+    \item Insertar texto como por ejemplo ``Hola esto es una prueba'' comprobar que se puede dar click al botón de añadir hueco.
+    \item Borrar texto y ver como no se puede darle a ok y no se puede darle a añadir huecos.
+    \item Insertar texto como por ejemplo ``Hola esto es una prueba'' comprobar que se puede dar click al botón de añadir hueco.
+    \item Dar click al botón de añadir hueco y probar todos los tipos de añadir hueco.
+    \item Probar a dar click al boton de editar texto e introducir por ejemplo ``Adiós esto es una prueba''. 
+    \item Dar click al botón de añadir hueco y probar todos los tipos de añadir hueco.
+    \item Comprobar que no puedes convertir los espacios en huecos.
+    \item Dar click al ``Ok''. 
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de completar huecos.
+    \item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de definiciones}
+\label{planPruebas:definiciones}
+A continuación se expone la tabla (Figura \ref{tab:definiciones}) con los casos de prueba de la funcionalidad de definiciones y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+    \hline
+    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    Lista=[ ] & Nueva definición & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
+    Lista=[ ] & Nueva definición & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola'']\\ \hline
+    Lista=[``hola''] & Editar definición &Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``'' & Lista = [``hola'']\\ \hline
+    Lista=[``hola''] & Editar definición & Longitud de frase > 0 y la frase existe en la lista & Frase = ``adios'' & Lista = [``adios'']\\ \hline
+    Lista=[``hola''] & Borrar definición & Existe la frase a borrar en la lista & Frase = ``hola'' & Lista = [ ]\\ \hline
+    NumeroFilas=1 & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado & NumeroFilas= -1 & Enunciado = ``''\\ \hline
+    NumeroFilas=1 & Insertar número de filas & Número de filas > 0 y existe un enunciado & NumeroFilas= 2 & Enunciado $\neq$ ``'' \\ \hline
+    Opción pauta=``'' & Elegir pauta & Número de filas > 0 y existe un enunciado & Opción pauta $\neq$ ``'' & Opción pauta $\neq$ ``''\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de definiciones.}
+    \label{tab:definiciones}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:definiciones}
+\begin{enumerate}
+\item Abrir el modal de definiciones.
+\item Cerrar el modal.
+\item Abrir el modal de definiciones.
+\item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
+\item No introducir datos al insertar definición y dar click a añadir.
+\item Comprobar que no se ha producido ningún cambio.
+\item Introducir datos, ejemplo ``hola'' y dar click a añadir.
+\item Comprobar que se ha introducido en la lista de frases.
+\item Editar palabra introducida escribiendo una cadena vacía.
+\item Comprobar que no se ha cambiado el valor.
+\item Editar la palabra introducida escribiendo ``adios''.
+\item Comprobar que se ha cambiado el valor al esperado.
+\item Darle a borrar la definición.
+\item Comprobar que se ha borrado.
+\item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
+\item Comprobar que se ha introducido en la lista de definiciones.
+\item Introducir un número de filas menor o igual que cero y comprobar que no se dibujan en la vista previa.
+\item Introducir un número de filas mayor que 100 y comprobar que no se dibujan en la vista previa.
+\item Introducir un número de filas mayor que cero pero menor o igual que 100 y comprobar que se dibuja el número indicado de filas.
+\item Probar todos los tipos de pautas y comprobar que se dibuja el tipo de pauta indicado en cada caso.
+\item Darle a ``Ok''.
+\item Comprobar que se ha cerrado el modal y se ha añadido el ejercicio al editable.
+\item Abrir el modal de definiciones.
+\item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de generar resumen}
+\label{planPruebas:resumen}
+A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de prueba de la funcionalidad de generar resumen y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|m{4cm}|m{4cm}|}}
+    \hline
+  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal $\leq$ 0 & \hfil TextoOriginal= ``'' &  \hfil TextoResumido= ``''\\ \hline
+  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal > 0 & \hfil TextoOriginal= ``...'' & TextoResumido= ``'' siendo Longitud del TextoResumido < Longitud del TextoOriginal\\ \hline
+  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal > 0 & TextoOriginal= ``dgsgds'' & \hfil TextoResumido= ``''\\ \hline
+  TextoResumido= ``'' & Tamaño & Tamaño $\leq$ 0 &  TextoOriginal= ``...'' & \hfil TextoResumido= ``''\\ \hline
+  TextoResumido= ``'' & Tamaño & Tamaño > 0 &  TextoOriginal= ``...'' y Tamaño=10 & TextoResumido= ``...'' con longitud de TextoResumido  = 10\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de generar resumen.}
+    \label{tab:resumen}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:resumen}
+\begin{enumerate}
+    \item Abrir el modal de Generar Resumen.
+    \item Cerrar el modal.
+    \item Abrir el modal de Generar Resumen.
+    \item No introducir texto original y dar click a resumir.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir un texto, elegir una cantidad de palabras menor o igual que cero y darle a resumir.
+    \item Cerrar el modal.
+    \item Abrir el modal de Generar Resumen.
+    \item Comprobar que se ha reseteado el modal.
+    \item Introducir un texto, elegir una cantidad de palabras menor o igual que cero y darle a resumir.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir un texto, elegir una cantidad de palabras mayor que cero y darle a resumir.
+    \item Comprobar que se ha devuelto lo especificado. 
+    \item Comprobar que los campos están vacíos.
+    \item Introducir un texto no coherente, elegir una cantidad de palabras mayor que cero y darle a resumir.
+    \item Comprobar que no ha producido ningún cambio.
+    
+\end{enumerate}
+
+
+\section{Funcionalidad de leyenda de colores}
+\label{planPruebas:leyenda}
+A continuación se expone la tabla (Figura \ref{tab:leyenda}) con los casos de prueba de la funcionalidad de leyenda de colores y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+    \hline
+    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+    Lista=[ ] & Nuevo concepto & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
+    Lista=[ ] & Nuevo concepto & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola''(0,0,0)]\\ \hline
+    Lista=[``hola''(0,0,0)] & Editar concepto &Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``'' & Lista = [``hola''(0,0,0)]\\ \hline
+    Lista=[``hola''(0,0,0)] & Editar concepto & Longitud de frase > 0 y la frase existe en la lista & Frase = ``adios'' & Lista = [``adios''(0,0,0)]\\ \hline
+    Lista=[``hola''(0,0,0)] & Editar color & EColor válido
+    y la frase existe en la lista & Color = (255,0,0) & Lista = [``hola''(255,0,0)]\\ \hline
+    Lista=[``hola''(0,0,0)] & Borrar concepto & Existe la frase a borrar en la lista & Frase = “hola” & Lista = [ ]\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de leyenda de colores.}
+    \label{tab:leyenda}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:leyenda}
+\begin{enumerate}
+\item Abrir el modal.
+\item Cerrar el modal.
+\item Abrir el modal otra vez.
+\item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
+\item No introducir datos al insertar un concepto y dar click a añadir.
+\item Comprobar que no se ha producido ningún cambio.
+\item Introducir datos, ejemplo ``hola'' y dar click a añadir.
+\item Comprobar que se ha introducido en la lista de conceptos.
+\item Editar palabra introducida escribiendo una cadena vacía.
+\item Comprobar que no se ha cambiado el valor.
+\item Editar la palabra introducida escribiendo ``adios''.
+\item Comprobar que se ha cambiado el valor al esperado.
+\item Editar el color seleccionado un color diferente.
+\item Comprobar que se ha cambiado el color.
+\item Darle a borrar el concepto.
+\item Comprobar que se ha borrado.
+\item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
+\item Comprobar que se ha introducido en la lista de definiciones.
+\item Darle a ``Ok''.
+\item Comprobar que se ha cerrado el modal y se ha añadido la leyenda al editable.
+\item Abrir el modal.
+\item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de espacios para dibujar}
+\label{planPruebas:dibujar}
+A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de prueba de la funcionalidad de espacios para dibujar y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.85}{
+    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+    \hline
+  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado $\leq$  0 & Enunciado=``'' & Enunciado=``''\\ \hline
+  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``hola'' & Enunciado=``hola''\\ \hline
+  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado $\leq$ 0 & Enunciado=``'' & Enunciado=``''\\ \hline
+  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``adios'' &Enunciado=``adios''\\ \hline
+  espacio=1 & Insertar espacio & Número de filas $\leq$ 0 y existe un enunciado & espacio=-1 & Enunciado = ``''\\ \hline
+  espacio=1 & Insertar espacio & Número de filas > 0 y existe un enunciado & espacio=2 & Enunciado $\neq$ ``''\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de espacios para dibujar.}
+    \label{tab:dibujar}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:dibujar}
+\begin{enumerate}
+    \item Abrir el modal de espacios para dibujar.
+    \item Cerrar el modal.
+    \item Abrir el modal de espacios para dibujar.
+    \item Comprobar que no está habilitado el botón de ``Ok''.
+    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
+    \item Introducir espacio mayor que cero y comprobar que no hay nada en la vista previa.
+    \item Introducir espacio menor que cero y comprobar que no hay nada en la vista previa.
+    \item Introducir texto en el insertar enunciado, introducir espacio  mayor que cero y comprobar que se ve en la vista previa. 
+    \item Probar a cambiar enunciado y comprobar que el cambio se refleja en la vista previa.
+    \item Desmarcar recuadro y ver en vista previa que no hay recuadro.
+    \item Marcar recuadro y ver que aparece en vista previa.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de  espacios para dibujar.
+    \item Comprobar que los campos están vacíos. 
+\end{enumerate}
