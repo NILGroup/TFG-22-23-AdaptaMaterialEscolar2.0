@@ -128,7 +128,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 	return (
 		<Modal
 			title="Relacionar conceptos"
-			className="w-6/12"
+			className="w-9/12"
 			isOpen={isOpen}
 			onClose={() => {
 				reset();
@@ -168,6 +168,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			</div>
 			<hr className="my-6" />
 			<ModalPreview
+				previewHeight = "h-60 max-h-60"
 				attributes={
 					<ModalButton
 						className="px-1"
