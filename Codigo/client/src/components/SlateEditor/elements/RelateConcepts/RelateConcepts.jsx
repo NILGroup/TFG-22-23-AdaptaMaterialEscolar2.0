@@ -7,17 +7,43 @@ export default function RelateConcepts({ attributes, children, element }) {
 		let temp = element.values[i]
 			.filter((valor) => valor !== "")
 			.map((valor, j) => {
+				if( i === 0){
+					return (
+						<div key={`flechas_${j}`} className="flex justify-end !max-w-[65mm]"> 
+							<p >
+							{valor}
+							</p>	
+							<p className="ml-4"> 	
+								{element.icon}
+							</p>
+						</div>
+						);
+					
+				}
+				if( i === element.values.length - 1){
+					return (
+					<div key={`flechas_${j}`} className="flex justify-start !max-w-[65mm]"> 
+						<p className="mr-4">{element.icon}</p>	
+						<p>
+							{valor}
+						</p>
+					</div>
+					);
+				}
+
 				return (
-					<div key={`flechas_${j}`} className="flex items-center justify-between gap-3 p-1">
-						{i !== 0 && element.icon}
-						{valor}
-						{i !== element.values.length - 1 && element.icon}
+					<div key={`flechas_${j}`} className="flex justify-between !max-w-[65mm]"> 
+						<p className="mr-4">{element.icon}</p>	
+						<p key={`flechas_${j}`} className="text-start">
+							{valor}
+						</p>
+						<p className="ml-4">{element.icon}</p>	
 					</div>
 				);
 			});
 
 		result.push(
-			<div key={`flechas_${i}`} className="flex flex-col justify-center gap-4">
+			<div key={`flechas_${i}`} className="flex flex-col justify-evenly gap-4">
 				{temp}
 			</div>
 		);
