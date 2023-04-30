@@ -2,11 +2,14 @@ import React from "react";
 
 import { activeMark, addMarkData, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
 
+import { TableSelector } from "./TableSelector";
+import ToolbarColorPicker from "./ToolbarColorPicker";
 import ToolbarGroupButton from "./ToolbarGroupButton";
+import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 
 import { AiOutlineBold, AiOutlineItalic, AiOutlineStrikethrough, AiOutlineUnderline } from "react-icons/ai";
-import { TableSelector } from "./TableSelector";
-import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
+
+import { MdOutlineHorizontalRule } from "react-icons/md";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -51,6 +54,19 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 					e.preventDefault();
 
 					changeMarkData(e.target.value, "fontSize");
+				}}
+			/>
+			<ToolbarColorPicker
+				label={
+					<div className="flex flex-col gap-0">
+						<span className="text-[1.25rem] text-black">A</span>
+						<span className="h-2 w-full -translate-y-[170%]">
+							<MdOutlineHorizontalRule size={35} />
+						</span>
+					</div>
+				}
+				onColorChange={(color) => {
+					addMarkData(editor, { format: "color", value: color });
 				}}
 			/>
 			{/* Tablas */}

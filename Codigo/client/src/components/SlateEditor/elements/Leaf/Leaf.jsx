@@ -37,6 +37,10 @@ export default function Leaf({ leaf, attributes, children }) {
 		children = <span style={{ fontSize: `${leaf.fontSize}px` }}>{children}</span>;
 	}
 
+	if (leaf.color) {
+		children = <span style={{ color: leaf.color }}>{children}</span>;
+	}
+
 	// if (leaf.fontFamily) {
 	// 	const family = fontFamilyMap[leaf.fontFamily];
 	// 	children = <span style={{ fontFamily: family }}>{children}</span>;
