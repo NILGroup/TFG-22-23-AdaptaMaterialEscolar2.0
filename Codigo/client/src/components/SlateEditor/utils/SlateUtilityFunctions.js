@@ -80,13 +80,13 @@ export const isMarkActive = (editor, format) => {
 
 	return marks ? marks[format] === true : false;
 };
+
 export const insertarEjercicioEditable = (editor, nodoEjercicio, path) => {
 	if (path !== null) {
 		Transforms.removeNodes(editor, { at: path });
-		Transforms.insertNodes(editor, nodoEjercicio, { at: path });		
-	}
-	else{
-		Transforms.insertNodes(editor, nodoEjercicio );	
+		Transforms.insertNodes(editor, nodoEjercicio, { at: path });
+	} else {
+		Transforms.insertNodes(editor, nodoEjercicio);
 		Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
 	}
 };
