@@ -49,7 +49,13 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 			return;
 		}
 
-		return <div  className='border border-black border-solid my-1'  style={{ height: `${5 * espacio }mm` }}></div>;
+		let borderStyle = "";
+
+		if(recuadrar){
+			borderStyle = " border border-black border-solid";
+		}
+
+		return <div  className={"my-1 " + borderStyle} style={{ height: `${5 * espacio }mm` }}></div>;
 	};
 	const openModalUpdate = (path, data) =>{
 		openModal(ModalType.drawing)
