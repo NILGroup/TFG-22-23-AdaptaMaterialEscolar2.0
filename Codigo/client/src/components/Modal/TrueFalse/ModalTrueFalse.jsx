@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BiRectangle } from "react-icons/bi";
 
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
 import ModalNewWordInput from "../common/ModalNewWordInput";
@@ -8,7 +9,6 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import { ModalType } from "../ModalFactory";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 	const [lista, setLista] = useState([]);
@@ -24,42 +24,47 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 			setListaVistaP([]);
 		}
 	}, [lista]);
-	const openModalUpdate = (path, data) =>{
+	const openModalUpdate = (path, data) => {
 		openModal(ModalType.TrueFalse);
 		setLista(data.lista);
 		setmodificado(data.modificado);
 		setListaVistaP(data.listaVistaP);
 		setPath(path);
-	}
-	
+	};
+
 	const okButton = (editor, items) => {
-		const list = { 
+		const list = {
 			type: "ejercicio",
 			openModalUpdate,
-			data:{
+			data: {
 				lista,
 				modificado,
-				listaVistaP
+				listaVistaP,
 			},
-			children: [] 
+			children: [],
 		};
 		const listItem = {
 			type: "enunciado",
-			children: [{ text: `Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra 'V' si es verdadera o la letra 'F' si es falsa.`, bold:true }],
+			children: [
+				{
+					text: `Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra 'V' si es verdadera o la letra 'F' si es falsa.`,
+					bold: true,
+				},
+			],
 		};
 
 		list.children.push(listItem);
 		items.forEach((item) => {
 			const listItem = {
 				type: "paragraph",
-				children: [ { text: item },{ text: "  V/F" }],
+				children: [{ text: item }, { text: "  V / F" }],
 			};
 
 			list.children.push(listItem);
 		});
-		list.children.push({type: "paragraph",children: [{text:''}]});
+		list.children.push({ type: "paragraph", children: [{ text: "" }] });
 
-		insertarEjercicioEditable(editor, list, path)
+		insertarEjercicioEditable(editor, list, path);
 		closeModal();
 	};
 	const submit = (newWord) => {
@@ -80,7 +85,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 			return newList;
 		});
 	};
-	
+
 	const editWord = (newValue, index) => {
 		if (!lista) throw new Error("Cannot update word, word list does not exist!");
 
@@ -109,6 +114,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 				<ModalNewWordInput title="Frase" onSubmit={(newWord) => submit(newWord)} />
 				<ModalWordList
 					wordList={lista}
+					className="my-8 pl-4"
 					onEdit={(newValue, index) => editWord(newValue, index)}
 					onDelete={(index) => deleteWord(index)}
 				/>
@@ -118,7 +124,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 				<ModalPreview
 					attributes={
 						<ModalButton
-							className="px-1"
+							className="px-2 py-1"
 							disabled={lista.length < 2}
 							onClick={() => {
 								let nuevaLista = listaVistaP.slice();
@@ -138,13 +144,20 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 					}
 				>
 					<div>
-						{lista.length > 0 && <p className="font-bold">Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra V si es verdadera o la letra F si es falsa.</p>}
+						{lista.length > 0 && (
+							<p className="font-bold">
+								Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra V si es
+								verdadera o la letra F si es falsa.
+							</p>
+						)}
 						<ul>
 							{listaVistaP.map((elem, i) => {
 								return (
 									<li key={`concepto-${i}`}>
 										<div className="flex items-start">
-											<p className="pl-1">{elem} <span>V/F</span></p>
+											<p className="pl-1">
+												{elem} <span>V / F</span>
+											</p>
 										</div>
 									</li>
 								);
@@ -154,7 +167,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 				</ModalPreview>
 
 				<ModalOkButton
-					className="mt-2 self-center"
+					className="mt-4 self-center"
 					onClick={() => okButton(editor, listaVistaP)}
 					disabled={lista.length == 0}
 				/>
