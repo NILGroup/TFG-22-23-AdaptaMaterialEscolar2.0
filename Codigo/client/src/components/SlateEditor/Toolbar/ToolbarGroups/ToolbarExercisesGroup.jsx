@@ -26,7 +26,7 @@ export default function ToolbarExercisesGroup({ editor, openModal }) {
 				<span>Relacionar Conceptos</span>
 			</ToolbarGroupButton>
 			<ToolbarGroupButton onClick={() => openModal(ModalType.mathFormula)}>
-				<span>Formula matemática</span>
+				<span>Fórmula matemática</span>
 			</ToolbarGroupButton>
 			<ToolbarGroupButton onClick={() => openModal(ModalType.drawing)}>
 				<span>Espacio para dibujar</span>
