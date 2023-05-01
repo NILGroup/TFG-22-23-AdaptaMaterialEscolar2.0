@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IoMdSquare } from "react-icons/io";
-import { Transforms } from "slate";
 
 import "../ColorLegend/estilo.css";
 import Modal from "../common/Modal";
@@ -9,12 +8,15 @@ import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordListLegend from "./ModalWordListLegend";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
+import { ModalType } from "../ModalFactory";
 
-export default function ModalColorLegend({ editor, isOpen, onClose }) {
+export default function ModalColorLegend({ editor, isOpen, onClose, openModal }) {
 	const [conceptos, setConceptos] = useState([]);
 	const [colores, setColores] = useState([]);
 	const [color, setColor] = useState("#000000");
 	const [titulo, setTitulo] = useState("");
+	const [path, setPath] = useState(null);
 
 	const changeColor = (event) => {
 		setColor(event.target.value);
@@ -26,10 +28,26 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 		setConceptos([...conceptos, newWord]);
 		setColores([...colores, color]);
 		setColor("#000000");
+		setPath(null);
 	};
-
+	const openModalUpdate = (path, data) =>{
+		openModal(ModalType.colorLegend)
+		setConceptos(data.conceptos);
+		setColores(data.colores);
+		setTitulo(data.titulo);
+		setPath(path);
+	}
 	const okButton = (editor, conceptos, colores) => {
-		const list = { type: "list", children: [] };
+		const list = {
+			type: "bloqueEditable", 
+			data : {
+				conceptos, 
+				colores,
+				titulo
+			},
+			openModalUpdate,
+			children: [] 
+		};
 		const listItem = {
 			type: "paragraph",
 			children: [{ text: titulo }],
@@ -51,8 +69,12 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 
 			list.children.push(listItem);
 		});
+		list.children.push({
+			type: "paragraph",
+			children: [{ text: "" }],
+		});
 
-		Transforms.insertNodes(editor, list);
+		insertarEjercicioEditable(editor, list, path)
 		closeModal();
 	};
 
@@ -61,6 +83,7 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 		setColores([]);
 		setColor(null);
 		setTitulo("");
+		setPath(null);
 		onClose();
 	};
 
@@ -101,7 +124,7 @@ export default function ModalColorLegend({ editor, isOpen, onClose }) {
 		<Modal className="w-6/12" title="Leyenda de Colores" isOpen={isOpen} onClose={closeModal}>
 			<div className="flex flex-col">
 				<div>
-					<ModalInputText id="Titulo" label="Título" required onInput={changeTitle} />
+					<ModalInputText id="Titulo" label="Título" required onInput={changeTitle} value={titulo}/>
 				</div>
 
 				<div className="mt-5">
