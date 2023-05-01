@@ -11,8 +11,8 @@ import NavbarLink from "./NavbarLink";
 export default function Navbar() {
 	return (
 		<div className="flex w-full justify-between bg-white py-4 px-2 shadow-sm shadow-grey-dark sm:p-4">
-			<div className="max-w-[12rem] flex-shrink-0 hover:animate-pulse">
-				<Link to="/">
+			<div className="max-w-[12rem] flex-shrink-0">
+				<Link to="/" className="w-full outline-none hover:animate-pulse focus-visible:animate-pulse">
 					<img src={`${process.env.PUBLIC_URL}/img/Logo.png`} alt="Logo de AME2" />
 				</Link>
 			</div>

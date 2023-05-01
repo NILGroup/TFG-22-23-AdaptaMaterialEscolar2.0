@@ -25,7 +25,7 @@ export default function ModalPictogramList({ editor, pictograms, callback }) {
 
 						if (callback) callback();
 					}}
-					className="rounded-md shadow-[inner_0_0_0_2px] shadow-grey hover:shadow-black focus:ring-4 focus:ring-blue-300 focus:ring-opacity-60"
+					className="rounded-md shadow-[inner_0_0_0_2px] shadow-grey hover:shadow-black focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:ring-opacity-60"
 					tabIndex="0"
 				>
 					<img src={pictogram} alt={`Pictogram ${index}`} />

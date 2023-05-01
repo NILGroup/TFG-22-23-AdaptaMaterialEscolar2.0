@@ -14,7 +14,7 @@ export default function ToolbarBlockButton({
 		<button
 			className={`${className} ${
 				isBlockActive(editor, format) ? "bg-opacity-70" : "bg-opacity-0"
-			} flex items-center gap-1 rounded-sm bg-grey-dark p-1.5 hover:bg-opacity-40 focus:ring-2 focus:ring-focus focus:ring-opacity-30`}
+			} flex items-center gap-1 rounded-sm bg-grey-dark p-1.5 hover:bg-opacity-40 focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30`}
 			onClick={() => {
                     toggleBlock(editor, format);
 			}}

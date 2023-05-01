@@ -60,10 +60,10 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 	}
 
 	const originalText = request.body.originalText;
-	const words = originalText
-		.split(/(\s)/g)
-		.filter((word) => /[\S]/.test(word))
-		.map((word) => word.replace(/\W/g, ""));
+
+	const words = originalText.split(/([\n\r\s\t?¿!¡,.;:'"])/g).filter((word) => !/([\n\r\s\t?¿!¡,.;:'"])/g.test(word));
+
+	console.log(words);
 
 	try {
 		let pictos = [];
@@ -77,7 +77,12 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 				pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
 			}
 
-			pictos.push({ word, currentPicto: 0, disabled: false, pictograms });
+			pictos.push({
+				word,
+				currentPicto: 0,
+				disabled: false,
+				pictograms: pictograms.filter((value, index, array) => array.indexOf(value) === index),
+			});
 		}
 
 		response.status(200).json(pictos);

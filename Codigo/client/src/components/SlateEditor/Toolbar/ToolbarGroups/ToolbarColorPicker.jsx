@@ -66,7 +66,7 @@ export default function ToolbarColorPicker({ label, value, onColorChange }) {
 			label={label}
 			class={`${
 				isOpen ? "bg-opacity-70" : "bg-opacity-0"
-			} flex items-center gap-1 rounded-sm bg-grey-dark hover:bg-opacity-40 focus:ring-2 focus:ring-focus focus:ring-opacity-30`}
+			} flex items-center gap-1 rounded-sm bg-grey-dark hover:bg-opacity-40 focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30`}
 			style={{ color: value }}
 			arrowIcon={false}
 			size="xs"
@@ -84,7 +84,7 @@ export default function ToolbarColorPicker({ label, value, onColorChange }) {
 										onColorChange(color);
 										setIsOpen(false);
 									}}
-									className="h-4 w-4 outline-none hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus:ring-2 focus:ring-focus focus:ring-opacity-30"
+									className="h-4 w-4 outline-none hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
 									style={{ backgroundColor: color }}
 									tabIndex="0"
 								></div>
@@ -92,7 +92,7 @@ export default function ToolbarColorPicker({ label, value, onColorChange }) {
 						})}
 					</div>
 					<button
-						className="flex w-full items-center justify-center gap-2 self-center rounded-sm bg-grey p-1 hover:bg-grey-dark focus:ring-2 focus:ring-focus focus:ring-opacity-30"
+						className="flex w-full items-center justify-center gap-2 self-center rounded-sm bg-grey p-1 hover:bg-grey-dark focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
 						onClick={() => handleInputColorChange("transparent")}
 					>
 						<div className="h-4 w-4 border-2 border-black"></div>
@@ -112,7 +112,7 @@ export default function ToolbarColorPicker({ label, value, onColorChange }) {
 					}}
 				>
 					<input
-						className="h-8 w-8 cursor-pointer rounded-sm hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus:ring-2 focus:ring-focus focus:ring-opacity-30"
+						className="h-8 w-8 cursor-pointer rounded-sm hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
 						id="color"
 						name="color"
 						type="color"

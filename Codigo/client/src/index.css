@@ -32,7 +32,7 @@
 	}
 
 	.input-textarea {
-		@apply h-40 min-h-[5rem] resize-y self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey-light p-2 focus:border-focus focus:ring-2 focus:ring-focus focus:ring-opacity-20;
+		@apply h-40 min-h-[5rem] resize-y self-stretch overflow-y-auto rounded-md border-2 border-grey-dark bg-grey-light p-2 focus:border-focus focus-visible:ring-4 focus-visible:ring-focus focus-visible:ring-opacity-20;
 	}
 }
 
@@ -93,6 +93,6 @@ svg {
 	background-color: rgba(0, 0, 0, 0.3);
 	border-radius: 6px;
 }
-div{
+div {
 	break-inside: avoid;
 }

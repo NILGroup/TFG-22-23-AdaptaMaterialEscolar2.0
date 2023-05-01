@@ -6,7 +6,7 @@ export default function ModalCheckbox({ label, id, checkboxClassName, labelClass
 			<input
 				type="checkbox"
 				id={id}
-				className={`h-4 w-4 cursor-pointer rounded-sm border border-gray-300 bg-white transition duration-200 checked:border-button checked:bg-button focus:ring-4 focus:ring-opacity-25 focus:ring-focus ${checkboxClassName}`}
+				className={`h-4 w-4 cursor-pointer rounded-sm border border-gray-300 bg-white transition duration-200 checked:border-button checked:bg-button focus-visible:ring-4 focus-visible:ring-opacity-25 focus-visible:ring-focus ${checkboxClassName}`}
 				{...restProps}
 			/>
 			{label && (

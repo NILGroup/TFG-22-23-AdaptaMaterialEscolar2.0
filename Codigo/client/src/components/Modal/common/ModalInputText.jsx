@@ -11,7 +11,7 @@ export default function ModalInputText({ id, label, ...restProps }) {
 			<input
 				type="text"
 				id={id}
-				className={`w-full rounded-md border-2 border-grey-dark bg-grey-light px-2 py-1 focus:border-focus`}
+				className={`w-full rounded-md border-2 border-grey-dark bg-grey-light px-2 py-1 focus-visible:border-focus`}
 				{...restProps}
 			/>
 		</>
