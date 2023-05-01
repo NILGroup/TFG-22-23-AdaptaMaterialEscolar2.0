@@ -446,17 +446,42 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 \subsubsection{Integración del editor con la aplicación}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo proporciona la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' que es el marco de este lienzo y ``withReact'' que es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React, es decir, permite que el editor se actualice en tiempo real.
 
-Slate de partida proporciona lo equivalente a un área de texto por lo que se debe configurar desde cero por lo cual, se ha definido una serie de nodos. Comenzamos con los nodos hoja, los cuales nos permiten crear estilos como negrita, cursiva, subrayado, fuentes, etc. Para ello, creamos nodos a partir de elementos HTML, como la etiqueta ``strong'' para el estilo de negrita.
+Hemos creado varios tipos de nodos en nuestro proyecto, incluyendo nodos hoja, nodos inline, nodos de bloque y nodos elemento. Estos tipos de nodos se describen en la sección \ref{sec:Slate}.
 
-Continuamos con los nodos de elemento, para los cuales creamos un nodo para cada tipo de ejercicio, lo que nos permite identificarlos de manera más efectiva y tratarlos de forma dinámica. Estos nodos tienen una estructura simple de envoltorio, representado por la etiqueta ``div''.
-
-Por último están los nodos que han requerido una definición de estructura, estilo y comportamiento adicional:
+Para los nodos hoja, hemos creado varios tipos, entre ellos:
 
 \begin{itemize}
-  \item Nodo Imagen: Su estructura se basa en la etiqueta ``img'' de HTML, la cual recibe una URL a través de sus propiedades. El estilo definido utiliza una función de Slate para determinar si el elemento está seleccionado. Para su comportamiento, reescribimos la función ``isEmpty'' de Slate para que, cada vez que el cursor se encuentre con este elemento, devuelva verdadero, lo que hace que el editor lo identifique como un elemento indivisible. De esta manera, al borrarlo, se elimina completamente. También se redefinió la función ``isInline'' para que, al detectar este elemento, lo identifique como verdadero, lo que permite que el editor lo trate como un elemento que puede alinearse con otros elementos.
+  \item Nodo negrita: Implementado con la etiqueta ``strong'' de HTML.
+  \item Nodo itálica: Implementado con la etiqueta ``em'' de HTML.
+  \item Nodo subrayado: Implementado con la etiqueta ``u'' de HTML.
+  \item Nodo tachado: Implementado con la etiqueta ``s'' de HTML.
+  \item Nodo de texto estilado: Implementado con la etiqueta "span" y un estilo dinámico que permite al usuario cambiar el estilo mediante un botón. El estilo puede incluir cambios de fuente, tamaño, color de texto y color de fondo.
+\end{itemize}
+Para implementar estos nodos hoja, hemos utilizado la función ``addMark'' de Slate, que añade el nodo hoja al valor seleccionado.
+
+Para los nodos de bloque, hemos creado los siguientes tipos:
+
+\begin{itemize}
+  \item Nodo lista ordenada: Implementado con la etiqueta ``ol'' de HTML.
+  \item Nodo lista desordenada: Implementado con la etiqueta ``ul'' de HTML.
+  \item Nodo elemento de lista: Implementado con la etiqueta ``li'' de HTML.
+\end{itemize}
+Es importante mencionar que para los nodos de bloque es necesario cambiar el nodo actual, que es un párrafo, por el nodo de bloque elegido. Esto se logra utilizando la función ``setNodes'' de Slate. Además, para los nodos lista ordenada y lista desordenada, hemos utilizado la función ``wrapNodes'', que permite envolver los nodos elegidos. Esto se debe a que las etiquetas ``ol'' y ``ul'' tienen una estructura de envoltura y deben envolver los nodos elemento de lista.
+
+Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
+\begin{itemize}
+  \item Nodo imagen: Su estructura se basa en la etiqueta "img" de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuve ciertos problemas debido a que slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
+	propiedad explicita de la unidad.
+  \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL este espera el icono que se quiere emplear.
+\end{itemize}
+
+Los nodos elemento:
+\begin{itemize}
   \item Nodo Staff: Es una etiqueta ``div'' que recibe mediante sus propiedades el estilo necesario para emular una pauta simple, doble pauta, cuadrícula y cuadro de dibujo. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
-  \item Nodo Icono: Es exactamente igual al nodo ``imagen'', pero en su estructura emplea el componente recibido por sus propiedades.
   \item Nodo Tabla: Estructuralmente es igual a una tabla en HTML, pero el estilo varía en función del componente que lo llama. Por ejemplo, si se crea a partir de la sopa de letras, sus celdas ocuparán justo el espacio necesario para una letra y estarán centradas. Para definir su comportamiento, redefinimos ``deleteBackward'', lo que nos permite evitar que se borren las celdas de la tabla cuando borramos hacia atrás y evita que al borrar dentro de una celda se borre toda la celda. También redefinimos ``deleteForward'' de manera similar a ``deleteBackward'' pero hacia delante, y ``insertBreak'' para evitar que, una vez se sobrepase el párrafo, la tabla salte al siguiente.
+  \item Nodo ejercicio: Este nodo es un nodo genérico para todos los ejercicios, este tiene como objetivo proveer de la posibilidad de edición mediante el modal y eliminación. Dentro de este nodo se anidará los nodos que hagan falta para crear el ejercicio. Este nodo tiene como objetivo actuar como una caja por esta razón se creo un plugin que evita que se pueda eliminar de forma manual, siendo la única forma mediante el botón provisto. Su estructura está basada
+	en las listas por lo que cada vez que se inserte uno este se enumerara.
+  \item Nodo editable: Es igual al nodo ejercicio la única diferencia es que este no se auto enumera.
 \end{itemize}
 
 \subsection{Funcionalidades}
