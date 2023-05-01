@@ -24,6 +24,7 @@ import { withEmbeds } from "./plugins/withEmbeds";
 import { withInline } from "./plugins/withInline";
 import { withTable } from "./plugins/withTable";
 import Ejercicio from "./elements/Ejercicio/Ejercicio";
+import withEjercicio from "./plugins/withEjercicio";
 
 const initialValue = [
 	{
@@ -34,7 +35,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withTable(withEmbeds(withInline(withReact(createEditor())))), []);
+	const editor = useMemo(() => withEjercicio(withTable(withEmbeds(withInline(withReact(createEditor()))))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -129,5 +130,5 @@ export default function SlateEditor() {
 // Define a React component to render leaves with bold text.
 
 const DefaultElement = (props) => {
-	return <p {...props.attributes}>{props.children}</p>;
+	return <p {...props.attributes} >{props.children}</p>;
 };

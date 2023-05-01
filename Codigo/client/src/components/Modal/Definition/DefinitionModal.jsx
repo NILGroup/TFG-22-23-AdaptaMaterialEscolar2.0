@@ -47,7 +47,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		setPath(null)
 	};
 
-	const renderLines = () => {
+	const renderLines = (index) => {
 		let lines = [];
 		if (numbers[selected] > MAX_ROWS) return;
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
@@ -60,12 +60,12 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		}
 		else if(renderOption === 'square_space'){
 			lines.push(
-				<div style={{ height: `${5 * numbers[selected]}mm` }}>
+				<div style={{ height: `${5 * numbers[index]}mm` }}>
 				</div>
 			);
 		}
 		else{
-			for (let i = 0; i < numbers[selected]; i++) {
+			for (let i = 0; i < numbers[index]; i++) {
 				lines.push(
 					<div key={`pauta_${i}`}>
 						<img src={imagenes[renderOption]} />
@@ -186,7 +186,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 					return (
 						<div key={`concepts_preview_${i}`} className="m-0">
 							<p>{concept}:</p>
-							{renderLines()}
+							{renderLines(i)}
 						</div>
 					);
 				})}
