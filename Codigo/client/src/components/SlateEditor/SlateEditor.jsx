@@ -33,10 +33,18 @@ const initialValue = [
 		children: [{ text: "" }],
 	},
 ];
+const usePlugins = (editor) => {
+	const plugins = [withEjercicio, withTable, withEmbeds, withInline, withReact];
+	
+	for(let plugin of plugins)
+		editor = plugin(editor);
 
+	return editor;
+}
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withEjercicio(withTable(withEmbeds(withInline(withReact(createEditor()))))), []);
+	const editorWithPlugin = usePlugins(createEditor());
+	const editor = useMemo(() => editorWithPlugin, []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
