@@ -440,3 +440,189 @@ A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de p
     \item Abrir el modal de  espacios para dibujar.
     \item Comprobar que los campos están vacíos. 
 \end{enumerate}
+
+\section{Funcionalidad de pictotraductor}
+\label{planPruebas:pictotraductor}
+A continuación se expone la tabla (Figura \ref{tab:pictotraductor}) con los casos de prueba de la funcionalidad de pictotraductor y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.80}{
+    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+    \hline
+  \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  \hfil TextoOriginal= ``'' & Insertar texto & Longitud de texto $\leq$  0 &  \hfil Texto=``'' & \hfil TextoOriginal=``''\\ \hline
+  \hfil  TextoOriginal= ``'' & Insertar texto & Longitud de texto > 0 & Texto=``La libélula tiene cuatro alas'' & TextoOriginal=``La libélula tiene cuatro alas''\\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Insertar texto & Longitud de texto $\leq$ 0 &  \hfil Texto=``'' &  \hfil TextoOriginal=``''\\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas''' & Insertar texto & Longitud de texto > 0 & Texto=``descomponer los alimentos para obtener sus nutrientes''& TextoOriginal=`` descomponer los alimentos para obtener sus nutrientes''\\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Opcionesde texto &Longitud de texto > 0 & Opciones de texto = arriba & Pictogramas con texto encima del pictograma \\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de texto & Longitud de texto > 0 & Opciones de texto = debajo & Pictogramas con texto debajo del pictograma \\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de texto & Longitud de texto > 0 & Opciones de texto=sin texto & Pictogramas sin texto \\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de color  & Longitud de texto > 0 & Opciones de color=blanco y negro & Pictograma en blanco y negro\\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Vista pictograma & Longitud de texto > 0  & Visualización de un  pictograma oculta & Pictograma oculto \\ \hline
+  TextoOriginal=``La libélula tiene cuatro alas'' & Vista pictograma & Longitud de texto > 0  & Visualización de todos los pictograma oculta & Botón ``Ok'' deshabilitado\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad pictotraductor.}
+    \label{tab:pictotraductor}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:pictotraductor}
+\begin{enumerate}
+    \item Abrir el modal de pictotraductor.
+    \item Cerrar el modal.
+    \item Abrir el modal de pictotraductor.
+    \item Comprobar que no está habilitado el botón de ``Ok''.
+    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
+    \item Introducir cadena vacía y comprobar que no hay nada en la vista previa
+    \item Introducir ``La libélula tiene cuatro alas'' y comprobar que aparecen los respectivos pictogramas.
+    \item Introducir ``La libélula tiene cuatro alas'' y comprobar que aparecen los respectivos pictogramas y cambiar el texto por ``descomponer los alimentos''. para obtener sus nutrientes y ver que los pictogramas se han creado. 
+    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto arriba y comprobar que aparecen los pictogramas con el texto arriba. 
+    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto debajo y comprobar que aparecen los pictogramas con el texto debajo.
+    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto sin texto y comprobar que aparecen los pictogramas sin texto.
+    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de color blanco y negro  y comprobar que aparecen los pictogramas en blanco y negro.
+    \item Introducir ``La libélula tiene cuatro alas'', comprobar que aparecen los pictogramas y ocultar uno.
+    \item Introducir ``La libélula tiene cuatro alas'', comprobar que aparecen los pictogramas y ocultar todos, ver que el botón de ``Ok'' no está habilitado.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de  pictotraductor.
+    \item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+\section{Funcionalidad de relacionar conceptos}
+\label{planPruebas:conceptos}
+A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de prueba de la funcionalidad de relacionar conceptos y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.76}{
+    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+    \hline
+    \hfil \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  NumFilas=0 y NumCols=0  & Insertar filas y columnas & NumFilas $\leq$ 1 y NumCols $\leq$ 1 0 & NumFilas=0 y NumCols=0 & La tabla de conceptos no sale\\ \hline
+  NumFilas=0 y NumCols=0  & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & NumFilas=2 y NumCols=2 & Dos columnas con dos filas\\ \hline
+  NumFilas=2 y NumCols=2 & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & En la tabla añadir: ``animales'', ``vaca'', ``gato'' & Tabla con esos datos\\ \hline
+  NumFilas=2 y NumCols=2 & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & En la tabla añadir cadenas vacías & Botón de ``Ok'' deshabilitado \\ \hline
+  En una columna: ``animales'', en otra: ``gato'', ``vaca'' y NumFilas=2 y NumCols=2 & Reordenar &  & En la tabla: ``animales'', ``vaca'', ``gato'' & En una columna: ``animales'' en otra: ``gato'', ``vaca''\\ \hline
+  Tabla vacía  & Reordenar &  & Tabla vacía & Tabla vacía\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de relacionar conceptos.}
+    \label{tab:conceptos}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:conceptos}
+\begin{enumerate}
+\item Abrir el modal de relacionar conceptos.
+\item Cerrar el modal.
+\item Abrir el modal de relacionar conceptos.
+\item Comprobar que no está habilitado el botón de ``Ok''.
+\item Introducir número de columnas y filas  menores a 1.
+\item Comprobar que las columnas y filas no aparecen.
+\item Introducir número de columnas y filas mayores que 1.
+\item Comprobar que ese número de  las columnas y filas aparecen como tabla dividida en columnas.
+\item Introducir texto en las celdas. 
+\item Ver que aparece en la vista previa.
+\item Reordenar y ver que se desordenan.
+\item Eliminar los concepto puestos en las celdas 
+\item Poner en las celdas espacios en blanco
+\item Ver que el botón de ``Ok'' está deshabilitado
+\item Volver a poner conceptos en las celdas
+\item Darle a ``Ok''.
+\item Comprobar que se ha cerrado el modal.
+\item Abrir el modal de relacionar conceptos.
+\item Comprobar que los campos están vacíos.
+    
+\end{enumerate}
+
+
+\section{Funcionalidad de ejercicios de matemáticas}
+\label{planPruebas:mate}
+A continuación se expone la tabla (Figura \ref{tab:mate}) con los casos de prueba de la funcionalidad de ejercicios de matemáticas y el procedimiento para hacer dichos casos.
+
+
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:mate}
+\begin{enumerate}
+    \item Abrir el modal de Fórmula matemática.
+    \item Comprobar que se ha abierto el modal.
+    \item Cerrar el modal.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de Fórmula matemática.
+    \item Comprobar que no está habilitado el botón de ``Ok''.
+    \item Introducir datos en el primer hueco, ejemplo ``123''.
+    \item Comprobar que se ha habilitado el botón de ``Ok''.
+    \item Pulsar el botón de ``Ok''.
+    \item Comprobar que se ha cerrado el modal y se ha introducido el texto correctamente en el documento de trabajo.
+    \item Abrir el modal de Fórmula matemática.
+    \item Pulsar espacio varias veces (Probar manteniendo pulsado el espacio también).
+    \item Comprobar que se han creado nuevos huecos y que el cursor está en la última posición.
+    \item Pulsar la tecla de retroceso varias veces (Probar manteniendo pulsada la tecla de retroceso también).
+    \item Comprobar que se han borrado huecos y que el cursor está en la misma posición.
+    \item Escribir una fórmula con huecos, por ejemplo`` 2 + \rule{10mm}{0.1mm} = 5''.
+    \item Pulsar el botón de ``Ok''.
+    \item Comprobar que se ha cerrado el modal y se ha introducido correctamente el texto en el documento de trabajo.
+    \item Introducir datos, ejemplo ``123''.
+    \item Añadir varios huecos.
+    \item Cerrar el modal.
+    \item Abrir el modal de Fórmula matemática.
+    \item Comprobar que los campos están vacíos.
+\end{enumerate}
+
+
+\section{Funcionalidad de exportar a PDF}
+\label{planPruebas:exportar}
+A continuación se expone la tabla (Figura \ref{tab:exportar}) con los casos de prueba de la funcionalidad de exportar a PDF y el procedimiento para hacer dichos casos.
+
+\begin{table}[H]
+    \centering
+    \scalebox{0.76}{
+    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+    \hline
+    \hfil \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+  \hfil Editor vacío  & Insertar ejercicio & Editor vacío & Ejercicio de V/F & Ejercicio numerado, que salgan las frases con la opción de V/F y el enunciado en negrita\\ \hline
+  Editor con ejercicio de V/F  & Insertar ejercicio & Editor con ejercicio de V/F & Ejercicio de definiciones con pictogramas & Ejercicio numerado y el enunciado en negrita. Cada concepto debe tener su respectivo tipo de pauta y junto a cada concepto su programa\\ \hline
+  Ejercicios anteriormente creados & Insertar ejercicio & Ejercicios anteriormente creados  &Ejercicio de desarrollo & Ejercicio numerado y el enunciado en negrita. Debe aparecer la pauta seleccionada\\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados  & Ejercicio de huecos  & Ejercicio numerado y el enunciado en negrita. Debe aparecer en el texto las líneas representando los huecos \\ \hline
+  Ejercicios anteriormente creados & Insertar ejercicio & Ejercicios anteriormente creados & Ejercicio de relacionar conceptos & Ejercicio numerado y el enunciado en negrita. Debe aparecer los conceptos junto a su viñeta \\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Sopa de letras & Ejercicio numerado , el enunciado en negrita y la sopa de letras recuadrada con una letra en cada recuadro\\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Fórmulas matemáticas & Ejercicio numerado , el enunciado en negrita, de forma numerada cada fórmula con los huecos\\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Ejercicio espacio para dibujar & Ejercicio numerado y el enunciado en negrita. Un recuadro para dibujar o el espacio sin recuadro\\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Resumen & Texto resumido\\ \hline
+  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Leyenda de colores  & Ejercicio numerado y título de la leyenda en negrita. Al lado de cada concepto un cuadrado con el color seleccionado\\ \hline Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Pictotraductor & Pictogramas con el texto o sin él, con color o en blanco y negro, con un borde y en el caso de no haber aparece el texto sin borde\\ \hline
+    \end{tblr}
+    }
+    \caption{Casos de prueba de la funcionalidad de exportar a PDF.}
+    \label{tab:exportar}
+\end{table}
+
+\subsection{Procedimiento de prueba}
+\label{procedimientoPruebas:exportar}
+\begin{enumerate}
+    \item Introducir ejercicio de V/F.
+    \item Introducir ejercicio de definiciones.
+    \item Introducir un pictograma al lado de cada concepto a definir. 
+    \item Introducir ejercicio de desarrollo.
+    \item Introducir ejercicio de completar huecos.
+    \item Introducir ejercicio de relacionar conceptos.
+    \item Introducir ejercicio de sopa de letras.
+    \item Introducir ejercicio de fórmulas matemáticas.
+    \item Introducir ejercicio de espacios para dibujar.
+    \item Introducir resumen.
+    \item Introducir leyenda de colores.
+    \item Introducir una frase transformada a pictogramas.
+    \item Darle al botón de exportar a PDF.
+    \item Comprobar que los enunciados están en negrita y los ejercicios están numerados.
+    \item Comprobar en el ejercicio de verdadero y falso que las frases generadas están numeradas y tienen al final (V/F).
+    \item Comprobar que en ejercicio de definiciones y desarrollo aparece el tipo de pauta.
+    \item Comprobar que en el ejercicio de completar huecos y en el de fórmulas matemáticas aparecen las líneas haciendo referencia a los huecos.
+    \item Comprobar que en el ejercicio de relacionar conceptos cada concepto tiene su propia viñeta.
+     \item Comprobar que en la sopa de letras está recuadrada y en cada recuadro hay una letra.
+    \item Comprobar que en el ejercicio de espacio para dibujar tiene el recuadro, si se ha marcado, o un espacio en blanco si no se ha marcado la opción de recuadro.
+    \item Comprobar que en la leyenda de colores se muestran los colores al lado de los conceptos. 
+    \item Comprobar en la traducción de un texto a pictogramas si salen las palabras en la posición indicada, en el caso de que se haya seleccionado que se muestre las palabras. También comprobar que tienen color o no según se ha elegido. Y aquellas palabras que no tengan traducción pictograma aparecen como texto plano. 
+
+\end{enumerate}
