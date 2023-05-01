@@ -1,7 +1,7 @@
 import { Editor, Element as SlateElement, Point, Range } from "slate";
 
 export const withEjercicio = (editor) => {
-	const { deleteBackward, deleteForward, insertBreak } = editor;
+	const { deleteBackward, deleteForward, insertNode } = editor;
 
 	// Evitamos que se borre la celda de la tabla cuando borremos hacia delante
 	// unit -> unidad a borrar
@@ -67,6 +67,10 @@ export const withEjercicio = (editor) => {
 
 		deleteForward(unit);
 	};
+    editor.insertNode = (unit) => {
+
+        insertNode(unit)
+    } 
 	return editor;
 };
 

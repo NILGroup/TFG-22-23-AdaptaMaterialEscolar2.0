@@ -2,7 +2,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 
 // Importamos la factoria de slate
-import { createEditor } from "slate";
+import { createEditor, Transforms } from "slate";
 
 // Importamos los componentes de slate y los plugigs de react
 import { Editable, Slate, withReact } from "slate-react";
@@ -94,6 +94,12 @@ export default function SlateEditor() {
 		setIsOpen(true);
 		setModalType(modalType);
 	};
+	const onKeyDown = (event) => {
+		if (event.key === 'Tab') {
+		  event.preventDefault();
+		  editor.insertText('\t');
+		}
+	  }
 
 	return (
 		<>
@@ -110,8 +116,9 @@ export default function SlateEditor() {
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
 							spellCheck
-							autoFocus
-						/>
+							autoFocus						
+							onKeyDown={event => onKeyDown(event)}
+							/>
 					</div>
 				</div>
 			</Slate>
