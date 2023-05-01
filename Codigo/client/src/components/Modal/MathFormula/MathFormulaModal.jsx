@@ -199,7 +199,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 			let formula = {
 				type: "paragraph",
-				children: [{ text: i+1 + ")  " + formulaString }],
+				children: [{ text: "    " + (i+1) + ")  " + formulaString }],
 			};
 
 			ejercicio.children.push(formula);
@@ -291,7 +291,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 					{getArrayOfFormulasAsStrings().map((formulaString, i) => {
 						return(
 							<>
-								<div key={i}>{i+1}) {formulaString}</div>
+								<div key={i}>&nbsp;&nbsp; {i+1}) {formulaString}</div>
 								<br />
 							</>
 						)
