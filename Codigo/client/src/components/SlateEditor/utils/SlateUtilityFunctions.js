@@ -3,6 +3,26 @@ import { Editor, Element as SlateElement, Transforms } from "slate";
 const alignment = ["alignLeft", "alignRight", "alignCenter"];
 const list_types = ["numbered-list", "bulleted-list"];
 
+export const editorFontTypes = {
+	arial: { text: "Arial", value: "font-editor-arial" },
+	brushScript: { text: "Brush Script MT", value: "font-editor-brushScript" },
+	calibri: { text: "Calibri", value: "font-editor-calibri" },
+	cambria: { text: "Cambria", value: "font-editor-cambria" },
+	centuryGothic: { text: "Century Gothic", value: "font-editor-centuryGothic" },
+	consolas: { text: "Consolas", value: "font-editor-consolas" },
+	copperplate: { text: "Copperplate", value: "font-editor-copperplate" },
+	courierNew: { text: "Courier New", value: "font-editor-courierNew" },
+	franklinGothic: { text: "Franklin Gothic", value: "font-editor-franklinGothic" },
+	georgia: { text: "Georgia", value: "font-editor-georgia" },
+	helvetica: { text: "Helvetica", value: "font-editor-helvetica" },
+	impact: { text: "Impact", value: "font-editor-impact" },
+	lucida: { text: "Lucida", value: "font-editor-lucida" },
+	papyrus: { text: "Papyrus", value: "font-editor-papyrus" },
+	tmr: { text: "Times New Roman", value: "font-editor-TMR" },
+	trebuchet: { text: "Trebuchet MS", value: "font-editor-trebuchet" },
+	verdana: { text: "Verdana", value: "font-editor-verdana" },
+};
+
 export const isBlockActive = (editor, format) => {
 	const [match] = Editor.nodes(editor, {
 		match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format,
@@ -54,10 +74,12 @@ export const getActiveMarkValue = (editor, format) => {
 		color: "black",
 		bgColor: "transparent",
 		fontSize: 16,
-		fontFamily: "sans",
+		fontFamily: editorFontTypes.calibri.value,
 	};
+
 	const marks = Editor.marks(editor);
 	const defaultValue = defaultMarkData[format];
+
 	return marks?.[format] ?? defaultValue;
 };
 

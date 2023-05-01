@@ -43,7 +43,7 @@ const defaultColors = [
 	"#3d1466",
 ];
 
-export default function ToolbarColorPicker({ label, value, onColorChange }) {
+export default function ToolbarColorPicker({ label, value, transparentColorEnabled, onColorChange }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const [timeoutId, setTimeoutId] = useState(null);
@@ -91,13 +91,15 @@ export default function ToolbarColorPicker({ label, value, onColorChange }) {
 							);
 						})}
 					</div>
-					<button
-						className="flex w-full items-center justify-center gap-2 self-center rounded-sm bg-grey p-1 hover:bg-grey-dark focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
-						onClick={() => handleInputColorChange("transparent")}
-					>
-						<div className="h-4 w-4 border-2 border-black"></div>
-						<p>Sin color</p>
-					</button>
+					{transparentColorEnabled && (
+						<button
+							className="flex w-full items-center justify-center gap-2 self-center rounded-sm bg-grey p-1 hover:bg-grey-dark focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
+							onClick={() => handleInputColorChange("transparent")}
+						>
+							<div className="h-4 w-4 border-2 border-black"></div>
+							<p>Sin color</p>
+						</button>
+					)}
 				</div>
 			</Dropdown.Item>
 			<Dropdown.Divider />

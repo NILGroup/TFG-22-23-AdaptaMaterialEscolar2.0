@@ -3,8 +3,11 @@ import React from "react";
 import { useSlate } from "slate-react";
 
 import { TableSelector } from "./TableSelector";
+import ToolbarBlockButton from "./ToolbarBlockButton";
 import ToolbarColorPicker from "./ToolbarColorPicker";
+import ToolbarGroupButton from "./ToolbarGroupButton";
 import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
+import ToolbarGroupSelect from "./ToolbarGroupSelect";
 
 import {
 	AiOutlineBold,
@@ -16,10 +19,14 @@ import {
 } from "react-icons/ai";
 import { IoMdColorFill } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
-import ToolbarBlockButton from "./ToolbarBlockButton";
-import ToolbarGroupButton from "./ToolbarGroupButton";
 
-import { addMarkData, getActiveMarkValue, isMarkActive, toggleMark } from "../../utils/SlateUtilityFunctions";
+import {
+	addMarkData,
+	editorFontTypes,
+	getActiveMarkValue,
+	isMarkActive,
+	toggleMark,
+} from "../../utils/SlateUtilityFunctions";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -58,16 +65,29 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 				})}
 			</div>
 			{/* Opciones de fuente */}
-			<ToolbarGroupNumberInput
-				min="1"
-				max="100"
-				value={getActiveMarkValue(reactEditor, "fontSize")}
-				onChange={(e) => {
-					e.preventDefault();
+			<div className="flex gap-0.5">
+				<ToolbarGroupSelect
+					className="w-52 rounded-r-none"
+					options={Object.values(editorFontTypes)}
+					value={getActiveMarkValue(reactEditor, "fontFamily")}
+					onChange={(e) => {
+						e.preventDefault();
 
-					changeMarkData(e.target.value, "fontSize");
-				}}
-			/>
+						changeMarkData(e.target.value, "fontFamily");
+					}}
+				/>
+				<ToolbarGroupNumberInput
+					min="1"
+					max="100"
+					className="rounded-l-none border-2 border-grey-dark bg-grey-light py-1"
+					value={getActiveMarkValue(reactEditor, "fontSize")}
+					onChange={(e) => {
+						e.preventDefault();
+
+						changeMarkData(e.target.value, "fontSize");
+					}}
+				/>
+			</div>
 			<ToolbarColorPicker
 				label={
 					<div className="flex flex-col gap-0">
@@ -91,6 +111,7 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 						</span>
 					</div>
 				}
+				transparentColorEnabled
 				value={getActiveMarkValue(reactEditor, "bgColor")}
 				onColorChange={(color) => {
 					addMarkData(editor, { format: "bgColor", value: color });
