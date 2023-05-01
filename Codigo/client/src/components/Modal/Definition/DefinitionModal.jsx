@@ -97,8 +97,8 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		};
 
 		const enunciado = {
-			type: "paragraph",
-			children: [{ text: introduction(concepts.length) }],
+			type: "enunciado",
+			children: [{ text: introduction(concepts.length), bold:true }],
 		};
 		ejercicio.children.push(enunciado);
 		//Salto de linea
@@ -181,7 +181,7 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			</div>
 			<hr className="my-6" />
 			<ModalPreview>
-				{concepts.length > 0 && <p key="title-0">{introduction(concepts.length)}</p>}
+				{concepts.length > 0 && <p className="font-bold" key="title-0">{introduction(concepts.length)}</p>}
 				{concepts.map((concept, i) => {
 					return (
 						<div key={`concepts_preview_${i}`} className="m-0">

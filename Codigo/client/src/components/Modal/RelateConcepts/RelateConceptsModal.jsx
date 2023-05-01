@@ -104,8 +104,8 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			children: []
 		}
 		const enunciado = {
-			type: "paragraph",
-			children: [{ text: STATEMENT }],
+			type: "enunciado",
+			children: [{ text: STATEMENT, bold:true }],
 		};
 		ejercicio.children.push(enunciado);
 
@@ -188,7 +188,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			>
 				{valores.filter((valor) => {
 					return valor.filter((v) => v !== "").length >= 1;
-				}).length >= 2 && STATEMENT}
+				}).length >= 2 && <p className="font-bold">{STATEMENT}</p>}
 				{valores.filter((valor) => {
 					return valor.filter((v) => v !== "").length >= 1;
 				}).length >= 2 && (

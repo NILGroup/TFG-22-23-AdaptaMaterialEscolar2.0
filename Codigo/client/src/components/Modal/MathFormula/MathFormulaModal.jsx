@@ -189,8 +189,8 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 		};
 
 		let enunciado = {
-			type: "paragraph",
-			children: [{ text: "Completa las siguientes expresiones matemáticas:" }],
+			type: "enunciado",
+			children: [{ text: "Completa las siguientes expresiones matemáticas:", bold:true }],
 		};
 
 		ejercicio.children.push(enunciado);
@@ -285,7 +285,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 				<hr className="my-6" />
 
 				<ModalPreview>
-					<p>Completa las siguientes expresiones matemáticas:</p>
+					<p  className="font-bold">Completa las siguientes expresiones matemáticas:</p>
 					<div className="h-2"></div>
 
 					{getArrayOfFormulasAsStrings().map((formulaString, i) => {

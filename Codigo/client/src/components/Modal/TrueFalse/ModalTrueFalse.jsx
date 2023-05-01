@@ -44,8 +44,8 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 			children: [] 
 		};
 		const listItem = {
-			type: "paragraph",
-			children: [{ text: `Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra 'V' si es verdadera o la letra 'F' si es falsa.` }],
+			type: "enunciado",
+			children: [{ text: `Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra 'V' si es verdadera o la letra 'F' si es falsa.`, bold:true }],
 		};
 
 		list.children.push(listItem);
@@ -138,7 +138,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 					}
 				>
 					<div>
-						{lista.length > 0 && <p>Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra V si es verdadera o la letra F si es falsa.</p>}
+						{lista.length > 0 && <p className="font-bold">Lea cada una de las siguientes afirmaciones y rodee con un círculo la letra V si es verdadera o la letra F si es falsa.</p>}
 						<ul>
 							{listaVistaP.map((elem, i) => {
 								return (

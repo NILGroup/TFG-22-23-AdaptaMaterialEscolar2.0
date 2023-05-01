@@ -93,8 +93,8 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 			children: [] 
 		};
 		const enunciado = {
-			type: "paragraph",
-			children: [{ text: textareaValue }],
+			type: "enunciado",
+			children: [{ text: textareaValue, bold: true }],
 		};
 		ejercicio.children.push(enunciado);
 
@@ -192,7 +192,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 					<hr className="my-6" />
 
 					<ModalPreview>
-						{textareaValue}
+						<p className="font-bold">{textareaValue}</p>
 						<p className="h-4"> </p>
 						{renderLines()}
 					</ModalPreview>

@@ -103,9 +103,9 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 		else {
 			exercise = [
 				{
-					type: "paragraph",
+					type: "enunciado",
 					children: [
-						{ text: "Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:" },
+						{ text: "Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:", bold:true },
 					],
 				},
 				{

@@ -73,6 +73,8 @@ export default function SlateEditor() {
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
 				return <RelateConcepts {...props}/>;
+			case "enunciado":
+				return <span {...props.attributes}>{props.children}</span>
 			default:
 				return <DefaultElement {...props} />;
 		}

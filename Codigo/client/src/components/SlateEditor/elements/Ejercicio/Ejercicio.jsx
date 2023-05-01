@@ -12,7 +12,7 @@ export default function Ejercicio({ attributes, children, element }) {
 	const editor = useSlateStatic()
 	const path = ReactEditor.findPath(editor, element)
 	return (
-			<div {...attributes} className={`relative pt-5 border-2 ${isSelected && isFocused ? 'border-[#B4D5FF]': 'border-transparent'}`}>
+			<li {...attributes} className={`list-decimal relative pt-5 border-2 ${isSelected && isFocused ? 'border-[#B4D5FF]': 'border-transparent'}`}>
 					<span
 					className={`absolute top-0 left-0 text-modal-base 
 						${isSelected && isFocused ? "inline cursor-pointer" : "hidden"} `}
@@ -27,5 +27,7 @@ export default function Ejercicio({ attributes, children, element }) {
 					</div>
 				</span>
 				{children}	
-			</div>);
+			</li>
+		
+			);
 }
