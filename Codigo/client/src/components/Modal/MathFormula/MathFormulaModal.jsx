@@ -9,6 +9,8 @@ import { ModalType } from "../ModalFactory";
 import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import ModalButton from "../common/ModalButton";
 
+import { AiOutlinePlus } from "react-icons/ai";
+
 export default function MathFormulaModal({ editor, isOpen, onClose, openModal }) {
 
 	const [spaceKeyIsDown, setSpaceKeyIsDown] = useState(false);
@@ -240,7 +242,13 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 				<div className="flex justify-between">
 					<h3 className="text-modal-heading">Fórmula:</h3>
-					<ModalButton className={"px-3"} onClick={handleAddFormulaButton}>+</ModalButton>
+				
+					{/* <button
+						className="flex h-[4vw] max-h-[2.5rem] min-h-[2rem] w-[4vw] min-w-[2rem] max-w-[2.5rem] items-center justify-center rounded-full bg-button p-2 text-white hover:bg-button-dark"
+						onClick={handleAddFormulaButton}
+					>
+						<AiOutlinePlus size={45} />
+					</button> */}
 				</div>
 
 				
@@ -248,7 +256,6 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 				<div className="mb-2 mt-4 text-center">
 					<span className="text-sky-400 text-sm">Presiona la tecla de espacio para crear un hueco y la tecla enter para crear una nueva fórmula</span>
 				</div>
-
 
 				{formulas.map((formula, j)=>{
 
@@ -280,6 +287,17 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 				})}
 
+
+				<div className="flex justify-center">
+
+					<button
+						className="flex h-[4vw] max-h-[2.5rem] min-h-[2rem] w-[4vw] min-w-[2rem] max-w-[2.5rem] items-center justify-center rounded-full bg-button p-2 text-white hover:bg-button-dark"
+						onClick={handleAddFormulaButton}
+					>
+						<AiOutlinePlus size={45} />
+					</button>
+
+				</div>
 
 
 				<hr className="my-6" />
