@@ -147,7 +147,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 		insertarEjercicioEditable(
 			editor,
 			{
-				type: "ejercicio",
+				type: "bloqueEditable",
 				openModalUpdate,
 				data: {
 					...state,

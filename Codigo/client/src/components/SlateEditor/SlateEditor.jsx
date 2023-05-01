@@ -2,7 +2,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 
 // Importamos la factoria de slate
-import { createEditor, Transforms } from "slate";
+import { createEditor } from "slate";
 
 // Importamos los componentes de slate y los plugigs de react
 import { Editable, Slate, withReact } from "slate-react";
@@ -25,6 +25,7 @@ import { withInline } from "./plugins/withInline";
 import { withTable } from "./plugins/withTable";
 import Ejercicio from "./elements/Ejercicio/Ejercicio";
 import withEjercicio from "./plugins/withEjercicio";
+import BloqueEditable from "./elements/BloqueEditable/BloqueEditable";
 
 const initialValue = [
 	{
@@ -49,6 +50,8 @@ export default function SlateEditor() {
 				return <ImageElement {...props} />;
 			case "ejercicio":
 				return <Ejercicio {...props} />;
+			case "bloqueEditable":
+				return <BloqueEditable {...props} />;
 			case "embeds":
 				return <Staff {...props} />;
 			case "staff":
