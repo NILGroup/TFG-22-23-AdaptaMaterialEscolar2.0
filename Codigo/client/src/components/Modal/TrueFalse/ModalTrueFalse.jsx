@@ -54,10 +54,10 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		};
 
 		list.children.push(listItem);
-		items.forEach((item) => {
+		items.forEach((item,i) => {
 			const listItem = {
 				type: "paragraph",
-				children: [{ text: item }, { text: "  V / F" }],
+				children: [{ text: "    " + (i+1) + ")  " + item }, { text: "  V / F" }],
 			};
 
 			list.children.push(listItem);
@@ -156,7 +156,7 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 									<li key={`concepto-${i}`}>
 										<div className="flex items-start">
 											<p className="pl-1">
-												{elem} <span>V / F</span>
+												&nbsp;&nbsp; {i+1}) {elem} <span>V / F</span>
 											</p>
 										</div>
 									</li>
