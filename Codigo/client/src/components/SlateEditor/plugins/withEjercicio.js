@@ -8,28 +8,28 @@ export const withEjercicio = (editor) => {
 		const { selection } = editor;
 		if (selection) {
 			// Obtenemos la celda
-			const [cell] = Editor.nodes(editor, {
+			const [ejercicio] = Editor.nodes(editor, {
 				match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === "ejercicio",
 			});
 
 			// Obtenemos el nodo previo a la seleccion
 			const prevNodePath = Editor.before(editor, selection);
 			// Apartir del nodo previobuscamos el nodo de la tabla
-			const [tableNode] = Editor.nodes(editor, {
+			const [ejercicioNode] = Editor.nodes(editor, {
 				at: prevNodePath,
 				match: (n) => !Editor.isEditor(n) && Element.isElement && n.type === "ejercicio",
 			});
 			// la selección está dentro de una tabla
-			if (cell) {
-				const [, cellPath] = cell;
+			if (ejercicio) {
+				const [, ejercicioPath] = ejercicio;
 
-				const start = Editor.start(editor, cellPath);
+				const start = Editor.start(editor, ejercicioPath);
 				if (Point.equals(selection.anchor, start)) {
 					return;
 				}
 			}
 			// la selección no está dentro de una tabla
-			if (!cell && tableNode) {
+			if (!ejercicio && ejercicioNode) {
 				return;
 			}
 		}
@@ -40,25 +40,25 @@ export const withEjercicio = (editor) => {
 	editor.deleteForward = (unit) => {
 		const { selection } = editor;
 		if (selection && Range.isCollapsed(selection)) {
-			const [cell] = Editor.nodes(editor, {
+			const [ejercicio] = Editor.nodes(editor, {
 				match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === "ejercicio",
 			});
 
 			const prevNodePath = Editor.after(editor, selection);
-			const [tableNode] = Editor.nodes(editor, {
+			const [ejercicioNode] = Editor.nodes(editor, {
 				at: prevNodePath,
 				match: (n) => !Editor.isEditor(n) && Element.isElement && n.type === "ejercicio",
 			});
 
-			if (cell) {
-				const [, cellPath] = cell;
-				const end = Editor.end(editor, cellPath);
+			if (ejercicio) {
+				const [, ejercicioPath] = ejercicio;
+				const end = Editor.end(editor, ejercicioPath);
 
 				if (Point.equals(selection.anchor, end)) {
 					return;
 				}
 			}
-			if (!cell && tableNode) {
+			if (!ejercicio && ejercicioNode) {
 				return;
 			}
 		}
