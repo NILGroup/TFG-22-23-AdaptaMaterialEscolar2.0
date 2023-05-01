@@ -1,7 +1,7 @@
 import { Editor, Element as SlateElement, Transforms } from "slate";
 
 const alignment = ["alignLeft", "alignRight", "alignCenter"];
-const list_types = ["orderedList", "unorderedList"];
+const list_types = ["numbered-list", "bulleted-list"];
 
 export const isBlockActive = (editor, format) => {
 	const [match] = Editor.nodes(editor, {
@@ -49,10 +49,10 @@ export const toggleBlock = (editor, format) => {
 	}
 };
 
-export const activeMark = (editor, format) => {
+export const getActiveMarkValue = (editor, format) => {
 	const defaultMarkData = {
 		color: "black",
-		bgColor: "black",
+		bgColor: "transparent",
 		fontSize: 16,
 		fontFamily: "sans",
 	};
@@ -80,13 +80,13 @@ export const isMarkActive = (editor, format) => {
 
 	return marks ? marks[format] === true : false;
 };
+
 export const insertarEjercicioEditable = (editor, nodoEjercicio, path) => {
 	if (path !== null) {
 		Transforms.removeNodes(editor, { at: path });
-		Transforms.insertNodes(editor, nodoEjercicio, { at: path });		
-	}
-	else{
-		Transforms.insertNodes(editor, nodoEjercicio );	
+		Transforms.insertNodes(editor, nodoEjercicio, { at: path });
+	} else {
+		Transforms.insertNodes(editor, nodoEjercicio);
 		Transforms.liftNodes(editor, { type: "paragraph", children: [{ text: "" }] });
 	}
 };

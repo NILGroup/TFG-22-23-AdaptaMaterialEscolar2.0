@@ -2,7 +2,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 
 // Importamos la factoria de slate
-import { createEditor } from "slate";
+import { createEditor, Transforms } from "slate";
 
 // Importamos los componentes de slate y los plugigs de react
 import { Editable, Slate, withReact } from "slate-react";
@@ -24,6 +24,7 @@ import { withEmbeds } from "./plugins/withEmbeds";
 import { withInline } from "./plugins/withInline";
 import { withTable } from "./plugins/withTable";
 import Ejercicio from "./elements/Ejercicio/Ejercicio";
+import withEjercicio from "./plugins/withEjercicio";
 
 const initialValue = [
 	{
@@ -34,7 +35,7 @@ const initialValue = [
 
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
-	const editor = useMemo(() => withTable(withEmbeds(withInline(withReact(createEditor())))), []);
+	const editor = useMemo(() => withEjercicio(withTable(withEmbeds(withInline(withReact(createEditor()))))), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -62,6 +63,12 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
+			case 'bulleted-list':
+            	return <ul className="list-disc pl-12" {...props.attributes}>{props.children}</ul>
+        	case 'numbered-list':
+            	return <ol className="list-decimal pl-12" {...props.attributes}>{props.children}</ol>
+			case 'list-item':
+        	    return <li {...props.attributes}>{props.children}</li>
 			case "pictotranslator":
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
@@ -87,6 +94,12 @@ export default function SlateEditor() {
 		setIsOpen(true);
 		setModalType(modalType);
 	};
+	const onKeyDown = (event) => {
+		if (event.key === 'Tab') {
+		  event.preventDefault();
+		  editor.insertText('\t');
+		}
+	  }
 
 	return (
 		<>
@@ -102,8 +115,10 @@ export default function SlateEditor() {
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
-							autoFocus
-						/>
+							spellCheck
+							autoFocus						
+							onKeyDown={event => onKeyDown(event)}
+							/>
 					</div>
 				</div>
 			</Slate>
@@ -122,5 +137,5 @@ export default function SlateEditor() {
 // Define a React component to render leaves with bold text.
 
 const DefaultElement = (props) => {
-	return <p {...props.attributes}>{props.children}</p>;
+	return <p {...props.attributes} >{props.children}</p>;
 };

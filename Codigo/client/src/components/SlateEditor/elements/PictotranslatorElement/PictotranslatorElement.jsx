@@ -4,11 +4,11 @@ export default function PictotranslatorElement({ attributes, children, element }
 	return (
 		<div {...attributes}>
 			{children}
-			<div className="flex flex-wrap gap-4 items-end" contentEditable={false}>
+			<div className="inline-flex flex-wrap items-end gap-4">
 				{element.values.words.map((word, index) => {
 					if (word.pictograms.length > 0 && !word.disabled) {
 						return (
-							<div
+							<span
 								key={`pictogram_${index}`}
 								className={`flex ${
 									element.values.textPosition === "Below" ? "flex-col-reverse" : "flex-col"
@@ -28,7 +28,7 @@ export default function PictotranslatorElement({ attributes, children, element }
 									alt="Pictogram"
 									className={`${element.values.isBlackWhite ? "grayscale" : ""}`}
 								/>
-							</div>
+							</span>
 						);
 					} else {
 						return <span key={`word_${index}`}>{word.word}</span>;

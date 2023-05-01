@@ -112,7 +112,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 		const conceptos = {
 			type: "relateConcepts",
 			values: valoresVp,
-			icon: <BsFillCircleFill size={8} color="black" />,
+			icon: <span className="text-[10px]">⚫</span>,
 			children: [{ text: " " }],
 		};
 
@@ -128,7 +128,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 	return (
 		<Modal
 			title="Relacionar conceptos"
-			className="w-6/12"
+			className="w-9/12"
 			isOpen={isOpen}
 			onClose={() => {
 				reset();
@@ -168,6 +168,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			</div>
 			<hr className="my-6" />
 			<ModalPreview
+				previewHeight = "h-60 max-h-60"
 				attributes={
 					<ModalButton
 						className="px-1"
@@ -191,7 +192,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 				{valores.filter((valor) => {
 					return valor.filter((v) => v !== "").length >= 1;
 				}).length >= 2 && (
-					<RelateConceptsView values={valoresVp} icon={<BsFillCircleFill size={8} color="black" />} />
+					<RelateConceptsView values={valoresVp} icon={<span className="text-[10px]">⚫</span>} />
 				)}
 			</ModalPreview>
 
@@ -210,9 +211,3 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 	);
 }
 
-// Función para crear una copia profunda de un arreglo bidimensional
-function copiarArreglo(arreglo) {
-	return arreglo.map(function (elemento) {
-		return Array.isArray(elemento) ? copiarArreglo(elemento) : elemento;
-	});
-}
