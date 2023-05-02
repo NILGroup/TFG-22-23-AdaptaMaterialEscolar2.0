@@ -9,18 +9,18 @@ A continuación se expone la tabla (Figura \ref{tab:v/f}) con los casos de prueb
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
-    \hline
-    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    Lista=[ ] & Nueva frase & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
-    Lista=[ ] & Nueva frase & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola'']\\ \hline
-    Lista=[``hola''] & Editar frase &Longitud de frase $\leq$ 0 y la Frase existe en la lista & Frase = ``'' & Lista = [``hola'']\\ \hline
-    Lista=[``hola''] & Editar frase & Longitud de frase > 0 y la Frase existe en la lista & Frase = ``adios'' & Lista = [``adios'']\\ \hline
-    Lista=[``hola''] & Borrar frase & Existe la frase a borrar en la lista & Frase = ``hola'' & Lista = [ ]\\ \hline
-    Lista=[``hola'', ``adios''] & Reordenar frases &  & Lista=[``hola''”, ``adios''] & Lista = [``adios'', ``hola'']\\ \hline
-    Lista=[ ] & Reordenar frases &  & Lista=[ ] & Lista=[ ] \\ \hline
-    Lista=[``hola''] & Reordenar frases &  & Lista=[``hola''] & Lista=[``hola'']\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+            \hline
+            \textbf{Precondición}       & \textbf{Campo}   & \hfil\textbf{Condición}                                  & \textbf{Datos de entrada}    & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Lista=[ ]                   & Nueva frase      & Longitud de frase $\leq$ 0                               & Frase = ``''                 & Lista = [ ]                                                                        \\ \hline
+            Lista=[ ]                   & Nueva frase      & Longitud de frase > 0                                    & Frase = ``hola''             & Lista = [``hola'']                                                                 \\ \hline
+            Lista=[``hola'']            & Editar frase     & Longitud de frase $\leq$ 0 y la Frase existe en la lista & Frase = ``''                 & Lista = [``hola'']                                                                 \\ \hline
+            Lista=[``hola'']            & Editar frase     & Longitud de frase > 0 y la Frase existe en la lista      & Frase = ``adios''            & Lista = [``adios'']                                                                \\ \hline
+            Lista=[``hola'']            & Borrar frase     & Existe la frase a borrar en la lista                     & Frase = ``hola''             & Lista = [ ]                                                                        \\ \hline
+            Lista=[``hola'', ``adios''] & Reordenar frases &                                                          & Lista=[``hola''”, ``adios''] & Lista = [``adios'', ``hola'']                                                      \\ \hline
+            Lista=[ ]                   & Reordenar frases &                                                          & Lista=[ ]                    & Lista=[ ]                                                                          \\ \hline
+            Lista=[``hola'']            & Reordenar frases &                                                          & Lista=[``hola'']             & Lista=[``hola'']                                                                   \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de verdadero/falso.}
     \label{tab:v/f}
@@ -54,7 +54,7 @@ A continuación se expone la tabla (Figura \ref{tab:v/f}) con los casos de prueb
     \item Comprobar que se ha cerrado el modal.
     \item Abrir el modal de Verdadero/Falso.
     \item Comprobar que los campos están vacíos.
-  \end{enumerate}
+\end{enumerate}
 
 \section{Funcionalidad de buscar pictograma}
 \label{planPruebas:busPicto}
@@ -63,13 +63,13 @@ A continuación se expone la tabla (Figura \ref{tab:busPicto}) con los casos de 
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|m{4.5cm}|}}
-    \hline
-  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto $\leq$ 0 & concepto= ``'' & \hfil ListaPicto=[ ]\\ \hline
-    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto > 0 & concepto= ``hola'' &  ListaPicto=[pictograma1, pictograma2…]\\ \hline
-    ListaPicto=[ ] & Nuevo concepto & Longitud del concepto > 0 & concepto= ``jhfueh'' & ListaPicto=[ ], mensaje=``no se ha encontrado pictograma''\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|m{4.5cm}|}}
+            \hline
+            \textbf{Precondición} & \textbf{Campo} & \hfil\textbf{Condición}        & \textbf{Datos de entrada} & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            ListaPicto=[ ]        & Nuevo concepto & Longitud del concepto $\leq$ 0 & concepto= ``''            & \hfil ListaPicto=[ ]                                                                    \\ \hline
+            ListaPicto=[ ]        & Nuevo concepto & Longitud del concepto > 0      & concepto= ``hola''        & ListaPicto=[pictograma1, pictograma2…]                                                  \\ \hline
+            ListaPicto=[ ]        & Nuevo concepto & Longitud del concepto > 0      & concepto= ``jhfueh''      & ListaPicto=[ ], mensaje=``no se ha encontrado pictograma''                              \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de buscar pictograma.}
     \label{tab:busPicto}
@@ -78,16 +78,16 @@ A continuación se expone la tabla (Figura \ref{tab:busPicto}) con los casos de 
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:busPicto}
 \begin{enumerate}
-\item Abrir el modal de Buscar pictograma.
-\item Cerrar el modal.
-\item Abrir el modal de Buscar pictograma.
-\item No introducir concepto y dar click a buscar.
-\item Comprobar que no ha producido ningún cambio.
-\item Introducir un concepto y darle a buscar.
-\item Comprobar que salen los pictogramas relacionados con el concepto.
-\item Darle a un pictograma y comprobar que se ha cerrado el modal.
-\item Abrir el modal de Buscar pictograma.
-\item Comprobar que los campos están vacíos.
+    \item Abrir el modal de Buscar pictograma.
+    \item Cerrar el modal.
+    \item Abrir el modal de Buscar pictograma.
+    \item No introducir concepto y dar click a buscar.
+    \item Comprobar que no ha producido ningún cambio.
+    \item Introducir un concepto y darle a buscar.
+    \item Comprobar que salen los pictogramas relacionados con el concepto.
+    \item Darle a un pictograma y comprobar que se ha cerrado el modal.
+    \item Abrir el modal de Buscar pictograma.
+    \item Comprobar que los campos están vacíos.
 
 \end{enumerate}
 
@@ -99,17 +99,17 @@ A continuación se expone la tabla (Figura \ref{tab:desarrollo}) con los casos d
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
-    \hline
-  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado $\leq$  0 & Enunciado=``'' & Enunciado=``''\\ \hline
-  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``hola'' & Enunciado=``hola''\\ \hline
-  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado $\leq$ 0 & Enunciado=``'' & Enunciado=``''\\ \hline
-  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``adios'' &Enunciado=``adios''\\ \hline
-  NumeroFilas=1 & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado & NumeroFilas=-1 & Enunciado = ``''\\ \hline
-  NumeroFilas=1 & Insertar número de filas & Número de filas > 0 y existe un enunciado & NumeroFilas=2 & Enunciado $\neq$ ``''\\ \hline
-  Opción pauta=``'' & Elegir pauta & Número de filas > 0 y existe un enunciado &  Opción pauta $\neq$ ``'' & Opción pauta $\neq$ ``''\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+            \hline
+            \textbf{Precondición} & \textbf{Campo}           & \hfil\textbf{Condición}                        & \textbf{Datos de entrada} & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Enunciado= ``''       & Insertar enunciado       & Longitud de enunciado $\leq$  0                & Enunciado=``''            & Enunciado=``''                                                                     \\ \hline
+            Enunciado= ``''       & Insertar enunciado       & Longitud de enunciado > 0                      & Enunciado=``hola''        & Enunciado=``hola''                                                                 \\ \hline
+            Enunciado= ``hola''   & Insertar enunciado       & Longitud de enunciado $\leq$ 0                 & Enunciado=``''            & Enunciado=``''                                                                     \\ \hline
+            Enunciado= ``hola''   & Insertar enunciado       & Longitud de enunciado > 0                      & Enunciado=``adios''       & Enunciado=``adios''                                                                \\ \hline
+            NumeroFilas=1         & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado & NumeroFilas=-1            & Enunciado = ``''                                                                   \\ \hline
+            NumeroFilas=1         & Insertar número de filas & Número de filas > 0 y existe un enunciado      & NumeroFilas=2             & Enunciado $\neq$ ``''                                                              \\ \hline
+            Opción pauta=``''     & Elegir pauta             & Número de filas > 0 y existe un enunciado      & Opción pauta $\neq$ ``''  & Opción pauta $\neq$ ``''                                                           \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de desarrollo.}
     \label{tab:desarrollo}
@@ -118,22 +118,22 @@ A continuación se expone la tabla (Figura \ref{tab:desarrollo}) con los casos d
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:desarrollo}
 \begin{enumerate}
-\item Abrir el modal de desarrollo.
-\item Cerrar el modal.
-\item Abrir el modal de desarrollo.
-\item Comprobar que no está habilitado el botón de ``Ok''.
-\item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
-\item Introducir número de filas mayor que cero y comprobar que no hay nada en la vista previa.
-\item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
-\item Introducir número de filas menor que cero y comprobar que no hay nada en la vista previa.
-\item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
-\item Introducir texto en el insertar enunciado, introducir número de filas mayor que cero y comprobar que se ve en la vista previa .
-\item Probar tipos de pauta y comprobar que se ve en la visa previa.
-\item Probar a cambiar enunciado y comprobar que el cambio se refleja en la vista previa.
-\item Darle a ``Ok''.
-\item Comprobar que se ha cerrado el modal.
-\item Abrir el modal de desarrollo.
-\item Comprobar que los campos están vacíos.
+    \item Abrir el modal de desarrollo.
+    \item Cerrar el modal.
+    \item Abrir el modal de desarrollo.
+    \item Comprobar que no está habilitado el botón de ``Ok''.
+    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa.
+    \item Introducir número de filas mayor que cero y comprobar que no hay nada en la vista previa.
+    \item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
+    \item Introducir número de filas menor que cero y comprobar que no hay nada en la vista previa.
+    \item Probar tipos de pauta y comprobar que no hay nada en la vista previa.
+    \item Introducir texto en el insertar enunciado, introducir número de filas mayor que cero y comprobar que se ve en la vista previa .
+    \item Probar tipos de pauta y comprobar que se ve en la visa previa.
+    \item Probar a cambiar enunciado y comprobar que el cambio se refleja en la vista previa.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de desarrollo.
+    \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
 \section{Funcionalidad de sopa de letras}
@@ -143,32 +143,32 @@ A continuación se expone la tabla (Figura \ref{tab:sopa}) con los casos de prue
 \begin{table}[H]
     \centering
     \scalebox{0.70}{
-    \begin{tblr}{ colspec = {|m{4cm}|m{4cm}|m{4cm}|c|m{4cm}|}}
-    \hline
-    \textbf{Precondición} &  \hfil\textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    Listapalabra=[ ] & \hfil Insertar palabra & Longitud de palabra  $\leq$ 0 & Palabra = ``'' & Listapalabra = [ ]\\ \hline
-    Listapalabra=[ ] & \hfil Insertar palabra & Longitud de palabra  > 0 & Palabra = ``hola'' & Listapalabra = [``hola'']\\ \hline
-    Listapalabra=[``hola''] & \hfil Insertar palabra & Longitud de palabra  $\leq$ 0 & Palabra = ``'' & Listapalabra = [``hola'']\\ \hline
-    Listapalabra=[“hola”] & \hfil Insertar palabra & Longitud de frase > 0 & Palabra = ``adios'' & Listapalabra = [``hola'',``adios'']\\ \hline
-    Listapalabra=[“hola”] & \hfil Editar palabra & Longitud de palabra $\leq$ 0 y la palabra existe en la lista & Palabra = ``'' & Listapalabra = [``hola'']\\ \hline
-    Listapalabra=[``hola''] & \hfil Editar palabra & Longitud de palabra > 0 y la palabra existe en la lista
-    & Palabra = ``adios'' & Listapalabra = [``adios'']\\ \hline
-    Listapalabra=[``hola''] & \hfil Borrar palabra & Existe la frase a borrar en la lista & Palabra = ``hola'' & Listapalabra=[ ] \\ \hline
-    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas y numCols $\leq$ 0  & NumFilas=0 NumCols=0 & NumFilas=1 y NumCols=1\\ \hline
-    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas y numCols> 0 < 1000 & NumFilas=3 NumCols=8 & NumFilas=3 NumCols=8\\ \hline
-    NumFilas=1 y NumCols=1 & Insertar número de filas y columnas & NumFilas =1000 numCols=1000 & NumFilas= 1000
-    NumCols=1000 & sopa de letras correctamente creada\\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 y 0< numCols <longitud de la palabra más larga & Número de filas=2 numCols=3 & Error\\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical & Insertar número de filas y columnas & NumFilas=número de palabras a insertar larga y numCols >0 & Número de filas=2 numCols=4 & sopa de letras correctamente creada\\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical & Insertar número de filas y columnas & NumFilas<número de palabras a insertar larga y numCols >0 & Número de filas=1 numCols=4 & Error \\ \hline
-    NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal & Insertar número de filas y columnas & NumFilas=longitud de la palabra más larga
-    larga y numCols=longitud de la palabra más larga
-    & Número de filas=4 numCols=4 & sopa de letras correctamente creada\\ \hline
-    NNumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal & Insertar número de filas y columnas & NumFilas<longitud de la palabra más larga
-    larga y numCols<longitud de la palabra más larga & Número de filas=3 numCols=3 & Error\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|m{4cm}|m{4cm}|m{4cm}|c|m{4cm}|}}
+            \hline
+            \textbf{Precondición}                                                               & \hfil\textbf{Campo}                 & \hfil\textbf{Condición}                                      & \textbf{Datos de entrada}   & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Listapalabra=[ ]                                                                    & \hfil Insertar palabra              & Longitud de palabra  $\leq$ 0                                & Palabra = ``''              & Listapalabra = [ ]                                                                 \\ \hline
+            Listapalabra=[ ]                                                                    & \hfil Insertar palabra              & Longitud de palabra  > 0                                     & Palabra = ``hola''          & Listapalabra = [``hola'']                                                          \\ \hline
+            Listapalabra=[``hola'']                                                             & \hfil Insertar palabra              & Longitud de palabra  $\leq$ 0                                & Palabra = ``''              & Listapalabra = [``hola'']                                                          \\ \hline
+            Listapalabra=[“hola”]                                                               & \hfil Insertar palabra              & Longitud de frase > 0                                        & Palabra = ``adios''         & Listapalabra = [``hola'',``adios'']                                                \\ \hline
+            Listapalabra=[“hola”]                                                               & \hfil Editar palabra                & Longitud de palabra $\leq$ 0 y la palabra existe en la lista & Palabra = ``''              & Listapalabra = [``hola'']                                                          \\ \hline
+            Listapalabra=[``hola'']                                                             & \hfil Editar palabra                & Longitud de palabra > 0 y la palabra existe en la lista
+                                                                                                & Palabra = ``adios''                 & Listapalabra = [``adios'']                                                                                                                                                      \\ \hline
+            Listapalabra=[``hola'']                                                             & \hfil Borrar palabra                & Existe la frase a borrar en la lista                         & Palabra = ``hola''          & Listapalabra=[ ]                                                                   \\ \hline
+            NumFilas=1 y NumCols=1                                                              & Insertar número de filas y columnas & NumFilas y numCols $\leq$ 0                                  & NumFilas=0 NumCols=0        & NumFilas=1 y NumCols=1                                                             \\ \hline
+            NumFilas=1 y NumCols=1                                                              & Insertar número de filas y columnas & NumFilas y numCols> 0 < 1000                                 & NumFilas=3 NumCols=8        & NumFilas=3 NumCols=8                                                               \\ \hline
+            NumFilas=1 y NumCols=1                                                              & Insertar número de filas y columnas & NumFilas =1000 numCols=1000                                  & NumFilas= 1000
+            NumCols=1000                                                                        & sopa de letras correctamente creada                                                                                                                                                                                   \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0                                         & Número de filas=2 numCols=4 & sopa de letras correctamente creada                                                \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 numCols>0                                         & Número de filas=2 numCols=4 & sopa de letras correctamente creada                                                \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=horizontal & Insertar número de filas y columnas & NumFilas>0 y 0< numCols <longitud de la palabra más larga    & Número de filas=2 numCols=3 & Error                                                                              \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical   & Insertar número de filas y columnas & NumFilas=número de palabras a insertar larga y numCols >0    & Número de filas=2 numCols=4 & sopa de letras correctamente creada                                                \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=vertical   & Insertar número de filas y columnas & NumFilas<número de palabras a insertar larga y numCols >0    & Número de filas=1 numCols=4 & Error                                                                              \\ \hline
+            NumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal   & Insertar número de filas y columnas & NumFilas=longitud de la palabra más larga
+            larga y numCols=longitud de la palabra más larga
+                                                                                                & Número de filas=4 numCols=4         & sopa de letras correctamente creada                                                                                                                                             \\ \hline
+            NNumFilas=1 y NumCols=1 y Listapalabra=[“Hola”,”adios”] y posicionamiento=diagonal  & Insertar número de filas y columnas & NumFilas<longitud de la palabra más larga
+            larga y numCols<longitud de la palabra más larga                                    & Número de filas=3 numCols=3         & Error                                                                                                                                                                           \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de sopa de letras.}
     \label{tab:sopa}
@@ -179,7 +179,7 @@ A continuación se expone la tabla (Figura \ref{tab:sopa}) con los casos de prue
     \item Abrir el modal de sopa de letras.
     \item Cerrar el modal.
     \item Abrir el modal de sopa de letras.
-    \item Comprobar que no está habilitado el botón de ``Ok''. 
+    \item Comprobar que no está habilitado el botón de ``Ok''.
     \item No introducir datos al insertar las palabras y dar click a añadir.
     \item Comprobar que no ha producido ningún cambio.
     \item Introducir número de filas y columnas mayor que uno.
@@ -202,7 +202,7 @@ A continuación se expone la tabla (Figura \ref{tab:sopa}) con los casos de prue
     \item Comprobar que se ha creado la sopa de letras.
     \item Cambia a un posicionamiento al revés e introducir tantas columnas como la longitud de la palabra.
     \item Comprobar que se ha creado la sopa de letras.
-    \item Seleccionar todos los tipos de posicionamiento y adecuar el número de columnas y de filas. 
+    \item Seleccionar todos los tipos de posicionamiento y adecuar el número de columnas y de filas.
     \item Comprobar que se ha creado la sopa de letras.
     \item Darle a ``Ok''.
     \item Comprobar que se ha cerrado el modal.
@@ -217,15 +217,15 @@ A continuación se expone la tabla (Figura \ref{tab:huecos}) con los casos de pr
 \begin{table}[H]
     \centering
     \scalebox{0.80}{
-    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
-    \hline
-    \hfil\textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    \hfil Texto= ``'' & Nuevo texto & Longitud de texto $\leq$  0 & \hfil Texto= ``'' & \hfil Texto=``''\\ \hline
-    \hfil Texto= ``'' & Nuevo texto & Longitud de texto > 0 & \hfil Texto =``hola'' & \hfil Texto=``hola''\\ \hline
-    \hfil Texto= ``'' & Introducir huecos & Longitud de texto $\leq$ 0 & Tamaño de hueco que pertenece a algún tamaño de hueco disponible & \hfil Texto=``''\\ \hline
-  Texto= ``Hola esto es una prueba'' & Introducir huecos & Longitud de enunciado > 0 y el hueco no sea un espacio & Tamaño de hueco que pertenece a algún tamaño de hueco disponible &Texto =``\rule{10mm}{0.1mm} esto es una \rule{10mm}{0.1mm}''\\ \hline
-  Texto= ``Hola esto es una prueba'' & Editar Texto & Longitud de texto > 0 & Texto =``Adiós esto es una prueba'' &Texto =``Adiós esto es una prueba''\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \hfil\textbf{Precondición}         & \textbf{Campo}    & \hfil\textbf{Condición}                                & \hfil\textbf{Datos de entrada}                                   & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            \hfil Texto= ``''                  & Nuevo texto       & Longitud de texto $\leq$  0                            & \hfil Texto= ``''                                                & \hfil Texto=``''                                                                        \\ \hline
+            \hfil Texto= ``''                  & Nuevo texto       & Longitud de texto > 0                                  & \hfil Texto =``hola''                                            & \hfil Texto=``hola''                                                                    \\ \hline
+            \hfil Texto= ``''                  & Introducir huecos & Longitud de texto $\leq$ 0                             & Tamaño de hueco que pertenece a algún tamaño de hueco disponible & \hfil Texto=``''                                                                        \\ \hline
+            Texto= ``Hola esto es una prueba'' & Introducir huecos & Longitud de enunciado > 0 y el hueco no sea un espacio & Tamaño de hueco que pertenece a algún tamaño de hueco disponible & Texto =``\rule{10mm}{0.1mm} esto es una \rule{10mm}{0.1mm}''                            \\ \hline
+            Texto= ``Hola esto es una prueba'' & Editar Texto      & Longitud de texto > 0                                  & Texto =``Adiós esto es una prueba''                              & Texto =``Adiós esto es una prueba''                                                     \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de completar huecos.}
     \label{tab:huecos}
@@ -237,16 +237,16 @@ A continuación se expone la tabla (Figura \ref{tab:huecos}) con los casos de pr
     \item Abrir el modal de completar huecos.
     \item Cerrar el modal.
     \item Abrir el modal de completar huecos.
-    \item Comprobar que sin texto introducido no se puede darle a ``Ok''. 
+    \item Comprobar que sin texto introducido no se puede darle a ``Ok''.
     \item Comprobar que sin texto introducido no se puede darle a añadir huecos.
     \item Insertar texto como por ejemplo ``Hola esto es una prueba'' comprobar que se puede dar click al botón de añadir hueco.
     \item Borrar texto y ver como no se puede darle a ok y no se puede darle a añadir huecos.
     \item Insertar texto como por ejemplo ``Hola esto es una prueba'' comprobar que se puede dar click al botón de añadir hueco.
     \item Dar click al botón de añadir hueco y probar todos los tipos de añadir hueco.
-    \item Probar a dar click al boton de editar texto e introducir por ejemplo ``Adiós esto es una prueba''. 
+    \item Probar a dar click al boton de editar texto e introducir por ejemplo ``Adiós esto es una prueba''.
     \item Dar click al botón de añadir hueco y probar todos los tipos de añadir hueco.
     \item Comprobar que no puedes convertir los espacios en huecos.
-    \item Dar click al ``Ok''. 
+    \item Dar click al ``Ok''.
     \item Comprobar que se ha cerrado el modal.
     \item Abrir el modal de completar huecos.
     \item Comprobar que los campos están vacíos.
@@ -259,18 +259,18 @@ A continuación se expone la tabla (Figura \ref{tab:definiciones}) con los casos
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
-    \hline
-    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    Lista=[ ] & Nueva definición & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
-    Lista=[ ] & Nueva definición & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola'']\\ \hline
-    Lista=[``hola''] & Editar definición &Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``'' & Lista = [``hola'']\\ \hline
-    Lista=[``hola''] & Editar definición & Longitud de frase > 0 y la frase existe en la lista & Frase = ``adios'' & Lista = [``adios'']\\ \hline
-    Lista=[``hola''] & Borrar definición & Existe la frase a borrar en la lista & Frase = ``hola'' & Lista = [ ]\\ \hline
-    NumeroFilas=1 & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado & NumeroFilas= -1 & Enunciado = ``''\\ \hline
-    NumeroFilas=1 & Insertar número de filas & Número de filas > 0 y existe un enunciado & NumeroFilas= 2 & Enunciado $\neq$ ``'' \\ \hline
-    Opción pauta=``'' & Elegir pauta & Número de filas > 0 y existe un enunciado & Opción pauta $\neq$ ``'' & Opción pauta $\neq$ ``''\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+            \hline
+            \textbf{Precondición} & \textbf{Campo}           & \hfil\textbf{Condición}                                  & \textbf{Datos de entrada} & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Lista=[ ]             & Nueva definición         & Longitud de frase $\leq$ 0                               & Frase = ``''              & Lista = [ ]                                                                        \\ \hline
+            Lista=[ ]             & Nueva definición         & Longitud de frase > 0                                    & Frase = ``hola''          & Lista = [``hola'']                                                                 \\ \hline
+            Lista=[``hola'']      & Editar definición        & Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``''              & Lista = [``hola'']                                                                 \\ \hline
+            Lista=[``hola'']      & Editar definición        & Longitud de frase > 0 y la frase existe en la lista      & Frase = ``adios''         & Lista = [``adios'']                                                                \\ \hline
+            Lista=[``hola'']      & Borrar definición        & Existe la frase a borrar en la lista                     & Frase = ``hola''          & Lista = [ ]                                                                        \\ \hline
+            NumeroFilas=1         & Insertar número de filas & Número de filas $\leq$ 0 y existe un enunciado           & NumeroFilas= -1           & Enunciado = ``''                                                                   \\ \hline
+            NumeroFilas=1         & Insertar número de filas & Número de filas > 0 y existe un enunciado                & NumeroFilas= 2            & Enunciado $\neq$ ``''                                                              \\ \hline
+            Opción pauta=``''     & Elegir pauta             & Número de filas > 0 y existe un enunciado                & Opción pauta $\neq$ ``''  & Opción pauta $\neq$ ``''                                                           \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de definiciones.}
     \label{tab:definiciones}
@@ -279,30 +279,30 @@ A continuación se expone la tabla (Figura \ref{tab:definiciones}) con los casos
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:definiciones}
 \begin{enumerate}
-\item Abrir el modal de definiciones.
-\item Cerrar el modal.
-\item Abrir el modal de definiciones.
-\item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
-\item No introducir datos al insertar definición y dar click a añadir.
-\item Comprobar que no se ha producido ningún cambio.
-\item Introducir datos, ejemplo ``hola'' y dar click a añadir.
-\item Comprobar que se ha introducido en la lista de frases.
-\item Editar palabra introducida escribiendo una cadena vacía.
-\item Comprobar que no se ha cambiado el valor.
-\item Editar la palabra introducida escribiendo ``adios''.
-\item Comprobar que se ha cambiado el valor al esperado.
-\item Darle a borrar la definición.
-\item Comprobar que se ha borrado.
-\item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
-\item Comprobar que se ha introducido en la lista de definiciones.
-\item Introducir un número de filas menor o igual que cero y comprobar que no se dibujan en la vista previa.
-\item Introducir un número de filas mayor que 100 y comprobar que no se dibujan en la vista previa.
-\item Introducir un número de filas mayor que cero pero menor o igual que 100 y comprobar que se dibuja el número indicado de filas.
-\item Probar todos los tipos de pautas y comprobar que se dibuja el tipo de pauta indicado en cada caso.
-\item Darle a ``Ok''.
-\item Comprobar que se ha cerrado el modal y se ha añadido el ejercicio al editable.
-\item Abrir el modal de definiciones.
-\item Comprobar que los campos están vacíos.
+    \item Abrir el modal de definiciones.
+    \item Cerrar el modal.
+    \item Abrir el modal de definiciones.
+    \item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
+    \item No introducir datos al insertar definición y dar click a añadir.
+    \item Comprobar que no se ha producido ningún cambio.
+    \item Introducir datos, ejemplo ``hola'' y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de frases.
+    \item Editar palabra introducida escribiendo una cadena vacía.
+    \item Comprobar que no se ha cambiado el valor.
+    \item Editar la palabra introducida escribiendo ``adios''.
+    \item Comprobar que se ha cambiado el valor al esperado.
+    \item Darle a borrar la definición.
+    \item Comprobar que se ha borrado.
+    \item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de definiciones.
+    \item Introducir un número de filas menor o igual que cero y comprobar que no se dibujan en la vista previa.
+    \item Introducir un número de filas mayor que 100 y comprobar que no se dibujan en la vista previa.
+    \item Introducir un número de filas mayor que cero pero menor o igual que 100 y comprobar que se dibuja el número indicado de filas.
+    \item Probar todos los tipos de pautas y comprobar que se dibuja el tipo de pauta indicado en cada caso.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal y se ha añadido el ejercicio al editable.
+    \item Abrir el modal de definiciones.
+    \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
 \section{Funcionalidad de generar resumen}
@@ -312,15 +312,15 @@ A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de p
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|m{4cm}|m{4cm}|}}
-    \hline
-  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal $\leq$ 0 & \hfil TextoOriginal= ``'' &  \hfil TextoResumido= ``''\\ \hline
-  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal > 0 & \hfil TextoOriginal= ``...'' & TextoResumido= ``'' siendo Longitud del TextoResumido < Longitud del TextoOriginal\\ \hline
-  TextoResumido= ``'' & Texto Original & Longitud del TextoOriginal > 0 & TextoOriginal= ``dgsgds'' & \hfil TextoResumido= ``''\\ \hline
-  TextoResumido= ``'' & Tamaño & Tamaño $\leq$ 0 &  TextoOriginal= ``...'' & \hfil TextoResumido= ``''\\ \hline
-  TextoResumido= ``'' & Tamaño & Tamaño > 0 &  TextoOriginal= ``...'' y Tamaño=10 & TextoResumido= ``...'' con longitud de TextoResumido  = 10\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \textbf{Precondición} & \textbf{Campo} & \hfil\textbf{Condición}             & \hfil\textbf{Datos de entrada}     & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            TextoResumido= ``''   & Texto Original & Longitud del TextoOriginal $\leq$ 0 & \hfil TextoOriginal= ``''          & \hfil TextoResumido= ``''                                                               \\ \hline
+            TextoResumido= ``''   & Texto Original & Longitud del TextoOriginal > 0      & \hfil TextoOriginal= ``...''       & TextoResumido= ``'' siendo Longitud del TextoResumido < Longitud del TextoOriginal      \\ \hline
+            TextoResumido= ``''   & Texto Original & Longitud del TextoOriginal > 0      & TextoOriginal= ``dgsgds''          & \hfil TextoResumido= ``''                                                               \\ \hline
+            TextoResumido= ``''   & Tamaño         & Tamaño $\leq$ 0                     & TextoOriginal= ``...''             & \hfil TextoResumido= ``''                                                               \\ \hline
+            TextoResumido= ``''   & Tamaño         & Tamaño > 0                          & TextoOriginal= ``...'' y Tamaño=10 & TextoResumido= ``...'' con longitud de TextoResumido  = 10                              \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de generar resumen.}
     \label{tab:resumen}
@@ -341,11 +341,11 @@ A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de p
     \item Introducir un texto, elegir una cantidad de palabras menor o igual que cero y darle a resumir.
     \item Comprobar que no ha producido ningún cambio.
     \item Introducir un texto, elegir una cantidad de palabras mayor que cero y darle a resumir.
-    \item Comprobar que se ha devuelto lo especificado. 
+    \item Comprobar que se ha devuelto lo especificado.
     \item Comprobar que los campos están vacíos.
     \item Introducir un texto no coherente, elegir una cantidad de palabras mayor que cero y darle a resumir.
     \item Comprobar que no ha producido ningún cambio.
-    
+
 \end{enumerate}
 
 
@@ -356,17 +356,17 @@ A continuación se expone la tabla (Figura \ref{tab:leyenda}) con los casos de p
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
-    \hline
-    \textbf{Precondición} &  \textbf{Campo} &  \hfil\textbf{Condición} &  \textbf{Datos de entrada} &   \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-    Lista=[ ] & Nuevo concepto & Longitud de frase $\leq$ 0 & Frase = ``'' & Lista = [ ]\\ \hline
-    Lista=[ ] & Nuevo concepto & Longitud de frase > 0 & Frase = ``hola'' & Lista = [``hola''(0,0,0)]\\ \hline
-    Lista=[``hola''(0,0,0)] & Editar concepto &Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``'' & Lista = [``hola''(0,0,0)]\\ \hline
-    Lista=[``hola''(0,0,0)] & Editar concepto & Longitud de frase > 0 y la frase existe en la lista & Frase = ``adios'' & Lista = [``adios''(0,0,0)]\\ \hline
-    Lista=[``hola''(0,0,0)] & Editar color & EColor válido
-    y la frase existe en la lista & Color = (255,0,0) & Lista = [``hola''(255,0,0)]\\ \hline
-    Lista=[``hola''(0,0,0)] & Borrar concepto & Existe la frase a borrar en la lista & Frase = “hola” & Lista = [ ]\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+            \hline
+            \textbf{Precondición}         & \textbf{Campo}    & \hfil\textbf{Condición}                                  & \textbf{Datos de entrada} & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Lista=[ ]                     & Nuevo concepto    & Longitud de frase $\leq$ 0                               & Frase = ``''              & Lista = [ ]                                                                        \\ \hline
+            Lista=[ ]                     & Nuevo concepto    & Longitud de frase > 0                                    & Frase = ``hola''          & Lista = [``hola''(0,0,0)]                                                          \\ \hline
+            Lista=[``hola''(0,0,0)]       & Editar concepto   & Longitud de frase $\leq$ 0 y la frase existe en la lista & Frase = ``''              & Lista = [``hola''(0,0,0)]                                                          \\ \hline
+            Lista=[``hola''(0,0,0)]       & Editar concepto   & Longitud de frase > 0 y la frase existe en la lista      & Frase = ``adios''         & Lista = [``adios''(0,0,0)]                                                         \\ \hline
+            Lista=[``hola''(0,0,0)]       & Editar color      & EColor válido
+            y la frase existe en la lista & Color = (255,0,0) & Lista = [``hola''(255,0,0)]                                                                                                                                               \\ \hline
+            Lista=[``hola''(0,0,0)]       & Borrar concepto   & Existe la frase a borrar en la lista                     & Frase = “hola”            & Lista = [ ]                                                                        \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de leyenda de colores.}
     \label{tab:leyenda}
@@ -375,28 +375,28 @@ A continuación se expone la tabla (Figura \ref{tab:leyenda}) con los casos de p
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:leyenda}
 \begin{enumerate}
-\item Abrir el modal.
-\item Cerrar el modal.
-\item Abrir el modal otra vez.
-\item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
-\item No introducir datos al insertar un concepto y dar click a añadir.
-\item Comprobar que no se ha producido ningún cambio.
-\item Introducir datos, ejemplo ``hola'' y dar click a añadir.
-\item Comprobar que se ha introducido en la lista de conceptos.
-\item Editar palabra introducida escribiendo una cadena vacía.
-\item Comprobar que no se ha cambiado el valor.
-\item Editar la palabra introducida escribiendo ``adios''.
-\item Comprobar que se ha cambiado el valor al esperado.
-\item Editar el color seleccionado un color diferente.
-\item Comprobar que se ha cambiado el color.
-\item Darle a borrar el concepto.
-\item Comprobar que se ha borrado.
-\item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
-\item Comprobar que se ha introducido en la lista de definiciones.
-\item Darle a ``Ok''.
-\item Comprobar que se ha cerrado el modal y se ha añadido la leyenda al editable.
-\item Abrir el modal.
-\item Comprobar que los campos están vacíos.
+    \item Abrir el modal.
+    \item Cerrar el modal.
+    \item Abrir el modal otra vez.
+    \item Intentar darle al botón de ``Ok'' y comprobar que no está habilitado.
+    \item No introducir datos al insertar un concepto y dar click a añadir.
+    \item Comprobar que no se ha producido ningún cambio.
+    \item Introducir datos, ejemplo ``hola'' y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de conceptos.
+    \item Editar palabra introducida escribiendo una cadena vacía.
+    \item Comprobar que no se ha cambiado el valor.
+    \item Editar la palabra introducida escribiendo ``adios''.
+    \item Comprobar que se ha cambiado el valor al esperado.
+    \item Editar el color seleccionado un color diferente.
+    \item Comprobar que se ha cambiado el color.
+    \item Darle a borrar el concepto.
+    \item Comprobar que se ha borrado.
+    \item Introducir datos, ejemplo ``pepe'' y dar click a añadir.
+    \item Comprobar que se ha introducido en la lista de definiciones.
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal y se ha añadido la leyenda al editable.
+    \item Abrir el modal.
+    \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
 \section{Funcionalidad de espacios para dibujar}
@@ -406,16 +406,16 @@ A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de p
 \begin{table}[H]
     \centering
     \scalebox{0.85}{
-    \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
-    \hline
-  \textbf{Precondición} &  \textbf{Campo} & \hfil\textbf{Condición} &  \textbf{Datos de entrada} &  \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado $\leq$  0 & Enunciado=``'' & Enunciado=``''\\ \hline
-  Enunciado= ``'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``hola'' & Enunciado=``hola''\\ \hline
-  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado $\leq$ 0 & Enunciado=``'' & Enunciado=``''\\ \hline
-  Enunciado= ``hola'' & Insertar enunciado & Longitud de enunciado > 0 & Enunciado=``adios'' &Enunciado=``adios''\\ \hline
-  espacio=1 & Insertar espacio & Número de filas $\leq$ 0 y existe un enunciado & espacio=-1 & Enunciado = ``''\\ \hline
-  espacio=1 & Insertar espacio & Número de filas > 0 y existe un enunciado & espacio=2 & Enunciado $\neq$ ``''\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|c|c|m{4cm}|c|c|}}
+            \hline
+            \textbf{Precondición} & \textbf{Campo}     & \hfil\textbf{Condición}                        & \textbf{Datos de entrada} & \textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            Enunciado= ``''       & Insertar enunciado & Longitud de enunciado $\leq$  0                & Enunciado=``''            & Enunciado=``''                                                                     \\ \hline
+            Enunciado= ``''       & Insertar enunciado & Longitud de enunciado > 0                      & Enunciado=``hola''        & Enunciado=``hola''                                                                 \\ \hline
+            Enunciado= ``hola''   & Insertar enunciado & Longitud de enunciado $\leq$ 0                 & Enunciado=``''            & Enunciado=``''                                                                     \\ \hline
+            Enunciado= ``hola''   & Insertar enunciado & Longitud de enunciado > 0                      & Enunciado=``adios''       & Enunciado=``adios''                                                                \\ \hline
+            espacio=1             & Insertar espacio   & Número de filas $\leq$ 0 y existe un enunciado & espacio=-1                & Enunciado = ``''                                                                   \\ \hline
+            espacio=1             & Insertar espacio   & Número de filas > 0 y existe un enunciado      & espacio=2                 & Enunciado $\neq$ ``''                                                              \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de espacios para dibujar.}
     \label{tab:dibujar}
@@ -428,17 +428,17 @@ A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de p
     \item Cerrar el modal.
     \item Abrir el modal de espacios para dibujar.
     \item Comprobar que no está habilitado el botón de ``Ok''.
-    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
+    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa.
     \item Introducir espacio mayor que cero y comprobar que no hay nada en la vista previa.
     \item Introducir espacio menor que cero y comprobar que no hay nada en la vista previa.
-    \item Introducir texto en el insertar enunciado, introducir espacio  mayor que cero y comprobar que se ve en la vista previa. 
+    \item Introducir texto en el insertar enunciado, introducir espacio  mayor que cero y comprobar que se ve en la vista previa.
     \item Probar a cambiar enunciado y comprobar que el cambio se refleja en la vista previa.
     \item Desmarcar recuadro y ver en vista previa que no hay recuadro.
     \item Marcar recuadro y ver que aparece en vista previa.
     \item Darle a ``Ok''.
     \item Comprobar que se ha cerrado el modal.
     \item Abrir el modal de  espacios para dibujar.
-    \item Comprobar que los campos están vacíos. 
+    \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
 \section{Funcionalidad de pictotraductor}
@@ -448,20 +448,20 @@ A continuación se expone la tabla (Figura \ref{tab:pictotraductor}) con los cas
 \begin{table}[H]
     \centering
     \scalebox{0.80}{
-    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
-    \hline
-  \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  \hfil TextoOriginal= ``'' & Insertar texto & Longitud de texto $\leq$  0 &  \hfil Texto=``'' & \hfil TextoOriginal=``''\\ \hline
-  \hfil  TextoOriginal= ``'' & Insertar texto & Longitud de texto > 0 & Texto=``La libélula tiene cuatro alas'' & TextoOriginal=``La libélula tiene cuatro alas''\\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Insertar texto & Longitud de texto $\leq$ 0 &  \hfil Texto=``'' &  \hfil TextoOriginal=``''\\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas''' & Insertar texto & Longitud de texto > 0 & Texto=``descomponer los alimentos para obtener sus nutrientes''& TextoOriginal=`` descomponer los alimentos para obtener sus nutrientes''\\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Opcionesde texto &Longitud de texto > 0 & Opciones de texto = arriba & Pictogramas con texto encima del pictograma \\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de texto & Longitud de texto > 0 & Opciones de texto = debajo & Pictogramas con texto debajo del pictograma \\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de texto & Longitud de texto > 0 & Opciones de texto=sin texto & Pictogramas sin texto \\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Opciones de color  & Longitud de texto > 0 & Opciones de color=blanco y negro & Pictograma en blanco y negro\\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Vista pictograma & Longitud de texto > 0  & Visualización de un  pictograma oculta & Pictograma oculto \\ \hline
-  TextoOriginal=``La libélula tiene cuatro alas'' & Vista pictograma & Longitud de texto > 0  & Visualización de todos los pictograma oculta & Botón ``Ok'' deshabilitado\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \textbf{Precondición}                            & \hfil\textbf{Campo} & \hfil\textbf{Condición}     & \hfil\textbf{Datos de entrada}                                  & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            \hfil TextoOriginal= ``''                        & Insertar texto      & Longitud de texto $\leq$  0 & \hfil Texto=``''                                                & \hfil TextoOriginal=``''                                                                \\ \hline
+            \hfil  TextoOriginal= ``''                       & Insertar texto      & Longitud de texto > 0       & Texto=``La libélula tiene cuatro alas''                         & TextoOriginal=``La libélula tiene cuatro alas''                                         \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Insertar texto      & Longitud de texto $\leq$ 0  & \hfil Texto=``''                                                & \hfil TextoOriginal=``''                                                                \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''' & Insertar texto      & Longitud de texto > 0       & Texto=``descomponer los alimentos para obtener sus nutrientes'' & TextoOriginal=`` descomponer los alimentos para obtener sus nutrientes''                \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Opcionesde texto    & Longitud de texto > 0       & Opciones de texto = arriba                                      & Pictogramas con texto encima del pictograma                                             \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Opciones de texto   & Longitud de texto > 0       & Opciones de texto = debajo                                      & Pictogramas con texto debajo del pictograma                                             \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Opciones de texto   & Longitud de texto > 0       & Opciones de texto=sin texto                                     & Pictogramas sin texto                                                                   \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Opciones de color   & Longitud de texto > 0       & Opciones de color=blanco y negro                                & Pictograma en blanco y negro                                                            \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Vista pictograma    & Longitud de texto > 0       & Visualización de un  pictograma oculta                          & Pictograma oculto                                                                       \\ \hline
+            TextoOriginal=``La libélula tiene cuatro alas''  & Vista pictograma    & Longitud de texto > 0       & Visualización de todos los pictograma oculta                    & Botón ``Ok'' deshabilitado                                                              \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad pictotraductor.}
     \label{tab:pictotraductor}
@@ -474,11 +474,11 @@ A continuación se expone la tabla (Figura \ref{tab:pictotraductor}) con los cas
     \item Cerrar el modal.
     \item Abrir el modal de pictotraductor.
     \item Comprobar que no está habilitado el botón de ``Ok''.
-    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa. 
+    \item No introducir datos al insertar enunciado y comprobar que no hay nada en la vista previa.
     \item Introducir cadena vacía y comprobar que no hay nada en la vista previa
     \item Introducir ``La libélula tiene cuatro alas'' y comprobar que aparecen los respectivos pictogramas.
-    \item Introducir ``La libélula tiene cuatro alas'' y comprobar que aparecen los respectivos pictogramas y cambiar el texto por ``descomponer los alimentos''. para obtener sus nutrientes y ver que los pictogramas se han creado. 
-    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto arriba y comprobar que aparecen los pictogramas con el texto arriba. 
+    \item Introducir ``La libélula tiene cuatro alas'' y comprobar que aparecen los respectivos pictogramas y cambiar el texto por ``descomponer los alimentos''. para obtener sus nutrientes y ver que los pictogramas se han creado.
+    \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto arriba y comprobar que aparecen los pictogramas con el texto arriba.
     \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto debajo y comprobar que aparecen los pictogramas con el texto debajo.
     \item Introducir ``La libélula tiene cuatro alas'', poner como opción de texto sin texto y comprobar que aparecen los pictogramas sin texto.
     \item Introducir ``La libélula tiene cuatro alas'', poner como opción de color blanco y negro  y comprobar que aparecen los pictogramas en blanco y negro.
@@ -497,16 +497,16 @@ A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de
 \begin{table}[H]
     \centering
     \scalebox{0.76}{
-    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
-    \hline
-    \hfil \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  NumFilas=0 y NumCols=0  & Insertar filas y columnas & NumFilas $\leq$ 1 y NumCols $\leq$ 1 0 & NumFilas=0 y NumCols=0 & La tabla de conceptos no sale\\ \hline
-  NumFilas=0 y NumCols=0  & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & NumFilas=2 y NumCols=2 & Dos columnas con dos filas\\ \hline
-  NumFilas=2 y NumCols=2 & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & En la tabla añadir: ``animales'', ``vaca'', ``gato'' & Tabla con esos datos\\ \hline
-  NumFilas=2 y NumCols=2 & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2 & En la tabla añadir cadenas vacías & Botón de ``Ok'' deshabilitado \\ \hline
-  En una columna: ``animales'', en otra: ``gato'', ``vaca'' y NumFilas=2 y NumCols=2 & Reordenar &  & En la tabla: ``animales'', ``vaca'', ``gato'' & En una columna: ``animales'' en otra: ``gato'', ``vaca''\\ \hline
-  Tabla vacía  & Reordenar &  & Tabla vacía & Tabla vacía\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \hfil \textbf{Precondición}                                                        & \hfil\textbf{Campo}       & \hfil\textbf{Condición}                & \hfil\textbf{Datos de entrada}                       & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+            NumFilas=0 y NumCols=0                                                             & Insertar filas y columnas & NumFilas $\leq$ 1 y NumCols $\leq$ 1 0 & NumFilas=0 y NumCols=0                               & La tabla de conceptos no sale                                                           \\ \hline
+            NumFilas=0 y NumCols=0                                                             & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2     & NumFilas=2 y NumCols=2                               & Dos columnas con dos filas                                                              \\ \hline
+            NumFilas=2 y NumCols=2                                                             & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2     & En la tabla añadir: ``animales'', ``vaca'', ``gato'' & Tabla con esos datos                                                                    \\ \hline
+            NumFilas=2 y NumCols=2                                                             & Insertar filas y columnas & 1 < NumFilas < 20 y 1 < NumCols< 2     & En la tabla añadir cadenas vacías                    & Botón de ``Ok'' deshabilitado                                                           \\ \hline
+            En una columna: ``animales'', en otra: ``gato'', ``vaca'' y NumFilas=2 y NumCols=2 & Reordenar                 &                                        & En la tabla: ``animales'', ``vaca'', ``gato''        & En una columna: ``animales'' en otra: ``gato'', ``vaca''                                \\ \hline
+            Tabla vacía                                                                        & Reordenar                 &                                        & Tabla vacía                                          & Tabla vacía                                                                             \\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de relacionar conceptos.}
     \label{tab:conceptos}
@@ -515,34 +515,50 @@ A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:conceptos}
 \begin{enumerate}
-\item Abrir el modal de relacionar conceptos.
-\item Cerrar el modal.
-\item Abrir el modal de relacionar conceptos.
-\item Comprobar que no está habilitado el botón de ``Ok''.
-\item Introducir número de columnas y filas  menores a 1.
-\item Comprobar que las columnas y filas no aparecen.
-\item Introducir número de columnas y filas mayores que 1.
-\item Comprobar que ese número de  las columnas y filas aparecen como tabla dividida en columnas.
-\item Introducir texto en las celdas. 
-\item Ver que aparece en la vista previa.
-\item Reordenar y ver que se desordenan.
-\item Eliminar los concepto puestos en las celdas 
-\item Poner en las celdas espacios en blanco
-\item Ver que el botón de ``Ok'' está deshabilitado
-\item Volver a poner conceptos en las celdas
-\item Darle a ``Ok''.
-\item Comprobar que se ha cerrado el modal.
-\item Abrir el modal de relacionar conceptos.
-\item Comprobar que los campos están vacíos.
-    
+    \item Abrir el modal de relacionar conceptos.
+    \item Cerrar el modal.
+    \item Abrir el modal de relacionar conceptos.
+    \item Comprobar que no está habilitado el botón de ``Ok''.
+    \item Introducir número de columnas y filas  menores a 1.
+    \item Comprobar que las columnas y filas no aparecen.
+    \item Introducir número de columnas y filas mayores que 1.
+    \item Comprobar que ese número de  las columnas y filas aparecen como tabla dividida en columnas.
+    \item Introducir texto en las celdas.
+    \item Ver que aparece en la vista previa.
+    \item Reordenar y ver que se desordenan.
+    \item Eliminar los concepto puestos en las celdas
+    \item Poner en las celdas espacios en blanco
+    \item Ver que el botón de ``Ok'' está deshabilitado
+    \item Volver a poner conceptos en las celdas
+    \item Darle a ``Ok''.
+    \item Comprobar que se ha cerrado el modal.
+    \item Abrir el modal de relacionar conceptos.
+    \item Comprobar que los campos están vacíos.
+
 \end{enumerate}
 
 
+
 \section{Funcionalidad de ejercicios de matemáticas}
-\label{planPruebas:mate}
 A continuación se expone la tabla (Figura \ref{tab:mate}) con los casos de prueba de la funcionalidad de ejercicios de matemáticas y el procedimiento para hacer dichos casos.
 
-
+\begin{table}[H]
+    \centering
+    \scalebox{0.76}{
+        \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \hfil
+            \textbf{Precondición}                             & \textbf{Campo}                                                           & \textbf{Condición} & \textbf{Datos de entrada} & \textbf{\begin{tabular}[c]{@{}c@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
+                                                              & Insertar hueco (tecla espacio)                                           &                    &                           & Se ha insertado un nuevo hueco, justo después del hueco seleccionado.              \\ \hline
+            1 hueco y 1 fórmula                               & \begin{tabular}[c]{@{}c@{}}Borrar hueco\\ (tecla retroceso)\end{tabular} &                    &                           & Se ha mantenido el hueco, ya que como mínimo debe haber un hueco y una fórmula.    \\ \hline
+            Al menos 2 huecos                                 & \begin{tabular}[c]{@{}c@{}}Borrar hueco\\ (tecla retroceso)\end{tabular} &                    &                           & Se ha borrado el hueco seleccionado.                                               \\ \hline
+                                                              & Insertar fórmula (tecla enter)                                           &                    &                           & Se ha insertado una nueva formula, justo debajo de la fórmula seleccionada.        \\ \hline
+            Al menos dos fórmulas y solo un hueco en cada una & \begin{tabular}[c]{@{}c@{}}Borrar hueco\\ (tecla retroceso)\end{tabular} &                    &                           & Se ha borrado la fórmula del hueco seleccionado.                                   \\ \hline
+                                                              & Huecos                                                                   &                    & ``1+ =2''                 & Fórmula = ``1 + \_\_\_ = 2''                                                       \\ \hline
+        \end{tblr}}
+    \caption{Casos de prueba de la funcionalidad de ejercicios de matemáticas.}
+    \label{tab:mate}
+\end{table}
 
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:mate}
@@ -580,20 +596,20 @@ A continuación se expone la tabla (Figura \ref{tab:exportar}) con los casos de 
 \begin{table}[H]
     \centering
     \scalebox{0.76}{
-    \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
-    \hline
-    \hfil \textbf{Precondición} &  \hfil\textbf{Campo} & \hfil\textbf{Condición} &  \hfil\textbf{Datos de entrada} &  \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}} \\ \hline
-  \hfil Editor vacío  & Insertar ejercicio & Editor vacío & Ejercicio de V/F & Ejercicio numerado, que salgan las frases con la opción de V/F y el enunciado en negrita\\ \hline
-  Editor con ejercicio de V/F  & Insertar ejercicio & Editor con ejercicio de V/F & Ejercicio de definiciones con pictogramas & Ejercicio numerado y el enunciado en negrita. Cada concepto debe tener su respectivo tipo de pauta y junto a cada concepto su programa\\ \hline
-  Ejercicios anteriormente creados & Insertar ejercicio & Ejercicios anteriormente creados  &Ejercicio de desarrollo & Ejercicio numerado y el enunciado en negrita. Debe aparecer la pauta seleccionada\\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados  & Ejercicio de huecos  & Ejercicio numerado y el enunciado en negrita. Debe aparecer en el texto las líneas representando los huecos \\ \hline
-  Ejercicios anteriormente creados & Insertar ejercicio & Ejercicios anteriormente creados & Ejercicio de relacionar conceptos & Ejercicio numerado y el enunciado en negrita. Debe aparecer los conceptos junto a su viñeta \\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Sopa de letras & Ejercicio numerado , el enunciado en negrita y la sopa de letras recuadrada con una letra en cada recuadro\\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Fórmulas matemáticas & Ejercicio numerado , el enunciado en negrita, de forma numerada cada fórmula con los huecos\\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Ejercicio espacio para dibujar & Ejercicio numerado y el enunciado en negrita. Un recuadro para dibujar o el espacio sin recuadro\\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Resumen & Texto resumido\\ \hline
-  Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Leyenda de colores  & Ejercicio numerado y título de la leyenda en negrita. Al lado de cada concepto un cuadrado con el color seleccionado\\ \hline Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Pictotraductor & Pictogramas con el texto o sin él, con color o en blanco y negro, con un borde y en el caso de no haber aparece el texto sin borde\\ \hline
-    \end{tblr}
+        \begin{tblr}{ colspec = {|m{4cm}|c|m{4cm}|m{4cm}|m{4cm}|}}
+            \hline
+            \hfil \textbf{Precondición}      & \hfil\textbf{Campo} & \hfil\textbf{Condición}          & \hfil\textbf{Datos de entrada}            & \hfil\textbf{\begin{tabular}[c]{@{}l@{}}Salida esperada\\ (Postcondición)\end{tabular}}                                                \\ \hline
+            \hfil Editor vacío               & Insertar ejercicio  & Editor vacío                     & Ejercicio de V/F                          & Ejercicio numerado, que salgan las frases con la opción de V/F y el enunciado en negrita                                               \\ \hline
+            Editor con ejercicio de V/F      & Insertar ejercicio  & Editor con ejercicio de V/F      & Ejercicio de definiciones con pictogramas & Ejercicio numerado y el enunciado en negrita. Cada concepto debe tener su respectivo tipo de pauta y junto a cada concepto su programa \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Ejercicio de desarrollo                   & Ejercicio numerado y el enunciado en negrita. Debe aparecer la pauta seleccionada                                                      \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Ejercicio de huecos                       & Ejercicio numerado y el enunciado en negrita. Debe aparecer en el texto las líneas representando los huecos                            \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Ejercicio de relacionar conceptos         & Ejercicio numerado y el enunciado en negrita. Debe aparecer los conceptos junto a su viñeta                                            \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Sopa de letras                            & Ejercicio numerado , el enunciado en negrita y la sopa de letras recuadrada con una letra en cada recuadro                             \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Fórmulas matemáticas                      & Ejercicio numerado , el enunciado en negrita, de forma numerada cada fórmula con los huecos                                            \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Ejercicio espacio para dibujar            & Ejercicio numerado y el enunciado en negrita. Un recuadro para dibujar o el espacio sin recuadro                                       \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Resumen                                   & Texto resumido                                                                                                                         \\ \hline
+            Ejercicios anteriormente creados & Insertar ejercicio  & Ejercicios anteriormente creados & Leyenda de colores                        & Ejercicio numerado y título de la leyenda en negrita. Al lado de cada concepto un cuadrado con el color seleccionado                   \\ \hline Ejercicios anteriormente creados  & Insertar ejercicio & Ejercicios anteriormente creados & Pictotraductor & Pictogramas con el texto o sin él, con color o en blanco y negro, con un borde y en el caso de no haber aparece el texto sin borde\\ \hline
+        \end{tblr}
     }
     \caption{Casos de prueba de la funcionalidad de exportar a PDF.}
     \label{tab:exportar}
@@ -604,7 +620,7 @@ A continuación se expone la tabla (Figura \ref{tab:exportar}) con los casos de 
 \begin{enumerate}
     \item Introducir ejercicio de V/F.
     \item Introducir ejercicio de definiciones.
-    \item Introducir un pictograma al lado de cada concepto a definir. 
+    \item Introducir un pictograma al lado de cada concepto a definir.
     \item Introducir ejercicio de desarrollo.
     \item Introducir ejercicio de completar huecos.
     \item Introducir ejercicio de relacionar conceptos.
@@ -620,9 +636,9 @@ A continuación se expone la tabla (Figura \ref{tab:exportar}) con los casos de 
     \item Comprobar que en ejercicio de definiciones y desarrollo aparece el tipo de pauta.
     \item Comprobar que en el ejercicio de completar huecos y en el de fórmulas matemáticas aparecen las líneas haciendo referencia a los huecos.
     \item Comprobar que en el ejercicio de relacionar conceptos cada concepto tiene su propia viñeta.
-     \item Comprobar que en la sopa de letras está recuadrada y en cada recuadro hay una letra.
+    \item Comprobar que en la sopa de letras está recuadrada y en cada recuadro hay una letra.
     \item Comprobar que en el ejercicio de espacio para dibujar tiene el recuadro, si se ha marcado, o un espacio en blanco si no se ha marcado la opción de recuadro.
-    \item Comprobar que en la leyenda de colores se muestran los colores al lado de los conceptos. 
-    \item Comprobar en la traducción de un texto a pictogramas si salen las palabras en la posición indicada, en el caso de que se haya seleccionado que se muestre las palabras. También comprobar que tienen color o no según se ha elegido. Y aquellas palabras que no tengan traducción pictograma aparecen como texto plano. 
+    \item Comprobar que en la leyenda de colores se muestran los colores al lado de los conceptos.
+    \item Comprobar en la traducción de un texto a pictogramas si salen las palabras en la posición indicada, en el caso de que se haya seleccionado que se muestre las palabras. También comprobar que tienen color o no según se ha elegido. Y aquellas palabras que no tengan traducción pictograma aparecen como texto plano.
 
 \end{enumerate}
