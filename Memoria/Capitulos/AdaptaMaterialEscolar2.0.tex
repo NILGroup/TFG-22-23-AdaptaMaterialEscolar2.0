@@ -288,7 +288,7 @@ El diseño final de esta funcionalidad se muestra en la Figura \ref{LeyendaColor
     \caption{Diseño final leyenda de colores.}
     \label{LeyendaColores}
   \end{figure}
-\end{multicols} 
+\end{multicols}
 
 \subsubsection{Ejercicio de matemáticas con huecos}
 El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, (Figura \ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
@@ -471,7 +471,7 @@ Es importante mencionar que para los nodos de bloque es necesario cambiar el nod
 Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
 \begin{itemize}
   \item Nodo imagen: Su estructura se basa en la etiqueta "img" de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuve ciertos problemas debido a que slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
-	propiedad explicita de la unidad.
+        propiedad explicita de la unidad.
   \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL este espera el icono que se quiere emplear.
 \end{itemize}
 
@@ -480,7 +480,7 @@ Los nodos elemento:
   \item Nodo Staff: Es una etiqueta ``div'' que recibe mediante sus propiedades el estilo necesario para emular una pauta simple, doble pauta, cuadrícula y cuadro de dibujo. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
   \item Nodo Tabla: Estructuralmente es igual a una tabla en HTML, pero el estilo varía en función del componente que lo llama. Por ejemplo, si se crea a partir de la sopa de letras, sus celdas ocuparán justo el espacio necesario para una letra y estarán centradas. Para definir su comportamiento, redefinimos ``deleteBackward'', lo que nos permite evitar que se borren las celdas de la tabla cuando borramos hacia atrás y evita que al borrar dentro de una celda se borre toda la celda. También redefinimos ``deleteForward'' de manera similar a ``deleteBackward'' pero hacia delante, y ``insertBreak'' para evitar que, una vez se sobrepase el párrafo, la tabla salte al siguiente.
   \item Nodo ejercicio: Este nodo es un nodo genérico para todos los ejercicios, este tiene como objetivo proveer de la posibilidad de edición mediante el modal y eliminación. Dentro de este nodo se anidará los nodos que hagan falta para crear el ejercicio. Este nodo tiene como objetivo actuar como una caja por esta razón se creo un plugin que evita que se pueda eliminar de forma manual, siendo la única forma mediante el botón provisto. Su estructura está basada
-	en las listas por lo que cada vez que se inserte uno este se enumerara.
+        en las listas por lo que cada vez que se inserte uno este se enumerara.
   \item Nodo editable: Es igual al nodo ejercicio la única diferencia es que este no se auto enumera.
 \end{itemize}
 
@@ -569,14 +569,35 @@ Para implementar esta funcionalidad se han usado una serie de campos de texto, l
 
 \subsubsection{Sopa de letras}
 \label{sec:impsopaletras}
-Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, que requiere un objeto con las distintas opciones de la sopa de letras. En la Figura \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
+Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, que requiere un objeto con las distintas opciones de la sopa de letras. En el Listing \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
 
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.8\textwidth]{Funcionalidades/WordSearchOptions.png}
-  \caption{Opciones para la sopa de letras}
-  \label{fig:impsopaletrasopciones}
-\end{figure}
+\begin{lstlisting}[label=fig:impsopaletrasopciones, caption=Opciones para la sopa de letras., language=JavaScript]
+  // Hay mas opciones pero estas son las basicas
+  // Si falta alguna opcion, se le dara un valor por defecto
+  const options = {
+    // Numero de columnas de la sopa de letras
+    cols: 6,
+    // Numero de filas de la sopa de letras
+    rows: 6,
+    // Orientaciones no permitidas (N, E, S, W, NE, SE, SW, NW)
+    disabledDirections: ["N", "W", "NW", "SW"],
+    // Numero maximo de palabras que pueden aparecer en la sopa de letras
+    maxWords: 20,
+    // Palabras que deben aparecer en la sopa de letras
+    // Dependiendo de las dimensiones, orientaciones
+    // y numero maximo de palabras puede que no aparezcan todas
+    dictionary: ["Hello", "crepe", "Skoda", "word", "search"],
+    // Probabilidad de que las palabras aparezcan al reves
+    backwardsProbability: 0.3,
+    // Letras en mayusculas
+    upperCase: true,
+    // Permitir tildes diacriticas
+    diacritics: true
+  };
+
+  // Generar la sopa de letras con las opciones anteriores
+  const ws = new WordSearch(options);
+\end{lstlisting}
 
 Para implementar esta funcionalidad se emplean dos campos para introducir el número de filas y columnas deseado. A continuación, se utilizan dos componentes, el \textit{ModalNewWordInput} y el \textit{ModalWordList}, que permiten añadir, modificar y eliminar palabras de la sopa de letras. Para seleccionar las orientaciones permitidas se ha creado un menú de \textit{checkboxes}. Cada vez que se modifica alguno de estos campos se llama a la función \textit{createWordSearch}, que utiliza la clase \textit{WordSearch} de la biblioteca \textit{word-search} para generar la sopa de letras. Esta función recibe los valores de los campos del modal y devuelve un objeto que contiene la sopa de letras (la matriz \textit{grid} de la clase \textit{WordSearch}), una lista de errores y una lista de avisos. En caso de que haya algún error, no se generará la sopa de letras y, por lo tanto, esta y los avisos serán nulos. La sopa de letras generada se muestra en una vista previa, y si hay errores o avisos, se muestran en una alerta en la parte superior de la vista previa. Al pulsar el botón de \textit{Ok}, se insertará un ejercicio en el documento de trabajo, con un enunciado especificando las distintas palabras o el número de palabras a buscar y las posibles orientaciones de estas, y debajo de este se insertará la sopa de letras, centrada en la página. En la Figura \ref{fig:impsopaletras} se muestra la funcionalidad completa de la sopa de letras.
 
@@ -630,7 +651,7 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
     \caption{Ventana modal de la funcionalidad de verdadero y falso.}
     \label{fig:vyf}
   \end{subfigure}
- 
+
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.7\textwidth]{Funcionalidades/VyFEditor.PNG}
@@ -647,15 +668,19 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
 \label{sec:impresumen}
 Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
 
-Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIAPI}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En la Figura \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIAPI}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje. La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.75\textwidth]{Funcionalidades/OpenAIConfiguracion.png}
-  \caption{Configuración de la clase \textit{OpenAIAPI}.}
-  \label{fig:impresumenconfiguracion}
-\end{figure}
+Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIApi}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En el Listing \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIApi}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje (\textit{prompt}). La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
 
-Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend} se llama a la función \textit{createChatCompletion} de la clase \textit{OpenAIAPI}, pidiendo que se realice un resumen del texto con un número de palabras concreto, y se devuelve el resumen generado al cliente. En caso de que no se pueda generar el resumen, o el texto original sea muy breve, se mostrará un error al usuario en la vista previa. El resumen se mostrará en el panel de vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de generar resumen.
+\begin{lstlisting}[label=fig:impresumenconfiguracion, caption=Configuración de la clase \textit{OpenAIApi}., language=JavaScript]
+  const { Configuration, OpenAIApi} = require("openai");
+
+  const configuration = new Configuration({
+    apiKey: "Clave de la API (se necesita una cuenta de OpenAI)."
+  });
+
+  const openai = new OpenAIApi(configuration);
+\end{lstlisting}
+
+Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend} se llama a la función \textit{createChatCompletion} de la clase \textit{OpenAIApi}, utilizando ``Resume este texto en aproximadamente {numeroPalabras} palabras, si no se puede resumir el texto devuelve -1: {texto}'' como \textit{prompt}, con el número de palabras y el texto introducidos por el usuario y se devuelve el resumen generado al cliente. El resumen se mostrará en el panel de vista previa. En caso de que no se pueda generar el resumen, o el texto original sea muy breve, se mostrará un error al usuario en la vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de generar resumen.
 
 \begin{figure}[ht!]
   \centering
