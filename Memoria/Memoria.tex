@@ -83,6 +83,43 @@ constantes,guionado,Cascaras/bibliografia,config%
 \usepackage{graphicx}
 \usepackage{xurl}
 \usepackage{tabularray}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{codebackground}{rgb}{.98,.98,.98}
+\definecolor{codetext}{rgb}{.4,.4,.4}
+\definecolor{codecomments}{rgb}{.18,.55,.33}
+\definecolor{codenumbers}{rgb}{.18,.8,.33}
+\definecolor{codestrings}{rgb}{.8,.1,.1}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, const},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{codetext}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{codecomments}\ttfamily,
+  stringstyle=\color{codestrings}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{codebackground},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b,
+   frame=single
+}
 
 \graphicspath{ {Imagenes/} }
 % Incluimos el fichero con comandos de constantes
