@@ -32,41 +32,41 @@ export const isBlockActive = (editor, format) => {
 };
 
 export const toggleBlock = (editor, format) => {
-	const isActive = isBlockActive(editor, format);
-	const isList = list_types.includes(format);
-	const isIndent = alignment.includes(format);
-	const isAligned = alignment.some((alignmentType) => isBlockActive(editor, alignmentType));
-
-	if (isAligned && isIndent) {
-		Transforms.unwrapNodes(editor, {
-			match: (n) => alignment.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
-			split: true,
-		});
-	}
-
-	if (isIndent) {
-		Transforms.wrapNodes(editor, {
-			type: format,
-			children: [],
-		});
-		return;
-	}
-
-	Transforms.unwrapNodes(editor, {
-		match: (n) => list_types.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
-		split: true,
-	});
-
-	Transforms.setNodes(editor, {
-		type: isActive ? "paragraph" : isList ? "list-item" : format,
-	});
-
-	if (isList && !isActive) {
-		Transforms.wrapNodes(editor, {
-			type: format,
-			children: [],
-		});
-	}
+	const isActive = isBlockActive(editor,format);
+    const isList = list_types.includes(format)
+    const isIndent = alignment.includes(format)
+    const isAligned = alignment.some(alignmentType => isBlockActive(editor,alignmentType))
+    
+    if(isAligned && isIndent){
+        Transforms.unwrapNodes(editor,{
+            match:n => alignment.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
+            split:true
+        })
+    }
+    
+    if(isIndent){
+        Transforms.wrapNodes(editor,{
+            type:format,
+            children:[]
+        })
+        return
+    }
+    Transforms.unwrapNodes(editor,{
+        match:n => list_types.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
+        split:true
+    })
+    
+    Transforms.setNodes(editor,{
+        type:isActive?'paragraph':isList?'list-item':format,
+    })
+    
+    
+    if(isList && !isActive){
+        Transforms.wrapNodes(editor,{
+            type:format,
+            children:[]
+        })
+    }
 };
 
 export const getActiveMarkValue = (editor, format) => {
