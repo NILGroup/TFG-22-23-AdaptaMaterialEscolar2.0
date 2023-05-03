@@ -52,8 +52,6 @@ export default function SlateEditor() {
 	//TODO staff indica todos lo tipos de pauta.
 
 	const renderElement = useCallback((props) => {
-		const style = { textAlign: props.element.align };
-		console.log(style);
 		switch (props.element.type) {
 			// TODO: No funciona el alt de la imagen
 			case "image":
@@ -77,9 +75,9 @@ export default function SlateEditor() {
 			case "table-cell":
 				return <Td {...props} />;
 			case 'bulleted-list':
-            	return <ul style={style} className="list-disc pl-12" {...props.attributes}>{props.children}</ul>
+            	return <ul className="list-disc pl-12" {...props.attributes}>{props.children}</ul>
         	case 'numbered-list':
-            	return <ol style={style} className="list-decimal pl-12" {...props.attributes}>{props.children}</ol>
+            	return <ol className="list-decimal pl-12" {...props.attributes}>{props.children}</ol>
 			case 'list-item':
         	    return <li {...props.attributes}>{props.children}</li>
 			case "pictotranslator":
@@ -89,7 +87,7 @@ export default function SlateEditor() {
 			case "enunciado":
 				return <span {...props.attributes}>{props.children}</span>
 			default:
-				return <p style={style} {...props.attributes}> {props.children}</p>;
+				return <DefaultElement {...props} />;
 		}
 	}, []);
 
@@ -148,3 +146,9 @@ export default function SlateEditor() {
 		</>
 	);
 }
+
+// Define a React component to render leaves with bold text.
+
+const DefaultElement = (props) => {
+	return <p {...props.attributes} >{props.children}</p>;
+};

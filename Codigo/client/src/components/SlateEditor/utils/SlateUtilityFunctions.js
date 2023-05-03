@@ -1,6 +1,6 @@
 import { Editor, Element as SlateElement, Transforms } from "slate";
 
-const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
+const alignment = ["alignLeft", "alignRight", "alignCenter"];
 const list_types = ["numbered-list", "bulleted-list"];
 
 export const editorFontTypes = {
@@ -34,12 +34,12 @@ export const isBlockActive = (editor, format) => {
 export const toggleBlock = (editor, format) => {
 	const isActive = isBlockActive(editor, format);
 	const isList = list_types.includes(format);
-	const isIndent = TEXT_ALIGN_TYPES.includes(format);
-	const isAligned = TEXT_ALIGN_TYPES.some((alignmentType) => isBlockActive(editor, alignmentType));
+	const isIndent = alignment.includes(format);
+	const isAligned = alignment.some((alignmentType) => isBlockActive(editor, alignmentType));
 
 	if (isAligned && isIndent) {
 		Transforms.unwrapNodes(editor, {
-			match: (n) => TEXT_ALIGN_TYPES.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
+			match: (n) => alignment.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
 			split: true,
 		});
 	}
@@ -57,17 +57,9 @@ export const toggleBlock = (editor, format) => {
 		split: true,
 	});
 
-	let newProperties;
-	if (TEXT_ALIGN_TYPES.includes(format)) {
-	  newProperties = {
-		align: isActive ? undefined : format,
-	  }
-	} else {
-	  newProperties = {
-		type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-	  }
-	}
-	Transforms.setNodes(editor, newProperties)
+	Transforms.setNodes(editor, {
+		type: isActive ? "paragraph" : isList ? "list-item" : format,
+	});
 
 	if (isList && !isActive) {
 		Transforms.wrapNodes(editor, {

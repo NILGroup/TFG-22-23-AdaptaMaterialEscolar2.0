@@ -10,9 +10,6 @@ import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 import ToolbarGroupSelect from "./ToolbarGroupSelect";
 
 import {
-	AiOutlineAlignCenter,
-	AiOutlineAlignLeft,
-	AiOutlineAlignRight,
 	AiOutlineBold,
 	AiOutlineItalic,
 	AiOutlineOrderedList,
@@ -30,7 +27,6 @@ import {
 	isMarkActive,
 	toggleMark,
 } from "../../utils/SlateUtilityFunctions";
-import { BsJustify } from "react-icons/bs";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -43,14 +39,6 @@ const blockTypes = [
 	{ format: "numbered-list", icon: <AiOutlineOrderedList /> },
 	{ format: "bulleted-list", icon: <AiOutlineUnorderedList /> },
 ];
-const alignmentTypes = [
-	{format:"left", icon: <AiOutlineAlignLeft/>}, 
-	{format:"right", icon: <AiOutlineAlignRight />},
-	{format:"center", icon: <AiOutlineAlignCenter/>},
-	{format:"justify", icon: <BsJustify/>}
-
-];
-
 
 export default function ToolbarFormatGroup({ editor, openModal }) {
 	const reactEditor = useSlate();
@@ -132,15 +120,6 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			{/* Opciones de bloque */}
 			<div className="flex gap-1">
 				{blockTypes.map((block) => {
-					return (
-						<ToolbarBlockButton key={`blockButton-${block.format}`} format={block.format}>
-							{block.icon}
-						</ToolbarBlockButton>
-					);
-				})}
-			</div>
-			<div className="flex gap-1">
-				{alignmentTypes.map((block) => {
 					return (
 						<ToolbarBlockButton key={`blockButton-${block.format}`} format={block.format}>
 							{block.icon}
