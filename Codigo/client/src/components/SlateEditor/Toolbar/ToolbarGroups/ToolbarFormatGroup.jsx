@@ -16,6 +16,9 @@ import {
 	AiOutlineStrikethrough,
 	AiOutlineUnderline,
 	AiOutlineUnorderedList,
+	AiOutlineAlignCenter,
+	AiOutlineAlignLeft,
+	AiOutlineAlignRight,
 } from "react-icons/ai";
 import { IoMdColorFill } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
@@ -28,6 +31,8 @@ import {
 	toggleMark,
 } from "../../utils/SlateUtilityFunctions";
 
+import { BsJustify } from "react-icons/bs";
+
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
 	{ format: "italic", icon: <AiOutlineItalic /> },
@@ -38,6 +43,12 @@ const markTypes = [
 const blockTypes = [
 	{ format: "numbered-list", icon: <AiOutlineOrderedList /> },
 	{ format: "bulleted-list", icon: <AiOutlineUnorderedList /> },
+];
+
+const alignmentTypes = [
+	{format:"alignLeft", icon: <AiOutlineAlignLeft/>}, 
+	{format:"alignCenter", icon: <AiOutlineAlignCenter/>},
+	{format:"alignRight", icon: <AiOutlineAlignRight />},
 ];
 
 export default function ToolbarFormatGroup({ editor, openModal }) {
@@ -127,7 +138,16 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 					);
 				})}
 			</div>
-
+			
+			<div className="flex gap-1">
+				{alignmentTypes.map((block) => {
+					return (
+						<ToolbarBlockButton key={`blockButton-${block.format}`} format={block.format}>
+							{block.icon}
+						</ToolbarBlockButton>
+					);
+				})}
+			</div>
 			{/* Tablas */}
 			<TableSelector editor={editor} />
 		</div>

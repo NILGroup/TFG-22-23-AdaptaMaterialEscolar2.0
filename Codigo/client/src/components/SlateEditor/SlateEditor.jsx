@@ -52,6 +52,8 @@ export default function SlateEditor() {
 	//TODO staff indica todos lo tipos de pauta.
 
 	const renderElement = useCallback((props) => {
+		const style = props.element.align ? props.element.align : ''
+		console.log(props)
 		switch (props.element.type) {
 			// TODO: No funciona el alt de la imagen
 			case "image":
@@ -74,10 +76,16 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
+			case 'alignLeft':
+				return <div className="flex items-start list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
+			case 'alignCenter':
+				return <div className="flex items-center list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
+			case 'alignRight':
+				return <div className="flex items-end list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
 			case 'bulleted-list':
-            	return <ul className="list-disc pl-12" {...props.attributes}>{props.children}</ul>
+            	return <ul className='list-disc pl-12' {...props.attributes}>{props.children}</ul>
         	case 'numbered-list':
-            	return <ol className="list-decimal pl-12" {...props.attributes}>{props.children}</ol>
+            	return <ol className='list-decimal pl-12' {...props.attributes}>{props.children}</ol>
 			case 'list-item':
         	    return <li {...props.attributes}>{props.children}</li>
 			case "pictotranslator":
@@ -87,7 +95,7 @@ export default function SlateEditor() {
 			case "enunciado":
 				return <span {...props.attributes}>{props.children}</span>
 			default:
-				return <DefaultElement {...props} />;
+				return <p {...props.attributes} >{props.children}</p>;
 		}
 	}, []);
 
