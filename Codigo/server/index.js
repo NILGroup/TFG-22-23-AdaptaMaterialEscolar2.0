@@ -63,8 +63,6 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 
 	const words = originalText.split(/([\n\r\s\t?¿!¡,.;:'"])/g).filter((word) => !/([\n\r\s\t?¿!¡,.;:'"])/g.test(word));
 
-	console.log(words);
-
 	try {
 		let pictos = [];
 

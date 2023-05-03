@@ -224,6 +224,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 							}
 							arrowIcon={false}
 							dismissOnClick={false}
+							size="sm"
 							title="Opciones de Pictograma"
 							class="rounded-md bg-button text-white enabled:hover:bg-button-dark disabled:bg-opacity-60"
 						>
@@ -305,7 +306,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 					className="self-center py-2 px-4 text-modal-base-lg"
 					disabled={originalText === null || originalText.trim().length === 0}
 				>
-					Pictotraducir
+					Traducir
 				</ModalButton>
 			</form>
 			{(pictos || isLoading) && <hr className="mt-8" />}
@@ -334,11 +335,6 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 				) : (
 					<>
 						<h4 className="mt-4 self-center text-modal-heading">No se han encontrado pictogramas</h4>
-						<ModalOkButton
-							className="my-2 self-center"
-							onClick={(e) => handleOk(e, pictos)}
-							disabled={pictos === initialState.pictos || pictos.every((word) => word.disabled)}
-						/>
 					</>
 				))
 			)}
