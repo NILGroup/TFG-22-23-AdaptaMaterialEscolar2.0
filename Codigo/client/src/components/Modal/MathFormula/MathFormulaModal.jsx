@@ -10,6 +10,7 @@ import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityF
 import ModalButton from "../common/ModalButton";
 
 import { AiOutlinePlus } from "react-icons/ai";
+import { IoMdTrash } from "react-icons/io";
 
 export default function MathFormulaModal({ editor, isOpen, onClose, openModal }) {
 
@@ -169,6 +170,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 		
 	};
+
 	const openModalUpdate = (path, data) =>{
 		openModal(ModalType.mathFormula)
 		setSpaceKeyIsDown(data.spaceKeyIsDown);
@@ -177,6 +179,7 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 		setFormulas(data.formulas)
 		setPath(path);
 	}
+
 	const insertInEditor = (editor) => {
 
 		let ejercicioStrings = getArrayOfFormulasAsStrings();
@@ -234,6 +237,12 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 
 	}
 
+	const eliminarFormula = (formula_i) => {
+		let newFormulas = [...formulas];
+		newFormulas.splice(formula_i, 1);
+		setFormulas(newFormulas);
+	}
+
 	const isOkDisaled = formulas.length == 1 && formulas[0].length == 1 && formulas[0][0] == "";
 
 	return (
@@ -260,28 +269,42 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 				{formulas.map((formula, j)=>{
 
 					return (<>
-						<div key={j} className="mb-3 rounded bg-gray-100 px-3 pt-3 pb-1">
-							{formula.map((elemento, i) => {
-								return (
-									<input
-										key={i}
-										value={elemento}
-										onChange={(e) => {
-											handleInputChange(e, j, i);
-										}}
-										onKeyDown={(e) => {
-											handleKeyDown(e, j, i);
-										}}
-										onKeyUp={(e) => {
-											handleKeyUp(e);
-										}}
-										className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
-										id={`input-math-${j}-${i}`}
-										autoComplete="off"
-									/>
-								);
-							})}
+						<div key={j} className="flex items-center mb-3">
+
+							<div key={j} className="grow rounded bg-gray-100 px-3 pt-3 pb-1">
+								{formula.map((elemento, i) => {
+									return (
+										<input
+											key={i}
+											value={elemento}
+											onChange={(e) => {
+												handleInputChange(e, j, i);
+											}}
+											onKeyDown={(e) => {
+												handleKeyDown(e, j, i);
+											}}
+											onKeyUp={(e) => {
+												handleKeyUp(e);
+											}}
+											className="mr-2 mb-2 w-14 border-2 border-solid border-black p-2 text-center"
+											id={`input-math-${j}-${i}`}
+											autoComplete="off"
+										/>
+									);
+								})}
+							</div>
+
+							<button
+								className="shrink-0 ml-2 rounded-full bg-button p-2 text-modal-base text-white hover:bg-button-dark"
+								onClick={() => {
+									eliminarFormula(j);
+								}}
+							>
+								<IoMdTrash />
+							</button>
+
 						</div>
+
 					</>
 					)
 
