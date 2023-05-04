@@ -25,14 +25,14 @@ const router = createBrowserRouter(
 							path: "",
 							element: <Home />,
 						},
-						{
-							path: "configuracion",
-							element: <Configuration />,
-						},
-						{
-							path: "ayuda",
-							element: <Help />,
-						},
+						// {
+						// 	path: "configuracion",
+						// 	element: <Configuration />,
+						// },
+						// {
+						// 	path: "ayuda",
+						// 	element: <Help />,
+						// },
 					],
 				},
 			],

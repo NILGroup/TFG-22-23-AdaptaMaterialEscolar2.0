@@ -4,23 +4,51 @@ const alignment = ["alignLeft", "alignRight", "alignCenter"];
 const list_types = ["numbered-list", "bulleted-list"];
 
 export const editorFontTypes = {
-	arial: { text: "Arial", value: "font-editor-arial" },
-	brushScript: { text: "Brush Script MT", value: "font-editor-brushScript" },
-	calibri: { text: "Calibri", value: "font-editor-calibri" },
-	cambria: { text: "Cambria", value: "font-editor-cambria" },
-	centuryGothic: { text: "Century Gothic", value: "font-editor-centuryGothic" },
-	consolas: { text: "Consolas", value: "font-editor-consolas" },
-	copperplate: { text: "Copperplate", value: "font-editor-copperplate" },
-	courierNew: { text: "Courier New", value: "font-editor-courierNew" },
-	franklinGothic: { text: "Franklin Gothic", value: "font-editor-franklinGothic" },
-	georgia: { text: "Georgia", value: "font-editor-georgia" },
-	helvetica: { text: "Helvetica", value: "font-editor-helvetica" },
-	impact: { text: "Impact", value: "font-editor-impact" },
-	lucida: { text: "Lucida", value: "font-editor-lucida" },
-	papyrus: { text: "Papyrus", value: "font-editor-papyrus" },
-	tmr: { text: "Times New Roman", value: "font-editor-TMR" },
-	trebuchet: { text: "Trebuchet MS", value: "font-editor-trebuchet" },
-	verdana: { text: "Verdana", value: "font-editor-verdana" },
+	fuentesEstandar: {
+		label: "Fuentes estándar",
+		value: {
+			arial: { text: "Arial", value: "font-editor-arial", style: "font-editor-arial" },
+			brushScript: {
+				text: "Brush Script MT",
+				value: "font-editor-brushScript",
+				style: "font-editor-brushScript",
+			},
+			calibri: { text: "Calibri", value: "font-editor-calibri", style: "font-editor-calibri" },
+			cambria: { text: "Cambria", value: "font-editor-cambria", style: "font-editor-cambria" },
+			centuryGothic: {
+				text: "Century Gothic",
+				value: "font-editor-centuryGothic",
+				style: "font-editor-centuryGothic",
+			},
+			consolas: { text: "Consolas", value: "font-editor-consolas", style: "font-editor-consolas" },
+			copperplate: { text: "Copperplate", value: "font-editor-copperplate", style: "font-editor-copperplate" },
+			courierNew: { text: "Courier New", value: "font-editor-courierNew", style: "font-editor-courierNew" },
+			franklinGothic: { text: "Franklin Gothic", value: "font-editor-franklinGothic" },
+			georgia: { text: "Georgia", value: "font-editor-georgia", style: "font-editor-georgia" },
+			helvetica: { text: "Helvetica", value: "font-editor-helvetica", style: "font-editor-helvetica" },
+			impact: { text: "Impact", value: "font-editor-impact", style: "font-editor-impact" },
+			lucida: { text: "Lucida", value: "font-editor-lucida", style: "font-editor-lucida" },
+			papyrus: { text: "Papyrus", value: "font-editor-papyrus", style: "font-editor-papyrus" },
+			tmr: { text: "Times New Roman", value: "font-editor-TMR", style: "font-editor-TMR" },
+			trebuchet: { text: "Trebuchet MS", value: "font-editor-trebuchet", style: "font-editor-trebuchet" },
+			verdana: { text: "Verdana", value: "font-editor-verdana", style: "font-editor-verdana" },
+		},
+	},
+	fuentesEscolares: {
+		label: "Fuentes escolares",
+		value: {
+			edel: {
+				text: "Edel",
+				value: "font-editor-edel",
+				style: "font-editor-edel",
+			},
+			escolar: {
+				text: "Escolar",
+				value: "font-editor-escolar",
+				style: "font-editor-escolar",
+			},
+		},
+	},
 };
 
 export const isBlockActive = (editor, format) => {
@@ -32,41 +60,40 @@ export const isBlockActive = (editor, format) => {
 };
 
 export const toggleBlock = (editor, format) => {
-	const isActive = isBlockActive(editor,format);
-    const isList = list_types.includes(format)
-    const isIndent = alignment.includes(format)
-    const isAligned = alignment.some(alignmentType => isBlockActive(editor,alignmentType))
-    
-    if(isAligned && isIndent){
-        Transforms.unwrapNodes(editor,{
-            match:n => alignment.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
-            split:true
-        })
-    }
-    
-    if(isIndent){
-        Transforms.wrapNodes(editor,{
-            type:format,
-            children:[]
-        })
-        return
-    }
-    Transforms.unwrapNodes(editor,{
-        match:n => list_types.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
-        split:true
-    })
-    
-    Transforms.setNodes(editor,{
-        type:isActive?'paragraph':isList?'list-item':format,
-    })
-    
-    
-    if(isList && !isActive){
-        Transforms.wrapNodes(editor,{
-            type:format,
-            children:[]
-        })
-    }
+	const isActive = isBlockActive(editor, format);
+	const isList = list_types.includes(format);
+	const isIndent = alignment.includes(format);
+	const isAligned = alignment.some((alignmentType) => isBlockActive(editor, alignmentType));
+
+	if (isAligned && isIndent) {
+		Transforms.unwrapNodes(editor, {
+			match: (n) => alignment.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
+			split: true,
+		});
+	}
+
+	if (isIndent) {
+		Transforms.wrapNodes(editor, {
+			type: format,
+			children: [],
+		});
+		return;
+	}
+	Transforms.unwrapNodes(editor, {
+		match: (n) => list_types.includes(!Editor.isEditor(n) && SlateElement.isElement(n) && n.type),
+		split: true,
+	});
+
+	Transforms.setNodes(editor, {
+		type: isActive ? "paragraph" : isList ? "list-item" : format,
+	});
+
+	if (isList && !isActive) {
+		Transforms.wrapNodes(editor, {
+			type: format,
+			children: [],
+		});
+	}
 };
 
 export const getActiveMarkValue = (editor, format) => {
@@ -74,7 +101,7 @@ export const getActiveMarkValue = (editor, format) => {
 		color: "black",
 		bgColor: "transparent",
 		fontSize: 16,
-		fontFamily: editorFontTypes.calibri.value,
+		fontFamily: editorFontTypes.fuentesEstandar.value.calibri.value,
 	};
 
 	const marks = Editor.marks(editor);

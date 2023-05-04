@@ -10,15 +10,15 @@ import ToolbarGroupNumberInput from "./ToolbarGroupNumberInput";
 import ToolbarGroupSelect from "./ToolbarGroupSelect";
 
 import {
+	AiOutlineAlignCenter,
+	AiOutlineAlignLeft,
+	AiOutlineAlignRight,
 	AiOutlineBold,
 	AiOutlineItalic,
 	AiOutlineOrderedList,
 	AiOutlineStrikethrough,
 	AiOutlineUnderline,
 	AiOutlineUnorderedList,
-	AiOutlineAlignCenter,
-	AiOutlineAlignLeft,
-	AiOutlineAlignRight,
 } from "react-icons/ai";
 import { IoMdColorFill } from "react-icons/io";
 import { MdOutlineHorizontalRule } from "react-icons/md";
@@ -30,8 +30,6 @@ import {
 	isMarkActive,
 	toggleMark,
 } from "../../utils/SlateUtilityFunctions";
-
-import { BsJustify } from "react-icons/bs";
 
 const markTypes = [
 	{ format: "bold", icon: <AiOutlineBold /> },
@@ -46,9 +44,9 @@ const blockTypes = [
 ];
 
 const alignmentTypes = [
-	{format:"alignLeft", icon: <AiOutlineAlignLeft/>}, 
-	{format:"alignCenter", icon: <AiOutlineAlignCenter/>},
-	{format:"alignRight", icon: <AiOutlineAlignRight />},
+	{ format: "alignLeft", icon: <AiOutlineAlignLeft /> },
+	{ format: "alignCenter", icon: <AiOutlineAlignCenter /> },
+	{ format: "alignRight", icon: <AiOutlineAlignRight /> },
 ];
 
 export default function ToolbarFormatGroup({ editor, openModal }) {
@@ -56,7 +54,7 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 	const changeMarkData = (value, format) => addMarkData(editor, { format, value });
 
 	return (
-		<div className="flex items-center gap-2">
+		<>
 			{/* Opciones de estilo (Negrita, Cursiva...) */}
 			<div className="flex gap-1">
 				{markTypes.map((mark) => {
@@ -76,9 +74,40 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 				})}
 			</div>
 			{/* Opciones de fuente */}
+			<div className="flex">
+				<ToolbarColorPicker
+					label={
+						<div className="flex flex-col gap-0">
+							<span className="text-[1.25rem] text-black">A</span>
+							<span className="h-2 w-full -translate-y-[170%]">
+								<MdOutlineHorizontalRule size={35} />
+							</span>
+						</div>
+					}
+					value={getActiveMarkValue(reactEditor, "color")}
+					onColorChange={(color) => {
+						addMarkData(editor, { format: "color", value: color });
+					}}
+				/>
+				<ToolbarColorPicker
+					label={
+						<div className="flex flex-col items-center gap-0">
+							<IoMdColorFill className="text-[1.15rem] text-black" />
+							<span className="h-2 w-full -translate-y-[170%]">
+								<MdOutlineHorizontalRule size={35} />
+							</span>
+						</div>
+					}
+					transparentColorEnabled
+					value={getActiveMarkValue(reactEditor, "bgColor")}
+					onColorChange={(color) => {
+						addMarkData(editor, { format: "bgColor", value: color });
+					}}
+				/>
+			</div>
 			<div className="flex gap-0.5">
 				<ToolbarGroupSelect
-					className="w-52 rounded-r-none"
+					className={`${getActiveMarkValue(reactEditor, "fontFamily")} w-52 rounded-r-none`}
 					options={Object.values(editorFontTypes)}
 					value={getActiveMarkValue(reactEditor, "fontFamily")}
 					onChange={(e) => {
@@ -99,35 +128,6 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 					}}
 				/>
 			</div>
-			<ToolbarColorPicker
-				label={
-					<div className="flex flex-col gap-0">
-						<span className="text-[1.25rem] text-black">A</span>
-						<span className="h-2 w-full -translate-y-[170%]">
-							<MdOutlineHorizontalRule size={35} />
-						</span>
-					</div>
-				}
-				value={getActiveMarkValue(reactEditor, "color")}
-				onColorChange={(color) => {
-					addMarkData(editor, { format: "color", value: color });
-				}}
-			/>
-			<ToolbarColorPicker
-				label={
-					<div className="flex flex-col items-center gap-0">
-						<IoMdColorFill className="text-[1.15rem] text-black" />
-						<span className="h-2 w-full -translate-y-[170%]">
-							<MdOutlineHorizontalRule size={35} />
-						</span>
-					</div>
-				}
-				transparentColorEnabled
-				value={getActiveMarkValue(reactEditor, "bgColor")}
-				onColorChange={(color) => {
-					addMarkData(editor, { format: "bgColor", value: color });
-				}}
-			/>
 			{/* Opciones de bloque */}
 			<div className="flex gap-1">
 				{blockTypes.map((block) => {
@@ -137,9 +137,6 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 						</ToolbarBlockButton>
 					);
 				})}
-			</div>
-			
-			<div className="flex gap-1">
 				{alignmentTypes.map((block) => {
 					return (
 						<ToolbarBlockButton key={`blockButton-${block.format}`} format={block.format}>
@@ -150,6 +147,6 @@ export default function ToolbarFormatGroup({ editor, openModal }) {
 			</div>
 			{/* Tablas */}
 			<TableSelector editor={editor} />
-		</div>
+		</>
 	);
 }

@@ -54,6 +54,8 @@ module.exports = {
 					"monospace",
 				],
 				"editor-copperplate": ["Copperplate", "'Copperplate Gothic Light'", "fantasy"],
+				"editor-edel": ["Edel", "cursive"],
+				"editor-escolar": ["Escolar", "cursive"],
 				"editor-franklinGothic": ["'Franklin Gothic'", "'ITC Franklin Gothic'", "Arial", "sans-serif"],
 				"editor-georgia": ["Georgia", "Times", "'Times New Roman'", "serif"],
 				"editor-helvetica": ["'Helvetica Neue'", "Helvetica", "Arial", "sans-serif"],
