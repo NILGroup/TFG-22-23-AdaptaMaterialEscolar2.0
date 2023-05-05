@@ -722,6 +722,24 @@ Cuando se pulsa el botón de traducir se realiza una petición HTTP de tipo POST
 
 Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto traducido en el documento de trabajo. Las palabras que no tuviesen pictogramas y las palabras cuyo pictograma ha sido desactivado por el usuario, se mostrarán sin pictograma.
 
+
+\subsubsection{Ejercicio de Espacio Para Dibujar}
+\label{sec:impespacioparadibujar}
+
+Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el tamaño del espacio que se quiere insertar y un \textit{checkbox} para seleccionar si el espacio para dibujar debe tener un recuadro o no. En este caso, el recuadro es simplemente un borde negro alrededor del espacio. Por último, hay una vista previa en la que se puede observar cómo se verá el ejercicio una vez que se inserte en el editor de texto. Por defecto, el valor del tamaño del espacio es 1 centímetro de alto y el \textit{checkbox} está marcado, indicando que sí se debe mostrar el recuadro.
+
+Una vez introducidos un enunciado y un tamaño válidos, se habilitará el botón de \textit{Ok} para poder insertar el ejercicio en el documento de trabajo.
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Imagenes/Funcionalidades/EspacioParaDibujar.PNG}
+  \caption{Funcionalidad de espacio para dibujar.}
+  \label{fig:funcionalidadEspacioParaDibujar}
+\end{figure}
+
+
+
 \subsection{Del modal al editor}
 En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertNode} de Slate para agregar este nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento.
 
