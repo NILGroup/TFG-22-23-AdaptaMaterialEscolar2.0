@@ -4,6 +4,24 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap");
 
+@font-face {
+	font-family: "Edel";
+	src: url("../public/fonts/Edel.ttf");
+	size-adjust: 125%;
+}
+
+@font-face {
+	font-family: "Escolar";
+	src: url("../public/fonts/Escolar.ttf");
+	size-adjust: 125%;
+}
+@font-face {
+	font-family: "Escolar";
+	src: url("../public/fonts/Escolar_Bold.ttf");
+	font-weight: bold;
+	size-adjust: 125%;
+}
+
 @layer base {
 	:root {
 		--color-primary: 227 135 135;

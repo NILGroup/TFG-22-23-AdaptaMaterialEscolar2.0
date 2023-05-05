@@ -12,6 +12,8 @@ import Toolbar from "./Toolbar/Toolbar";
 
 import { ModalFactory } from "../Modal/ModalFactory";
 
+import BloqueEditable from "./elements/BloqueEditable/BloqueEditable";
+import Ejercicio from "./elements/Ejercicio/Ejercicio";
 import Icon from "./elements/Icon/Icon";
 import Leaf from "./elements/Leaf/Leaf";
 import PictotranslatorElement from "./elements/PictotranslatorElement/PictotranslatorElement";
@@ -20,12 +22,10 @@ import Staff from "./elements/Staff/Staff";
 import Table from "./elements/Table/Table";
 import Td from "./elements/Table/Td";
 import Tr from "./elements/Table/Tr";
+import withEjercicio from "./plugins/withEjercicio";
 import { withEmbeds } from "./plugins/withEmbeds";
 import { withInline } from "./plugins/withInline";
 import { withTable } from "./plugins/withTable";
-import Ejercicio from "./elements/Ejercicio/Ejercicio";
-import withEjercicio from "./plugins/withEjercicio";
-import BloqueEditable from "./elements/BloqueEditable/BloqueEditable";
 
 const initialValue = [
 	{
@@ -35,12 +35,11 @@ const initialValue = [
 ];
 const usePlugins = (editor) => {
 	const plugins = [withEjercicio, withTable, withEmbeds, withInline, withReact];
-	
-	for(let plugin of plugins)
-		editor = plugin(editor);
+
+	for (let plugin of plugins) editor = plugin(editor);
 
 	return editor;
-}
+};
 export default function SlateEditor() {
 	// Creamos el objeto editor de slate
 	const editorWithPlugin = usePlugins(createEditor());
@@ -52,8 +51,8 @@ export default function SlateEditor() {
 	//TODO staff indica todos lo tipos de pauta.
 
 	const renderElement = useCallback((props) => {
-		const style = props.element.align ? props.element.align : ''
-		console.log(props)
+		const style = props.element.align ? props.element.align : "";
+		console.log(props);
 		switch (props.element.type) {
 			// TODO: No funciona el alt de la imagen
 			case "image":
@@ -76,26 +75,54 @@ export default function SlateEditor() {
 				return <Tr {...props} />;
 			case "table-cell":
 				return <Td {...props} />;
-			case 'alignLeft':
-				return <div className="flex items-start list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
-			case 'alignCenter':
-				return <div className="flex items-center list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
-			case 'alignRight':
-				return <div className="flex items-end list-inside flex-col" {...props.attributes} {...props.element.attr}>{props.children}</div>
-			case 'bulleted-list':
-            	return <ul className='list-disc pl-12' {...props.attributes}>{props.children}</ul>
-        	case 'numbered-list':
-            	return <ol className='list-decimal pl-12' {...props.attributes}>{props.children}</ol>
-			case 'list-item':
-        	    return <li {...props.attributes}>{props.children}</li>
+			case "alignLeft":
+				return (
+					<div
+						className="flex list-inside flex-col items-start"
+						{...props.attributes}
+						{...props.element.attr}
+					>
+						{props.children}
+					</div>
+				);
+			case "alignCenter":
+				return (
+					<div
+						className="flex list-inside flex-col items-center"
+						{...props.attributes}
+						{...props.element.attr}
+					>
+						{props.children}
+					</div>
+				);
+			case "alignRight":
+				return (
+					<div className="flex list-inside flex-col items-end" {...props.attributes} {...props.element.attr}>
+						{props.children}
+					</div>
+				);
+			case "bulleted-list":
+				return (
+					<ul className="list-disc pl-12" {...props.attributes}>
+						{props.children}
+					</ul>
+				);
+			case "numbered-list":
+				return (
+					<ol className="list-decimal pl-12" {...props.attributes}>
+						{props.children}
+					</ol>
+				);
+			case "list-item":
+				return <li {...props.attributes}>{props.children}</li>;
 			case "pictotranslator":
 				return <PictotranslatorElement {...props} openModal={openModal} />;
 			case "relateConcepts":
-				return <RelateConcepts {...props}/>;
+				return <RelateConcepts {...props} />;
 			case "enunciado":
-				return <span {...props.attributes}>{props.children}</span>
+				return <span {...props.attributes}>{props.children}</span>;
 			default:
-				return <p {...props.attributes} >{props.children}</p>;
+				return <p {...props.attributes}>{props.children}</p>;
 		}
 	}, []);
 
@@ -116,11 +143,11 @@ export default function SlateEditor() {
 		setModalType(modalType);
 	};
 	const onKeyDown = (event) => {
-		if (event.key === 'Tab') {
-		  event.preventDefault();
-		  editor.insertText('\t');
+		if (event.key === "Tab") {
+			event.preventDefault();
+			editor.insertText("\t");
 		}
-	  }
+	};
 
 	return (
 		<>
@@ -137,9 +164,9 @@ export default function SlateEditor() {
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
 							spellCheck
-							autoFocus						
-							onKeyDown={event => onKeyDown(event)}
-							/>
+							autoFocus
+							onKeyDown={(event) => onKeyDown(event)}
+						/>
 					</div>
 				</div>
 			</Slate>
@@ -158,5 +185,5 @@ export default function SlateEditor() {
 // Define a React component to render leaves with bold text.
 
 const DefaultElement = (props) => {
-	return <p {...props.attributes} >{props.children}</p>;
+	return <p {...props.attributes}>{props.children}</p>;
 };
