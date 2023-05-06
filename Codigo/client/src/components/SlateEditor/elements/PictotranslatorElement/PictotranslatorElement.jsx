@@ -4,15 +4,17 @@ export default function PictotranslatorElement({ attributes, children, element }
 	return (
 		<div {...attributes}>
 			{children}
-			<div className="inline-flex flex-wrap items-end gap-4">
+			<div>
 				{element.values.words.map((word, index) => {
+					if (!word) return null;
+
 					if (word.pictograms.length > 0 && !word.disabled) {
 						return (
 							<span
 								key={`pictogram_${index}`}
-								className={`flex ${
+								className={`inline-flex ${
 									element.values.textPosition === "Below" ? "flex-col-reverse" : "flex-col"
-								} max-w-[2.25cm] rounded-md border-2 border-black`}
+								} max-w-[2.25cm] rounded-md border-2 border-black my-2 align-bottom`}
 							>
 								{element.values.textPosition !== "NoText" && (
 									<p
@@ -30,9 +32,18 @@ export default function PictotranslatorElement({ attributes, children, element }
 								/>
 							</span>
 						);
-					} else {
-						return <span key={`word_${index}`}>{word.word}</span>;
 					}
+
+					if (word === " ") return <React.Fragment key={`nbsp-${index}`}>&nbsp;</React.Fragment>;
+
+					if (word === "\n") return <br key={`linebreak-${index}`} />;
+
+					if (word === "\t") return <React.Fragment key={`tab-${index}`}>&emsp;</React.Fragment>;
+
+					if (/^[.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"]$/.test(word))
+						return <span key={`punctuationSign-${index}`}>{word}</span>;
+
+					return <span key={`word_${index}`}>{word.word}</span>;
 				})}
 			</div>
 		</div>

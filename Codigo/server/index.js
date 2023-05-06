@@ -61,26 +61,35 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 
 	const originalText = request.body.originalText;
 
-	const words = originalText.split(/([\n\r\s\t?¿!¡,.;:'"])/g).filter((word) => !/([\n\r\s\t?¿!¡,.;:'"])/g.test(word));
+	const words = originalText.split(/([\n\r\s\t.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"])/g);
 
 	try {
 		let pictos = [];
 
 		for (const word of words) {
-			const apiResponse = await fetch(`https://api.arasaac.org/api/pictograms/es/search/${word}`);
-			const data = await apiResponse.json();
+			if (/([\n\r\s\t.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"])/g.test(word)) {
+				pictos.push({
+					word,
+					currentPicto: 0,
+					disabled: false,
+					pictograms: [],
+				});
+			} else {
+				const apiResponse = await fetch(`https://api.arasaac.org/api/pictograms/es/search/${word}`);
+				const data = await apiResponse.json();
 
-			let pictograms = [];
-			for (let i = 0; i < data.length && i < 5; i++) {
-				pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
+				let pictograms = [];
+				for (let i = 0; i < data.length && i < 5; i++) {
+					pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
+				}
+
+				pictos.push({
+					word,
+					currentPicto: 0,
+					disabled: false,
+					pictograms: pictograms.filter((value, index, array) => array.indexOf(value) === index),
+				});
 			}
-
-			pictos.push({
-				word,
-				currentPicto: 0,
-				disabled: false,
-				pictograms: pictograms.filter((value, index, array) => array.indexOf(value) === index),
-			});
 		}
 
 		response.status(200).json(pictos);

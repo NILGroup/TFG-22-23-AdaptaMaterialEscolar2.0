@@ -12,7 +12,7 @@ export const TextPosition = Object.freeze({
 
 export function PictogramGrid({ words, setPicto, disablePicto, textPosition, isBlackWhite }) {
 	return (
-		<div className="grid max-h-80 grid-cols-1 justify-center gap-8 overflow-y-auto break-words p-4 lg:grid-cols-2 lg:justify-evenly xl:grid-cols-3">
+		<div className="grid max-h-80 grid-cols-fluid-md justify-evenly gap-8 overflow-y-auto break-words p-4">
 			{words.map((word, index) => {
 				if (word.pictograms.length === 0) return null;
 

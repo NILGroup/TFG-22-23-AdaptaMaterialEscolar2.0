@@ -201,7 +201,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 	//#endregion
 
 	return (
-		<Modal title="Pictotraductor" className="w-6/12" isOpen={isOpen} onClose={handleClose}>
+		<Modal title="Pictotraductor" className="w-8/12" isOpen={isOpen} onClose={handleClose}>
 			<form
 				className="flex flex-col gap-5"
 				onSubmit={(e) => {

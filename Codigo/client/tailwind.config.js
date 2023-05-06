@@ -91,6 +91,13 @@ module.exports = {
 				"modal-base-lg": "clamp(0.7rem, 3vw, 1.2rem)",
 				"modal-alert-box": "clamp(0.65rem, 2vw, 0.95rem)",
 			},
+			gridTemplateColumns: {
+				"fluid-xs": "repeat(auto-fit, minmax(2rem, 1fr))",
+				"fluid-sm": "repeat(auto-fit, minmax(5rem, 1fr))",
+				fluid: "repeat(auto-fit, minmax(10rem, 1fr))",
+				"fluid-md": "repeat(auto-fit, minmax(12rem, 1fr))",
+				"fluid-lg": "repeat(auto-fit, minmax(18rem, 1fr))",
+			},
 		},
 	},
 	plugins: [require("flowbite/plugin")],

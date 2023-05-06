@@ -14,7 +14,6 @@ export default function ToolbarGroupSelect({ className, options, ...restProps })
 				if (optionArray.length > 0) {
 					return (
 						<optgroup key={`optionGroup-${optionIndex}`} className="font-main" label={option.label}>
-							<hr />
 							{optionArray.map((suboption, index) => (
 								<option
 									className={suboption.style}
