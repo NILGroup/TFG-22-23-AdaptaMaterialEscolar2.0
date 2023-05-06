@@ -558,7 +558,7 @@ Para implementar esta funcionalidad se han usado varios elementos como un campo 
 
 \subsubsection{Ejercicio de fórmulas matemáticas}
 \label{sec:impmatematica}
-Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento estas. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.  
+Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento estas. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.
 Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio, el \textit{backspace} o el \textit{enter}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. También, si se presiona el \textit{backspace} y se elimina el último elemento de la fila, esta fórmula se eliminará. Por último, al presionar la tecla de \textit{enter} se añade una nueva fórmula matemática vacía. El usuario también puede añadir o eliminar fórmulas haciendo clic en los botones que se muestran en el modal.
 Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
 
@@ -609,14 +609,14 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras01.png}
-    \caption{Funcionalidad de sopa de letras ejecutado con éxito}
+    \caption{Ventana modal de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras01}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras02.png}
-    \caption{Funcionalidad de sopa de letras en documento de trabajo}
+    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras02}
   \end{subfigure}
 
@@ -723,7 +723,34 @@ Para implementar esta funcionalidad se ha empleado un área de texto en la cual 
 
 Cuando se pulsa el botón de traducir se realiza una petición HTTP de tipo POST al servidor \textit{backend}, a la ruta ``/pictotranslator'', enviando el texto introducido por el usuario. En el \textit{backend}, se extraen todas las palabras del texto y se realiza una petición a la API de ARASAAC por cada una para obtener los pictogramas relacionados con esa palabra. El servidor devuelve al cliente un objeto \textit{JSON} con la palabra, los pictogramas asociados a esta, si el pictograma está desactivado y que pictograma está seleccionado.
 
-Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto traducido en el documento de trabajo. Las palabras que no tuviesen pictogramas y las palabras cuyo pictograma ha sido desactivado por el usuario, se mostrarán sin pictograma.
+Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto traducido en el documento de trabajo. Las palabras que no tuviesen pictogramas y las palabras cuyo pictograma ha sido desactivado por el usuario, se mostrarán sin pictograma. En la Figura \ref{fig:imppictotraductor} se muestra la funcionalidad de pictotraductor.
+
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/Pictotraductor01.png}
+    \caption{Ventana modal de la funcionalidad de pictotraductor}
+    \label{fig:imppictotraductor01}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/Pictotraductor02.png}
+    \caption{Configuración de los pictogramas de la funcionalidad de pictotraductor}
+    \label{fig:imppictotraductor02}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/Pictotraductor03.png}
+    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de pictotraductor}
+    \label{fig:imppictotraductor03}
+  \end{subfigure}
+
+  \caption{Funcionalidad de pictotraductor}
+  \label{fig:imppictotraductor}
+\end{figure}
 
 
 \subsubsection{Ejercicio de Espacio Para Dibujar}
