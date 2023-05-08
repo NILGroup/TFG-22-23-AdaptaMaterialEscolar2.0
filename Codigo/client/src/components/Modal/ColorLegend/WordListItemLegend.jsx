@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
-import { AiOutlineCheck,AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { HiOutlinePencil } from "react-icons/hi";
 import { IoMdTrash } from "react-icons/io";
 

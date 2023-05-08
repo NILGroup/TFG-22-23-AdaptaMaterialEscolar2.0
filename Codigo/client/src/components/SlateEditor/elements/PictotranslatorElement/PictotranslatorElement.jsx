@@ -14,7 +14,7 @@ export default function PictotranslatorElement({ attributes, children, element }
 								key={`pictogram_${index}`}
 								className={`inline-flex ${
 									element.values.textPosition === "Below" ? "flex-col-reverse" : "flex-col"
-								} max-w-[2.25cm] rounded-md border-2 border-black my-2 align-bottom`}
+								} my-2 max-w-[2.25cm] rounded-md border-2 border-black align-bottom`}
 							>
 								{element.values.textPosition !== "NoText" && (
 									<p

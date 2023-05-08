@@ -238,7 +238,7 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 			exercise = [
 				{
 					type: "enunciado",
-					children: [{ text: generateExerciseStatement(addedWords), bold:true }],
+					children: [{ text: generateExerciseStatement(addedWords), bold: true }],
 				},
 				table.createTableNodeByArray(grid, "table-auto !m-auto text-center !mt-2"),
 				{
@@ -441,7 +441,12 @@ export default function WordSearchModal({ editor, isOpen, onClose, openModal }) 
 						</div>
 					</div>
 				</div>
-				<ModalPreview showAlerts warnings={warnings} errors={errors} previewHeight="min-h-[10rem] xl:h-[40rem] xl:max-h-[40rem]">
+				<ModalPreview
+					showAlerts
+					warnings={warnings}
+					errors={errors}
+					previewHeight="min-h-[10rem] xl:h-[40rem] xl:max-h-[40rem]"
+				>
 					{grid && (
 						<div className="flex flex-col gap-2">
 							<p className="font-bold">{generateExerciseStatement(addedWords)}</p>

@@ -1,12 +1,12 @@
 import React from "react";
 
+import { Button } from "flowbite-react";
 import { AiOutlineBorderlessTable } from "react-icons/ai";
 import { BiRectangle } from "react-icons/bi";
 import { HiOutlineMinus } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { TfiLineDouble } from "react-icons/tfi";
 import ButtonSelect from "./ButtonSelect";
-import { Button } from "flowbite-react";
 
 const staff = {
 	grid: {
@@ -47,30 +47,21 @@ export function StaffButtonFactory({ type, setValue }) {
 	switch (type) {
 		case StaffType.grid:
 			return (
-				<ButtonSelect
-					options={staff.grid.option}
-					setValue={setValue}
-				>
+				<ButtonSelect options={staff.grid.option} setValue={setValue}>
 					<AiOutlineBorderlessTable size={16} />
 					<IoMdArrowDropdown size={16} />
 				</ButtonSelect>
 			);
 		case StaffType.doubleLine:
 			return (
-				<ButtonSelect
-					options={staff.doubleLine.option}
-					setValue={setValue}
-				>
+				<ButtonSelect options={staff.doubleLine.option} setValue={setValue}>
 					<TfiLineDouble size={16} />
 					<IoMdArrowDropdown size={16} />
 				</ButtonSelect>
 			);
 		case StaffType.line:
 			return (
-				<ButtonSelect
-					options={staff.line.option}
-					setValue={setValue}
-				>
+				<ButtonSelect options={staff.line.option} setValue={setValue}>
 					<HiOutlineMinus size={16} />
 					<IoMdArrowDropdown size={16} />
 				</ButtonSelect>
@@ -78,9 +69,7 @@ export function StaffButtonFactory({ type, setValue }) {
 		case StaffType.box:
 			return (
 				<div className="flex flex-col">
-					<Button color="light"
-						onClick={() => setValue("square")}
-					>
+					<Button color="light" onClick={() => setValue("square")}>
 						<BiRectangle size={16} />
 					</Button>
 				</div>
@@ -88,9 +77,7 @@ export function StaffButtonFactory({ type, setValue }) {
 		case StaffType.space:
 			return (
 				<div className="flex flex-col">
-					<Button color="light"
-						onClick={() => setValue("square_space")}
-					>
+					<Button color="light" onClick={() => setValue("square_space")}>
 						<BiRectangle size={16} style={{ color: "transparent" }} />
 					</Button>
 				</div>

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalCheckbox from "../common/ModalCheckbox";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { ModalType } from "../ModalFactory";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
 
-export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
+export default function DrawingModal({ editor, isOpen, onClose, openModal }) {
 	const [textareaValue, setTextareaValue] = useState("");
 	const [espacio, setEspacio] = useState(1);
 	const [recuadrar, setRecuadrar] = useState(true);
@@ -51,36 +51,36 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 
 		let borderStyle = "";
 
-		if(recuadrar){
+		if (recuadrar) {
 			borderStyle = " border border-black border-solid";
 		}
 
-		return <div  className={"my-1 " + borderStyle} style={{ height: `${5 * espacio }mm` }}></div>;
+		return <div className={"my-1 " + borderStyle} style={{ height: `${5 * espacio}mm` }}></div>;
 	};
-	const openModalUpdate = (path, data) =>{
-		openModal(ModalType.drawing)
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.drawing);
 		setTextareaValue(data.textareaValue);
 		setEspacio(data.espacio);
 		setRecuadrar(data.recuadrar);
 		setPath(path);
-	}
+	};
 	const insertInEditor = (editor) => {
-		const ejercicio = { 
-			type: "ejercicio", 
+		const ejercicio = {
+			type: "ejercicio",
 			openModalUpdate,
-			data:{
+			data: {
 				textareaValue,
 				espacio,
-				recuadrar
+				recuadrar,
 			},
-			children: [] 
+			children: [],
 		};
 		const enunciado = {
 			type: "enunciado",
-			children: [{ text: textareaValue, bold:true }],
+			children: [{ text: textareaValue, bold: true }],
 		};
 		ejercicio.children.push(enunciado);
-		
+
 		ejercicio.children.push({
 			type: "paragraph",
 			children: [{ text: "" }],
@@ -90,7 +90,7 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 		ejercicio.children.push({
 			type: "staff",
 			renderOption,
-			number:espacio,
+			number: espacio,
 			children: [{ text: "" }],
 		});
 		ejercicio.children.push({
@@ -98,7 +98,7 @@ export default function DrawingModal({ editor, isOpen, onClose, openModal}) {
 			children: [{ text: "" }],
 		});
 
-		insertarEjercicioEditable(editor, ejercicio, path)
+		insertarEjercicioEditable(editor, ejercicio, path);
 	};
 
 	const submit = (e) => {

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
+import imagenes from "../../../assets/imagenes";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalNewWordInput from "../common/ModalNewWordInput";
@@ -7,8 +9,6 @@ import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
-import imagenes from "../../../assets/imagenes";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import { ModalType } from "../ModalFactory";
 
 const MIN_ROWS = 1;
@@ -23,13 +23,13 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 	const [path, setPath] = useState(null);
 
 	useEffect(() => {
-		setNumbers(Array.from({length: concepts.length}, (concept, i) => i < numbers.length ? numbers[i]: 1));
+		setNumbers(Array.from({ length: concepts.length }, (concept, i) => (i < numbers.length ? numbers[i] : 1)));
 	}, [concepts]);
 
 	const introduction = (n) => `Define ${n === 1 ? "el siguiente concepto" : `los siguientes ${n} conceptos`} :`;
 
 	const handleNumFilasChange = (event) => {
-		setNumbers(numbers => {
+		setNumbers((numbers) => {
 			let newNumbers = [...numbers];
 			newNumbers[selected] = event.target.value;
 			return newNumbers;
@@ -44,27 +44,24 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		setConcepts([]);
 		setNumbers([1]);
 		setValue("");
-		setPath(null)
+		setPath(null);
 	};
 
 	const renderLines = (index) => {
 		let lines = [];
 		if (numbers[selected] > MAX_ROWS) return;
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: '5mm' }}></div>;
-		if(renderOption === 'square'){
+		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: "5mm" }}></div>;
+		if (renderOption === "square") {
 			lines.push(
-				<div className='border border-black border-solid' style={{ height: `${5 * numbers[selected]}mm` }}>
-				</div>
+				<div
+					className="border border-solid border-black"
+					style={{ height: `${5 * numbers[selected]}mm` }}
+				></div>
 			);
-		}
-		else if(renderOption === 'square_space'){
-			lines.push(
-				<div style={{ height: `${5 * numbers[index]}mm` }}>
-				</div>
-			);
-		}
-		else{
+		} else if (renderOption === "square_space") {
+			lines.push(<div style={{ height: `${5 * numbers[index]}mm` }}></div>);
+		} else {
 			for (let i = 0; i < numbers[index]; i++) {
 				lines.push(
 					<div key={`pauta_${i}`}>
@@ -76,13 +73,13 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		}
 		return lines;
 	};
-	const openModalUpdate = (path, data) =>{
-		openModal(ModalType.definition)
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.definition);
 		setConcepts(data.concepts);
 		setNumbers(data.numbers);
 		setValue(data.value);
 		setPath(path);
-	}
+	};
 	//Insertar datos en el editor
 	const insertDatos = () => {
 		const ejercicio = {
@@ -91,14 +88,14 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			data: {
 				concepts,
 				numbers,
-				value
+				value,
 			},
 			children: [],
 		};
 
 		const enunciado = {
 			type: "enunciado",
-			children: [{ text: introduction(concepts.length), bold:true }],
+			children: [{ text: introduction(concepts.length), bold: true }],
 		};
 		ejercicio.children.push(enunciado);
 		//Salto de linea
@@ -108,19 +105,19 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 		});
 
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		concepts.map(((concept, i) => {
+		concepts.map((concept, i) => {
 			ejercicio.children.push({
 				type: "paragraph",
 				children: [{ text: `${concept}:` }],
 			});
-			if(renderOption === 'square' || renderOption === 'square_space'){
+			if (renderOption === "square" || renderOption === "square_space") {
 				ejercicio.children.push({
 					type: "staff",
 					renderOption,
 					numbers,
 					children: [{ text: "" }],
 				});
-			}else{
+			} else {
 				for (let j = 0; j < numbers[i]; j++) {
 					ejercicio.children.push({
 						type: "staff",
@@ -129,17 +126,17 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 					});
 				}
 			}
-		}))
+		});
 		ejercicio.children.push({
 			type: "paragraph",
 			children: [{ text: "" }],
 		});
-		insertarEjercicioEditable(editor, ejercicio, path)
+		insertarEjercicioEditable(editor, ejercicio, path);
 		onClose();
 		reset();
 	};
 
-	const isOkDisabled = concepts.length == 0 || numbers.every(number => number < MIN_ROWS || number > MAX_ROWS);
+	const isOkDisabled = concepts.length == 0 || numbers.every((number) => number < MIN_ROWS || number > MAX_ROWS);
 
 	const handleClose = () => {
 		reset();
@@ -164,7 +161,9 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 					wordList={concepts}
 					onEdit={(newValue, index) => setConcepts(concepts.map((c, i) => (i === index ? newValue : c)))}
 					onDelete={(index) => removeConcept(index)}
-					setSelect={(i)=> {setSelected(i)}}
+					setSelect={(i) => {
+						setSelected(i);
+					}}
 				/>
 
 				<div className="self-start justify-self-start p-4">
@@ -181,7 +180,11 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 			</div>
 			<hr className="my-6" />
 			<ModalPreview>
-				{concepts.length > 0 && <p className="font-bold" key="title-0">{introduction(concepts.length)}</p>}
+				{concepts.length > 0 && (
+					<p className="font-bold" key="title-0">
+						{introduction(concepts.length)}
+					</p>
+				)}
 				{concepts.map((concept, i) => {
 					return (
 						<div key={`concepts_preview_${i}`} className="m-0">

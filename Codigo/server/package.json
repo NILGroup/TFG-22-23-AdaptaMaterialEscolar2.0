@@ -5,8 +5,7 @@
 	"homepage": "https://nilgroup.github.io/TFG-22-23-AdaptaMaterialEscolar2.0",
 	"main": "index.js",
 	"scripts": {
-		"server": "nodemon index.js",
-		"client": "npm run start --prefix ../client",
+		"start": "nodemon index.js",
 		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
 		"build": "cd ../client && npm run build",
 		"format": "prettier --write \"*.js\"",
@@ -14,7 +13,6 @@
 		"ci": "npm run format && npm run lint -- --quiet"
 	},
 	"devDependencies": {
-		"concurrently": "^7.6.0",
 		"dotenv": "^16.0.3",
 		"eslint": "^8.36.0",
 		"eslint-config-prettier": "^8.8.0",

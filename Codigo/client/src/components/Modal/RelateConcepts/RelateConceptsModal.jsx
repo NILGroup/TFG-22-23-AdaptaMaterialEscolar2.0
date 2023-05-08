@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import { BsFillCircleFill } from "react-icons/bs";
 import { Transforms } from "slate";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
+import { ModalType } from "../ModalFactory";
 import RelateConceptsTable from "./RelateConceptsTable";
 import RelateConceptsView from "./RelateConceptsView";
-import { ModalType } from "../ModalFactory";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 
 // CONSTANTES
 const MIN_ROWS = 1;
@@ -82,14 +82,14 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 		setPath(null);
 	};
 
-	const openModalUpdate = (path, data) =>{
+	const openModalUpdate = (path, data) => {
 		openModal(ModalType.relateConcepts);
 
 		setValores(data.valores);
 		setNumColumnas(data.numColumnas);
 		setNumFilas(data.numFilas);
 		setPath(path);
-	}
+	};
 	// Esta función ademas de insertar actualiza dependiendo de la procedencia
 	const insertDatos = () => {
 		// Si data tiene valores actualizamos los datos del nodo que ha invocado el modal
@@ -99,13 +99,13 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			data: {
 				valores: valores,
 				numColumnas: numColumnas,
-				numFilas: numFilas
+				numFilas: numFilas,
 			},
-			children: []
-		}
+			children: [],
+		};
 		const enunciado = {
 			type: "enunciado",
-			children: [{ text: STATEMENT, bold:true }],
+			children: [{ text: STATEMENT, bold: true }],
 		};
 		ejercicio.children.push(enunciado);
 
@@ -117,7 +117,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 		};
 
 		ejercicio.children.push(conceptos);
-		ejercicio.children.push({type: "paragraph",children: [{ text: "" }]});
+		ejercicio.children.push({ type: "paragraph", children: [{ text: "" }] });
 
 		insertarEjercicioEditable(editor, ejercicio, path);
 		// Resteamos los estados
@@ -168,12 +168,12 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			</div>
 			<hr className="my-6" />
 			<ModalPreview
-				previewHeight = "h-60 max-h-60"
+				previewHeight="h-60 max-h-60"
 				attributes={
 					<ModalButton
 						className="px-1"
 						disabled={
-							 valores.filter((valor) => {
+							valores.filter((valor) => {
 								return valor.filter((v) => v !== "").length >= 2;
 							}).length < 2
 						}
@@ -202,12 +202,11 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 					onClick={() => insertDatos()}
 					disabled={
 						valores.filter((valor) => {
-								return valor.filter((v) => v !== "").length >= 2;
-							}).length < 2
+							return valor.filter((v) => v !== "").length >= 2;
+						}).length < 2
 					}
 				/>
 			</div>
 		</Modal>
 	);
 }
-

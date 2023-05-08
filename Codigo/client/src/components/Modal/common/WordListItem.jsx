@@ -6,10 +6,18 @@ import { IoMdTrash } from "react-icons/io";
 
 import ModalInputText from "../common/ModalInputText";
 
-export default function ModalWordListItem({ word, index, isEdittingWord, setIsEdittingWord, onEdit, onDelete, setSelect }) {
+export default function ModalWordListItem({
+	word,
+	index,
+	isEdittingWord,
+	setIsEdittingWord,
+	onEdit,
+	onDelete,
+	setSelect,
+}) {
 	const [newValue, setNewValue] = useState(null);
 
-	const classSelected = setSelect ? 'hover:bg-slate-100':'';
+	const classSelected = setSelect ? "hover:bg-slate-100" : "";
 
 	const editWord = (newValue) => {
 		onEdit(newValue, index);
@@ -25,7 +33,10 @@ export default function ModalWordListItem({ word, index, isEdittingWord, setIsEd
 
 	if (isEdittingWord !== index) {
 		return (
-			<li className={`grid grid-cols-[1fr_auto] items-center gap-4 ${classSelected}`} onClick={() => setSelect(index)}>
+			<li
+				className={`grid grid-cols-[1fr_auto] items-center gap-4 ${classSelected}`}
+				onClick={() => setSelect(index)}
+			>
 				<span className="max-w-48 overflow-x-auto">{word}</span>
 				<div className="flex flex-wrap items-center gap-2 px-3">
 					<button

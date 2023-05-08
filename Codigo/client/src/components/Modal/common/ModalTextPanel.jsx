@@ -8,7 +8,7 @@ export default function ModalTextPanel({ label, attributes, textAreaClassName, .
 				<div>{attributes}</div>
 			</div>
 			<textarea
-				className={`${textAreaClassName} input-textarea custom-scrollbar w-full rounded-t-none m-0`}
+				className={`${textAreaClassName} input-textarea custom-scrollbar m-0 w-full rounded-t-none`}
 				{...restProps}
 			/>
 		</div>

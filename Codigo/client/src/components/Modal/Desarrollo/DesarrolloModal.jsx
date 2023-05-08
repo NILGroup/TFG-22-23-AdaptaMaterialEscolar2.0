@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
+import imagenes from "../../../assets/imagenes";
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalInputNumber from "../common/ModalInputNumber";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
-import imagenes from "../../../assets/imagenes";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import { ModalType } from "../ModalFactory";
 
 const MIN_ROWS = 1;
@@ -48,21 +48,15 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 
 		let lines = [];
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
-		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: '5mm' }}></div>;
+		let space = () => /^doubleLine/.test(renderOption) && <div style={{ height: "5mm" }}></div>;
 
-		if(renderOption === 'square'){
+		if (renderOption === "square") {
 			lines.push(
-				<div className='border border-black border-solid' style={{ height: `${5 * numFilas}mm` }}>
-				</div>
+				<div className="border border-solid border-black" style={{ height: `${5 * numFilas}mm` }}></div>
 			);
-		}
-		else if(renderOption === 'square_space'){
-			lines.push(
-				<div style={{ height: `${5 * numFilas}mm` }}>
-				</div>
-			);	
-		}
-		else{
+		} else if (renderOption === "square_space") {
+			lines.push(<div style={{ height: `${5 * numFilas}mm` }}></div>);
+		} else {
 			for (let i = 0; i < numFilas; i++) {
 				lines.push(
 					<div key={`pauta_${i}`}>
@@ -74,23 +68,23 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 		}
 		return lines;
 	};
-	const openModalUpdate = (path, data) =>{
-		openModal(ModalType.desarrollo)
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.desarrollo);
 		setTextareaValue(data.textareaValue);
 		setNumFilas(data.numFilas);
 		setValue(data.value);
 		setPath(path);
-	}
+	};
 	const insertInEditor = (editor) => {
-		const ejercicio = { 
+		const ejercicio = {
 			type: "ejercicio",
 			openModalUpdate,
 			data: {
 				textareaValue,
 				numFilas,
-				value
+				value,
 			},
-			children: [] 
+			children: [],
 		};
 		const enunciado = {
 			type: "enunciado",
@@ -106,15 +100,14 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 
 		let renderOption = value === "" ? "doubleLine_2_5" : value;
 
-		if(renderOption === 'square' || renderOption === 'square_space'){
+		if (renderOption === "square" || renderOption === "square_space") {
 			ejercicio.children.push({
 				type: "staff",
 				renderOption,
-				number:numFilas,
+				number: numFilas,
 				children: [{ text: "" }],
 			});
-		}
-		else {
+		} else {
 			for (let j = 0; j < numFilas; j++) {
 				ejercicio.children.push({
 					type: "staff",
@@ -129,7 +122,7 @@ export default function DesarrolloModal({ editor, isOpen, onClose, openModal }) 
 			children: [{ text: "" }],
 		});
 
-		insertarEjercicioEditable(editor, ejercicio, path)
+		insertarEjercicioEditable(editor, ejercicio, path);
 	};
 
 	const submit = (e) => {

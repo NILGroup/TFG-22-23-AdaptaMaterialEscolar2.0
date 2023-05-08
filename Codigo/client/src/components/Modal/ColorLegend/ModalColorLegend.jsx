@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { IoMdSquare } from "react-icons/io";
 
+import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import "../ColorLegend/estilo.css";
 import Modal from "../common/Modal";
 import ModalInputText from "../common/ModalInputText";
 import ModalNewWordInput from "../common/ModalNewWordInput";
 import ModalOkButton from "../common/ModalOkButton";
 import ModalPreview from "../common/ModalPreview";
-import ModalWordListLegend from "./ModalWordListLegend";
-import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import { ModalType } from "../ModalFactory";
+import ModalWordListLegend from "./ModalWordListLegend";
 
 export default function ModalColorLegend({ editor, isOpen, onClose, openModal }) {
 	const [conceptos, setConceptos] = useState([]);
@@ -30,23 +30,23 @@ export default function ModalColorLegend({ editor, isOpen, onClose, openModal })
 		setColor("#000000");
 		setPath(null);
 	};
-	const openModalUpdate = (path, data) =>{
-		openModal(ModalType.colorLegend)
+	const openModalUpdate = (path, data) => {
+		openModal(ModalType.colorLegend);
 		setConceptos(data.conceptos);
 		setColores(data.colores);
 		setTitulo(data.titulo);
 		setPath(path);
-	}
+	};
 	const okButton = (editor, conceptos, colores) => {
 		const list = {
-			type: "bloqueEditable", 
-			data : {
-				conceptos, 
+			type: "bloqueEditable",
+			data: {
+				conceptos,
 				colores,
-				titulo
+				titulo,
 			},
 			openModalUpdate,
-			children: [] 
+			children: [],
 		};
 		const listItem = {
 			type: "paragraph",
@@ -74,7 +74,7 @@ export default function ModalColorLegend({ editor, isOpen, onClose, openModal })
 			children: [{ text: "" }],
 		});
 
-		insertarEjercicioEditable(editor, list, path)
+		insertarEjercicioEditable(editor, list, path);
 		closeModal();
 	};
 
@@ -124,7 +124,7 @@ export default function ModalColorLegend({ editor, isOpen, onClose, openModal })
 		<Modal className="w-6/12" title="Leyenda de Colores" isOpen={isOpen} onClose={closeModal}>
 			<div className="flex flex-col">
 				<div>
-					<ModalInputText id="Titulo" label="Título" required onInput={changeTitle} value={titulo}/>
+					<ModalInputText id="Titulo" label="Título" required onInput={changeTitle} value={titulo} />
 				</div>
 
 				<div className="mt-5">
