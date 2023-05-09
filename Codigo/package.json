@@ -16,5 +16,8 @@
     "format": "npm run format --prefix client && npm run format --prefix server",
     "lint": "npm run lint --prefix client && npm run lint --prefix server",
     "ci": "npm run ci --prefix client && npm run ci --prefix server"
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1"
   }
 }
