@@ -10,6 +10,8 @@ import ModalPreview from "../common/ModalPreview";
 import ModalWordList from "../common/ModalWordList";
 import { StaffButtonFactory, StaffType } from "../common/StaffButtonFactory";
 import { ModalType } from "../ModalFactory";
+import ModalAlertButton from "../common/ModalAlertButton";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const MIN_ROWS = 1;
 const MAX_ROWS = 100;
@@ -167,15 +169,26 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 				/>
 
 				<div className="self-start justify-self-start p-4">
-					<ModalInputNumber
-						id="num_filas"
-						label="Número de filas:"
-						name="num_filas"
-						value={numbers[selected]}
-						onChange={handleNumFilasChange}
-						min={MIN_ROWS}
-						max={MAX_ROWS}
-					/>
+					<div className="flex justify-end flex-wrap gap-1">	
+						<ModalInputNumber
+							id="num_filas"
+							label="Número de filas:"
+							name="num_filas"
+							value={numbers[selected]}
+							onChange={handleNumFilasChange}
+							min={MIN_ROWS}
+							max={MAX_ROWS}
+						/>
+						<ModalAlertButton
+							icon={<AiOutlineInfoCircle size={20} />}
+							iconButtonClassName="text-alert-info-dark hover:text-alert-info"
+							defaultIsOpen={false}
+							listStyle="list-none"
+							placement="left"
+							alertBoxClassName="bg-alert-info text-alert-info-dark"
+							contentList={["Seleccione un concepto, para indicar su numero de pautas"]}
+						/>
+					</div>
 				</div>
 			</div>
 			<hr className="my-6" />

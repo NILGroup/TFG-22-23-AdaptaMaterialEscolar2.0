@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { BsFillCircleFill } from "react-icons/bs";
-import { Transforms } from "slate";
 import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
 import Modal from "../common/Modal";
 import ModalButton from "../common/ModalButton";
