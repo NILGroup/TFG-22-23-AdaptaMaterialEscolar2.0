@@ -5,9 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 // Routes
-import Configuration from "./routes/Configuration";
+// import Configuration from "./routes/Configuration";
 import ErrorPage from "./routes/ErrorPage";
-import Help from "./routes/Help";
+// import Help from "./routes/Help";
 import Home from "./routes/Home";
 import Root from "./routes/Root";
 
@@ -37,8 +37,7 @@ const router = createBrowserRouter(
 				},
 			],
 		},
-	],
-	{ basename: "/TFG-22-23-AdaptaMaterialEscolar2.0" }
+	],  
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
