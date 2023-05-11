@@ -71,5 +71,6 @@ const generateOptionsObject = (numRows, numCols, directions, backwardsProbabilit
 		rows: parseInt(numRows),
 		disabledDirections,
 		backwardsProbability,
+		diacritics: true,
 	};
 };
