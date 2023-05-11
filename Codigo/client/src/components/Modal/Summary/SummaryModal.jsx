@@ -216,7 +216,9 @@ export default function SummaryModal({ editor, isOpen, onClose, openModal }) {
 
 				<hr className="my-4" />
 			</form>
-			<ModalPreview errors={errors}>{isLoading ? <Spinner /> : summary}</ModalPreview>
+			<ModalPreview label="Resumen" errors={errors}>
+				{isLoading ? <Spinner /> : summary}
+			</ModalPreview>
 			<ModalOkButton
 				className="my-2 self-center"
 				onClick={(e) => handleOk(e, summary)}

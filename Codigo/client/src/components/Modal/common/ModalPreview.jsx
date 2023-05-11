@@ -5,11 +5,18 @@ import { MdErrorOutline } from "react-icons/md";
 
 import ModalAlertButton from "./ModalAlertButton";
 
-export default function ModalPreview({ warnings, errors, previewHeight, children, attributes }) {
+export default function ModalPreview({
+	label = "Vista previa",
+	warnings,
+	errors,
+	previewHeight,
+	children,
+	attributes,
+}) {
 	return (
 		<div className="relative w-full max-w-full">
 			<div className="flex gap-4 rounded-md rounded-b-none border-2 border-grey-dark bg-grey px-4 py-2">
-				<h4 className="text-modal-heading">Vista previa</h4>
+				<h4 className="text-modal-heading">{label}</h4>
 				{(warnings !== undefined || errors !== undefined) && (
 					<div className="flex items-center gap-2">
 						{errors !== undefined && (

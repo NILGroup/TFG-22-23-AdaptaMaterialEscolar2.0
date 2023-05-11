@@ -20,6 +20,7 @@
 		"prettier-plugin-organize-imports": "^3.2.2"
 	},
 	"dependencies": {
+		"cors": "^2.8.5",
 		"openai": "^3.2.1"
 	},
 	"engines": {

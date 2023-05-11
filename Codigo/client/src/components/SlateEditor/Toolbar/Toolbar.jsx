@@ -39,7 +39,7 @@ export default function Toolbar({ editor, openModal }) {
 						activeGroup={activeToolbarGroup}
 					/>
 				</div>
-				<div className="grid grid-flow-col grid-rows-4 items-center justify-start gap-x-4 gap-y-1 whitespace-nowrap border-b-[1px] border-editor-border bg-editor-subtoolbar p-2 lg:grid-rows-2 xl:grid-rows-1">
+				<div className="flex grid-rows-4 flex-wrap items-center justify-start gap-x-2 gap-y-1 whitespace-nowrap border-b-[1px] border-editor-border bg-editor-subtoolbar p-2">
 					<ToolbarGroupFactory type={activeToolbarGroup} editor={editor} openModal={openModal} />
 				</div>
 			</div>

@@ -3,6 +3,7 @@
 const path = require("path");
 
 const express = require("express");
+const cors = require("cors");
 const { body, validationResult } = require("express-validator");
 
 const { Configuration, OpenAIApi } = require("openai");
@@ -21,6 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/searchPictogram", body("searchParam").notEmpty().trim(), async (request, response) => {
 	const errors = validationResult(request);

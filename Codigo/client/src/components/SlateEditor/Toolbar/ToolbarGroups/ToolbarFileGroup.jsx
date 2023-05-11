@@ -13,12 +13,12 @@ export default function ToolbarFileGroup({ editor, openModal }) {
 			>
 				<span>Exportar a PDF</span>
 			</ToolbarGroupButton>
-			<ToolbarGroupButton onClick={() => {}}>
+			{/* <ToolbarGroupButton onClick={() => {}}>
 				<span>Exportar a Word</span>
 			</ToolbarGroupButton>
 			<ToolbarGroupButton onClick={() => {}}>
 				<span>Importar documento</span>
-			</ToolbarGroupButton>
+			</ToolbarGroupButton> */}
 		</>
 	);
 }
