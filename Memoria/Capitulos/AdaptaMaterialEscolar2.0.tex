@@ -5,7 +5,7 @@ En este capítulo explicaremos la obtención de requisitos y cómo se han clasif
 \section{Requisitos}
 \label{cap:requisitos}
 
-Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \citep*{AdaptaMaterialEscolar1.0} extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis hemos decidido agrupar las funcionalidades que habría que incluir en la nueva versión de la aplicación según los datos sobre los que trabajan y las acciones que realizan. De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades que tienen relación con el estilo o la estructura del documento), ejercicios (funcionalidades relacionadas con la creación de actividades) y auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Siguiendo esta estructura las funcionalidades quedan agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \citep*{AdaptaMaterialEscolar1.0} extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis decidimos agrupar las funcionalidades que habría que incluir en la nueva versión de la aplicación según los datos sobre los que trabajan y las acciones que realizan. De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades que tienen relación con el estilo o la estructura del documento), ejercicios (funcionalidades relacionadas con la creación de actividades) y auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Siguiendo esta estructura las funcionalidades quedan agrupadas de la siguiente manera:
 \\
 
 \begin{itemize}
@@ -115,7 +115,7 @@ En cuanto a las funcionalidades, se realizarón los siguientes diseños:
 El diseño inicial de la página principal incluye una cabecera con el logo de la aplicación, un menú desplegable que contiene las funcionalidades y un botón que te redirige a la vista de ayuda. En la parte izquierda se encuentra el documento de trabajo, mientras que la zona derecha se divide en dos secciones, una para incluir la funcionalidad seleccionada por el usuario y otra para insertar un archivo PDF, ambas con la opción de ajustar el tamaño de la ventana. Este diseño se puede visualizar en la Figura \ref{dunia1} Con respecto a las funcionalidades, he realizado los siguientes diseños:
 \begin{itemize}
   \item \textbf{Generar un resumen:} El diseño de esta funcionalidad consta de un recuadro en el que introduces el texto y al pulsar un botón se genera el resumen. Para incluirlo en el documento de trabajo el usuario tendrá que darle a la opción de copiar y pegarlo en el documento de trabajo. Este diseño se puede ver en la Figura \ref{dunia2}.
-  \item \textbf{Pictotraductor:} Este diseño consta de un recuadro donde introduces el texto y al darle a un botón se generan los pictogramas correspondientes al texto. Para introducir los pictogramas en el documento de trabajo se hará mediante la tecla CTRL + click arrastrar al documento de trabajo los pictogramas escogidos o arrastrando todos a la vez sin seleccionar ninguno. Este diseño se puede ver en la Figura \ref{dunia3}.
+  \item \textbf{Pictotraductor:} Este diseño consta de un recuadro donde introduces el texto y al darle a un botón se genera la traducción del texto a pictogramas. Para introducir los pictogramas en el documento de trabajo se hará mediante la tecla CTRL + click arrastrar al documento de trabajo los pictogramas escogidos o arrastrando todos a la vez sin seleccionar ninguno. Este diseño se puede ver en la Figura \ref{dunia3}.
   \item \textbf{Ejercicio de flechas:} Para este diseño se visualizaran dos tablas. Cada tabla tendría un botón de añadir o eliminar filas y aquellas celdas que quedasen vacías se trasformarían en huecos. Al darle al botón de terminar se incluiría el ejercicio de tablas sin el borde de estas en el documento de trabajo, donde se encuentre el puntero. Este diseño se puede ver en la Figura \ref{dunia4}.
   \item  \textbf{Leyenda de colores:} Este diseño consta de un rectángulo donde pones las palabras de la leyenda, y al lado de la palabra hay una opción para seleccionar el color. Además, dispone de dos botones, uno para añadir más palabras y otro para eliminarlas. Una vez el usuario haya finalizado la leyenda de colores pasa a colocarse. Al final del documento de trabajo, en el lado derecho. Este diseño se puede ver en la Figura \ref{dunia5}.
   \item  \textbf{Ejercicios de cálculo con huecos:} Este diseño dispone de una opción para elegir el tamaño de la expresión matemática, una vez elegido se muestra tanto huecos como el tamaño escogido, al darle a cada hueco se podrá escribir tanto un número como una operación aritmética elemental, al finalizar se incluirá la expresión matemática en el documento de trabajo donde se encuentre el puntero. Este diseño se puede ver en la Figura \ref{dunia6}.
@@ -156,12 +156,10 @@ En segundo lugar, las funcionalidades auxiliares aparecerán  como botones en el
   \item  \textbf{Leyenda de colores:} El usuario podrá elegir el color del concepto y la descripción del concepto. Podrá modificarlos en cualquier momento y además podrá añadir y eliminar conceptos con su respectivo color, para generar el resultado o resetear los valores introducidos dispondrá de botones. Todo esto se puede ver en la Figura \ref{Johan9}. Este diseño es para la leyenda por conceptos y la leyenda de temas.
 \end{itemize}
 
-Por otra parte, las funcionalidades de pictograma, completar huecos, definiciones y desarrollo se empleó el diseño de AdaptaMaterialEscolar 1.0. La funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadrícula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se emplearán botones.
+Por otra parte para las funcionalidades de pictograma, completar huecos, definiciones y desarrollo se empleó el diseño de AdaptaMaterialEscolar 1.0. La funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadrícula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se emplearán botones.
 
 \subsection{Diseño final}\label{subsec:DisenyoFinal}
-A continuación expondremos el diseño final de la aplicación. Para llegar a este diseño hemos llevado a cabo una etapa de diseño individual en la que cada uno de los integrantes del equipo ha trabajado en la creación de su propia propuesta. En este proceso, hemos invertido tiempo y esfuerzo en la elaboración de diversas ideas, tal y como se comentó anteriormente explorando diferentes enfoques y considerando las necesidades y requisitos del proyecto. Posteriormente, presentamos nuestras propuestas a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto.
-
-Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón ``OK'' que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo.
+A continuación expondremos el diseño final de la aplicación, presentamos los diseños individuales creados por cada uno de los miembros del equipo a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto. Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón ``OK'' que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo.
 
 \subsubsection{Pantalla de inicio}
 Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
@@ -234,7 +232,7 @@ de que era mejor que el botón de añadir palabras fuera fijo y no cambiara de p
 
 
 \subsubsection{Pictotraductor}
-El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor} y se basa en el diseño de Johan y (Figura \ref{Johan7}) y en la idea de Álvaro de que los pictogramas puedan cambiar en el caso de que haya varias opciones para una palabra. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas. Uno de los problemas que encontramos en este diseño fue la falta de consideración de diversas opciones necesarias para satisfacer las necesidades del usuario en cuanto al diseño de los pictogramas. Estas opciones incluyen el posicionamiento y existencia del texto en relación al pictograma, así como la posibilidad de personalizar el color del mismo. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra y añadimos un desplegable para escoger las opciones de posicionamiento de la palabra, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar otro de los pictogramas disponibles para la misma palabra del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 3.
+El diseño de esta funcionalidad se muestra en la Figura \ref{pictotraductor} y se basa en el diseño de Johan (Figura \ref{Johan7}) y en la idea de Álvaro de que los pictogramas puedan cambiar en el caso de que haya varios pictogramas posibles para una misma palabra. Inicialmente se pensó un diseño bastante simple en el que había un campo para añadir un texto y al pulsar sobre el botón de traducir a pictogramas se mostrasen los pictogramas. Uno de los problemas que encontramos en este diseño fue la falta de consideración de diversas opciones necesarias para satisfacer las necesidades del usuario en cuanto al diseño de los pictogramas. Estas opciones incluyen el posicionamiento y existencia del texto en relación al pictograma, así como la posibilidad de personalizar el color del mismo. Finalmente mantuvimos el campo de añadir el texto a traducir y el botón que te muestra los pictogramas con su respectiva palabra y añadimos un desplegable para escoger las opciones de posicionamiento de la palabra a la que se refiere el pictograma, color del pictograma y quitar la palabra asociada al pictograma. Por otra parte, cada pictograma tiene su propio botón de eliminar y unas flechas que permiten seleccionar otro de los pictogramas disponibles para la misma palabra del pictograma, en el caso de que haya varias opciones. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable1} en el ejercicio 3.
 
 \begin{figure}[ht!]
   \centering
@@ -386,27 +384,27 @@ El editor consta de tres partes: barra de selección de barra de herramientas, b
 A continuación se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
 
 \begin{itemize}
-  \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, ``Figura \ref{fig:barrraHerramientaArchivo}''; que son:
+  \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, que son:
         \begin{itemize}
           \item  Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
           \item  Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, y emplea el mismo sistema que el exportar a PDF.
           \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido, lo serializa mediante un plugin y se transfiere al editor.
         \end{itemize}
-  \item Formato: Esta barra contiene opciones para formatear el texto que se está editando (Figura \ref{fig:barrraHerramientaFormato}). Las opciones que incluye son:
+  \item Formato: Esta barra contiene opciones para formatear el texto que se está editando. Las opciones que incluye son:
         \begin{itemize}
           \item Negrita: Permite cambiar el formato de texto a negrita.
           \item Tabla: Permite crear una tabla del numero de filas y columnas elegidas por el usuario con un maximo de 6 filas por 6 columnas.
         \end{itemize}
-  \item Ejercicios: Esta barra dispone de varias opciones para crear ejercicios (Figura \ref{fig:barrraHerramientaEjercicios}), que son:
+  \item Ejercicios: Esta barra dispone de varias opciones para crear ejercicios:
         \begin{itemize}
-          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Desde el padre de la estructura interna del editor, este se introduce en un nodo parrafo.
-          \item Sopa de letras: Si selecciona esta opción, se abrirá un modal que al usuario permitirá introducir la información requerida para crear un ejercicio de sopa de letras. Esta información se introduce en un nodo que tiene dos hijos: el primero es un nodo de tipo párrafo y el segundo es un nodo de tipo tabla.
-          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que al usuario permitirá introducir la información necesaria para crear este ejericio. En este caso se define un nodo llamado ``definition'' que encapsula el nodo párrafo para el enunciado, otro nodo párrafo por cada concepto y un nodo denominado ``staff'' para los tipos de pauta.
-          \item Verdadero/Falso: Esta opción activa un modal donde puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Se define un nodo denominado ``list'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como conceptos introduzca el usuario. En el cual se encuanta un nodo llamado ``icon'' para el cuadrado donde el alumno indicara si es verdadero o falso.
+          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Una vez creado el ejercicio, desde el padre de la estructura interna del editor, este se introduce en un nodo parrafo.
+          \item Sopa de letras: Si se selecciona esta opción, se abrirá un modal que al usuario permitirá introducir la información requerida para crear un ejercicio de sopa de letras. La sopa de letras que se crea se introduce en un nodo que tiene dos hijos: el primero es un nodo de tipo párrafo y el segundo es un nodo de tipo tabla.
+          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que al usuario permitirá introducir la información necesaria para crear un ejercicio de definiciones. Para introducir el ejercicio en el documento base del editor, se define un nodo llamado ``definition'' que encapsula el nodo párrafo para el enunciado, otro nodo párrafo por cada concepto y un nodo denominado ``staff'' para los tipos de pauta.
+          \item Verdadero/Falso: Esta opción activa un modal donde puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Para guardar este ejercicio en el editor se define un nodo denominado ``list'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como conceptos introduzca el usuario. En el cual se encuentra un nodo llamado ``icon'' para el cuadrado donde el alumno indicara si es verdadero o falso.
           \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``definition'' este es igual que el nodo ``definition'' pero como si tuviera un solo concepto.
           \item Formula Matemática: Esta función, desde el punto de vista del editor, es igual a la de completar huecos.
         \end{itemize}
-  \item Texto: Esta barra de herramientas se puede ver en la Figura \ref{fig:barrraHerramientaTexto}. Contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
+  \item Texto: Esta barra de herramientas contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
         \begin{itemize}
           \item Generar resumen: Con la información obtenida se crea un nodo de tipo párrafo.
           \item Picotraductor: Esta función obtiene una imagen usando la API de ARASAAC que se introduce en un nodo que hemos denominado ``image''.
@@ -415,36 +413,9 @@ A continuación se explicará en detalle cada una de las barras de herramientas 
 
 Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Texto generan un modal y estos modales también son gestionados con el patrón \textit{Factory} como se explicó en la Sección \ref{sub:Arquitectura}. Además los nodos de estas barras se introducen en el editor a través de la función ``insertNodes'' que proporciona Slate.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{Editor/Archivo.png}
-  \caption{Barra de herramienta de archivo.}
-  \label{fig:barrraHerramientaArchivo}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{Editor/Formato.png}
-  \caption{Barra de herramienta de formato.}
-  \label{fig:barrraHerramientaFormato}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{Editor/Ejercicios.png}
-  \caption{Barra de herramienta de ejercicio.}
-  \label{fig:barrraHerramientaEjercicios}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{Editor/Texto.png}
-  \caption{Barra de herramienta de texto.}
-  \label{fig:barrraHerramientaTexto}
-\end{figure}
 
 \subsubsection{Integración del editor con la aplicación}
-Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo proporciona la funcionalidad de escribir y borrar por lo que todas sus funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' que es el marco de este lienzo y ``withReact'' que es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React, es decir, permite que el editor se actualice en tiempo real.
+Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo proporciona la funcionalidad de escribir y borrar por lo que el resto de funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería proporciona el componente ``Editable'' que es como una especie de lienzo,  el componente ``Slate'' que es el marco de este lienzo y ``withReact'' que es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React, es decir, permite que el editor se actualice en tiempo real.
 
 Hemos creado varios tipos de nodos en nuestro proyecto, incluyendo nodos hoja, nodos inline, nodos de bloque y nodos elemento. Estos tipos de nodos se describen en la sección \ref{sec:Slate}.
 
@@ -455,7 +426,7 @@ Para los nodos hoja, hemos creado varios tipos, entre ellos:
   \item Nodo itálica: Implementado con la etiqueta ``em'' de HTML.
   \item Nodo subrayado: Implementado con la etiqueta ``u'' de HTML.
   \item Nodo tachado: Implementado con la etiqueta ``s'' de HTML.
-  \item Nodo de texto estilado: Implementado con la etiqueta "span" y un estilo dinámico que permite al usuario cambiar el estilo mediante un botón. El estilo puede incluir cambios de fuente, tamaño, color de texto y color de fondo.
+  \item Nodo de texto estilado: Implementado con la etiqueta ``span'' y un estilo dinámico que permite al usuario cambiar el estilo mediante un botón. El estilo puede incluir cambios de fuente, tamaño, color de texto y color de fondo.
 \end{itemize}
 Para implementar estos nodos hoja, hemos utilizado la función ``addMark'' de Slate, que añade el nodo hoja al valor seleccionado.
 
@@ -466,11 +437,12 @@ Para los nodos de bloque, hemos creado los siguientes tipos:
   \item Nodo lista desordenada: Implementado con la etiqueta ``ul'' de HTML.
   \item Nodo elemento de lista: Implementado con la etiqueta ``li'' de HTML.
 \end{itemize}
+
 Es importante mencionar que para los nodos de bloque es necesario cambiar el nodo actual, que es un párrafo, por el nodo de bloque elegido. Esto se logra utilizando la función ``setNodes'' de Slate. Además, para los nodos lista ordenada y lista desordenada, hemos utilizado la función ``wrapNodes'', que permite envolver los nodos elegidos. Esto se debe a que las etiquetas ``ol'' y ``ul'' tienen una estructura de envoltura y deben envolver los nodos elemento de lista.
 
 Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
 \begin{itemize}
-  \item Nodo imagen: Su estructura se basa en la etiqueta "img" de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuve ciertos problemas debido a que slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
+  \item Nodo imagen: Su estructura se basa en la etiqueta ``img'' de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuve ciertos problemas debido a que slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
         propiedad explicita de la unidad.
   \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL este espera el icono que se quiere emplear.
 \end{itemize}
@@ -487,9 +459,9 @@ Los nodos elemento:
 \subsection{Funcionalidades}
 A continuación se explican los detalles de implementación de las distintas funcionalidades que hemos rediseñado o creado de cero.
 
-\subsubsection{Buscar pictograma}
+\subsubsection{Buscar pictograma asociado a una palabra}
 \label{sec:impbuscarpicto}
-Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente se realiza un \textit{fetch} a la API de ARASAAC a la cual se le pasa el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, la API devuelve un JSON con la información de cada pictograma. Se itera sobre dichos objetos para crear una lista de URLs de cada pictograma y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de tabla debajo del botón buscar. En caso contrario, la lista de objetos con la información de cada pictograma estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''. Esta funcionalidad se muestra en la Figura \ref{fig:buscarPictograma}.
+Para implementar esta funcionalidad se ha empleado un campo de texto en el cual se introduce la palabra a convertir a pictograma. Una vez introducida se puede pulsar la tecla \textit{ENTER} o el botón de buscar para generar los pictogramas. Al hacer dichas acciones, internamente se realiza un \textit{fetch} a la API de ARASAAC a la cual se le pasa el texto escrito en el campo de texto. En caso de éxito, es decir, que haya uno o más pictogramas asociados a la palabra buscada, la API devuelve un JSON con la información de cada uno de los pictogramas que tiene ARASAAC asociados a la palabra. Se itera sobre dichos objetos para crear una lista de URLs de cada pictograma y se pasan al componente \textit{ModalPictogramList}, que se encarga de mostrar los pictogramas en formato de tabla debajo del botón buscar. En caso contrario, la lista de objetos con la información de cada pictograma estará vacía y el componente \textit{ModalPictogramList} mostrará ``No se han encontrado imágenes.''. Esta funcionalidad se muestra en la Figura \ref{fig:buscarPictograma}.
 
 \begin{figure}[ht!]
   \centering
@@ -534,7 +506,7 @@ Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref
 Una vez introducidos los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto. Estos son:
 \begin{itemize}
   \item Tipos de pauta: Permite seleccionar la pauta que irá con cada concepto. El usuario podrá elegir entre espacio para dibujar, cuadrado para dibujar, doble pauta, pauta simple y cuadrícula. Por defecto es doble pauta.
-  \item Número de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. El valor por defecto, su valor es de una fila.
+  \item Número de filas: Se refiere a la cantidad de veces que se mostrará la pauta seleccionada. Su valor mínimo es de uno y máximo de cien. El valor por defecto es de una fila.
 \end{itemize}
 \begin{figure}[ht!]
   \centering
@@ -558,7 +530,8 @@ Para implementar esta funcionalidad se han usado varios elementos como un campo 
 
 \subsubsection{Ejercicio de fórmulas matemáticas}
 \label{sec:impmatematica}
-Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento estas. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.
+Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.
+
 Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio, el \textit{backspace} o el \textit{enter}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. También, si se presiona el \textit{backspace} y se elimina el último elemento de la fila, esta fórmula se eliminará. Por último, al presionar la tecla de \textit{enter} se añade una nueva fórmula matemática vacía. El usuario también puede añadir o eliminar fórmulas haciendo clic en los botones que se muestran en el modal.
 Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
 
@@ -608,14 +581,14 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
   \centering
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras01.png}
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/SopaLetras01.png}
     \caption{Ventana modal de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras01}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{Funcionalidades/SopaLetras02.png}
+    \includegraphics[width=0.7\textwidth]{Funcionalidades/SopaLetras02.png}
     \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras02}
   \end{subfigure}
@@ -693,7 +666,7 @@ Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la r
 
 \subsubsection{Leyenda de colores}
 \label{sec:leyendaColores}
-Para implementar esta funcionalidad se ha utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
+Para implementar esta funcionalidad se han utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
 
 La vista previa se genera automáticamente y muestra el título de la leyenda de colores junto con los conceptos y su respectivo color. Al pulsar el botón \textit{Ok} se envía la leyenda de colores al editor de trabajo, dicho botón se encuentra inhabilitado al ingresar al modal. En la Figura \ref{fig:leyendacolor} se muestra la funcionalidad de leyenda de colores.
 
@@ -719,7 +692,7 @@ La vista previa se genera automáticamente y muestra el título de la leyenda de
 
 \subsubsection{Pictotraductor}
 \label{sec:imppictotraductor}
-Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere traducir a pictogramas. El botón de traducir está desactivado por defecto, mientras que el botón de \textit{Ok} no apecerá hasta que se haya traducido el texto a pictogramas. El botón de traducir se activará cuando el usuario introduzca texto para traducir. Al traducir el texto, si no se ha encontradon pictogramas, se mostrará "No se han encontrado pictogramas" y no se mostrará el botón de \textit{Ok}. Si se encuentran pictogramas, estos se mostrarán en formato cuadrícula, con la palabra a la que se asocian encima. Como una palabra puede tener varios pictogramas, cada pictograma dispone de dos botones en los laterales, en forma de flecha, que se pueden utilizar para cambiar el pictograma asociado a esa palabra. También hay un botón debajo de cada pictograma para esconderlo. El botón de \textit{Ok} se activará cuando haya al menos un pictograma visible. Para configurar los pictogramas, se dispone de un menu desplegable en el cual se puede seleccionar el posicionamiento del texto (arriba, abajo, sin texto) y marcar si se quieren los pictogramas en blanco y negro o en color.
+Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere traducir a pictogramas. El botón de traducir está desactivado por defecto, mientras que el botón de \textit{Ok} no apecerá hasta que se haya traducido el texto a pictogramas. El botón de traducir se activará cuando el usuario introduzca texto para traducir. Al traducir el texto, si no se ha encontradon pictogramas, se mostrará ``No se han encontrado pictogramas'' y no se mostrará el botón de \textit{Ok}. Si se encuentran pictogramas, estos se mostrarán en formato cuadrícula, con la palabra a la que se asocian encima. Como una palabra puede tener varios pictogramas asociados, cada pictograma dispone de dos botones en los laterales, en forma de flecha, que se pueden utilizar para cambiar el pictograma asociado a esa palabra. También hay un botón debajo de cada pictograma para esconderlo. El botón de \textit{Ok} se activará cuando haya al menos un pictograma visible. Para configurar los pictogramas, se dispone de un menu desplegable en el cual se puede seleccionar el posicionamiento de la palabra asociada al pictograma (arriba, abajo, sin texto) y marcar si se quieren los pictogramas en blanco y negro o en color.
 
 Cuando se pulsa el botón de traducir se realiza una petición HTTP de tipo POST al servidor \textit{backend}, a la ruta ``/pictotranslator'', enviando el texto introducido por el usuario. En el \textit{backend}, se extraen todas las palabras del texto y se realiza una petición a la API de ARASAAC por cada una para obtener los pictogramas relacionados con esa palabra. El servidor devuelve al cliente un objeto \textit{JSON} con la palabra, los pictogramas asociados a esta, si el pictograma está desactivado y que pictograma está seleccionado.
 
