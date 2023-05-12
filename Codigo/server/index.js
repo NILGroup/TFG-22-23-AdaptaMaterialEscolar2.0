@@ -103,14 +103,6 @@ app.post("/api/pictotranslator", body("originalText").notEmpty().trim(), async (
 					pictograms: [],
 				});
 			} else {
-				const apiResponse = await fetch(`https://api.arasaac.org/api/pictograms/es/search/${word}`);
-				const data = await apiResponse.json();
-
-				let pictograms = [];
-				for (let i = 0; i < data.length && i < 5; i++) {
-					pictograms.push(`https://static.arasaac.org/pictograms/${data[i]._id}/${data[i]._id}_500.png`);
-				}
-
 				pictos.push({
 					word,
 					currentPicto: 0,
