@@ -519,7 +519,9 @@ Para lograr esto, se ha utilizado el patrón \textit{Factory}. De esta manera se
 
 \subsubsection{Ejercicio de Desarrollo}
 \label{sec:impdesarrollo}
-Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. En la funcionalidad anterior se explica la abstracción de los botones utilizados para las pautas. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadDesarrollo}.
+Esta funcionalidad permite crear un ejercicio de desarrollo en el que hay un enunciado y un espacio en el que el estudiante puede desarrollar su respuesta. Dependiendo del tipo de respuesta esperada, se pueden insertar diferentes tipos de espacios para contestar, por ejemplo, pauta simple, doble pauta, espacio para dibujar, etc. En la Figura \ref{fig:funcionalidadDesarrollo} se muestra el modal en el que se puede crear el ejercicio.
+
+Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. En la funcionalidad anterior se explica la abstracción de los botones utilizados para las pautas.
 
 \begin{figure}[ht!]
   \centering
@@ -530,11 +532,12 @@ Para implementar esta funcionalidad se han usado varios elementos como un campo 
 
 \subsubsection{Ejercicio de fórmulas matemáticas}
 \label{sec:impmatematica}
+Esta funcionalidad permite crear un ejercicio de fórmulas matemáticas en el que los alumnos deberán rellenar los espacios en blanco indicados por el profesor para completar la expresión. Se pueden añadir varias fórmulas en el mismo ejercicio y estas aparecerán enumeradas. En la Figura \ref{fig:funcionalidadFormulaMatematica} se muestra el modal en el que se puede crear el ejercicio.
+
 Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.
 
 Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio, el \textit{backspace} o el \textit{enter}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. También, si se presiona el \textit{backspace} y se elimina el último elemento de la fila, esta fórmula se eliminará. Por último, al presionar la tecla de \textit{enter} se añade una nueva fórmula matemática vacía. El usuario también puede añadir o eliminar fórmulas haciendo clic en los botones que se muestran en el modal.
-Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. Esta funcionalidad se muestra en la Figura \ref{fig:funcionalidadFormulaMatematica}.
-
+Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. 
 
 \begin{figure}[ht!]
   \centering
@@ -728,6 +731,7 @@ Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el text
 
 \subsubsection{Ejercicio de Espacio Para Dibujar}
 \label{sec:impespacioparadibujar}
+Esta funcionalidad permite crear un ejercicio en el que hay un enunciado y un espacio en blanco en el que el alumno puede realizar un dibujo basándose en lo que pide el profesor. El tamaño de este espacio es personalizable y también se puede indicar si se quiere mostrar un borde para delimitarlo o no. En la Figura \ref{fig:funcionalidadEspacioParaDibujar} se muestra el modal en el que se puede crear el ejercicio.
 
 Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el tamaño del espacio que se quiere insertar y un \textit{checkbox} para seleccionar si el espacio para dibujar debe tener un recuadro o no. En este caso, el recuadro es simplemente un borde negro alrededor del espacio. Por último, hay una vista previa en la que se puede observar cómo se verá el ejercicio una vez que se inserte en el editor de texto. Por defecto, el valor del tamaño del espacio es 1 centímetro de alto y el \textit{checkbox} está marcado, indicando que sí se debe mostrar el recuadro.
 
