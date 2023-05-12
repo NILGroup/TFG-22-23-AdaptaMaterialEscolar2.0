@@ -73,16 +73,15 @@ export default function ToolbarColorPicker({ label, value, transparentColorEnabl
 			onClick={() => setIsOpen((previousState) => !previousState)}
 		>
 			<Dropdown.Header>Colores por defecto</Dropdown.Header>
-			<Dropdown.Item>
+			<Dropdown.Item onClick={() => setIsOpen((previousState) => !previousState)}>
 				<div className="flex flex-col gap-2">
 					<div className="mx-auto grid grid-cols-7 gap-x-2 gap-y-0.5">
 						{defaultColors.map((color, index) => {
 							return (
 								<div
 									key={`colorOption-${index}`}
-									onClick={() => {
+									onClick={(e) => {
 										onColorChange(color);
-										setIsOpen(false);
 									}}
 									className="h-4 w-4 outline-none hover:shadow-[0_0_0_2px_rgba(255,162,0,1)] focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-opacity-30"
 									style={{ backgroundColor: color }}
@@ -104,7 +103,7 @@ export default function ToolbarColorPicker({ label, value, transparentColorEnabl
 			</Dropdown.Item>
 			<Dropdown.Divider />
 			<Dropdown.Header>Color personalizado</Dropdown.Header>
-			<Dropdown.Item>
+			<Dropdown.Item onClick={() => setIsOpen((previousState) => !previousState)}>
 				<form
 					className="flex w-full items-center justify-center gap-4"
 					onSubmit={(e) => {
