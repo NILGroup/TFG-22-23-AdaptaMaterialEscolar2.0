@@ -8,9 +8,9 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 	for (let i = 0; i < values?.length ?? 0; i++) {
 		let temp = values[i].map((value, j) => {
 			return (
-				<div key={`flechas_${j}`} className="!min-w-[75mm] p-1">
+				<div key={`flechas_${j}`} className="!min-w-[80mm] p-1">
 					<input
-						className="!min-w-[75mm] p-2 text-center "
+						className="!min-w-[80mm] p-2 text-center size text-xs"
 						value={values[i][j]}
 						onChange={(event) => {
 							if (event.target.value.match(/^\s+$/)) return;
