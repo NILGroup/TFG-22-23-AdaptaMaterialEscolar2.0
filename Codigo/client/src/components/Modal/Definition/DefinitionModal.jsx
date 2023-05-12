@@ -158,41 +158,46 @@ export default function DefinitionModal({ editor, isOpen, onClose, openModal }) 
 						<StaffButtonFactory setValue={setValue} type={StaffType.space} />
 					</div>
 				</div>
-
-				<ModalWordList
-					wordList={concepts}
-					onEdit={(newValue, index) => setConcepts(concepts.map((c, i) => (i === index ? newValue : c)))}
-					onDelete={(index) => removeConcept(index)}
-					setSelect={(i) => {
-						setSelected(i);
-					}}
-				/>
+				<div className="flex flex-col gap-1">
+					<div className="flex justify-end mb-2 mr-1">
+						{concepts.length > 0 && (
+							<ModalAlertButton
+								icon={<AiOutlineInfoCircle size={30} />}
+								iconButtonClassName="text-alert-info-dark hover:text-alert-info"
+								defaultIsOpen={false}
+								listStyle="list-none"
+								placement="left"
+								alertBoxClassName="bg-alert-info text-alert-info-dark"
+								contentList={["Seleccione un concepto, para indicar su numero de pautas"]}
+						/>)}
+					</div>
+					<ModalWordList
+						wordList={concepts}
+						onEdit={(newValue, index) => setConcepts(concepts.map((c, i) => (i === index ? newValue : c)))}
+						onDelete={(index) => removeConcept(index)}
+						setSelected={(i) => {
+							setSelected(i);
+						}}
+						selected = {selected}
+					/>
+				</div>
 
 				<div className="self-start justify-self-start p-4">
-					<div className="flex justify-end flex-wrap gap-1">	
-						<ModalInputNumber
-							id="num_filas"
-							label="Número de filas:"
-							name="num_filas"
-							value={numbers[selected]}
-							onChange={handleNumFilasChange}
-							min={MIN_ROWS}
-							max={MAX_ROWS}
-						/>
-						<ModalAlertButton
-							icon={<AiOutlineInfoCircle size={20} />}
-							iconButtonClassName="text-alert-info-dark hover:text-alert-info"
-							defaultIsOpen={false}
-							listStyle="list-none"
-							placement="left"
-							alertBoxClassName="bg-alert-info text-alert-info-dark"
-							contentList={["Seleccione un concepto, para indicar su numero de pautas"]}
-						/>
-					</div>
+					<ModalInputNumber
+						id="num_filas"
+						label="Número de filas:"
+						name="num_filas"
+						value={numbers[selected]}
+						onChange={handleNumFilasChange}
+						min={MIN_ROWS}
+						max={MAX_ROWS}
+					/>
 				</div>
 			</div>
 			<hr className="my-6" />
-			<ModalPreview>
+			<ModalPreview
+			 	previewHeight="h-60 max-h-60"
+			>
 				{concepts.length > 0 && (
 					<p className="font-bold" key="title-0">
 						{introduction(concepts.length)}

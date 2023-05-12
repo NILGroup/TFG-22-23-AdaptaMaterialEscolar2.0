@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWordListItem from "./WordListItem";
 
-export default function ModalWordList({ className, wordList, onEdit, onDelete, setSelect }) {
+export default function ModalWordList({ className, wordList, onEdit, onDelete, setSelected, selected }) {
 	const [isEdittingWord, setIsEdittingWord] = useState(null);
 
 	return (
@@ -19,7 +19,8 @@ export default function ModalWordList({ className, wordList, onEdit, onDelete, s
 							setIsEdittingWord={setIsEdittingWord}
 							onEdit={onEdit}
 							onDelete={onDelete}
-							setSelect={setSelect}
+							setSelected={setSelected}
+							selected ={selected}
 						/>
 					);
 				})}
