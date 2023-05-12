@@ -8,9 +8,9 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 	for (let i = 0; i < values?.length ?? 0; i++) {
 		let temp = values[i].map((value, j) => {
 			return (
-				<div key={`flechas_${j}`} className="!min-w-[65mm] p-1">
+				<div key={`flechas_${j}`} className="!min-w-[85mm] p-1">
 					<input
-						className="break-words p-2 text-center"
+						className="break-words !min-w-[85mm] p-2 text-center"
 						value={values[i][j]}
 						onChange={(event) => {
 							if (event.target.value.match(/^\s+$/)) return;
@@ -50,7 +50,7 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 				)}
 			</div>
 			<div className="custom-scrollbar h-60 max-h-60 overflow-auto py-2">
-				<div className="flex justify-around align-middle">{result}</div>
+				<div className="flex justify-evenly align-middle">{result}</div>
 			</div>
 		</div>
 	);
