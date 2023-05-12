@@ -13,7 +13,7 @@ export default function Ejercicio({ attributes, children, element }) {
 	return (
 		<li
 			{...attributes}
-			className={`relative list-decimal border-2 pt-5 ${
+			className={`relative list-decimal border-2 pt-5 marker:font-bold ${
 				isSelected && isFocused ? "border-[#B4D5FF]" : "border-transparent"
 			}`}
 		>
