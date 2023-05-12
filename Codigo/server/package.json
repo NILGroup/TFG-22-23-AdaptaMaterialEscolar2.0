@@ -5,7 +5,7 @@
 	"homepage": ".",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js",
+		"start": "nodemon index.js --ignore client",
 		"format": "prettier --write \"*.js\"",
 		"lint": "eslint \"*.js\" --no-error-on-unmatched-pattern",
 		"ci": "npm run format && npm run lint -- --quiet"
