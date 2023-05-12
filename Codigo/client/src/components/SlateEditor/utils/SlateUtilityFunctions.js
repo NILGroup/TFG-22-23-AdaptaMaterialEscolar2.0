@@ -1,4 +1,5 @@
 import { Editor, Element as SlateElement, Transforms } from "slate";
+import { ReactEditor } from "slate-react";
 
 const alignment = ["alignLeft", "alignRight", "alignCenter"];
 const list_types = ["numbered-list", "bulleted-list"];
@@ -49,6 +50,17 @@ export const editorFontTypes = {
 			},
 		},
 	},
+};
+
+export const newFile = (editor) => {
+	Transforms.delete(editor, {
+		at: {
+			anchor: Editor.start(editor, []),
+			focus: Editor.end(editor, []),
+		},
+	});
+
+	ReactEditor.focus(editor);
 };
 
 export const isBlockActive = (editor, format) => {
