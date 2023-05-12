@@ -169,7 +169,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 				previewHeight="h-60 max-h-60"
 				attributes={
 					<ModalButton
-						className="px-1"
+						className="p-2"
 						disabled={
 							valores.filter((valor) => {
 								return valor.filter((v) => v !== "").length >= 2;
