@@ -8,9 +8,9 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 	for (let i = 0; i < values?.length ?? 0; i++) {
 		let temp = values[i].map((value, j) => {
 			return (
-				<div key={`flechas_${j}`} className="!min-w-[75mm] p-1">
+				<div key={`flechas_${j}`} className="!min-w-[90mm] p-1">
 					<input
-						className="!min-w-[75mm] p-2 text-center "
+						className="!min-w-[90mm] p-2 text-center size text-xs"
 						value={values[i][j]}
 						onChange={(event) => {
 							if (event.target.value.match(/^\s+$/)) return;
@@ -32,7 +32,7 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 	}
 
 	return (
-		<div className="flex flex-col gap-3 p-4">
+		<div className="flex flex-col gap-1 px-4 py-2">
 			<div className="flex flex-row justify-between">
 				<h4 className="text-modal-heading" htmlFor="newWord">
 					{title}
@@ -49,7 +49,7 @@ export default function RelateConceptsTable({ title, values, setValores }) {
 					/>
 				)}
 			</div>
-			<div className="custom-scrollbar h-60 max-h-60 overflow-auto py-2">
+			<div className="custom-scrollbar h-56 max-h-56 overflow-auto py-2">
 				<div className="flex justify-evenly align-middle">{result}</div>
 			</div>
 		</div>
