@@ -134,7 +134,7 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 			}}
 		>
 			<div>
-				<div className="flex flex-col gap-3 p-4">
+				<div className="flex flex-col gap-3 py-2 px-4">
 					<h4 className="text-modal-heading" htmlFor="newWord">
 						Tamaño
 					</h4>
@@ -164,9 +164,9 @@ export default function RelateConceptsModal({ editor, isOpen, onClose, openModal
 
 				<RelateConceptsTable title={"Conceptos"} values={valores} setValores={setValores} />
 			</div>
-			<hr className="my-6" />
+			<hr className="my-2" />
 			<ModalPreview
-				previewHeight="h-60 max-h-60"
+				previewHeight="h-80 max-h-80"
 				attributes={
 					<ModalButton
 						className="p-2"
