@@ -180,7 +180,7 @@ export default function Pictotranslator({ editor, isOpen, onClose, openModal }) 
 		dispatch({ type: ActionType.updateIsLoading, newValue: true });
 
 		try {
-			const response = await fetch("/pictotranslator", {
+			const response = await fetch("/api/pictotranslator", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

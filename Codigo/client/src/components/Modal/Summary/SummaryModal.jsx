@@ -148,7 +148,7 @@ export default function SummaryModal({ editor, isOpen, onClose, openModal }) {
 		dispatch({ type: ActionType.updateIsLoading, newValue: true });
 
 		try {
-			const response = await fetch("/summary", {
+			const response = await fetch("/api/summary", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

@@ -2,7 +2,7 @@
   "name": "adme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nilgroup.github.io/TFG-22-23-AdaptaMaterialEscolar2.0",
+  "homepage": ".",
   "engines": {
     "npm": "8.19.2",
     "node": "18.13.0"

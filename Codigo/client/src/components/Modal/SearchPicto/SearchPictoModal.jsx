@@ -22,7 +22,7 @@ export default function SearchPictoModal({ editor, isOpen, onClose }) {
 		let pictograms = [];
 
 		try {
-			const response = await fetch("/searchPictogram", {
+			const response = await fetch("/api/searchPictogram", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

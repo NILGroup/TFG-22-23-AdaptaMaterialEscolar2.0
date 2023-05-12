@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(express.json());
 app.use(cors());
 
-app.post("/searchPictogram", body("searchParam").notEmpty().trim(), async (request, response) => {
+app.post("/api/searchPictogram", body("searchParam").notEmpty().trim(), async (request, response) => {
 	const errors = validationResult(request);
 
 	if (!errors.isEmpty()) {
@@ -52,7 +52,7 @@ app.post("/searchPictogram", body("searchParam").notEmpty().trim(), async (reque
 	}
 });
 
-app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (request, response) => {
+app.post("/api/pictotranslator", body("originalText").notEmpty().trim(), async (request, response) => {
 	const errors = validationResult(request);
 
 	if (!errors.isEmpty()) {
@@ -105,7 +105,7 @@ app.post("/pictotranslator", body("originalText").notEmpty().trim(), async (requ
 });
 
 app.post(
-	"/summary",
+	"/api/summary",
 	body("originalText").notEmpty().trim(),
 	body("summaryLength").notEmpty().toInt(),
 	async (request, response) => {
