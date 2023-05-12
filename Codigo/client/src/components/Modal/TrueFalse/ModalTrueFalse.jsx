@@ -54,14 +54,19 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 		};
 
 		list.children.push(listItem);
+		let listData = {
+			type: "numbered-list",
+			children: [],
+		};
 		items.forEach((item, i) => {
 			const listItem = {
-				type: "paragraph",
-				children: [{ text: "    " + (i + 1) + ")  " + item }, { text: "  V / F" }],
+				type: "list-item",
+				children: [{ text: item }, { text: "  V / F" }],
 			};
 
-			list.children.push(listItem);
+			listData.children.push(listItem);
 		});
+		list.children.push(listData);
 		list.children.push({ type: "paragraph", children: [{ text: "" }] });
 
 		insertarEjercicioEditable(editor, list, path);

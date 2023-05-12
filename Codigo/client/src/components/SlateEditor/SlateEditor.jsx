@@ -109,7 +109,7 @@ export default function SlateEditor() {
 				);
 			case "numbered-list":
 				return (
-					<ol className="list-decimal pl-12" {...props.attributes}>
+					<ol className="list-decimal pl-12 marker:font-normal" {...props.attributes}>
 						{props.children}
 					</ol>
 				);
