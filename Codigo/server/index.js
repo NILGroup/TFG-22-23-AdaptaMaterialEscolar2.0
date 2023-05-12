@@ -63,9 +63,35 @@ app.post("/api/pictotranslator", body("originalText").notEmpty().trim(), async (
 
 	const originalText = request.body.originalText;
 
+	const sanitizedText = originalText.replace(/([\n\r\s\t.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"])/g, " ");
 	const words = originalText.split(/([\n\r\s\t.,/#!$%^&*;:{}=\-_`~()´?¿!¡'"])/g);
 
 	try {
+		const apiResponse = await fetch(`http://hypatia.fdi.ucm.es:5223/PICTAR/traducir/${sanitizedText}`);
+
+		const data = await apiResponse.json();
+		const pictogramsMap = {};
+
+		for (const pictogramData of data) {
+			if (/Word not found:/.test(pictogramData)) continue;
+
+			// Obtener la palabra
+			let word = pictogramData.split(" ");
+			word = word[word.length - 1];
+
+			// Quedarnos solo con los IDs de los pictogramas, ademas de asegurarnos que no hay duplicados
+			let pictograms = /\[[\d, ]+\]/.exec(pictogramData)[0];
+			pictograms = pictograms
+				.slice(1, pictograms.length - 1)
+				.split(", ")
+				.filter((value, index, array) => array.indexOf(value) === index);
+
+			// Convertir los IDs en URLs a los pictogramas de ARASAAC
+			pictograms = pictograms.map((id) => `https://static.arasaac.org/pictograms/${id}/${id}_500.png`);
+
+			pictogramsMap[word] = pictograms;
+		}
+
 		let pictos = [];
 
 		for (const word of words) {
@@ -89,7 +115,7 @@ app.post("/api/pictotranslator", body("originalText").notEmpty().trim(), async (
 					word,
 					currentPicto: 0,
 					disabled: false,
-					pictograms: pictograms.filter((value, index, array) => array.indexOf(value) === index),
+					pictograms: pictogramsMap[word.toLowerCase()] ?? [],
 				});
 			}
 		}

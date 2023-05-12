@@ -7,6 +7,7 @@ import ModalPreview from "../common/ModalPreview";
 
 import { Transforms } from "slate";
 import { insertarEjercicioEditable } from "../../SlateEditor/utils/SlateUtilityFunctions";
+import ModalInputNumber from "../common/ModalInputNumber";
 import ModalTextPanel from "../common/ModalTextPanel";
 import { ModalType } from "../ModalFactory";
 
@@ -183,20 +184,24 @@ export default function SummaryModal({ editor, isOpen, onClose, openModal }) {
 					label="Texto original"
 					attributes={
 						summaryLength !== null ? (
-							<div className="flex flex-col items-end gap-2">
-								<p>
-									<strong>Tamaño: </strong>
-									{summaryLength} palabras
-								</p>
-								<input
-									type="range"
-									name="summarySize"
+							<div className="flex items-center gap-3">
+								<ModalInputNumber
 									id="summarySize"
+									label={<span className="font-bold">Tamaño:</span>}
+									name="summarySize"
 									min={MIN_WORDS_SIZE}
-									step="1"
 									max={originalTextLength}
 									value={summaryLength}
 									onChange={handleSummarySizeChange}
+									onBlur={(e) => {
+										dispatch({
+											type: ActionType.updateSummaryLength,
+											newValue: Math.min(
+												Math.max(e.target.value, MIN_WORDS_SIZE),
+												originalTextLength
+											),
+										});
+									}}
 								/>
 							</div>
 						) : null
