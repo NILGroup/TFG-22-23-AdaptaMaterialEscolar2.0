@@ -602,7 +602,9 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
 
 \subsubsection{Ejercicio de verdadero/falso}
 \label{sec:funcioVF}
-Para esta funcionalidad se ha utilizado un campo de texto en el cual se introducen las frases del ejercicio. Al darle a la tecla \textit{ENTER} se introducirán dichas frases debajo del campo de texto y se guardarán en una lista. Se proporcionan dos opciones para editar las frases: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
+La funcionalidad de verdadero/falso permite crear oraciones para que el estudiante seleccione la opción ``V'' si la afirmación es verdadera o ``F'' si es falsa.
+
+Para implementar esta funcionalidad se ha utilizado un campo de texto en el cual se introducen las frases del ejercicio. Al darle a la tecla \textit{ENTER} se introducirán dichas frases debajo del campo de texto y se guardarán en una lista. Se proporcionan dos opciones para editar las frases: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
 
 La vista previa se genera automáticamente y muestra el enunciado del ejercicio ``Responde Verdadero o Falso según corresponda.'' junto con las frases y un cuadrado. El botón de ``Reordenar'' aparecerá cuando haya más de dos frases en la vista previa. Para reordenar las frases, se aplica el algoritmo Sattolo Cycle\footnote{\url{https://rosettacode.org/wiki/Sattolo_cycle}} a una lista distinta de la inicial donde se encuentran todas las frases. Este algoritmo reorganiza los elementos de una lista de forma aleatoria, pero sin repetir el mismo elemento en la misma posición dos veces seguidas.
 
@@ -669,6 +671,8 @@ Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la r
 
 \subsubsection{Leyenda de colores}
 \label{sec:leyendaColores}
+La funcionalidad de leyenda de colores permite asociar un color a un determinado concepto, con el fin de que el lector comprenda y relacione la información proporcionada a mayor velocidad. En la Figura \ref{LeyendaColores} se muestra el diseño de dicha funcionalidad.
+
 Para implementar esta funcionalidad se han utilizado dos campos de texto, en uno se introduce el título de la leyenda de colores y en otro los conceptos. Para cada concepto se ha asignado un color mediante un campo de entrada de color. Tanto los colores como los conceptos se almacenan en una lista. Se proporcionan dos opciones para editar tanto los conceptos como los colores asociados: eliminar (representado por un icono de basura) o modificar (representado por un icono de lápiz).
 
 La vista previa se genera automáticamente y muestra el título de la leyenda de colores junto con los conceptos y su respectivo color. Al pulsar el botón \textit{Ok} se envía la leyenda de colores al editor de trabajo, dicho botón se encuentra inhabilitado al ingresar al modal. En la Figura \ref{fig:leyendacolor} se muestra la funcionalidad de leyenda de colores.
