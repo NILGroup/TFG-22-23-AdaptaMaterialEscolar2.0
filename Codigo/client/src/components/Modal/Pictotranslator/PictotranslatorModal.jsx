@@ -45,7 +45,7 @@ const reducer = (state, action) => {
 			return { ...initialState };
 		}
 		case ActionType.updateState: {
-			return { ...action.newValue };
+			return { ...action.newValue, originalText: action.newValue.searchedText };
 		}
 		case ActionType.updateOriginalText: {
 			const newText = action.newValue;
