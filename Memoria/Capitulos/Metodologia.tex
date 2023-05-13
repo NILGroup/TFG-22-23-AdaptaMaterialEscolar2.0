@@ -1,6 +1,6 @@
 \chapter{Metodología}
 \label{cap:metodologia}
-En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{cap:pruebas}.
+En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{sec:pruebas}.
 \section{Metodología de desarrollo}
 \label{cap:Kanban}
 Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Esta metodología tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas. Estas reglas las hemos desarrollado en las siguientes subsecciones.
@@ -31,7 +31,7 @@ En la Figura \ref{fig:taleros} se muestra la evolución del Tablero Kanban.
       \caption{Tablero Kanban 25-02-2023.}
       \label{fig:tabFeb}
     \end{subfigure}
-  
+
     \begin{subfigure}{\textwidth}
       \centering
       \includegraphics[width=0.8\textwidth]{Tablero/27-03-2023.PNG}
@@ -79,8 +79,18 @@ En Kanban para priorizar las tareas del tablero en ocasiones se emplean las clas
 
 Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \textit{Expedite} son las más prioritarias por lo que serán las primeras en ser realizadas. Las \textit{Fixed Delivery Date}, si en su debida fecha (la cual estará indicada en su descripción) no están implementadas, se convierten en \textit{Expedite}. Las \textit{Standard} son un poco menos prioritarias que las anteriores al contar con el coste y el esfuerzo que suponen pero presentan un cierto grado de incertidumbre al no tener una fecha fija. Por último, en las \textit{Intangibles} su prioridad varía al presentar un alto grado de incertidumbre, ya que inicialmente se desconoce el riesgo que suponen pero pueden convertirse en \textit{Standard} o en \textit{Expedite}.
 
-\section{Plan de Pruebas}
-\label{cap:pruebas}
+\section{Control de Calidad (QA)}
+\label{sec:qa}
+
+\subsection{Formato del código}
+Cuando varios desarrolladores trabajan en un proyecto, es común que tengan diferentes estilos de escritura de código, lo que puede dificultar la lectura y el mantenimiento del mismo. Para mejorar la calidad del código se ha decidido utilizar una herramienta para dar formato al código. Esta herramienta permite mantener un estilo consistente y limpio, facilitando la lectura del código escrito por otros miembros del equipo ya que no es necesario habituarse al estilo de cada uno.
+
+En la Sección \ref{sec:prettier} se explica Prettier, la herramienta para dar formato al código que se ha utilizado en este proyecto.
+
+\subsection{Análisis estático}
+
+\subsection{Plan de Pruebas}
+\label{sec:pruebas}
 
 Para asegurar el correcto funcionamiento del software se ha decidido realizar pruebas manuales, ya que se ha considerado que para el tamaño actual del proyecto no supone un problema realizar pruebas manuales para comprobar las distintas funcionalidades. Si, en un futuro, se decide extender la aplicación y añadir más funcionalidades es recomendable actualizar este plan de pruebas, incluyendo pruebas automatizadas e integración continua. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
