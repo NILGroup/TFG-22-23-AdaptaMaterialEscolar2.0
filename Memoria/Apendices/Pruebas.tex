@@ -56,6 +56,15 @@ A continuación se expone la tabla (Figura \ref{tab:v/f}) con los casos de prueb
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:v/f}
+\begin{itemize}
+    \item Editar una palabra hace que se duplique en la lista previa.
+    \item Al pulsar el boton de reordenar, puede devolver el mismo orden.
+    \item No se reinicia el estado cuando se cierra el modal.
+    \item No se puedan editar frases en el documento de trabajo.
+\end{itemize}
+
 \section{Funcionalidad de buscar pictograma}
 \label{planPruebas:busPicto}
 A continuación se expone la tabla (Figura \ref{tab:busPicto}) con los casos de prueba de la funcionalidad de buscar pictograma y el procedimiento para hacer dichos casos.
@@ -90,7 +99,6 @@ A continuación se expone la tabla (Figura \ref{tab:busPicto}) con los casos de 
     \item Comprobar que los campos están vacíos.
 
 \end{enumerate}
-
 
 \section{Funcionalidad de desarrollo}
 \label{planPruebas:desarrollo}
@@ -135,6 +143,20 @@ A continuación se expone la tabla (Figura \ref{tab:desarrollo}) con los casos d
     \item Abrir el modal de desarrollo.
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
+
+\subsection{Errores encontrados}
+\label{errores:desarrollo}
+\begin{itemize}
+    \item No se debe poder darle a ``Ok'' sin enunciado o con numero de filas $\leq$ 0.
+    \item Enunciado con número de filas > 0 provoca un error en consola tras darle ``Ok''.
+    \item No debe aparecer pauta si no hay enunciado.
+    \item Si se da a la primera opción de pauta no va.
+    \item Si el número de filas es un número muy alto como 1000 la página se bloquea.
+    \item Al darle a la ``x'' no se resetea.
+    \item Boton de ``Ok'' no está desactivado.
+    \item  Al añadir la cuadrícula al editable con filas mayor que 1 en la última cuadrícula aparece sin el borde.
+    
+\end{itemize}
 
 \section{Funcionalidad de sopa de letras}
 \label{planPruebas:sopa}
@@ -210,6 +232,14 @@ A continuación se expone la tabla (Figura \ref{tab:sopa}) con los casos de prue
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:sopa}
+\begin{itemize}
+    \item Si pones 1000 tanto en el número de columnas como en el de filas la pagina no responde.
+    \item Al añadir la sopa de letras en el documento de trabajo, posicionar el cursor después del enunciado y dar enter, se crean tantas sopas de letras como veces se da al enter.
+    \item Si se ponen 3 números para la filas o las columnas, por ejemplo 300, solo se puede ver los dos primeros números.
+\end{itemize}
+
 \section{Funcionalidad de completar huecos}
 \label{planPruebas:huecos}
 A continuación se expone la tabla (Figura \ref{tab:huecos}) con los casos de prueba de la funcionalidad de completar huecos y el procedimiento para hacer dichos casos.
@@ -251,6 +281,14 @@ A continuación se expone la tabla (Figura \ref{tab:huecos}) con los casos de pr
     \item Abrir el modal de completar huecos.
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
+
+\subsection{Errores encontrados}
+\label{errores:huecos}
+\begin{itemize}
+    \item Permite convertir los espacios en huecos.
+    \item Si hay una palabra con tilde no te crea bien el hueco.
+\end{itemize}
+
 
 \section{Funcionalidad de definiciones}
 \label{planPruebas:definiciones}
@@ -305,6 +343,16 @@ A continuación se expone la tabla (Figura \ref{tab:definiciones}) con los casos
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:definicion}
+\begin{itemize}
+    \item Se puede insertar el ejercicio en el editor sin ninguna definición.
+    \item Se puede insertar un número negativo de filas.
+    \item Se pueden añadir definiciones que sean solamente espacios.
+    \item Al darle a la ``x'' no se resetea.
+\end{itemize}
+
+
 \section{Funcionalidad de generar resumen}
 \label{planPruebas:resumen}
 A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de prueba de la funcionalidad de generar resumen y el procedimiento para hacer dichos casos.
@@ -325,6 +373,8 @@ A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de p
     \caption{Casos de prueba de la funcionalidad de generar resumen.}
     \label{tab:resumen}
 \end{table}
+
+
 
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:resumen}
@@ -348,6 +398,12 @@ A continuación se expone la tabla (Figura \ref{tab:resumen}) con los casos de p
 
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:resumen}
+\begin{itemize}
+    \item Plantear no permitir elegir 0 palabras es una opción que nunca se podría dar.
+    \item Cuando se introduce caractares sin sentido al resumirlo se produce un resultados como los siguiente: ``No se ha podido resumir'', no tiene sentido. Esto no debería poder introducirse en el editor
+\end{itemize}
 
 \section{Funcionalidad de leyenda de colores}
 \label{planPruebas:leyenda}
@@ -399,6 +455,14 @@ A continuación se expone la tabla (Figura \ref{tab:leyenda}) con los casos de p
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:leyenda}
+\begin{itemize}
+    \item  Se puede editar y añadir solamente espacios.
+    \item  Al darle a la ``x'' no se resetea.
+    \item Si se añade una palabra demasiado larga, no queda espacio para el cuadro del color.
+\end{itemize}
+
 \section{Funcionalidad de espacios para dibujar}
 \label{planPruebas:dibujar}
 A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de prueba de la funcionalidad de espacios para dibujar y el procedimiento para hacer dichos casos.
@@ -440,6 +504,13 @@ A continuación se expone la tabla (Figura \ref{tab:dibujar}) con los casos de p
     \item Abrir el modal de  espacios para dibujar.
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
+
+\subsection{Errores encontrados}
+\label{errores:espacio}
+\begin{itemize}
+    \item  Como nombre del modal tienes puesto Ejercicios de desarollo, sería Ejercicios para dibujar.
+    \item No funciona el recuadrar, si lo marcas y luego lo desmarcas en la vista previa no se refleja.
+\end{itemize}
 
 \section{Funcionalidad de pictotraductor}
 \label{planPruebas:pictotraductor}
@@ -490,6 +561,17 @@ A continuación se expone la tabla (Figura \ref{tab:pictotraductor}) con los cas
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:pictotra}
+\begin{itemize}
+    \item Cuando escribes una frase y una de las palabras no tiene pictograma en el editable se muestra un cuadrado donde pone la palabra y el icono que sale cuando no ha cargado la imagen..
+    \item Cuando ocultas todos los pictogramas no deberia estar habilitado el botón de ``OK''.
+    \item  Cuando quieres editar algo que ya esta en el editable la configuración está mal.
+    \item Si pones algo que no existe (djfhwjhfb) se habilita el botón de ``Ok'' y al darle pasa lo mismo que en el primer punto.
+    \item  Si pongo espacios se habilita el botón de pictotraductor.
+\end{itemize}
+
+
 \section{Funcionalidad de relacionar conceptos}
 \label{planPruebas:conceptos}
 A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de prueba de la funcionalidad de relacionar conceptos y el procedimiento para hacer dichos casos.
@@ -511,6 +593,8 @@ A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de
     \caption{Casos de prueba de la funcionalidad de relacionar conceptos.}
     \label{tab:conceptos}
 \end{table}
+
+
 
 \subsection{Procedimiento de prueba}
 \label{procedimientoPruebas:conceptos}
@@ -538,6 +622,14 @@ A continuación se expone la tabla (Figura \ref{tab:conceptos}) con los casos de
 \end{enumerate}
 
 
+\subsection{Errores encontrados}
+\label{errores:pictotra}
+\begin{itemize}
+    \item No deja borrar la palabra entera, siempre se queda la ultima letra.
+    \item Cuando creas una tabla de las dimensiones que sea y escribes dos conceptos en la misma columna se activa reordenar y el botón de ``Ok''.
+    \item  Si en una celda pongo espacios me lo da como bueno.
+
+\end{itemize}
 
 \section{Funcionalidad de ejercicios de matemáticas}
 A continuación se expone la tabla (Figura \ref{tab:mate}) con los casos de prueba de la funcionalidad de ejercicios de matemáticas y el procedimiento para hacer dichos casos.
@@ -588,6 +680,12 @@ A continuación se expone la tabla (Figura \ref{tab:mate}) con los casos de prue
     \item Comprobar que los campos están vacíos.
 \end{enumerate}
 
+\subsection{Errores encontrados}
+\label{errores:mates}
+\begin{itemize}
+    \item Cuando no se ha introducido ningún valor, el botón de Ok no se muestra como si estuviera desactivado, aunque sí que está desactivado ya que no se puede introducir una formula vacía.
+    \item Si mantienes el espacio pulsado, se crean huecos más rápido que el movimiento del cursor, entonces el cursor no acaba en la última posición, aunque hubiese empezado en la última posición.
+\end{itemize}
 
 \section{Funcionalidad de exportar a PDF}
 \label{planPruebas:exportar}
@@ -642,3 +740,11 @@ A continuación se expone la tabla (Figura \ref{tab:exportar}) con los casos de 
     \item Comprobar en la traducción de un texto a pictogramas si salen las palabras en la posición indicada, en el caso de que se haya seleccionado que se muestre las palabras. También comprobar que tienen color o no según se ha elegido. Y aquellas palabras que no tengan traducción pictograma aparecen como texto plano.
 
 \end{enumerate}
+
+\subsection{Errores encontrados}
+\label{errores:mates}
+\begin{itemize}
+    \item Al insertar pictogramas que no entran en una hoja se rompen y se ven mal.
+    \item No salen los pictogramas.
+    \item Ejercicios distribuidos uno por hoja dejando un espacio demasiado amplio.
+\end{itemize}
