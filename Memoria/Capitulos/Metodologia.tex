@@ -1,5 +1,5 @@
 \chapter{Metodología}\label{cap:metodologia}
-En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{sec:pruebas}.
+En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{sec:qapruebas}.
 
 \section{Metodología de desarrollo}\label{cap:Kanban}
 Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Esta metodología tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas. Estas reglas las hemos desarrollado en las siguientes subsecciones.
@@ -78,7 +78,7 @@ En Kanban para priorizar las tareas del tablero en ocasiones se emplean las clas
 Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \textit{Expedite} son las más prioritarias por lo que serán las primeras en ser realizadas. Las \textit{Fixed Delivery Date}, si en su debida fecha (la cual estará indicada en su descripción) no están implementadas, se convierten en \textit{Expedite}. Las \textit{Standard} son un poco menos prioritarias que las anteriores al contar con el coste y el esfuerzo que suponen pero presentan un cierto grado de incertidumbre al no tener una fecha fija. Por último, en las \textit{Intangibles} su prioridad varía al presentar un alto grado de incertidumbre, ya que inicialmente se desconoce el riesgo que suponen pero pueden convertirse en \textit{Standard} o en \textit{Expedite}.
 
 \section{Control de Calidad (QA)}\label{sec:qa}
-En está sección se explican las medidas que han tomado en el proyecto para mejorar la calidad del software.
+En está sección se explican las medidas que se han tomado en el proyecto para mejorar la calidad del software. La importancia de un formato consistente y limpio del código fuente en la Sección \ref{sec:qaformato}, el uso de la técnica de análisis linting para detectar errores antes de la ejecución de la aplicación en la Sección \ref{sec:qaformato} y el plan de pruebas que se ha seguido en el proyecto para asegurar el correcto funcionamiento de la aplicación Sección \ref{sec:qaformato}.
 
 \subsection{Formato del código}\label{sec:qaformato}
 Cuando varios desarrolladores trabajan en un proyecto, es común que tengan diferentes estilos de escritura de código, lo que puede dificultar la lectura y el mantenimiento del mismo. Para mejorar la calidad del código se ha decidido utilizar una herramienta para dar formato al código. Esta herramienta permite mantener un estilo consistente y limpio, facilitando la lectura del código escrito por otros miembros del equipo ya que no es necesario habituarse al estilo de cada uno.
@@ -86,11 +86,11 @@ Cuando varios desarrolladores trabajan en un proyecto, es común que tengan dife
 En la Sección \ref{sec:prettier} se explica Prettier, la herramienta para dar formato al código que se ha utilizado en este proyecto.
 
 \subsection{Linting}\label{sec:qalinting}
-El inting es una técnica de análisis estático de código que busca errores de programación, inconsistencias y malas prácticas en el código fuente. En otras palabras, es una herramienta de control de calidad que ayuda a los desarrolladores a identificar y corregir errores en su código antes de que sea utilizado en producción. Con el uso del Linting se pueden detectar errores de sintaxis, "malas prácticas" y código poco intuitivo o difícil de mantener.
+El linting es una técnica de análisis estático de código que busca errores de programación, inconsistencias y malas prácticas en el código fuente. En otras palabras, es una técnica de control de calidad que ayuda a los desarrolladores a identificar y corregir errores en su código antes de que sea utilizado en producción. Con el uso del Linting se pueden detectar errores de sintaxis, "malas prácticas" y código poco intuitivo o difícil de mantener.
 
 En la Sección \ref{sec:eslint} se explica ESLint, la herramienta de análisis estático que se ha utilizado en este proyecto.
 
-\subsection{Plan de Pruebas}\label{sec:pruebas}
+\subsection{Plan de Pruebas}\label{sec:qapruebas}
 Para asegurar el correcto funcionamiento del software se ha decidido realizar pruebas manuales, ya que se ha considerado que para el tamaño actual del proyecto no supone un problema realizar pruebas manuales para comprobar las distintas funcionalidades. Si, en un futuro, se decide extender la aplicación y añadir más funcionalidades es recomendable actualizar este plan de pruebas, incluyendo pruebas automatizadas e integración continua. Las pruebas de una tarea de implementación concreta las realizará algún miembro del equipo que no haya participado en el desarrollo de esta y las hará cuando la tarea se encuentre en la columna de \textit{Testing}. La ventaja de que las pruebas las realice un miembro que no se haya visto involucrado en el desarrollo de la tarea es que puede sacar más casos de prueba que aquellos miembros que han implementado la tarea y conocen el código.
 
 Cuando un miembro del equipo se haya asignado una tarea de implementación para probar, tendrá que seguir los siguientes pasos:
