@@ -473,6 +473,8 @@ Para implementar esta funcionalidad se ha empleado un campo de texto en el cual 
 
 \subsubsection{Completar huecos}
 \label{sec:impcompletarhuecos}
+La funcionalidad de completar huecos permite, a partir de un texto, crear un ejercicio en el cual el estudiante tendrá que rellenar los huecos que aparezcan en el texto con las palabras adecuadas.
+
 Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere usar para crear los huecos. Tanto el botón de añadir huecos como el botón de \textit{Ok} están desactivados y no se podrán pulsar hasta que se introduzca un texto. Al pulsar el botón de añadir huecos, se permite hacer clic izquierdo en las distintas palabras del texto para convertirlas en huecos, y viceversa, pero no se podrá editar el texto. Se podrá editar el texto volviendo a pulsar el botón de añadir huecos, que ahora se llamará editar texto. Si se edita el texto se perderán todos los huecos que se hayan añadido. Además, se podrá elegir el tamaño de los huecos utilizando botones de radio. El usuario podrá elegir entre tamaño pequeño, mediano o grande para los huecos, siendo el tamaño mediano el valor por defecto. Al pulsar el botón de \textit{Ok}, se insertará en el documento de trabajo el ejercicio con el enunciado ``Resuelve el siguiente ejercicio completando los huecos con las palabras adecuadas:'' y el texto con los huecos que se hayan definido. En la Figura \ref{fig:impcompletarhuecos} se muestra la funcionalidad de completar huecos.
 
 \begin{figure}[ht!]
@@ -480,7 +482,7 @@ Para implementar esta funcionalidad se ha empleado un área de texto en la cual 
   \begin{subfigure}{\textwidth}
     \centering
     \includegraphics[width=0.7\textwidth]{Funcionalidades/CompletarHuecos01.png}
-    \caption{Funcionalidad de completar huecos sin texto}
+    \caption{Funcionalidad de completar huecos antes de añadir huecos}
     \label{fig:impcompletarhuecos01}
   \end{subfigure}
 
@@ -541,7 +543,7 @@ Esta funcionalidad permite crear un ejercicio de fórmulas matemáticas en el qu
 Para implementar esta funcionalidad se han usado una serie de campos de texto, los cuales representan cada elemento de la fórmula matemática. Un campo vacío representa un hueco que debe ser rellenado por el alumno. En el estado de \textit{MathFormulaModal} se guarda un array llamado fórmulas, en el que se almacena cada fórmula matemática, las cuales también son arrays que contienen cada elemento. Este array se ve reflejado en la vista, cada fórmula se muestra en una fila diferente y todos sus elementos se representan usando campos de texto que el usuario puede editar.
 
 Cuando el usuario presiona una tecla, se comprueba si ha presionado el espacio, el \textit{backspace} o el \textit{enter}. En caso de haber presionado la tecla de espacio, el array se modifica para insertar una nueva casilla en la posición siguiente a la actual. Esto se ve reflejado en la vista al añadirse un nuevo campo de texto. En caso de haber presionado la tecla de \textit{backspace}, si el \textit{input} actual está vacío, esta posición se eliminará del array, lo cual causa que este campo de texto también desaparezca de la interfaz. También, si se presiona el \textit{backspace} y se elimina el último elemento de la fila, esta fórmula se eliminará. Por último, al presionar la tecla de \textit{enter} se añade una nueva fórmula matemática vacía. El usuario también puede añadir o eliminar fórmulas haciendo clic en los botones que se muestran en el modal.
-Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar. 
+Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmulas matemáticas, el texto de cada casilla estará separado por un espacio, y en las posiciones que se encuentren vacías se inserta una línea indicando el hueco que el alumno deberá rellenar.
 
 \begin{figure}[ht!]
   \centering
@@ -552,6 +554,8 @@ Al presionar el botón de \textit{Ok}, simplemente se insertan todas las fórmul
 
 \subsubsection{Sopa de letras}
 \label{sec:impsopaletras}
+La funcionalidad de sopa de letras permite crear ejercicios de sopa de letras, en los cuales el estudiante deberá encontrar unas palabras específicas. Las sopas de letras se pueden generar con distintas filas y columnas, y direcciones posibles para las palabras.
+
 Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, que requiere un objeto con las distintas opciones de la sopa de letras. En el Listing \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
 
 \begin{lstlisting}[label=fig:impsopaletrasopciones, caption=Opciones para la sopa de letras., language=JavaScript, float]
@@ -588,14 +592,14 @@ Para implementar esta funcionalidad se emplean dos campos para introducir el nú
   \centering
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.7\textwidth]{Funcionalidades/SopaLetras01.png}
+    \includegraphics[width=0.8\textwidth]{Funcionalidades/SopaLetras01.png}
     \caption{Ventana modal de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras01}
   \end{subfigure}
 
   \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.7\textwidth]{Funcionalidades/SopaLetras02.png}
+    \includegraphics[width=0.8\textwidth]{Funcionalidades/SopaLetras02.png}
     \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de sopa de letras}
     \label{fig:impsopaletras02}
   \end{subfigure}
@@ -634,10 +638,11 @@ Una vez que el usuario ha terminado de editar las frases, se puede enviar el eje
   \label{fig:veryfalso}
 \end{figure}
 
-
 \subsubsection{Generar resumen}
 \label{sec:impresumen}
-Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un ``tirador'' o control deslizante.
+La funcionalidad de generar resumen permite a partir de un texto y un número de palabras, crear un resumen con una longitud aproximada al número de palabras dado.
+
+Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un campo de texto, en el cual solo se pueden escribir números en el rango [15, número total de palabras del texto original].
 
 Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIApi}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En el Listing \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIApi}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje (\textit{prompt}). La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
 
@@ -703,9 +708,11 @@ La vista previa se genera automáticamente y muestra el título de la leyenda de
 
 \subsubsection{Pictotraductor}
 \label{sec:imppictotraductor}
-Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere traducir a pictogramas. El botón de traducir está desactivado por defecto, mientras que el botón de \textit{Ok} no apecerá hasta que se haya traducido el texto a pictogramas. El botón de traducir se activará cuando el usuario introduzca texto para traducir. Al traducir el texto, si no se ha encontradon pictogramas, se mostrará ``No se han encontrado pictogramas'' y no se mostrará el botón de \textit{Ok}. Si se encuentran pictogramas, estos se mostrarán en formato cuadrícula, con la palabra a la que se asocian encima. Como una palabra puede tener varios pictogramas asociados, cada pictograma dispone de dos botones en los laterales, en forma de flecha, que se pueden utilizar para cambiar el pictograma asociado a esa palabra. También hay un botón debajo de cada pictograma para esconderlo. El botón de \textit{Ok} se activará cuando haya al menos un pictograma visible. Para configurar los pictogramas, se dispone de un menu desplegable en el cual se puede seleccionar el posicionamiento de la palabra asociada al pictograma (arriba, abajo, sin texto) y marcar si se quieren los pictogramas en blanco y negro o en color.
+La funcionalidad de pictotraductor permite generar una secuencia de pictogramas a partir de un texto, facilitando la comprensión de este.
 
-Cuando se pulsa el botón de traducir se realiza una petición HTTP de tipo POST al servidor \textit{backend}, a la ruta ``/pictotranslator'', enviando el texto introducido por el usuario. En el \textit{backend}, se extraen todas las palabras del texto y se realiza una petición a la API de ARASAAC por cada una para obtener los pictogramas relacionados con esa palabra. El servidor devuelve al cliente un objeto \textit{JSON} con la palabra, los pictogramas asociados a esta, si el pictograma está desactivado y que pictograma está seleccionado.
+Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere traducir a pictogramas. El botón de traducir está desactivado por defecto, mientras que el botón de \textit{Ok} no apecerá hasta que se haya traducido el texto a pictogramas. El botón de traducir se activará cuando el usuario introduzca texto para traducir. Al traducir el texto, si no se han encontrado pictogramas, se mostrará ``No se han encontrado pictogramas'' y no se mostrará el botón de \textit{Ok}. Si se encuentran pictogramas, estos se mostrarán en formato cuadrícula, con la palabra a la que se asocian encima. Como una palabra puede tener varios pictogramas asociados, cada pictograma dispone de dos botones en los laterales, en forma de flecha, que se pueden utilizar para cambiar el pictograma asociado a esa palabra. También hay un botón debajo de cada pictograma para desactivarlo y solo mostrar la palabra asociada al pictograma. El botón de \textit{Ok} se activará cuando haya al menos un pictograma visible. Para configurar los pictogramas, se dispone de un menu desplegable en el cual se puede seleccionar el posicionamiento de la palabra asociada al pictograma (arriba, abajo, sin texto) y marcar si se quieren los pictogramas en blanco y negro o en color.
+
+Cuando se pulsa el botón de traducir se realiza una petición HTTP de tipo POST al servidor \textit{backend}, a la ruta ``/pictotranslator'', enviando el texto introducido por el usuario. En el \textit{backend}, se realiza una petición HTTP de tipo GET a la API de PICTAR\footnote{\url{http://hypatia.fdi.ucm.es/pictar/}}, en concreto a la ruta ``/traducir/\{frase\}''. La API devuelve un string JSON con el conjunto de pictogramas asociados a cada palabra. El servidor \textit{backend} devuelve al cliente un objeto \textit{JSON} con la palabra, los pictogramas asociados a esta, si el pictograma está desactivado y que pictograma está seleccionado.
 
 Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto traducido en el documento de trabajo. Las palabras que no tuviesen pictogramas y las palabras cuyo pictograma ha sido desactivado por el usuario, se mostrarán sin pictograma. En la Figura \ref{fig:imppictotraductor} se muestra la funcionalidad de pictotraductor.
 
