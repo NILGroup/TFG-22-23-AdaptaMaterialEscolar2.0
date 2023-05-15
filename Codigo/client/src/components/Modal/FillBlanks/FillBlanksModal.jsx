@@ -176,7 +176,7 @@ export default function FillBlanksModal({ editor, isOpen, onClose, openModal }) 
 					{isAddingGaps ? (
 						<ModalPanel
 							label="Texto"
-							panelClassName="break-words"
+							panelClassName="flex flex-wrap"
 							attributes={
 								<ModalAlertButton
 									icon={<AiOutlineInfoCircle size={30} />}
