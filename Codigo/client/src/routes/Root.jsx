@@ -6,10 +6,10 @@ import Navbar from "../components/Navbar/Navbar";
 export default function Root() {
 	return (
 		<>
-			<div className="header">
+			<div className="header print:hidden">
 				<Navbar />
 			</div>
-			<div className="content">
+			<div className="content print:hidden">
 				<Outlet />
 			</div>
 		</>

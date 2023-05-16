@@ -159,7 +159,7 @@ export default function SlateEditor() {
 					<div className="max-h-[40rem] overflow-y-auto">
 						<Editable
 							id="editable"
-							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4"
+							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4 print:block"
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
