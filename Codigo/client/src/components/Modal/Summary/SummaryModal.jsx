@@ -116,7 +116,7 @@ export default function SummaryModal({ editor, isOpen, onClose, openModal }) {
 		insertarEjercicioEditable(
 			editor,
 			{
-				type: "ejercicio",
+				type: "bloqueEditable",
 				openModalUpdate,
 				data: {
 					...state,
