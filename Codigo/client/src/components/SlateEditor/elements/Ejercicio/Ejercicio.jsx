@@ -19,7 +19,7 @@ export default function Ejercicio({ attributes, children, element }) {
 			}`}
 		>
 			<span
-				className={`absolute top-0 left-0 text-modal-base print:hidden
+				className={`absolute top-0 left-0 text-modal-base print_hidden
 						${isSelected && isFocused ? "inline cursor-pointer" : "hidden"} `}
 			>
 				<div className="flex gap-1">
