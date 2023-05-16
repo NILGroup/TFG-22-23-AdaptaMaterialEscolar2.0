@@ -9,7 +9,7 @@ export default function Toolbar({ editor, openModal }) {
 	return (
 		<>
 			<div className="flex flex-col font-main">
-				<div className="flex flex-wrap gap-8 border-b-[1px] border-editor-border bg-editor-toolbar py-2 px-4 ">
+				<div className="flex flex-wrap gap-8 border-b-[1px] border-editor-border bg-editor-toolbar py-2 px-4">
 					{/* Archivo */}
 					<ToolbarButton
 						text="Archivo"
