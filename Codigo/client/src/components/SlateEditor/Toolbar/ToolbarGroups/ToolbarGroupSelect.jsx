@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ToolbarGroupSelect({ className, options, ...restProps }) {
-	console.log(options);
 
 	return (
 		<select

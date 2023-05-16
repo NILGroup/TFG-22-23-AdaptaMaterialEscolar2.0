@@ -10,3 +10,4 @@ export default function Icon({ attributes, children, element }) {
 		</span>
 	);
 }
+

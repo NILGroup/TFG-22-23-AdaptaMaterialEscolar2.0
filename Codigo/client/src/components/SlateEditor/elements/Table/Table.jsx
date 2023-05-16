@@ -15,7 +15,7 @@ export default function Table({ attributes, children, element }) {
 	return (
 		<div className="relative pt-7">
 			<span
-				className={`absolute top-0 left-0 p-1 text-modal-base 
+				className={`absolute top-0 left-0 p-1 text-modal-base print:hidden 
 			${isSelected && isFocused ? "inline cursor-pointer" : "hidden"} `}
 			>
 				<div className="flex gap-2">

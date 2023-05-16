@@ -17,7 +17,7 @@ export default function ModalWordListItem({
 	selected,
 }) {
 	const [newValue, setNewValue] = useState(null);
-	console.log(selected)
+
 
 	let classSelected = selected == index ? "bg-slate-100 " : "";
 	classSelected = classSelected + (setSelected ? "hover:bg-slate-100 ": "");

@@ -52,7 +52,7 @@ export default function SlateEditor() {
 
 	const renderElement = useCallback((props) => {
 		const style = props.element.align ? props.element.align : "";
-		console.log(props);
+	
 		switch (props.element.type) {
 			// TODO: No funciona el alt de la imagen
 			case "image":

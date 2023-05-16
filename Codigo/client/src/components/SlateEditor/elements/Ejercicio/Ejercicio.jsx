@@ -10,15 +10,16 @@ export default function Ejercicio({ attributes, children, element }) {
 	const isFocused = useFocused();
 	const editor = useSlateStatic();
 	const path = ReactEditor.findPath(editor, element);
+
 	return (
 		<li
 			{...attributes}
-			className={`relative list-decimal border-2 pt-5 marker:font-bold ${
+			className={`relative list-decimal print:list-decimal border-2 pt-5 marker:font-bold ${
 				isSelected && isFocused ? "border-[#B4D5FF]" : "border-transparent"
 			}`}
 		>
 			<span
-				className={`absolute top-0 left-0 text-modal-base 
+				className={`absolute top-0 left-0 text-modal-base print:hidden
 						${isSelected && isFocused ? "inline cursor-pointer" : "hidden"} `}
 			>
 				<div className="flex gap-1">
