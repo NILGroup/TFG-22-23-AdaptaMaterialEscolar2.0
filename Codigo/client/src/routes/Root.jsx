@@ -9,7 +9,7 @@ export default function Root() {
 			<div className="header print:hidden">
 				<Navbar />
 			</div>
-			<div className="content print:hidden">
+			<div className="content">
 				<Outlet />
 			</div>
 		</>

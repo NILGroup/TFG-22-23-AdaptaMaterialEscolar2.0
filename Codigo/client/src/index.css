@@ -114,3 +114,14 @@ svg {
 div {
 	break-inside: avoid;
 }
+@media print {
+
+	/* APPLY DISPLAY:NONE TO EVERYTHING */
+  
+	/* OVERRIDE DISPLAY:NONE FOR .CONTENT-CONTAINER AND ITS CHILDREN */
+
+	.editable *{
+	  display: initial !important;
+	}
+  
+  }
