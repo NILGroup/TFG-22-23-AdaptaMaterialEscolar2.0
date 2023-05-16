@@ -155,19 +155,19 @@ export default function ModalTrueFalse({ editor, isOpen, onClose, openModal }) {
 								verdadera o la letra F si es falsa.
 							</p>
 						)}
-						<ul>
+						<ol className="list-decimal pl-12 marker:font-normal">	
 							{listaVistaP.map((elem, i) => {
 								return (
 									<li key={`concepto-${i}`}>
 										<div className="flex items-start">
 											<p className="pl-1">
-												&nbsp;&nbsp; {i + 1}) {elem} <span>V / F</span>
+												&nbsp;&nbsp; {elem} <span>V / F</span>
 											</p>
 										</div>
 									</li>
 								);
 							})}
-						</ul>
+						</ol>
 					</div>
 				</ModalPreview>
 

@@ -174,15 +174,19 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 		};
 
 		ejercicio.children.push(enunciado);
-
+		let listData = {
+			type: "numbered-list",
+			children: [],
+		};
 		ejercicioStrings.forEach((formulaString, i) => {
 			let formula = {
-				type: "paragraph",
-				children: [{ text: "    " + (i + 1) + ")  " + formulaString }],
+				type: "list-item",
+				children: [{ text: formulaString }],
 			};
 
-			ejercicio.children.push(formula);
+			listData.children.push(formula);
 		});
+		ejercicio.children.push(listData);
 
 		ejercicio.children.push({
 			type: "paragraph",
@@ -291,16 +295,17 @@ export default function MathFormulaModal({ editor, isOpen, onClose, openModal })
 					<p className="font-bold">Completa las siguientes expresiones matemáticas:</p>
 					<div className="h-2"></div>
 
-					{getArrayOfFormulasAsStrings().map((formulaString, i) => {
-						return (
-							<>
-								<div key={i}>
-									&nbsp;&nbsp; {i + 1}) {formulaString}
-								</div>
-								<br />
-							</>
-						);
-					})}
+					<ol className="list-decimal pl-12 marker:font-normal">
+						{getArrayOfFormulasAsStrings().map((formulaString, i) => {
+							return (
+								<>
+									<li key={i}>
+									&nbsp;&nbsp; { formulaString}
+									</li> 
+								</>
+							);
+						})}
+					</ol>
 				</ModalPreview>
 
 				<div className="flex justify-center">
