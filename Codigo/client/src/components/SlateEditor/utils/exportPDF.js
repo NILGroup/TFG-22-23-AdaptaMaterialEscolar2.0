@@ -3,6 +3,7 @@ export default async function exportPDF() {
 	let a = window.open("", "", "height=1123, width=794");
 
 	let head = document.getElementsByTagName("head")[0].innerHTML;
+	console.log(head);
 	a.document.write("<html>");
 	a.document.write(head);
 	a.document.write("<body >");
