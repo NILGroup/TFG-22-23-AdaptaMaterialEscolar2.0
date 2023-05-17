@@ -156,10 +156,10 @@ export default function SlateEditor() {
 					<div className="print:hidden">
 						<Toolbar editor={editor} openModal={openModal} />
 					</div>
-					<div className="max-h-[40rem] overflow-y-auto print:overflow-hidden">
+					<div className="max-h-[40rem] overflow-y-auto print:overflow-visible">
 						<Editable
 							id="editable"
-							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4 print:border-0 print:m-0 print:p-0"
+							className="my-4 mx-auto min-h-[29.7cm] w-[21cm] overflow-hidden border-[1px] border-editable-border bg-editable p-4 print:border-0 print:m-0 print:p-0 print:overflow-visible"
 							editor={editor}
 							renderElement={renderElement}
 							renderLeaf={renderLeaf}
