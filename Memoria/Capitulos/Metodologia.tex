@@ -1,5 +1,5 @@
 \chapter{Metodología}\label{cap:metodologia}
-En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá el plan de pruebas en la Sección \ref{sec:qapruebas}.
+En este capítulo se explicará la metodología de desarrollo utilizada en la Sección \ref{cap:Kanban} y se describirá las medidas tomas para asegurar la calidad del software \ref{sec:qa}.
 
 \section{Metodología de desarrollo}\label{cap:Kanban}
 Para el desarrollo de este trabajo hemos decidido aplicar la metodología Kanban. Esta metodología tiene cuatro reglas básicas: visualizar el flujo de trabajo, determinar y respetar el límite de trabajo en curso (WIP), gestionar el flujo y hacer políticas explícitas. Estas reglas las hemos desarrollado en las siguientes subsecciones.
@@ -10,9 +10,9 @@ En el proyecto hemos distinguido dos tipos de tareas, las tareas relacionadas co
     \item \textbf{\textit{To Do}}: Listado de todas las tareas sin empezar.
     \item \textbf{\textit{Doing}}: Tareas que se encuentran en desarrollo, ya sea la implementación de código o la redacción de la memoria.
     \item \textbf{\textit{Testing}}: Una vez desarrollada la tarea, se probará que cumpla con los requisitos.
-          Para las tareas de documentación el testing sera realizado por todos integrantes del equipo siguiendo los siguientes pasos:
+          Para las tareas de documentación el testing será realizado por todos integrantes del equipo siguiendo los siguientes pasos:
           \begin{enumerate}
-              \item Cuando haya una tarea de memoria en dicha columna, esta dispondra de una lista con \textit{checkboxes} con los nombres de los integrantes.
+              \item Cuando haya una tarea de memoria en dicha columna, esta dispondrá de una lista con \textit{checkboxes} con los nombres de los integrantes.
               \item Cuando un miembro del equipo haya terminado de revisar la tarea debe marcarlo en el \textit{checkbox} referido a él.
               \item Cuando todos los miembros del equipo hayan revisado la tarea, el ultimo revisor se encargará de mover la tarea a la columna de \textit{Validate}.
           \end{enumerate}
@@ -78,15 +78,15 @@ En Kanban para priorizar las tareas del tablero en ocasiones se emplean las clas
 Para su aplicación tomaremos unas medidas en base a su prioridad. Las clases \textit{Expedite} son las más prioritarias por lo que serán las primeras en ser realizadas. Las \textit{Fixed Delivery Date}, si en su debida fecha (la cual estará indicada en su descripción) no están implementadas, se convierten en \textit{Expedite}. Las \textit{Standard} son un poco menos prioritarias que las anteriores al contar con el coste y el esfuerzo que suponen pero presentan un cierto grado de incertidumbre al no tener una fecha fija. Por último, en las \textit{Intangibles} su prioridad varía al presentar un alto grado de incertidumbre, ya que inicialmente se desconoce el riesgo que suponen pero pueden convertirse en \textit{Standard} o en \textit{Expedite}.
 
 \section{Control de Calidad (QA)}\label{sec:qa}
-En está sección se explican las medidas que se han tomado en el proyecto para mejorar la calidad del software. La importancia de un formato consistente y limpio del código fuente en la Sección \ref{sec:qaformato}, el uso de la técnica de análisis linting para detectar errores antes de la ejecución de la aplicación en la Sección \ref{sec:qaformato} y el plan de pruebas que se ha seguido en el proyecto para asegurar el correcto funcionamiento de la aplicación Sección \ref{sec:qaformato}.
+En está sección se explican las medidas que se han tomado en el proyecto para mejorar la calidad del software. La importancia de un formato consistente y limpio del código fuente en la Sección \ref{sec:qaformato}, el uso de la técnica de análisis linting para detectar errores antes de la ejecución de la aplicación en la Sección \ref{sec:qalinting} y el plan de pruebas que se ha seguido en el proyecto para asegurar el correcto funcionamiento de la aplicación Sección \ref{sec:qapruebas}.
 
 \subsection{Formato del código}\label{sec:qaformato}
-Cuando varios desarrolladores trabajan en un proyecto, es común que tengan diferentes estilos de escritura de código, lo que puede dificultar la lectura y el mantenimiento del mismo. Para mejorar la calidad del código se ha decidido utilizar una herramienta para dar formato al código. Esta herramienta permite mantener un estilo consistente y limpio, facilitando la lectura del código escrito por otros miembros del equipo ya que no es necesario habituarse al estilo de cada uno.
+Cuando varios desarrolladores trabajan en un proyecto, es común que tengan diferentes estilos de escritura de código, lo que puede dificultar la lectura y el mantenimiento de este. Para mejorar la calidad del código se ha decidido utilizar una herramienta para dar formato al código. Esta herramienta permite mantener un estilo consistente y limpio, facilitando la lectura del código escrito por otros miembros del equipo ya que no es necesario habituarse al estilo de cada uno.
 
 En la Sección \ref{sec:prettier} se explica Prettier, la herramienta para dar formato al código que se ha utilizado en este proyecto.
 
 \subsection{Linting}\label{sec:qalinting}
-El linting es una técnica de análisis estático de código que busca errores de programación, inconsistencias y malas prácticas en el código fuente. En otras palabras, es una técnica de control de calidad que ayuda a los desarrolladores a identificar y corregir errores en su código antes de que sea utilizado en producción. Con el uso del Linting se pueden detectar errores de sintaxis, "malas prácticas" y código poco intuitivo o difícil de mantener.
+El linting es una técnica de análisis estático de código que busca errores de programación, inconsistencias y malas prácticas en el código fuente. En otras palabras, es una técnica de control de calidad que ayuda a los desarrolladores a identificar y corregir errores en su código antes de que sea utilizado en producción. Con el uso del Linting se pueden detectar errores de sintaxis, ``malas prácticas'' y código poco intuitivo o difícil de mantener.
 
 En la Sección \ref{sec:eslint} se explica ESLint, la herramienta de análisis estático que se ha utilizado en este proyecto.
 
@@ -96,7 +96,7 @@ Para asegurar el correcto funcionamiento del software se ha decidido realizar pr
 Cuando un miembro del equipo se haya asignado una tarea de implementación para probar, tendrá que seguir los siguientes pasos:
 \begin{enumerate}
     \item \textbf{Generación de los casos de prueba}: Se realizará una tabla con los distintos casos de prueba que se utilizarán para probar una funcionalidad concreta, teniendo en cuenta los requisitos de usuario. Los casos de prueba se entienden como las condiciones de ejecución (precondiciones), el conjunto de entradas, el objetivo de la prueba (campos y condiciones que se quieren comprobar) y los resultados esperados tras ejecutar la prueba (postcondiciones).
-    \item \textbf{Definición de los procedimientos de la prueba}: Después de generar los casos de prueba, se definirá un guión en el que se explicarán los pasos a seguir para la ejecutar la prueba. En este guión se deben tener en cuenta todos los casos de prueba generados anteriormente. Cada paso debe ser claro y concreto, además de ofrecer ejemplos de datos de entrada, por ejemplo ``Escribir `hola'\, en el campo de añadir frase.'' o ``Pulsar botón de añadir frase.''.
+    \item \textbf{Definición de los procedimientos de la prueba}: Después de generar los casos de prueba, se definirá un guion en el que se explicarán los pasos a seguir para la ejecutar la prueba. En este guion se deben tener en cuenta todos los casos de prueba generados anteriormente. Cada paso debe ser claro y concreto, además de ofrecer ejemplos de datos de entrada, por ejemplo ``Escribir `hola'\, en el campo de añadir frase.'' o ``Pulsar botón de añadir frase.''.
     \item \textbf{Ejecución de la prueba}: Una vez se hayan definido los pasos necesarios para probar una funcionalidad concreta, hay que ejecutar la prueba, siguiendo estos pasos. Durante la ejecución, se registrarán los resultados obtenidos que no concuerden con los resultados esperados o comportamientos de la funcionalidad que puedan afectar negativamente a la experiencia de usuario.
     \item \textbf{Realización de un informe de la prueba}: Finalmente, se deberá crear una incidencia de tipo \textit{bug} con la clase de servicio \textit{Expedite}. En la descripción de esta incidencia se deberá informar de los resultados obtenidos, los resultados esperados y los pasos a seguir para replicar cada fallo o problema que haya ocurrido durante la ejecución de la prueba. También se puede incluir información que pueda ser relevante para encontrar una solución a cada fallo o problema.
 \end{enumerate}
