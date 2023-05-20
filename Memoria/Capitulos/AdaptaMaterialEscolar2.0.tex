@@ -147,7 +147,7 @@ A continuación se muestran los diseños de las nuevas funcionalidades que no es
 
 \subsubsection{Johan Sebastian Salvatierra Gutierrez}
 \label{sec:johanDisenyo}
-Para realizar el diseño de la aplicación se realizó una división entre páginas y funcionalidades. 
+Para realizar el diseño de la aplicación se realizó una división entre páginas y funcionalidades.
 En primer lugar, las páginas. Para estas se tuvo de inspiración a Youtube, donde se dividen en tres: página de inicio, página sobre nosotros y página de información. Comenzando con la página de inicio, con un editor de texto y una cabecera que dispone de un menú para moverte entre las páginas y un botón de configuración con forma de engranaje que permite elegir si tener un visualizador de PDF o una barra de funciones como se ve en la Figura \ref{Johan1}. Si el usuario decide personalizar la pantalla de inicio con el botón de configuración obtendrá una pantalla similar a la mostrada en la Figura \ref{Johan2} donde podrá ver que el cuadrado izquierdo superior es el visualizador de PDF y el inferior es la barra de funciones y el cuadrado derecho es el editor de texto. Si el usuario decide usar el menú para cambiar de página aparecerá un panel a la derecha que servirá como barra de navegación como se puede ver en la Figura \ref{Johan3}. Para la página de información el usuario dispondrá de una serie de videos didácticos y un buscador para conocer como explotar al máximo el potencial de AdaptaMaterialEscolar 2.0 (esto lo podemos ver en la Figura \ref{Johan4}). En cuanto a la página sobre nosotros, el usuario se encontrará con unos recuadros con forma de tarjeta con información de cada integrante (esto lo podemos ver en la Figura \ref{Johan5}).
 En segundo lugar, las funcionalidades auxiliares aparecerán como botones en el editor y las funcionalidades que no sean auxiliares aparecerán en el cuadrado mencionado anteriórmente y son las siguientes:
 \begin{itemize}
@@ -560,7 +560,7 @@ La funcionalidad de sopa de letras permite crear ejercicios de sopa de letras, e
 
 Para la generación de la sopa de letras se utiliza la biblioteca \textit{word-search}\footnote{\url{https://www.npmjs.com/package/@blex41/word-search}}. Esta biblioteca permite crear sopas de letras mediante la clase \textit{WordSearch}, que requiere un objeto con las distintas opciones de la sopa de letras. En el Listing \ref{fig:impsopaletrasopciones} se muestra un ejemplo de las opciones y de como se crea la sopa de letras. La clase \textit{WordSearch} contiene distintos atributos y funciones para obtener información sobre la sopa de letras. Los dos atributos que se han utilizado en este proyecto son \textit{grid}, que contiene la sopa de letras en forma de matriz, y \textit{words}, que contiene las palabras que se han incluido en la sopa de letras.
 
-\begin{lstlisting}[label=fig:impsopaletrasopciones, caption=Opciones para la sopa de letras., language=JavaScript, float]
+\begin{lstlisting}[label=fig:impsopaletrasopciones, caption=Opciones para la sopa de letras., language=JavaScript, float, floatplacement=H]
   // Hay mas opciones pero estas son las basicas
   // Si falta alguna opcion, se le dara un valor por defecto
   const options = {
@@ -650,7 +650,7 @@ Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\f
 
 Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend} se llama a la función \textit{createChatCompletion} de la clase \textit{OpenAIApi}, utilizando ``Resume este texto en aproximadamente \{número de palabras\} palabras, si no se puede resumir el texto devuelve -1: \{texto original\}'' como \textit{prompt}, con el número de palabras y el texto introducidos por el usuario, y se devuelve el resumen generado al cliente. El resumen se mostrará en el panel de vista previa. En caso de que no se pueda generar el resumen, o el texto original sea muy breve, se mostrará un error al usuario en la vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de generar resumen.
 
-\begin{lstlisting}[label=fig:impresumenconfiguracion, caption=Configuración de la clase \textit{OpenAIApi}., language=JavaScript]
+\begin{lstlisting}[label=fig:impresumenconfiguracion, caption=Configuración de la clase \textit{OpenAIApi}., language=JavaScript, float, floatplacement=H]
   const { Configuration, OpenAIApi} = require("openai");
 
   const configuration = new Configuration({
