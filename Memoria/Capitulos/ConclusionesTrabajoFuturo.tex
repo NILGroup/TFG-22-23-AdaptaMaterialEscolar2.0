@@ -5,52 +5,47 @@ En la Sección \ref{sec:conclusiones} se explicará las conclusiones a las que s
 
 \section{Conclusiones}
 \label{sec:conclusiones}
-En este TFG, se propuso como objetivo principal el desarrollo de una aplicación web que facilitara la adaptación curricular no significativa para los docentes. Para lograr este objetivo, se investigaron los diferentes tipos de adaptaciones y herramientas disponibles. La aplicación se diseñó para ofrecer una amplia variedad de adaptaciones.
-
-Una vez desarrollada la aplicación, se realizó una evaluación con usuarios para obtener datos sobre su usabilidad y utilidad.
+En este Trabajo de Fin de Grado (TFG), se planteó como objetivo principal el desarrollo de una aplicación web que facilite la adaptación curricular no significativa para los docentes. Para lograr dicho objetivo, se investigaron los distintos tipos de adaptaciones y herramientas disponibles. La aplicación fue diseñada con el propósito de ofrecer una amplia variedad de adaptaciones. Para ello, se inició un proceso de rediseño de AdaptaMaterialEscolar 1.0, a través de una iteración competitiva con todos los miembros del equipo, siguiendo una metodología de Diseño Centrado en el Usuario (DCU). Además, se realizaron cambios en la arquitectura del proyecto y las tecnologías utilizadas. Entre los cambios destacados, se migró de una arquitectura \textit{serverless} a una arquitectura cliente-servidor. También se decidió no utilizar Redux ni Sass y se empezó a utilizar Tailwind CSS. Asimismo, debido a que la licencia de CKEditor que se utilizaba en AdaptaMaterialEscolar 1.0 expiró y no fue posible renovarla, se implementó el editor de texto utilizando Slate. Se tuvo que implementar completamente los requisitos mínimos del editor que se solicitaron para AdaptaMaterialEscolar 1.0, ya que Slate no ofrece funcionalidades básicas de editor, sino utilidades para implementarlas. En el desarrollo de la aplicación se incluyeron la mayoría de los ejercicios y herramientas propuestos, como la funcionalidad de nuevo archivo, exportar a PDF, relacionar conceptos, ejercicios de matemáticas con huecos, ejercicio con espacio para dibujar, leyenda de colores, generar resumen y pictotraductor. Las funcionalidades implementadas en AdaptaMaterialEscolar 1.0 tuvieron que ser creadas desde cero debido a los cambios en la arquitectura y el rediseño, así como a ciertos cambios en los requisitos. Una vez desarrollada la aplicación, se alojó en un servidor de Oracle para llevar a cabo una evaluación con usuarios. Como resultado de dicha evaluación, se recopilaron datos sobre la usabilidad y utilidad de la aplicación.
 
 Además, otro objetivo del TFG fue aplicar y ampliar los conocimientos adquiridos durante la carrera. Las asignaturas más influyentes para el desarrollo del TFG fueron:
 
 \begin{itemize}
-    \item Gestión de proyectos Software: Se centra en la planificación, organización, seguimiento y control de todos los aspectos de un proyecto de software, desde la concepción hasta la entrega final del producto. En esta asignatura hemos aprendido cómo administrar los recursos y el tiempo para garantizar que los proyectos se completen dentro de los plazos establecidos. También hemos aprendido la importancia de establecer objetivos claros, crear un plan de proyecto sólido y hacer un seguimiento regular del progreso para garantizar que el proyecto esté en camino.
-    \item Aplicaciones Web: Enseña a cómo diseñar y desarrollar aplicaciones web eficientes y escalables. Además, cubre una amplia variedad de tecnologías, desde el diseño y la creación de interfaces de usuario hasta la gestión de bases de datos y la seguridad de aplicaciones. En concreto hemos utilizado los conocimientos adquiridos sobre \textit{HTML}, \textit{CSS}, \textit{JavaScript} y \textit{Node.js}.
-    \item Ingeniería del Software, Modelado de Software: Las asignaturas de Ingeniería de Software y Modelado de Software son importantes para el desarrollo de software de alta calidad. La primera se enfoca en los principios, prácticas y técnicas necesarias para crear software eficiente y funcional. La segunda se enfoca en crear modelos precisos y detallados antes de la implementación para reducir errores y permitir una implementación más rápida y efectiva. En ambas asignaturas se cubren técnicas y habilidades esenciales para el proceso de desarrollo de software. En concreto hemos aplicado los conocimientos adquiridos sobre la gestión de errores y los patrones de diseño.
-    \item Estructura de Datos: La comprensión de las estructuras de datos y las técnicas de manipulación de datos son esenciales para el desarrollo de software de alta calidad y eficiente. Esta asignatura proporciona una base sólida para construir soluciones de software más efectivas y escalables en el futuro. En concreto hemos aplicado los conocimientos adquiridos para entender mejor la estructura de Slate.
-    \item Ética, legislación y profesión: Se centra sobre los aspectos éticos y legales de la ingeniería de software, como la privacidad de los datos, la propiedad intelectual, la responsabilidad social y profesional, y la seguridad del software. También se enseñan las leyes y regulaciones relevantes, como la Ley de Protección de Datos Personales y la Ley de Propiedad Intelectual.
-    \item Administración de Sistemas y Redes: Se centra en la administración de sistemas operativos, incluyendo la instalación, configuración y mantenimiento de servidores y clientes. También se enseña la administración de redes, incluyendo la configuración de routers, switches y firewalls, la gestión de direcciones IP y el monitoreo del tráfico de la red. En concreto hemos aplicado los conocimientos adquiridos para montar el servidor en el que se ha alojado la aplicación.
+    \item \textbf{Gestión de proyectos Software}: Se centra en la planificación, organización, seguimiento y control de todos los aspectos de un proyecto de software, desde la concepción hasta la entrega final del producto. En esta asignatura hemos aprendido cómo administrar los recursos y el tiempo para garantizar que los proyectos se completen dentro de los plazos establecidos. También hemos aprendido la importancia de establecer objetivos claros, crear un plan de proyecto sólido y hacer un seguimiento regular del progreso para garantizar que el proyecto esté en camino.
+    \item \textbf{Aplicaciones Web}: Enseña a cómo diseñar y desarrollar aplicaciones web eficientes y escalables. Además, cubre una amplia variedad de tecnologías, desde el diseño y la creación de interfaces de usuario hasta la gestión de bases de datos y la seguridad de aplicaciones. En concreto hemos utilizado los conocimientos adquiridos sobre \textit{HTML}, \textit{CSS}, \textit{JavaScript} y \textit{Node.js}.
+    \item \textbf{Ingeniería del Software, Modelado de Software}: Las asignaturas de Ingeniería de Software y Modelado de Software son importantes para el desarrollo de software de alta calidad. La primera se enfoca en los principios, prácticas y técnicas necesarias para crear software eficiente y funcional. La segunda se enfoca en crear modelos precisos y detallados antes de la implementación para reducir errores y permitir una implementación más rápida y efectiva. En ambas asignaturas se cubren técnicas y habilidades esenciales para el proceso de desarrollo de software. En concreto hemos aplicado los conocimientos adquiridos sobre la gestión de errores y los patrones de diseño.
+    \item \textbf{Estructura de Datos}: La comprensión de las estructuras de datos y las técnicas de manipulación de datos son esenciales para el desarrollo de software de alta calidad y eficiente. Esta asignatura proporciona una base sólida para construir soluciones de software más efectivas y escalables en el futuro. En concreto hemos aplicado los conocimientos adquiridos para entender mejor la estructura de Slate.
+    \item \textbf{Ética, legislación y profesión}: Se centra sobre los aspectos éticos y legales de la ingeniería de software, como la privacidad de los datos, la propiedad intelectual, la responsabilidad social y profesional, y la seguridad del software. También se enseñan las leyes y regulaciones relevantes, como la Ley de Protección de Datos Personales y la Ley de Propiedad Intelectual.
+    \item \textbf{Administración de Sistemas y Redes}: Se centra en la administración de sistemas operativos, incluyendo la instalación, configuración y mantenimiento de servidores y clientes. También se enseña la administración de redes, incluyendo la configuración de routers, switches y firewalls, la gestión de direcciones IP y el monitoreo del tráfico de la red. En concreto hemos aplicado los conocimientos adquiridos para montar el servidor en el que se ha alojado la aplicación.
 \end{itemize}
+
+Durante el desarrollo de la aplicación AdaptaMaterialEscolar, hemos adquirido nuevos conocimientos sobre el uso de tecnologías, como React, ampliamente utilizada en el mundo laboral. Además, hemos aprendido y aplicado eficazmente Tailwind CSS y Slate, herramientas que han contribuido a una experiencia de desarrollo más eficiente y flexible. También hemos con usuarios finales, identificando y satisfaciendo sus necesidades.
 
 \section{Trabajo Futuro}
 \label{sec:TrabajoFuturo}
-Después de desarrollar el proyecto y cumplir con la mayoría de los requisitos fijados al principio del trabajo, es inevitable que queden algunas tareas pendientes para posible trabajo futuro:
+Después de desarrollar el proyecto y cumplir con la mayoría de los requisitos fijados al principio del trabajo, es inevitable que queden algunas tareas pendientes para posible trabajo futuro.
 
+Desde el punto de vista de los requisitos, ya en la Sección \ref{cap:requisitos} se comentó las funcionalidades descartadas por falta de información. En concreto estos requisitos son:
 \begin{itemize}
-    \item Desde el punto de vista de los requisitos, ya en la Sección \ref{cap:requisitos} se comentó las funcionalidades descartadas por falta de información. En concreto estos requisitos son: 
-    \begin{itemize}
-        \item Añadir imágenes buscando una palabra.
-        \item Sustituir una palabra por una imagen.
-        \item Crear una herramienta de recorte de imágenes para el texto original.
-        \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido.
-        \item Crear esquemas.
-        \item Ejercicios de completar los espacios en blanco en tablas y esquemas.        
-    \end{itemize}
-    \item Desde la perspectiva de los requisitos, se han dado requisitos que se han postergado por la prioridad establecida de los requisitos. Específicamente, estos requisitos son:
-    \begin{itemize}
-        \item Importar a Word: no lo hemos realizado porque requeriría cambiar el comportamiento de los elementos tratados por Slate. Condideramos que era muy complejo y había otras funcionalidades con igual o mayor prioridad.
-        \item Exportar a Word: No se ha realizado porque su implementación es similar a importar a Word.      
-        \item Sección de ayuda: Aunque consideramos que es importante, no se ha realizado ya que hemos priorizado la calidad del editor y de las adaptaciones, además de la cantidad de adaptaciones.
-        \item Configuración general: Para implementar la configuración se necesitaría utilizar cookies de navegador para guardar la información aumentando considerablemente la complejidad de la aplicación. Para cada adaptación habría que guardar información sobre todas sus posibles opciones de configuración. Consideramos que nos iba a llevar mucho tiempo conseguir que funcionara correctamente y preferimos implementar más adaptaciones y mejorar el funcionamiento tanto del editor como de las adaptaciones.
-    \end{itemize}
+    \item Añadir imágenes buscando una palabra.
+    \item Sustituir una palabra por una imagen.
+    \item Crear una herramienta de recorte de imágenes para el texto original.
+    \item Crear tablas que organicen el temario y/o las actividades, seleccionando contenido.
+    \item Crear esquemas.
+    \item Ejercicios de completar los espacios en blanco en tablas y esquemas.
 \end{itemize}
 
-
-Además, esperábamos que la evaluación de la aplicación generara nuevas ideas y requisitos para realizar mejoras. Las peticiones y propuestas de mejora recibidas por parte de los docentes que han evaluado el sistema son las siguientes:
-
+Desde la perspectiva de los requisitos, se han dado requisitos que se han postergado por la prioridad establecida de los requisitos. Específicamente, estos requisitos son:
 \begin{itemize}
-    \item Que se puedan mover los ejercicios en el documento de trabajo.
-    \item Una opción de deshacer y rehacer.
-    \item Algún icono de ``ayuda'' que explique brevemente la forma en que se realiza el ejercicio.    
+    \item Importar a Word: no lo hemos realizado porque requeriría cambiar el comportamiento de los elementos tratados por Slate. Condideramos que era muy complejo y había otras funcionalidades con igual o mayor prioridad.
+    \item Exportar a Word: No se ha realizado porque su implementación es similar a importar a Word.
+    \item Sección de ayuda: Aunque consideramos que es importante, no se ha realizado ya que hemos priorizado la calidad del editor y de las adaptaciones, además de la cantidad de adaptaciones.
+    \item Configuración general: Para implementar la configuración se necesitaría utilizar cookies de navegador para guardar la información aumentando considerablemente la complejidad de la aplicación. Para cada adaptación habría que guardar información sobre todas sus posibles opciones de configuración. Consideramos que nos iba a llevar mucho tiempo conseguir que funcionara correctamente y preferimos implementar más adaptaciones y mejorar el funcionamiento tanto del editor como de las adaptaciones.
 \end{itemize}
 
+La evaluación de la aplicación ha generado nuevas ideas y requisitos para realizar mejoras, basadas en las peticiones y propuestas recibidas por los docentes evaluadores. Estas son algunas de las sugerencias:
 
-
+\begin{itemize}
+    \item Capacidad de reorganizar los ejercicios en el documento de trabajo: Se requiere la opción de mover los ejercicios dentro del documento de manera intuitiva y sencilla.
+    \item Funcionalidad de deshacer y rehacer en el documento de trabajo: Es necesario implementar una función que permita al usuario deshacer y rehacer acciones previas, proporcionando una forma de restaurar cambios no deseados.
+    \item Añadir botón de ``ayuda'' para realizar las adaptaciones: Se sugiere añadir un botón de ayuda en todas las ventanas modales de las adaptaciones, el cual proporcionará información sobre el uso de la funcionalidad en cuestión.
+\end{itemize}
