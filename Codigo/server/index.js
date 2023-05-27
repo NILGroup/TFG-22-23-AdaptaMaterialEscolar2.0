@@ -141,20 +141,38 @@ app.post(
 		try {
 			const apiResponse = await openai.createChatCompletion({
 				model: "gpt-3.5-turbo",
-				temperature: 0.8,
+				temperature: 0.4,
 				messages: [
 					{
 						role: "user",
-						content: `Resume este texto en aproximadamente ${summaryLength} palabras, si no se puede resumir el texto devuelve -1: ${originalText}`,
+						content: `Perform the following actions:
+						1 - Identify the language of the following text delimited by {{}} is written in.
+						2 - Summarize the text delimited by {{}} using close to ${summaryLength} words. The summary must be written in the language of the text delimited by {{}}, identified in the previous action.
+						3 - If you aren't able to summarize the text, because it doesn't make sense or you were asked to use very few words then return success as false.
+						4 - Output a json object that contains the following keys: success, summary.
+
+						Separate your answers with line breaks.
+
+						Text:
+						{{${originalText}}}`,
 					},
 				],
 			});
 
-			response.status(200).json(apiResponse.data.choices[0].message.content);
-		} catch (error) {
-			console.error(error.message);
+			const jsonResponse = JSON.parse(
+				apiResponse.data.choices[0].message.content.match(
+					/(?:\{"success": true, "summary": .*\}|\{"success": false\})$/
+				)
+			);
 
-			response.status(500).end();
+			response.status(200).json(jsonResponse);
+		} catch (error) {
+			if (error instanceof SyntaxError) response.status(200).json({ success: false, summary: "" });
+			else {
+				console.error(error.message);
+
+				response.status(500).end();
+			}
 		}
 	}
 );
@@ -164,6 +182,6 @@ app.get("*", (request, response) => {
 });
 
 app.listen(PORT, (error) => {
-	if (error) console.log(error.message);
+	if (error) console.error(error.message);
 	else console.log(`Server is running on port ${PORT}!`);
 });

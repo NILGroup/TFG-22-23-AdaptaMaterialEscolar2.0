@@ -58,6 +58,7 @@ const reducer = (state, action) => {
 
 			if (textLength * MIN_SUMMARY_PERCENTAGE < MIN_WORDS_SIZE) summaryLength = null;
 			else if (state.summaryLength === null) summaryLength = textLength;
+			else summaryLength = Math.min(state.summaryLength, textLength);
 
 			return { ...state, originalText, originalTextLength, summaryLength };
 		}
@@ -65,9 +66,9 @@ const reducer = (state, action) => {
 			return { ...state, summaryLength: action.newValue };
 		}
 		case ActionType.updateSummary: {
-			const newSummary = action.newValue;
+			const { success, summary: newSummary } = action.newValue;
 
-			if (newSummary === "-1") return { ...state, summary: initialState.summary, errors: [ERROR_SUMMARY] };
+			if (!success) return { ...state, summary: initialState.summary, errors: [ERROR_SUMMARY] };
 			else return { ...state, summary: newSummary, errors: initialState.errors };
 		}
 		case ActionType.updateIsLoading: {
@@ -161,7 +162,7 @@ export default function SummaryModal({ editor, isOpen, onClose, openModal }) {
 
 			dispatch({ type: ActionType.updateSummary, newValue: newSummary });
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		} finally {
 			dispatch({ type: ActionType.updateIsLoading, newValue: false });
 		}
