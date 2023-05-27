@@ -8,8 +8,46 @@ A continuación se explica el diseño de la evaluación (Sección \ref{sec:disen
 Con el fin de permitir a los usuarios finales evaluar nuestra aplicación, creamos un examen de prueba y una hoja de apuntes sobre las asignaturas de conocimiento del medio y matemáticas.
 Para facilitar la evaluación y el análisis de los resultados de nuestra aplicación web, creamos una encuesta\footnote{\url{https://docs.google.com/forms/d/e/1FAIpQLSdg7mGUfGBW5LoGIWulEUq-vhloL5rlkU_aIZCUzpqiJp164A/viewform?usp=sf_link}} en Google Forms dirigida a los usuarios finales. Durante la evaluación, los usuarios experimentaban directamente con las diversas funcionalidades, tratando de replicar el examen y la hoja de apuntes proporcionados.
 
+La evaluación se ha diseñado de la siguiente manera:
+\begin{itemize}
+    \item Agradecimiento por su colaboración, explicación de la herramienta y de la evaluación que van a realizar. %TODO: Terminar
+    \item Preguntas de screening y demográficas para el posterior análisis de los datos. En este apartado se realizaron las siguientes preguntas generales:
+          \begin{itemize}
+              \item ¿Cuántos años tienes?
+              \item ¿Eres docente?
+          \end{itemize}
+          En caso de que el usuario no fuera un docente también debía responder a la siguiente pregunta: ¿Eres estudiante de magisterio? En caso de que el usuario fuera un docente también debía responder a las siguientes preguntas, para conocer el nivel académico en el que imparte clase y si tiene experiencia previa con adaptaciones curriculares no significativas:
+          \begin{itemize}
+              \item ¿Podrías decirnos en qué nivel del sistema educativo eres docente?
+              \item ¿Has tenido que hacer alguna adaptación curricular no significativa?
+              \item ¿Cuántas veces?
+          \end{itemize}
+    \item Creación de un examen con preguntas de todos los tipos posibles. En este apartado se les proporcionó a los usuarios un examen creado con AdaptaMaterialEscolar 2.0 para que tratasen de replicarlo. En el Apéndice \ref{ape:examenEvaluacion} se muestra el examen que se proporcionó a los usuarios para realizar la evaluación. Tras terminar cada tarea, los usuarios debían responder a las siguientes preguntas de usabilidad:
+          \begin{itemize}
+              \item En general, estoy  satisfecho o satisfecha con la facilidad de completar esta tarea.
+              \item En general estoy  satisfecho o satisfecha con la cantidad de tiempo que me ha llevado completar esta tarea.
+              \item Estoy  satisfecho o satisfecha con la respuesta de la aplicación al realizar las acciones, sé lo que pasa en todo momento.
+          \end{itemize}
+
+          Tras finalizar el examen los usuarios debían exportar el documento de trabajo a PDF y subirlo al drive.
+
+          Para medir las respuestas de los usuarios, se ha utilizado la Escala de Likert de 5 puntos. Esta escala va del 1 al 5, donde el valor más bajo, 1, indica que el usuario está ``Muy en desacuerdo'' con la afirmación de la pregunta, y el valor más alto, 5, indica que el usuario está ``Muy de acuerdo''.
+    \item Creación de unos apuntes que hagan uso de todas las funcionalidades de adaptación de textos. En este apartado se les proporcionó a los usuarios una hoja de apuntes creada con AdaptaMaterialEscolar 2.0 para que tratasen de replicarla. En el Apéndice \ref{ape:examenEvaluacion} se muestra el examen que se proporcionó a los usuarios para realizar la evaluación. Para medir las respuestas de los usuarios se ha utilizado la misma escala que en el apartado anterior y se ha interpretado de la misma manera. También se han realizado preguntas particulares para las funcionalidades de pictotraductor y generar resumen:
+          \begin{itemize}
+              \item En caso de la funcionalidad de pictotraductor también se han realizado las siguientes preguntas: ¿La traducción resultante te parece correcta? y ¿Qué cuestiones crees que son mejorables en la traducción o que no son correctas?
+              \item En caso de la funcionalidad de generar resumen también se han realizado las siguientes preguntas: ¿El resumen resultante te parece correcto? y ¿Qué cuestiones crees que son mejorables en el resumen o que no son correctas?
+          \end{itemize}
+
+          Tras finalizar la hoja de apuntes los usuarios debían exportar el documento de trabajo a PDF y subirlo al drive.
+    % TODO: Acabar lo de abajo
+    \item Evaluación de la usabilidad con SUS. Poniendo referencia al cuestionario, indicando las preguntas de este, la escala para responderles y como se calcula la puntuación final y como se debe analizar el resultado.
+    \item Debriefing con preguntas generales indicando cual es el objetivo de estas preguntas.
+\end{itemize}
+
+% TODO: Quitar
 La evaluación ha constado de 3 partes y ha sido diseñada para que se realice en aproximadamente 45 minutos. Las partes de la evaluación han sido las siguientes: la creación de un modelo de examen, la elaboración de unos apuntes adaptados y una evaluación general de la aplicación. En las dos primeras partes, los usuarios han debido realizar distintas tareas. Para cada tarea, se ha proporcionado una explicación detallada de cómo realizarla, junto con una imagen que muestra cómo quedaría el documento una vez completada. Al finalizar cada tarea, se han planteado 3 preguntas para evaluarla. Una vez completadas las dos primeras partes de la evaluación, se ha presentado un cuestionario compuesto por 10 preguntas, con el objetivo de evaluar la facilidad de uso de la aplicación. Para finalizar, se han planteado una serie de preguntas de respuesta abierta para conocer la opinión de los usuarios sobre la herramienta. Después de crear cada parte de la evaluación (examen y apuntes), los usuarios han debido exportar el documento a PDF y subirlo a una carpeta de Google Drive.
 
+% TODO: Quitar
 En cuanto a las preguntas del cuestionario, se han estructurado de acuerdo con diferentes aspectos y han sido las siguientes:
 
 \begin{itemize}
@@ -62,6 +100,7 @@ En cuanto a las preguntas del cuestionario, se han estructurado de acuerdo con d
           \end{itemize}
 \end{itemize}
 
+%TODO: Quitar
 En las preguntas en las que se requería asignar una puntuación como respuesta, utilizamos una escala Likert de 5 puntos. Esta escala iba del 1 al 5, donde el valor más bajo, 1, indicaba que el usuario estaba ``Muy en desacuerdo'' con la afirmación de la pregunta, y el valor más alto, 5, indicaba que el usuario estaba ``Muy de acuerdo''. Todos los aspectos de la encuesta, excepto la sección de usabilidad, fueron diseñados específicamente por nosotros para obtener información que consideramos relevante para el proyecto.
 
 \section{Resultados}\label{sec:resultadosEvaluacion}
@@ -69,21 +108,21 @@ Finalmente, un total de 5 usuarios finales, todos ellos docentes de Educación I
 
 \begin{table}[H]
     \resizebox{\textwidth}{!}{
-        \begin{tabular}{cccc|c|c|}
+        \begin{tabular}{lccc|c|c|}
             \cline{2-6}
-            \multicolumn{1}{l|}{}                      & \multicolumn{1}{c|}{\textbf{Usuario 1}} & \multicolumn{1}{c|}{\textbf{Usuario 2}} & \textbf{Usuario 3}        & \textbf{Usuario 4}      & \textbf{Usuario 5}      \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 1}}  & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 2                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 2}}  & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{2}                  & 2                         & 1                       & 3                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 3}}  & \multicolumn{1}{c|}{4}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 3                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 4}}  & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{1}                  & 1                         & 1                       & 2                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 5}}  & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 2                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 6}}  & \multicolumn{1}{c|}{2}                  & \multicolumn{1}{c|}{2}                  & 2                         & 1                       & 3                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 7}}  & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 5                         & 4                       & 4                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 8}}  & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{5}                  & 1                         & 1                       & 2                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 9}}  & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{5}                  & 5                         & 5                       & 3                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Pregunta 10}} & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{1}                  & 1                         & 4                       & 2                       \\ \hline
-            \multicolumn{1}{|c|}{\textbf{Resultado}}   & \multicolumn{1}{c|}{85}                 & \multicolumn{1}{c|}{75}                 & \multicolumn{1}{c|}{87,5} & \multicolumn{1}{c|}{90} & \multicolumn{1}{c|}{55} \\ \hline
-            \multicolumn{1}{l}{}                       & \multicolumn{1}{l}{}                    & \multicolumn{1}{l}{}                    & \multicolumn{1}{l|}{}     & \textbf{Media:}         & \textbf{78,5}           \\ \cline{5-6}
+            \multicolumn{1}{l|}{}                                                                                                                                                     & \multicolumn{1}{c|}{\textbf{Usuario 1}} & \multicolumn{1}{c|}{\textbf{Usuario 2}} & \textbf{Usuario 3}        & \textbf{Usuario 4}      & \textbf{Usuario 5}      \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Creo que usaría esta aplicación frecuentemente.}}                                                                                            & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 2                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Encontré la aplicación innecesariamente compleja}}                                                                                           & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{2}                  & 2                         & 1                       & 3                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Creo que la aplicación es fácil de usar}}                                                                                                    & \multicolumn{1}{c|}{4}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 3                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Creo que necesitaría la ayuda de una persona con \\ conocimientos técnicos para usar la aplicación\end{tabular}}} & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{1}                  & 1                         & 1                       & 2                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Las funciones de la aplicación están bien integradas}}                                                                                       & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 4                         & 5                       & 2                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Creo que la aplicación es muy confusa}}                                                                                                      & \multicolumn{1}{c|}{2}                  & \multicolumn{1}{c|}{2}                  & 2                         & 1                       & 3                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Creo que la mayoría de la gente aprendería a \\ usar la aplicación muy rápidamente\end{tabular}}}                 & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{4}                  & 5                         & 4                       & 4                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Encuentro la aplicación muy complicada de utilizar}}                                                                                         & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{5}                  & 1                         & 1                       & 2                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{Me siento confiado o confiada al utilizar la aplicación}}                                                                                    & \multicolumn{1}{c|}{5}                  & \multicolumn{1}{c|}{5}                  & 5                         & 5                       & 3                       \\ \hline
+            \multicolumn{1}{|l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Necesito aprender muchas cosas antes de poder \\ utilizar la aplicación\end{tabular}}}                            & \multicolumn{1}{c|}{1}                  & \multicolumn{1}{c|}{1}                  & 1                         & 4                       & 2                       \\ \hline
+            \multicolumn{1}{|c|}{\textbf{Resultado}}                                                                                                                                  & \multicolumn{1}{c|}{85}                 & \multicolumn{1}{c|}{75}                 & \multicolumn{1}{c|}{87,5} & \multicolumn{1}{c|}{90} & \multicolumn{1}{c|}{55} \\ \hline
+                                                                                                                                                                                      & \multicolumn{1}{l}{}                    & \multicolumn{1}{l}{}                    & \multicolumn{1}{l|}{}     & \textbf{Media:}         & \textbf{78,5}           \\ \cline{5-6}
         \end{tabular}
     }
     \caption{Resultado del cuestionario SUS}
