@@ -1,11 +1,11 @@
 \chapter{AdaptaMaterialEscolar 2.0}
 \label{cap:AdaptaMaterialEscolar2.0}
-En este capítulo explicaremos la obtención de requisitos y cómo se han clasificado en la Sección \ref{cap:requisitos}. También se describirá el diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades en la Sección \ref{disenyoDeLaAplicacion}. Por último, en la Sección \ref{sec:implmentaction} se expondrá cómo se ha implementado la aplicación.
+En este capítulo explicaremos la obtención de requisitos /(Sección \ref{cap:requisitos}). El diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades (Sección \ref{disenyoDeLaAplicacion}) y, finalmente, en la Sección \ref{sec:implmentaction} se expondrá cómo se ha implementado la aplicación.
 
 \section{Requisitos}
 \label{cap:requisitos}
 
-Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \citep*{AdaptaMaterialEscolar1.0} extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis decidimos agrupar las funcionalidades que habría que incluir en la nueva versión de la aplicación según los datos sobre los que trabajan y las acciones que realizan. De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades que tienen relación con el estilo o la estructura del documento), ejercicios (funcionalidades relacionadas con la creación de actividades) y auxiliar (resto de funcionalidades que no pertenecen a formato o a ejercicios). Siguiendo esta estructura las funcionalidades quedan agrupadas de la siguiente manera:
+Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \citep*{AdaptaMaterialEscolar1.0} extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis decidimos agrupar las funcionalidades que habría que incluir en la nueva versión de la aplicación según los datos sobre los que trabajan y las acciones que realizan. De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades que tienen relación con el estilo o la estructura del documento), ejercicios (funcionalidades relacionadas con la creación de actividades) y adaptación de textos (funcionalidades relacionadas con la adaptación de textos a distintas necesidades de los alumnos). Siguiendo esta estructura las funcionalidades quedan agrupadas de la siguiente manera:
 \\
 
 \begin{itemize}
@@ -21,8 +21,7 @@ Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \cit
                 \end{figure}
           \item Añadir una leyenda de colores: Sirve para que el docente pueda poner de distintos colores distintas palabras según la categoría a la que pertenecen, por ejemplo sustantivos en rojo y adjetivos en verde.
           \item Añadir leyenda de colores para el tema de cada asignatura: Dar la posibilidad de que cada asignatura tenga un color. Al crear un documento según la asignatura se pondrá el borde del documento del color que corresponde a dicha asignatura.
-          \item Añadir cuadrícula: En vez de renglones de una única línea se podrá poner para responder a una pregunta la cuadrícula.
-          \item Añadir la opción de añadir doble pauta: En vez de renglones de una única línea se podrá poner para responder a una pregunta la doble pauta.
+          \item Añadir distintos formatos en el área de respuesta de las preguntas: En vez de renglones de una única línea se podrá poner para responder a una pregunta la cuadrícula o la doble pauta.
           \item Estandarizar formato para títulos e índices del temario: Dar la opción de crear estilos para estandarizar el documento de trabajo.
           \item Enumerar ejercicios de forma automática: Establecer un orden numérico para los ejercicios de forma automática según se van creando para que el usuario no se tenga que preocupar de ese aspecto.
         \end{itemize}
@@ -35,7 +34,7 @@ Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \cit
           \item Ejercicios de completar los espacios en blanco en tablas y esquemas: Dada una tabla o un esquema se establecen espacios en blanco para que el alumno los rellene con el contenido adecuado.
         \end{itemize}
 
-  \item Funcionalidades auxiliares:
+  \item Funcionalidades para adaptar un texto:
         \begin{itemize}
           \item Generar un resumen a partir de un texto.
           \item Exportar el documento a formato Word.
@@ -49,7 +48,7 @@ Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \cit
 
 \end{itemize}
 
-Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias de ellas ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas actualmente ya que consideramos que no tenemos la información suficiente para ello, pero las realizaremos una vez podamos reunirnos con los usuarios finales y obtener más información sobre ellas. El resto de las funcionalidades son las que implementaremos en este proyecto.
+Tras haber analizado en detalle las funcionalidades anteriores hemos encontrado que varias de ellas ya están implementadas en la versión original de AdaptaMaterialEscolar y otras hemos decidido no implementarlas actualmente ya que consideramos que no tenemos la información suficiente para ello, pero las realizaremos una vez podamos reunirnos con los usuarios finales y obtener más información sobre ellas.
 
 Las siguientes funcionalidades son las que ya están implementadas en la versión original:
 \begin{itemize}
@@ -79,8 +78,7 @@ Por lo tanto, las funcionalidades que vamos a implementar son las que se muestra
   \item Añadir ejercicios de cálculo con huecos a rellenar por el alumno para que el alumno practique el cálculo.
   \item Añadir ejercicios con espacio para dibujar con el fin de que el alumno pueda reflejar lo que piensa, interpreta y representa sobre algo.
   \item Añadir leyenda de colores para el tema de cada asignatura con el fin de que el alumno pueda distinguir entre las asignaturas.
-  \item Añadir cuadrícula para escribir los números con el fin de facilitar los ejercicios de matemáticas.
-  \item Añadir la alternativa de añadir doble pauta con el fin de que el alumno adquiera un tamaño de letra adecuado.
+  \item Añadir la posibilidad de que el docente pueda decidir qué formato es más adecuado para la respuesta: pauta simple, doble pauta o cuadrícula.
   \item Estandarizar formato para títulos e índices del temario con el fin de que el profesor pueda definir un estilo.
 
 \end{itemize}
@@ -160,7 +158,11 @@ En segundo lugar, las funcionalidades auxiliares aparecerán como botones en el 
 Por otra parte para las funcionalidades de pictograma, completar huecos, definiciones y desarrollo se empleó el diseño de AdaptaMaterialEscolar 1.0. La funcionalidad de verdadero o falso tendrá el mismo formato del ejercicio de flechas y el de generar un resumen tendrá el mismo formato del pictotraductor. En cuanto a las opciones de doble pauta, cuadrícula, estandarizar formato, espacio para dibujar, fuente escolar y convertir a formato Word se emplearán botones.
 
 \subsection{Diseño final}\label{subsec:DisenyoFinal}
-A continuación expondremos el diseño final de la aplicación, para lograrlo primero presentamos los diseños individuales creados por cada uno de los miembros del equipo a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto. Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón ``OK'' que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo. También se definió el estilo general de la aplicación como por ejemplo los botones o los campos de texto. Además, se decidió añadir a cada funcionalidad una vista previa. Por otra parte se eliminó la opción de insertar un PDF porque el usuario podría abrirlo en otra aplicación y de esta manera daría más protagonismo al editor. Por último, se planteó la opción de crear una configuración general para cada ejercicio con el fin de darle mayor comodidad y facilidad de uso al usuario.
+A continuación expondremos el diseño final de la aplicación, para crearlo primero presentamos los diseños individuales creados por cada uno de los miembros del equipo a nuestras tutoras, quienes nos brindaron una valiosa retroalimentación, identificando aspectos que podrían ser mejorados y sugiriéndonos estrategias para optimizar nuestros diseños. Gracias a su orientación, pudimos afinar y mejorar nuestras propuestas individuales, logrando un resultado más sólido y coherente. Finalmente, tras considerar las opiniones y sugerencias de todas las partes implicadas, trabajamos en conjunto para integrar nuestras propuestas individuales y crear el diseño final del proyecto. 
+
+Durante el proceso de diseño, llegamos a la conclusión de que la mejor manera de enfocar la experiencia del usuario en las distintas funcionalidades era mediante el uso de ventanas modales. De esta forma, logramos centrar la atención del usuario en la tarea que estaba realizando, aislando la funcionalidad seleccionada del resto de elementos de la interfaz y ofreciendo una experiencia más enfocada y eficiente. Cada ventana modal cuenta con un botón ``OK'' que permite al usuario confirmar la vista previa de la funcionalidad y transferir el ejercicio al documento de trabajo. 
+
+También se definió el estilo general de la aplicación como por ejemplo los botones o los campos de texto. Además, se decidió añadir a cada funcionalidad una vista previa. Por otra parte se eliminó la opción de insertar un PDF porque el usuario podría abrirlo en otra aplicación y de esta manera daría más protagonismo al editor. Por último, se planteó la opción de crear una configuración general para cada ejercicio con el fin de darle mayor comodidad y facilidad de uso al usuario.
 
 \subsubsection{Pantalla de inicio}
 Ninguno de los diseños de los integrantes se han considerado razonables porque al tener el editor y el PDF a la vez hace que el usuario tenga menos espacio. Además, se pensó que tener el PDF al lado del editor solo para copiar contenido no aportaba ninguna ventaja respecto a tener el PDF en una ventana aparte. Otro problema fue la distribución del acceso a las agrupaciones de las funcionalidades. Inicialmente se pensó en ponerlas en el lateral izquierdo de la pantalla, pero eso volvía a quitar espacio al editor. Por ello lo descartamos y pensamos en disponer el acceso a las funcionalidades encima del editor. Para el diseño de las agrupaciones de las funcionalidades nos hemos basado en el diseño de Johan Salvatierra, Figura \ref{Johan6}. El diseño final se  muestra en las figuras \ref{Forato}, \ref{ejercicios}, \ref{texto} y \ref{archivo}.
@@ -300,7 +302,8 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para
 \end{figure}
 
 \subsubsection{Configuración general}
-Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página se encuentra las opciones de configuración para cada tipo de funcionalidad mencionadas anteriormente. Al inicio cada opción de configuración tiene marcado su valor por defecto y el usuario podrá personalizarlo y los valores marcados persistirán en el tiempo. El diseño de la configuración se muestra en la Figura \ref{configu}. Esta página surgió durante el \textit{brainstorming} con las tutoras por la necesidad de tener ajustes por defecto.
+Debido a que gran parte de las funcionalidades tienen varias opciones hemos decidido crear una página de configuración para poder definir los ajustes por defecto. En esta página se encuentra las opciones de configuración para cada tipo de funcionalidad mencionadas anteriormente. Al inicio cada opción de configuración tiene marcado su valor por defecto y el usuario podrá personalizarlo y los valores marcados persistirán en el tiempo. El diseño de la configuración se muestra en la Figura \ref{configu}.
+
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=15cm]{Diseño/configuracion.PNG}
@@ -332,9 +335,7 @@ Debido a que gran parte de las funcionalidades tienen varias opciones hemos deci
 
 \section{Implementación}
 \label{sec:implmentaction}
-AdaptaMaterialEscolar es una aplicación web implementada con React y el código se encuentra en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0/tree/master/Codigo}}.
-
-En las siguientes secciones se explicará en detalle la arquitectura y cómo se han implementado cada una de las funcionalidades de la aplicación.
+AdaptaMaterialEscolar es una aplicación web implementada con React y el código se encuentra en el repositorio del grupo NIL en GitHub\footnote{\url{https://github.com/NILGroup/TFG-22-23-AdaptaMaterialEscolar2.0/tree/master/Codigo}}. En las siguientes secciones se explicará en detalle la arquitectura y cómo se han implementado cada una de las funcionalidades de la aplicación.
 \subsection{Arquitectura}
 \label{sub:Arquitectura}
 Desde el punto de vista de la arquitectura, se han mantenido partes de AdaptaMaterialEscolar 1.0 (ver Sección \ref{cap:adaptaMaterial}) y se han realizado ciertas modificaciones.
@@ -347,7 +348,7 @@ En cuanto a las modificaciones con respecto a la aplicación inicial, se decidi�
 
 En relación con Redux, lo descartamos ya que la comunicación entre los componentes es descendente, es decir, los datos y el estado son transmitidos desde un componente padre a sus componentes hijos. En este contexto, Redux no ofrecía una ventaja significativa en términos de gestión del estado de los componentes, ya que la cantidad de datos a manejar era relativamente pequeña y no se requería una gestión centralizada de los mismos.
 
-Por otra parte, se decidió cambiar el editor, ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor, como se explicará con mayor detalle en la Sección \ref{Editor}. Se trata de un editor basado en componentes reutilizables que se integra fácilmente con React. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
+Por otra parte, se decidió cambiar el editor, ya que la licencia de CKEditor 4.0 que se adquirió para AdaptaMaterialEscolar 1.0 expiró y ya no ofrecen licencias académicas para la versión más actualizada, CKEditor 5.0. Se decidió utilizar Slate como editor. En la Figura \ref{fig:arquitecturageneral} se muestra una visión general de la arquitectura general de AdaptaMaterialEscolar 2.0.
 
 Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{https://refactoring.guru/es/design-patterns/composite}} el cual permite generar un componente complejo mediante la anidación de componentes simples. Por otro lado, también hemos usado el patrón creacional \textit{Factory}\footnote{\url{https://refactoring.guru/es/design-patterns/factory-method}} que nos permite crear objetos sin tener que conocer los detalles de su creación. Lo hemos usado para la creación de los modales y de las distintas barras de herramientas que se encuentran en el editor. En la Figura \ref{fig:diagramaComponentes} se muestra el diagrama de componentes de nuestra aplicación.
 \begin{figure}[ht!]
@@ -378,18 +379,16 @@ Tanto React como Slate se apoyan en el patrón \textit{Composite}\footnote{\url{
 
 \subsection{Editor}
 \label{Editor}
-Para preparar adaptaciones curriculares no significativas en exámenes o apuntes, los profesores suelen utilizar editores de texto. Por lo tanto, es esencial que AdaptaMaterialEscolar 2.0 disponga de un editor de texto, ya que esto facilitaría la tarea de adaptar el material educativo a las necesidades individuales de los estudiantes al ser una herramienta con la que ya el profesorado se encuentra familiarizado. El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación de adaptación curricular.
+Para preparar adaptaciones curriculares no significativas en exámenes o apuntes, los profesores suelen utilizar editores de texto. Por lo tanto, es esencial que AdaptaMaterialEscolar 2.0 disponga de un editor de texto, ya que esto facilitaría la tarea de adaptar el material educativo a las necesidades individuales de los estudiantes al ser una herramienta con la que ya el profesorado se encuentra familiarizado. El editor de texto que hemos empleado es Slate (explicado en la Sección \ref{sec:Slate}). En esta sección, se describirá en detalle la estructura del editor y su integración en nuestra aplicación.
 
 \subsubsection{Estructura del editor}
-El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Estos elementos han sido ya explicados en la Sección \ref{cap:requisitos}, y cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador. De esta forma se logra una mayor escalabilidad.
-A continuación se explicará en detalle cada una de las barras de herramientas disponibles en el editor:
+El editor consta de tres partes: barra de selección de barra de herramientas, barra de herramientas seleccionada y la zona de escritura. Como se ve en la Figura \ref{Forato} la barra de selección de herramientas dispone de los siguientes elementos: Archivo, Formato, Ejercicios y Texto. Cabe destacar que hemos empleado el patrón \textit{Factory} para separar la creación del elemento del creador, de esta forma se logra una mayor escalabilidad.
+A continuación se explica en detalle cada una de las barras de herramientas disponibles en el editor:
 
 \begin{itemize}
   \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, que son:
         \begin{itemize}
           \item Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
-          \item Exportar a Word: Permite exportar a un documento en formato \textit{.docx}, y emplea el mismo sistema que el exportar a PDF.
-          \item Importar documento: A partir de un documento con extensión \textit{.docx} extrae el contenido, lo serializa mediante un plugin y se transfiere al editor.
         \end{itemize}
   \item Formato: Esta barra contiene opciones para formatear el texto que se está editando. Las opciones que incluye son:
         \begin{itemize}
@@ -418,7 +417,7 @@ Cabe mencionar que las opciones en las barras de herramientas de Ejercicios y Te
 \subsubsection{Integración del editor con la aplicación}
 Para integrar Slate en nuestra aplicación hemos empleado React-Slate, una librería React para crear editores de texto basada en Slate. Su configuración inicial solo proporciona la funcionalidad de escribir y borrar por lo que el resto de las funcionalidades deben ser añadidas incluyendo las funciones de un editor común. Esta librería proporciona el componente ``Editable'' que es como una especie de lienzo, el componente ``Slate'' que es el marco de este lienzo y ``withReact'' que es un envoltorio de Slate que permite integrar de forma fácil y eficiente la biblioteca de edición de texto con React, es decir, permite que el editor se actualice en tiempo real.
 
-Hemos creado varios tipos de nodos en nuestro proyecto, incluyendo nodos hoja, nodos inline, nodos de bloque y nodos elemento. Estos tipos de nodos se describen en la sección \ref{sec:Slate}.
+Hemos creado varios tipos de nodos en nuestro proyecto, incluyendo nodos hoja, nodos inline, nodos de bloque y nodos elemento. Estos tipos de nodos se describen en la Sección \ref{sec:Slate}.
 
 Para los nodos hoja, hemos creado varios tipos, entre ellos:
 
@@ -429,6 +428,7 @@ Para los nodos hoja, hemos creado varios tipos, entre ellos:
   \item Nodo tachado: Implementado con la etiqueta ``s'' de HTML.
   \item Nodo de texto estilado: Implementado con la etiqueta ``span'' y un estilo dinámico que permite al usuario cambiar el estilo mediante un botón. El estilo puede incluir cambios de fuente, tamaño, color de texto y color de fondo.
 \end{itemize}
+
 Para implementar estos nodos hoja, hemos utilizado la función ``addMark'' de Slate, que añade el nodo hoja al valor seleccionado.
 
 Para los nodos de bloque, hemos creado los siguientes tipos:
@@ -443,9 +443,9 @@ Es importante mencionar que para los nodos de bloque es necesario cambiar el nod
 
 Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
 \begin{itemize}
-  \item Nodo imagen: Su estructura se basa en la etiqueta ``img'' de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuve ciertos problemas debido a que Slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
+  \item Nodo imagen: Su estructura se basa en la etiqueta ``img'' de HTML, la cual recibe una URL a través de sus propiedades. Para que este nodo reaccione cuando el cursor está encima de él, hemos utilizado las funciones ``useSelected'' y ``useFocused'' de Slate. La primera devuelve ``true'' si el nodo está seleccionado, y la segunda devuelve ``true'' si el cursor está en el nodo. Por otro parte, este nodo tuvo ciertos problemas debido a que Slate considera de partida que todos los nodos son editables para esto supone que el nodo esta forma por una serie de unidades. Esto produce una serie de problemas a la hora de borrar y seleccionar porque no encuentra la forma de tratarlo. Para esto lo que hicimos es que se comportaran en si como una unidad esto se logra mediante un plugin denominada ``withEmbeds'' este hace que cuando se detecta este nodo diga que esta vacio por
         propiedad explicita de la unidad.
-  \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL este espera el icono que se quiere emplear.
+  \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL sino un icono.
 \end{itemize}
 
 Los nodos elemento:
@@ -508,7 +508,7 @@ Para implementar esta funcionalidad se ha empleado un área de texto en la cual 
 
 \subsubsection{Ejercicio de definiciones}
 \label{sec:ejercicioDefiniciones}
-La funcionalidad de definiciones posibilita la creación de ejercicios en los cuales el estudiante tendrá que definir los conceptos específicos indicados en las pautas proporcionadas.
+La funcionalidad de definiciones posibilita la creación de ejercicios en los cuales el estudiante tendrá que definir una serie de conceptos en el hueco facilitado para ello.
 
 Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadDefinicion}. Para crear este tipo de ejercicio se debe rellenar el campo de conceptos a definir, que contiene los conceptos que se quieren definir. Se deben introducir en la entrada de texto que se posiciona debajo del título Conceptos, y se pueden introducir al pulsar  la tecla \textit{ENTER} o presionando el botón con el icono del ``+''. En caso de querer borrar el concepto añadido se deberá presionar el botón con el icono de la papelera y si se quiere modificar se deberá presionar al botón con el icono del lápiz.
 Una vez introducidos los conceptos a definir se habilitará el botón \textit{Ok}. Los otros campos son opcionales debido a tener valores por defecto. Estos son:
@@ -529,7 +529,7 @@ Para lograr esto, se ha utilizado el patrón \textit{Factory}. De esta manera se
 \label{sec:impdesarrollo}
 Esta funcionalidad permite crear un ejercicio de desarrollo en el que hay un enunciado y un espacio en el que el estudiante puede desarrollar su respuesta. Dependiendo del tipo de respuesta esperada, se pueden insertar diferentes tipos de espacios para contestar, por ejemplo, pauta simple, doble pauta, espacio para dibujar, etc. En la Figura \ref{fig:funcionalidadDesarrollo} se muestra el modal en el que se puede crear el ejercicio.
 
-Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. En la funcionalidad anterior se explica la abstracción de los botones utilizados para las pautas.
+Para implementar esta funcionalidad se han usado varios elementos como un campo de texto para escribir el enunciado, un campo para indicar el número de líneas que se quiere insertar y un selector para elegir el tipo de pauta que se quiere utilizar. Por defecto, los valores que tiene son una fila de doble pauta. El selector de tipo de pauta consta de 5 botones con diferentes opciones, como cuadrícula, pauta simple, doble pauta, recuadro y espacio en blanco. Tal y como se ha explicado en la sección anterior para esta botonera se ha empleado la abstracción de los botones utilizados para las pautas.
 
 \begin{figure}[ht!]
   \centering
@@ -690,20 +690,7 @@ La vista previa se genera automáticamente y muestra el título de la leyenda de
 
 \begin{figure}[ht!]
   \centering
-  \begin{subfigure}{\textwidth}
-    \centering
-    \includegraphics[width=0.7\textwidth]{Funcionalidades/LeyendaColor.PNG}
-    \caption{Ventana modal de la funcionalidad de leyenda de colores}
-    \label{fig:leyendacolor01}
-  \end{subfigure}
-
-  \begin{subfigure}{\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Funcionalidades/LeyendaColor2.PNG}
-    \caption{Ejemplo, en el documento de trabajo, de la funcionalidad de leyenda de colores}
-    \label{fig:leyendacolor02}
-  \end{subfigure}
-
+  \includegraphics[width=0.7\textwidth]{Funcionalidades/LeyendaColor.PNG}
   \caption{Funcionalidad de leyenda de colores}
   \label{fig:leyendacolor}
 \end{figure}
@@ -749,7 +736,7 @@ Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el text
 \label{sec:ejercicioRelacionarConceptos}
 Con esta funcionalidad es posible crear un ejercicio de relación de conceptos en el cual el estudiante deberá establecer la correspondencia entre aquellos que guarden alguna relación entre sí.
 
-Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadRelacionarConceptos}. Para crear este tipo de ejercicio se debe rellenar el campo de numero de filas y el de numero de columnas (por defecto estos dos campos valen cero) que definirán en tiempo real una matriz donde se deben introducir los conceptos que se quieren disponer en el ejercicio. Cabe mencionar que la matriz sólo aparecerá cuando tanto el valor de numero de filas como el de numero de columnas sea mayor que dos porque no tiene sentido un ejercicio de relacionar conceptos por debajo de estas dimensionar. En la matriz el usuario no tiene la obligación de rellenar todos los campos de la matriz solo los que considere necesarios mientras se van introduciendo conceptos estos irán apareciendo en la vista previa, pero es necesario que haya mínimo dos conceptos en cada columna para activar el botón \textit{Ok} y el botón \textit{Reordenar}. El algoritmo de reordenación es el mismo que el de la función de Verdadero o falso pero con la diferencia de que como hay mas de una lista a reordenar usamos un condición donde solo el 70\% de las veces se reordena esto es debido a que si tuviéramos una lista \textit{X} con los elementes \textit{x1} y \textit {x2} y la lista \textit {Y} formada por \textit {y1} e \textit{y2} si reordenáramos ambas a la vez tendríamos el resultado \textit{x2} y \textit{x1} con \textit{y2} e\textit{y1} pero nunca tendríamos los casos \textit{x1}  y \textit{x2} con \textit{y2} e \textit{y1}.
+Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadRelacionarConceptos}. Para crear este tipo de ejercicio se debe rellenar el campo de numero de filas y el de numero de columnas (por defecto estos dos campos valen cero) que definirán en tiempo real una matriz donde se deben introducir los conceptos que se quieren disponer en el ejercicio. Cabe mencionar que la matriz sólo aparecerá cuando tanto el valor de numero de filas como el de numero de columnas sea mayor que dos porque no tiene sentido un ejercicio de relacionar conceptos por debajo de estas dimensionar. En la matriz el usuario no tiene la obligación de rellenar todos los campos de la matriz solo los que considere necesarios mientras se van introduciendo conceptos estos irán apareciendo en la vista previa, pero es necesario que haya mínimo dos conceptos en cada columna para activar el botón \textit{Ok} y el botón \textit{Reordenar}. El algoritmo de reordenación es el mismo que el de la función de Verdadero o falso pero con la diferencia de que como hay mas de una lista a reordenar usamos una condición donde solo el 70\% de las veces se reordena. Esto es debido a que si tuviéramos una lista \textit{X} con los elementes \textit{x1} y \textit {x2} y la lista \textit {Y} formada por \textit {y1} e \textit{y2} si reordenáramos ambas a la vez tendríamos el resultado \textit{x2} y \textit{x1} con \textit{y2} e\textit{y1} pero nunca tendríamos los casos \textit{x1}  y \textit{x2} con \textit{y2} e \textit{y1}.
 
 \begin{figure}[ht!]
   \centering
