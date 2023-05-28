@@ -2,10 +2,10 @@
 \label{cap:conclusions}
 
 
-In Section \ref{sec:conclusiones}, the conclusions reached after completing the project are explained, and in Section \ref{sec:TrabajoFuturo}, possible improvements that could be implemented in the application are described.
+In Section \ref{sec:conclusions}, the conclusions reached after completing the project are explained, and in Section \ref{sec:FutureWork}, possible improvements that could be implemented in the application are described.
 
 \section{Conclusions}
-\label{sec:conclusiones}
+\label{sec:conclusions}
 The main objective of this Degree Final Project (TFG) was to develop a web application that facilitates non-significant curricular adaptation for teachers. To achieve this general objective, we set several specific objectives. Next we will see if we have achieved each of these specific objectives:
 
 \begin{itemize}
@@ -37,3 +37,42 @@ In addition, at the beginning of the Degree Final Project (TFG), we set ourselve
 \end{itemize}
 
 
+\section{Future Work}
+\label{sec:FutureWork}
+After developing the project and accomplishing most of the objectives set initially, it is inevitable that some tasks remain pending for possible future work.
+
+From a requirements perspective, in Section \ref{cap:requisitos}, we already discussed the functionalities that were discarded due to lack of information.
+
+\begin{itemize}
+    \item Add image search by keyword.
+    \item Substitute a word with an image.
+    \item Create an image cropping tool for the original text.
+    \item Create tables to organize the syllabus and/or activities, selecting content.
+    \item Create diagrams.
+    \item Exercises to fill in the blanks in tables and diagrams.
+\end{itemize}
+
+On the other hand, there have been certain requirements that have not been carried out due to the priority established among them. Specifically, these requirements are:
+
+\begin{itemize}
+    \item Import to Word: We have not implemented this because it would require changing the behavior of the elements handled by Slate. We considered it too complex, and there were other functionalities with equal or higher priority.
+    \item Export to Word: The implementation of this functionality has not been carried out due to its similarity to the import to Word function. Just like in the case of importing to Word, we considered that this implementation would be too complex, and there were other functionalities with equal or higher priority.
+    \item Help section: Although we consider it important, it has not been implemented as we prioritized the quality of the editor and the adaptations, as well as the quantity of adaptations.
+    \item General configuration: To implement the general configuration, it would be necessary to use browser cookies to store the information, significantly increasing the complexity of the application. For each adaptation, information about all its possible configuration options would need to be stored. Additionally, it would involve a significant amount of data management since each adaptation can have multiple configuration options, requiring the storage and management of a large amount of related data. Therefore, we believed it would take a long time to make it work correctly, and we preferred to implement more adaptations and improve the functionality of both the editor and the adaptations.
+\end{itemize}
+
+The evaluation of the application has generated improvement ideas and new requirements:
+
+\begin{itemize}
+    \item Ability to rearrange exercises: The evaluators missed being able to change the order of the exercises.
+    \item Allow undo and redo actions for all operations to make the user feel in control of the application and explore it without fear of making mistakes. This new functionality would also enable the user to easily recover from errors.
+    \item Add help to all the features.
+    \item Allow the selection of specific words to appear in the summary.
+    \item Improve wording regarding punctuation and connectors to provide cohesion in the text.
+    \item When translating text into pictograms, articles should be omitted as they are complex to represent through drawings.
+    \item Improve exercise editing in the working document.
+    \item Allow the generation of non-numbered exercises.
+    \item Enhance advanced text editing features.
+    \item Automatically assign colors to text based on selected categories in the color legend.
+    \item Improve the functionality of math exercises because evaluators found it confusing.
+\end{itemize}
