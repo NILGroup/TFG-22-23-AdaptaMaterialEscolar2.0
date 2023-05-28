@@ -56,11 +56,16 @@ Slate\footnote{\url{https://docs.slatejs.org/}} es un framework de JavaScript de
 
 A diferencia de las bibliotecas de edición de texto convencionales, Slate utiliza una estructura de árbol de datos jerárquica para representar el contenido editable. En lugar de usar la estructura lineal tradicional, la estructura de árbol permite una mayor flexibilidad y personalización en la creación y edición de contenido.
 
-El árbol de Slate está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y más. Para entender mejor su estructura se explicara está en base a la Figura \ref{fig:arbolSlate}. En esta se ve que el nodo principal del árbol es el nodo documento, este es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo elemento o un nodo hoja.
+El árbol de Slate está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y más. Para entender mejor su estructura se explicara está en base a la Figura \ref{fig:arbolSlate}. En esta se hayan 5 nodos. El primero es todo el objeto este es el nodo documento, es decir lo que contendría la variable ``editor'', este es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo elemento o un nodo hoja.  
+El nodo con ``type : paragraph'' (Figura \ref{fig:arbolSlate}) es un nodo elemento de tipo bloque que da Slate por defecto. Los nodos elemento, son la capa intermedia de un documento de texto enriquecido, se puede definir nodos elemento personalizados para cualquier tipo de contenido que se desee con el estilo que se desee gracias a que este nodo permite recibir un parámetro denominado ``props''. Dentro de los nodos elemento podemos distinguir dos tipos principales de nodos elementos:
 
-Los nodos elemento son la capa intermedia de un documento de texto enriquecido, se puede definir elementos personalizados para cualquier tipo de contenido que se desee con el estilo que se desee gracias a que este nodo permite recibir un parámetro denominado ``props''. Dentro de los nodos elemento podemos distinguir dos tipos principales de nodos elementos. En primer lugar, nodo bloque estos son la opción por defecto cuando se crea un nodo elemento estos se caracterizan porque se encuentran siempre dispuestos de forma vertical ocupando todo el espacio horizontal existente. En segundo lugar, nodo en línea estos se obtienen mediante la modificación de su comportamiento indicando al núcleo de Slate que son de tipo ``Inline'' se caracterizan por poder disponerse de forma horizontal a la vez que vertical. En la figura \ref{fig:arbolSlate}  el nodo con ``type : paragraph'' es un ejemplo de este tipo de nodo que proporciona Slate. Cabe mencionar que dentro de los tipos de nodos elemento se puede diferenciar los nodos elementos editables y no editables estos se consiguen al declarase ante el núcleo de Slate como vacíos, para los no editables, porque de esta forma se considera que no hay nada en el nodo que se pueda modificar y no vacío en caso de que sean editables siendo este es el caso por defecto.
+\begin{itemize}
+  \item Nodo bloque: Son la opción por defecto cuando se crea un nodo elemento estos se caracterizan porque se encuentran siempre dispuestos de forma vertical ocupando todo el espacio horizontal existente.
+  \item Nodo en línea: Se obtienen mediante la modificación de su comportamiento indicando al núcleo de Slate que son de tipo ``Inline'' se caracterizan por poder disponerse de forma horizontal a la vez que vertical.  El nodo con ``type : link'' (Figura \ref{fig:arbolSlate}) es de este tipo y no es propio de Slate, es decir, es creado por el desarrollador. Además, el valor "url: ..." se recibe a través del parámetro mencionado anteriormente denominado "props".
+\end{itemize}
 
-Por último, los nodos hoja o nodo texto son los nodos que se encuentran en el nivel más bajo del árbol y son aquellos que contienen el texto, estos no pueden tener hijos pueden contener marcas que permite enriquecer este texto, permitiendo opciones como texto en negrita, cursiva…
+Cabe mencionar que dentro de los tipos de nodos elemento se puede diferenciar los nodos elementos editables y no editables estos se consiguen al declarase ante el núcleo de Slate como vacíos, para los no editables, porque de esta forma se considera que no hay nada en el nodo que se pueda modificar y no vacío en caso de que sean editables siendo este es el caso por defecto. 
+Por último, los nodos ``text : Esto es un texto'' y ``text : hyperlink'' son nodos hoja o nodos texto, son los nodos que se encuentran en el nivel más bajo del árbol y son aquellos que contienen el texto, estos no pueden tener hijos pueden contener marcas que permite enriquecer este texto, permitiendo opciones como texto en negrita, cursiva…
 
 \begin{figure}[ht!]
   \centering
@@ -69,7 +74,7 @@ Por último, los nodos hoja o nodo texto son los nodos que se encuentran en el n
   \label{fig:arbolSlate}
 \end{figure}
 
-Las principales características de Slate incluyen:
+En cuanto a las principales características de Slate, se pueden destacar::
 
 \begin{itemize}
   \item \textbf{Personalización}: La biblioteca permite a los desarrolladores personalizar el editor de texto según sus necesidades, lo que significa que pueden definir sus propios tipos de nodos y componentes de renderizado.

@@ -388,21 +388,30 @@ A continuación se explica en detalle cada una de las barras de herramientas dis
 \begin{itemize}
   \item Archivo: Esta barra contiene las opciones relacionadas con el manejo de archivos, que son:
         \begin{itemize}
-          \item Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esto es posible gracias a un plugin que serializa el contenido permitiendo que sea transferible a otro formato.
+          \item Exportar a PDF: Permite exportar a un documento en formato \textit{.pdf}. Esta funcionalidad se logra aprovechando la función de impresión proporcionada por el navegador y adaptándola con Tailwind CSS.
+          \item Nuevo archivo: Permite limpiar el documento editable. Para lograrlo se borran todos los nodos existentes.
         \end{itemize}
   \item Formato: Esta barra contiene opciones para formatear el texto que se está editando. Las opciones que incluye son:
         \begin{itemize}
           \item Negrita: Permite cambiar el formato de texto a negrita.
+          \item Cursiva: Permite aplicar el formato de cursiva al texto.
+          \item Subrayado: Permite aplicar el formato de subrayadoy al texto.
+          \item Tachado: Permite tachar el texto seleccionado dibujando una línea encima.
+          \item Tamaño de fuente: Permite cambiar el tamaño del texto seleccionado.
+          \item Fuente de letra: Permite seleccionar una nueva fuente para el texto seleccionado.
+          \item Color de fuente: Permite cambiar el color del  texto seleccionado.
+          \item Sombreado: Permite cambiar el color que esta detras del texto.
           \item Tabla: Permite crear una tabla del número de filas y columnas elegidas por el usuario con un máximo de 6 filas por 6 columnas.
         \end{itemize}
   \item Ejercicios: Esta barra dispone de varias opciones para crear ejercicios:
         \begin{itemize}
-          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Una vez creado el ejercicio, desde el padre de la estructura interna del editor, este se introduce en un nodo ``ejercicio'' que tiene de hijo un nodo párrafo.
-          \item Sopa de letras: Si se selecciona esta opción, se abrirá un modal que al usuario permitirá introducir la información requerida para crear un ejercicio de sopa de letras. La sopa de letras que se crea se introduce en un nodo ``ejercicio'' que tiene dos hijos: el primero es un nodo de tipo párrafo y el segundo es un nodo de tipo tabla.
-          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que al usuario permitirá introducir la información necesaria para crear un ejercicio de definiciones. Para introducir el ejercicio en el documento base del editor, se define un nodo ``ejercicio'' que encapsula el nodo párrafo para el enunciado, otro nodo párrafo por cada concepto y un nodo denominado ``staff'' para los tipos de pauta.
-          \item Verdadero/Falso: Esta opción activa un modal donde puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como conceptos introduzca el usuario.
-          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``ejercicio'' con hijos un nodo párrafo con el enunciado y tantos nodos ``Staff'' como el usuario haya indicado.
+          \item Completar huecos: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de completar huecos. Una vez creado el ejercicio, desde el padre de la estructura interna del editor, este se introduce en un nodo ``ejercicio'' que tiene de hijos un nodo párrafo que contiene el enunciado y otro que contiene las frases con huecos.
+          \item Sopa de letras: Si se selecciona esta opción, se abrirá un modal que permitirá al usuario introducir la información requerida para crear un ejercicio de sopa de letras. La sopa de letras que se crea se introduce en un nodo ``ejercicio'' que tiene dos hijos: el primero es un nodo de tipo párrafo para el enunciado y el segundo es un nodo de tipo tabla para la sopa de letras.
+          \item Definiciones: Al hacer clic en esta opción, aparecerá un modal que permitirá al usuario introducir la información necesaria para crear un ejercicio de definiciones. Para introducir el ejercicio en el documento base del editor, se define un nodo ``ejercicio'' para el enunciado, otro nodo párrafo por cada concepto a definir y un nodo denominado ``staff'' para los tipos de pauta.
+          \item Verdadero/Falso: Esta opción activa un modal donde se puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como frases de V/F introduzca el usuario.
+          \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``ejercicio'', que tiene de hijos el primero un nodo de tipo párrafo que representa el enunciado introducido y tantos nodos de tipo ``Staff'' como el usuario haya indicado.
           \item Fórmula Matemática: Esta función, desde el punto de vista del editor, es igual a la de completar huecos.
+          \item Relacionar conceptos: Esta opción despliega un modal donde se puede insertar la información necesaria para definir el ejercicio de relacionar conceptos. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contiene un nodo parra como enunciado y un nodo de tipo ``relateConcepts''.  
         \end{itemize}
   \item Texto: Esta barra de herramientas contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
         \begin{itemize}
@@ -431,15 +440,7 @@ Para los nodos hoja, hemos creado varios tipos, entre ellos:
 
 Para implementar estos nodos hoja, hemos utilizado la función ``addMark'' de Slate, que añade el nodo hoja al valor seleccionado.
 
-Para los nodos de bloque, hemos creado los siguientes tipos:
-
-\begin{itemize}
-  \item Nodo lista ordenada: Implementado con la etiqueta ``ol'' de HTML.
-  \item Nodo lista desordenada: Implementado con la etiqueta ``ul'' de HTML.
-  \item Nodo elemento de lista: Implementado con la etiqueta ``li'' de HTML.
-\end{itemize}
-
-Es importante mencionar que para los nodos de bloque es necesario cambiar el nodo actual, que es un párrafo, por el nodo de bloque elegido. Esto se logra utilizando la función ``setNodes'' de Slate. Además, para los nodos lista ordenada y lista desordenada, hemos utilizado la función ``wrapNodes'', que permite envolver los nodos elegidos. Esto se debe a que las etiquetas ``ol'' y ``ul'' tienen una estructura de envoltura y deben envolver los nodos elemento de lista.
+Los nodos elemento, como se ha explicado en la Sección \ref{sec:Slate} pueden ser de dos tipo nodos inline y nodos bloque. 
 
 Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
 \begin{itemize}
@@ -448,14 +449,23 @@ Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el pá
   \item Nodo icono: El nodo icono es igual al de imagen la única diferencia se encuentra en su estructura siendo que este no espera una URL sino un icono.
 \end{itemize}
 
-Los nodos elemento:
+En cuanto a los nodos de bloque, hemos creado los siguientes tipos:
+
 \begin{itemize}
-  \item Nodo Staff: Es una etiqueta ``div'' que recibe mediante sus propiedades que pauta debe usar: una pauta simple, doble pauta, cuadrícula y cuadro de dibujo. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
+  \item Nodo lista ordenada: Implementado con la etiqueta ``ol'' de HTML.
+  \item Nodo lista desordenada: Implementado con la etiqueta ``ul'' de HTML.
+  \item Nodo elemento de lista: Implementado con la etiqueta ``li'' de HTML.
+  \item Nodo Staff: Es una etiqueta ``img'' que recibe mediante sus propiedades que pauta debe usar: una pauta simple, doble pauta, cuadrícula y cuadro de dibujo. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
+  \item Nodo relateConcepts: Es una etique ``div'' que recibe mediante sus propiedades los conceptos y el orden en que se debe mostrar un ejericio de relacionar conceptos. De manera similar al nodo ``imagen'', reescribimos la función ``isEmpty''.
   \item Nodo Tabla: Estructuralmente es igual a una tabla en HTML, pero el estilo varía en función del componente que lo llama. Por ejemplo, si se crea a partir de la sopa de letras, sus celdas ocuparán justo el espacio necesario para una letra y estarán centradas. Para definir su comportamiento, redefinimos ``deleteBackward'', lo que nos permite evitar que se borren las celdas de la tabla cuando borramos hacia atrás y evita que al borrar dentro de una celda se borre toda la celda. También redefinimos ``deleteForward'' de manera similar a ``deleteBackward'' pero hacia delante, y ``insertBreak'' para evitar que, una vez se sobrepase el párrafo, la tabla salte al siguiente.
   \item Nodo ejercicio: Este nodo es un nodo genérico para todos los ejercicios, este tiene como objetivo proveer de la posibilidad de edición mediante el modal y eliminación. Dentro de este nodo se anidará los nodos que hagan falta para crear el ejercicio. Este nodo tiene como objetivo actuar como una caja por esta razón se creó un plugin que evita que se pueda eliminar de forma manual, siendo la única forma mediante el botón provisto (el botón situado en la esquina superior izquierda que tiene un icono de papelera). Su estructura está basada
         en las listas por lo que cada vez que se inserte uno este se enumerara.
   \item Nodo editable: Es igual al nodo ejercicio la única diferencia es que este no se auto enumera.
 \end{itemize}
+
+Es importante mencionar que para los nodos de bloque es necesario cambiar el nodo actual, que es un párrafo, por el nodo de bloque elegido. Esto se logra utilizando la función ``setNodes'' de Slate. Además, para los nodos lista ordenada y lista desordenada, hemos utilizado la función ``wrapNodes'', que permite envolver los nodos elegidos. Esto se debe a que las etiquetas ``ol'' y ``ul'' tienen una estructura de envoltura y deben envolver los nodos elemento de lista.
+
+
 
 \subsection{Funcionalidades}
 A continuación se explican los detalles de implementación de las distintas funcionalidades que hemos rediseñado o creado de cero.
@@ -764,7 +774,4 @@ Una vez introducidos un enunciado y un tamaño válidos, se habilitará el botó
 
 
 \subsection{Del modal al editor}
-En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertNode} de Slate para agregar este nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento.
-
-Además de esto, hemos utilizado plugins (que como ya hemos explicado son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas) definidos para mejorar aún más la integración del contenido del modal en el documento. Estos plugins nos permiten personalizar la forma en que se maneja y se presenta el contenido, lo que nos da una mayor flexibilidad.
-
+En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertarEjercicioEditable} que hemos desarrollado para diferenciar entre la creación y la edición de ese nodo. Si el nodo se está creando, esta función llama a la función \textit{insertNode} de Slate para agregar ese nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento. Sin embargo, si deseamos editar el nodo, la función borra el nodo que invocó al modal con la función \textit{removeNodes} y luego inserta un nuevo nodo, con la función \textit{insertNode}, generado con los nuevos datos introducidos por el usuario en la posición del nodo eliminado. 
