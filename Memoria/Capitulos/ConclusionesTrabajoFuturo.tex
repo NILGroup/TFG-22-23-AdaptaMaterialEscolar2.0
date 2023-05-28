@@ -28,6 +28,7 @@ En este Trabajo de Fin de Grado (TFG), se planteó como objetivo principal el de
         \item \textbf{Administración de Sistemas y Redes}: Se centra en la administración de sistemas operativos, incluyendo la instalación, configuración y mantenimiento de servidores y clientes. También se enseña la administración de redes, incluyendo la configuración de routers, switches y firewalls, la gestión de direcciones IP y el monitoreo del tráfico de la red. En concreto hemos aplicado los conocimientos adquiridos para montar el servidor en el que se ha alojado la aplicación.
     \end{itemize}
     \item Adquirir nuevos conocimientos.
+    
     Durante el desarrollo de la aplicación AdaptaMaterialEscolar 2.0, hemos adquirido nuevos conocimientos sobre el uso de tecnologías, como React, ampliamente utilizada en el mundo laboral. Además, hemos aprendido y aplicado eficazmente Tailwind CSS y Slate, herramientas que han contribuido a una experiencia de desarrollo más eficiente y flexible. También hemos trabajado con los usuarios finales, identificando y satisfaciendo sus necesidades.
  \end{itemize}
 
@@ -38,7 +39,8 @@ En este Trabajo de Fin de Grado (TFG), se planteó como objetivo principal el de
 \label{sec:TrabajoFuturo}
 Después de desarrollar el proyecto y cumplir con la mayoría de los objetivos fijados al principio del trabajo, es inevitable que queden algunas tareas pendientes para posible trabajo futuro.
 
-Desde el punto de vista de los requisitos, ya en la Sección \ref{cap:requisitos} se comentó las funcionalidades descartadas por falta de información. En concreto estos requisitos son:
+Desde el punto de vista de los requisitos, ya en la Sección \ref{cap:requisitos} se comentaron las funcionalidades descartadas por falta de información.
+
 \begin{itemize}
     \item Añadir imágenes buscando una palabra.
     \item Sustituir una palabra por una imagen.
@@ -48,18 +50,26 @@ Desde el punto de vista de los requisitos, ya en la Sección \ref{cap:requisitos
     \item Ejercicios de completar los espacios en blanco en tablas y esquemas.
 \end{itemize}
 
-Desde la perspectiva de los requisitos, se han dado requisitos que se han postergado por la prioridad establecida de los requisitos. Específicamente, estos requisitos son:
+Por otro lado, ha habido ciertos requisitos que no se han llevado a cabo por la prioridad establecida entre ellos. Específicamente, estos requisitos son:
 \begin{itemize}
-    \item Importar a Word: no lo hemos realizado porque requeriría cambiar el comportamiento de los elementos tratados por Slate. Condideramos que era muy complejo y había otras funcionalidades con igual o mayor prioridad.
-    \item Exportar a Word: No se ha realizado porque su implementación es similar a importar a Word.
+    \item Importar a Word: No lo hemos realizado porque requeriría cambiar el comportamiento de los elementos tratados por Slate. Condideramos que era muy complejo y había otras funcionalidades con igual o mayor prioridad.
+    \item Exportar a Word: La implementación de esta funcionalidad no se ha llevado a cabo debido a su similitud con la función de importar a Word. Al igual que en el caso de importar a Word, consideramos que esta implementación sería demasiado compleja, y además había otras funcionalidades con igual o mayor prioridad. 
     \item Sección de ayuda: Aunque consideramos que es importante, no se ha realizado ya que hemos priorizado la calidad del editor y de las adaptaciones, además de la cantidad de adaptaciones.
-    \item Configuración general: Para implementar la configuración se necesitaría utilizar cookies de navegador para guardar la información aumentando considerablemente la complejidad de la aplicación. Para cada adaptación habría que guardar información sobre todas sus posibles opciones de configuración. Consideramos que nos iba a llevar mucho tiempo conseguir que funcionara correctamente y preferimos implementar más adaptaciones y mejorar el funcionamiento tanto del editor como de las adaptaciones.
+    \item Configuración general: Para implementar la configuración general se necesitaría utilizar cookies de navegador para guardar la información aumentando considerablemente la complejidad de la aplicación. Para cada adaptación habría que guardar información sobre todas sus posibles opciones de configuración. Además, que implicaría un gran manejo de la información, dado que cada adaptación puede tener múltiples opciones de configuración, se requeriría almacenar y gestionar una gran cantidad de datos relacionados. Por lo que consideramos que nos iba a llevar mucho tiempo conseguir que funcionara correctamente y preferimos implementar más adaptaciones y mejorar el funcionamiento tanto del editor como de las adaptaciones.
 \end{itemize}
 
-La evaluación de la aplicación ha generado nuevas ideas y requisitos para realizar mejoras, basadas en las peticiones y propuestas recibidas por los docentes evaluadores. Estas son algunas de las sugerencias:
+La evaluación de la aplicación ha generado ideas de mejora y nuevos requisitos:
 
 \begin{itemize}
-    \item Capacidad de reorganizar los ejercicios en el documento de trabajo: Se requiere la opción de mover los ejercicios dentro del documento de manera intuitiva y sencilla.
-    \item Funcionalidad de deshacer y rehacer en el documento de trabajo: Es necesario implementar una función que permita al usuario deshacer y rehacer acciones previas, proporcionando una forma de restaurar cambios no deseados.
-    \item Añadir botón de ``ayuda'' para realizar las adaptaciones: Se sugiere añadir un botón de ayuda en todas las ventanas modales de las adaptaciones, el cual proporcionará información sobre el uso de la funcionalidad en cuestión.
+    \item Posibilidad de reorganizar los ejercicios. Los evaluadores echaron de menos poder cambiar el orden de los ejercicios.
+    \item Permitir deshacer y rehacer cualquier acción para de este modo hacer sentir al usuario en control de la aplicación y que pueda explorarla sin miedo a equivocarse. Esta nueva funcionalidad además permitiría al usuario recuperarse fácilmente de los errores.
+    \item Añadir ayuda en todas las funcionalidades de la aplicación.
+    \item Permitir la selección de palabras específicas para que aparezcan obligatoriamente en el resumen.
+    \item Mejorar la redacción en cuanto a signos de puntuación y conectores para dar cohesión al texto.
+    \item Al traducir un texto a pictogramas se debería omitir los artículos ya que son complejos de entender mediante dibujos.
+    \item Mejorar la edición de los ejercicios en el documento de trabajo.
+    \item Posibilidad de generar ejercicios no numerados.
+    \item Mejorar las funcionales de edición de texto avanzado.
+    \item Permitir asignar colores automáticamente al texto según las categorías seleccionadas en la leyenda de colores.
+    \item Mejorar la funcionalidad de ejercicios de matemáticas ya que los evaluadores la consideran confusa.
 \end{itemize}
