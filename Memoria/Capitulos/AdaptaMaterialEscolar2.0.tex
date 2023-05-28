@@ -4,9 +4,7 @@ En este capítulo explicaremos la obtención de requisitos /(Sección \ref{cap:r
 
 \section{Requisitos}
 \label{cap:requisitos}
-
 Lo primero que hicimos fue analizar la memoria de AdaptaMaterialEscolar 1.0 \citep*{AdaptaMaterialEscolar1.0} extrayendo las funcionalidades que faltaban por implementar y los resultados de la evaluación que se realizó. Tras este análisis decidimos agrupar las funcionalidades que habría que incluir en la nueva versión de la aplicación según los datos sobre los que trabajan y las acciones que realizan. De esta forma han surgido las siguientes agrupaciones: formato (funcionalidades que tienen relación con el estilo o la estructura del documento), ejercicios (funcionalidades relacionadas con la creación de actividades) y adaptación de textos (funcionalidades relacionadas con la adaptación de textos a distintas necesidades de los alumnos). Siguiendo esta estructura las funcionalidades quedan agrupadas de la siguiente manera:
-\\
 
 \begin{itemize}
   \item Funcionalidades relacionadas con el formato:
@@ -411,7 +409,7 @@ A continuación se explica en detalle cada una de las barras de herramientas dis
           \item Verdadero/Falso: Esta opción activa un modal donde se puede insertar la información necesaria para definir el ejercicio de verdadero o falso. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contine un nodo párrafo para el enunciado y tantos nodos párrafo como frases de V/F introduzca el usuario.
           \item Desarrollo: Esta opción despliega un modal que permite introducir la información necesaria para crear un ejercicio de desarrollo, y emplea el nodo ``ejercicio'', que tiene de hijos el primero un nodo de tipo párrafo que representa el enunciado introducido y tantos nodos de tipo ``Staff'' como el usuario haya indicado.
           \item Fórmula Matemática: Esta función, desde el punto de vista del editor, es igual a la de completar huecos.
-          \item Relacionar conceptos: Esta opción despliega un modal donde se puede insertar la información necesaria para definir el ejercicio de relacionar conceptos. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contiene un nodo parra como enunciado y un nodo de tipo ``relateConcepts''.  
+          \item Relacionar conceptos: Esta opción despliega un modal donde se puede insertar la información necesaria para definir el ejercicio de relacionar conceptos. Para guardar este ejercicio en el editor se define un nodo ``ejercicio'' que contiene un nodo parra como enunciado y un nodo de tipo ``relateConcepts''.
         \end{itemize}
   \item Texto: Esta barra de herramientas contiene opciones para manipular el texto. Todas, al igual que la anterior barra de herramientas, despliegan un modal para obtener la información necesaria para crear el nodo:
         \begin{itemize}
@@ -440,7 +438,7 @@ Para los nodos hoja, hemos creado varios tipos, entre ellos:
 
 Para implementar estos nodos hoja, hemos utilizado la función ``addMark'' de Slate, que añade el nodo hoja al valor seleccionado.
 
-Los nodos elemento, como se ha explicado en la Sección \ref{sec:Slate} pueden ser de dos tipo nodos inline y nodos bloque. 
+Los nodos elemento, como se ha explicado en la Sección \ref{sec:Slate} pueden ser de dos tipo nodos inline y nodos bloque.
 
 Los nodos inline son similares a los nodos de bloque, pero no ocupan todo el párrafo, lo que permite agregar texto o cualquier otra cosa después de ellos. Por defecto, Slate trata los nuevos nodos como nodos de bloque, por lo que es necesario reescribir este comportamiento. Lo hacemos mediante plugins, que son funciones que reescriben el comportamiento del editor y devuelven el editor con las funciones redefinidas. El plugin que permite definir los nodos inline se llama ``withInline''. Esta función detecta qué nodos son inline y añade los nodos que consideramos necesarios, como ``imagen'' e ``icono''.
 \begin{itemize}
@@ -464,8 +462,6 @@ En cuanto a los nodos de bloque, hemos creado los siguientes tipos:
 \end{itemize}
 
 Es importante mencionar que para los nodos de bloque es necesario cambiar el nodo actual, que es un párrafo, por el nodo de bloque elegido. Esto se logra utilizando la función ``setNodes'' de Slate. Además, para los nodos lista ordenada y lista desordenada, hemos utilizado la función ``wrapNodes'', que permite envolver los nodos elegidos. Esto se debe a que las etiquetas ``ol'' y ``ul'' tienen una estructura de envoltura y deben envolver los nodos elemento de lista.
-
-
 
 \subsection{Funcionalidades}
 A continuación se explican los detalles de implementación de las distintas funcionalidades que hemos rediseñado o creado de cero.
@@ -774,4 +770,4 @@ Una vez introducidos un enunciado y un tamaño válidos, se habilitará el botó
 
 
 \subsection{Del modal al editor}
-En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertarEjercicioEditable} que hemos desarrollado para diferenciar entre la creación y la edición de ese nodo. Si el nodo se está creando, esta función llama a la función \textit{insertNode} de Slate para agregar ese nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento. Sin embargo, si deseamos editar el nodo, la función borra el nodo que invocó al modal con la función \textit{removeNodes} y luego inserta un nuevo nodo, con la función \textit{insertNode}, generado con los nuevos datos introducidos por el usuario en la posición del nodo eliminado. 
+En el proceso de inserción del resultado obtenido en la ventana modal en el editor de texto con Slate, creamos un nodo específico para almacenar la información correspondiente. Después de que el usuario ha confirmado el resultado del modal presionando el botón \textit{Ok}, creamos un nodo específico que se encarga de transferir este contenido al documento. Luego, utilizamos la función \textit{insertarEjercicioEditable} que hemos desarrollado para diferenciar entre la creación y la edición de ese nodo. Si el nodo se está creando, esta función llama a la función \textit{insertNode} de Slate para agregar ese nodo al área editable, lo que nos permite integrar el contenido del modal con el resto del documento. Sin embargo, si deseamos editar el nodo, la función borra el nodo que invocó al modal con la función \textit{removeNodes} y luego inserta un nuevo nodo, con la función \textit{insertNode}, generado con los nuevos datos introducidos por el usuario en la posición del nodo eliminado.
