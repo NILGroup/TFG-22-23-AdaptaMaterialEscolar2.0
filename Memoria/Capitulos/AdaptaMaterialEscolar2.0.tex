@@ -1,6 +1,6 @@
 \chapter{AdaptaMaterialEscolar 2.0}
 \label{cap:AdaptaMaterialEscolar2.0}
-En este capítulo explicaremos la obtención de requisitos /(Sección \ref{cap:requisitos}). El diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de las funcionalidades (Sección \ref{disenyoDeLaAplicacion}) y, finalmente, en la Sección \ref{sec:implmentaction} se expondrá cómo se ha implementado la aplicación.
+En este capítulo explicaremos la obtención de requisitos (Sección \ref{cap:requisitos}), el diseño realizado por cada integrante de la aplicación para la iteración competitiva y el diseño final de la aplicación obtenido a partir de los diseños individuales (Sección \ref{disenyoDeLaAplicacion}) y, finalmente, en la Sección \ref{sec:implmentaction} se expondrá cómo se ha implementado la aplicación.
 
 \section{Requisitos}
 \label{cap:requisitos}
@@ -274,21 +274,20 @@ El diseño de esta funcionalidad se muestra en la Figura \ref{espaciosDibu}. En 
 
 \subsubsection{Leyenda de colores}
 El diseño final de esta funcionalidad se muestra en la Figura \ref{LeyendaColores} y para realizar esta funcionalidad no hemos basado en el diseño de todos los integrantes ya que son bastante parecidos. También hemos utilizado como referencia la funcionalidad de definir conceptos. En este caso cuando se añade un nuevo concepto también se ha de escoger un color para cada palabra. Además, se ha de incluir un título para la leyenda. La leyenda de color se situará en el documento de trabajo donde se encuentre el cursor y el usuario podrá ajustar su posicionamiento. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable2} en el ejercicio 2.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Diseño/espacioDibu.PNG}
+  \caption{Diseño final ejercicios espacios para dibujar.}
+  \label{espaciosDibu}
+\end{figure}
 
-\begin{multicols}{2}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Diseño/espacioDibu.PNG}
-    \caption{Diseño final ejercicios espacios para dibujar.}
-    \label{espaciosDibu}
-  \end{figure}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.4\textwidth]{Diseño/Leyenda.PNG}
-    \caption{Diseño final leyenda de colores.}
-    \label{LeyendaColores}
-  \end{figure}
-\end{multicols}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Diseño/Leyenda.PNG}
+  \caption{Diseño final leyenda de colores.}
+  \label{LeyendaColores}
+\end{figure}
+
 
 \subsubsection{Ejercicio de matemáticas con huecos}
 El diseño de esta funcionalidad se muestra en la Figura \ref{matesHueco} y para realizarla nos hemos basado en el diseño de Dunia Namour, (Figura \ref{dunia6}) y en la idea de Johan Salvatierra de que al pulsar la tecla \textit{espacio} se genere un hueco. Para introducir huecos en una fórmula matemática el usuario tendrá que darle a la barra espaciadora. Cuando termine de escribir la fórmula al darle al botón de \textit{OK} se introducirá en el documento de trabajo con un cuadrado vacío en cada hueco. El resultado de esta funcionalidad en el documento de trabajo se muestra en la Figura \ref{editable3} en el ejercicio 2.
@@ -653,19 +652,7 @@ La funcionalidad de generar resumen permite a partir de un texto y un número de
 
 Para implementar esta funcionalidad se ha empleado un área de texto en la cual se introduce el texto que se quiere resumir. Tanto el botón de resumir como el botón de \textit{Ok} están desactivados por defecto. El botón de resumir se activará cuando el usuario introduzca un texto para resumir, mientras que el botón de \textit{Ok} se activará cuando haya un resumen válido. Para seleccionar el número de palabras aproximado que debe tener el resumen se ha utilizado un campo de texto, en el cual solo se pueden escribir números en el rango [15, número total de palabras del texto original].
 
-Para generar el resumen se ha utilizado la API que proporciona \textit{OpenAI}\footnote{\url{https://platform.openai.com/overview}}. Esta API proporciona acceso a modelos de inteligencia avanzados desarrollados por \textit{OpenAI}\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Para implementar esta funcionalidad se ha utilizado el modelo GPT-3. Este modelo es el que utiliza actualmente \textit{ChatGPT}\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza \textit{Node.js} se puede instalar el paquete \textit{openai}\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase \textit{OpenAIApi}, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En el Listing \ref{fig:impresumenconfiguracion} se muestra la configuración de la clase \textit{OpenAIApi}. La función \textit{createChatCompletion} permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje (\textit{prompt}). La función \textit{createChatCompletion} devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
-
-Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend} se llama a la función \textit{createChatCompletion} de la clase \textit{OpenAIApi}, utilizando ``Resume este texto en aproximadamente \{número de palabras\} palabras, si no se puede resumir el texto devuelve -1: \{texto original\}'' como \textit{prompt}, con el número de palabras y el texto introducidos por el usuario, y se devuelve el resumen generado al cliente. El resumen se mostrará en el panel de vista previa. En caso de que no se pueda generar el resumen, o el texto original sea muy breve, se mostrará un error al usuario en la vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de generar resumen.
-
-\begin{lstlisting}[label=fig:impresumenconfiguracion, caption=Configuración de la clase \textit{OpenAIApi}., language=JavaScript, float, floatplacement=H]
-  const { Configuration, OpenAIApi} = require("openai");
-
-  const configuration = new Configuration({
-    apiKey: "Clave de la API (se necesita una cuenta de OpenAI)."
-  });
-
-  const openai = new OpenAIApi(configuration);
-\end{lstlisting}
+Para generar el resumen se han utilizado la API que proporciona OpenAI y el modelo de lenguaje GPT-3, explicados en la Sección \ref{sec:openai}. Al pulsar el botón de resumir se realiza una petición HTTP de tipo POST a la ruta ``/summary'', enviando el texto a resumir y el número de palabras del resumen. En el \textit{backend} se llama a la función ``createChatCompletion'' de la clase OpenAIApi, utilizando ``Resume este texto en aproximadamente \{número de palabras\} palabras, si no se puede resumir el texto devuelve -1: \{texto original\}'' como \textit{prompt}, con el número de palabras y el texto introducidos por el usuario, y se devuelve el resumen generado al cliente. El resumen se mostrará en el panel de vista previa. En caso de que no se pueda generar el resumen, o el texto original sea muy breve, se mostrará un error al usuario en la vista previa. Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el texto resumido en el documento de trabajo. En la Figura \ref{fig:impresumen} se muestra la funcionalidad de generar resumen.
 
 \begin{figure}[ht!]
   \centering
@@ -743,7 +730,7 @@ Al pulsar el botón de \textit{Ok}, se cerrará el modal y se insertará el text
 \label{sec:ejercicioRelacionarConceptos}
 Con esta funcionalidad es posible crear un ejercicio de relación de conceptos en el cual el estudiante deberá establecer la correspondencia entre aquellos que guarden alguna relación entre sí.
 
-Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadRelacionarConceptos}. Para crear este tipo de ejercicio se debe rellenar el campo de numero de filas y el de numero de columnas (por defecto estos dos campos valen cero) que definirán en tiempo real una matriz donde se deben introducir los conceptos que se quieren disponer en el ejercicio. Cabe mencionar que la matriz sólo aparecerá cuando tanto el valor de numero de filas como el de numero de columnas sea mayor que dos porque no tiene sentido un ejercicio de relacionar conceptos por debajo de estas dimensionar. En la matriz el usuario no tiene la obligación de rellenar todos los campos de la matriz solo los que considere necesarios mientras se van introduciendo conceptos estos irán apareciendo en la vista previa, pero es necesario que haya mínimo dos conceptos en cada columna para activar el botón \textit{Ok} y el botón \textit{Reordenar}. El algoritmo de reordenación es el mismo que el de la función de Verdadero o falso pero con la diferencia de que como hay más de una lista a reordenar usamos una condición donde solo el 70\% de las veces se reordena. Esto es debido a que si tuviéramos una lista \textit{X} con los elementes \textit{x1} y \textit {x2} y la lista \textit {Y} formada por \textit {y1} e \textit{y2} si reordenáramos ambas a la vez tendríamos el resultado \textit{x2} y \textit{x1} con \textit{y2} e\textit{y1} pero nunca tendríamos los casos \textit{x1}  y \textit{x2} con \textit{y2} e \textit{y1}.
+Cuando seleccionamos esta opción se nos despliega la interfaz de la Figura \ref{fig:funcionalidadRelacionarConceptos}. Para crear este tipo de ejercicio se debe rellenar el campo de numero de filas y el de numero de columnas (por defecto estos dos campos valen cero) que definirán en tiempo real una matriz donde se deben introducir los conceptos que se quieren disponer en el ejercicio. Cabe mencionar que la matriz sólo aparecerá cuando tanto el valor de numero de filas como el de numero de columnas sea mayor que dos porque no tiene sentido un ejercicio de relacionar conceptos por debajo de estas dimensionar. En la matriz el usuario no tiene la obligación de rellenar todos los campos de la matriz solo los que considere necesarios mientras se van introduciendo conceptos estos irán apareciendo en la vista previa, pero es necesario que haya mínimo dos conceptos en cada columna para activar el botón \textit{Ok} y el botón \textit{Reordenar}. El algoritmo de reordenación es el mismo que el de la función de Verdadero o Falso pero con la diferencia de que como hay más de una lista a reordenar usamos una condición donde solo el 70\% de las veces se reordena. Esto es debido a que si tuviéramos una lista \textit{X} con los elementes \textit{x1} y \textit {x2} y la lista \textit {Y} formada por \textit {y1} e \textit{y2} si reordenáramos ambas a la vez tendríamos el resultado \textit{x2} y \textit{x1} con \textit{y2} e\textit{y1} pero nunca tendríamos los casos \textit{x1}  y \textit{x2} con \textit{y2} e \textit{y1}.
 
 \begin{figure}[ht!]
   \centering
