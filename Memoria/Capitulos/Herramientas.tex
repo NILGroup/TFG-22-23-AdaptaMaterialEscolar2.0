@@ -56,7 +56,7 @@ Slate\footnote{\url{https://docs.slatejs.org/}} es un framework de JavaScript de
 
 A diferencia de las bibliotecas de edición de texto convencionales, Slate utiliza una estructura de árbol de datos jerárquica para representar el contenido editable. En lugar de usar la estructura lineal tradicional, la estructura de árbol permite una mayor flexibilidad y personalización en la creación y edición de contenido.
 
-El árbol de Slate está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y más. Para entender mejor su estructura se explicara está en base a la Figura \ref{fig:arbolSlate}. En esta se hayan 5 nodos. El primero es todo el objeto este es el nodo documento, es decir lo que contendría la variable ``editor'', este es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo elemento o un nodo hoja.  
+El árbol de Slate está compuesto por nodos que representan diferentes tipos de contenido, como texto sin formato, texto con formato, imágenes, videos y más. Para entender mejor su estructura se explicara está en base a la Figura \ref{fig:arbolSlate}. En esta se hayan 5 nodos. El primero es todo el objeto este es el nodo documento, es decir lo que contendría la variable ``editor'', este es el contenedor de todos los demás nodos. Cada nodo hijo del nodo documento puede ser un nodo elemento o un nodo hoja.
 El nodo con ``type : paragraph'' (Figura \ref{fig:arbolSlate}) es un nodo elemento de tipo bloque que da Slate por defecto. Los nodos elemento, son la capa intermedia de un documento de texto enriquecido, se puede definir nodos elemento personalizados para cualquier tipo de contenido que se desee con el estilo que se desee gracias a que este nodo permite recibir un parámetro denominado ``props''. Dentro de los nodos elemento podemos distinguir dos tipos principales de nodos elementos:
 
 \begin{itemize}
@@ -64,7 +64,7 @@ El nodo con ``type : paragraph'' (Figura \ref{fig:arbolSlate}) es un nodo elemen
   \item Nodo en línea: Se obtienen mediante la modificación de su comportamiento indicando al núcleo de Slate que son de tipo ``Inline'' se caracterizan por poder disponerse de forma horizontal a la vez que vertical.  El nodo con ``type: link'' (Figura \ref{fig:arbolSlate}) es de este tipo y no es propio de Slate, es decir, es creado por el desarrollador. Además, el valor "url: ..." se recibe a través del parámetro mencionado anteriormente denominado "props".
 \end{itemize}
 
-Cabe mencionar que dentro de los tipos de nodos elemento se puede diferenciar los nodos elementos editables y no editables estos se consiguen al declarase ante el núcleo de Slate como vacíos, para los no editables, porque de esta forma se considera que no hay nada en el nodo que se pueda modificar y no vacío en caso de que sean editables siendo este es el caso por defecto. 
+Cabe mencionar que dentro de los tipos de nodos elemento se puede diferenciar los nodos elementos editables y no editables estos se consiguen al declarase ante el núcleo de Slate como vacíos, para los no editables, porque de esta forma se considera que no hay nada en el nodo que se pueda modificar y no vacío en caso de que sean editables siendo este es el caso por defecto.
 Por último, los nodos ``text : Esto es un texto'' y ``text : hyperlink'' son nodos hoja o nodos texto, son los nodos que se encuentran en el nivel más bajo del árbol y son aquellos que contienen el texto, estos no pueden tener hijos pueden contener marcas que permite enriquecer este texto, permitiendo opciones como texto en negrita, cursiva…
 
 \begin{figure}[ht!]
@@ -113,3 +113,18 @@ Se ha decidido utilizar Prettier ya que es una de las herramientas para dar form
 ESLint\footnote{\url{https://eslint.org/}} es una de las herramientas de Linting más populares para el lenguaje de programación JavaScript. ESLint es configurable y personalizable, lo que significa que se puede adaptar para cumplir con los estándares y las necesidades específicas de cada proyecto o equipo de desarrollo. Además, ESlint puede integrarse fácilmente en los flujos de trabajo de los desarrolladores, como los sistemas de control de versiones y los editores de código, para proporcionar una retroalimentación en tiempo real sobre posibles errores o violaciones de estilo.
 
 Se ha decidido utilizar esta herramienta por su popularidad y facilidad de uso. Se ha establecido que ESLint no tenga en cuenta errores de formato e inconsistencias de estilo, ya que de esto se encarga Prettier.
+
+\section{API de OpenAI y GPT-3}\label{sec:openai}
+La API que proporciona OpenAI\footnote{\url{https://platform.openai.com/overview}} proporciona acceso a modelos de inteligencia avanzados desarrollados por OpenAI\footnote{\url{https://openai.com/product}}. Estos modelos están diseñados para procesar y generar texto, imágenes, sonidos y otros tipos de datos. Entre ellos, se encuentra el modelo de lenguaje GPT-3, que es utilizado actualmente por ChatGPT\footnote{\url{https://openai.com/blog/chatgpt}} y puede generar texto coherente y relevante a partir de una breve descripción proporcionada por el usuario. Tanto la API de OpenAI como el modelo de lenguaje GPT-3 se han utilizado para implementar la funcionalidad de generar resumen.
+
+Para poder utilizar esta API se pueden realizar distintas peticiones HTTP, pero si se utiliza Node.js se puede instalar el paquete ``openai''\footnote{\url{https://www.npmjs.com/package/openai}}. Este paquete proporciona la clase OpenAIApi, la cual permite utilizar distintas funciones que realizan las peticiones HTTP necesarias. En el Listing \ref{fig:configuracionOpenAIApi} se muestra la configuración de la clase OpenAIApi. La función ``createChatCompletion'' permite simular un chat con un modelo de procesamiento de texto. Esta función recibe como entrada el modelo que se quiere utilizar, y una lista de mensajes. Cada mensaje esta compuesto por el rol del autor (\textit{system}, \textit{assistant} y \textit{user}) y el contenido del mensaje (\textit{prompt}). La función ``createChatCompletion'' devuelve un objeto con información sobre la conversación y las distintas respuestas generadas a partir de los mensajes que se han enviado.
+
+\begin{lstlisting}[label=fig:configuracionOpenAIApi, caption=Configuración de la clase OpenAIApi., language=JavaScript]
+  const { Configuration, OpenAIApi} = require("openai");
+
+  const configuration = new Configuration({
+    apiKey: "Clave de la API (se necesita una cuenta de OpenAI)."
+  });
+
+  const openai = new OpenAIApi(configuration);
+\end{lstlisting}
